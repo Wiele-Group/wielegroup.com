@@ -17,6 +17,15 @@ export type PricingTier = {
   cta: { label: string; href: string };
   /** Highlighted as the recommended tier. */
   featured?: boolean;
+  /**
+   * Stripe Payment Link URL — direct hosted Checkout for self-serve buy.
+   * Created 2026-05-03 via Stripe MCP. UI may use this for a secondary
+   * "Pay now" button or to replace the qualify-first CTA when ready.
+   * Source of truth: memory/reference_stripe_state.md.
+   */
+  paymentLinkUrl?: string;
+  /** Stripe Price ID — for future Checkout Session API integration. */
+  stripePriceId?: string;
 };
 
 export const pricingTiers: readonly PricingTier[] = [
@@ -34,6 +43,8 @@ export const pricingTiers: readonly PricingTier[] = [
       "1 strategy session with a Wiele principal",
     ],
     cta: { label: "Run AI Visibility Audit", href: "/audit" },
+    paymentLinkUrl: "https://buy.stripe.com/4gMdR91JL0iieuK8FZao80k",
+    stripePriceId: "price_1TT1tkGuLDs0qzh2S85rJ8Fp",
   },
   {
     id: "growth-system",
@@ -48,6 +59,8 @@ export const pricingTiers: readonly PricingTier[] = [
     ],
     cta: { label: "Book Strategy Call", href: "/contact" },
     featured: true,
+    paymentLinkUrl: "https://buy.stripe.com/cNi5kDdst7KKfyOcWfao80m",
+    stripePriceId: "price_1TT1tsGuLDs0qzh2No2y4ugT",
   },
   {
     id: "authority-engine",
@@ -62,6 +75,8 @@ export const pricingTiers: readonly PricingTier[] = [
       "Weekly principal-level strategy",
     ],
     cta: { label: "Book Strategy Call", href: "/contact" },
+    paymentLinkUrl: "https://buy.stripe.com/7sY7sL6012qqgCS6xRao80n",
+    stripePriceId: "price_1TT1txGuLDs0qzh2dhusBcrd",
   },
   {
     id: "wiele-os",
@@ -76,5 +91,14 @@ export const pricingTiers: readonly PricingTier[] = [
       "Enterprise security + governance",
     ],
     cta: { label: "Talk to Wiele", href: "/contact" },
+    paymentLinkUrl: "https://buy.stripe.com/3cIdR94VX2qq2M28FZao80o",
+    stripePriceId: "price_1TT1u0GuLDs0qzh2VQ5jAyZQ",
   },
 ];
+
+/**
+ * Standalone "Launch" tier (£1,500/mo) — currently bundled into Signal Audit
+ * tier as a oneOff add-on. If/when promoted to its own tier card on /pricing:
+ *   - Stripe Price ID: price_1TT1toGuLDs0qzh20rkjZeP3
+ *   - Payment Link: https://buy.stripe.com/7sY8wPagh2qq2M24pJao80l
+ */
