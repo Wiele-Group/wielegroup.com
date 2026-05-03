@@ -19,6 +19,19 @@ name = "wielegroup-com"
 main = ".open-next/worker.js"
 compatibility_date = "2026-05-03"
 compatibility_flags = ["nodejs_compat"]
+workers_dev = true  # keep workers.dev URL for staging/smoke tests
+
+# Phase 7.2: Custom domain attachment.
+# wielegroup.com is on Cloudflare DNS (drake.ns + lindsey.ns nameservers
+# verified 2026-05-03). custom_domain=true tells wrangler to:
+#   1. Create the route binding in the Workers control plane
+#   2. Provision a Cloudflare Universal SSL cert for the hostname
+#   3. Configure DNS A/AAAA records pointing to the Worker
+# SSL provisioning takes ~5-15 min after first deploy.
+routes = [
+  { pattern = "wielegroup.com", custom_domain = true },
+  { pattern = "www.wielegroup.com", custom_domain = true },
+]
 
 [assets]
 binding = "ASSETS"
