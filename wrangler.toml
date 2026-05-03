@@ -68,6 +68,12 @@ id = "4f4aeab739c247268c6a6c7cc9d91c1f"
 # rebuild the client bundle.
 
 [vars]
+# ⚠️  NEXT_PUBLIC_* vars live in `.env.local` (gitignored), NOT here.
+# Reason: `next build` only reads .env files + shell env — it does NOT
+# auto-inject wrangler.toml [vars] into process.env at build time.
+# Putting NEXT_PUBLIC_* here ships an `undefined` value to the client
+# bundle, breaking client widgets (Turnstile, Plausible, etc.).
+#
+# Verified pitfall 2026-05-03 Phase 8.2 — see feedback_deploy_pitfalls.md.
+# Server-runtime-only vars (read by Worker at request time) belong here:
 WIELE_AI_API_URL = "stub"
-NEXT_PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAADIjKdUEzaX6RPAn"
-# NEXT_PUBLIC_PLAUSIBLE_DOMAIN = "wielegroup.com"  # ← uncomment in Phase 8.3 (Item 5)
