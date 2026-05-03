@@ -25,7 +25,36 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+          // Phase 7.2: HSTS + CSP added so SSR/ISR routes get them too.
+          // public/_headers (Workers Static Assets) only applies to static
+          // files (/llms.txt, /favicon.ico, /fonts/*, /brand/*). The OpenNext
+          // server handler serves SSR routes (/, /audit, etc.) — those need
+          // headers from next.config.ts to be set.
+          //
+          // Note: Cloudflare Workers strips HSTS from workers.dev responses
+          // (asserting HSTS for *.workers.dev would lock every Worker on the
+          // platform). HSTS will fire correctly on the custom domain
+          // wielegroup.com once attached (Phase 7.2 founder action).
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; " +
+              "script-src 'self' 'unsafe-inline' https://plausible.io https://challenges.cloudflare.com; " +
+              "style-src 'self' 'unsafe-inline'; " +
+              "img-src 'self' data: https:; " +
+              "font-src 'self'; " +
+              "connect-src 'self' https://plausible.io https://challenges.cloudflare.com; " +
+              "frame-src https://challenges.cloudflare.com; " +
+              "frame-ancestors 'none'; " +
+              "base-uri 'self'; " +
+              "form-action 'self'; " +
+              "object-src 'none'",
+          },
         ],
       },
       {
