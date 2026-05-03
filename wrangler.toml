@@ -24,15 +24,15 @@ compatibility_flags = ["nodejs_compat"]
 binding = "ASSETS"
 directory = ".open-next/assets"
 
-# Audit queue KV — production binding. Set the id from the dashboard.
+# Audit queue KV — production binding.
 [[kv_namespaces]]
 binding = "AUDIT_QUEUE"
 id = "4f4aeab739c247268c6a6c7cc9d91c1f"
 
-# Preview deployment KV (separate namespace for preview branches).
+# Preview deployment KV — uncomment + set ID when preview branches are wired.
 # [[env.preview.kv_namespaces]]
-binding = "AUDIT_QUEUE"
-id = "4f4aeab739c247268c6a6c7cc9d91c1f"
+# binding = "AUDIT_QUEUE"
+# id = "<preview-namespace-id>"
 
 # Environment variables — set per-environment in the Cloudflare dashboard:
 #   WIELE_AI_API_URL              (stub or real URL)
