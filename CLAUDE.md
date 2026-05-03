@@ -96,6 +96,19 @@ Audit + contact route handlers: validate Zod → verify Turnstile → write KV F
 ### Don't auto-remove the legacy redirect block
 The 9-redirect block in `next.config.ts` carries a `TODO(2026-08-03)` comment. Phase 7+ task: REMOVE only after Search Console + Plausible referrer data confirm zero traffic to `/services/*`, `/work`, `/journal` for the prior 30 days. Code that auto-deletes itself in 90 days is a footgun.
 
+### Adding a new Labs article (Phase 7.4 binding workflow)
+MDX dynamic imports don't survive the OpenNext bundle to Workers — we use **explicit static imports + manifest** instead. To add an article:
+
+1. Drop the `.mdx` file in `src/content/labs/`
+2. Add a static import + `ARTICLE_COMPONENTS` map entry in `src/app/labs/[slug]/page.tsx`
+3. Add a full metadata entry in `ARTICLE_MANIFEST` in `src/lib/labs-static.ts` (must match the .mdx frontmatter exactly — Zod validation in `src/lib/labs.ts` fails the build if not)
+4. (Optional) Add the article's TOC entries to `ARTICLE_TOC` in `src/lib/labs-static.ts` if you want a sidebar TOC
+
+Why this pattern: dynamic `import("@/content/labs/${slug}.mdx")` worked locally but the OpenNext bundler didn't follow the dynamic path → MDX modules absent in the Worker bundle → `/labs/<slug>` returned 404 in production. Static imports force the bundler to track every path. The Phase 7.4 commit (post-v1.0) closed this regression.
+
+### Don't add `routes = [{ pattern, custom_domain = true }]` to wrangler.toml
+The wrangler OAuth token from `wrangler login` lacks `dns_records:edit` scope. With existing apex DNS records, `wrangler deploy` fails with API error 100117 every time. Custom domain bindings live as ZONE-LEVEL Workers Routes (created via direct API or dashboard). `wrangler deploy` ships only the Worker code; routing is preserved via the zone-level routes. See the comment block in `wrangler.toml` for the route IDs.
+
 ## Start Here
 Read `../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` once. Then execute Phase 0 (brand asset copy) → Phase 1 (foundation).
 

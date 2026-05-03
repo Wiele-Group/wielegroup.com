@@ -8,8 +8,11 @@ import { ArticleMeta } from "@/components/labs/article-meta";
 import { ArticleToc } from "@/components/labs/article-toc";
 import { JsonLd } from "@/components/json-ld";
 import { RelatedSystems } from "@/components/labs/related-systems";
-import { getAllSlugs, getArticleBySlug } from "@/lib/labs";
-import { getArticleToc } from "@/lib/labs-toc";
+import {
+  getAllStaticSlugs,
+  getStaticArticleBySlug,
+  getStaticArticleToc,
+} from "@/lib/labs-static";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import {
   articleSchema,
@@ -18,27 +21,43 @@ import {
   personSchema,
 } from "@/lib/schema";
 
-/**
- * Static map of MDX module loaders — Next.js bundles each at build time.
- * Adding a new article is a 4-line change here + a new .mdx file in
- * src/content/labs/. Frontmatter Zod validation catches mismatches.
- */
-const articleModules = {
-  "ai-recommendations-compound": () =>
-    import("@/content/labs/ai-recommendations-compound.mdx"),
-  "five-citation-signals": () =>
-    import("@/content/labs/five-citation-signals.mdx"),
-  "search-is-splitting": () => import("@/content/labs/search-is-splitting.mdx"),
-} as const;
+/* ─────────────────────────────────────────────────────────────
+   Phase 7.4 fix — explicit static MDX imports.
 
-type KnownSlug = keyof typeof articleModules;
+   Why: dynamic `import("@/content/labs/${slug}.mdx")` doesn't get
+   followed by the OpenNext bundler — at runtime in Workers the modules
+   aren't in the bundle, the dynamic import returns undefined, the page
+   calls notFound() → all 3 article URLs returned 404 in production.
 
-function isKnownSlug(slug: string): slug is KnownSlug {
-  return slug in articleModules;
-}
+   Static imports force the bundler to track every MDX path. Adding a
+   new article = (1) drop .mdx in src/content/labs/, (2) add a static
+   import below, (3) add the entry to src/lib/labs-static.ts manifest.
+───────────────────────────────────────────────────────────────── */
+
+import AiRecommendationsCompound from "@/content/labs/ai-recommendations-compound.mdx";
+import FiveCitationSignals from "@/content/labs/five-citation-signals.mdx";
+import SearchIsSplitting from "@/content/labs/search-is-splitting.mdx";
+
+const ARTICLE_COMPONENTS: Record<string, React.ComponentType> = {
+  "ai-recommendations-compound": AiRecommendationsCompound,
+  "five-citation-signals": FiveCitationSignals,
+  "search-is-splitting": SearchIsSplitting,
+};
+
+/* ─────────────────────────────────────────────────────────────
+   Force-static — defence in depth.
+
+   `generateStaticParams` already triggers SSG, but force-static +
+   revalidate=false explicitly tells OpenNext to ship pre-rendered HTML
+   via the assets binding, never the runtime function path. This avoids
+   any fs-dependent fallback at request time.
+───────────────────────────────────────────────────────────────── */
+
+export const dynamic = "force-static";
+export const revalidate = false;
 
 export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return getAllStaticSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -47,7 +66,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = getStaticArticleBySlug(slug);
   if (!article) return {};
   return buildMetadata({
     title: article.title,
@@ -63,16 +82,20 @@ export default async function LabsArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
-  if (!article || !isKnownSlug(slug)) notFound();
+  const article = getStaticArticleBySlug(slug);
+  const ArticleContent = ARTICLE_COMPONENTS[slug];
 
-  const { default: ArticleContent } = await articleModules[slug]();
-  const toc = getArticleToc(slug);
+  // If either the manifest entry or the MDX module is missing, the slug
+  // is unknown. Both must be present — they're maintained in tandem.
+  if (!article || !ArticleContent) notFound();
+
+  const articleUrl = `${siteConfig.url}/labs/${article.slug}`;
+  const toc = getStaticArticleToc(slug);
 
   const articleJsonLd = articleSchema({
     headline: article.title,
     description: article.summary,
-    url: article.url,
+    url: articleUrl,
     datePublished: article.lastUpdated,
     dateModified: article.lastUpdated,
     authorName: article.author,
@@ -82,12 +105,14 @@ export default async function LabsArticlePage({
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: siteConfig.url },
     { name: "Wiele Labs", url: `${siteConfig.url}/labs` },
-    { name: article.title, url: article.url },
+    { name: article.title, url: articleUrl },
   ]);
-  const faq = article.faq && article.faq.length > 0 ? faqSchema(article.faq) : null;
-  // Phase 7.1 matrix: per-route Person schema for the article author.
-  // Article schema's nested author is good but a top-level Person carries
-  // sameAs + jobTitle + worksFor cleanly for AI engines that index entities.
+  const faq = article.faq && article.faq.length > 0
+    ? faqSchema(article.faq.map((f) => ({ question: f.question, answer: f.answer })))
+    : null;
+  // Per-route Person schema for the article author. Article schema's
+  // nested author is good but a top-level Person carries sameAs +
+  // jobTitle + worksFor cleanly for AI engines that index entities.
   const author = personSchema({
     name: article.author,
     jobTitle: "Founder & Principal",

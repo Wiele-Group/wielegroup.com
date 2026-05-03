@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
  * from the MDX source, so the rendered list ships in the static HTML.
  * Anchors line up with mdx-components.tsx slugify() (and rehype-slug).
  */
-export function ArticleToc({ entries }: { entries: TocEntry[] }) {
+export function ArticleToc({ entries }: { entries: readonly TocEntry[] }) {
   if (entries.length === 0) return null;
   return (
     <aside className="hidden xl:block">

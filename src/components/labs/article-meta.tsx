@@ -1,13 +1,25 @@
 import { Clock, ShieldCheck, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import type { LabsArticle } from "@/lib/labs";
 
 /**
  * Author + reviewer + last-updated + reading-time row.
  * Visible on the article page; also encodes the same facts the JSON-LD
  * Article schema carries, so AI engines + crawlers see consistent metadata.
+ *
+ * Phase 7.4: typed against the minimal shape (not LabsArticle) so callers
+ * can pass either the build-time fs-derived LabsArticle OR the runtime-safe
+ * ArticleManifestEntry without conversion. This unblocks /labs/<slug> on
+ * Cloudflare Workers where fs reads fail silently.
  */
-export function ArticleMeta({ article }: { article: LabsArticle }) {
+type ArticleMetaProps = {
+  category: string;
+  author: string;
+  reviewer: string;
+  readingMinutes: number;
+  lastUpdated: string;
+};
+
+export function ArticleMeta({ article }: { article: ArticleMetaProps }) {
   const formatted = new Date(article.lastUpdated).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",

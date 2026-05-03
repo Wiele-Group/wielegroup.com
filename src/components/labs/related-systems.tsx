@@ -1,16 +1,21 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { LabsFrontmatter } from "@/lib/labs";
 import { systemsDetail, type SystemSlug } from "@/data/systems-detail";
+import type { RelatedSystemSlug } from "@/lib/labs-static";
 
 /**
  * Renders links to the systems referenced in an article's frontmatter.
  * Reuses systemsDetail data so the title + slug stay in sync with /systems/*.
+ *
+ * Phase 7.4: switched type from LabsFrontmatter (fs-derived) to the
+ * runtime-safe RelatedSystemSlug enum from labs-static.ts. Same values,
+ * different declaration site — keeps the [slug] page bundle free of
+ * fs.readdirSync calls.
  */
 export function RelatedSystems({
   slugs,
 }: {
-  slugs: NonNullable<LabsFrontmatter["relatedSystems"]>;
+  slugs: readonly RelatedSystemSlug[];
 }) {
   if (!slugs || slugs.length === 0) return null;
   return (
