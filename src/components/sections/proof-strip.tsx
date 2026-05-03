@@ -1,24 +1,16 @@
 import { proofStripItems } from "@/data/homepage";
+import { MarqueeRail } from "@/components/visual/marquee-rail";
 
+/**
+ * ProofStrip — capability rail under the hero.
+ *
+ * Phase 9 visual upgrade: replaced the static pill row with a
+ * `<MarqueeRail />` (infinite scroll, pauses on hover/focus, flattens
+ * to a wrapped grid for `prefers-reduced-motion: reduce`).
+ *
+ * Data shape (`proofStripItems`) is unchanged. This is purely a
+ * presentation upgrade — same items, same tokens, motion added.
+ */
 export function ProofStrip() {
-  return (
-    <section
-      aria-label="Capability strip"
-      className="border-y border-[var(--color-border-default)] bg-[var(--color-obsidian)]/50"
-    >
-      <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)] py-6">
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-          {proofStripItems.map((item) => (
-            <li
-              key={item.label}
-              className="flex items-center gap-2 text-body-xs uppercase tracking-[0.18em] font-mono text-silver"
-            >
-              <span aria-hidden className="block h-1 w-1 rounded-full bg-electric" />
-              {item.label}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
+  return <MarqueeRail items={proofStripItems} ariaLabel="Capability strip" />;
 }

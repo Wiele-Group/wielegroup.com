@@ -168,3 +168,115 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 .reveal { animation: fadeUp 0.6s var(--ease-emphasized) both; }
+
+/* ─────────────────────────────────────────────────────────────
+   Phase 9 — Visual upgrade primitives (additive).
+
+   Authority: ../CLAUDE_CODE_HANDOFF_visual_award_winning_blueprint.pdf
+   adapted to v1.0 colour schema. Founder direction: keep electric +
+   neon + pulse tokens; add cinematic primitives without restructuring
+   sections. Patterns NOT to regress: see CLAUDE.md ⚠️.
+───────────────────────────────────────────────────────────────── */
+
+/* Edge-glow shadow stack — layered inset highlight + outer electric
+   glow. Used on premium surfaces (PromptSimulator container, hero CTAs).
+   Tinted to our electric token, NOT the blueprint's cyan. */
+.glow-edge {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(99, 102, 241, 0.06),
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 42px rgba(99, 102, 241, 0.10);
+}
+
+/* Animated gradient border via pseudo-element. Apply alongside
+   existing surface utilities (e.g. `.glass .glass-card-edge` or on
+   a Card component). The border itself is masked-out so only the
+   gradient strip shows around the rounded perimeter. */
+.glass-card-edge {
+  position: relative;
+}
+.glass-card-edge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.55),
+    rgba(34, 211, 238, 0.35),
+    transparent 55%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Marquee — infinite horizontal scroll for proof / capability rails.
+   Track items get duplicated in JSX so translateX(-50%) creates a
+   seamless loop. Pause on hover OR keyboard focus inside. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 38s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover,
+.marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Marquee-specific reduced-motion override — flatten to wrapped grid
+   so all signals are visible without animation. The generic
+   prefers-reduced-motion block above sets all animations to 0.01ms;
+   the marquee track also needs to NOT collapse to width:0 (which
+   `width: max-content` + 0-duration animation would do). */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .marquee-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  /* Hide JSX-doubled items so reduced-motion users don't see duplicate
+     content when the track flattens to a wrapped grid. */
+  .marquee-track [data-marquee-duplicate] {
+    display: none;
+  }
+}

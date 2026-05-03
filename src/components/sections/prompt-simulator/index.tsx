@@ -104,9 +104,11 @@ export function PromptSimulator({
         "relative w-full",
         "rounded-[var(--radius-xl)] border border-[var(--color-border-default)]",
         "bg-[var(--color-obsidian)] overflow-hidden",
-        "shadow-[var(--shadow-lg)]",
-        // Subtle electric outer glow when animating.
-        !isStatic && "shadow-[var(--shadow-glow-electric)]",
+        // Phase 9 visual upgrade: cinematic composite shadow
+        // (inset highlight + electric ring + drop + soft glow). Replaces
+        // the prior `shadow-lg` + conditional `shadow-glow-electric`
+        // combo — `.glow-edge` is richer and always on. See globals.css.
+        "glow-edge",
         className,
       )}
     >

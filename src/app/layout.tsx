@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/json-ld";
 import { PlausibleScript } from "@/components/plausible";
+import { AmbientGrid } from "@/components/visual/ambient-grid";
 import { fontSans, fontMono } from "@/lib/fonts";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -47,6 +48,7 @@ export default function RootLayout({
         <PlausibleScript />
         <JsonLd schema={organizationSchema} id="schema-organization" />
         <JsonLd schema={websiteSchema} id="schema-website" />
+        <AmbientGrid />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-md)] focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
