@@ -7,10 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/json-ld";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import { promptSimulatorFixtures } from "@/data/prompt-simulator-fixtures";
 import { auditPreviewSteps } from "@/data/homepage";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { breadcrumbSchema, productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Signal Audit — Find out if AI recommends you",
@@ -83,8 +85,24 @@ const detailSections = [
 export default function AuditPage() {
   const showcase = promptSimulatorFixtures[0];
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Signal Audit", url: `${siteConfig.url}/audit` },
+  ]);
+  const product = productSchema({
+    name: "Wiele Signal Audit",
+    description:
+      "Full Wiele OS engine run for your brand. Visibility score, mention strength, citation readiness, gaps, and a 30-day implementation roadmap. 14-day delivery.",
+    price: "2500.00",
+    priceCurrency: "GBP",
+    url: `${siteConfig.url}/audit`,
+  });
+
   return (
     <>
+      <JsonLd schema={breadcrumbs} id="schema-breadcrumb-audit" />
+      <JsonLd schema={product} id="schema-product-audit" />
+
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />

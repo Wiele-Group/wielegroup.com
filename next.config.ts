@@ -1,9 +1,16 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   trailingSlash: false,
+  /**
+   * MDX files live under src/content/labs/ and are imported by the article
+   * route. We do NOT add "mdx" to pageExtensions — keeps MDX off the
+   * filesystem-routing path and away from accidental URL exposure.
+   */
+  pageExtensions: ["ts", "tsx"],
   images: {
     formats: ["image/avif", "image/webp"],
   },
@@ -34,20 +41,6 @@ const nextConfig: NextConfig = {
   /**
    * Phase 3 IA cutover — 9 permanent redirects from legacy IA to new IA.
    * Authority: directive §6 Phase 3 + memory/feedback_cutover_discipline.md.
-   * `permanent: true` returns HTTP 308 (preserves request method) and signals
-   * to crawlers + Search Console that the move is canonical, not temporary.
-   *
-   * Map (binding):
-   *   /services                 → /systems
-   *   /services/seo             → /systems/search
-   *   /services/aeo             → /systems/ai-visibility
-   *   /services/geo             → /systems/ai-visibility
-   *   /services/marketing       → /systems/brand-authority
-   *   /services/advertising     → /systems/brand-authority
-   *   /services/web-design      → /systems/web-experience
-   *   /work                     → /proof
-   *   /journal                  → /labs
-   *
    * Remove this block ~90 days post-cutover once Search Console + analytics
    * confirm the legacy URLs no longer drive traffic.
    */
@@ -66,4 +59,20 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+/**
+ * MDX wrapper. Plugins are passed as string identifiers because Turbopack
+ * (Next 16 default) requires loader options to be JSON-serialisable across
+ * the worker boundary — function references won't pass through.
+ *
+ * Heading slugification is already handled by mdx-components.tsx slugify(),
+ * so rehype-slug isn't strictly required for anchor links to work; kept
+ * here for crawler-friendly id attributes if/when re-enabled.
+ */
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [["remark-gfm", {}]],
+    rehypePlugins: [["rehype-slug", {}]],
+  },
+});
+
+export default withMDX(nextConfig);

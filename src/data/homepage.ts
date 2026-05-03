@@ -90,13 +90,18 @@ export const trustPoints = [
   },
 ];
 
+/**
+ * Homepage Labs preview cards — slugs match src/content/labs/*.mdx files.
+ * These three articles ship in Phase 4 with [FOUNDER REVIEW] body markers;
+ * frontmatter + structure are live, body copy lands when the founder fills in.
+ */
 export const labsPreviewArticles = [
   {
     title: "Why AI recommendations compound where SEO doesn't",
     summary:
       "The asymmetry between classical search and AI-cited recommendation, and the compounding loop that makes early movers nearly uncatchable.",
     eyebrow: "Strategy",
-    href: "/labs",
+    href: "/labs/ai-recommendations-compound",
     placeholder: true,
   },
   {
@@ -104,7 +109,7 @@ export const labsPreviewArticles = [
     summary:
       "Inside the citation function: how answer engines triangulate authority, freshness, and entity clarity to choose what to quote.",
     eyebrow: "Methodology",
-    href: "/labs",
+    href: "/labs/five-citation-signals",
     placeholder: true,
   },
   {
@@ -112,7 +117,7 @@ export const labsPreviewArticles = [
     summary:
       "Why winning on Google won't be enough by 2027 — and what the Wiele engine measures that classical SEO tools can't see.",
     eyebrow: "Field notes",
-    href: "/labs",
+    href: "/labs/search-is-splitting",
     placeholder: true,
   },
 ];

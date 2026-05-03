@@ -1,6 +1,124 @@
 import { siteConfig } from "./metadata";
 
-export const organizationSchema = {
+/**
+ * Schema.org payloads — typed, server-built, consumed by <JsonLd>.
+ * Authority: founder reinforcement #2 from Phase 4 brief — discriminated
+ * union over 8 schema types, each route imports the helpers it needs.
+ *
+ * The component (src/components/json-ld.tsx) does the JSON.stringify +
+ * '<' → '<' hardening; these helpers just shape data.
+ */
+
+/* ─────────────────────────────────────────────────────────────
+   Type-safe schema interfaces (8 types)
+───────────────────────────────────────────────────────────────── */
+
+type SchemaBase = { "@context": "https://schema.org" };
+
+export type OrganizationSchema = SchemaBase & {
+  "@type": "Organization";
+  name: string;
+  legalName?: string;
+  url: string;
+  logo?: string;
+  description?: string;
+  founder?: PersonRef;
+  contactPoint?: { "@type": "ContactPoint"; email: string; contactType: string };
+  sameAs?: string[];
+  areaServed?: string;
+  knowsAbout?: string[];
+};
+
+export type WebSiteSchema = SchemaBase & {
+  "@type": "WebSite";
+  name: string;
+  url: string;
+  description?: string;
+  publisher?: { "@type": "Organization"; name: string; url: string };
+};
+
+export type ServiceSchema = SchemaBase & {
+  "@type": "Service";
+  name: string;
+  description: string;
+  provider: { "@type": "Organization"; name: string; url: string };
+  url: string;
+  areaServed?: string;
+  serviceType?: string;
+};
+
+export type ArticleSchema = SchemaBase & {
+  "@type": "Article";
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  author: PersonRef;
+  publisher: { "@type": "Organization"; name: string; url: string; logo?: { "@type": "ImageObject"; url: string } };
+  image?: string;
+  articleSection?: string;
+};
+
+export type FaqPageSchema = SchemaBase & {
+  "@type": "FAQPage";
+  mainEntity: {
+    "@type": "Question";
+    name: string;
+    acceptedAnswer: { "@type": "Answer"; text: string };
+  }[];
+};
+
+export type BreadcrumbListSchema = SchemaBase & {
+  "@type": "BreadcrumbList";
+  itemListElement: {
+    "@type": "ListItem";
+    position: number;
+    name: string;
+    item: string;
+  }[];
+};
+
+type PersonRef = { "@type": "Person"; name: string; url?: string };
+
+export type PersonSchema = SchemaBase & {
+  "@type": "Person";
+  name: string;
+  url?: string;
+  jobTitle?: string;
+  worksFor?: { "@type": "Organization"; name: string; url: string };
+  sameAs?: string[];
+};
+
+export type ProductSchema = SchemaBase & {
+  "@type": "Product";
+  name: string;
+  description: string;
+  brand: { "@type": "Brand"; name: string };
+  offers: {
+    "@type": "Offer";
+    price: string;
+    priceCurrency: string;
+    availability?: string;
+    url?: string;
+  };
+};
+
+export type AnySchema =
+  | OrganizationSchema
+  | WebSiteSchema
+  | ServiceSchema
+  | ArticleSchema
+  | FaqPageSchema
+  | BreadcrumbListSchema
+  | PersonSchema
+  | ProductSchema;
+
+/* ─────────────────────────────────────────────────────────────
+   Helpers / canonical instances
+───────────────────────────────────────────────────────────────── */
+
+export const organizationSchema: OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteConfig.name,
@@ -8,10 +126,7 @@ export const organizationSchema = {
   url: siteConfig.url,
   logo: `${siteConfig.url}/brand/wiele-wordmark-master.svg`,
   description: siteConfig.description,
-  founder: {
-    "@type": "Person",
-    name: siteConfig.founder,
-  },
+  founder: { "@type": "Person", name: siteConfig.founder },
   contactPoint: {
     "@type": "ContactPoint",
     email: siteConfig.email,
@@ -30,7 +145,7 @@ export const organizationSchema = {
   ],
 };
 
-export const websiteSchema = {
+export const websiteSchema: WebSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: siteConfig.name,
@@ -39,19 +154,58 @@ export const websiteSchema = {
   publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
 };
 
-export function serviceSchema(name: string, url: string, description: string) {
+export function serviceSchema(input: {
+  name: string;
+  description: string;
+  url: string;
+  serviceType?: string;
+}): ServiceSchema {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name,
-    description,
+    name: input.name,
+    description: input.description,
     provider: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
-    url,
+    url: input.url,
     areaServed: "Worldwide",
+    serviceType: input.serviceType,
   };
 }
 
-export function faqSchema(faqs: { question: string; answer: string }[]) {
+export function articleSchema(input: {
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  authorName: string;
+  image?: string;
+  articleSection?: string;
+}): ArticleSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.headline,
+    description: input.description,
+    url: input.url,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified,
+    author: { "@type": "Person", name: input.authorName, url: `${siteConfig.url}/about#founder` },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/brand/wiele-wordmark-master.svg`,
+      },
+    },
+    image: input.image,
+    articleSection: input.articleSection,
+  };
+}
+
+export function faqSchema(faqs: { question: string; answer: string }[]): FaqPageSchema {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -63,7 +217,9 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
-export function breadcrumbSchema(items: { name: string; url: string }[]) {
+export function breadcrumbSchema(
+  items: { name: string; url: string }[],
+): BreadcrumbListSchema {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -73,5 +229,45 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       name: item.name,
       item: item.url,
     })),
+  };
+}
+
+export function personSchema(input: {
+  name: string;
+  jobTitle?: string;
+  url?: string;
+  sameAs?: string[];
+}): PersonSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: input.name,
+    url: input.url,
+    jobTitle: input.jobTitle,
+    worksFor: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+    sameAs: input.sameAs,
+  };
+}
+
+export function productSchema(input: {
+  name: string;
+  description: string;
+  price: string;
+  priceCurrency: string;
+  url?: string;
+}): ProductSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: input.name,
+    description: input.description,
+    brand: { "@type": "Brand", name: siteConfig.name },
+    offers: {
+      "@type": "Offer",
+      price: input.price,
+      priceCurrency: input.priceCurrency,
+      availability: "https://schema.org/InStock",
+      url: input.url,
+    },
   };
 }

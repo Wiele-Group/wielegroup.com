@@ -7,8 +7,10 @@ import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/json-ld";
 import { pricingTiers } from "@/data/pricing";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
@@ -64,8 +66,16 @@ const pricingFaq = [
 ];
 
 export default function PricingPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Pricing", url: `${siteConfig.url}/pricing` },
+  ]);
+  const faq = faqSchema(pricingFaq.map((f) => ({ question: f.question, answer: f.answer })));
+
   return (
     <>
+      <JsonLd schema={breadcrumbs} id="schema-breadcrumb-pricing" />
+      <JsonLd schema={faq} id="schema-faq-pricing" />
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">

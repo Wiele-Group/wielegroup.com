@@ -6,8 +6,15 @@ import { buttonStyles } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/json-ld";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import type { SystemDetailEntry } from "@/data/systems-detail";
+import { siteConfig } from "@/lib/metadata";
+import {
+  breadcrumbSchema,
+  faqSchema,
+  serviceSchema,
+} from "@/lib/schema";
 
 /**
  * The single template all 4 /systems/<slug> pages render through.
@@ -16,10 +23,31 @@ import type { SystemDetailEntry } from "@/data/systems-detail";
  *
  * Build-once-use-five contract: Outputs section embeds
  * <PromptSimulator data={system.exampleFixture} animate={false} />.
+ *
+ * Schema injection: emits Service + FAQPage + BreadcrumbList JSON-LD
+ * for every system route, sourced from the same data payload.
  */
 export function SystemDetail({ system }: { system: SystemDetailEntry }) {
+  const url = `${siteConfig.url}/systems/${system.slug}`;
+  const service = serviceSchema({
+    name: system.hero.title,
+    description: system.hero.subtitle,
+    url,
+    serviceType: system.hero.title,
+  });
+  const faq = faqSchema(system.faq.map((f) => ({ question: f.question, answer: f.answer })));
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Systems", url: `${siteConfig.url}/systems` },
+    { name: system.hero.title, url },
+  ]);
+
   return (
     <>
+      <JsonLd schema={service} id={`schema-service-${system.slug}`} />
+      <JsonLd schema={faq} id={`schema-faq-${system.slug}`} />
+      <JsonLd schema={breadcrumbs} id={`schema-breadcrumb-${system.slug}`} />
+
       <SystemHero system={system} />
       <SystemWhatItCovers system={system} />
       <SystemMethodology system={system} />

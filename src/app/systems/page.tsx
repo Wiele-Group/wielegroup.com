@@ -6,8 +6,10 @@ import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/json-ld";
 import { systemsDetailList } from "@/data/systems-detail";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Systems — Growth systems for the AI search era",
@@ -17,8 +19,13 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function SystemsIndexPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Systems", url: `${siteConfig.url}/systems` },
+  ]);
   return (
     <>
+      <JsonLd schema={breadcrumbs} id="schema-breadcrumb-systems" />
       <section className="relative overflow-hidden">
         <div
           aria-hidden

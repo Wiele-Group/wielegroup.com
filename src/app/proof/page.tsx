@@ -3,8 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
+import { JsonLd } from "@/components/json-ld";
 import { proofPlaceholders } from "@/data/homepage";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Proof — Wiele engagements, engine output, before and after",
@@ -32,8 +34,13 @@ const methodologyNotes = [
 ];
 
 export default function ProofPage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Proof", url: `${siteConfig.url}/proof` },
+  ]);
   return (
     <>
+      <JsonLd schema={breadcrumbs} id="schema-breadcrumb-proof" />
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">

@@ -2,8 +2,10 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { JsonLd } from "@/components/json-ld";
 import { fontSans, fontMono } from "@/lib/fonts";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata();
 
@@ -41,6 +43,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body className="min-h-dvh flex flex-col bg-[var(--color-void)] text-cloud antialiased">
+        <JsonLd schema={organizationSchema} id="schema-organization" />
+        <JsonLd schema={websiteSchema} id="schema-website" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-md)] focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
