@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Check } from "lucide-react";
 import { Accordion } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
-import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
+import { PricingSection } from "@/components/sections/pricing-section";
 import { JsonLd } from "@/components/json-ld";
 import { pricingTiers } from "@/data/pricing";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
   title: "Pricing — Diagnose first, then commit",
@@ -121,66 +117,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]">
-        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
-          <Reveal stagger={0.06} className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {pricingTiers.map((tier) => (
-              <article
-                key={tier.id}
-                className={cn(
-                  "relative flex flex-col rounded-[var(--radius-lg)] border p-6 md:p-7",
-                  "bg-[var(--color-surface-elevated)]",
-                  tier.featured
-                    ? "border-electric shadow-[var(--shadow-glow-electric)]"
-                    : "border-[var(--color-border-default)]",
-                )}
-              >
-                {tier.featured ? (
-                  <Badge variant="electric" size="sm" className="absolute -top-2 left-6">
-                    Most chosen
-                  </Badge>
-                ) : null}
-                <h2 className="text-heading-md text-white">{tier.name}</h2>
-                <div className="mt-3 mb-1">
-                  <span className="font-mono text-[1.75rem] leading-none font-semibold text-white">
-                    {tier.price}
-                  </span>
-                </div>
-                {tier.oneOff ? (
-                  <p className="text-body-xs font-mono text-smoke mb-4">{tier.oneOff}</p>
-                ) : (
-                  <div className="mb-4" />
-                )}
-                <p className="text-body-sm text-silver mb-5">{tier.positioning}</p>
-                <ul className="flex flex-col gap-2 mb-6">
-                  {tier.outcomes.map((o) => (
-                    <li key={o} className="flex items-start gap-2 text-body-sm text-cloud">
-                      <Check size={14} className="mt-1 shrink-0 text-electric" aria-hidden />
-                      <span>{o}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={tier.cta.href}
-                  className={cn(
-                    buttonStyles({
-                      variant: tier.featured ? "primary" : "ghost",
-                      size: "md",
-                    }),
-                    "mt-auto w-full",
-                  )}
-                >
-                  {tier.cta.label}
-                </Link>
-              </article>
-            ))}
-          </Reveal>
-
-          <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-            All prices in GBP, exclude VAT. Wiele bills monthly. 30-day notice. No long-term lock-in.
-          </p>
-        </div>
-      </section>
+      <PricingSection showHeading={false} />
 
       <section className="py-16 md:py-20 lg:py-24 bg-[var(--color-obsidian)]/40">
         <div className="mx-auto max-w-3xl px-[var(--container-px)]">
