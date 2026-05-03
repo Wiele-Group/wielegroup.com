@@ -109,6 +109,26 @@ Why this pattern: dynamic `import("@/content/labs/${slug}.mdx")` worked locally 
 ### Don't add `routes = [{ pattern, custom_domain = true }]` to wrangler.toml
 The wrangler OAuth token from `wrangler login` lacks `dns_records:edit` scope. With existing apex DNS records, `wrangler deploy` fails with API error 100117 every time. Custom domain bindings live as ZONE-LEVEL Workers Routes (created via direct API or dashboard). `wrangler deploy` ships only the Worker code; routing is preserved via the zone-level routes. See the comment block in `wrangler.toml` for the route IDs.
 
+### Production smoke-tests MUST send a browser User-Agent (Bot Fight Mode silently 403s bare curl)
+**Rule:** Cloudflare Bot Fight Mode is enabled on the `wielegroup.com` zone. It silently returns HTTP 403 to bare `curl/X.Y.Z` user-agents — including from the founder's machine. Smoke-test scripts that don't set a UA will report "site is down" when the site is fine.
+
+**Why this is binding:** Phase 9 deploy verification (2026-05-03) initially appeared to fail because bare-curl smoke-tests returned 403 across all routes. The site was healthy — Bot Fight Mode was filtering the verification traffic. Diagnosing this wasted time and almost triggered a rollback of a clean deploy. Every future deploy verification must use the UA-stamped pattern below.
+
+**Canonical smoke-test snippet** (use this verbatim or wrap in a script):
+```bash
+UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+for r in / /audit /labs /pricing /systems /proof /about /contact; do
+  code=$(curl -sI -H "User-Agent: $UA" -o /dev/null -w "%{http_code}" "https://wielegroup.com$r")
+  echo "$code  $r"
+done
+```
+
+Expected: `200` on all canonical routes. Anything else is a real signal.
+
+**Do NOT disable Bot Fight Mode to make bare curl work.** Bot Fight Mode is a security feature — it stays on. The fix is to make verification scripts behave like browsers, which is what the actual customers do.
+
+**Other tools that need the same UA:** any `wget`, `httpie`, or `playwright headless` scripts targeting production. If it doesn't send a real-looking UA, expect 403.
+
 ## Start Here
 Read `../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` once. Then execute Phase 0 (brand asset copy) → Phase 1 (foundation).
 

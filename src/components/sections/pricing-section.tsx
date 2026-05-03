@@ -6,22 +6,34 @@ import { Reveal } from "@/components/motion/reveal";
 import { pricingTiers } from "@/data/pricing";
 import { cn } from "@/lib/utils";
 
-export function PricingSection() {
+type PricingSectionProps = {
+  /**
+   * Show the section's own heading block ("Pricing" eyebrow + display
+   * heading + intro paragraph). Default true (used on the home page).
+   * Set false when the surrounding page already has a hero — e.g.
+   * /pricing renders its own h1 above this section.
+   */
+  showHeading?: boolean;
+};
+
+export function PricingSection({ showHeading = true }: PricingSectionProps = {}) {
   return (
     <section className="py-20 md:py-28 lg:py-32">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
-        <div className="max-w-2xl mb-12 md:mb-16">
-          <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
-            Pricing
-          </p>
-          <h2 className="text-display-lg text-white text-balance">
-            Start with a Signal Audit. Scale into the system.
-          </h2>
-          <p className="text-body-lg text-silver mt-5">
-            Diagnose first, commit second. Every engagement starts with the
-            audit; from there, you choose the velocity.
-          </p>
-        </div>
+        {showHeading ? (
+          <div className="max-w-2xl mb-12 md:mb-16">
+            <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+              Pricing
+            </p>
+            <h2 className="text-display-lg text-white text-balance">
+              Start with a Signal Audit. Scale into the system.
+            </h2>
+            <p className="text-body-lg text-silver mt-5">
+              Diagnose first, commit second. Every engagement starts with the
+              audit; from there, you choose the velocity.
+            </p>
+          </div>
+        ) : null}
 
         <Reveal
           stagger={0.06}
@@ -78,24 +90,45 @@ export function PricingSection() {
                 ))}
               </ul>
 
-              <Link
-                href={tier.cta.href}
-                className={cn(
-                  buttonStyles({
-                    variant: tier.featured ? "primary" : "ghost",
-                    size: "md",
-                  }),
-                  "mt-auto w-full",
-                )}
-              >
-                {tier.cta.label}
-              </Link>
+              <div className="mt-auto flex flex-col gap-2.5">
+                <Link
+                  href={tier.cta.href}
+                  className={cn(
+                    buttonStyles({
+                      variant: tier.featured ? "primary" : "ghost",
+                      size: "md",
+                    }),
+                    "w-full",
+                  )}
+                >
+                  {tier.cta.label}
+                </Link>
+                {tier.paymentLinkUrl ? (
+                  <a
+                    href={tier.paymentLinkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-plausible-event-name="Pay Now Click"
+                    data-plausible-event-tier={tier.id}
+                    className="text-center text-body-xs font-mono uppercase tracking-[0.12em] text-smoke hover:text-electric transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:text-electric"
+                  >
+                    Or pay now <span aria-hidden>→</span>
+                    <span className="sr-only">
+                      {" "}
+                      (opens Stripe checkout in a new tab)
+                    </span>
+                  </a>
+                ) : null}
+              </div>
             </article>
           ))}
         </Reveal>
 
         <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-          All prices in GBP. Wiele bills monthly. 30-day notice. No long-term lock-in.
+          All prices in GBP, exclude VAT. Wiele bills monthly. 30-day notice. No long-term lock-in.
+          <span className="block mt-1 text-[0.6875rem] tracking-[0.08em]">
+            Self-serve checkout via Stripe. SCA-compliant. Secured payments.
+          </span>
         </p>
       </div>
     </section>
