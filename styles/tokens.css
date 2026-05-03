@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────────────────────────
+   Wiele Design Tokens — single source of truth.
+   Authority: CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md §2
+   Anything that styles a component must reference a token here.
+───────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* ── Foundation (dark, premium) ── */
+  --color-void: #0B0D10;
+  --color-obsidian: #111118;
+  --color-graphite: #1A1A24;
+  --color-steel: #2A2A38;
+  --color-smoke: #6B7280;
+  --color-silver: #9CA3AF;
+  --color-cloud: #D1D5DB;
+  --color-white: #F9FAFB;
+
+  /* ── Accents ── */
+  --color-electric: #6366F1;
+  --color-electric-light: #818CF8;
+  --color-electric-deep: #4F46E5;
+  --color-neon: #22D3EE;
+  --color-pulse: #A855F7;
+
+  /* ── Semantic ── */
+  --color-success: #37D67A;
+  --color-warning: #F2C94C;
+  --color-danger: #FF4D4D;
+
+  /* ── Surfaces (semi-transparent overlays on Void) ── */
+  --color-surface-elevated: rgba(255, 255, 255, 0.04);
+  --color-surface-glass: rgba(255, 255, 255, 0.03);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+
+  /* ── Typography ── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ── Type scale (clamp for fluid responsive) ── */
+  --text-display-2xl: clamp(3.25rem, 6vw + 1rem, 5.5rem);
+  --text-display-xl: clamp(2.75rem, 5vw + 0.75rem, 4.5rem);
+  --text-display-lg: clamp(2.25rem, 4vw + 0.5rem, 3.5rem);
+  --text-display-md: clamp(1.75rem, 3vw + 0.25rem, 2.5rem);
+  --text-heading-lg: clamp(1.5rem, 2vw + 0.25rem, 2rem);
+  --text-heading-md: 1.5rem;
+  --text-heading-sm: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body-md: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-body-xs: 0.75rem;
+
+  /* ── Radius ── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* ── Shadow / glow ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow-electric: 0 0 40px rgba(99, 102, 241, 0.18), 0 0 80px rgba(99, 102, 241, 0.06);
+  --shadow-glow-neon: 0 0 40px rgba(34, 211, 238, 0.18), 0 0 80px rgba(34, 211, 238, 0.06);
+
+  /* ── Motion ── */
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 400ms;
+
+  /* ── Layout ── */
+  --container-max: 1280px;
+  --container-px: 1.5rem;
+  --header-height: 4rem;
+}

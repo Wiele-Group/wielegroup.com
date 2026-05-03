@@ -1,81 +1,114 @@
 @import "tailwindcss";
+@import "../../styles/tokens.css";
 
-/* ── Wiele Group Design Tokens ── */
+/* ─────────────────────────────────────────────────────────────
+   Base — colour mode, body type, smoothing, selection.
+───────────────────────────────────────────────────────────────── */
+
 :root {
-  /* Foundation */
-  --void: #0A0A0F;
-  --obsidian: #111118;
-  --graphite: #1A1A24;
-  --steel: #2A2A38;
-  --smoke: #6B7280;
-  --silver: #9CA3AF;
-  --cloud: #D1D5DB;
-  --white: #F9FAFB;
+  color-scheme: dark;
 
-  /* Accents */
-  --electric: #6366F1;
-  --electric-light: #818CF8;
-  --electric-deep: #4F46E5;
-  --neon: #22D3EE;
-  --pulse: #A855F7;
-
-  /* Semantic */
-  --success: #10B981;
-  --warning: #F59E0B;
-  --danger: #EF4444;
-
-  /* Surfaces */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.06);
-  --elevated-bg: #111118;
-  --elevated-border: rgba(255, 255, 255, 0.08);
+  /* Legacy unprefixed aliases — used by /services/*, /work, /journal,
+     /audit, /about, /contact, /pricing pages until they're refactored
+     in Phase 3. REMOVE THIS BLOCK during Phase 3 cleanup. */
+  --void: var(--color-void);
+  --obsidian: var(--color-obsidian);
+  --graphite: var(--color-graphite);
+  --steel: var(--color-steel);
+  --smoke: var(--color-smoke);
+  --silver: var(--color-silver);
+  --cloud: var(--color-cloud);
+  --white: var(--color-white);
+  --electric: var(--color-electric);
+  --electric-light: var(--color-electric-light);
+  --electric-deep: var(--color-electric-deep);
+  --neon: var(--color-neon);
+  --pulse: var(--color-pulse);
+  --elevated-bg: var(--color-obsidian);
+  --elevated-border: var(--color-border-default);
+  --glass-bg: var(--color-surface-glass);
+  --glass-border: var(--color-border-subtle);
 }
 
-/* ── Base ── */
 html {
-  background: var(--void);
-  color: var(--cloud);
+  background: var(--color-void);
+  color: var(--color-cloud);
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--void);
+  background: var(--color-void);
+  color: var(--color-cloud);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md);
+  line-height: 1.6;
   min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* ── Typography Scale ── */
-.text-display-xl { font-size: 4.5rem; line-height: 1.0; font-weight: 700; letter-spacing: -0.03em; }
-.text-display-lg { font-size: 3.5rem; line-height: 1.1; font-weight: 700; letter-spacing: -0.025em; }
-.text-display-md { font-size: 2.5rem; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; }
-.text-heading-lg { font-size: 2rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; }
-.text-heading-md { font-size: 1.5rem; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
-.text-heading-sm { font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
-.text-body-lg { font-size: 1.125rem; line-height: 1.6; }
-.text-body-md { font-size: 1rem; line-height: 1.6; letter-spacing: 0.005em; }
-.text-body-sm { font-size: 0.875rem; line-height: 1.5; letter-spacing: 0.01em; }
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: var(--color-white);
+}
 
-/* ── Glassmorphism ── */
+/* Visible focus only on keyboard navigation */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Typography utilities — used by sections that don't yet wrap
+   text in the <Heading /> primitive (added later).
+───────────────────────────────────────────────────────────────── */
+
+.text-display-2xl { font-size: var(--text-display-2xl); line-height: 1.0; font-weight: 700; letter-spacing: -0.035em; }
+.text-display-xl  { font-size: var(--text-display-xl);  line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; }
+.text-display-lg  { font-size: var(--text-display-lg);  line-height: 1.1; font-weight: 700; letter-spacing: -0.025em; }
+.text-display-md  { font-size: var(--text-display-md);  line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; }
+.text-heading-lg  { font-size: var(--text-heading-lg);  line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; }
+.text-heading-md  { font-size: var(--text-heading-md);  line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
+.text-heading-sm  { font-size: var(--text-heading-sm);  line-height: 1.4; font-weight: 600; }
+.text-body-lg     { font-size: var(--text-body-lg);     line-height: 1.6; }
+.text-body-md     { font-size: var(--text-body-md);     line-height: 1.6; letter-spacing: 0.005em; }
+.text-body-sm     { font-size: var(--text-body-sm);     line-height: 1.5; letter-spacing: 0.01em; }
+.text-body-xs     { font-size: var(--text-body-xs);     line-height: 1.4; letter-spacing: 0.02em; }
+
+.font-mono { font-family: var(--font-mono); }
+
+/* ─────────────────────────────────────────────────────────────
+   Surfaces — glass, elevated, ambient gradient. Used by sections
+   that haven't been migrated to <Card /> yet.
+───────────────────────────────────────────────────────────────── */
+
 .glass {
-  background: var(--glass-bg);
+  background: var(--color-surface-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
 }
 
 .elevated {
-  background: var(--elevated-bg);
-  border: 1px solid var(--elevated-border);
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* ── Effects ── */
-.glow {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15), 0 0 80px rgba(99, 102, 241, 0.05);
+  background: var(--color-obsidian);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
 }
 
 .ambient-gradient {
@@ -89,25 +122,27 @@ body {
   background-size: 64px 64px;
 }
 
-/* ── Buttons ── */
+/* ─────────────────────────────────────────────────────────────
+   Legacy button helpers — TEMPORARY. Remove in Phase 3 once all
+   pages use <Button />. Kept so legacy /services/*, /work pages
+   continue to render through the phased refactor.
+───────────────────────────────────────────────────────────────── */
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  background: var(--electric);
-  color: var(--white);
+  background: var(--color-electric);
+  color: var(--color-white);
   font-weight: 600;
   font-size: 0.9375rem;
-  border-radius: 10px;
-  transition: background 150ms ease, transform 150ms ease;
-  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast) var(--ease-standard);
   border: none;
   text-decoration: none;
 }
-.btn-primary:hover {
-  background: var(--electric-light);
-}
+.btn-primary:hover { background: var(--color-electric-light); }
 
 .btn-ghost {
   display: inline-flex;
@@ -115,45 +150,21 @@ body {
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
   background: transparent;
-  color: var(--cloud);
+  color: var(--color-cloud);
   font-weight: 500;
   font-size: 0.9375rem;
-  border-radius: 10px;
-  border: 1px solid var(--elevated-border);
-  transition: border-color 150ms ease, color 150ms ease;
-  cursor: pointer;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-default);
+  transition: border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
   text-decoration: none;
 }
 .btn-ghost:hover {
-  border-color: var(--electric);
-  color: var(--white);
+  border-color: var(--color-electric);
+  color: var(--color-white);
 }
 
-/* ── Scroll Reveal Animation ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-.reveal {
-  animation: fadeUp 0.6s ease-out both;
-}
-
-/* ── Code / Mono ── */
-.font-mono {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-}
-
-/* ── Selection ── */
-::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: var(--white);
-}
-
-/* ── Responsive Typography ── */
-@media (max-width: 768px) {
-  .text-display-xl { font-size: 2.75rem; }
-  .text-display-lg { font-size: 2.25rem; }
-  .text-display-md { font-size: 1.75rem; }
-  .text-heading-lg { font-size: 1.5rem; }
-}
+.reveal { animation: fadeUp 0.6s var(--ease-emphasized) both; }

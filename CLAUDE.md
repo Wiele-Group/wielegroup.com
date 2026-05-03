@@ -67,6 +67,35 @@ Precise, modern, confident, commercially clear, evidence-led. No ceremony. No he
 Marketing site `/api/audit` POSTs to wiele-ai `/api/projects` to create Project + queue first EngineRun. If wiele-ai not live, stub with KV queue + founder email notification (same response shape).
 Env vars: `WIELE_AI_API_URL`, `WIELE_AI_API_KEY`, `RESEND_API_KEY`, `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`.
 
+## ⚠️ Patterns that must NOT regress
+
+### JSON-LD must ship in the initial SSR HTML
+**Rule:** `<JsonLd>` (in `src/components/json-ld.tsx`) renders a direct `<script type="application/ld+json">` element via React's inline-HTML escape hatch — NEVER `import Script from "next/script"`.
+
+**Why this is binding:** `<Script strategy="afterInteractive">` injects the schema **after hydration**. Crawlers (Googlebot, OAI-SearchBot, PerplexityBot, ClaudeBot) parse the initial HTML response on first byte and typically don't wait for JS execution. Schema rendered via `<Script>` is **invisible** to the exact crawlers we built it for. We caught this in Phase 4 smoke-tests against `npm run start`. Without the SSR-HTML fix, every JSON-LD block on the site would be invisible.
+
+**The hardening that makes the inline pattern safe:** `JSON.stringify(data).replace(/</g, '\\u003c')` prevents the literal `</script>` substring from closing the surrounding tag. JSON spec allows the unicode escape; the JSON parses identically. `eslint-disable-next-line react/no-danger` with a justifying comment is the canonical pattern.
+
+**Smoke-test:** `curl -s http://localhost:3000/<route> | grep -oE 'type="application/ld\+json"' | wc -l` should match the expected `<JsonLd>` count for that route. Run against `npm run start`, NOT `npm run dev` — dev mode lazy-compiles routes; first request returns 404 if you don't wait.
+
+### Build-time fixture rotation, not runtime
+The `selectFixture(date)` pattern in `src/data/prompt-simulator-fixtures.ts` is evaluated at build time during static generation. Don't move it to client-side or runtime — it's deliberately deterministic per-build to keep SSR/hydration aligned. Same for `getAllArticles()` in labs.
+
+### MDX plugins must be string identifiers (Turbopack)
+In `next.config.ts`: `remarkPlugins: [["remark-gfm", {}]]`, NOT `[remarkGfm]`. Turbopack serialises loader options across worker boundaries; function references break the build with "options not serializable."
+
+### Lead-capture forms fail-open to KV
+Audit + contact route handlers: validate Zod → verify Turnstile → write KV FIRST → wiele-ai (best-effort) → Resend × 2 (best-effort) → return 202. A paid-intent submission must NEVER see "submission failed" because of downstream flakiness. The customer-facing failure path is invalid input or bot — that's it.
+
+### ISR scope is `/` only
+`export const revalidate = 60` lives on `src/app/page.tsx` ONLY — it's there so the per-minute fixture rotation in HeroSection actually rotates between deploys. Other routes stay fully static (`/labs/<slug>` redeploys on git push; `/systems/*`, `/pricing`, `/about` are content-stable; `/api/*` are dynamic on submit). Adding `revalidate` elsewhere is wasted runtime cost.
+
+### Plausible analytics scope is public marketing only
+`<PlausibleScript />` mounted in root layout, gated by `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`. Absent env var = no script renders, zero-cookie dev experience preserved. Never inject on `/api/*` or future admin routes — keep the "no cookie banner anywhere on Wiele" property intact.
+
+### Don't auto-remove the legacy redirect block
+The 9-redirect block in `next.config.ts` carries a `TODO(2026-08-03)` comment. Phase 7+ task: REMOVE only after Search Console + Plausible referrer data confirm zero traffic to `/services/*`, `/work`, `/journal` for the prior 30 days. Code that auto-deletes itself in 90 days is a footgun.
+
 ## Start Here
 Read `../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` once. Then execute Phase 0 (brand asset copy) → Phase 1 (foundation).
 
