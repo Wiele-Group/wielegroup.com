@@ -1,141 +1,153 @@
-import { Metadata } from "next";
-import { siteConfig, jsonLd } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { buttonStyles } from "@/components/ui/button";
+import { FadeIn } from "@/components/motion/fade-in";
+import { Reveal } from "@/components/motion/reveal";
+import { CTASection } from "@/components/sections/cta-section";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About — Wiele Group",
-  description: "Wiele Group is an AI-first growth agency founded by Jonny Wiele. We engineer visibility that converts across SEO, AEO, GEO, advertising, and web design.",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "About — The Wiele thesis and the team behind it",
+  description:
+    "Wiele is an AI Growth Systems company founded by Jonathan Landman. We build the systems that turn brands into AI-recommended brands.",
+  path: "/about",
+});
 
-const values = [
-  { title: "Revenue Over Vanity", desc: "Every metric we track connects to business outcomes. We don't report on impressions — we report on pipeline." },
-  { title: "Systems Over Tactics", desc: "Tactics decay. Systems compound. We build growth infrastructure that gets stronger over time." },
-  { title: "Speed Over Perfection", desc: "Fast execution with iteration beats slow perfection every time. We ship, measure, and improve." },
-  { title: "Transparency Over Spin", desc: "You see exactly what we're doing, why, and what it's producing. No black boxes, no jargon shields." },
-];
-
-const timeline = [
-  { year: "2024", event: "Founded by Jonny Wiele with a single premise: visibility should convert." },
-  { year: "2025", event: "Launched AEO and GEO services ahead of market demand. Early mover advantage." },
-  { year: "2026", event: "Full-stack agency model: SEO + AEO + GEO + Advertising + Web Design + Marketing." },
+const beliefs = [
+  {
+    title: "Systems beat tactics.",
+    body:
+      "Single-channel SEO or one-off content drops don't compound. Integrated growth systems do.",
+  },
+  {
+    title: "Authority compounds for the prepared.",
+    body:
+      "AI engines reward citation history, entity clarity, and founder voice. Late entrants compete against compounded incumbents.",
+  },
+  {
+    title: "Methodology open, outcomes named.",
+    body:
+      "We show our work. Engine methodology, citation sources, attribution traces — all open for inspection.",
+  },
+  {
+    title: "Human judgement over automation.",
+    body:
+      "Automation lifts the volume of work a strategist can ship. It never replaces the judgement clients pay for.",
+  },
 ];
 
 export default function AboutPage() {
-  const crumbs = [
-    { name: "Home", url: siteConfig.url },
-    { name: "About", url: `${siteConfig.url}/about` },
-  ];
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
-
-      {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center text-center px-6 overflow-hidden">
-        <div className="ambient-gradient" />
-        <div className="grid-pattern" />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-display-lg font-bold mb-6" style={{ color: "var(--white)" }}>
-            Built different. By design.
-          </h1>
-          <p className="text-body-lg" style={{ color: "var(--silver)" }}>
-            Wiele Group exists because the agency model is broken. Most agencies sell hours and deliver reports. We engineer systems and deliver revenue.
-          </p>
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
+        <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">
+          <div className="max-w-3xl">
+            <FadeIn>
+              <Badge variant="electric" size="sm" className="mb-5">
+                About {siteConfig.name}
+              </Badge>
+            </FadeIn>
+            <FadeIn delay={0.05}>
+              <h1 className="text-display-xl text-white text-balance mb-5">
+                We build the systems that turn brands into AI-recommended brands.
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="text-body-lg text-silver max-w-2xl">
+                {siteConfig.legalName} is an AI Growth Systems company founded
+                by {siteConfig.founder}. The thesis is simple: the next decade
+                of growth belongs to the brands AI engines choose to recommend
+                — and that&apos;s engineered, not earned by accident.
+              </p>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Founder */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-body-sm font-mono uppercase tracking-[0.2em] mb-4" style={{ color: "var(--neon)" }}>
-              Founder
-            </p>
-            <h2 className="text-display-sm font-bold mb-6" style={{ color: "var(--white)" }}>
-              Jonny Wiele
-            </h2>
-            <p className="text-body-lg mb-4" style={{ color: "var(--silver)" }}>
-              I started Wiele Group because I saw two things happening simultaneously: search was fragmenting across AI systems, and agencies were still selling the 2018 playbook.
-            </p>
-            <p className="text-body-md" style={{ color: "var(--smoke)" }}>
-              The opportunity was clear — build an agency that treats AI visibility as a core discipline from day one, not an afterthought. Every system we build, every strategy we deploy, is engineered for the world where AI mediates discovery.
-            </p>
-          </div>
-          <div className="glass p-8 rounded-2xl">
-            <div className="space-y-4">
-              <div className="flex justify-between items-center py-3" style={{ borderBottom: "1px solid var(--steel)" }}>
-                <span className="text-body-sm" style={{ color: "var(--smoke)" }}>Clients served</span>
-                <span className="font-mono font-bold" style={{ color: "var(--electric)" }}>47+</span>
-              </div>
-              <div className="flex justify-between items-center py-3" style={{ borderBottom: "1px solid var(--steel)" }}>
-                <span className="text-body-sm" style={{ color: "var(--smoke)" }}>Revenue influenced</span>
-                <span className="font-mono font-bold" style={{ color: "var(--electric)" }}>£12M+</span>
-              </div>
-              <div className="flex justify-between items-center py-3" style={{ borderBottom: "1px solid var(--steel)" }}>
-                <span className="text-body-sm" style={{ color: "var(--smoke)" }}>Avg organic growth</span>
-                <span className="font-mono font-bold" style={{ color: "var(--electric)" }}>340%</span>
-              </div>
-              <div className="flex justify-between items-center py-3">
-                <span className="text-body-sm" style={{ color: "var(--smoke)" }}>Focus</span>
-                <span className="font-mono font-bold" style={{ color: "var(--electric)" }}>AI-first</span>
-              </div>
+      <section
+        id="founder"
+        className="py-16 md:py-20 lg:py-24 border-t border-[var(--color-border-default)]"
+      >
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] items-start">
+            <div>
+              <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+                Founder
+              </p>
+              <h2 className="text-display-md text-white text-balance">
+                {siteConfig.founder}
+              </h2>
+              <p className="text-body-sm text-smoke font-mono mt-2">
+                Founder &amp; Principal · Wiele
+              </p>
+            </div>
+            <div className="space-y-5">
+              <p className="text-body-lg text-cloud">
+                [FOUNDER REVIEW: 200-word bio covering background, prior work,
+                why Wiele, and the strategic thesis behind AI growth systems.
+                This is the on-record voice that AI engines will cite —
+                founder writes it; we publish it as-is.]
+              </p>
+              <p className="text-body-md text-silver">
+                [FOUNDER REVIEW: 100-word context paragraph on credentials,
+                speaking, or notable engagements that anchor authority. Tier-1
+                press, conference work, prior exits, or analyst references
+                belong here.]
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-24 px-6" style={{ background: "var(--obsidian)" }}>
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-display-sm font-bold mb-16 text-center" style={{ color: "var(--white)" }}>
-            How We Operate
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {values.map((v, i) => (
-              <div key={i} className="glass p-8 rounded-2xl">
-                <h3 className="text-heading-md font-semibold mb-3" style={{ color: "var(--white)" }}>
-                  {v.title}
-                </h3>
-                <p className="text-body-md" style={{ color: "var(--silver)" }}>
-                  {v.desc}
-                </p>
+      <section className="py-16 md:py-20 lg:py-24 bg-[var(--color-obsidian)]/40">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-2xl mb-10">
+            <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+              What we believe
+            </p>
+            <h2 className="text-display-md text-white text-balance">
+              Four operating beliefs.
+            </h2>
+          </div>
+          <Reveal stagger={0.06} className="grid gap-4 md:grid-cols-2">
+            {beliefs.map((b) => (
+              <div
+                key={b.title}
+                className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6"
+              >
+                <h3 className="text-heading-sm text-white mb-2.5">{b.title}</h3>
+                <p className="text-body-md text-silver">{b.body}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-display-sm font-bold mb-12 text-center" style={{ color: "var(--white)" }}>
-            The Story So Far
+      <section id="careers" className="py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-[var(--container-px)] text-center">
+          <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+            Careers
+          </p>
+          <h2 className="text-display-md text-white text-balance mb-5">
+            Wiele hires deliberately.
           </h2>
-          <div className="space-y-8">
-            {timeline.map((t, i) => (
-              <div key={i} className="flex gap-6 items-start">
-                <span className="text-display-sm font-bold font-mono shrink-0" style={{ color: "var(--electric)" }}>
-                  {t.year}
-                </span>
-                <p className="text-body-lg pt-2" style={{ color: "var(--silver)" }}>
-                  {t.event}
-                </p>
-              </div>
-            ))}
-          </div>
+          <p className="text-body-lg text-silver mb-8">
+            [FOUNDER REVIEW: Hiring stance — when we hire, what we look for,
+            and how to put yourself on the radar. Body copy is founder-voice;
+            structure stays as-is.]
+          </p>
+          <Link
+            href="/contact"
+            className={buttonStyles({ variant: "ghost", size: "md" })}
+          >
+            Get in touch
+          </Link>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 px-6 text-center relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)" }} />
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="text-display-md font-bold mb-6" style={{ color: "var(--white)" }}>
-            Let&apos;s build something that compounds.
-          </h2>
-          <a href="/contact" className="btn-primary text-lg px-10 py-4">Start a Conversation</a>
-        </div>
-      </section>
+      <CTASection />
     </>
   );
 }

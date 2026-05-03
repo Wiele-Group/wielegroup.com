@@ -1,153 +1,140 @@
-"use client";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Calendar, Mail, MessageCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button, buttonStyles } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { FadeIn } from "@/components/motion/fade-in";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
 
-import { siteConfig, jsonLd } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
-import { useState } from "react";
+export const metadata: Metadata = buildMetadata({
+  title: "Contact — Talk to Wiele",
+  description:
+    "Direct line to Wiele. Strategy calls, partnership enquiries, press, or general questions.",
+  path: "/contact",
+});
 
-const contactMethods = [
-  { label: "Email", value: "hello@wielegroup.com", href: "mailto:hello@wielegroup.com" },
-  { label: "Growth Inquiries", value: "growth@wielegroup.com", href: "mailto:growth@wielegroup.com" },
-  { label: "LinkedIn", value: "Wiele Group", href: "https://linkedin.com/company/wiele-group" },
-  { label: "X", value: "@wielegroup", href: "https://x.com/wielegroup" },
+const channels = [
+  {
+    icon: Calendar,
+    title: "Book a strategy call",
+    body: "30-minute call with a Wiele principal. Best for active engagements or sizing fit.",
+    cta: { label: "Open calendar", href: "/contact#form", external: false },
+  },
+  {
+    icon: Mail,
+    title: "Email Wiele",
+    body: "Direct line for partnership, press, or operational questions.",
+    cta: { label: siteConfig.email, href: `mailto:${siteConfig.email}`, external: true },
+  },
+  {
+    icon: MessageCircle,
+    title: "Run an audit first",
+    body: "Most engagements start with a Signal Audit — diagnose before you commit.",
+    cta: { label: "Run AI Visibility Audit", href: "/audit", external: false },
+  },
 ];
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const crumbs = [
-    { name: "Home", url: siteConfig.url },
-    { name: "Contact", url: `${siteConfig.url}/contact` },
-  ];
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbSchema(crumbs))} />
-
-      <section className="relative py-32 flex items-center justify-center text-center px-6 overflow-hidden">
-        <div className="ambient-gradient" />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-display-lg font-bold mb-6" style={{ color: "var(--white)" }}>
-            Let&apos;s talk growth.
-          </h1>
-          <p className="text-body-lg" style={{ color: "var(--silver)" }}>
-            Tell us about your business and we&apos;ll show you what&apos;s possible.
-          </p>
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
+        <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">
+          <div className="max-w-3xl">
+            <FadeIn>
+              <Badge variant="electric" size="sm" className="mb-5">
+                Contact
+              </Badge>
+            </FadeIn>
+            <FadeIn delay={0.05}>
+              <h1 className="text-display-xl text-white text-balance mb-5">
+                Talk to Wiele.
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="text-body-lg text-silver max-w-2xl">
+                Three ways to reach us. Pick the one that matches what you
+                need; we&apos;ll route from there.
+              </p>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 px-6">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
-          {/* Form */}
-          <div>
-            {submitted ? (
-              <div className="glass p-12 rounded-2xl text-center">
-                <p className="text-display-sm font-bold mb-4" style={{ color: "var(--electric)" }}>
-                  Message received.
-                </p>
-                <p className="text-body-md" style={{ color: "var(--silver)" }}>
-                  We&apos;ll be in touch within 24 hours.
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-                className="space-y-6"
-              >
-                <div>
-                  <label className="block text-body-sm font-medium mb-2" style={{ color: "var(--cloud)" }}>Name</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 rounded-xl text-body-md outline-none focus:ring-2"
-                    style={{ background: "var(--graphite)", color: "var(--white)", border: "1px solid var(--steel)" }}
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-body-sm font-medium mb-2" style={{ color: "var(--cloud)" }}>Email</label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full px-4 py-3 rounded-xl text-body-md outline-none focus:ring-2"
-                    style={{ background: "var(--graphite)", color: "var(--white)", border: "1px solid var(--steel)" }}
-                    placeholder="you@company.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-body-sm font-medium mb-2" style={{ color: "var(--cloud)" }}>Company</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl text-body-md outline-none focus:ring-2"
-                    style={{ background: "var(--graphite)", color: "var(--white)", border: "1px solid var(--steel)" }}
-                    placeholder="Your company"
-                  />
-                </div>
-                <div>
-                  <label className="block text-body-sm font-medium mb-2" style={{ color: "var(--cloud)" }}>What do you need help with?</label>
-                  <select
-                    className="w-full px-4 py-3 rounded-xl text-body-md outline-none focus:ring-2"
-                    style={{ background: "var(--graphite)", color: "var(--white)", border: "1px solid var(--steel)" }}
+      <section className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="grid gap-4 md:grid-cols-3 mb-12 md:mb-16">
+            {channels.map((c) => {
+              const Icon = c.icon;
+              return (
+                <div
+                  key={c.title}
+                  className="flex flex-col rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6"
+                >
+                  <Icon size={20} className="text-electric mb-4" aria-hidden />
+                  <h2 className="text-heading-sm text-white mb-2.5">{c.title}</h2>
+                  <p className="text-body-sm text-silver flex-1">{c.body}</p>
+                  <Link
+                    href={c.cta.href}
+                    {...(c.cta.external
+                      ? { target: "_blank", rel: "noreferrer noopener" }
+                      : {})}
+                    className={buttonStyles({
+                      variant: "ghost",
+                      size: "sm",
+                      className: "mt-5 self-start",
+                    })}
                   >
-                    <option value="">Select a service</option>
-                    <option value="seo">SEO</option>
-                    <option value="aeo">AEO — Answer Engine Optimization</option>
-                    <option value="geo">GEO — Generative Engine Optimization</option>
-                    <option value="advertising">Performance Advertising</option>
-                    <option value="web-design">Web Design & Development</option>
-                    <option value="marketing">Growth Marketing</option>
-                    <option value="audit">Free AI Visibility Audit</option>
-                    <option value="other">Something else</option>
-                  </select>
+                    {c.cta.label}
+                  </Link>
                 </div>
-                <div>
-                  <label className="block text-body-sm font-medium mb-2" style={{ color: "var(--cloud)" }}>Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl text-body-md outline-none focus:ring-2 resize-none"
-                    style={{ background: "var(--graphite)", color: "var(--white)", border: "1px solid var(--steel)" }}
-                    placeholder="Tell us about your goals..."
-                  />
-                </div>
-                <button type="submit" className="btn-primary w-full py-4 text-lg">
-                  Send Message
-                </button>
-              </form>
-            )}
+              );
+            })}
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-heading-lg font-semibold mb-8" style={{ color: "var(--white)" }}>
-              Direct Contact
-            </h2>
-            <div className="space-y-6">
-              {contactMethods.map((m) => (
-                <div key={m.label}>
-                  <p className="text-body-sm font-mono uppercase tracking-wider mb-1" style={{ color: "var(--smoke)" }}>
-                    {m.label}
-                  </p>
-                  <a
-                    href={m.href}
-                    className="text-heading-sm font-medium hover:opacity-80 transition-opacity"
-                    style={{ color: "var(--electric)" }}
-                    target={m.href.startsWith("http") ? "_blank" : undefined}
-                    rel={m.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    {m.value}
-                  </a>
-                </div>
-              ))}
-            </div>
+          <div
+            id="form"
+            className="mx-auto max-w-2xl rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-8 scroll-mt-24"
+          >
+            <h2 className="text-heading-lg text-white mb-2">Send a message</h2>
+            <p className="text-body-sm text-silver mb-6">
+              We respond inside one business day. For audits, the form on{" "}
+              <Link href="/audit" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+                /audit
+              </Link>{" "}
+              is the faster path.
+            </p>
 
-            <div className="glass p-8 rounded-2xl mt-12">
-              <h3 className="text-heading-md font-semibold mb-3" style={{ color: "var(--white)" }}>
-                Prefer a call?
-              </h3>
-              <p className="text-body-md mb-4" style={{ color: "var(--silver)" }}>
-                Book a free 30-minute strategy call and we&apos;ll map your growth opportunities live.
+            <form className="grid gap-4" aria-describedby="contact-form-status">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Input label="Your name" name="name" autoComplete="name" required />
+                <Input
+                  label="Email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                />
+              </div>
+              <Input label="Company" name="company" autoComplete="organization" />
+              <Textarea
+                label="What would you like to discuss?"
+                name="message"
+                rows={5}
+                required
+              />
+              <p id="contact-form-status" className="text-body-xs font-mono text-smoke">
+                Form submission wires to /api/contact in Phase 5. UI is live;
+                the route handler lands with the audit form.
               </p>
-              <a href="/audit" className="btn-ghost inline-block">Book Free Audit Call</a>
-            </div>
+              <div className="flex justify-end mt-2">
+                <Button type="submit" size="md" disabled aria-disabled>
+                  Send message
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
