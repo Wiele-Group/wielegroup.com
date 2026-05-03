@@ -25,14 +25,14 @@ binding = "ASSETS"
 directory = ".open-next/assets"
 
 # Audit queue KV — production binding. Set the id from the dashboard.
-# [[kv_namespaces]]
-# binding = "AUDIT_QUEUE"
-# id = "<production-kv-id>"
+[[kv_namespaces]]
+binding = "AUDIT_QUEUE"
+id = "4f4aeab739c247268c6a6c7cc9d91c1f"
 
 # Preview deployment KV (separate namespace for preview branches).
 # [[env.preview.kv_namespaces]]
-# binding = "AUDIT_QUEUE"
-# id = "<preview-kv-id>"
+binding = "AUDIT_QUEUE"
+id = "4f4aeab739c247268c6a6c7cc9d91c1f"
 
 # Environment variables — set per-environment in the Cloudflare dashboard:
 #   WIELE_AI_API_URL              (stub or real URL)
