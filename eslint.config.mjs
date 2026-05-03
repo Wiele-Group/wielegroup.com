@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // OpenNext for Cloudflare Workers — generated bundle, not source.
+    // Without this, `npm run lint` floods with 543 errors / 14k+ warnings
+    // from `.open-next/worker.js` + `server-functions/default/*` that
+    // are not ours to fix. Phase 9.1 fix.
+    ".open-next/**",
   ]),
 ]);
 
