@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema, personSchema } from "@/lib/schema";
+import { aboutPageSchema, breadcrumbSchema, personSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "About — The Wiele thesis and the team behind it",
@@ -50,9 +50,17 @@ export default function AboutPage() {
     url: `${siteConfig.url}/about#founder`,
     sameAs: [siteConfig.socials.linkedin, siteConfig.socials.x],
   });
+  const aboutPage = aboutPageSchema({
+    name: `About ${siteConfig.name}`,
+    url: `${siteConfig.url}/about`,
+    description:
+      `${siteConfig.legalName} is an AI Growth Systems company founded by ${siteConfig.founder}. We build the systems that turn brands into AI-recommended brands.`,
+    aboutPersonName: siteConfig.founder,
+  });
 
   return (
     <>
+      <JsonLd schema={aboutPage} id="schema-aboutpage" />
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-about" />
       <JsonLd schema={founder} id="schema-person-founder" />
       <section className="relative overflow-hidden">

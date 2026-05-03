@@ -9,7 +9,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { systemsDetailList } from "@/data/systems-detail";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Systems — Growth systems for the AI search era",
@@ -23,9 +23,17 @@ export default function SystemsIndexPage() {
     { name: "Home", url: siteConfig.url },
     { name: "Systems", url: `${siteConfig.url}/systems` },
   ]);
+  const itemList = itemListSchema({
+    name: "Wiele Systems",
+    items: systemsDetailList.map((s) => ({
+      name: s.hero.title,
+      url: `${siteConfig.url}/systems/${s.slug}`,
+    })),
+  });
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-systems" />
+      <JsonLd schema={itemList} id="schema-itemlist-systems" />
       <section className="relative overflow-hidden">
         <div
           aria-hidden

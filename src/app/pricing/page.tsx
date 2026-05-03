@@ -10,7 +10,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { pricingTiers } from "@/data/pricing";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
@@ -72,10 +72,31 @@ export default function PricingPage() {
   ]);
   const faq = faqSchema(pricingFaq.map((f) => ({ question: f.question, answer: f.answer })));
 
+  // One Product schema per pricing tier (Phase 7.1 matrix). Price is the
+  // numeric portion of the formatted tier.price (e.g. "£4,000 / mo" → "4000.00").
+  // GBP throughout — locked in directive §2 row 8.
+  const products = pricingTiers.map((tier) => {
+    const numeric = tier.price.replace(/[^\d]/g, "") + ".00";
+    return productSchema({
+      name: `Wiele ${tier.name}`,
+      description: tier.positioning,
+      price: numeric,
+      priceCurrency: "GBP",
+      url: `${siteConfig.url}/pricing#${tier.id}`,
+    });
+  });
+
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-pricing" />
       <JsonLd schema={faq} id="schema-faq-pricing" />
+      {products.map((product, i) => (
+        <JsonLd
+          key={pricingTiers[i].id}
+          schema={product}
+          id={`schema-product-${pricingTiers[i].id}`}
+        />
+      ))}
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">

@@ -1,14 +1,22 @@
 import type { MetadataRoute } from "next";
-import { getAllArticles } from "@/lib/labs";
+import { getVisibleArticleManifest } from "@/lib/labs-static";
 import { siteConfig } from "@/lib/metadata";
+
+// Phase 7.1: explicit static export. OpenNext on Cloudflare Workers was
+// re-evaluating this route at runtime in a context where fs reads fail
+// silently — articles dropped from sitemap. force-static is defence-in-depth
+// alongside the static manifest import (which is the actual fix).
+export const dynamic = "force-static";
+export const revalidate = false;
 
 /**
  * sitemap.xml — built at compile time from a static route list + the labs
- * filesystem. Hidden articles (`hidden: true` in frontmatter) are filtered
- * out by getAllArticles() before they reach this file.
+ * article manifest (src/lib/labs-static.ts). The manifest is a TS module
+ * the bundler ships with the Worker; no fs access at runtime.
  *
- * Same pattern as selectFixture(date): pure function, build-time evaluated,
- * no runtime surprises (founder reinforcement #5 from Phase 4 brief).
+ * Build-time validation (Zod) of MDX frontmatter still runs in
+ * src/lib/labs.ts and still fails the build on invalid frontmatter —
+ * the safety net is intact. This route just doesn't depend on fs.
  */
 
 type Priority = number;
@@ -49,12 +57,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r.priority,
   }));
 
-  const articleEntries: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
-    url: article.url,
-    lastModified: new Date(article.lastUpdated),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const articleEntries: MetadataRoute.Sitemap = getVisibleArticleManifest().map(
+    ({ slug, lastUpdated }) => ({
+      url: `${siteConfig.url}/labs/${slug}`,
+      lastModified: new Date(lastUpdated),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }),
+  );
 
   return [...staticEntries, ...articleEntries];
 }

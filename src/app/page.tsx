@@ -11,6 +11,9 @@ import {
   ProofStrip,
   TrustSectionPreview,
 } from "@/components/sections";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema } from "@/lib/schema";
+import { siteConfig } from "@/lib/metadata";
 
 /**
  * ISR — re-generate the homepage every 60 seconds at the edge so the
@@ -29,8 +32,13 @@ export const revalidate = 60;
  * Header + Footer live in src/app/layout.tsx so they wrap every route.
  */
 export default function HomePage() {
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+  ]);
+
   return (
     <>
+      <JsonLd schema={breadcrumbs} id="schema-breadcrumb-home" />
       <HeroSection />
       <ProofStrip />
       <ProblemSection />

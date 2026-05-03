@@ -8,7 +8,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { getAllArticles, getAllCategories } from "@/lib/labs";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Wiele Labs — Field notes from the AI growth frontier",
@@ -25,10 +25,23 @@ export default function LabsIndexPage() {
     { name: "Home", url: siteConfig.url },
     { name: "Wiele Labs", url: `${siteConfig.url}/labs` },
   ]);
+  const blog = blogSchema({
+    name: "Wiele Labs",
+    url: `${siteConfig.url}/labs`,
+    description:
+      "Strategy, methodology, and field notes on how AI search actually rewards brands. Founder-led writing from Wiele Group.",
+    posts: articles.map((a) => ({
+      headline: a.title,
+      url: a.url,
+      datePublished: a.lastUpdated,
+      authorName: a.author,
+    })),
+  });
 
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-labs" />
+      <JsonLd schema={blog} id="schema-blog-labs" />
 
       <section className="relative overflow-hidden">
         <div

@@ -7,7 +7,7 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { JsonLd } from "@/components/json-ld";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, contactPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact — Talk to Wiele",
@@ -42,8 +42,15 @@ export default function ContactPage() {
     { name: "Home", url: siteConfig.url },
     { name: "Contact", url: `${siteConfig.url}/contact` },
   ]);
+  const contactPage = contactPageSchema({
+    name: `Contact ${siteConfig.name}`,
+    url: `${siteConfig.url}/contact`,
+    description:
+      "Talk to Wiele. Strategy calls, partnership enquiries, press, or general questions.",
+  });
   return (
     <>
+      <JsonLd schema={contactPage} id="schema-contactpage" />
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-contact" />
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />

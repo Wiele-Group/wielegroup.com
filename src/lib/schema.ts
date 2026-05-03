@@ -104,6 +104,51 @@ export type ProductSchema = SchemaBase & {
   };
 };
 
+/* ─────────────────────────────────────────────────────────────
+   Phase 7.1 schema additions — Blog, ItemList, AboutPage, ContactPage
+───────────────────────────────────────────────────────────────── */
+
+export type BlogSchema = SchemaBase & {
+  "@type": "Blog";
+  name: string;
+  url: string;
+  description?: string;
+  publisher?: { "@type": "Organization"; name: string; url: string };
+  blogPost?: {
+    "@type": "BlogPosting";
+    headline: string;
+    url: string;
+    datePublished: string;
+    author?: PersonRef;
+  }[];
+};
+
+export type ItemListSchema = SchemaBase & {
+  "@type": "ItemList";
+  name?: string;
+  itemListElement: {
+    "@type": "ListItem";
+    position: number;
+    url: string;
+    name: string;
+  }[];
+};
+
+export type AboutPageSchema = SchemaBase & {
+  "@type": "AboutPage";
+  name: string;
+  url: string;
+  description?: string;
+  about?: PersonRef;
+};
+
+export type ContactPageSchema = SchemaBase & {
+  "@type": "ContactPage";
+  name: string;
+  url: string;
+  description?: string;
+};
+
 export type AnySchema =
   | OrganizationSchema
   | WebSiteSchema
@@ -112,7 +157,11 @@ export type AnySchema =
   | FaqPageSchema
   | BreadcrumbListSchema
   | PersonSchema
-  | ProductSchema;
+  | ProductSchema
+  | BlogSchema
+  | ItemListSchema
+  | AboutPageSchema
+  | ContactPageSchema;
 
 /* ─────────────────────────────────────────────────────────────
    Helpers / canonical instances
@@ -269,5 +318,81 @@ export function productSchema(input: {
       availability: "https://schema.org/InStock",
       url: input.url,
     },
+  };
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Phase 7.1 helpers — Blog, ItemList, AboutPage, ContactPage
+───────────────────────────────────────────────────────────────── */
+
+export function blogSchema(input: {
+  name: string;
+  url: string;
+  description: string;
+  posts: { headline: string; url: string; datePublished: string; authorName: string }[];
+}): BlogSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: input.name,
+    url: input.url,
+    description: input.description,
+    publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+    blogPost: input.posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.headline,
+      url: p.url,
+      datePublished: p.datePublished,
+      author: { "@type": "Person", name: p.authorName },
+    })),
+  };
+}
+
+export function itemListSchema(input: {
+  name?: string;
+  items: { url: string; name: string }[];
+}): ItemListSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: input.name,
+    itemListElement: input.items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: item.url,
+      name: item.name,
+    })),
+  };
+}
+
+export function aboutPageSchema(input: {
+  name: string;
+  url: string;
+  description: string;
+  aboutPersonName?: string;
+}): AboutPageSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: input.name,
+    url: input.url,
+    description: input.description,
+    about: input.aboutPersonName
+      ? { "@type": "Person", name: input.aboutPersonName, url: `${siteConfig.url}/about#founder` }
+      : undefined,
+  };
+}
+
+export function contactPageSchema(input: {
+  name: string;
+  url: string;
+  description: string;
+}): ContactPageSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: input.name,
+    url: input.url,
+    description: input.description,
   };
 }

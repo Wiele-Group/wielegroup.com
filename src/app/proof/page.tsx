@@ -6,7 +6,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { proofPlaceholders } from "@/data/homepage";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "Proof — Wiele engagements, engine output, before and after",
@@ -38,9 +38,19 @@ export default function ProofPage() {
     { name: "Home", url: siteConfig.url },
     { name: "Proof", url: `${siteConfig.url}/proof` },
   ]);
+  const itemList = itemListSchema({
+    name: "Wiele Case Studies",
+    items: proofPlaceholders.map((p) => ({
+      // Placeholder URLs — case-study slugs land in Phase 8+ when first
+      // engagements clear NDA. Schema points at /proof anchors for now.
+      name: `${p.sector} — ${p.headline}`,
+      url: `${siteConfig.url}/proof#${p.sector.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+    })),
+  });
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-proof" />
+      <JsonLd schema={itemList} id="schema-itemlist-proof" />
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">

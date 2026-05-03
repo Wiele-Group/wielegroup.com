@@ -15,6 +15,7 @@ import {
   articleSchema,
   breadcrumbSchema,
   faqSchema,
+  personSchema,
 } from "@/lib/schema";
 
 /**
@@ -84,10 +85,20 @@ export default async function LabsArticlePage({
     { name: article.title, url: article.url },
   ]);
   const faq = article.faq && article.faq.length > 0 ? faqSchema(article.faq) : null;
+  // Phase 7.1 matrix: per-route Person schema for the article author.
+  // Article schema's nested author is good but a top-level Person carries
+  // sameAs + jobTitle + worksFor cleanly for AI engines that index entities.
+  const author = personSchema({
+    name: article.author,
+    jobTitle: "Founder & Principal",
+    url: `${siteConfig.url}/about#founder`,
+    sameAs: [siteConfig.socials.linkedin, siteConfig.socials.x],
+  });
 
   return (
     <>
       <JsonLd schema={articleJsonLd} id={`schema-article-${slug}`} />
+      <JsonLd schema={author} id={`schema-author-${slug}`} />
       <JsonLd schema={breadcrumbs} id={`schema-breadcrumb-${slug}`} />
       {faq ? <JsonLd schema={faq} id={`schema-faq-${slug}`} /> : null}
 
