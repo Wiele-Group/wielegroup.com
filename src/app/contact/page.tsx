@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Mail, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonStyles } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { buttonStyles } from "@/components/ui/button";
+import { ContactForm } from "@/components/forms/contact-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { JsonLd } from "@/components/json-ld";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
@@ -113,35 +112,7 @@ export default function ContactPage() {
               </Link>{" "}
               is the faster path.
             </p>
-
-            <form className="grid gap-4" aria-describedby="contact-form-status">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Input label="Your name" name="name" autoComplete="name" required />
-                <Input
-                  label="Email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                />
-              </div>
-              <Input label="Company" name="company" autoComplete="organization" />
-              <Textarea
-                label="What would you like to discuss?"
-                name="message"
-                rows={5}
-                required
-              />
-              <p id="contact-form-status" className="text-body-xs font-mono text-smoke">
-                Form submission wires to /api/contact in Phase 5. UI is live;
-                the route handler lands with the audit form.
-              </p>
-              <div className="flex justify-end mt-2">
-                <Button type="submit" size="md" disabled aria-disabled>
-                  Send message
-                </Button>
-              </div>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

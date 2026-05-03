@@ -35,7 +35,6 @@ export function JsonLd({
     <script
       id={id}
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger -- JSON.stringify + < escape is the standard hardening
       dangerouslySetInnerHTML={{ __html: json }}
     />
   );

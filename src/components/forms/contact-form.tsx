@@ -1,0 +1,185 @@
+"use client";
+
+import { useState } from "react";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { TurnstileWidget } from "@/components/forms/turnstile-widget";
+import { contactSchema, type ContactInput } from "@/lib/validations";
+
+type FieldErrors = Partial<Record<keyof ContactInput | "_form", string>>;
+
+export function ContactForm() {
+  const [values, setValues] = useState<Omit<ContactInput, "turnstileToken">>({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const update =
+    <K extends keyof typeof values>(key: K) =>
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const value = event.target.value;
+      setValues((prev) => ({ ...prev, [key]: value }));
+      if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
+    };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrors({});
+
+    if (!turnstileToken) {
+      setErrors({ _form: "Please complete the verification before submitting" });
+      return;
+    }
+
+    const payload: ContactInput = { ...values, turnstileToken };
+    const parsed = contactSchema.safeParse(payload);
+    if (!parsed.success) {
+      const next: FieldErrors = {};
+      for (const issue of parsed.error.issues) {
+        next[issue.path[0] as keyof ContactInput] = issue.message;
+      }
+      setErrors(next);
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ticketId?: string;
+        error?: string;
+        issues?: { field: string; message: string }[];
+      };
+
+      if (res.status === 202 && data.ticketId) {
+        setSuccess(data.ticketId);
+        return;
+      }
+      if (res.status === 400 && data.issues) {
+        const next: FieldErrors = {};
+        for (const issue of data.issues) {
+          next[issue.field as keyof ContactInput] = issue.message;
+        }
+        setErrors(next);
+        return;
+      }
+      if (res.status === 403) {
+        setErrors({
+          _form: data.error ?? "Verification failed. Please reload and try again.",
+        });
+        return;
+      }
+      setErrors({
+        _form:
+          "Submission could not be processed right now. Email us directly at hello@wielegroup.com.",
+      });
+    } catch (err) {
+      console.error("[contact-form] network failure", err);
+      setErrors({ _form: "Network issue. Email us directly at hello@wielegroup.com." });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (success) {
+    return (
+      <div className="rounded-[var(--radius-xl)] border border-success/30 bg-[rgba(55,214,122,0.05)] p-6 md:p-7">
+        <div className="flex items-start gap-3">
+          <CheckCircle2 size={22} className="shrink-0 text-success mt-0.5" aria-hidden />
+          <div>
+            <h2 className="text-heading-lg text-white mb-2">Message sent.</h2>
+            <p className="text-body-md text-cloud">
+              We respond inside one business day. If it&apos;s urgent, email
+              hello@wielegroup.com directly.
+            </p>
+            <p className="text-body-xs font-mono text-smoke mt-3">
+              Reference: {success}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="grid gap-4" noValidate>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Input
+          label="Your name"
+          name="name"
+          autoComplete="name"
+          value={values.name}
+          onChange={update("name")}
+          error={errors.name}
+          required
+        />
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          value={values.email}
+          onChange={update("email")}
+          error={errors.email}
+          required
+        />
+      </div>
+      <Input
+        label="Company"
+        name="company"
+        autoComplete="organization"
+        value={values.company ?? ""}
+        onChange={update("company")}
+        error={errors.company}
+      />
+      <Textarea
+        label="What would you like to discuss?"
+        name="message"
+        rows={5}
+        value={values.message}
+        onChange={update("message")}
+        error={errors.message}
+        required
+      />
+
+      <TurnstileWidget
+        onToken={setTurnstileToken}
+        onError={() => setTurnstileToken(null)}
+        className="min-h-[64px]"
+      />
+
+      {errors._form ? (
+        <p
+          role="alert"
+          className="text-body-sm text-danger bg-[rgba(255,77,77,0.08)] border border-danger/30 rounded-[var(--radius-md)] px-4 py-3"
+        >
+          {errors._form}
+        </p>
+      ) : null}
+
+      <div className="flex justify-end mt-2">
+        <Button type="submit" size="md" disabled={submitting || !turnstileToken}>
+          {submitting ? (
+            <>
+              <Loader2 size={15} className="animate-spin" aria-hidden /> Sending…
+            </>
+          ) : (
+            "Send message"
+          )}
+        </Button>
+      </div>
+    </form>
+  );
+}

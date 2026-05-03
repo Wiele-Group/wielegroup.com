@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Check, Clock, FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonStyles } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
+import { AuditForm } from "@/components/forms/audit-form";
 import { JsonLd } from "@/components/json-ld";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import { promptSimulatorFixtures } from "@/data/prompt-simulator-fixtures";
@@ -196,7 +193,7 @@ export default function AuditPage() {
         </div>
       </section>
 
-      {/* Form skeleton */}
+      {/* Real audit form — Phase 5 */}
       <section id="audit-form" className="py-16 md:py-20 lg:py-24 scroll-mt-24">
         <div className="mx-auto max-w-3xl px-[var(--container-px)]">
           <div className="rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-8">
@@ -207,52 +204,11 @@ export default function AuditPage() {
               Run AI Visibility Audit
             </h2>
             <p className="text-body-sm text-silver mb-6">
-              Form UI is live. Server-side validation, payment, and
-              wiele-ai integration land in Phase 5.
+              Eight fields, two steps, fourteen-day delivery. The engine runs
+              once you submit; you receive a full report and a strategy
+              session with a Wiele principal.
             </p>
-            <form className="grid gap-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Input label="Your name" name="name" autoComplete="name" required />
-                <Input label="Email" name="email" type="email" autoComplete="email" required />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Input label="Company" name="company" autoComplete="organization" required />
-                <Input label="Website" name="website" type="url" placeholder="https://" required />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Input label="Industry / niche" name="industry" required />
-                <Input label="Main market" name="market" placeholder="e.g. UK, EU, North America" required />
-              </div>
-              <Input
-                label="Primary competitors"
-                name="competitors"
-                placeholder="Up to 3, comma-separated"
-                hint="The brands you most often lose deals to or share buyer attention with."
-                required
-              />
-              <Textarea
-                label="What do you want buyers to choose you for?"
-                name="positioning"
-                rows={4}
-                required
-              />
-              <p className="text-body-xs font-mono text-smoke">
-                Submission wires to wiele-ai engine in Phase 5. The form
-                renders today so the layout, validation surfaces, and field
-                order are locked.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 mt-2">
-                <Button type="submit" size="lg" disabled aria-disabled>
-                  Submit audit · £2,500
-                </Button>
-                <Link
-                  href="/pricing"
-                  className={buttonStyles({ variant: "ghost", size: "lg" })}
-                >
-                  See full pricing
-                </Link>
-              </div>
-            </form>
+            <AuditForm />
           </div>
         </div>
       </section>
