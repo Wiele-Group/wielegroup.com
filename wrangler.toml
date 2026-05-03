@@ -52,10 +52,22 @@ id = "4f4aeab739c247268c6a6c7cc9d91c1f"
 # binding = "AUDIT_QUEUE"
 # id = "<preview-namespace-id>"
 
-# Environment variables — set per-environment in the Cloudflare dashboard:
-#   WIELE_AI_API_URL              (stub or real URL)
-#   WIELE_AI_API_KEY              (server-only secret, real-mode only)
-#   RESEND_API_KEY                (server-only secret)
-#   TURNSTILE_SECRET_KEY          (server-only secret)
-#   NEXT_PUBLIC_TURNSTILE_SITE_KEY (client-bundled — set in Pages env)
-#   NEXT_PUBLIC_PLAUSIBLE_DOMAIN  (client-bundled — usually "wielegroup.com")
+# Environment variables.
+#
+# SERVER-ONLY SECRETS (set via `npx wrangler secret put NAME`, runtime-injected):
+#   WIELE_AI_API_KEY              (real-mode only)
+#   RESEND_API_KEY                ✅ set 2026-05-03
+#   TURNSTILE_SECRET_KEY          ✅ set 2026-05-03
+#   STRIPE_PRICE_ID_AUDIT/LAUNCH/GROWTH/AUTHORITY/WIELE_OS  (Phase 8.x)
+#
+# CLIENT-BUNDLED VARS (must live in [vars] below — `NEXT_PUBLIC_*` is
+# baked into the client bundle at BUILD TIME; `wrangler secret put` won't
+# work for these. Per feedback_deploy_pitfalls.md.)
+#
+# Updating any [vars] entry requires a fresh `npx wrangler deploy` to
+# rebuild the client bundle.
+
+[vars]
+WIELE_AI_API_URL = "stub"
+NEXT_PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAADIjKdUEzaX6RPAn"
+# NEXT_PUBLIC_PLAUSIBLE_DOMAIN = "wielegroup.com"  # ← uncomment in Phase 8.3 (Item 5)
