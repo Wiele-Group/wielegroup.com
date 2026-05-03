@@ -4,8 +4,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteConfig.name,
+  legalName: siteConfig.legalName,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/logo.svg`,
+  logo: `${siteConfig.url}/brand/wiele-wordmark-master.svg`,
   description: siteConfig.description,
   founder: {
     "@type": "Person",
@@ -19,13 +20,23 @@ export const organizationSchema = {
   sameAs: [siteConfig.socials.linkedin, siteConfig.socials.x],
   areaServed: "Worldwide",
   knowsAbout: [
-    "Search Engine Optimization",
-    "Answer Engine Optimization",
+    "AI Visibility",
     "Generative Engine Optimization",
-    "Performance Marketing",
-    "Web Design",
-    "AI Search Visibility",
+    "Answer Engine Optimization",
+    "Search Engine Optimization",
+    "Brand Authority",
+    "AI Recommendation Systems",
+    "Growth Systems",
   ],
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
 };
 
 export function serviceSchema(name: string, url: string, description: string) {
@@ -34,11 +45,7 @@ export function serviceSchema(name: string, url: string, description: string) {
     "@type": "Service",
     name,
     description,
-    provider: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
+    provider: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
     url,
     areaServed: "Worldwide",
   };

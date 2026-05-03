@@ -1,40 +1,58 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import { siteConfig, jsonLd } from "@/lib/metadata";
-import { organizationSchema } from "@/lib/schema";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { fontSans, fontMono } from "@/lib/fonts";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: { default: `${siteConfig.name} — ${siteConfig.tagline}`, template: `%s | ${siteConfig.name}` },
-  description: siteConfig.description,
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
-  },
-  twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.description },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-  alternates: { canonical: siteConfig.url },
+export const metadata: Metadata = buildMetadata();
+
+export const viewport: Viewport = {
+  themeColor: "#0B0D10",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+/**
+ * Root layout — wires fonts, sets dark theme, mounts Header + Footer
+ * around every route.
+ *
+ * NOTE: JSON-LD schema injection (organizationSchema, websiteSchema)
+ * lands in Phase 4 alongside sitemap.ts, robots.ts, and llms.txt.
+ * Helpers are already exported from `@/lib/schema` and ready to wire.
+ */
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className="dark">
+    <html
+      lang="en-GB"
+      className={`${fontSans.variable} ${fontMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationSchema)} />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
-      <body className="min-h-screen flex flex-col">
-        <Nav />
-        <main className="flex-1 pt-16">{children}</main>
+      <body className="min-h-dvh flex flex-col bg-[var(--color-void)] text-cloud antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-md)] focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to main content
+        </a>
+        <Header />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <Footer />
+        <span className="sr-only">{siteConfig.legalName}</span>
       </body>
     </html>
   );
