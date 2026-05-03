@@ -28,6 +28,14 @@ workers_dev = true  # keep workers.dev URL for staging/smoke tests
 #   2. Provision a Cloudflare Universal SSL cert for the hostname
 #   3. Configure DNS A/AAAA records pointing to the Worker
 # SSL provisioning takes ~5-15 min after first deploy.
+#
+# Phase 7.3 fix (2026-05-03): wrangler.toml's `routes` schema does NOT
+# accept `override_existing_dns_record` even though the Cloudflare API
+# does. The apex had pre-existing DNS records (likely A/CNAME from a
+# previous host) and wrangler couldn't bind the route. Resolution: a
+# one-time curl PUT against the Cloudflare API with the override flag,
+# then this routes config drives subsequent deploys cleanly.
+# See: scripts/attach-custom-domain-api.sh (Phase 7.3 fix runbook).
 routes = [
   { pattern = "wielegroup.com", custom_domain = true },
   { pattern = "www.wielegroup.com", custom_domain = true },
