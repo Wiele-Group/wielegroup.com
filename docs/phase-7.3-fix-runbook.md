@@ -11,7 +11,20 @@
 
 `https://wielegroup.com` returns HTTP 403 (Cloudflare default error page) instead of routing to the `wielegroup-com` Worker.
 
-### Root cause
+### Cross-account hypothesis — RULED OUT (Step 1 confirmed 2026-05-03)
+
+A common cause of "Worker deployed but custom domain 403s" is the zone living in a different Cloudflare account than the Worker. Verified-not-the-case here:
+
+| Check | Result |
+|---|---|
+| Zones returned by API call for `wielegroup.com` | 1 |
+| Zone account_id | `0edf698a8da62c67cde23e4f97de7a1b` |
+| Worker account_id | `0edf698a8da62c67cde23e4f97de7a1b` |
+| Same account? | **Yes — both in Wiele Group** ✓ |
+
+Skip the "move zone" path entirely.
+
+### Actual root cause
 
 The apex zone `wielegroup.com` has **pre-existing externally-managed DNS records** (A or CNAME, likely from a prior host before the Worker existed). Cloudflare Workers Custom Domain attach refuses to overwrite these records without explicit override.
 
