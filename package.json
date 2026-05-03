@@ -9,7 +9,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run lint && npm run typecheck && npm run build"
+    "verify": "npm run lint && npm run typecheck && npm run build",
+    "build:cf": "next build && opennextjs-cloudflare build",
+    "preview:cf": "npm run build:cf && wrangler dev",
+    "deploy:cf": "npm run build:cf && wrangler deploy"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -33,6 +36,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
+    "@opennextjs/cloudflare": "^1.19.5",
     "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
@@ -40,6 +44,7 @@
     "eslint-config-next": "^16.2.4",
     "postcss": "^8.5.13",
     "tailwindcss": "^4.2.4",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.87.0"
   }
 }

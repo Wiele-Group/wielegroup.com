@@ -1,0 +1,46 @@
+# Cloudflare Pages security headers — mandatory per directive §6 Phase 6.
+#
+# Verify post-deploy at https://securityheaders.com — target grade A.
+# Verify TLS at https://www.ssllabs.com/ssltest/ — target grade A+.
+#
+# CSP allowlist:
+#   self                              — first-party origin
+#   https://plausible.io              — Plausible analytics script
+#   https://challenges.cloudflare.com — Turnstile widget (script + iframe)
+#   data: https:                      — img-src for OG previews + AVIF/WebP
+#   'unsafe-inline'                   — required for inline JSON-LD
+#                                       (hardened via JSON.stringify + < escape;
+#                                       see src/components/json-ld.tsx) and
+#                                       Tailwind 4 CSS-in-JS at runtime
+#
+# When adopting strict CSP nonces in a future hardening pass, regenerate
+# the script-src + style-src lines with 'strict-dynamic' + nonce-${nonce}
+# and remove 'unsafe-inline'.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://plausible.io https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+
+# Static asset cache — fonts and brand SVGs are immutable, ship with
+# 1-year cache + immutable flag for instant repeat-visit loads.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/brand/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicons + OG image — long cache, but not immutable (we may swap them).
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+/og-image.png
+  Cache-Control: public, max-age=86400
+
+# llms.txt is read by AI crawlers — short cache so we can iterate.
+/llms.txt
+  Cache-Control: public, max-age=600
+  Content-Type: text/plain; charset=utf-8

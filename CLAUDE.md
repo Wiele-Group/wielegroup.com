@@ -87,6 +87,15 @@ In `next.config.ts`: `remarkPlugins: [["remark-gfm", {}]]`, NOT `[remarkGfm]`. T
 ### Lead-capture forms fail-open to KV
 Audit + contact route handlers: validate Zod → verify Turnstile → write KV FIRST → wiele-ai (best-effort) → Resend × 2 (best-effort) → return 202. A paid-intent submission must NEVER see "submission failed" because of downstream flakiness. The customer-facing failure path is invalid input or bot — that's it.
 
+### ISR scope is `/` only
+`export const revalidate = 60` lives on `src/app/page.tsx` ONLY — it's there so the per-minute fixture rotation in HeroSection actually rotates between deploys. Other routes stay fully static (`/labs/<slug>` redeploys on git push; `/systems/*`, `/pricing`, `/about` are content-stable; `/api/*` are dynamic on submit). Adding `revalidate` elsewhere is wasted runtime cost.
+
+### Plausible analytics scope is public marketing only
+`<PlausibleScript />` mounted in root layout, gated by `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`. Absent env var = no script renders, zero-cookie dev experience preserved. Never inject on `/api/*` or future admin routes — keep the "no cookie banner anywhere on Wiele" property intact.
+
+### Don't auto-remove the legacy redirect block
+The 9-redirect block in `next.config.ts` carries a `TODO(2026-08-03)` comment. Phase 7+ task: REMOVE only after Search Console + Plausible referrer data confirm zero traffic to `/services/*`, `/work`, `/journal` for the prior 30 days. Code that auto-deletes itself in 90 days is a footgun.
+
 ## Start Here
 Read `../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` once. Then execute Phase 0 (brand asset copy) → Phase 1 (foundation).
 

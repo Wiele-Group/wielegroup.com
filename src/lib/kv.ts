@@ -40,17 +40,20 @@ const memoryKv: KvNamespace = {
 };
 
 /**
- * Resolves the AUDIT_QUEUE namespace. On Cloudflare Workers/Pages this
- * lives on the request env; in dev/build we fall back to the in-memory
- * store so the build never breaks for missing infra.
+ * Resolves the AUDIT_QUEUE namespace. On Cloudflare Workers (via the
+ * @opennextjs/cloudflare adapter) the binding lives on the request env;
+ * in dev/build we fall back to the in-memory store so the build never
+ * breaks for missing infra.
+ *
+ * Adapter note: @cloudflare/next-on-pages peer-locks to Next ≤15.5.2 and
+ * doesn't support Next 16. @opennextjs/cloudflare is Cloudflare's
+ * recommended adapter for Next 14+ — see DEPLOY.md for the build pipeline.
  */
 async function getAuditQueue(): Promise<KvNamespace> {
-  // Avoid bundling @cloudflare/next-on-pages into client code — dynamic
-  // import keeps it server-only.
   try {
-    const mod = await import("@cloudflare/next-on-pages").catch(() => null);
-    if (mod && typeof mod.getRequestContext === "function") {
-      const ctx = mod.getRequestContext();
+    const mod = await import("@opennextjs/cloudflare").catch(() => null);
+    if (mod && typeof mod.getCloudflareContext === "function") {
+      const ctx = mod.getCloudflareContext();
       const env = ctx?.env as { AUDIT_QUEUE?: KvNamespace } | undefined;
       if (env?.AUDIT_QUEUE) return env.AUDIT_QUEUE;
     }

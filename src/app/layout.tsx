@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/json-ld";
+import { PlausibleScript } from "@/components/plausible";
 import { fontSans, fontMono } from "@/lib/fonts";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -43,6 +44,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body className="min-h-dvh flex flex-col bg-[var(--color-void)] text-cloud antialiased">
+        <PlausibleScript />
         <JsonLd schema={organizationSchema} id="schema-organization" />
         <JsonLd schema={websiteSchema} id="schema-website" />
         <a

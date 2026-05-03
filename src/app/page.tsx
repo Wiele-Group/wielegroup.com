@@ -13,6 +13,18 @@ import {
 } from "@/components/sections";
 
 /**
+ * ISR — re-generate the homepage every 60 seconds at the edge so the
+ * minute-rotating fixture in HeroSection actually rotates between
+ * deploys. Scope is `/` only; other routes stay fully static. Adding
+ * `revalidate` elsewhere is a wasted runtime cost — Labs articles
+ * change on git push (which redeploys), system pages are content
+ * stable, audit/contact are dynamic on submit, sitemap is rebuilt.
+ *
+ * Authority: founder reinforcement #3 from Phase 6 brief (binding scope).
+ */
+export const revalidate = 60;
+
+/**
  * Homepage — 12-section blueprint per CLAUDE_CODE_HANDOFF §9.
  * Header + Footer live in src/app/layout.tsx so they wrap every route.
  */

@@ -1,0 +1,43 @@
+# Cloudflare Workers configuration for wielegroup.com
+#
+# Adapter: @opennextjs/cloudflare (Cloudflare's recommended adapter for
+# Next 14+, replaces @cloudflare/next-on-pages which peer-locks to Next
+# ≤15.5.2 and doesn't support Next 16).
+#
+# Build pipeline:
+#   1. npm run build                       → Next.js produces .next/
+#   2. npx @opennextjs/cloudflare build   → adapter compiles to .open-next/
+#   3. npx wrangler deploy                 → ships to Cloudflare Workers
+#
+# KV namespace IDs are populated in the Cloudflare dashboard
+# (Workers & Pages → Settings → KV → Bindings) — don't commit them
+# here, they're per-account references.
+#
+# DEPLOY.md (this branch) carries the full 9-gate post-deploy checklist.
+
+name = "wielegroup-com"
+main = ".open-next/worker.js"
+compatibility_date = "2026-05-03"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+binding = "ASSETS"
+directory = ".open-next/assets"
+
+# Audit queue KV — production binding. Set the id from the dashboard.
+# [[kv_namespaces]]
+# binding = "AUDIT_QUEUE"
+# id = "<production-kv-id>"
+
+# Preview deployment KV (separate namespace for preview branches).
+# [[env.preview.kv_namespaces]]
+# binding = "AUDIT_QUEUE"
+# id = "<preview-kv-id>"
+
+# Environment variables — set per-environment in the Cloudflare dashboard:
+#   WIELE_AI_API_URL              (stub or real URL)
+#   WIELE_AI_API_KEY              (server-only secret, real-mode only)
+#   RESEND_API_KEY                (server-only secret)
+#   TURNSTILE_SECRET_KEY          (server-only secret)
+#   NEXT_PUBLIC_TURNSTILE_SITE_KEY (client-bundled — set in Pages env)
+#   NEXT_PUBLIC_PLAUSIBLE_DOMAIN  (client-bundled — usually "wielegroup.com")

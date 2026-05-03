@@ -41,8 +41,12 @@ const nextConfig: NextConfig = {
   /**
    * Phase 3 IA cutover — 9 permanent redirects from legacy IA to new IA.
    * Authority: directive §6 Phase 3 + memory/feedback_cutover_discipline.md.
-   * Remove this block ~90 days post-cutover once Search Console + analytics
-   * confirm the legacy URLs no longer drive traffic.
+   *
+   * TODO(2026-08-03): Phase 7 task — remove this entire redirects() block
+   * IF AND ONLY IF Google Search Console + Plausible referrer data confirm
+   * zero traffic to /services/*, /work, /journal in the prior 30 days.
+   * Code that auto-deletes itself in 90 days is a footgun; keep the
+   * removal a deliberate human action with verification first.
    */
   async redirects() {
     return [
