@@ -31,8 +31,10 @@
 }
 
 html {
-  background: var(--color-void);
-  color: var(--color-cloud);
+  /* B4 Chromaglass — vertical midnight gradient on root, radial accent on body */
+  background: var(--gradient-page-vertical);
+  background-attachment: fixed;
+  color: var(--color-chrome-mid);
   scroll-behavior: smooth;
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -41,8 +43,10 @@ html {
 }
 
 body {
-  background: var(--color-void);
-  color: var(--color-cloud);
+  /* Radial glow center — premium product-render mood */
+  background: var(--gradient-page-radial);
+  background-attachment: fixed;
+  color: var(--color-chrome-mid);
   font-family: var(--font-sans);
   font-size: var(--text-body-md);
   line-height: 1.6;
@@ -51,8 +55,8 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: var(--color-white);
+  background: rgba(59, 130, 246, 0.28);
+  color: var(--color-chrome-hi);
 }
 
 /* Visible focus only on keyboard navigation */
@@ -64,11 +68,18 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* B4: substitute, don't delete. Transition durations cap via token
+     override in tokens.css; loop animations disabled here. Scroll snaps
+     to instant. Pure-translate animations (slide/parallax) are nulled
+     so motion-sensitive users get crossfade instead. */
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  [data-motion="slide"],
+  [data-motion="parallax"] {
+    transform: none !important;
   }
 }
 
@@ -98,8 +109,8 @@ body {
 
 .glass {
   background: var(--color-surface-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
 }
@@ -111,8 +122,219 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+/* ─────────────────────────────────────────────────────────────
+   Glass-Strip — animated rolling light strip around the card
+   border. Signature visual primitive of brand v2 B3.
+
+   Construction:
+   - .glass-strip = semi-transparent white overlay + 20px blur
+   - ::before = conic-gradient masked to a 1px ring, rotated via
+     @property --strip-angle for true smooth rotation
+   - ::after = soft outer glow tinted to electric, masked off
+     content area so it sits behind the strip ring
+
+   Hover: speeds up rotation + intensifies the glow.
+   Reduced motion: animation pauses, strip displays as static halo.
+   Browser fallback: @property unsupported → static gradient ring.
+───────────────────────────────────────────────────────────────── */
+
+@property --strip-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glass-strip {
+  position: relative;
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-radius: var(--radius-lg);
+  isolation: isolate;
+  transition:
+    transform var(--duration-base) var(--ease-emphasized),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.glass-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--strip-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(59, 130, 246, 0.0) 80deg,
+    rgba(59, 130, 246, 0.85) 95deg,
+    rgba(255, 255, 255, 1) 110deg,
+    rgba(59, 130, 246, 0.85) 125deg,
+    rgba(59, 130, 246, 0.0) 140deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: strip-rotate var(--duration-strip) linear infinite;
+  z-index: 1;
+}
+
+/* Static fallback ring for browsers without @property animation —
+   keeps the visual identity (electric + white halo) without motion. */
+.glass-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid var(--color-border-subtle);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-strip:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.10),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(59, 130, 246, 0.15);
+}
+
+.glass-strip:hover::before {
+  animation-duration: var(--duration-strip-hover);
+}
+
+/* Variant: pulse — uses violet sweep instead of electric */
+.glass-strip-pulse::before {
+  background: conic-gradient(
+    from var(--strip-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(139, 92, 246, 0.0) 80deg,
+    rgba(139, 92, 246, 0.85) 95deg,
+    rgba(255, 255, 255, 1) 110deg,
+    rgba(139, 92, 246, 0.85) 125deg,
+    rgba(139, 92, 246, 0.0) 140deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+}
+.glass-strip-pulse:hover {
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.10),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(139, 92, 246, 0.15);
+}
+
+/* Variant: neon — cyan sweep for data viz / technical surfaces */
+.glass-strip-neon::before {
+  background: conic-gradient(
+    from var(--strip-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(0, 217, 255, 0.0) 80deg,
+    rgba(0, 217, 255, 0.85) 95deg,
+    rgba(255, 255, 255, 1) 110deg,
+    rgba(0, 217, 255, 0.85) 125deg,
+    rgba(0, 217, 255, 0.0) 140deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+}
+
+@keyframes strip-rotate {
+  to { --strip-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-strip::before,
+  .glass-strip-pulse::before,
+  .glass-strip-neon::before {
+    animation: none;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.55),
+      rgba(255, 255, 255, 0.85),
+      rgba(59, 130, 246, 0.0) 60%
+    );
+  }
+}
+
 .ambient-gradient {
-  background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   B4 Chromaglass utilities — additive, non-breaking.
+───────────────────────────────────────────────────────────────── */
+
+/* Page-level radial glow (apply to <main> on hero pages) */
+.bg-chromaglass-radial {
+  background: var(--gradient-page-radial);
+}
+
+/* Chrome card — default surface for content blocks */
+.chrome-card {
+  background: var(--color-bg-floor);
+  border: 1px solid var(--color-chrome-vlo);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-chrome-card);
+  transition:
+    transform var(--motion-t3) var(--ease-expressive-in),
+    border-color var(--motion-t3) var(--ease-productive),
+    box-shadow var(--motion-t3) var(--ease-productive);
+}
+.chrome-card:hover {
+  transform: translateY(var(--lift-z-hero));
+  border-color: var(--color-blue-core);
+  box-shadow: var(--shadow-chrome-card), var(--shadow-glow-blue);
+}
+
+/* Duality border — bichromatic gradient ring (signature) */
+.duality-border {
+  position: relative;
+}
+.duality-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: var(--gradient-duality-edge);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Chrome divider — gradient line */
+.chrome-divider {
+  height: 1px;
+  width: 70%;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent 0%, var(--color-chrome-lo) 50%, transparent 100%);
+  border: 0;
+}
+
+/* Tier accent borders — division pages */
+.tier-accent-blue   { border-bottom: 2px solid var(--color-blue-core); }
+.tier-accent-coral  { border-bottom: 2px solid var(--color-coral-core); }
+.tier-accent-chrome { border-bottom: 2px solid var(--color-chrome-mid); }
+.tier-accent-duality {
+  border-bottom: 2px solid transparent;
+  border-image: var(--gradient-duality-edge) 1;
 }
 
 .grid-pattern {
@@ -183,10 +405,10 @@ body {
    Tinted to our electric token, NOT the blueprint's cyan. */
 .glow-edge {
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 0 1px rgba(99, 102, 241, 0.06),
-    0 24px 80px rgba(0, 0, 0, 0.45),
-    0 0 42px rgba(99, 102, 241, 0.10);
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 0 0 1px rgba(59, 130, 246, 0.06),
+    0 24px 80px rgba(0, 0, 0, 0.55),
+    0 0 42px rgba(59, 130, 246, 0.10);
 }
 
 /* Animated gradient border via pseudo-element. Apply alongside
@@ -204,8 +426,8 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     135deg,
-    rgba(99, 102, 241, 0.55),
-    rgba(34, 211, 238, 0.35),
+    rgba(59, 130, 246, 0.55),
+    rgba(0, 217, 255, 0.32),
     transparent 55%
   );
   -webkit-mask:

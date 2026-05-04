@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
+import { LogoMark3D } from "@/components/ui/logo-mark-3d";
 import { FadeIn } from "@/components/motion/fade-in";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import {
@@ -28,6 +29,11 @@ export function HeroSection() {
           {/* Copy */}
           <div className="max-w-xl">
             <FadeIn>
+              <div className="mb-6 -ml-2">
+                <LogoMark3D size="sm" priority alt="" />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.03}>
               <Badge variant="electric" size="sm" className="mb-6">
                 <span aria-hidden>●</span> {siteConfig.descriptor}
               </Badge>
@@ -48,19 +54,19 @@ export function HeroSection() {
                   href="/audit"
                   className={buttonStyles({ variant: "primary", size: "lg" })}
                 >
-                  Run AI Visibility Audit
+                  Run a Growth Audit
                 </Link>
                 <Link
-                  href="/platform"
+                  href="#disciplines"
                   className={buttonStyles({ variant: "ghost", size: "lg" })}
                 >
-                  View the System
+                  Explore the Agency
                 </Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="mt-6 text-body-xs text-smoke font-mono">
-                Engine output preview · No credit card · 14-day delivery
+                Brand · Marketing · Web · Advertising · SEO · AI Search
               </p>
             </FadeIn>
           </div>

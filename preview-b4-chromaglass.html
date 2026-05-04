@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wiele Brand v2 B4 Chromaglass — Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg-void: #070B14;
+  --bg-midnight: #0C1220;
+  --bg-floor: #141C2E;
+  --bg-elevated: #1A2540;
+  --chrome-hi: #EEF2F8;
+  --chrome-mid: #B8C4D6;
+  --chrome-lo: #5C6A82;
+  --chrome-vlo: #2A3447;
+  --blue-hi: #5BABFF;
+  --blue-core: #3B82F6;
+  --blue-lo: #1E4FA8;
+  --coral-hi: #FFC2A0;
+  --coral-core: #F08566;
+  --coral-lo: #C75D3D;
+  --gradient-duality-edge: linear-gradient(135deg, #5BABFF 0%, #F08566 100%);
+  --gradient-page-radial: radial-gradient(ellipse 1200px 800px at 50% 30%, #1A2540 0%, #0C1220 70%);
+  --gradient-page-vertical: linear-gradient(180deg, #070B14 0%, #0C1220 30%, #141C2E 100%);
+  --motion-t2: 200ms;
+  --motion-t3: 300ms;
+  --motion-t4: 500ms;
+  --ease-productive: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-expressive-in: cubic-bezier(0.32, 0.72, 0, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--gradient-page-vertical); background-attachment: fixed; }
+body {
+  background: var(--gradient-page-radial); background-attachment: fixed;
+  color: var(--chrome-mid); font-family: 'Geist', system-ui, sans-serif;
+  min-height: 100vh; -webkit-font-smoothing: antialiased; line-height: 1.6;
+}
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 4rem 0; }
+.eyebrow {
+  font-family: 'Geist Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--chrome-lo); margin-bottom: 1rem;
+}
+h1 {
+  color: var(--chrome-hi); font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1.5rem;
+}
+h2 {
+  color: var(--chrome-hi); font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+h3 { color: var(--chrome-hi); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+p.lede { color: var(--chrome-mid); font-size: 1.125rem; max-width: 640px; margin-bottom: 2rem; }
+
+/* Buttons */
+.btn-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 500; font-size: 0.9375rem;
+  text-decoration: none; cursor: pointer; border: 0;
+  transition: all var(--motion-t2) var(--ease-productive);
+}
+.btn-primary {
+  background: var(--blue-core); color: var(--chrome-hi);
+}
+.btn-primary:hover {
+  transform: translateY(-2px); box-shadow: 0 0 40px rgba(59,130,246,0.20), 0 0 80px rgba(59,130,246,0.08);
+  background: var(--blue-hi);
+}
+.btn-secondary {
+  background: transparent; color: var(--chrome-hi); border: 1px solid var(--chrome-lo);
+}
+.btn-secondary:hover { border-color: var(--blue-core); }
+.btn-featured {
+  position: relative; background: var(--bg-elevated); color: var(--chrome-hi);
+  background-clip: padding-box; border: 1px solid transparent;
+}
+.btn-featured::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+  background: var(--gradient-duality-edge);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.btn-featured:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(59,130,246,0.20), 0 0 40px rgba(240,133,102,0.18);
+}
+
+/* Cards */
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 2rem;
+}
+.card {
+  background: var(--bg-floor); border: 1px solid var(--chrome-vlo); border-radius: 14px;
+  padding: 2rem 1.5rem; box-shadow: inset 0 1px 0 rgba(238,242,248,0.06), 0 24px 60px rgba(0,0,0,0.6);
+  transition: transform var(--motion-t3) var(--ease-expressive-in),
+              border-color var(--motion-t3) var(--ease-productive),
+              box-shadow var(--motion-t3) var(--ease-productive);
+}
+.card:hover {
+  transform: translateY(-4px); border-color: var(--blue-core);
+  box-shadow: inset 0 1px 0 rgba(238,242,248,0.06), 0 24px 60px rgba(0,0,0,0.6),
+              0 0 40px rgba(59,130,246,0.20);
+}
+.card-featured {
+  position: relative; background: var(--bg-elevated); border: 1.5px solid transparent;
+  background-clip: padding-box;
+}
+.card-featured::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+  background: var(--gradient-duality-edge);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.card-featured-badge {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  padding: 0.25rem 0.75rem; background: var(--gradient-duality-edge);
+  color: var(--chrome-hi); font-size: 0.6875rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; border-radius: 9999px;
+}
+.card .price { color: var(--chrome-hi); font-size: 2.5rem; font-weight: 700; margin: 0.5rem 0; }
+.card .price small { color: var(--chrome-lo); font-size: 0.875rem; font-weight: 400; }
+.card ul { list-style: none; margin: 1.5rem 0; }
+.card ul li {
+  color: var(--chrome-mid); font-size: 0.9375rem; padding: 0.375rem 0;
+  display: flex; gap: 0.5rem; align-items: flex-start;
+}
+.card ul li::before { content: '→'; color: var(--blue-core); flex-shrink: 0; }
+.card-featured ul li::before {
+  background: var(--gradient-duality-edge); -webkit-background-clip: text;
+  background-clip: text; color: transparent;
+}
+
+/* Division cards (4) */
+.div-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.div-card { background: var(--bg-floor); border: 1px solid var(--chrome-vlo); border-radius: 14px; padding: 1.5rem; transition: transform var(--motion-t3) var(--ease-expressive-in); }
+.div-card:hover { transform: translateY(-4px); }
+.div-card.acc-blue   { border-bottom: 2px solid var(--blue-core); }
+.div-card.acc-coral  { border-bottom: 2px solid var(--coral-core); }
+.div-card.acc-chrome { border-bottom: 2px solid var(--chrome-mid); }
+.div-card.acc-duality { border-bottom: 2px solid transparent; border-image: var(--gradient-duality-edge) 1; }
+.div-card h3 { font-size: 1.0625rem; }
+.div-card p { color: var(--chrome-mid); font-size: 0.875rem; }
+
+/* Divider */
+.divider { height: 1px; width: 70%; margin: 0 auto; border: 0;
+  background: linear-gradient(90deg, transparent 0%, var(--chrome-lo) 50%, transparent 100%); }
+.divider-duality { background: linear-gradient(90deg, transparent 0%, var(--blue-core) 35%, var(--coral-core) 65%, transparent 100%); }
+
+/* Color swatches */
+.swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
+.swatch { padding: 1rem; border-radius: 10px; border: 1px solid var(--chrome-vlo); }
+.swatch .chip { width: 100%; height: 56px; border-radius: 6px; margin-bottom: 0.5rem; }
+.swatch .name { color: var(--chrome-hi); font-family: 'Geist Mono', monospace; font-size: 0.8125rem; }
+.swatch .hex { color: var(--chrome-lo); font-family: 'Geist Mono', monospace; font-size: 0.75rem; }
+
+/* Form */
+.form { max-width: 480px; }
+.form-input {
+  width: 100%; padding: 0.75rem 1rem; background: var(--bg-floor);
+  border: 1px solid var(--chrome-vlo); border-radius: 10px; color: var(--chrome-hi);
+  font-family: inherit; font-size: 0.9375rem; transition: all var(--motion-t2) var(--ease-productive);
+}
+.form-input::placeholder { color: var(--chrome-lo); }
+.form-input:focus { outline: none; border-color: var(--blue-core); box-shadow: 0 0 0 3px rgba(91,171,255,0.35); }
+.form-label { display: block; color: var(--chrome-mid); font-size: 0.875rem; margin-bottom: 0.5rem; }
+
+/* Wordmark area */
+.wordmark-stage {
+  background: var(--bg-midnight); border: 1px solid var(--chrome-vlo);
+  border-radius: 20px; padding: 4rem 2rem; text-align: center; margin-bottom: 3rem;
+  background-image: radial-gradient(ellipse 600px 400px at 50% 50%, rgba(59,130,246,0.08) 0%, rgba(240,133,102,0.04) 50%, transparent 100%);
+}
+.wordmark {
+  font-size: clamp(4rem, 12vw, 9rem); font-weight: 700; letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--blue-hi) 0%, var(--chrome-hi) 50%, var(--coral-hi) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  display: inline-block; line-height: 1;
+}
+.wordmark + p { color: var(--chrome-lo); margin-top: 1rem; font-family: 'Geist Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero / 3D Chromaglass mark -->
+  <section class="section">
+    <div class="wordmark-stage">
+      <img src="wiele-3d-chromaglass-preview.png" alt="Wiele Group — Chromaglass W mark" style="max-width: 520px; width: 80%; height: auto; filter: drop-shadow(0 24px 60px rgba(59,130,246,0.18)) drop-shadow(0 12px 40px rgba(240,133,102,0.12));" />
+      <div class="wordmark" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-top: 1rem;">wiele</div>
+      <p>brand v2 — b4 chromaglass · canonical 3d mark</p>
+    </div>
+    <div class="eyebrow">Live preview · #B4 Chromaglass</div>
+    <h1>Bichromatic chrome on midnight.<br/>The duality is the brand.</h1>
+    <p class="lede">Cool signal blue meets warm ember coral, unified through chrome on a midnight gradient. Tier-1 modern tech premium register — without losing the founder voice.</p>
+    <div class="btn-row">
+      <a class="btn btn-featured" href="#">Featured CTA — duality edge</a>
+      <a class="btn btn-primary" href="#">Primary — blue glow</a>
+      <a class="btn btn-secondary" href="#">Secondary — chrome border</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Color tokens -->
+  <section class="section">
+    <div class="eyebrow">Section · Color tokens</div>
+    <h2>Foundation + Chrome + Duality</h2>
+    <p class="lede">Every surface, text color, accent, and gradient lives in one CSS variable. The whole site cascades from one file.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#070B14"></div><div class="name">--bg-void</div><div class="hex">#070B14</div></div>
+      <div class="swatch"><div class="chip" style="background:#0C1220"></div><div class="name">--bg-midnight</div><div class="hex">#0C1220</div></div>
+      <div class="swatch"><div class="chip" style="background:#141C2E"></div><div class="name">--bg-floor</div><div class="hex">#141C2E</div></div>
+      <div class="swatch"><div class="chip" style="background:#1A2540"></div><div class="name">--bg-elevated</div><div class="hex">#1A2540</div></div>
+      <div class="swatch"><div class="chip" style="background:#EEF2F8"></div><div class="name">--chrome-hi</div><div class="hex">#EEF2F8</div></div>
+      <div class="swatch"><div class="chip" style="background:#B8C4D6"></div><div class="name">--chrome-mid</div><div class="hex">#B8C4D6</div></div>
+      <div class="swatch"><div class="chip" style="background:#5C6A82"></div><div class="name">--chrome-lo</div><div class="hex">#5C6A82</div></div>
+      <div class="swatch"><div class="chip" style="background:#3B82F6"></div><div class="name">--blue-core</div><div class="hex">#3B82F6</div></div>
+      <div class="swatch"><div class="chip" style="background:#5BABFF"></div><div class="name">--blue-hi</div><div class="hex">#5BABFF</div></div>
+      <div class="swatch"><div class="chip" style="background:#F08566"></div><div class="name">--coral-core</div><div class="hex">#F08566</div></div>
+      <div class="swatch"><div class="chip" style="background:#FFC2A0"></div><div class="name">--coral-hi</div><div class="hex">#FFC2A0</div></div>
+      <div class="swatch"><div class="chip" style="background:linear-gradient(135deg,#5BABFF 0%,#F08566 100%)"></div><div class="name">duality-edge</div><div class="hex">signature</div></div>
+    </div>
+  </section>
+
+  <hr class="divider divider-duality" />
+
+  <!-- Pricing tiers -->
+  <section class="section">
+    <div class="eyebrow">Section · Pricing tiers</div>
+    <h2>Standard tier and featured tier</h2>
+    <p class="lede">Featured tier carries the bichromatic signature — gradient border, dual glow on hover. Standard tiers stay restrained.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Launch</h3>
+        <div class="price">£3,500<small> /mo</small></div>
+        <ul><li>Brand audit + repositioning</li><li>Search + AI visibility setup</li><li>Monthly performance review</li></ul>
+        <a href="#" class="btn btn-secondary" style="width:100%;justify-content:center">Choose Launch</a>
+      </div>
+      <div class="card card-featured">
+        <span class="card-featured-badge">Most chosen</span>
+        <h3>Growth</h3>
+        <div class="price">£7,500<small> /mo</small></div>
+        <ul><li>Everything in Launch</li><li>Multi-channel campaigns</li><li>Dedicated growth strategist</li><li>Bi-weekly reviews</li></ul>
+        <a href="#" class="btn btn-featured" style="width:100%;justify-content:center">Choose Growth</a>
+      </div>
+      <div class="card">
+        <h3>Scale</h3>
+        <div class="price">£15,000<small> /mo</small></div>
+        <ul><li>Everything in Growth</li><li>Performance media management</li><li>Weekly executive sessions</li></ul>
+        <a href="#" class="btn btn-secondary" style="width:100%;justify-content:center">Choose Scale</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 4 divisions -->
+  <section class="section">
+    <div class="eyebrow">Section · Agency divisions</div>
+    <h2>Four divisions, tier-coded accents</h2>
+    <p class="lede">Each division card uses a different accent rule — Marketing (blue), Advertising (coral), Brand (chrome), Web (duality). Read together as one system.</p>
+    <div class="div-grid">
+      <div class="div-card acc-blue"><h3>Marketing Agency</h3><p>Strategy, audience, content, growth. Cool signal — intelligence and systems.</p></div>
+      <div class="div-card acc-coral"><h3>Advertising Agency</h3><p>Paid acquisition, creative testing, performance scaling. Warm signal — craft and demand.</p></div>
+      <div class="div-card acc-chrome"><h3>Brand Management</h3><p>Positioning, narrative, perception control. Chrome — the precision instrument.</p></div>
+      <div class="div-card acc-duality"><h3>Web Design Agency</h3><p>UX, conversion architecture, premium digital experience. Both forces.</p></div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Form -->
+  <section class="section">
+    <div class="eyebrow">Section · Form treatment</div>
+    <h2>Inputs, focus rings, validation</h2>
+    <div class="form">
+      <label class="form-label" for="email">Work email</label>
+      <input class="form-input" id="email" type="email" placeholder="founder@yourcompany.com" />
+      <p style="color:var(--chrome-lo);font-size:0.8125rem;margin-top:0.5rem;">Focus to see the blue-core ring with subtle blue-glow.</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section" style="text-align:center;padding-bottom:6rem;">
+    <p style="color:var(--chrome-lo);font-family:'Geist Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;">
+      Brand v2 B4 Chromaglass · Wiele Group · Preview build · 2026-05-04
+    </p>
+  </section>
+
+</div>
+
+</body>
+</html>

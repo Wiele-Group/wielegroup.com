@@ -6,12 +6,16 @@ const base =
 
 const variantStyles = {
   primary:
-    "bg-electric text-white hover:bg-electric-light hover:shadow-[var(--shadow-glow-electric)] active:translate-y-[1px]",
+    "bg-electric text-white hover:bg-electric-light hover:shadow-[var(--shadow-glow-blue)] hover:-translate-y-[2px] active:translate-y-0 active:scale-[0.97]",
   secondary:
     "bg-graphite text-white border border-[var(--color-border-default)] hover:border-[var(--color-border-strong)] hover:bg-steel",
   ghost:
     "bg-transparent text-cloud border border-[var(--color-border-default)] hover:border-electric hover:text-white",
   link: "bg-transparent text-electric hover:text-electric-light underline-offset-4 hover:underline px-0 py-0 h-auto",
+  /* B4 SIGNATURE — bichromatic duality gradient. Reserve for the single
+     most important CTA on a page (hero, featured pricing, onboarding final). */
+  featured:
+    "relative text-white bg-[var(--color-bg-elevated)] border border-transparent [background-clip:padding-box] hover:-translate-y-[2px] hover:shadow-[var(--shadow-glow-blue),_var(--shadow-glow-coral)] active:translate-y-0 active:scale-[0.97] before:content-[''] before:absolute before:inset-0 before:rounded-[inherit] before:p-[1.5px] before:bg-[var(--gradient-duality-edge)] before:[mask:linear-gradient(#000_0_0)_content-box,_linear-gradient(#000_0_0)] before:[-webkit-mask:linear-gradient(#000_0_0)_content-box,_linear-gradient(#000_0_0)] before:[mask-composite:exclude] before:[-webkit-mask-composite:xor] before:pointer-events-none",
 } as const;
 
 const sizeStyles = {

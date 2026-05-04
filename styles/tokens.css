@@ -1,44 +1,86 @@
 /* ─────────────────────────────────────────────────────────────
    Wiele Design Tokens — single source of truth.
-   Authority: CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md §2
-   Anything that styles a component must reference a token here.
+   Brand v2 — B4 CHROMAGLASS (bichromatic chrome-glass on midnight).
+   Authority: brand-v2-B4-chromaglass.md (founder selection 2026-05-04 PM).
+   Supersedes: B3 Midnight Platinum (monochromatic blue on flat near-black).
+   Strategy: legacy token names retained for backward compatibility; values
+   reassigned to B4 palette so existing components cascade automatically.
+   New B4-namespaced tokens added for chrome / coral / duality gradients.
 ───────────────────────────────────────────────────────────────── */
 
 @theme {
-  /* ── Foundation (dark, premium) ── */
-  --color-void: #0B0D10;
-  --color-obsidian: #111118;
-  --color-graphite: #1A1A24;
-  --color-steel: #2A2A38;
-  --color-smoke: #6B7280;
-  --color-silver: #9CA3AF;
-  --color-cloud: #D1D5DB;
-  --color-white: #F9FAFB;
+  /* ── Foundation — Midnight gradient backdrop (no pure black) ── */
+  --color-void: #070B14;            /* page edges, footer, deepest surface */
+  --color-bg-midnight: #0C1220;     /* default page background */
+  --color-bg-floor: #141C2E;        /* card surface, ambient lift */
+  --color-bg-elevated: #1A2540;     /* modals, popovers */
 
-  /* ── Accents ── */
-  --color-electric: #6366F1;
-  --color-electric-light: #818CF8;
-  --color-electric-deep: #4F46E5;
-  --color-neon: #22D3EE;
-  --color-pulse: #A855F7;
+  /* Legacy aliases (retained — values updated to B4) */
+  --color-obsidian: #141C2E;        /* legacy → maps to bg-floor */
+  --color-graphite: #1A2540;        /* legacy → maps to bg-elevated */
+  --color-steel: #2A3447;           /* strong border */
+  --color-smoke: #5C6A82;           /* tertiary text */
+  --color-silver: #7B8AA0;          /* secondary text */
+  --color-cloud: #B8C4D6;           /* body text — chrome-mid */
+  --color-white: #EEF2F8;           /* heading + emphasis — chrome-hi (NOT pure white) */
+  --color-platinum: #EEF2F8;        /* primary CTA fill — chrome-hi */
+
+  /* ── Chrome scale (text + structural neutrals) ── */
+  --color-chrome-hi: #EEF2F8;       /* primary text, never #FFFFFF */
+  --color-chrome-mid: #B8C4D6;      /* body text, secondary */
+  --color-chrome-lo: #5C6A82;       /* muted text, dividers */
+  --color-chrome-vlo: #2A3447;      /* subtle borders, disabled states */
+
+  /* ── Cool accent — Signal Blue ── */
+  --color-blue-hi: #5BABFF;
+  --color-blue-core: #3B82F6;       /* primary blue accent */
+  --color-blue-lo: #1E4FA8;
+  --color-blue-glow: rgba(91, 171, 255, 0.35);
+
+  /* Legacy electric aliases (retained — values updated to B4 blue-core) */
+  --color-electric: #3B82F6;        /* legacy → blue-core */
+  --color-electric-light: #5BABFF;  /* legacy → blue-hi */
+  --color-electric-deep: #1E4FA8;   /* legacy → blue-lo */
+
+  /* ── Warm accent — Ember Coral (B4 NEW) ── */
+  --color-coral-hi: #FFC2A0;
+  --color-coral-core: #F08566;      /* primary warm accent */
+  --color-coral-lo: #C75D3D;
+  --color-coral-glow: rgba(240, 133, 102, 0.35);
+
+  /* ── Rare-use accents (legacy — kept for data viz / pulse moments) ── */
+  --color-neon: #00D9FF;            /* data viz, status indicators only */
+  --color-pulse: #8B5CF6;           /* premium tier highlights */
 
   /* ── Semantic ── */
-  --color-success: #37D67A;
-  --color-warning: #F2C94C;
-  --color-danger: #FF4D4D;
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  --color-danger: #F87171;
 
-  /* ── Surfaces (semi-transparent overlays on Void) ── */
-  --color-surface-elevated: rgba(255, 255, 255, 0.04);
-  --color-surface-glass: rgba(255, 255, 255, 0.03);
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
-  --color-border-default: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.12);
+  /* ── Surfaces (semi-transparent overlays — chrome-glass system) ── */
+  --color-surface-elevated: rgba(238, 242, 248, 0.04);
+  --color-surface-glass: rgba(238, 242, 248, 0.035);
+  --color-border-subtle: rgba(238, 242, 248, 0.06);
+  --color-border-default: rgba(238, 242, 248, 0.10);
+  --color-border-strong: rgba(238, 242, 248, 0.16);
 
-  /* ── Typography ── */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* ── Duality gradient (B4 SIGNATURE — reserved use only) ──
+     Featured pricing tier border, hero CTA, brand mark fill,
+     division-page accent borders. Not decoration. */
+  --gradient-duality: linear-gradient(135deg, #3B82F6 0%, #B8C4D6 50%, #F08566 100%);
+  --gradient-duality-edge: linear-gradient(135deg, #5BABFF 0%, #F08566 100%);
+  --gradient-page-radial: radial-gradient(ellipse 1200px 800px at 50% 30%, #1A2540 0%, #0C1220 70%);
+  --gradient-page-vertical: linear-gradient(180deg, #070B14 0%, #0C1220 30%, #141C2E 100%);
 
-  /* ── Type scale (clamp for fluid responsive) ── */
+  /* ── Motion durations for animated borders ── */
+  --duration-strip: 6s;
+  --duration-strip-hover: 3s;
+
+  /* ── Typography — Geist single-family system (unchanged from B3) ── */
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ── Type scale ── */
   --text-display-2xl: clamp(3.25rem, 6vw + 1rem, 5.5rem);
   --text-display-xl: clamp(2.75rem, 5vw + 0.75rem, 4.5rem);
   --text-display-lg: clamp(2.25rem, 4vw + 0.5rem, 3.5rem);
@@ -59,22 +101,57 @@
   --radius-2xl: 28px;
   --radius-full: 9999px;
 
-  /* ── Shadow / glow ── */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
-  --shadow-glow-electric: 0 0 40px rgba(99, 102, 241, 0.18), 0 0 80px rgba(99, 102, 241, 0.06);
-  --shadow-glow-neon: 0 0 40px rgba(34, 211, 238, 0.18), 0 0 80px rgba(34, 211, 238, 0.06);
+  /* ── Shadow / glow (B4 retuned to blue-core + chrome-glass depth) ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.65);
+  --shadow-glow-electric: 0 0 40px rgba(59, 130, 246, 0.20), 0 0 80px rgba(59, 130, 246, 0.08);
+  --shadow-glow-blue: 0 0 40px rgba(59, 130, 246, 0.20), 0 0 80px rgba(59, 130, 246, 0.08);
+  --shadow-glow-coral: 0 0 40px rgba(240, 133, 102, 0.18), 0 0 80px rgba(240, 133, 102, 0.06);
+  --shadow-glow-neon: 0 0 40px rgba(0, 217, 255, 0.16), 0 0 80px rgba(0, 217, 255, 0.05);
+  --shadow-chrome-card: inset 0 1px 0 rgba(238, 242, 248, 0.06), 0 24px 60px rgba(0, 0, 0, 0.6);
 
-  /* ── Motion ── */
-  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
-  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 150ms;
-  --duration-base: 220ms;
-  --duration-slow: 400ms;
+  /* ── Wiele Motion System v1 — 5×5 token grid ──
+     Authority: wiele-motion-system-v1.md (2026-05-04). */
+  --motion-t1: 100ms;               /* click feedback, instantaneous */
+  --motion-t2: 200ms;               /* hover, micro-feedback */
+  --motion-t3: 300ms;               /* modals, dropdowns, single fade */
+  --motion-t4: 500ms;               /* 2–5 element choreography, section reveal */
+  --motion-t5: 700ms;               /* page transitions, hero entries */
+  --motion-loading-reveal: 300ms;   /* loading indicator MUST appear by 300ms */
+  --motion-validation-debounce: 500ms;
+
+  --ease-productive: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-expressive-in: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-expressive-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-anticipate: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-emphasized: cubic-bezier(0.32, 0.72, 0, 1);  /* legacy alias → expressive-in */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);      /* legacy alias → productive */
+
+  --duration-fast: 200ms;           /* legacy alias → t2 */
+  --duration-base: 300ms;           /* legacy alias → t3 */
+  --duration-slow: 500ms;           /* legacy alias → t4 */
+
+  /* ── Premium transform tokens (B4) ── */
+  --scale-press: 0.97;              /* active/click — premium subtler than 0.95 */
+  --scale-hover-lift: 1.02;
+  --scale-hover-card: 1.015;
+  --lift-z: -2px;
+  --lift-z-hero: -4px;
 
   /* ── Layout ── */
   --container-max: 1280px;
   --container-px: 1.5rem;
   --header-height: 4rem;
+}
+
+/* Reduced-motion override — durations cap at t2, gradients stay (not animated) */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-t3: 150ms;
+    --motion-t4: 200ms;
+    --motion-t5: 200ms;
+    --duration-base: 150ms;
+    --duration-slow: 200ms;
+  }
 }

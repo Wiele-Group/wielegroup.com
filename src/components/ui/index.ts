@@ -28,3 +28,9 @@ export type { LogoProps } from "./logo";
 
 export { LogoMark } from "./logo-mark";
 export type { LogoMarkProps } from "./logo-mark";
+
+export { LogoMark3D } from "./logo-mark-3d";
+export type { LogoMark3DProps, LogoMark3DSize } from "./logo-mark-3d";
+
+export { Divider } from "./divider";
+export type { DividerVariant, DividerProps } from "./divider";
