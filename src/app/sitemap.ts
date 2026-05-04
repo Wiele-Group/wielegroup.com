@@ -40,6 +40,12 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
     { path: "/systems/brand-authority", priority: 0.85, changeFrequency: "monthly" },
     { path: "/systems/web-experience", priority: 0.85, changeFrequency: "monthly" },
     { path: "/pricing", priority: 0.8, changeFrequency: "monthly" },
+    /* Agency division landing pages — v2.2 (2026-05-04). High SEO weight:
+       these are the four discipline anchors of the full-service positioning. */
+    { path: "/marketing-agency", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/advertising-agency", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/brand-management-agency", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/web-design-agency", priority: 0.9, changeFrequency: "monthly" },
     { path: "/proof", priority: 0.8, changeFrequency: "monthly" },
     { path: "/labs", priority: 0.8, changeFrequency: "weekly" },
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },

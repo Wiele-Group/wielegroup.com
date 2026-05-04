@@ -5,11 +5,87 @@
  */
 
 export const proofStripItems = [
-  { label: "AI Visibility" },
-  { label: "Search Authority" },
-  { label: "Brand Systems" },
-  { label: "Revenue Growth" },
+  { label: "Brand Design" },
+  { label: "Marketing Strategy" },
+  { label: "Web Design" },
+  { label: "Advertising" },
+  { label: "SEO Services" },
+  { label: "AI Search Optimization" },
+  { label: "Performance Marketing" },
+  { label: "Authority Engineering" },
 ];
+
+/**
+ * Discipline cards — six-pillar showcase that runs after ProofStrip.
+ * v2.2 update (2026-05-04): split the legacy "Brand Design & Marketing"
+ * card into TWO so each agency-division landing page has a homepage
+ * anchor. Order: Brand → Marketing → Web → Advertising → SEO → AI Search.
+ *
+ * Lead with the universally-recognized agency disciplines (Brand,
+ * Marketing, Web, Advertising), then bring in the specialty search /
+ * AI disciplines as supporting depth. Frames Wiele as a premium
+ * full-service agency where AI search is one engine among many — not
+ * the entire identity.
+ *
+ * Each card carries an `href` — first four route to dedicated agency
+ * landing pages, last two to existing systems pages.
+ */
+export const disciplines = [
+  {
+    num: "01",
+    title: "Brand Management",
+    headline: "Premium identity. Strategic narrative. Compounding equity.",
+    body:
+      "Positioning, identity systems, narrative architecture, and authority engineering for firms competing on perception and trust.",
+    capabilities: ["Positioning", "Identity", "Narrative", "Authority"],
+    href: "/brand-management-agency",
+  },
+  {
+    num: "02",
+    title: "Marketing",
+    headline: "Marketing as an operating system, not a campaign list.",
+    body:
+      "Strategy, audience, content, lifecycle, and ops — engineered as one engine. Every channel compounds the others.",
+    capabilities: ["Strategy", "Content", "Lifecycle", "Ops"],
+    href: "/marketing-agency",
+  },
+  {
+    num: "03",
+    title: "Web Design",
+    headline: "Conversion-engineered digital experiences.",
+    body:
+      "Premium website systems built around UX strategy, design tokens, performance, and AI-extractable structure. Fast, beautiful, built to convert.",
+    capabilities: ["UX strategy", "Design systems", "Performance", "Conversion"],
+    href: "/web-design-agency",
+  },
+  {
+    num: "04",
+    title: "Advertising",
+    headline: "Performance media with the craft of a brand agency.",
+    body:
+      "Full-funnel paid media across Google, Meta, LinkedIn, and emerging surfaces. Creative systems, attribution, and pacing that turn spend into revenue.",
+    capabilities: ["Paid media", "Creative testing", "Attribution", "Scaling"],
+    href: "/advertising-agency",
+  },
+  {
+    num: "05",
+    title: "SEO Services",
+    headline: "Technical SEO. Content systems. Search authority.",
+    body:
+      "Audits, technical foundations, content architecture, link strategy, and entity-level authority engineering. The classical search engine still drives compounding pipeline.",
+    capabilities: ["Technical SEO", "Content", "Authority", "Schema"],
+    href: "/systems/search",
+  },
+  {
+    num: "06",
+    title: "AI Search Optimization",
+    headline: "GEO + AEO. Engineered for the answer economy.",
+    body:
+      "Citation engineering across ChatGPT, Gemini, Perplexity, Claude, Copilot, and the AI overviews. Entity authority, extractable answer assets, recommendation visibility.",
+    capabilities: ["GEO", "AEO", "Citation engineering", "Entity authority"],
+    href: "/systems/ai-visibility",
+  },
+] as const;
 
 export const problemPoints = [
   {

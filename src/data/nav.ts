@@ -19,10 +19,22 @@ export const primaryNav: NavLink[] = [
 export const ctaLink: NavLink = { label: "Run Audit", href: "/audit" };
 
 /**
- * 4-column footer layout per directive §6 Phase 1:
- *   Brand column | Systems | Resources | Legal
+ * Footer layout per directive §6 Phase 1, extended v2.2 (2026-05-04):
+ *   Brand column | Agency | Systems | Resources | Legal
+ *
+ * The Agency column was added when the four division landing pages
+ * shipped — they need persistent footer presence for crawl + UX.
  */
 export const footerColumns = [
+  {
+    title: "Agency",
+    links: [
+      { label: "Marketing Agency", href: "/marketing-agency" },
+      { label: "Advertising Agency", href: "/advertising-agency" },
+      { label: "Brand Management Agency", href: "/brand-management-agency" },
+      { label: "Web Design Agency", href: "/web-design-agency" },
+    ],
+  },
   {
     title: "Systems",
     links: [
@@ -37,6 +49,7 @@ export const footerColumns = [
     title: "Resources",
     links: [
       { label: "Signal Audit", href: "/audit" },
+      { label: "Client Onboarding", href: "/onboarding" },
       { label: "Pricing", href: "/pricing" },
       { label: "Proof", href: "/proof" },
       { label: "Wiele Labs", href: "/labs" },
