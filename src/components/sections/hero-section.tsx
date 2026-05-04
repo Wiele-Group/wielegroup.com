@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
-import { LogoMark3D } from "@/components/ui/logo-mark-3d";
 import { FadeIn } from "@/components/motion/fade-in";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import {
@@ -29,12 +28,6 @@ export function HeroSection() {
           {/* Copy */}
           <div className="max-w-xl">
             <FadeIn>
-              {/* Decorative mark — lazy-loaded so the H1 wins LCP. */}
-              <div className="mb-6 -ml-2">
-                <LogoMark3D size="sm" alt="" />
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.03}>
               <Badge variant="electric" size="sm" className="mb-6">
                 <span aria-hidden>●</span> {siteConfig.descriptor}
               </Badge>

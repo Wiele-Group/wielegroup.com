@@ -2,12 +2,13 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { ease, duration as motionDuration } from "@/lib/motion";
 
 export type FadeInProps = {
   children: ReactNode;
   /** Seconds before the animation starts. */
   delay?: number;
-  /** Seconds the animation runs. */
+  /** Seconds the animation runs. Defaults to motion v1 t4 (0.5 s). */
   duration?: number;
   /** Pixels to translate from on the Y axis. */
   y?: number;
@@ -19,11 +20,18 @@ export type FadeInProps = {
 /**
  * One-shot fade + lift on mount (or on enter view if whileInView).
  * Respects prefers-reduced-motion: renders the final state instantly.
+ *
+ * Wiele Motion System v1 — defaults consume centralized tokens from
+ * @/lib/motion:
+ *   duration → t4 (0.5 s)
+ *   ease     → expressive-in
+ * Override via props if a specific surface needs a different cadence,
+ * but prefer the defaults so the system reads as one cohesive motion.
  */
 export function FadeIn({
   children,
   delay = 0,
-  duration = 0.5,
+  duration = motionDuration.t4,
   y = 12,
   className,
   whileInView = false,
@@ -34,7 +42,7 @@ export function FadeIn({
   const transition = {
     duration: reduce ? 0 : duration,
     delay: reduce ? 0 : delay,
-    ease: [0.2, 0, 0, 1] as const,
+    ease: ease.expressiveIn,
   };
 
   if (whileInView) {

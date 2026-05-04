@@ -1,7 +1,10 @@
 import {
+  AnswerEngineStrip,
   AuditPreview,
   BentoSystem,
+  CinematicEntry,
   CTASection,
+  DisciplinesSection,
   HeroSection,
   LabsPreview,
   PricingSection,
@@ -39,14 +42,17 @@ export default function HomePage() {
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-home" />
+      <CinematicEntry />
       <HeroSection />
       <ProofStrip />
+      <DisciplinesSection />
       <ProblemSection />
       <BentoSystem />
       <AuditPreview />
       <ProcessSteps />
       <PricingSection />
       <ProofSection />
+      <AnswerEngineStrip />
       <TrustSectionPreview />
       <LabsPreview />
       <CTASection />

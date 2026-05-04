@@ -46,6 +46,9 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
     { path: "/advertising-agency", priority: 0.9, changeFrequency: "monthly" },
     { path: "/brand-management-agency", priority: 0.9, changeFrequency: "monthly" },
     { path: "/web-design-agency", priority: 0.9, changeFrequency: "monthly" },
+    /* Client onboarding wizard — v2.2.1 sitemap-fix. Was missing from
+       STATIC_ROUTES even though the route shipped in v2.0; now indexed. */
+    { path: "/onboarding", priority: 0.7, changeFrequency: "monthly" },
     { path: "/proof", priority: 0.8, changeFrequency: "monthly" },
     { path: "/labs", priority: 0.8, changeFrequency: "weekly" },
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },

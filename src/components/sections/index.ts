@@ -1,5 +1,8 @@
+export { CinematicEntry } from "./cinematic-entry";
 export { HeroSection } from "./hero-section";
 export { ProofStrip } from "./proof-strip";
+export { DisciplinesSection } from "./disciplines-section";
+export { AnswerEngineStrip } from "./answer-engine-strip";
 export { ProblemSection } from "./problem-section";
 export { BentoSystem } from "./bento-system";
 export { AuditPreview } from "./audit-preview";
