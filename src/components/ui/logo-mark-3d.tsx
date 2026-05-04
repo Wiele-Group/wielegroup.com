@@ -19,7 +19,10 @@ export type LogoMark3DProps = {
 };
 
 const sizeMap: Record<LogoMark3DSize, { src: string; w: number; h: number; cls: string }> = {
-  sm:   { src: "/brand/wiele-3d-chromaglass-128.png",  w: 128,  h: 128,  cls: "w-16 h-16"   },
+  /* sm uses 64.png (6.8 KB) — 70% smaller than 128.png. Display is w-12 h-12
+     (48 CSS px) which means even @ 2x DPR the 64px asset is sufficient.
+     Keeps the mark out of the LCP race. */
+  sm:   { src: "/brand/wiele-3d-chromaglass-64.png",   w: 64,   h: 64,   cls: "w-12 h-12"   },
   md:   { src: "/brand/wiele-3d-chromaglass-256.png",  w: 256,  h: 256,  cls: "w-24 h-24"   },
   lg:   { src: "/brand/wiele-3d-chromaglass-512.png",  w: 512,  h: 512,  cls: "w-40 h-40"   },
   xl:   { src: "/brand/wiele-3d-chromaglass-1024.png", w: 1024, h: 1024, cls: "w-64 h-64"   },

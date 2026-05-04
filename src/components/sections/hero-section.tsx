@@ -29,8 +29,9 @@ export function HeroSection() {
           {/* Copy */}
           <div className="max-w-xl">
             <FadeIn>
+              {/* Decorative mark — lazy-loaded so the H1 wins LCP. */}
               <div className="mb-6 -ml-2">
-                <LogoMark3D size="sm" priority alt="" />
+                <LogoMark3D size="sm" alt="" />
               </div>
             </FadeIn>
             <FadeIn delay={0.03}>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { pricingTiers } from "@/data/pricing";
@@ -42,22 +41,23 @@ export function PricingSection({ showHeading = true }: PricingSectionProps = {})
           {pricingTiers.map((tier) => (
             <article
               key={tier.id}
+              data-tier={tier.id}
+              data-featured={tier.featured ? "true" : undefined}
               className={cn(
-                "relative flex flex-col rounded-[var(--radius-lg)] border p-6 md:p-7",
-                "bg-[var(--color-surface-elevated)]",
-                tier.featured
-                  ? "border-electric shadow-[var(--shadow-glow-electric)]"
-                  : "border-[var(--color-border-default)]",
+                "relative flex flex-col p-6 md:p-7",
+                /* Standard tiers keep the rolling glass-strip; featured tier
+                   gets the B4 Chromaglass duality-border (bichromatic gradient
+                   ring — the brand signature). */
+                tier.featured ? "duality-border chrome-card" : "glass-strip",
               )}
             >
               {tier.featured ? (
-                <Badge
-                  variant="electric"
-                  size="sm"
-                  className="absolute -top-2 left-6"
+                <span
+                  className="absolute -top-2.5 left-6 px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white"
+                  style={{ background: "var(--gradient-duality-edge)" }}
                 >
                   Most chosen
-                </Badge>
+                </span>
               ) : null}
               <h3 className="text-heading-md text-white">{tier.name}</h3>
               <div className="mt-3 mb-1">
@@ -95,7 +95,9 @@ export function PricingSection({ showHeading = true }: PricingSectionProps = {})
                   href={tier.cta.href}
                   className={cn(
                     buttonStyles({
-                      variant: tier.featured ? "primary" : "ghost",
+                      /* B4 signature CTA on the featured tier — bichromatic
+                         duality border + dual blue+coral glow on hover. */
+                      variant: tier.featured ? "featured" : "ghost",
                       size: "md",
                     }),
                     "w-full",
