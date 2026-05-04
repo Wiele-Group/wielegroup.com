@@ -66,16 +66,21 @@ if [ "${KEY_BODY_TRIMMED}" != "${KEY}" ]; then
 fi
 echo "  ✓ key file live: ${KEY_LOCATION}"
 
-# Build JSON payload
-JSON_URLS=$(printf ',\n    "%s"' "${URL_LIST[@]}")
-JSON_URLS="[${JSON_URLS:1}\n  ]"
+# Build compact JSON array of URLs.
+# IMPORTANT: bash double-quoted string literals do NOT interpret '\n'.
+# (printf does — that's why the original v2.2.1 line worked partially —
+# but `JSON_URLS="...\n..."` ships LITERAL backslash-n into the JSON,
+# which IndexNow rejects with HTTP 400 for malformed payload.)
+# Compact JSON is fine for an HTTP POST body — IndexNow accepts it.
+URLS_JSON=$(printf '"%s",' "${URL_LIST[@]}")
+URLS_JSON="[${URLS_JSON%,}]"   # strip the trailing comma left by printf
 
 PAYLOAD=$(cat <<EOF
 {
   "host": "${HOST}",
   "key": "${KEY}",
   "keyLocation": "${KEY_LOCATION}",
-  "urlList": ${JSON_URLS}
+  "urlList": ${URLS_JSON}
 }
 EOF
 )
