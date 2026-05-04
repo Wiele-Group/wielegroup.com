@@ -64,7 +64,7 @@ export default function SystemsIndexPage() {
                   href="/audit"
                   className={buttonStyles({ variant: "primary", size: "lg" })}
                 >
-                  Run AI Visibility Audit
+                  Run a Growth Audit
                 </Link>
                 <Link
                   href="/platform"

@@ -6,11 +6,12 @@
  *
  *   1. 64px grid lattice (linear-gradient overlay), masked with a
  *      radial fade so it dissolves at the viewport edges.
- *   2. Top-centre electric glow (#6366F1) — anchors the hero band.
- *   3. Right-third neon glow (#22D3EE) — pulls the eye into the rail.
+ *   2. Top-centre electric glow (#4A9EFF) — anchors the hero band.
+ *   3. Right-third neon glow (#00D9FF) — pulls the eye into the rail.
  *
- * Tokens are v1.0-locked (electric / neon). Blueprint's gold + cyan are
- * deliberately NOT used — see CLAUDE.md "Active Decisions (binding)".
+ * Brand v2 — Midnight Platinum (B3). Glow tints retuned from indigo/cyan
+ * to signal-blue/cyan to match the new restrained accent system. See
+ * project_brand_v2_doctrine.md for authority.
  *
  * Pure CSS, no JS, no observers. `fixed` positioning so it persists
  * across route changes without remount. `pointer-events: none` so it
@@ -47,7 +48,7 @@ export function AmbientGrid() {
         className="absolute -top-32 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 60%)",
+            "radial-gradient(circle at center, rgba(74, 158, 255, 0.13) 0%, transparent 60%)",
           filter: "blur(60px)",
         }}
       />
@@ -57,7 +58,7 @@ export function AmbientGrid() {
         className="absolute right-0 top-1/3 h-[34rem] w-[34rem] translate-x-1/3 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at center, rgba(34, 211, 238, 0.10) 0%, transparent 65%)",
+            "radial-gradient(circle at center, rgba(0, 217, 255, 0.09) 0%, transparent 65%)",
           filter: "blur(80px)",
         }}
       />

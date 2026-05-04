@@ -1,11 +1,25 @@
 import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Brand v2 B3 — glass-strip is the new default.
+ * Rolling animated light strip around the card border, glass surface,
+ * solid black backdrop expected behind. See globals.css `.glass-strip`.
+ *
+ * Variants:
+ *   - default  → glass-strip (electric blue sweep) — use for most cards
+ *   - pulse    → glass-strip-pulse (violet sweep) — premium tier markers
+ *   - neon     → glass-strip-neon (cyan sweep) — data / technical surfaces
+ *   - glass    → static glass (no strip) — for minor surfaces
+ *   - outline  → ghost border (no fill) — for tertiary contexts
+ *   - raised   → opaque obsidian (legacy) — kept for back-compat
+ */
 const variantStyles = {
-  default:
-    "bg-[var(--color-surface-elevated)] border border-[var(--color-border-default)] shadow-[var(--shadow-md)]",
+  default: "glass-strip",
+  pulse: "glass-strip glass-strip-pulse",
+  neon: "glass-strip glass-strip-neon",
   glass:
-    "bg-[var(--color-surface-glass)] backdrop-blur-[16px] border border-[var(--color-border-subtle)]",
+    "bg-[var(--color-surface-glass)] backdrop-blur-[20px] border border-[var(--color-border-subtle)]",
   outline:
     "bg-transparent border border-[var(--color-border-default)] hover:border-[var(--color-border-strong)] transition-colors",
   raised:

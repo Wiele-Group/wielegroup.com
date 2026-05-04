@@ -33,7 +33,7 @@ const channels = [
     icon: MessageCircle,
     title: "Run an audit first",
     body: "Most engagements start with a Signal Audit — diagnose before you commit.",
-    cta: { label: "Run AI Visibility Audit", href: "/audit", external: false },
+    cta: { label: "Run a Growth Audit", href: "/audit", external: false },
   },
 ];
 

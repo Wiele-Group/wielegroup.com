@@ -16,8 +16,9 @@ export function Footer() {
               <span className="text-cloud">{siteConfig.tagline}</span>
             </p>
             <p className="text-body-xs text-smoke max-w-xs">
-              {siteConfig.legalName} builds AI-native growth systems that turn
-              expertise into visibility, trust, and demand.
+              {siteConfig.legalName} is the premium agency for brand,
+              marketing, web, advertising, SEO, and AI search — engineered
+              as one integrated growth system.
             </p>
           </div>
 

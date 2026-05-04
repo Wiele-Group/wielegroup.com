@@ -4,10 +4,10 @@ export const siteConfig = {
   name: "Wiele",
   legalName: "Wiele Group",
   url: "https://wielegroup.com",
-  descriptor: "AI Growth Systems",
-  tagline: "Be the brand AI recommends.",
+  descriptor: "Premium Marketing Agency",
+  tagline: "The premium agency engineered for compounding growth.",
   description:
-    "Wiele builds AI-native growth systems that turn expertise into visibility, trust, and demand across search engines, answer engines, and AI recommendation layers.",
+    "Wiele Group is the premium marketing agency for firms who want every growth lever moving together. Brand, marketing, web design, advertising, SEO, and AI search optimization — five disciplines, one operating system, engineered as one.",
   founder: "Jonathan Landman",
   email: "hello@wielegroup.com",
   ogImage: "/og-image.png",

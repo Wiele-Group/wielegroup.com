@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function BentoSystem() {
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-[var(--color-obsidian)]/40">
+    <section className="py-20 md:py-28 lg:py-32 bg-[var(--color-void)]">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
         <div className="max-w-2xl mb-12 md:mb-16">
           <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
@@ -27,23 +27,30 @@ export function BentoSystem() {
           stagger={0.06}
           className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]"
         >
-          {systems.map((system) => {
+          {systems.map((system, idx) => {
             const wide = system.span === "2x1";
             const Wrapper = system.slug ? Link : "div";
             const wrapperProps = system.slug
               ? { href: `/systems/${system.slug}` }
               : {};
+            // Rotate strip variant per card for a "live, breathing grid" effect.
+            // Most cards use the default electric sweep. Featured/wiele-os card
+            // gets the violet pulse. Index-1 gets neon for variety.
+            const stripVariant =
+              system.id === "wiele-os"
+                ? "glass-strip-pulse"
+                : idx % 3 === 1
+                  ? "glass-strip-neon"
+                  : "";
             return (
               <Wrapper
                 key={system.id}
                 {...(wrapperProps as { href: string })}
                 className={cn(
                   "group relative flex flex-col justify-between p-6 md:p-7",
-                  "rounded-[var(--radius-lg)] border border-[var(--color-border-default)]",
-                  "bg-[var(--color-surface-glass)] backdrop-blur-[14px]",
-                  "transition-[border-color,background-color,transform] duration-[var(--duration-base)] ease-[var(--ease-emphasized)]",
-                  system.slug &&
-                    "hover:border-[var(--color-border-strong)] hover:bg-[rgba(255,255,255,0.04)] focus-visible:outline-none focus-visible:border-electric",
+                  "glass-strip",
+                  stripVariant,
+                  "focus-visible:outline-none",
                   wide && "md:col-span-2",
                 )}
               >

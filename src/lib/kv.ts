@@ -109,3 +109,22 @@ export async function recordContactSubmission(
     expirationTtl: 60 * 60 * 24 * 90,
   });
 }
+
+export type OnboardingQueueRecord = {
+  intakeId: string;
+  queuedAt: string;
+  /** Validated submission. Arrays/booleans coerced to strings for KV. */
+  submission: Record<string, string>;
+  meta: { userAgent?: string; ip?: string; referer?: string };
+};
+
+export async function recordOnboardingSubmission(
+  record: OnboardingQueueRecord,
+): Promise<void> {
+  const kv = await getAuditQueue();
+  // Onboarding intake retention longer than audit/contact — these are
+  // long-cycle commercial conversations. 365-day window.
+  await kv.put(`onboarding:${record.intakeId}`, JSON.stringify(record), {
+    expirationTtl: 60 * 60 * 24 * 365,
+  });
+}

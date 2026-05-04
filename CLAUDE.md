@@ -1,13 +1,31 @@
 # wielegroup.com — Project Memory
 
+## ⚡ TOP AUTHORITY — Read First
+**`../WIELE_CODE_OPERATING_DIRECTIVE.md`** is the binding meta-directive for every Claude Code session against this repo. It encodes:
+
+1. The Founder Standard (do the complete thing, no workarounds, ship the finished product)
+2. The Evolution Directive (every task is a learning event; never repeat memorized errors)
+3. The Drive-It Law (command words trigger execution; status words don't)
+4. L99 Perfection (Think → Plan → Execute → Verify with evidence)
+5. 10 memorized lessons (3-tier wrangler resolution, "added != consumed", priority-LCP rule, JSON-LD count formula, sitemap is explicit, pre-deploy reconcile, IndexNow auto-call, Cloudflare Bot Fight Mode + browser UA, bundling discipline, memory hygiene + read-at-start)
+6. Verification standard (evidence not assertion)
+7. Deploy script template (10-step canonical structure)
+8. Forbidden patterns (do not regress)
+9. End-of-session protocol (memory + state + next action documented)
+10. North Star (the system every premium brand trusts to run their growth)
+
+**This directive supersedes all prior plans on conflict, including this CLAUDE.md.** Read it at session start. Apply it in every task. If you find a new pattern worth memorizing, propose adding it to the directive.
+
 ## Mission
 Build Wiele as a modern AI-native AI Growth Systems company. Site must feel like a premium tech platform, not a traditional SEO/marketing agency. Convert visitors via the Signal Audit.
 
 ## Authority
-The binding execution directive is **`../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md`** at the repo parent. Read it before any work. It supersedes prior plans on conflict.
+The binding execution directive is **`../WIELE_CODE_OPERATING_DIRECTIVE.md`** (above). Historical handoff at **`../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md`** for original spec context.
 
 Strategic context: `../SYNTHESIS_Brand_x_Build_ActionPlan_2026-05-03.md`
 Brand assets: `../brand-assets/` (master in `_master/`, spec in `specimen/wiele-identity-spec.md`)
+Brand v2 B4 spec (CANONICAL): `../brand-v2-B4-chromaglass.md`
+Wiele Motion System v1: `../wiele-motion-system-v1.md`
 
 ## Brand Direction (locked)
 AI Product Interface + Swiss Minimalism + Modular Bento. Dark-mode futuristic (Linear/Vercel/Raycast register).

@@ -201,7 +201,7 @@ export default function AuditPage() {
               Submit your brand
             </Badge>
             <h2 className="text-heading-lg text-white mb-2">
-              Run AI Visibility Audit
+              Run a Growth Audit
             </h2>
             <p className="text-body-sm text-silver mb-6">
               Eight fields, two steps, fourteen-day delivery. The engine runs

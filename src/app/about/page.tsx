@@ -12,7 +12,7 @@ import { aboutPageSchema, breadcrumbSchema, personSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "About — The Wiele thesis and the team behind it",
   description:
-    "Wiele is an AI Growth Systems company founded by Jonathan Landman. We build the systems that turn brands into AI-recommended brands.",
+    "Wiele Group is the premium marketing agency engineered for compounding growth — brand, marketing, web design, advertising, SEO, and AI search optimization, run as one integrated system. Founded by Jonathan Landman.",
   path: "/about",
 });
 
@@ -54,7 +54,7 @@ export default function AboutPage() {
     name: `About ${siteConfig.name}`,
     url: `${siteConfig.url}/about`,
     description:
-      `${siteConfig.legalName} is an AI Growth Systems company founded by ${siteConfig.founder}. We build the systems that turn brands into AI-recommended brands.`,
+      `${siteConfig.legalName} is a premium marketing agency founded by ${siteConfig.founder}. Five disciplines — brand, web, advertising, SEO, AI search — engineered as one integrated growth system for premium firms.`,
     aboutPersonName: siteConfig.founder,
   });
 
@@ -74,15 +74,16 @@ export default function AboutPage() {
             </FadeIn>
             <FadeIn delay={0.05}>
               <h1 className="text-display-xl text-white text-balance mb-5">
-                We build the systems that turn brands into AI-recommended brands.
+                Premium marketing, engineered as one integrated system.
               </h1>
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-body-lg text-silver max-w-2xl">
-                {siteConfig.legalName} is an AI Growth Systems company founded
-                by {siteConfig.founder}. The thesis is simple: the next decade
-                of growth belongs to the brands AI engines choose to recommend
-                — and that&apos;s engineered, not earned by accident.
+                {siteConfig.legalName} is the premium agency for firms who want
+                every growth lever pulling in the same direction. Brand,
+                marketing, web design, advertising, SEO, and AI search
+                optimization — five disciplines, one operating system,
+                engineered by {siteConfig.founder}.
               </p>
             </FadeIn>
           </div>

@@ -42,7 +42,7 @@ export const pricingTiers: readonly PricingTier[] = [
       "30-day implementation roadmap",
       "1 strategy session with a Wiele principal",
     ],
-    cta: { label: "Run AI Visibility Audit", href: "/audit" },
+    cta: { label: "Run a Growth Audit", href: "/audit" },
     paymentLinkUrl: "https://buy.stripe.com/4gMdR91JL0iieuK8FZao80k",
     stripePriceId: "price_1TT1tkGuLDs0qzh2S85rJ8Fp",
   },

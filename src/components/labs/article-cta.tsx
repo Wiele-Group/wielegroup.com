@@ -17,7 +17,7 @@ export function ArticleCta() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/audit" className={buttonStyles({ variant: "primary", size: "md" })}>
-            Run AI Visibility Audit
+            Run a Growth Audit
           </Link>
           <Link href="/labs" className={buttonStyles({ variant: "ghost", size: "md" })}>
             More field notes
