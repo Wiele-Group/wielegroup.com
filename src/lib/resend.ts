@@ -2,18 +2,21 @@ import type { AuditInput, ContactInput, OnboardingInput } from "./validations";
 import { siteConfig } from "./metadata";
 
 /**
- * Transactional email senders for audit + contact submissions.
+ * Transactional email senders for audit + contact + onboarding submissions.
  *
- * Two emails per audit submission, not one (founder reinforcement #3):
- * 1. Customer confirmation
- * 2. Founder notification
+ * Two emails per audit / onboarding submission, not one
+ * (founder reinforcement #3): customer confirmation + founder notification.
  *
- * Both via Resend. Transactional only — no marketing list, no
- * double-opt-in nonsense. These are confirmations of paid intent.
+ * All via Resend. Transactional only — no marketing list, no double-opt-in
+ * nonsense. These are confirmations of paid intent.
  *
  * Failure semantics: send() never throws. On error, returns
  * { ok: false, reason }. The route handler logs and continues —
  * the lead is already in KV.
+ *
+ * VISUAL: Brand v2 B4 Chromaglass (2026-05-04 PM). All HTML uses inline
+ * hex colors (no CSS variables — email clients strip them). Tables for
+ * layout (Outlook safety). color-scheme meta tag for client awareness.
  */
 
 const RESEND_URL = "https://api.resend.com/emails";
@@ -21,6 +24,81 @@ const RESEND_URL = "https://api.resend.com/emails";
 const FROM_AUDITS = "Wiele Audits <audits@wielegroup.com>";
 const FROM_CONTACT = "Wiele <hello@wielegroup.com>";
 const FROM_ONBOARDING = "Wiele Onboarding <onboarding@wielegroup.com>";
+
+/* ─────────────────────────────────────────────────────────────
+   B4 Chromaglass color tokens — INLINE HEX, no CSS vars.
+   Email clients (especially Outlook + Gmail) strip CSS variables,
+   so every color must be a literal hex. Single source of truth here;
+   referenced by template builders below.
+───────────────────────────────────────────────────────────────── */
+
+const C = {
+  bgVoid: "#070B14",
+  bgMidnight: "#0C1220",
+  bgFloor: "#141C2E",
+  bgElevated: "#1A2540",
+  chromeHi: "#EEF2F8",
+  chromeMid: "#B8C4D6",
+  chromeLo: "#5C6A82",
+  chromeVlo: "#2A3447",
+  blueCore: "#3B82F6",
+  blueHi: "#5BABFF",
+  coralCore: "#F08566",
+  coralHi: "#FFC2A0",
+} as const;
+
+/* Email-safe wrapper builder: dark-mode aware, Outlook-safe.
+   `body` = the inner HTML (tables/text/etc), already escaped.
+   Renders header (chrome wordmark) + body + footer. */
+function chromaglassShell(body: string, opts?: { footerNote?: string }): string {
+  const footer = opts?.footerNote
+    ? `<tr><td style="padding:24px 32px 32px;color:${C.chromeLo};font-size:12px;font-family:ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:0.04em">${opts.footerNote}</td></tr>`
+    : "";
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="supported-color-schemes" content="dark">
+<title>Wiele Group</title>
+</head>
+<body style="margin:0;padding:0;background:${C.bgVoid};color:${C.chromeMid};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${C.bgVoid};margin:0;padding:0;">
+<tr><td align="center" style="padding:40px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:${C.bgMidnight};border:1px solid ${C.chromeVlo};border-radius:16px;overflow:hidden;">
+
+  <!-- Header bar with wordmark -->
+  <tr>
+    <td style="padding:28px 32px 20px;background:${C.bgFloor};border-bottom:1px solid ${C.chromeVlo};">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:300;letter-spacing:-0.02em;color:${C.chromeHi};">
+            wiele
+          </td>
+          <td align="right" style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:${C.chromeLo};">
+            The agency operating system
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- Duality accent line -->
+  <tr><td style="height:2px;background:linear-gradient(90deg,${C.blueHi} 0%,${C.coralCore} 100%);font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <!-- Body -->
+  <tr><td style="padding:32px;color:${C.chromeMid};font-size:15px;line-height:1.65;">${body}</td></tr>
+
+  ${footer}
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>`;
+}
 
 /* ─────────────────────────────────────────────────────────────
    Service + enum label maps — for human-readable email rendering.
@@ -150,10 +228,11 @@ Reply to this email if anything changes before we run the engine.
 — ${siteConfig.founder}
 ${siteConfig.legalName} · ${siteConfig.url}
 Reference: ${runId}`;
-  const html = `<!doctype html><html><body style="font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px 24px;color:#0B0D10;line-height:1.6">
-<p>Hi ${escapeHtml(input.name.split(" ")[0])},</p>
-<p>We've received your Signal Audit request for <strong>${escapeHtml(input.company)}</strong>. Your full report will arrive within 14 days, with a 30-day implementation roadmap and a strategy session with a Wiele principal.</p>
-<table cellpadding="6" style="border-collapse:collapse;margin:20px 0;font-size:14px"><tbody>
+  const body = `
+<p style="margin:0 0 16px;color:${C.chromeHi};font-size:16px;">Hi ${escapeHtml(input.name.split(" ")[0])},</p>
+<p style="margin:0 0 16px;">We've received your Signal Audit request for <strong style="color:${C.chromeHi};">${escapeHtml(input.company)}</strong>.</p>
+<p style="margin:0 0 24px;">Your full report will arrive within <strong style="color:${C.blueHi};">14 days</strong> — including a 30-day implementation roadmap and a strategy session with a Wiele principal.</p>
+<table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;margin:0 0 24px;background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-radius:10px;overflow:hidden;"><tbody>
 ${row("Company", input.company)}
 ${row("Website", input.website)}
 ${row("Industry", input.industry)}
@@ -161,10 +240,9 @@ ${row("Market", input.market)}
 ${row("Competitors", input.competitors)}
 ${row("Positioning", input.positioning)}
 </tbody></table>
-<p>Reply to this email if anything changes before we run the engine.</p>
-<p>— ${escapeHtml(siteConfig.founder)}<br/>${escapeHtml(siteConfig.legalName)} · <a href="${siteConfig.url}">${siteConfig.url.replace(/^https?:\/\//, "")}</a></p>
-<p style="color:#6B7280;font-size:12px;margin-top:32px">Reference: ${escapeHtml(runId)}</p>
-</body></html>`;
+<p style="margin:0 0 16px;">Reply to this email if anything changes before we run the engine.</p>
+<p style="margin:24px 0 0;color:${C.chromeMid};">— ${escapeHtml(siteConfig.founder)}<br/><span style="color:${C.chromeLo};">${escapeHtml(siteConfig.legalName)}</span> · <a href="${siteConfig.url}" style="color:${C.blueHi};text-decoration:none;">${siteConfig.url.replace(/^https?:\/\//, "")}</a></p>`;
+  const html = chromaglassShell(body, { footerNote: `Reference: ${escapeHtml(runId)}` });
 
   return send({
     from: FROM_AUDITS,
@@ -197,26 +275,26 @@ KV reference: audit:${runId}
 User agent:   ${meta.userAgent ?? "(none)"}
 IP:           ${meta.ip ?? "(none)"}
 Referer:      ${meta.referer ?? "(none)"}`;
-  const html = `<!doctype html><html><body style="font-family:ui-monospace,monospace;max-width:680px;margin:0 auto;padding:24px;font-size:14px;color:#0B0D10">
-<h2 style="margin:0 0 16px;font-size:18px">New Signal Audit submission — ${escapeHtml(input.company)}</h2>
-<table cellpadding="6" style="border-collapse:collapse;width:100%"><tbody>
+  const body = `
+<h2 style="margin:0 0 24px;font-size:18px;font-weight:600;color:${C.chromeHi};letter-spacing:-0.01em;">New Signal Audit — <span style="color:${C.blueHi};">${escapeHtml(input.company)}</span></h2>
+<table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-radius:10px;overflow:hidden;margin:0 0 24px;"><tbody>
 ${row("Name", input.name)}
-${row("Email", `<a href="mailto:${escapeHtml(input.email)}">${escapeHtml(input.email)}</a>`)}
+${row("Email", `<a href="mailto:${escapeHtml(input.email)}" style="color:${C.blueHi};text-decoration:none;">${escapeHtml(input.email)}</a>`)}
 ${row("Company", input.company)}
-${row("Website", `<a href="${escapeHtml(input.website)}">${escapeHtml(input.website)}</a>`)}
+${row("Website", `<a href="${escapeHtml(input.website)}" style="color:${C.blueHi};text-decoration:none;">${escapeHtml(input.website)}</a>`)}
 ${row("Industry", input.industry)}
 ${row("Market", input.market)}
 ${row("Competitors", input.competitors)}
 ${row("Positioning", input.positioning)}
 </tbody></table>
-<h3 style="margin-top:24px;font-size:14px">Forensics</h3>
-<table cellpadding="6" style="border-collapse:collapse;width:100%;color:#6B7280"><tbody>
+${sectionLabel("Forensics")}
+<table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-radius:10px;overflow:hidden;margin:8px 0 0;"><tbody>
 ${row("KV ref", `audit:${runId}`)}
 ${row("User-Agent", meta.userAgent ?? "(none)")}
 ${row("IP", meta.ip ?? "(none)")}
 ${row("Referer", meta.referer ?? "(none)")}
-</tbody></table>
-</body></html>`;
+</tbody></table>`;
+  const html = chromaglassShell(body);
 
   return send({
     from: FROM_AUDITS,
@@ -248,12 +326,12 @@ ${input.message}
 KV reference: contact:${ticketId}
 User-Agent:   ${meta.userAgent ?? "(none)"}
 IP:           ${meta.ip ?? "(none)"}`;
-  const html = `<!doctype html><html><body style="font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:24px;font-size:14px;color:#0B0D10">
-<h2 style="margin:0 0 12px">${escapeHtml(input.name)}</h2>
-<p style="color:#6B7280;margin:0 0 16px"><a href="mailto:${escapeHtml(input.email)}">${escapeHtml(input.email)}</a>${input.company ? ` · ${escapeHtml(input.company)}` : ""}</p>
-<div style="white-space:pre-wrap;line-height:1.6;border-left:2px solid #6366F1;padding:8px 12px;background:#fafafa">${escapeHtml(input.message)}</div>
-<p style="color:#6B7280;font-size:12px;margin-top:24px">KV ref: contact:${escapeHtml(ticketId)} · UA: ${escapeHtml(meta.userAgent ?? "(none)")} · IP: ${escapeHtml(meta.ip ?? "(none)")}</p>
-</body></html>`;
+  const body = `
+<h2 style="margin:0 0 8px;font-size:18px;font-weight:600;color:${C.chromeHi};letter-spacing:-0.01em;">${escapeHtml(input.name)}</h2>
+<p style="margin:0 0 20px;color:${C.chromeLo};font-size:13px;"><a href="mailto:${escapeHtml(input.email)}" style="color:${C.blueHi};text-decoration:none;">${escapeHtml(input.email)}</a>${input.company ? ` · ${escapeHtml(input.company)}` : ""}</p>
+<div style="white-space:pre-wrap;line-height:1.65;background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-left:3px solid ${C.coralCore};padding:16px 20px;border-radius:8px;color:${C.chromeMid};">${escapeHtml(input.message)}</div>`;
+  const footerNote = `KV ref: contact:${escapeHtml(ticketId)} · UA: ${escapeHtml(meta.userAgent ?? "(none)")} · IP: ${escapeHtml(meta.ip ?? "(none)")}`;
+  const html = chromaglassShell(body, { footerNote });
 
   return send({
     from: FROM_CONTACT,
@@ -300,22 +378,27 @@ If anything changes before we connect, simply reply to this email.
 ${siteConfig.legalName} · ${siteConfig.url}
 Reference: ${intakeId}`;
 
-  const html = `<!doctype html><html><body style="font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px 24px;color:#0B0D10;line-height:1.6">
-<p>Hi ${escapeHtml(firstName)},</p>
-<p>Thank you for completing the Wiele onboarding questionnaire for <strong>${escapeHtml(input.company)}</strong>.</p>
-<p>We've received your submission and a Wiele principal will review every detail personally. You'll hear from us inside <strong>one business day</strong> with a tailored strategy proposal and next steps.</p>
-<p style="margin-top:20px"><strong>Services you've expressed interest in:</strong><br/>${escapeHtml(services)}</p>
-<p style="margin-top:20px"><strong>What happens next</strong></p>
-<ol style="padding-left:20px;line-height:1.7">
-<li>We review your submission, your existing presence, and your competitive landscape.</li>
-<li>We come back to you with an initial strategic read and a recommended engagement model.</li>
-<li>We schedule a strategy call to align on direction, scope, and investment.</li>
-<li>Engagement kicks off with a structured 30-day onboarding sprint.</li>
-</ol>
-<p>If anything changes before we connect, simply reply to this email.</p>
-<p>— ${escapeHtml(siteConfig.founder)}<br/>${escapeHtml(siteConfig.legalName)} · <a href="${siteConfig.url}">${siteConfig.url.replace(/^https?:\/\//, "")}</a></p>
-<p style="color:#6B7280;font-size:12px;margin-top:32px">Reference: ${escapeHtml(intakeId)}</p>
-</body></html>`;
+  const body = `
+<p style="margin:0 0 16px;color:${C.chromeHi};font-size:16px;">Hi ${escapeHtml(firstName)},</p>
+<p style="margin:0 0 16px;">Thank you for completing the onboarding questionnaire for <strong style="color:${C.chromeHi};">${escapeHtml(input.company)}</strong>.</p>
+<p style="margin:0 0 24px;">A Wiele principal will review every detail personally. You'll hear from us inside <strong style="color:${C.blueHi};">one business day</strong> with a tailored strategy proposal and next steps.</p>
+
+<div style="background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-radius:10px;padding:18px 22px;margin:0 0 24px;">
+  <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:${C.chromeLo};margin:0 0 8px;">Services of interest</div>
+  <div style="color:${C.chromeHi};font-size:15px;">${escapeHtml(services)}</div>
+</div>
+
+${sectionLabel("What happens next")}
+<table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;margin:8px 0 24px;"><tbody>
+${stepRow("01", "We review your submission, presence, and competitive landscape.")}
+${stepRow("02", "We come back with an initial strategic read and recommended engagement model.")}
+${stepRow("03", "We schedule a strategy call to align on direction, scope, and investment.")}
+${stepRow("04", "Engagement kicks off with a structured 30-day onboarding sprint.")}
+</tbody></table>
+
+<p style="margin:0 0 16px;">If anything changes before we connect, simply reply to this email.</p>
+<p style="margin:24px 0 0;color:${C.chromeMid};">— ${escapeHtml(siteConfig.founder)}<br/><span style="color:${C.chromeLo};">${escapeHtml(siteConfig.legalName)}</span> · <a href="${siteConfig.url}" style="color:${C.blueHi};text-decoration:none;">${siteConfig.url.replace(/^https?:\/\//, "")}</a></p>`;
+  const html = chromaglassShell(body, { footerNote: `Reference: ${escapeHtml(intakeId)}` });
 
   return send({
     from: FROM_ONBOARDING,
@@ -403,23 +486,23 @@ IP:             ${meta.ip ?? "(none)"}
 Referer:        ${meta.referer ?? "(none)"}`;
 
   const sec = (title: string) =>
-    `<tr><td colspan="2" style="background:#0B0D10;color:#fff;padding:8px 12px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;font-size:11px;font-family:ui-monospace,monospace">${escapeHtml(title)}</td></tr>`;
+    `<tr><td colspan="2" style="background:${C.bgElevated};color:${C.chromeHi};padding:10px 14px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;font-size:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;border-top:1px solid ${C.chromeVlo};border-bottom:1px solid ${C.chromeVlo};">${escapeHtml(title)}</td></tr>`;
   const longRow = (label: string, value: string) =>
     value && value.trim()
-      ? `<tr><td colspan="2" style="border-bottom:1px solid #E5E7EB;padding:10px 12px;color:#0B0D10"><div style="color:#6B7280;font-size:12px;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.06em">${escapeHtml(label)}</div><div style="white-space:pre-wrap">${escapeHtml(value)}</div></td></tr>`
+      ? `<tr><td colspan="2" style="border-bottom:1px solid ${C.chromeVlo};padding:14px 16px;color:${C.chromeMid};"><div style="color:${C.chromeLo};font-size:10px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.14em;font-family:ui-monospace,'SF Mono',Menlo,monospace;">${escapeHtml(label)}</div><div style="white-space:pre-wrap;color:${C.chromeHi};font-size:14px;line-height:1.55;">${escapeHtml(value)}</div></td></tr>`
       : "";
 
-  const html = `<!doctype html><html><body style="font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;max-width:720px;margin:0 auto;padding:24px;font-size:14px;color:#0B0D10">
-<h2 style="margin:0 0 16px;font-size:20px">New onboarding intake — ${escapeHtml(input.company)}</h2>
-<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;border:1px solid #E5E7EB"><tbody>
+  const body = `
+<h2 style="margin:0 0 24px;font-size:18px;font-weight:600;color:${C.chromeHi};letter-spacing:-0.01em;">New onboarding intake — <span style="color:${C.coralCore};">${escapeHtml(input.company)}</span></h2>
+<table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-radius:10px;overflow:hidden;"><tbody>
 ${sec("Contact")}
 ${row("Name", input.name)}
 ${row("Role", input.role || "(not provided)")}
-${row("Email", `<a href="mailto:${escapeHtml(input.email)}">${escapeHtml(input.email)}</a>`)}
+${row("Email", `<a href="mailto:${escapeHtml(input.email)}" style="color:${C.blueHi};text-decoration:none;">${escapeHtml(input.email)}</a>`)}
 ${row("Phone", input.phone || "(not provided)")}
 ${sec("Company")}
 ${row("Company", input.company)}
-${row("Website", `<a href="${escapeHtml(input.website)}" target="_blank">${escapeHtml(input.website)}</a>`)}
+${row("Website", `<a href="${escapeHtml(input.website)}" target="_blank" style="color:${C.blueHi};text-decoration:none;">${escapeHtml(input.website)}</a>`)}
 ${row("Location", input.location)}
 ${row("Industry", input.industry || "(not provided)")}
 ${row("Stage", lbl(STAGE_LABELS, input.companyStage))}
@@ -456,8 +539,8 @@ ${row("KV ref", `onboarding:${intakeId}`)}
 ${row("User-Agent", meta.userAgent ?? "(none)")}
 ${row("IP", meta.ip ?? "(none)")}
 ${row("Referer", meta.referer ?? "(none)")}
-</tbody></table>
-</body></html>`;
+</tbody></table>`;
+  const html = chromaglassShell(body);
 
   return send({
     from: FROM_ONBOARDING,
@@ -474,7 +557,15 @@ ${row("Referer", meta.referer ?? "(none)")}
 ───────────────────────────────────────────────────────────────── */
 
 function row(label: string, value: string): string {
-  return `<tr><td style="border-bottom:1px solid #E5E7EB;color:#6B7280;width:32%;vertical-align:top">${escapeHtml(label)}</td><td style="border-bottom:1px solid #E5E7EB;color:#0B0D10">${value}</td></tr>`;
+  return `<tr><td style="border-bottom:1px solid ${C.chromeVlo};color:${C.chromeLo};width:32%;vertical-align:top;padding:12px 16px;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;font-family:ui-monospace,'SF Mono',Menlo,monospace;">${escapeHtml(label)}</td><td style="border-bottom:1px solid ${C.chromeVlo};color:${C.chromeHi};padding:12px 16px;font-size:14px;line-height:1.55;">${value}</td></tr>`;
+}
+
+function sectionLabel(title: string): string {
+  return `<div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:${C.chromeLo};margin:24px 0 0;">${escapeHtml(title)}</div>`;
+}
+
+function stepRow(num: string, text: string): string {
+  return `<tr><td style="vertical-align:top;padding:10px 0;width:48px;color:${C.blueHi};font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:0.06em;">${escapeHtml(num)}</td><td style="vertical-align:top;padding:10px 0;color:${C.chromeMid};font-size:14px;line-height:1.6;">${escapeHtml(text)}</td></tr>`;
 }
 
 function escapeHtml(s: string): string {
