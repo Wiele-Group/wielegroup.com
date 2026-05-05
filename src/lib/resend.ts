@@ -105,7 +105,8 @@ function chromaglassShell(body: string, opts?: { footerNote?: string }): string 
 ───────────────────────────────────────────────────────────────── */
 
 const SERVICE_LABELS: Record<string, string> = {
-  "brand-marketing": "Brand Design & Marketing",
+  "brand-management": "Brand Management",
+  marketing: "Marketing",
   "web-design": "Web Design",
   advertising: "Advertising",
   seo: "SEO Services",

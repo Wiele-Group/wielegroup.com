@@ -167,10 +167,11 @@ export function CinematicEntry() {
         </motion.div>
 
         {/* Lowercase wordmark with bichromatic chrome gradient */}
-        <motion.h1
-          id="cinematic-entry-heading"
+        <motion.span
+          role="img"
+          aria-label="Wiele"
           variants={wordmarkVariants}
-          className="font-mono text-[clamp(3rem,9vw,6rem)] font-light tracking-[-0.04em] leading-none"
+          className="block font-mono text-[clamp(3rem,9vw,6rem)] font-light tracking-[-0.04em] leading-none"
           style={{
             background:
               "linear-gradient(135deg, #5BABFF 0%, #EEF2F8 50%, #FFC2A0 100%)",
@@ -181,7 +182,7 @@ export function CinematicEntry() {
           }}
         >
           wiele
-        </motion.h1>
+        </motion.span>
 
         {/* Tagline — chrome-mid mono register */}
         <motion.p

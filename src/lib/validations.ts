@@ -80,7 +80,8 @@ export type ContactInput = z.infer<typeof contactSchema>;
 ───────────────────────────────────────────────────────────────── */
 
 export const SERVICE_VALUES = [
-  "brand-marketing",
+  "brand-management",
+  "marketing",
   "web-design",
   "advertising",
   "seo",

@@ -8,29 +8,34 @@
 
 export const SERVICE_OPTIONS = [
   {
-    value: "brand-marketing",
-    title: "Brand Design & Marketing",
-    desc: "Positioning, identity, narrative, brand systems",
+    value: "brand-management",
+    title: "Brand Management",
+    desc: "Positioning, identity systems, narrative architecture, authority engineering",
+  },
+  {
+    value: "marketing",
+    title: "Marketing",
+    desc: "Strategy, audience, content, lifecycle, ops — engineered as one engine",
   },
   {
     value: "web-design",
     title: "Web Design",
-    desc: "UX strategy, design systems, conversion engineering",
+    desc: "UX strategy, design systems, performance, conversion architecture",
   },
   {
     value: "advertising",
     title: "Advertising",
-    desc: "Paid acquisition, creative testing, attribution",
+    desc: "Paid acquisition across Google, Meta, LinkedIn — creative, attribution, scaling",
   },
   {
     value: "seo",
     title: "SEO Services",
-    desc: "Technical SEO, content, search authority",
+    desc: "Technical SEO, content systems, search authority, schema engineering",
   },
   {
     value: "ai-search",
     title: "AI Search Optimization",
-    desc: "GEO + AEO, citation engineering, entity authority",
+    desc: "GEO + AEO, citation engineering, entity authority, recommendation visibility",
   },
 ] as const;
 

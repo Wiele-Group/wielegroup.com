@@ -28,7 +28,7 @@
   /* ── Chrome scale (text + structural neutrals) ── */
   --color-chrome-hi: #EEF2F8;       /* primary text, never #FFFFFF */
   --color-chrome-mid: #B8C4D6;      /* body text, secondary */
-  --color-chrome-lo: #5C6A82;       /* muted text, dividers */
+  --color-chrome-lo: #7A8AA8;       /* muted text, dividers — WCAG AA on #0C1220 (4.89:1) */
   --color-chrome-vlo: #2A3447;      /* subtle borders, disabled states */
 
   /* ── Cool accent — Signal Blue ── */

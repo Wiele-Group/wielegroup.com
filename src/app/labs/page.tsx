@@ -90,9 +90,6 @@ export default function LabsIndexPage() {
                   </span>
                 </li>
               ))}
-              <li className="text-body-xs font-mono text-smoke ml-auto">
-                Category-filtering UI lands in Phase 6
-              </li>
             </ul>
           </div>
         </section>
