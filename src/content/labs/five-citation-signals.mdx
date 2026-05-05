@@ -7,11 +7,11 @@ reviewer: "Jonathan Landman"
 lastUpdated: "2026-05-03"
 faq:
   - question: "Are these five signals weighted equally?"
-    answer: "[FOUNDER REVIEW: 80-word answer on relative weighting across the five signals, noting that weights vary by engine and prompt class — entity clarity is closer to a hard requirement; founder voice is closer to a tiebreaker.]"
+    answer: "No — and the weighting drifts by engine and prompt class. Entity clarity is closer to a hard prerequisite: if the engine can't disambiguate who you are, the other four signals never enter the calculation. Source authority and recency are heavyweights once entity is solved. Founder voice and structured extractability are tiebreakers — they decide which of two equally credible sources gets cited first. Wiele engages all five because the weights shift; betting on the wrong one ages badly."
   - question: "How do you measure each signal in practice?"
-    answer: "[FOUNDER REVIEW: 80-word answer pointing to the Wiele OS engine measurement methodology and the public methodology page at /trust.]"
+    answer: "The Wiele OS engine runs a fixed prompt panel against each target buyer query, captures every cited source, and scores the brand on each signal: entity clarity (does the engine name the brand correctly?), source authority (is the brand cited as an expert source?), recency (is fresh content surfacing?), founder voice (is named-author content being quoted?), and extractability (are answer blocks structured for direct quotation?). Methodology and source-level citation logging is documented at /trust."
   - question: "Which signal is the highest-leverage to start with?"
-    answer: "[FOUNDER REVIEW: 80-word answer naming the highest-leverage signal for most brands — typically entity clarity, since it's a structural prerequisite the other four lean on.]"
+    answer: "For most brands: entity clarity. It's the structural prerequisite the other four lean on, and the most common failure mode in AI search audits — the brand exists, ranks classically, and still gets misnamed or omitted because the entity graph never crystallised. Fixing entity clarity is fast, cheap, and unlocks the rest of the system. Skip it and the engine work that follows under-performs."
 relatedSystems:
   - "ai-visibility"
   - "search"
@@ -22,24 +22,34 @@ Citation in an answer engine is not a popularity contest. AI engines apply a det
 
 ## Signal one — entity clarity
 
-[FOUNDER REVIEW: 200-word section on entity clarity. Knowledge-graph presence, Wikidata accuracy, disambiguation against same-named entities. The structural prerequisite that other signals lean on.]
+Entity clarity is whether the answer engine can identify your brand unambiguously when a buyer's prompt names you, references your category, or invokes a topic you should be known for. It is the structural prerequisite the other four signals lean on. A brand can publish brilliant content, attract tier-1 press, and still go uncited because the engine resolves the brand name to a different entity, fails to disambiguate from a same-named competitor, or never built a confident entity in the knowledge graph at all.
+
+The mechanics are mundane. Wikidata presence with consistent identifiers, a clean Wikipedia article when one is warranted, schema.org Organization markup that reconciles with the rest of the entity graph, founder linkage via sameAs across LinkedIn, X, and the company site, and consistent naming on the brand's own owned surfaces — wordmark, footer, og:site_name, and structured data — all reinforce one another. When those signals agree, the engine resolves the entity in milliseconds and moves on to the rest of the citation function. When they disagree, the engine often hedges by citing nothing, or by citing a competitor whose entity is cleaner. Entity hygiene is the cheapest, fastest, most under-served lever in AI visibility work.
 
 ## Signal two — citation history
 
-[FOUNDER REVIEW: 200-word section on citation history. Where AI engines have already quoted the brand, on which sources, with what frequency. This is the loop that opens — and the moat once it does.]
+Citation history is the loop that opens. The engine retains, in some form, a memory of where its prior citations have come from for adjacent prompts in the same category. If your brand has been cited before — by the same engine, by another engine quoting your content, or by a high-authority source the engine trusts — the next citation is materially more likely. The history compounds.
+
+This is also the moat. By the time a brand has been cited fifty times across a prompt class, the marginal cost of the next citation is near zero, and the marginal cost for a competitor to displace that citation is high enough that most don't try. Brands without a citation history have to break in at full sticker price; brands with one buy citations at a discount and sell their content into a pre-warmed surface. Engineering citation history is what digital PR, comparison-page systems, and analyst-relations work all feed into — and why those programmes pay back differently in the AI era than they did in the pure-SEO era.
 
 ## Signal three — source weight
 
-[FOUNDER REVIEW: 200-word section on source weight. Which publications, analyst firms, or first-party content the citations come from. Tier-1 weight matters disproportionately; this is why digital PR is part of the system.]
+Not all citations carry equal weight. The engine reads from a citation graph where tier-1 publications, recognised analyst firms, peer-reviewed venues, and well-trafficked first-party content sit above general blogs, content farms, and unverifiable secondary sources. A single citation in a tier-1 venue moves the engine's confidence more than a dozen citations on commodity surfaces. This is why blanket content programmes underperform in AI search: volume on low-weight surfaces does not substitute for placement on high-weight ones.
+
+Source weight is also why first-party authority — your own owned content, on a domain the engine recognises as authoritative for your category — matters disproportionately. Owned authority feeds back into citation history in a way that earned coverage on someone else's domain doesn't. The most efficient engagement architecture combines tier-1 earned placement (analyst quotes, named press, conference appearances) with deep first-party authority (founder thesis, methodology pages, comparison surfaces), so the engine sees the brand both quoted in trusted venues and authoritative in its own right.
 
 ## Signal four — freshness
 
-[FOUNDER REVIEW: 150-word section on freshness. How recently the brand was last cited, last updated its first-party content, last appeared in a tier-1 source. Decay rates vary by engine.]
+The engine prefers recent over historical, and the decay function is steeper than most brands assume. A citation from eighteen months ago carries materially less weight than the same citation from last quarter — particularly for prompt classes where the underlying topic moves quickly (anything AI, anything regulatory, anything category-defining). Engines also discount brands whose first-party content is stale: a frequently-updated content surface signals an active, current authority; a static one signals a brand that may already have been outpaced.
+
+Freshness is the easiest signal to lose and the easiest to maintain. A monthly cadence of named-author writing on the brand's owned domain, plus a quarterly cadence of tier-1 placement, holds the freshness signal indefinitely. The brands that go dark for a quarter find themselves cited less frequently the following quarter, even when their underlying authority hasn't changed.
 
 ## Signal five — founder voice
 
-[FOUNDER REVIEW: 200-word section on founder voice. Named, attributed, evidence-backed positions. AI engines down-weight anonymous corporate content and up-weight specific founder thesis. This is the tiebreaker.]
+The fifth signal is the tiebreaker. When the engine has two equally credible sources to choose from, it prefers the one with named, attributed, evidence-backed authorship over the anonymous corporate one. This is increasingly explicit in engine behaviour: ChatGPT and Perplexity in particular up-weight content where a recognisable individual takes a position, frames a thesis, or applies first-hand judgement. They down-weight anonymous "as a company we believe" content that reads like a press release.
+
+Founder voice is also the slowest to compound. Building a recognisable voice that the engine learns to reach for takes a sustained twelve-to-eighteen-month publishing cadence on first-party surfaces, with consistent themes, named positions, and a voice the engine can disambiguate from competitors. The payback is that once the voice compounds, the engine reaches for it preferentially — even on prompts that don't name the brand directly. That's the deepest, most durable form of AI visibility, and the hardest one for a competitor to replicate quickly.
 
 ## What this means for execution order
 
-[FOUNDER REVIEW: 100-word section on what order to address the signals. Entity clarity first (structural). Then citation history through digital PR. Then source weight. Freshness becomes a maintenance discipline. Founder voice runs in parallel but takes longest to compound.]
+The signals don't have to be addressed in parallel — the leverage is highest in a specific sequence. Entity clarity first, because nothing else compounds without it. Citation history second, opened through targeted digital PR and comparison-page work. Source weight third, by routing the brand into tier-1 venues where the citation graph reads it. Freshness becomes a maintenance discipline once the first three are running. Founder voice runs in parallel from day one but earns the tiebreaker payoff only on a longer horizon. That order is how Wiele scopes Authority Engine engagements, and why an AI visibility programme that skips entity hygiene to chase content tends to underperform.

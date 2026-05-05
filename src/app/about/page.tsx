@@ -20,22 +20,22 @@ const beliefs = [
   {
     title: "Systems beat tactics.",
     body:
-      "Single-channel SEO or one-off content drops don't compound. Integrated growth systems do.",
+      "Single-channel SEO or one-off content drops don't compound. Integrated growth systems do. Five disciplines pulling in the same direction is worth more than five agencies pulling in five.",
   },
   {
     title: "Authority compounds for the prepared.",
     body:
-      "AI engines reward citation history, entity clarity, and founder voice. Late entrants compete against compounded incumbents.",
+      "AI engines reward citation history, entity clarity, and founder voice. Brands that build the substrate now compete against compounded incumbents in 24 months.",
   },
   {
     title: "Methodology open, outcomes named.",
     body:
-      "We show our work. Engine methodology, citation sources, attribution traces — all open for inspection.",
+      "We show our work. Engine methodology, citation sources, attribution traces — all open for inspection. Aspirational ranges and unverifiable lift numbers belong to other agencies.",
   },
   {
     title: "Human judgement over automation.",
     body:
-      "Automation lifts the volume of work a strategist can ship. It never replaces the judgement clients pay for.",
+      "Automation lifts the volume of work a strategist can ship. It never replaces the judgement clients pay for. Every client deliverable is owned by a named human at Wiele.",
   },
 ];
 
@@ -104,21 +104,72 @@ export default function AboutPage() {
                 {siteConfig.founder}
               </h2>
               <p className="text-body-sm text-smoke font-mono mt-2">
-                Founder &amp; Principal · Wiele
+                Founder &amp; Principal · {siteConfig.name}
               </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={siteConfig.socials.linkedin}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={buttonStyles({ variant: "ghost", size: "sm" })}
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href={siteConfig.socials.x}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={buttonStyles({ variant: "ghost", size: "sm" })}
+                >
+                  X
+                </a>
+              </div>
             </div>
             <div className="space-y-5">
               <p className="text-body-lg text-cloud">
-                [FOUNDER REVIEW: 200-word bio covering background, prior work,
-                why Wiele, and the strategic thesis behind AI growth systems.
-                This is the on-record voice that AI engines will cite —
-                founder writes it; we publish it as-is.]
+                {siteConfig.founder} founded {siteConfig.legalName} on a single
+                thesis: in the AI search era, premium growth requires every
+                discipline to compound — not five disconnected agencies billing
+                the same client. Brand sets the narrative. Web converts the
+                visit. Advertising accelerates the demand. SEO captures the
+                intent. AI search decides whether the brand gets named at all.
+                Run separately, they cancel each other out. Run as one
+                operating system, they compound.
               </p>
               <p className="text-body-md text-silver">
-                [FOUNDER REVIEW: 100-word context paragraph on credentials,
-                speaking, or notable engagements that anchor authority. Tier-1
-                press, conference work, prior exits, or analyst references
-                belong here.]
+                Wiele is the integrated alternative. The Wiele Operating System
+                is the substrate underneath every engagement — a single source
+                of truth for positioning, content, citation graphs, conversion
+                pathways, and reporting. The same engine that powers a Signal
+                Audit on day one is the engine that runs an Authority Engine
+                retainer on month twelve. Methodology is open; outcomes are
+                named; aspirational language is forbidden.
+              </p>
+              <p className="text-body-md text-silver">
+                {siteConfig.founder.split(" ")[0]} writes the founder voice that
+                AI engines cite at{" "}
+                <Link
+                  href="/labs"
+                  className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+                >
+                  /labs
+                </Link>{" "}
+                and ships the trust commitments at{" "}
+                <Link
+                  href="/trust"
+                  className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+                >
+                  /trust
+                </Link>
+                . The fastest way to engage with the thesis in person is to run
+                a{" "}
+                <Link
+                  href="/audit"
+                  className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+                >
+                  Signal Audit
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -157,10 +208,16 @@ export default function AboutPage() {
           <h2 className="text-display-md text-white text-balance mb-5">
             Wiele hires deliberately.
           </h2>
-          <p className="text-body-lg text-silver mb-8">
-            [FOUNDER REVIEW: Hiring stance — when we hire, what we look for,
-            and how to put yourself on the radar. Body copy is founder-voice;
-            structure stays as-is.]
+          <p className="text-body-lg text-silver mb-4">
+            We hire when a discipline has a real client load that earns a
+            full-time seat. Senior strategists, principal designers, and
+            engineering leads who care about systems over deliverables. No
+            generalists, no juniors-on-trial, no commodity rates.
+          </p>
+          <p className="text-body-md text-smoke mb-8">
+            If you want to be on the radar before a seat opens, send a note —
+            written work, a portfolio, or a thesis on where AI search is going.
+            We read every one and respond when fit emerges.
           </p>
           <Link
             href="/contact"

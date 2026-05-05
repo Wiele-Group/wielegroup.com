@@ -88,17 +88,17 @@ export const ARTICLE_MANIFEST: readonly ArticleManifestEntry[] = [
       {
         question: "Doesn't classical SEO compound too?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer covering why authority and links compound differently than AI citation graphs, and where the asymmetry actually shows up.]",
+          "Classical SEO compounds via authority and link graphs — slowly, expensively, and with diminishing returns once a category has stabilised. AI citation graphs compound differently: each citation by an answer engine is a vote of confidence the next prompt sees, and the citation function is recency-sensitive. That means newcomers on the classical surface fight against decades of incumbent backlinks, while newcomers on the inferred surface can earn citation share inside a quarter — provided the citation signals are engineered.",
       },
       {
         question: "How long until the compounding shows in revenue?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer with realistic timelines based on Wiele engagements — engine deltas in 90 days, attribution to pipeline at 6 months, structural moat at 18 months.]",
+          "On Wiele engagements the typical curve is: engine deltas (citation share, prompt coverage, entity strength) move inside 90 days; attributable pipeline lift shows up around month six as the AI surface starts feeding qualified buyers into the funnel; the structural moat — where competitors can't dislodge you economically — solidifies around month eighteen. Faster on niche categories with weak incumbents, slower on saturated categories where reputation is decades deep.",
       },
       {
         question: "Can a late entrant catch up?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer covering when a late mover can catch up (rare) versus when the incumbent's compounding makes it economically unattractive (typical).]",
+          "Sometimes — rarely cheaply. A late entrant can close the gap when the incumbent's citation graph is stale (no fresh founder voice, weak entity hygiene, no comparison surface), or when the category is shifting fast enough that recency outweighs cumulative authority. More often, the incumbent's compounding makes catch-up economically unattractive: the late entrant has to outspend on content, outpublish on authority, and outbid on attention all at once. That's the moat.",
       },
     ],
     relatedSystems: ["ai-visibility", "brand-authority"],
@@ -117,17 +117,17 @@ export const ARTICLE_MANIFEST: readonly ArticleManifestEntry[] = [
       {
         question: "Are these five signals weighted equally?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer on relative weighting across the five signals, noting that weights vary by engine and prompt class — entity clarity is closer to a hard requirement; founder voice is closer to a tiebreaker.]",
+          "No — and the weighting drifts by engine and prompt class. Entity clarity is closer to a hard prerequisite: if the engine can't disambiguate who you are, the other four signals never enter the calculation. Source authority and recency are heavyweights once entity is solved. Founder voice and structured extractability are tiebreakers — they decide which of two equally credible sources gets cited first. Wiele engages all five because the weights shift; betting on the wrong one ages badly.",
       },
       {
         question: "How do you measure each signal in practice?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer pointing to the Wiele OS engine measurement methodology and the public methodology page at /trust.]",
+          "The Wiele OS engine runs a fixed prompt panel against each target buyer query, captures every cited source, and scores the brand on each signal: entity clarity (does the engine name the brand correctly?), source authority (is the brand cited as an expert source?), recency (is fresh content surfacing?), founder voice (is named-author content being quoted?), and extractability (are answer blocks structured for direct quotation?). Methodology and source-level citation logging is documented at /trust.",
       },
       {
         question: "Which signal is the highest-leverage to start with?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer naming the highest-leverage signal for most brands — typically entity clarity, since it's a structural prerequisite the other four lean on.]",
+          "For most brands: entity clarity. It's the structural prerequisite the other four lean on, and the most common failure mode in AI search audits — the brand exists, ranks classically, and still gets misnamed or omitted because the entity graph never crystallised. Fixing entity clarity (canonical naming, schema, founder linkage, knowledge-graph consistency) is fast, cheap, and unlocks the rest of the system. Skip it and the engine work that follows under-performs.",
       },
     ],
     relatedSystems: ["ai-visibility", "search", "brand-authority"],
@@ -146,17 +146,17 @@ export const ARTICLE_MANIFEST: readonly ArticleManifestEntry[] = [
       {
         question: "Is classical search going away?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer on the persistence of classical search alongside AI inference. Not a replacement — a split. Different surfaces serve different intent classes.]",
+          "No. The two surfaces are splitting, not collapsing. Classical search continues to serve transactional, navigational, and known-brand queries — buyers who know what they want and want a link to click. AI inference is taking the considered, comparative, and recommendation queries — buyers who want an answer rather than ten options. The mistake is treating either surface as the whole market. Different intent classes, different surfaces, different optimisation systems. Build for both.",
       },
       {
         question: "Which buyers are in the inferred-search bucket?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer on buyer behaviour split. Considered B2B buyers, founders, technical buyers tend to use AI search for evaluation; consumer + transactional intent still skews classical.]",
+          "Considered B2B buyers, technical buyers, founders evaluating tools or partners, and high-AOV consumer categories where the buyer wants a recommendation rather than a list of links. Anyone whose research process used to involve reading five blog posts and asking three peers now opens an answer engine first. Consumer transactional intent (buy, book, find-near-me) still skews classical. Anything that involves reasoning, comparing, or trusting a recommendation is moving inferred.",
       },
       {
         question: "What do classical SEO tools miss?",
         answer:
-          "[FOUNDER REVIEW: 80-word answer on what Ahrefs / Semrush / etc. miss. They measure the classical surface accurately but have no visibility into the inferred surface where AI engines quote sources directly.]",
+          "Classical tools (Ahrefs, Semrush, similar) measure the classical surface accurately and have spent two decades getting good at it. What they don't see is the inferred surface — they can't tell you whether ChatGPT, Perplexity, or Gemini is quoting your content, citing your competitor, or omitting both. That visibility requires running the actual prompt panel against the actual engines and logging citation outputs. Wiele's engine does this; classical SEO tooling doesn't.",
       },
     ],
     relatedSystems: ["ai-visibility", "search"],

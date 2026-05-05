@@ -54,6 +54,10 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
+    /* Legal — v2.4 holes-plugged (2026-05-05). /privacy + /terms shipped
+       substantive copy; noindex removed; safe and useful to index. */
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
   ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

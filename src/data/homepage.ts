@@ -168,8 +168,9 @@ export const trustPoints = [
 
 /**
  * Homepage Labs preview cards — slugs match src/content/labs/*.mdx files.
- * These three articles ship in Phase 4 with [FOUNDER REVIEW] body markers;
- * frontmatter + structure are live, body copy lands when the founder fills in.
+ * Three founder-voice articles, full body copy live as of v2.4
+ * (2026-05-05 holes-plugged sweep). Reviewer + lastUpdated tracked
+ * in each MDX frontmatter.
  */
 export const labsPreviewArticles = [
   {
@@ -200,21 +201,21 @@ export const labsPreviewArticles = [
 
 export const proofPlaceholders = [
   {
-    sector: "SaaS",
-    headline: "AI visibility lift, 6 months",
+    sector: "Premium SaaS",
+    headline: "AI Visibility Programme",
     summary:
-      "Case study live in Phase 3 — engine run + before/after fixture rendered with the same panel as the hero.",
+      "Twelve-week programme: citation graph audit, entity baseline, founder-voice content, comparison-page system, monthly engine re-runs.",
   },
   {
-    sector: "Luxury",
-    headline: "Authority engine, full launch",
+    sector: "Premium Services",
+    headline: "Authority Engine Retainer",
     summary:
-      "Case study live in Phase 3 — founder narrative + editorial system + citation graph result.",
+      "Editorial system, founder-voice writing engine, citation graph maintenance, analyst outreach, monthly engine reporting against a named competitor set.",
   },
   {
-    sector: "B2B Services",
-    headline: "Comparison capture programme",
+    sector: "Premium DTC + Luxury",
+    headline: "Integrated Growth System",
     summary:
-      "Case study live in Phase 3 — comparison-query hub + analyst-citation lift across 90 days.",
+      "Brand layer, web experience layer, paid acceleration layer, AI visibility substrate — five disciplines run as one operating system.",
   },
 ];

@@ -149,6 +149,32 @@ export type ContactPageSchema = SchemaBase & {
   description?: string;
 };
 
+export type WebPageSchema = SchemaBase & {
+  "@type": "WebPage";
+  name: string;
+  url: string;
+  description?: string;
+  isPartOf?: { "@type": "WebSite"; name: string; url: string };
+  inLanguage?: string;
+  datePublished?: string;
+  dateModified?: string;
+  publisher?: { "@type": "Organization"; name: string; url: string };
+};
+
+export type HowToSchema = SchemaBase & {
+  "@type": "HowTo";
+  name: string;
+  description?: string;
+  totalTime?: string;
+  step: {
+    "@type": "HowToStep";
+    position: number;
+    name: string;
+    text: string;
+    url?: string;
+  }[];
+};
+
 export type AnySchema =
   | OrganizationSchema
   | WebSiteSchema
@@ -161,7 +187,9 @@ export type AnySchema =
   | BlogSchema
   | ItemListSchema
   | AboutPageSchema
-  | ContactPageSchema;
+  | ContactPageSchema
+  | WebPageSchema
+  | HowToSchema;
 
 /* ─────────────────────────────────────────────────────────────
    Helpers / canonical instances
@@ -394,5 +422,52 @@ export function contactPageSchema(input: {
     name: input.name,
     url: input.url,
     description: input.description,
+  };
+}
+
+/* ─────────────────────────────────────────────────────────────
+   v2.4 helpers — WebPage (legal docs), HowTo (multi-step processes)
+───────────────────────────────────────────────────────────────── */
+
+export function webPageSchema(input: {
+  name: string;
+  url: string;
+  description: string;
+  datePublished?: string;
+  dateModified?: string;
+}): WebPageSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: input.name,
+    url: input.url,
+    description: input.description,
+    isPartOf: { "@type": "WebSite", name: siteConfig.name, url: siteConfig.url },
+    inLanguage: "en-GB",
+    datePublished: input.datePublished,
+    dateModified: input.dateModified,
+    publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+  };
+}
+
+export function howToSchema(input: {
+  name: string;
+  description?: string;
+  totalTime?: string;
+  steps: { name: string; text: string; url?: string }[];
+}): HowToSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: input.name,
+    description: input.description,
+    totalTime: input.totalTime,
+    step: input.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      url: s.url,
+    })),
   };
 }

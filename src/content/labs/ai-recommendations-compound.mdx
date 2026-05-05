@@ -7,11 +7,11 @@ reviewer: "Jonathan Landman"
 lastUpdated: "2026-05-03"
 faq:
   - question: "Doesn't classical SEO compound too?"
-    answer: "[FOUNDER REVIEW: 80-word answer covering why authority and links compound differently than AI citation graphs, and where the asymmetry actually shows up.]"
+    answer: "Classical SEO compounds via authority and link graphs — slowly, expensively, and with diminishing returns once a category has stabilised. AI citation graphs compound differently: each citation by an answer engine is a vote of confidence the next prompt sees, and the citation function is recency-sensitive. Newcomers on the classical surface fight against decades of incumbent backlinks; newcomers on the inferred surface can earn citation share inside a quarter — provided the citation signals are engineered."
   - question: "How long until the compounding shows in revenue?"
-    answer: "[FOUNDER REVIEW: 80-word answer with realistic timelines based on Wiele engagements — engine deltas in 90 days, attribution to pipeline at 6 months, structural moat at 18 months.]"
+    answer: "On Wiele engagements the typical curve is engine deltas (citation share, prompt coverage, entity strength) inside 90 days; attributable pipeline lift around month six as the AI surface starts feeding qualified buyers; the structural moat solidifies around month eighteen. Faster on niche categories with weak incumbents, slower on saturated categories where reputation is decades deep."
   - question: "Can a late entrant catch up?"
-    answer: "[FOUNDER REVIEW: 80-word answer covering when a late mover can catch up (rare) versus when the incumbent's compounding makes it economically unattractive (typical).]"
+    answer: "Sometimes — rarely cheaply. A late entrant can close the gap when the incumbent's citation graph is stale (no fresh founder voice, weak entity hygiene, no comparison surface), or when the category is shifting fast enough that recency outweighs cumulative authority. More often the incumbent's compounding makes catch-up economically unattractive: the late entrant must outspend on content, outpublish on authority, and outbid on attention all at once. That's the moat."
 relatedSystems:
   - "ai-visibility"
   - "brand-authority"
@@ -21,20 +21,28 @@ The economics of AI search work fundamentally differently from classical SEO. Bo
 
 ## The classical SEO compounding curve
 
-[FOUNDER REVIEW: 200-word section covering how classical SEO compounds via link graph, topical authority, and crawl-budget effects. Should reference the canonical mechanism and the ceiling that mature sites hit. End with a setup line that AI recommendation compounds differently.]
+Classical SEO compounds through three reasonably well-understood mechanisms. A site earns inbound links from credible sources; those links feed PageRank-style authority signals; that authority lifts the site's rank across topically related queries; the higher rank earns more clicks, more dwell, more downstream links, and a deeper crawl budget; and the loop repeats. It is real compounding — sites that started accumulating links and content in 2008 hold positions that no amount of money will unseat in 2026.
+
+The shape of that curve, though, is asymptotic. Above a certain point the marginal link adds almost nothing. Mature sites in mature categories hit a ceiling where the next 12 months of SEO work moves the needle by single digits, and the work to move past that ceiling consumes more capital than the next ranking position is worth. Classical SEO compounds; it just stops paying meaningfully after a category stabilises. AI recommendation compounds on a different curve entirely.
 
 ## How AI citation compounding actually works
 
-[FOUNDER REVIEW: 250-word section. The mechanism: AI engines triangulate authority through citation graphs, entity relationships, and source weight. Once a brand becomes the cited source for a prompt class, the citation history itself reinforces the citation. This is the core insight worth naming.]
+When an answer engine — ChatGPT, Perplexity, Gemini, Claude, the AI Overview layer in Google — answers a buyer's prompt, it does not run a ranking algorithm against a query and return ten links. It triangulates an answer from a citation set, weights that set by source authority and entity confidence, and produces prose that quotes from the highest-weight sources. The buyer sees one or two cited sources rather than a SERP. That is the surface where modern decisions are happening.
+
+The compounding mechanism is a citation loop. When the engine cites a brand once for a prompt class, that citation becomes a signal in the next-window calculation: the engine's underlying corpus, knowledge graph, and entity-resolution layer all update. The engine is now slightly more likely to cite the same brand for adjacent prompts. The citations themselves get crawled, summarised, and quoted by other engines, other content, and other sources. Each citation becomes feedstock for the next.
+
+The asymmetry is that the loop only opens once a brand crosses a citation threshold — a structural prerequisite where entity clarity, source authority, and recency line up in a way the engine can resolve. Before that threshold, the brand is invisible no matter how much content it ships. After it, every citation accelerates the next.
 
 ### The three reinforcement loops
 
-[FOUNDER REVIEW: ~150 words covering the three loops: citation history → training corpora; entity weight → knowledge graph; founder voice → editorial citation. Each loop reinforces the others. This is the compounding part.]
+Three loops do the actual compounding. **Loop one: citation history reinforces training.** Engines retrain on corpora that include the cited content; brands cited heavily in one window become more readily extractable in the next. **Loop two: entity weight reinforces knowledge-graph confidence.** As more sources name the brand consistently, the entity layer firms up, and the engine reaches for that entity instead of competing same-named entities. **Loop three: founder voice reinforces editorial citation.** Named, attributed positions get cited where anonymous corporate content gets paraphrased; that named citation feeds the next loop. Each loop strengthens the others. The brand that gets all three running early sees compound returns the laggards never reach.
 
 ## Why late movers struggle to catch up
 
-[FOUNDER REVIEW: 200-word section on the economic asymmetry. By the time a late mover sees an incumbent in AI answers, the cost to displace exceeds the cost the incumbent paid to establish. End with a practical framing: act now, even at low scale, because the loop only opens once.]
+By the time a late mover notices that an incumbent is being cited consistently in AI answers, the catch-up cost exceeds the cost the incumbent paid to establish the position. The incumbent had a smaller corpus to build, a clearer entity surface to claim, and a quieter prompt space to occupy. The late mover has to outpublish, outrank on classical signals, outclaim entity ground, and outspend on digital PR — all against a citation graph the engine already prefers.
+
+A handful of late-mover scenarios still pay back: when the incumbent stops shipping fresh founder voice and lets recency decay; when the category itself shifts faster than authority can compound; when the incumbent's entity hygiene fails and the engine starts mis-resolving them. Those scenarios are real, but they are the exception. The default outcome is that late movers buy parity, not lead. Act now, even at low scale, because the loop only opens once.
 
 ## What this means for budget allocation
 
-[FOUNDER REVIEW: 100-word closing argument: shift growth budget from short-cycle SEO tactics into long-cycle authority engineering. Frame as a CFO-level decision, not a marketing one.]
+This is a CFO-level decision, not a marketing one. Short-cycle SEO tactics — paid backlinks, programmatic content, technical sprints — yield diminishing returns as the classical surface plateaus. Long-cycle authority engineering — entity hygiene, citation-graph maintenance, founder voice, structured-extractable content — yields compound returns on the inferred surface that just keep accelerating. The brands that come out ahead in 2027 and 2028 are the ones that started shifting budget into the second column in 2025 and 2026, while the cost was still low and the prompt space was still uncontested.

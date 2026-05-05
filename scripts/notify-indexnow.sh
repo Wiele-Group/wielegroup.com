@@ -41,6 +41,8 @@ readonly URL_LIST=(
   "https://${HOST}/systems/search"
   "https://${HOST}/systems/brand-authority"
   "https://${HOST}/systems/web-experience"
+  "https://${HOST}/privacy"
+  "https://${HOST}/terms"
   "https://${HOST}/sitemap.xml"
 )
 

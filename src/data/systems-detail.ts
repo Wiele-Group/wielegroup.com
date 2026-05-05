@@ -162,14 +162,14 @@ const aiVisibility: SystemDetailEntry = {
   },
   caseExamples: [
     {
-      sector: "SaaS · Category Lead",
+      sector: "Premium SaaS · Category Lead",
       summary:
-        "[CASE STUDY PENDING — fixture data shape only] Engine output, 6-month before/after, attribution to pipeline.",
+        "Twelve-week AI Visibility Programme — citation graph audit, entity baseline, founder-voice content engine, comparison hub, monthly engine re-runs scored against named competitor set.",
     },
     {
-      sector: "Enterprise B2B Services",
+      sector: "Premium B2B Services",
       summary:
-        "[CASE STUDY PENDING — fixture data shape only] Comparison-query capture programme, 90-day citation lift.",
+        "Authority Engine Retainer — editorial system, founder-voice writing engine, citation graph maintenance, analyst outreach, monthly engine reporting on prompt coverage and citation share.",
     },
   ],
   faq: [

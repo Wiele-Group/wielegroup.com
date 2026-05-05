@@ -15,19 +15,19 @@ export function ProofSection() {
               Proof
             </p>
             <h2 className="text-display-lg text-white text-balance">
-              Engine output. Real engagements. Live in Phase 3.
+              Engine output. Methodology open. Founding cohort opening.
             </h2>
             <p className="text-body-lg text-silver mt-5">
-              Every Wiele case study renders the same engine panel you see in
-              the hero — applied to a real brand, real prompt surface, real
-              before/after.
+              Three programme shapes ready to engage, each running on the same
+              Wiele Operating System. Methodology and outcomes are published
+              under the standard at <span className="text-cloud">/proof</span>.
             </p>
           </div>
           <Link
             href="/proof"
             className={buttonStyles({ variant: "ghost", size: "md" })}
           >
-            See all case studies
+            See programme catalogue
             <ArrowUpRight size={15} aria-hidden />
           </Link>
         </div>
@@ -46,9 +46,12 @@ export function ProofSection() {
               </h3>
               <p className="text-body-sm text-silver flex-1">{proof.summary}</p>
               <div className="mt-5 pt-4 border-t border-[var(--color-border-default)]">
-                <span className="text-body-xs font-mono text-smoke">
-                  Case Study Pending · Phase 3
-                </span>
+                <Link
+                  href="/audit"
+                  className="text-body-xs font-mono text-electric hover:text-electric-light transition-colors"
+                >
+                  Start with a Signal Audit →
+                </Link>
               </div>
             </article>
           ))}

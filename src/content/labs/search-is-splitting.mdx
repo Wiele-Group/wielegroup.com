@@ -7,11 +7,11 @@ reviewer: "Jonathan Landman"
 lastUpdated: "2026-05-03"
 faq:
   - question: "Is classical search going away?"
-    answer: "[FOUNDER REVIEW: 80-word answer on the persistence of classical search alongside AI inference. Not a replacement — a split. Different surfaces serve different intent classes.]"
+    answer: "No. The two surfaces are splitting, not collapsing. Classical search continues to serve transactional, navigational, and known-brand queries — buyers who know what they want and want a link to click. AI inference is taking the considered, comparative, and recommendation queries — buyers who want an answer rather than ten options. The mistake is treating either surface as the whole market. Different intent classes, different surfaces, different optimisation systems. Build for both."
   - question: "Which buyers are in the inferred-search bucket?"
-    answer: "[FOUNDER REVIEW: 80-word answer on buyer behaviour split. Considered B2B buyers, founders, technical buyers tend to use AI search for evaluation; consumer + transactional intent still skews classical.]"
+    answer: "Considered B2B buyers, technical buyers, founders evaluating tools or partners, and high-AOV consumer categories where the buyer wants a recommendation rather than a list of links. Anyone whose research process used to involve reading five blog posts and asking three peers now opens an answer engine first. Consumer transactional intent (buy, book, find-near-me) still skews classical. Anything that involves reasoning, comparing, or trusting a recommendation is moving inferred."
   - question: "What do classical SEO tools miss?"
-    answer: "[FOUNDER REVIEW: 80-word answer on what Ahrefs / Semrush / etc. miss. They measure the classical surface accurately but have no visibility into the inferred surface where AI engines quote sources directly.]"
+    answer: "Classical tools (Ahrefs, Semrush, similar) measure the classical surface accurately and have spent two decades getting good at it. What they don't see is the inferred surface — they can't tell you whether ChatGPT, Perplexity, or Gemini is quoting your content, citing your competitor, or omitting both. That visibility requires running the actual prompt panel against the actual engines and logging citation outputs. Wiele's engine does this; classical SEO tooling doesn't."
 relatedSystems:
   - "ai-visibility"
   - "search"
@@ -21,20 +21,26 @@ Two surfaces are forming. The classical surface — Google, Bing, the index-and-
 
 ## The classical surface
 
-[FOUNDER REVIEW: 200-word section on what classical search still does well. Index, rank, click-through. The surface where transactional and informational long-tail still lives. End with a setup line that classical isn't the problem — assuming it's the only surface is.]
+Classical search still does what it has always done well. It indexes, ranks, and serves links. For known-brand navigation, transactional intent, find-near-me geography, and the long-tail of informational queries that don't require synthesis, classical search remains the dominant surface — and the optimisation discipline around it has thirty years of accumulated craft. The volume on the classical surface isn't disappearing on any timeline that matters to a 2026 budget.
+
+What's changing is the share of high-intent traffic the classical surface captures. The buyer who used to type "best marketing agency for premium B2B SaaS" into Google, click through three or four blog posts, and arrive at a shortlist now opens an AI engine, gets a one-paragraph synthesis with three named candidates, and either acts on the recommendation or asks a clarifying question. The classical surface served the research workflow; the inferred surface increasingly serves the decision. Classical isn't the problem. Assuming it's the only surface is.
 
 ## The inferred surface
 
-[FOUNDER REVIEW: 250-word section on the new surface. AI engines that read, summarise, attribute, and cite — without sending the user to the source. The user's relationship is with the engine; the source's relationship is with the citation. This is structurally different from a click.]
+The inferred surface is what AI answer engines produce. ChatGPT, Perplexity, Claude, Gemini, and the AI Overview layer in Google all do roughly the same thing: read across a citation set, synthesise an answer in prose, attribute the answer to one or two named sources, and respond to the buyer's prompt directly. The surface is not a list of links. It's a written answer with a footnote.
+
+Three things change architecturally. First, the buyer's relationship is with the engine, not the source — the engine is the trusted intermediary, and the source is the cited reference behind the engine's answer. Second, the source's job is no longer to win a click; it's to be the citation. The engine may quote the source verbatim, paraphrase it, or attribute without sending traffic. Third, the buyer often acts on the engine's recommendation without ever visiting the cited source. The brand's value-extraction event happens at the citation, not the click. That changes what content needs to do, what authority signals matter, and what "winning" looks like at the layer where high-intent buyers are deciding.
 
 ### Where the surfaces overlap
 
-[FOUNDER REVIEW: ~150 words on overlap. Some prompts trigger both surfaces (Google with AI Overviews); some trigger only one. The mapping changes monthly. Wiele's engine tracks the boundary.]
+The two surfaces aren't entirely independent. Some prompts trigger both — a Google query that returns ten classical results and an AI Overview at the top. Some prompts trigger only one — a buyer asking ChatGPT for a recommendation never sees a SERP at all. The mapping between prompt class and surface is shifting month to month as engines test where to insert AI synthesis. The Wiele engine tracks where each target prompt currently lands and where the boundary is moving, because budget decisions made on a stale map underperform the ones made on a current one.
 
 ## What classical SEO tools can't see
 
-[FOUNDER REVIEW: 200-word section on the measurement gap. Ahrefs, Semrush, Moz measure classical SERPs accurately. None of them have visibility into the inferred surface — what Wiele OS V3 measures and what every modern brand needs to measure too.]
+Ahrefs, Semrush, Moz, Sistrix, the entire classical SEO toolset — they measure the classical surface accurately and have spent two decades earning that accuracy. What they cannot tell you is whether ChatGPT just cited your competitor instead of you for a high-intent prompt your buyer actually used. They cannot tell you which sources Perplexity is reaching for in your category, which engines are still ignoring you despite a top-three ranking, or which prompt classes are migrating from classical to inferred this quarter.
+
+The visibility requires a different measurement architecture: define a prompt panel that mirrors your real buyers' decision-stage queries; run the panel against each engine that matters in your category; capture every cited source; score the output against entity clarity, citation share, prompt coverage, and competitor displacement. That's what the Wiele OS engine does, and it's what every modern brand needs to measure alongside its classical SEO numbers — because the classical numbers are increasingly an incomplete picture of the surface where high-intent buyers are deciding.
 
 ## How to think about the split as a budget decision
 
-[FOUNDER REVIEW: 100-word closing argument. Don't abandon classical, but stop budgeting as if it's the only surface. The brands that come out ahead in 2027 are the ones that engineered for both surfaces starting in 2025 and 2026.]
+Don't abandon classical search. Stop budgeting as if it's the only surface. A 2026 growth budget that assumes classical SEO captures the full funnel will under-invest in inferred-search authority and lose the highest-intent layer to better-positioned competitors. The brands that come out ahead in 2027 and 2028 are the ones that engineered for both surfaces starting in 2025 and 2026, while the inferred-search prompt space was still uncontested and authority compounded cheaply. The split is permanent. Plan accordingly.

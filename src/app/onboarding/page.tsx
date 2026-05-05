@@ -3,7 +3,7 @@ import { OnboardingForm } from "@/components/forms/onboarding-form";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/motion/fade-in";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, howToSchema, serviceSchema } from "@/lib/schema";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata({
@@ -19,10 +19,47 @@ export default function OnboardingPage() {
     { name: "Home", url: siteConfig.url },
     { name: "Onboarding", url: `${siteConfig.url}/onboarding` },
   ]);
+  const onboardingService = serviceSchema({
+    name: `${siteConfig.name} Client Onboarding`,
+    description:
+      "Structured intake for new Wiele engagements. Captures goals, existing presence, target market, competitors, and constraints so a principal can return a tailored strategic read inside one business day.",
+    url: `${siteConfig.url}/onboarding`,
+    serviceType: "Client onboarding",
+  });
+  const onboardingHowTo = howToSchema({
+    name: "How to start a Wiele engagement",
+    description:
+      "Five-step intake the founding cohort runs to begin a Wiele engagement.",
+    totalTime: "PT10M",
+    steps: [
+      {
+        name: "Tell us who you are",
+        text: "Founder, decision-maker, company name, role, and the website we should be looking at.",
+      },
+      {
+        name: "Frame the engagement",
+        text: "Vision in 12–24 months, primary objectives, ideal customer, and the markets you operate in.",
+      },
+      {
+        name: "Map current presence",
+        text: "Social, content, paid, partner, and analyst surfaces — wherever your brand currently lives.",
+      },
+      {
+        name: "Name competitors and constraints",
+        text: "Direct competitors, indirect alternatives, urgency, and any constraints we need to design around.",
+      },
+      {
+        name: "Submit and receive a tailored read",
+        text: "A Wiele principal reviews every line and returns a strategic read plus engagement recommendation inside one business day.",
+      },
+    ],
+  });
 
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-onboarding" />
+      <JsonLd schema={onboardingService} id="schema-service-onboarding" />
+      <JsonLd schema={onboardingHowTo} id="schema-howto-onboarding" />
 
       <section className="relative overflow-hidden">
         <div
