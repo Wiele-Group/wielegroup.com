@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Check, Clock, FileText } from "lucide-react";
+import { Check, Clock, FileText, Shield, ShieldOff } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
@@ -9,12 +9,16 @@ import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import { promptSimulatorFixtures } from "@/data/prompt-simulator-fixtures";
 import { auditPreviewSteps } from "@/data/homepage";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema, productSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  productSchema,
+  serviceSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Signal Audit — Find out if AI recommends you",
+  title: "AI Visibility Audit — Find out if AI recommends you (and where you're exposed)",
   description:
-    "£2,500. 14 days. Full Wiele OS engine run for your brand: visibility score, mention strength, citation readiness, gaps, and a 30-day roadmap.",
+    "£2,500. 14 days. Visibility score, mention strength, citation readiness, plus prompt-injection surface map, AI crawler posture audit, and competitor displacement risk model.",
   path: "/audit",
 });
 
@@ -41,31 +45,72 @@ const measuredSignals = [
   },
 ];
 
+const defenseBlocks = [
+  {
+    title: "Prompt-Injection Surface Audit",
+    headline: "Map your prompt-injection attack surface.",
+    body: "Adversaries can plant manipulation instructions inside your FAQ pages, knowledge bases, blog templates, schema markup, and any user-contributed content. When an AI crawler ingests it, your brand becomes an unwitting carrier for misleading content. We map every prompt-injection vector across your owned digital surface and grade each by risk severity.",
+    deliverables: [
+      "Owned-channel prompt-injection surface map",
+      "Risk-ranked vulnerability list with severity score",
+      "Per-vector remediation playbook",
+    ],
+  },
+  {
+    title: "AI Crawler Access Posture",
+    headline: "Verify AI engines can find, read, and trust your site.",
+    body: "Most websites silently block the AI crawlers that decide whether a brand gets cited. We audit allow/deny status across GPTBot, ClaudeBot, PerplexityBot, GoogleOther, Bytespider and others; verify your llms.txt presence and structural quality; and review the upstream trust signals AI engines use to weight your citations.",
+    deliverables: [
+      "Crawler-by-crawler access matrix (allow / deny / partial)",
+      "llms.txt audit + recommended canonical structure",
+      "Upstream trust signal review (schema, entity graph, third-party citations)",
+    ],
+  },
+  {
+    title: "Competitor Displacement Risk Model",
+    headline: "See which competitors are taking the citation share that should be yours.",
+    body: "Citation share in AI answers is zero-sum. We model who is currently displacing you across your top 50 buyer-intent queries in ChatGPT, Perplexity, Gemini and Claude — and why. We then forecast which competitors are likeliest to displace you next based on authority-graph trajectory.",
+    deliverables: [
+      "Per-query displacement leaderboard (top 50 queries × 4 engines)",
+      "Authority-graph trajectory analysis on top displacers",
+      "Counter-displacement priority list",
+    ],
+  },
+];
+
+const wontDoItems = [
+  "Black-hat GEO (manipulating AI engines through illegitimate means)",
+  "AIO injection (planting attacker payloads into competitors' surfaces)",
+  "Citation farming (inflating mentions through low-quality networks)",
+  "Prompt-injection-as-offense (weaponising defense techniques against others)",
+  "Off-platform trust manipulation (gaming third-party signals)",
+];
+
 const detailSections = [
   {
     title: "How the engine runs",
     body:
-      "Wiele OS V3 runs your brand across the prompt surface that matches your buyer profile. It logs mention strength, position, source citations, and gap signals across the major answer engines. Methodology is open for inspection.",
+      "Wiele OS V3 runs your brand across the prompt surface that matches your buyer profile. It logs mention strength, position, source citations, gap signals, prompt-injection vectors, AI crawler access posture, and displacement leaderboards across the major answer engines. Methodology is open for inspection.",
   },
   {
     title: "What you give us",
     body:
-      "Brand name, website, market, top 3 competitors, and the buyer profile you sell to. We don't need access to analytics, CRM, or any private data. Public signal is what AI engines see.",
+      "Brand name, website, market, top 3 competitors, and the buyer profile you sell to. We don't need access to analytics, CRM, or any private data. Public signal is what AI engines see — and it's what attackers see too.",
   },
   {
     title: "What we give back",
     body:
-      "A 12–16 page engine report, a 30-day implementation roadmap, and one strategy session with a Wiele principal. The report is yours to keep regardless of next steps.",
+      "A 16–22 page engine report, a 30-day implementation roadmap, a per-vector remediation playbook, and one strategy session with a Wiele principal. The report is yours to keep regardless of next steps.",
   },
   {
     title: "Timeline",
     body:
-      "14 calendar days from submission. Engine runs take 4–6 days; report drafting and review takes 6–8 days; the strategy session is scheduled inside the second week.",
+      "14 calendar days from submission. Engine runs take 4–6 days; defense vector mapping takes 3–4 days; report drafting and review takes 4–6 days; the strategy session is scheduled inside the second week.",
   },
   {
     title: "What it costs",
     body:
-      "£2,500 one-off. No retainer required. Engagement-pricing applies if you decide to continue with a Growth System or above; the £2,500 is credited against month one.",
+      "£2,500 one-off. No retainer required. Engagement-pricing applies if you decide to continue with a Launch tier or above; the £2,500 is credited against month one.",
   },
   {
     title: "Who runs the engine",
@@ -75,7 +120,7 @@ const detailSections = [
   {
     title: "What the report does NOT include",
     body:
-      "Aspirational ranges. Vanity metrics. Generic recommendations. The report is specific to your engine output and your gap profile.",
+      "Aspirational ranges. Vanity metrics. Generic recommendations. The report is specific to your engine output, your defense surface, and your gap profile.",
   },
 ];
 
@@ -84,21 +129,42 @@ export default function AuditPage() {
 
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: siteConfig.url },
-    { name: "Signal Audit", url: `${siteConfig.url}/audit` },
+    { name: "AI Visibility Audit", url: `${siteConfig.url}/audit` },
   ]);
   const product = productSchema({
-    name: "Wiele Signal Audit",
+    name: "Wiele AI Visibility Audit",
     description:
-      "Full Wiele OS engine run for your brand. Visibility score, mention strength, citation readiness, gaps, and a 30-day implementation roadmap. 14-day delivery.",
+      "Full Wiele OS engine run for your brand. Visibility, mention, citation, gaps, plus prompt-injection surface map, AI crawler posture audit, and competitor displacement risk model. 14-day delivery.",
     price: "2500.00",
     priceCurrency: "GBP",
     url: `${siteConfig.url}/audit`,
+  });
+  const service = serviceSchema({
+    name: "Wiele AI Visibility Audit",
+    description:
+      "Brand visibility and AI-search exposure audit covering five visibility signals plus three defense vectors: prompt-injection surface map, AI crawler access posture, and competitor displacement risk model.",
+    url: `${siteConfig.url}/audit`,
+    serviceType: "AI Visibility Audit",
+    offerCatalog: {
+      name: "AI Visibility Audit components",
+      items: [
+        { name: "Visibility Score", description: "Composite 0–100 score across answer engines, 7-day trend." },
+        { name: "Mention Strength", description: "Share-of-voice vs named competitors, prompt-weighted." },
+        { name: "Citation Readiness", description: "High-intent prompt citation rate + source domain inventory." },
+        { name: "Authority Gaps", description: "Ranked structural gaps across schema, hubs, narrative, entities." },
+        { name: "Next Action", description: "Highest-leverage 30-day move with methodology and lift range." },
+        { name: "Prompt-Injection Surface Audit", description: "Owned-channel attack-surface map + per-vector remediation." },
+        { name: "AI Crawler Access Posture", description: "Crawler matrix + llms.txt audit + trust signal review." },
+        { name: "Competitor Displacement Risk Model", description: "Per-query displacement leaderboard + counter-displacement plan." },
+      ],
+    },
   });
 
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-audit" />
       <JsonLd schema={product} id="schema-product-audit" />
+      <JsonLd schema={service} id="schema-service-audit" />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
@@ -108,19 +174,19 @@ export default function AuditPage() {
             <div>
               <FadeIn>
                 <Badge variant="electric" size="sm" className="mb-5">
-                  Signal Audit · £2,500 · 14 days
+                  AI Visibility Audit · £2,500 · 14 days
                 </Badge>
               </FadeIn>
               <FadeIn delay={0.05}>
                 <h1 className="text-display-xl text-white text-balance mb-5">
-                  Find out if AI recommends you.
+                  Find out if AI recommends you — and where you&apos;re exposed.
                 </h1>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <p className="text-body-lg text-silver mb-8 max-w-lg">
-                  Full Wiele OS engine run for your brand. Five signals,
-                  a 30-day roadmap, a strategy session with a Wiele principal.
-                  Diagnose first, commit second.
+                  Five visibility signals, three defense vectors, a 30-day
+                  roadmap, and a strategy session with a Wiele principal.
+                  Diagnose first, defend second, commit third.
                 </p>
               </FadeIn>
               <FadeIn delay={0.15}>
@@ -131,7 +197,11 @@ export default function AuditPage() {
                   </span>
                   <span className="flex items-center gap-2">
                     <FileText size={15} className="text-electric" aria-hidden />
-                    Engine report
+                    Engine + defense report
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <Shield size={15} className="text-electric" aria-hidden />
+                    Defense baseline
                   </span>
                 </div>
               </FadeIn>
@@ -143,12 +213,12 @@ export default function AuditPage() {
         </div>
       </section>
 
-      {/* What we measure */}
+      {/* What we measure (5 signals) */}
       <section className="py-16 md:py-20 lg:py-24 border-t border-[var(--color-border-default)]">
         <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
           <div className="max-w-2xl mb-10 md:mb-14">
             <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
-              What the audit measures
+              What the audit measures · Visibility
             </p>
             <h2 className="text-display-md text-white text-balance">
               Five signals. One page. The picture AI engines have of you.
@@ -165,6 +235,96 @@ export default function AuditPage() {
               </div>
             ))}
           </Reveal>
+        </div>
+      </section>
+
+      {/* Defense vectors (3 NEW blocks) */}
+      <section className="py-16 md:py-20 lg:py-24 bg-[var(--color-obsidian)]/40">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-2xl mb-10 md:mb-14">
+            <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+              What the audit defends · AI Visibility Defense
+            </p>
+            <h2 className="text-display-md text-white text-balance">
+              Three vectors. Defended at every tier — diagnosed in the audit.
+            </h2>
+          </div>
+          <Reveal stagger={0.05} className="grid gap-5 md:grid-cols-3">
+            {defenseBlocks.map((b) => (
+              <article
+                key={b.title}
+                className="rounded-[var(--radius-lg)] border border-electric/30 bg-[var(--color-surface-elevated)] p-6 md:p-7"
+              >
+                <div className="inline-flex items-center gap-1.5 mb-4 px-2.5 py-1 rounded-full border border-electric/30 bg-electric/5">
+                  <Shield size={11} className="text-electric" aria-hidden />
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-electric">
+                    {b.title}
+                  </span>
+                </div>
+                <h3 className="text-heading-md text-white mb-3 leading-tight tracking-tight">
+                  {b.headline}
+                </h3>
+                <p className="text-body-sm text-silver mb-5 leading-relaxed">
+                  {b.body}
+                </p>
+                <p className="text-body-xs font-mono uppercase tracking-[0.14em] text-smoke mb-2">
+                  Deliverables
+                </p>
+                <ul className="flex flex-col gap-1.5">
+                  {b.deliverables.map((d) => (
+                    <li
+                      key={d}
+                      className="flex items-start gap-2 text-body-sm text-cloud"
+                    >
+                      <Check
+                        size={13}
+                        className="mt-1 shrink-0 text-electric"
+                        aria-hidden
+                      />
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Asymmetric positioning — what we won't do */}
+      <section className="py-12 md:py-16 lg:py-20">
+        <div className="mx-auto max-w-3xl px-[var(--container-px)]">
+          <div className="rounded-[var(--radius-xl)] border border-[var(--color-coral-core)]/40 bg-[var(--color-surface-elevated)] p-6 md:p-8">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <ShieldOff size={16} className="text-coral-core" aria-hidden style={{ color: "var(--color-coral-core)" }} />
+              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em]" style={{ color: "var(--color-coral-core)" }}>
+                Asymmetric defense · What we won&apos;t do
+              </span>
+            </div>
+            <h2 className="text-heading-lg text-white mb-3">
+              Defense, not offense. We protect — we never weaponise.
+            </h2>
+            <p className="text-body-md text-silver mb-5">
+              The same techniques that defend a brand can be turned against
+              competitors. We refuse the offense side of the line. Wiele will
+              never:
+            </p>
+            <ul className="flex flex-col gap-2">
+              {wontDoItems.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2 text-body-sm text-cloud"
+                >
+                  <span
+                    aria-hidden
+                    className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full"
+                    style={{ background: "var(--color-coral-core)" }}
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -205,8 +365,8 @@ export default function AuditPage() {
             </h2>
             <p className="text-body-sm text-silver mb-6">
               Eight fields, two steps, fourteen-day delivery. The engine runs
-              once you submit; you receive a full report and a strategy
-              session with a Wiele principal.
+              once you submit; you receive a full report (visibility + defense)
+              and a strategy session with a Wiele principal.
             </p>
             <AuditForm />
           </div>
@@ -243,6 +403,16 @@ export default function AuditPage() {
               </div>
             ))}
           </Reveal>
+        </div>
+      </section>
+
+      {/* Disclaimer footer (binding, required) */}
+      <section className="py-8 md:py-10 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-3xl px-[var(--container-px)]">
+          <p className="text-body-xs font-mono text-smoke text-center italic">
+            This is a brand visibility and AI-search exposure audit, not an
+            information-security or network penetration audit.
+          </p>
         </div>
       </section>
     </>

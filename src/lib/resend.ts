@@ -129,12 +129,15 @@ const REVENUE_LABELS: Record<string, string> = {
 // Budget tier labels for founder-facing onboarding email rendering.
 // Keys mirror src/data/pricing.ts tier IDs exactly. Keep in lockstep with
 // src/data/onboarding.ts BUDGET_TIER_OPTIONS + src/lib/validations.ts.
-// Updated 2026-05-05 v2.5.1-revenue-hygiene.
+// Updated 2026-05-06 v3.0-pricing-overhaul (added launch + sovereign;
+// repriced growth £4,000 → £4,500 and authority £8,000 → £8,500).
 const BUDGET_LABELS: Record<string, string> = {
   "signal-audit": "Signal Audit (£2,500 one-off)",
-  "growth-system": "Growth System (£4,000 / mo)",
-  "authority-engine": "Authority Engine (£8,000 / mo)",
+  "launch": "Launch (£1,950 / mo)",
+  "growth-system": "Growth System (£4,500 / mo)",
+  "authority-engine": "Authority Engine (£8,500 / mo)",
   "wiele-os": "Wiele OS (£15,000+ / mo)",
+  "sovereign": "Sovereign (from £45,000 / mo)",
   "not-sure": "Not sure yet",
 };
 const TIMELINE_LABELS: Record<string, string> = {

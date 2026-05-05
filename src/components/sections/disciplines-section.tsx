@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Shield } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { disciplines } from "@/data/homepage";
 import { cn } from "@/lib/utils";
@@ -44,6 +44,12 @@ export function DisciplinesSection() {
             — engineered as one integrated system. Premium firms hire Wiele
             when they want every growth lever moving in the same direction.
           </p>
+          <div className="inline-flex items-center gap-2 mt-6 px-3 py-1.5 rounded-full border border-electric/30 bg-electric/5">
+            <Shield size={13} className="text-electric" aria-hidden />
+            <span className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-electric">
+              AI Visibility Defense across all 6
+            </span>
+          </div>
         </div>
 
         <Reveal

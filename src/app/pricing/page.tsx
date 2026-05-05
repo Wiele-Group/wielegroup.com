@@ -2,32 +2,69 @@ import type { Metadata } from "next";
 import { Accordion } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/motion/fade-in";
+import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { JsonLd } from "@/components/json-ld";
-import { pricingTiers } from "@/data/pricing";
+import { pricingTiers, tierSchemaPrice } from "@/data/pricing";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Pricing — Diagnose first, then commit",
+  title: "Pricing — Premium AI search dominance, with defense built-in",
   description:
-    "Signal Audit £2,500 one-off + Launch £1,500/mo · Growth System £4,000/mo · Authority Engine £8,000/mo · Wiele OS £15,000+/mo. GBP. 30-day notice.",
+    "Six-tier ladder. AI Visibility Defense baked into every tier. Signal Audit £2,500 · Launch £1,950 · Growth £4,500 · Authority £8,500 · Wiele OS £15,000 · Sovereign from £45,000. GBP. 30-day notice.",
   path: "/pricing",
 });
 
+const defenseVectors = [
+  {
+    title: "Prompt-injection surface monitoring",
+    body:
+      "We map and remediate the owned-channel attack surface where adversaries can plant manipulation instructions an AI engine will ingest.",
+  },
+  {
+    title: "AI crawler access posture",
+    body:
+      "We audit and manage GPTBot, ClaudeBot, PerplexityBot, GoogleOther access. We make sure every AI engine that decides who gets cited can find you, read you, and trust you.",
+  },
+  {
+    title: "Competitor displacement risk model",
+    body:
+      "We model who is taking your citation share across 50 buyer-intent queries × 4 engines, and we counter-engineer their authority graph.",
+  },
+];
+
 const pricingFaq = [
+  {
+    id: "ai-defense-included",
+    question: "Do all Wiele tiers really include AI Visibility Defense?",
+    answer:
+      "Yes. Every paid tier includes prompt-injection surface monitoring, AI crawler access posture management, and competitor displacement risk modeling. The depth and frequency scale with tier — annual baseline at Launch, real-time embedded at Sovereign.",
+  },
+  {
+    id: "wiele-os-vs-sovereign",
+    question: "What's the difference between Wiele OS and Sovereign?",
+    answer:
+      "Wiele OS embeds a full Wiele team across SEO, GEO, brand, web, and advertising. Sovereign adds founder-led strategy, a dedicated team, real-time AI defense across owned and earned surfaces, and monthly adversarial competitor red-team exercises. Sovereign is bespoke per engagement; Wiele OS is the standard top-tier embedded engagement.",
+  },
+  {
+    id: "ai-defense-built-in",
+    question: "Why is AI Visibility Defense built in instead of an add-on?",
+    answer:
+      "Because AI search has fundamentally changed how brand authority is awarded. Defending your AI visibility is now a foundational requirement, not an optional upsell. Bundling it ensures every Wiele client gets defended regardless of tier.",
+  },
   {
     id: "audit-required",
     question: "Do I need to do the Signal Audit before a Growth System engagement?",
     answer:
-      "Yes — every engagement starts with the Signal Audit. £2,500 one-off, 14 days, credited against month one if you continue with a Growth System or above.",
+      "We recommend it for every engagement. £2,500 one-off, 14 days, credited against month one if you continue with a Growth System or above.",
   },
   {
     id: "minimum-commitment",
     question: "What's the minimum commitment?",
     answer:
-      "Signal Audit is one-off. Growth System and above run on a 90-day initial commitment, then 30-day rolling notice. We don't require long lock-ins.",
+      "Signal Audit is one-off. Launch and above run on a 90-day initial commitment, then 30-day rolling notice. Sovereign is contracted per engagement scope. We don't require long lock-ins on the standard ladder.",
   },
   {
     id: "switch-tiers",
@@ -39,19 +76,19 @@ const pricingFaq = [
     id: "ad-spend",
     question: "Is ad spend included in the pricing?",
     answer:
-      "No. Wiele's fee and your media spend are separate line items. We recommend Wiele Growth System or above before scaling paid acquisition; the audit will tell you when you're ready.",
+      "No. Wiele's fee and your media spend are separate line items. We recommend Growth System or above before scaling paid acquisition; the audit will tell you when you're ready.",
   },
   {
     id: "custom-scope",
     question: "What if I need a custom scope?",
     answer:
-      "Wiele OS is fully custom by default. Growth System and Authority Engine can be scoped against specific outcomes — talk to us about what you're trying to achieve.",
+      "Wiele OS and Sovereign are scoped to outcome by default. Growth System and Authority Engine can be scoped against specific outcomes — talk to us about what you're trying to achieve.",
   },
   {
     id: "guarantee",
     question: "Do you guarantee specific outcomes?",
     answer:
-      "We guarantee the work, the methodology, and the engine measurement. We don't guarantee specific lift numbers — anyone who does is selling something other than methodology.",
+      "Authority Engine and above carry an outcome-based AI citation guarantee. Across all tiers, we guarantee the work, the methodology, and the engine measurement. We don't promise specific lift numbers without context — anyone who does is selling something other than methodology.",
   },
   {
     id: "vat",
@@ -68,19 +105,17 @@ export default function PricingPage() {
   ]);
   const faq = faqSchema(pricingFaq.map((f) => ({ question: f.question, answer: f.answer })));
 
-  // One Product schema per pricing tier (Phase 7.1 matrix). Price is the
-  // numeric portion of the formatted tier.price (e.g. "£4,000 / mo" → "4000.00").
-  // GBP throughout — locked in directive §2 row 8.
-  const products = pricingTiers.map((tier) => {
-    const numeric = tier.price.replace(/[^\d]/g, "") + ".00";
-    return productSchema({
+  // One Product schema per pricing tier. Numeric price comes straight off
+  // the tier object — no string-parsing needed in v3.
+  const products = pricingTiers.map((tier) =>
+    productSchema({
       name: `Wiele ${tier.name}`,
       description: tier.positioning,
-      price: numeric,
+      price: tierSchemaPrice(tier),
       priceCurrency: "GBP",
       url: `${siteConfig.url}/pricing#${tier.id}`,
-    });
-  });
+    }),
+  );
 
   return (
     <>
@@ -93,39 +128,88 @@ export default function PricingPage() {
           id={`schema-product-${pricingTiers[i].id}`}
         />
       ))}
+
+      {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">
           <div className="max-w-3xl">
             <FadeIn>
               <Badge variant="electric" size="sm" className="mb-5">
-                Pricing
+                Pricing · v3.0
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>
               <h1 className="text-display-xl text-white text-balance mb-5">
-                Diagnose first. Then commit.
+                Premium AI search dominance — with defense built-in.
               </h1>
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-body-lg text-silver max-w-2xl">
-                Every Wiele engagement starts with a Signal Audit. From there
-                you choose the velocity. GBP. 30-day notice. No long lock-ins.
+                Every Wiele tier includes AI Visibility Defense — prompt-injection
+                surface monitoring, AI crawler posture management, and
+                competitor displacement counter-engineering. Defend your
+                authority. Compound your revenue.
               </p>
             </FadeIn>
           </div>
         </div>
       </section>
 
+      {/* ── Why every Wiele engagement defends your AI visibility ── */}
+      <section className="py-16 md:py-20 lg:py-24 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-3xl mb-10 md:mb-14">
+            <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+              AI Visibility Defense · Built-in
+            </p>
+            <h2 className="text-display-md text-white text-balance mb-5">
+              Why every Wiele engagement defends your AI visibility.
+            </h2>
+            <div className="text-body-md text-silver max-w-2xl space-y-4">
+              <p>
+                AI search is now the front door. ChatGPT, Perplexity, Gemini,
+                and Claude decide which brands get cited — and which are
+                silently displaced. Most agencies optimize for visibility. We
+                engineer for visibility AND defense.
+              </p>
+              <p>
+                Every Wiele tier includes three defense vectors as standard,
+                not as an upsell:
+              </p>
+            </div>
+          </div>
+
+          <Reveal stagger={0.05} className="grid gap-4 md:grid-cols-3">
+            {defenseVectors.map((v) => (
+              <div
+                key={v.title}
+                className="rounded-[var(--radius-lg)] border border-electric/25 bg-[var(--color-surface-elevated)] p-6"
+              >
+                <h3 className="text-heading-sm text-white mb-2.5">{v.title}</h3>
+                <p className="text-body-sm text-silver">{v.body}</p>
+              </div>
+            ))}
+          </Reveal>
+
+          <p className="mt-8 text-body-sm text-smoke max-w-3xl">
+            Tier depth scales the frequency and the team. The defense is
+            non-negotiable.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 6-tier ladder + Sovereign anchor ───────────────────── */}
       <PricingSection showHeading={false} />
 
+      {/* ── FAQ ────────────────────────────────────────────────── */}
       <section className="py-16 md:py-20 lg:py-24 bg-[var(--color-obsidian)]/40">
         <div className="mx-auto max-w-3xl px-[var(--container-px)]">
           <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4 text-center">
             Pricing FAQ
           </p>
           <h2 className="text-display-md text-white text-balance text-center mb-10">
-            Common questions on tiers, terms, and what&apos;s included.
+            Common questions on tiers, defense, and what&apos;s included.
           </h2>
           <Accordion items={pricingFaq} />
         </div>

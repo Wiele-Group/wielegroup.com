@@ -20,7 +20,7 @@
 Build Wiele as a modern AI-native AI Growth Systems company. Site must feel like a premium tech platform, not a traditional SEO/marketing agency. Convert visitors via the Signal Audit.
 
 ## Authority
-The binding execution directive is **`../WIELE_CODE_OPERATING_DIRECTIVE.md`** (above). Historical handoff at **`../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md`** for original spec context.
+The binding execution directive is **`../WIELE_CODE_OPERATING_DIRECTIVE.md`** (above). Historical handoff archived at `../_ARCHIVE_COMPLETED_HANDOFFS_2026-05-06/CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` (reference only — superseded by WIELE_CODE_OPERATING_DIRECTIVE.md).
 
 Strategic context: `../SYNTHESIS_Brand_x_Build_ActionPlan_2026-05-03.md`
 Brand assets: `../brand-assets/` (master in `_master/`, spec in `specimen/wiele-identity-spec.md`)

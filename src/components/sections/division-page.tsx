@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Shield } from "lucide-react";
 import { buttonStyles } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { Divider } from "@/components/ui/divider";
@@ -215,9 +215,15 @@ export function DivisionPage({ division }: { division: Division }) {
                       {tier.price}
                     </span>
                   </div>
-                  <p className="text-body-xs font-mono text-smoke mb-4">
+                  <p className="text-body-xs font-mono text-smoke mb-3">
                     {tier.cadence}
                   </p>
+                  <div className="inline-flex items-center gap-1.5 mb-4 px-2.5 py-1 rounded-full border border-electric/30 bg-electric/5">
+                    <Shield size={11} className="text-electric" aria-hidden />
+                    <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-electric">
+                      AI Visibility Defense built-in
+                    </span>
+                  </div>
                   <p className="text-body-sm text-silver mb-5">
                     {tier.positioning}
                   </p>

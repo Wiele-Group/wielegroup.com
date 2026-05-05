@@ -75,7 +75,7 @@ const marketing: Division = {
   eyebrow: "Marketing Agency",
   headline: "Marketing as an operating system, not a campaign list.",
   subhead:
-    "Strategy, audience, content, and growth — engineered as one engine. We design the system that makes every channel compound, then run it.",
+    "Strategy, audience, content, and growth — engineered as one engine, with AI Visibility Defense built into every layer. We design the system that makes every channel compound, then run it — and defend it from displacement.",
   primaryCta: { label: "Run a Growth Audit", href: "/audit" },
   secondaryCta: { label: "See pricing", href: "#tiers" },
   services: [
@@ -129,33 +129,35 @@ const marketing: Division = {
     {
       id: "marketing-system",
       name: "Marketing System",
-      price: "£6,500",
+      price: "£4,500",
       cadence: "/ month",
-      positioning: "Run the engine — strategy, content, lifecycle, ops — under one roof.",
+      positioning:
+        "AI citation share growth target. Run the engine — strategy, content, lifecycle, ops — with AI Visibility Defense built-in.",
       outcomes: [
         "Continuous strategy + execution",
+        "AI citation share growth tracking (cross-engine)",
         "Content production + repurposing",
         "Lifecycle email + retention",
-        "Marketing-ops + dashboards",
         "Bi-weekly strategy reviews",
       ],
-      cta: { label: "Book strategy call", href: "/contact" },
+      cta: { label: "Book strategy call", href: "/contact?intent=marketing&tier=marketing-system" },
       featured: true,
     },
     {
       id: "marketing-scale",
       name: "Growth Partnership",
-      price: "£12,000+",
+      price: "£8,500",
       cadence: "/ month",
-      positioning: "Embedded principal-level partnership for category-defining brands.",
+      positioning:
+        "Embedded principal-level partnership with AI citation guarantee for category-defining brands.",
       outcomes: [
         "Everything in Marketing System",
+        "AI citation guarantee (outcome-based)",
         "Embedded fractional CMO",
         "Custom GTM motions + launches",
-        "Weekly executive sessions",
-        "Direct line to Wiele principals",
+        "Weekly executive sessions + direct principal line",
       ],
-      cta: { label: "Talk to Wiele", href: "/contact" },
+      cta: { label: "Talk to Wiele", href: "/contact?intent=marketing&tier=growth-partnership" },
     },
   ],
   faqs: [
@@ -179,9 +181,9 @@ const marketing: Division = {
     },
   ],
   seo: {
-    title: "Marketing Agency · Wiele Group · Premium full-service marketing",
+    title: "Marketing Agency · Wiele Group · Premium full-service marketing with AI Visibility Defense",
     description:
-      "Marketing as an operating system. Strategy, content, lifecycle, ops — engineered as one engine. £3,500 sprint · £6,500/mo system · partnership tier. GBP. 30-day notice.",
+      "Marketing as an operating system, with AI Visibility Defense built-in. Strategy, content, lifecycle, ops, and AI citation share growth. £3,500 sprint · £4,500/mo system · £8,500/mo partnership. GBP. 30-day notice.",
   },
 };
 
@@ -196,7 +198,7 @@ const advertising: Division = {
   eyebrow: "Advertising Agency",
   headline: "Performance advertising with the craft of a brand agency.",
   subhead:
-    "Paid media, creative testing, and conversion engineering — run by operators who know that a brand-strong ad outperforms a polished generic ten times out of ten.",
+    "Paid media, creative testing, and conversion engineering — run by operators, with AI Visibility Defense across the funnel. A brand-strong ad outperforms a polished generic ten times out of ten — and a defended brand outperforms an exposed one even further.",
   primaryCta: { label: "Audit ad spend", href: "/audit" },
   secondaryCta: { label: "See pricing", href: "#tiers" },
   services: [
@@ -250,33 +252,35 @@ const advertising: Division = {
     {
       id: "advertising-management",
       name: "Performance Engine",
-      price: "£5,500",
+      price: "£4,500",
       cadence: "/ month + media spend",
-      positioning: "Full-stack paid acquisition: strategy, creative, channels, optimisation.",
+      positioning:
+        "Guaranteed CPL ceiling. Full-stack paid acquisition with AI Visibility Defense across creative, tracking, and landing surface.",
       outcomes: [
+        "Guaranteed CPL ceiling (outcome-based)",
         "Up to 3 active channels",
         "Continuous creative production",
         "Server-side tracking + attribution",
-        "Weekly optimisation",
         "Bi-weekly strategy reviews",
       ],
-      cta: { label: "Book strategy call", href: "/contact" },
+      cta: { label: "Book strategy call", href: "/contact?intent=advertising&tier=performance-engine" },
       featured: true,
     },
     {
       id: "advertising-scale",
       name: "Scale Partnership",
-      price: "£11,000+",
+      price: "£8,500",
       cadence: "/ month + media spend",
-      positioning: "Embedded performance team for brands scaling past £100k/mo media.",
+      positioning:
+        "Embedded performance team with ROAS floor commitment for brands scaling past £100k/mo media.",
       outcomes: [
+        "ROAS floor commitment (outcome-based)",
         "Everything in Performance Engine",
         "Up to 6 active channels",
-        "Dedicated creative team",
-        "Custom attribution modelling",
+        "Dedicated creative team + custom attribution",
         "Weekly executive performance review",
       ],
-      cta: { label: "Talk to Wiele", href: "/contact" },
+      cta: { label: "Talk to Wiele", href: "/contact?intent=advertising&tier=scale-partnership" },
     },
   ],
   faqs: [
@@ -300,9 +304,9 @@ const advertising: Division = {
     },
   ],
   seo: {
-    title: "Advertising Agency · Wiele Group · Performance with brand craft",
+    title: "Advertising Agency · Wiele Group · Performance with brand craft + AI Visibility Defense",
     description:
-      "Performance advertising done with brand craft. Channel strategy, creative engineering, server-side attribution. £3,500 audit · £5,500/mo engine. GBP. 30-day notice.",
+      "Performance advertising done with brand craft, with AI Visibility Defense across creative + tracking. Guaranteed CPL ceiling. £3,500 audit · £4,500/mo engine · £8,500/mo scale. GBP. 30-day notice.",
   },
 };
 
@@ -317,7 +321,7 @@ const brand: Division = {
   eyebrow: "Brand Management Agency",
   headline: "Brand as a precision instrument. Built to last decades, not quarters.",
   subhead:
-    "Positioning, narrative, and perception control engineered for category authority. Premium firms hire us when they need to move from known to chosen.",
+    "Positioning, narrative, and perception control engineered for category authority — with AI Visibility Defense protecting every owned channel from displacement and prompt-injection drift. Premium firms hire us when they need to move from known to chosen — and stay chosen.",
   primaryCta: { label: "Audit your brand", href: "/audit" },
   secondaryCta: { label: "See pricing", href: "#tiers" },
   services: [
@@ -371,17 +375,18 @@ const brand: Division = {
     {
       id: "brand-system",
       name: "Brand System",
-      price: "£7,500",
+      price: "£4,500",
       cadence: "/ month",
-      positioning: "Continuous brand management — positioning, narrative, identity, stewardship.",
+      positioning:
+        "Branded query lift target. Continuous positioning, narrative, identity, and AI authority stewardship.",
       outcomes: [
+        "Branded query lift target (outcome-based)",
         "Quarterly positioning reviews",
         "Continuous narrative + voice work",
         "Visual identity stewardship",
-        "Authority placement programme",
-        "Bi-weekly strategy reviews",
+        "Authority placement programme + bi-weekly reviews",
       ],
-      cta: { label: "Book strategy call", href: "/contact" },
+      cta: { label: "Book strategy call", href: "/contact?intent=brand&tier=brand-system" },
       featured: true,
     },
     {
@@ -421,9 +426,9 @@ const brand: Division = {
     },
   ],
   seo: {
-    title: "Brand Management Agency · Wiele Group · Category authority",
+    title: "Brand Management Agency · Wiele Group · Category authority + AI Visibility Defense",
     description:
-      "Brand as a precision instrument. Positioning, narrative, identity, authority engineering. £4,000 audit · £7,500/mo system · £45k+ rebrand. GBP.",
+      "Brand as a precision instrument, with AI Visibility Defense protecting every owned channel. Branded query lift target. £4,000 audit · £4,500/mo system · £45k+ rebrand. GBP.",
   },
 };
 
@@ -438,7 +443,7 @@ const web: Division = {
   eyebrow: "Web Design Agency",
   headline: "Websites engineered to convert. Designed to be remembered.",
   subhead:
-    "Premium digital experiences built on Next.js + Cloudflare. Conversion architecture, design systems, performance engineering — shipped fast, owned forever.",
+    "Premium digital experiences built on Next.js + Cloudflare, with AI Visibility Defense built into every owned surface. Conversion architecture, design systems, performance engineering, AI-extractable content — shipped fast, owned forever, defended continuously.",
   primaryCta: { label: "Scope a project", href: "/contact" },
   secondaryCta: { label: "See pricing", href: "#tiers" },
   services: [
@@ -494,15 +499,16 @@ const web: Division = {
       name: "Site Rebuild",
       price: "£35,000+",
       cadence: "fixed scope · 8-12 weeks",
-      positioning: "Full marketing-site rebuild on premium stack. Owned forever, no platform lock-in.",
+      positioning:
+        "Conversion rate floor. Full premium-stack rebuild with AI-extractable architecture and AI Visibility Defense surface monitoring.",
       outcomes: [
+        "Conversion rate floor (outcome-based)",
         "Full IA + conversion architecture",
-        "Complete design system",
+        "Complete design system + AI-extractable content layer",
         "Production build (15-30 routes)",
-        "CMS architecture + integrations",
-        "Launch + 90-day optimisation",
+        "Launch + 90-day optimisation + AI crawler posture audit",
       ],
-      cta: { label: "Scope a rebuild", href: "/contact" },
+      cta: { label: "Scope a rebuild", href: "/contact?intent=web&tier=site-rebuild" },
       featured: true,
     },
     {
@@ -542,9 +548,9 @@ const web: Division = {
     },
   ],
   seo: {
-    title: "Web Design Agency · Wiele Group · Premium digital builds",
+    title: "Web Design Agency · Wiele Group · Premium digital builds with AI Visibility Defense",
     description:
-      "Websites engineered to convert, designed to be remembered. Next.js + Cloudflare. £12k landing · £35k rebuild · £75k+ platform. Performance-first.",
+      "Premium digital experiences with AI Visibility Defense built into every owned surface. Conversion rate floor. Next.js + Cloudflare. £12k landing · £35k rebuild · £75k+ platform. Performance-first.",
   },
 };
 

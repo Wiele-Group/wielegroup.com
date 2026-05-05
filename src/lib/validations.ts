@@ -166,13 +166,16 @@ export const onboardingSchema = z.object({
   // ── Step 5 — Engagement details ──
   // Budget tier values mirror src/data/pricing.ts tier IDs exactly. Keep in
   // lockstep with src/data/onboarding.ts BUDGET_TIER_OPTIONS and
-  // src/lib/resend.ts BUDGET_LABELS. Updated 2026-05-05 v2.5.1-revenue-hygiene.
+  // src/lib/resend.ts BUDGET_LABELS. Updated 2026-05-06 v3.0-pricing-overhaul
+  // (added launch + sovereign).
   budgetTier: z
     .enum([
       "signal-audit",
+      "launch",
       "growth-system",
       "authority-engine",
       "wiele-os",
+      "sovereign",
       "not-sure",
       "",
     ])

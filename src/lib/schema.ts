@@ -45,6 +45,14 @@ export type ServiceSchema = SchemaBase & {
   url: string;
   areaServed?: string;
   serviceType?: string;
+  hasOfferCatalog?: {
+    "@type": "OfferCatalog";
+    name: string;
+    itemListElement: {
+      "@type": "Offer";
+      itemOffered: { "@type": "Service"; name: string; description?: string };
+    }[];
+  };
 };
 
 export type ArticleSchema = SchemaBase & {
@@ -236,8 +244,12 @@ export function serviceSchema(input: {
   description: string;
   url: string;
   serviceType?: string;
+  offerCatalog?: {
+    name: string;
+    items: { name: string; description?: string }[];
+  };
 }): ServiceSchema {
-  return {
+  const base: ServiceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: input.name,
@@ -247,6 +259,21 @@ export function serviceSchema(input: {
     areaServed: "Worldwide",
     serviceType: input.serviceType,
   };
+  if (input.offerCatalog) {
+    base.hasOfferCatalog = {
+      "@type": "OfferCatalog",
+      name: input.offerCatalog.name,
+      itemListElement: input.offerCatalog.items.map((it) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: it.name,
+          description: it.description,
+        },
+      })),
+    };
+  }
+  return base;
 }
 
 export function articleSchema(input: {

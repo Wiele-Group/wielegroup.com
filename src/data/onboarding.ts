@@ -67,17 +67,19 @@ export const BRAND_ASSETS_OPTIONS = [
  * and update src/lib/validations.ts (Zod enum) + src/lib/resend.ts
  * (BUDGET_LABELS map) in lockstep.
  *
- * History: 2026-05-05 v2.5.1-revenue-hygiene — corrected stale labels
- * (Launch £2,500/mo / Growth £6,500/mo / Scale £14,000/mo) that did not
- * match any live tier card on /pricing. The mismatch was corrupting every
- * intake's budget signal because prospects were self-selecting tiers that
- * did not exist.
+ * History:
+ *   2026-05-05 v2.5.1-revenue-hygiene — corrected stale labels.
+ *   2026-05-06 v3.0-pricing-overhaul — added Launch + Sovereign, repriced
+ *   Growth (£4,000 → £4,500) and Authority (£8,000 → £8,500). Six paid
+ *   tiers + Signal Audit + "not sure" now mirror the live ladder.
  */
 export const BUDGET_TIER_OPTIONS = [
   { value: "signal-audit", label: "Signal Audit — £2,500 one-off" },
-  { value: "growth-system", label: "Growth System — £4,000 / mo" },
-  { value: "authority-engine", label: "Authority Engine — £8,000 / mo" },
+  { value: "launch", label: "Launch — £1,950 / mo" },
+  { value: "growth-system", label: "Growth System — £4,500 / mo" },
+  { value: "authority-engine", label: "Authority Engine — £8,500 / mo" },
   { value: "wiele-os", label: "Wiele OS — £15,000+ / mo" },
+  { value: "sovereign", label: "Sovereign — from £45,000 / mo" },
   { value: "not-sure", label: "Not sure yet" },
 ] as const;
 

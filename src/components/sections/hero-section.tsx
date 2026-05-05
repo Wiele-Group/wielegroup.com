@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -33,9 +34,17 @@ export function HeroSection() {
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>
-              <h1 className="text-display-xl text-white mb-6 text-balance">
+              <h1 className="text-display-xl text-white mb-4 text-balance">
                 {siteConfig.tagline}
               </h1>
+            </FadeIn>
+            <FadeIn delay={0.075}>
+              <div className="inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-electric/30 bg-electric/5">
+                <Shield size={12} className="text-electric" aria-hidden />
+                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-electric">
+                  AI Visibility Defense built into every engagement
+                </span>
+              </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-body-lg text-silver mb-8 max-w-lg">
