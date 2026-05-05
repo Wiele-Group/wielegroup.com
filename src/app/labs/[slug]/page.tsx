@@ -37,11 +37,15 @@ import {
 import AiRecommendationsCompound from "@/content/labs/ai-recommendations-compound.mdx";
 import FiveCitationSignals from "@/content/labs/five-citation-signals.mdx";
 import SearchIsSplitting from "@/content/labs/search-is-splitting.mdx";
+import AiEraBillionDollarBrandPlaybook from "@/content/labs/ai-era-billion-dollar-brand-playbook.mdx";
+import GenerativeAiMarketingOperatingSystem from "@/content/labs/generative-ai-marketing-operating-system.mdx";
 
 const ARTICLE_COMPONENTS: Record<string, React.ComponentType> = {
   "ai-recommendations-compound": AiRecommendationsCompound,
   "five-citation-signals": FiveCitationSignals,
   "search-is-splitting": SearchIsSplitting,
+  "ai-era-billion-dollar-brand-playbook": AiEraBillionDollarBrandPlaybook,
+  "generative-ai-marketing-operating-system": GenerativeAiMarketingOperatingSystem,
 };
 
 /* ─────────────────────────────────────────────────────────────

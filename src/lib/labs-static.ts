@@ -161,6 +161,79 @@ export const ARTICLE_MANIFEST: readonly ArticleManifestEntry[] = [
     ],
     relatedSystems: ["ai-visibility", "search"],
   },
+  {
+    slug: "ai-era-billion-dollar-brand-playbook",
+    title: "The AI-era billion-dollar brand playbook",
+    summary:
+      "Nine principles for building a billion-dollar brand in the AI search era — the seven that have always worked, plus the two that became non-negotiable when generative AI started mediating discovery.",
+    category: "Strategy",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-05",
+    readingMinutes: 9,
+    faq: [
+      {
+        question: "Why nine principles instead of the canonical seven?",
+        answer:
+          "The canonical seven — respect your audience, cast a wide net, connect with emotion, prioritise growth, stand out, be different but familiar, stay consistent — are still correct. They are also no longer enough. AI engines now sit between brand and buyer for an increasing share of high-intent queries, and that introduces two structural prerequisites the canon never had to consider: AI-search extractability (whether the brand can be quoted directly by an answer engine) and generative continuity (whether the brand stays coherent under the volume of AI-generated content it now produces). Without those two, the seven slowly stop paying.",
+      },
+      {
+        question: "Does the order really matter, or are these all parallel?",
+        answer:
+          "The order matters more than most operators want to admit. A pre-revenue founder pours consistency and AI-search extractability first because those are the cheapest, most durable foundations and they compound from day one. A scale-stage CMO pours growth and wide-reach first because churn at scale demands constant top-of-funnel pressure. An enterprise CMO pours consistency again because the moat is now the asset to defend. Wrong sequence wastes years of work. The Wiele Machete Order — Pre-Revenue, Growth, Scale, Enterprise — assigns an explicit priority sequence to each tier.",
+      },
+      {
+        question: "How does this differ from generic AI marketing content?",
+        answer:
+          "Generic AI marketing content is about tools and tactics — which prompt to use, which generator to buy, which workflow to automate. This playbook lives one layer above tools: principles, sequencing, and the machine-readable brand discipline that survives any specific tool's lifecycle. Tools change every quarter. The principle layer compounds for decades. A brand with the operating principles in place can swap tools without losing coherence. A brand without them gets diluted by the first model upgrade.",
+      },
+      {
+        question: "What is the single highest-leverage principle to start with?",
+        answer:
+          "For most brands today: generative continuity. Encoding brand voice and visual rules as machine-readable systems — prompts, evaluation rubrics, review gates — is the structural advantage most brands have not yet built. Most still treat brand guidelines as PDFs read once and then ignored. In a world where AI tools generate the majority of marketing assets, that is structural exposure. The window to build the discipline is closing inside eighteen months.",
+      },
+    ],
+    relatedSystems: ["brand-authority", "ai-visibility", "search"],
+  },
+  {
+    slug: "generative-ai-marketing-operating-system",
+    title: "The generative AI marketing operating system",
+    summary:
+      "A five-layer architecture for running brand and marketing in the generative AI era — models, use cases, workflows, governance, and outcomes — with a 180-day implementation roadmap built for premium operators.",
+    category: "Methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-05",
+    readingMinutes: 8,
+    faq: [
+      {
+        question: "How is this different from buying an AI marketing tool?",
+        answer:
+          "Tools are the bottom layer. The operating system is the discipline around the tools — capability mapping, workflow design, governance, and outcome measurement. A team with the operating system but limited tools outperforms a team with unlimited tools but no operating system. Tools change every quarter. The OS compounds. The defining failure mode of AI marketing in 2025 and 2026 was teams buying tools at layer one and chasing use cases at layer two without ever building the workflows or governance the system needs to keep producing on-brand output at volume.",
+      },
+      {
+        question: "Do we need every layer to start?",
+        answer:
+          "No. You need layer one (chosen tools), a minimum layer three (one workflow), and a minimum layer four (a brand voice rubric and a human review gate). That gets you running. Layer two (use case expansion), full layer four governance, and layer five sophisticated measurement are sequenced over the 180-day roadmap. A growth-stage operator can compress the whole thing to ninety days by deferring layer-five sophistication and running the primary KPIs only.",
+      },
+      {
+        question: "What is the single highest-leverage component?",
+        answer:
+          "The prompt library plus brand-voice rubric. Together they take a generic AI tool and make it produce on-brand output reliably. Most teams skip this work because it feels like documentation overhead. It is actually the moat. A versioned, tested, brand-coupled prompt library is what stops every contractor and every model upgrade from rolling a fresh die against your voice. It is the lowest-glamour, highest-return investment in the stack.",
+      },
+      {
+        question: "Is responsible AI just compliance overhead?",
+        answer:
+          "No — done well, governance converts. Premium buyers, especially enterprise CMOs and regulated-industry brands, actively reward visible AI governance discipline. The Wiele Trust Commitment — provenance logging, disclosure where required, bias testing, privacy posture, IP integrity, named human accountability, sustainability — is published as a buyer-facing trust asset and referenced in every premium proposal. Compliance done well is a sales asset, not a tax.",
+      },
+      {
+        question: "How do we measure ROI?",
+        answer:
+          "Primary metrics: AI-citation frequency, branded search growth, qualified inbound from AI-extractable assets, cost-per-qualified-lead delta versus pre-OS baseline. Premium operators consistently see twenty-five to forty percent CAC reduction and thirty to fifty percent time-to-publish reduction by Day 180 when the operating system is deployed correctly. Vanity metrics — total assets generated, tokens consumed, time saved per asset, tool count — are anti-signal. Measure outputs, not throughput.",
+      },
+    ],
+    relatedSystems: ["ai-visibility", "brand-authority", "search"],
+  },
 ];
 
 /**
@@ -193,6 +266,27 @@ export const ARTICLE_TOC: Readonly<Record<string, readonly TocEntry[]>> = {
     { level: 3, text: "Where the surfaces overlap", slug: "where-the-surfaces-overlap" },
     { level: 2, text: "What classical SEO tools can't see", slug: "what-classical-seo-tools-cant-see" },
     { level: 2, text: "How to think about the split as a budget decision", slug: "how-to-think-about-the-split-as-a-budget-decision" },
+  ],
+  "ai-era-billion-dollar-brand-playbook": [
+    { level: 2, text: "The first seven principles", slug: "the-first-seven-principles" },
+    { level: 2, text: "The two AI-era principles", slug: "the-two-ai-era-principles" },
+    { level: 2, text: "The Wiele Machete Order", slug: "the-wiele-machete-order" },
+    { level: 3, text: "Tier 1 — Pre-revenue", slug: "tier-1-pre-revenue" },
+    { level: 3, text: "Tier 2 — Growth", slug: "tier-2-growth" },
+    { level: 3, text: "Tier 3 — Scale", slug: "tier-3-scale" },
+    { level: 3, text: "Tier 4 — Enterprise", slug: "tier-4-enterprise" },
+    { level: 2, text: "The diagnostic — ten questions", slug: "the-diagnostic-ten-questions" },
+    { level: 2, text: "What to do with this", slug: "what-to-do-with-this" },
+  ],
+  "generative-ai-marketing-operating-system": [
+    { level: 2, text: "The five layers", slug: "the-five-layers" },
+    { level: 2, text: "Layer one — models and capabilities", slug: "layer-one-models-and-capabilities" },
+    { level: 2, text: "Layer two — use cases and production", slug: "layer-two-use-cases-and-production" },
+    { level: 2, text: "Layer three — workflows and review gates", slug: "layer-three-workflows-and-review-gates" },
+    { level: 2, text: "Layer four — governance and trust", slug: "layer-four-governance-and-trust" },
+    { level: 2, text: "Layer five — outcomes and measurement", slug: "layer-five-outcomes-and-measurement" },
+    { level: 2, text: "The 180-day implementation roadmap", slug: "the-180-day-implementation-roadmap" },
+    { level: 2, text: "Where this fits", slug: "where-this-fits" },
   ],
 };
 

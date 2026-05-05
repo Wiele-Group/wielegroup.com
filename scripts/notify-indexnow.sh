@@ -43,6 +43,14 @@ readonly URL_LIST=(
   "https://${HOST}/systems/web-experience"
   "https://${HOST}/privacy"
   "https://${HOST}/terms"
+  # Labs articles — added v2.5-flagship-playbooks (2026-05-05).
+  # Index page /labs already listed; individual articles must ping too
+  # so AI-search engines pick up the citation surface immediately.
+  "https://${HOST}/labs/ai-recommendations-compound"
+  "https://${HOST}/labs/five-citation-signals"
+  "https://${HOST}/labs/search-is-splitting"
+  "https://${HOST}/labs/ai-era-billion-dollar-brand-playbook"
+  "https://${HOST}/labs/generative-ai-marketing-operating-system"
   "https://${HOST}/sitemap.xml"
 )
 
