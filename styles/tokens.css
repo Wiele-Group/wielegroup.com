@@ -142,7 +142,7 @@
   /* ── Layout ── */
   --container-max: 1280px;
   --container-px: 1.5rem;
-  --header-height: 4rem;
+  --header-height: 5.5rem;
 }
 
 /* Reduced-motion override — durations cap at t2, gradients stay (not animated) */

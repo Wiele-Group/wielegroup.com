@@ -153,16 +153,16 @@ export function CinematicEntry() {
           }}
         />
 
-        {/* The chromaglass W mark — LCP candidate */}
+        {/* The chrome W mark — LCP candidate */}
         <motion.div variants={markVariants} className="select-none">
           <Image
-            src="/brand/wiele-3d-chromaglass-512.png"
-            alt="Wiele Group — Chromaglass W mark"
-            width={512}
-            height={512}
+            src="/brand/wiele-w-chrome-1024.png"
+            alt="Wiele Group — Chrome W mark"
+            width={1024}
+            height={1024}
             priority
-            sizes="(max-width: 640px) 240px, (max-width: 1024px) 320px, 384px"
-            className="h-auto w-[240px] sm:w-[320px] lg:w-[384px] drop-shadow-[0_24px_80px_rgba(59,130,246,0.25)]"
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 440px"
+            className="h-auto w-[280px] sm:w-[360px] lg:w-[440px] drop-shadow-[0_24px_80px_rgba(59,130,246,0.25)]"
           />
         </motion.div>
 

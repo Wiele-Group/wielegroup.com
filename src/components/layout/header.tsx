@@ -55,8 +55,8 @@ export function Header() {
         <div className="flex h-[var(--header-height)] items-center justify-between gap-6">
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <Logo width={108} className="md:hidden" />
-            <Logo width={148} className="hidden md:block" />
+            <Logo width={92} className="md:hidden" priority />
+            <Logo width={124} className="hidden md:block" priority />
           </div>
 
           {/* Desktop nav */}

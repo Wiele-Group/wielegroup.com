@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:gap-14">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-5">
-            <Logo width={148} />
+            <Logo width={168} />
             <p className="text-body-sm text-silver max-w-xs">
               {siteConfig.descriptor}.{" "}
               <span className="text-cloud">{siteConfig.tagline}</span>

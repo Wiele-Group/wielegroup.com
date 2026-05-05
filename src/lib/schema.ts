@@ -173,7 +173,7 @@ export const organizationSchema: OrganizationSchema = {
   name: siteConfig.name,
   legalName: siteConfig.legalName,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/brand/wiele-wordmark-on-void-2048.png`,
+  logo: `${siteConfig.url}/brand/wiele-wordmark-chrome-2000.png`,
   description: siteConfig.description,
   founder: { "@type": "Person", name: siteConfig.founder },
   contactPoint: {
@@ -246,7 +246,7 @@ export function articleSchema(input: {
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/brand/wiele-wordmark-on-void-2048.png`,
+        url: `${siteConfig.url}/brand/wiele-wordmark-chrome-2000.png`,
       },
     },
     image: input.image,
