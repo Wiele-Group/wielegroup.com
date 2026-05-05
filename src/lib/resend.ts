@@ -125,11 +125,15 @@ const REVENUE_LABELS: Record<string, string> = {
   "50m-plus": "£50M+",
   "prefer-not": "Prefer not to say",
 };
+// Budget tier labels for founder-facing onboarding email rendering.
+// Keys mirror src/data/pricing.ts tier IDs exactly. Keep in lockstep with
+// src/data/onboarding.ts BUDGET_TIER_OPTIONS + src/lib/validations.ts.
+// Updated 2026-05-05 v2.5.1-revenue-hygiene.
 const BUDGET_LABELS: Record<string, string> = {
-  launch: "Launch (£2,500/mo)",
-  growth: "Growth (£6,500/mo)",
-  scale: "Scale (£14,000/mo)",
-  enterprise: "Enterprise (bespoke)",
+  "signal-audit": "Signal Audit (£2,500 one-off)",
+  "growth-system": "Growth System (£4,000 / mo)",
+  "authority-engine": "Authority Engine (£8,000 / mo)",
+  "wiele-os": "Wiele OS (£15,000+ / mo)",
   "not-sure": "Not sure yet",
 };
 const TIMELINE_LABELS: Record<string, string> = {

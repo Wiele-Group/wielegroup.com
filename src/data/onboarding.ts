@@ -56,11 +56,23 @@ export const BRAND_ASSETS_OPTIONS = [
   { value: "none", label: "No brand assets — starting fresh" },
 ] as const;
 
+/**
+ * Budget tier options — values mirror src/data/pricing.ts tier IDs exactly.
+ * Source of truth: pricing.ts. Update here ONLY when pricing.ts changes,
+ * and update src/lib/validations.ts (Zod enum) + src/lib/resend.ts
+ * (BUDGET_LABELS map) in lockstep.
+ *
+ * History: 2026-05-05 v2.5.1-revenue-hygiene — corrected stale labels
+ * (Launch £2,500/mo / Growth £6,500/mo / Scale £14,000/mo) that did not
+ * match any live tier card on /pricing. The mismatch was corrupting every
+ * intake's budget signal because prospects were self-selecting tiers that
+ * did not exist.
+ */
 export const BUDGET_TIER_OPTIONS = [
-  { value: "launch", label: "Launch — £2,500/mo" },
-  { value: "growth", label: "Growth — £6,500/mo" },
-  { value: "scale", label: "Scale — £14,000/mo" },
-  { value: "enterprise", label: "Enterprise — bespoke" },
+  { value: "signal-audit", label: "Signal Audit — £2,500 one-off" },
+  { value: "growth-system", label: "Growth System — £4,000 / mo" },
+  { value: "authority-engine", label: "Authority Engine — £8,000 / mo" },
+  { value: "wiele-os", label: "Wiele OS — £15,000+ / mo" },
   { value: "not-sure", label: "Not sure yet" },
 ] as const;
 
