@@ -6,8 +6,8 @@ import { buildMetadata, siteConfig } from "@/lib/metadata";
 import {
   breadcrumbSchema,
   faqSchema,
-  productSchema,
   serviceSchema,
+  serviceTierSchema,
 } from "@/lib/schema";
 
 const division = getDivisionBySlug("brand-management-agency")!;
@@ -35,14 +35,16 @@ export default function BrandManagementAgencyPage() {
     division.faqs.map((f) => ({ question: f.question, answer: f.answer })),
   );
 
-  const products = division.tiers.map((tier) => {
+  const serviceTiers = division.tiers.map((tier) => {
     const numeric = tier.price.replace(/[^\d]/g, "") + ".00";
-    return productSchema({
+    return serviceTierSchema({
       name: `Wiele ${division.eyebrow} — ${tier.name}`,
       description: tier.positioning,
+      serviceType: division.eyebrow.replace(" Agency", ""),
       price: numeric,
       priceCurrency: "GBP",
       url: `${siteConfig.url}/${division.slug}#${tier.id}`,
+      recurring: tier.cadence.includes("/ month"),
     });
   });
 
@@ -51,11 +53,11 @@ export default function BrandManagementAgencyPage() {
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-brand-management-agency" />
       <JsonLd schema={service} id="schema-service-brand-management-agency" />
       <JsonLd schema={faq} id="schema-faq-brand-management-agency" />
-      {products.map((p, i) => (
+      {serviceTiers.map((s, i) => (
         <JsonLd
           key={division.tiers[i].id}
-          schema={p}
-          id={`schema-product-${division.tiers[i].id}`}
+          schema={s}
+          id={`schema-service-tier-${division.tiers[i].id}`}
         />
       ))}
       <DivisionPage division={division} />

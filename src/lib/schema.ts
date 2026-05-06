@@ -112,6 +112,41 @@ export type ProductSchema = SchemaBase & {
   };
 };
 
+/**
+ * v3.0.4 — per-tier Service schema with a singular `offers` Offer.
+ *
+ * Distinct from `ServiceSchema` (which models page-level descriptions
+ * via `hasOfferCatalog`). This type represents a single priced tier of
+ * an agency service (e.g. "Marketing System £4,500/mo") and is the
+ * semantically correct replacement for the old per-tier Product schema
+ * that GSC flagged as invalid Merchant Listings on division pages.
+ *
+ * `priceSpecification` is optional — only set for recurring (monthly)
+ * tiers. One-off and fixed-scope tiers carry just `price` + `priceCurrency`
+ * on the Offer.
+ */
+export type ServiceTierSchema = SchemaBase & {
+  "@type": "Service";
+  name: string;
+  description: string;
+  provider: { "@type": "Organization"; name: string; url: string };
+  serviceType: string;
+  areaServed: { "@type": "Place"; name: string };
+  offers: {
+    "@type": "Offer";
+    price: string;
+    priceCurrency: string;
+    url: string;
+    priceSpecification?: {
+      "@type": "UnitPriceSpecification";
+      price: string;
+      priceCurrency: string;
+      billingDuration: string;
+      billingIncrement: number;
+    };
+  };
+};
+
 /* ─────────────────────────────────────────────────────────────
    Phase 7.1 schema additions — Blog, ItemList, AboutPage, ContactPage
 ───────────────────────────────────────────────────────────────── */
@@ -187,6 +222,7 @@ export type AnySchema =
   | OrganizationSchema
   | WebSiteSchema
   | ServiceSchema
+  | ServiceTierSchema
   | ArticleSchema
   | FaqPageSchema
   | BreadcrumbListSchema
@@ -373,6 +409,42 @@ export function productSchema(input: {
       availability: "https://schema.org/InStock",
       url: input.url,
     },
+  };
+}
+
+export function serviceTierSchema(input: {
+  name: string;
+  description: string;
+  serviceType: string;
+  price: string;
+  priceCurrency: string;
+  url: string;
+  recurring?: boolean;
+}): ServiceTierSchema {
+  const offers: ServiceTierSchema["offers"] = {
+    "@type": "Offer",
+    price: input.price,
+    priceCurrency: input.priceCurrency,
+    url: input.url,
+  };
+  if (input.recurring) {
+    offers.priceSpecification = {
+      "@type": "UnitPriceSpecification",
+      price: input.price,
+      priceCurrency: input.priceCurrency,
+      billingDuration: "P1M",
+      billingIncrement: 1,
+    };
+  }
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.name,
+    description: input.description,
+    provider: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+    serviceType: input.serviceType,
+    areaServed: { "@type": "Place", name: "Worldwide" },
+    offers,
   };
 }
 
