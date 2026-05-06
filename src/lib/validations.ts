@@ -67,7 +67,10 @@ export const contactSchema = z.object({
     .trim()
     .min(10, "Please write at least a sentence")
     .max(4000),
-  turnstileToken: z.string().min(8).max(2048),
+  // Honeypot: real users leave this blank; dumb bots auto-fill name-pattern fields.
+  // Schema is permissive so bot submissions parse cleanly — the route handler
+  // detects a non-empty value and returns silent 200 without recording or emailing.
+  company_website: z.string().max(2048).optional().or(z.literal("")),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

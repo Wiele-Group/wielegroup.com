@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations";
-import { verifyTurnstileToken } from "@/lib/turnstile";
 import { recordContactSubmission, type ContactQueueRecord } from "@/lib/kv";
 import { sendContactNotification } from "@/lib/resend";
 
@@ -12,6 +11,11 @@ export const runtime = "nodejs";
  * Same fail-open sequence as /api/audit, simpler payload (4 fields,
  * one founder-bound email — no customer confirmation since the message
  * itself is the conversation start).
+ *
+ * Spam protection: hidden honeypot field (company_website). Dumb bots
+ * auto-fill it; we silently 200 those without recording or emailing.
+ * Real users never see the field. Sophisticated targeted attackers
+ * bypass this — Cloudflare WAF rate-limiting layer follows separately.
  */
 export async function POST(request: Request): Promise<Response> {
   let body: unknown;
@@ -36,6 +40,12 @@ export async function POST(request: Request): Promise<Response> {
   }
   const input = parsed.data;
 
+  // Honeypot trip → silent 200. Returning 200 (vs 400) prevents the bot from
+  // learning it was caught, so it disengages instead of retrying with mutations.
+  if (input.company_website && input.company_website.length > 0) {
+    return NextResponse.json({ success: true }, { status: 200 });
+  }
+
   const meta = {
     userAgent: request.headers.get("user-agent") ?? undefined,
     ip:
@@ -45,19 +55,10 @@ export async function POST(request: Request): Promise<Response> {
     referer: request.headers.get("referer") ?? undefined,
   };
 
-  const verification = await verifyTurnstileToken(input.turnstileToken, meta.ip);
-  if (!verification.ok) {
-    console.warn(`[contact] turnstile rejected — ${verification.reason}`);
-    return NextResponse.json(
-      { error: "Verification failed. Please reload and try again." },
-      { status: 403 },
-    );
-  }
-
   const ticketId = newTicketId();
   const queuedAt = new Date().toISOString();
 
-  const { turnstileToken: _ignore, ...submission } = input;
+  const { company_website: _ignore, ...submission } = input;
   void _ignore;
 
   const record: ContactQueueRecord = {
