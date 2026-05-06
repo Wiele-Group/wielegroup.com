@@ -52,6 +52,13 @@ readonly URL_LIST=(
   "https://${HOST}/labs/ai-era-billion-dollar-brand-playbook"
   "https://${HOST}/labs/generative-ai-marketing-operating-system"
   "https://${HOST}/sitemap.xml"
+  # AI-engine context surface — added v3.0.1 (2026-05-06).
+  # llms.txt is the canonical hint file every AI search crawler reads
+  # for positioning + pricing. Re-pinging on every deploy ensures
+  # AI engines re-fetch when the ladder, defense thread, or page list
+  # changes — the v3.0 deploy did not include this and AI engines were
+  # observed quoting outdated v2 pricing.
+  "https://${HOST}/llms.txt"
 )
 
 echo ""
