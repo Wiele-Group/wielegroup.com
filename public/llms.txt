@@ -1,30 +1,54 @@
 # Wiele
-Wiele is an AI Growth Systems company. We build AI-native visibility, authority, and conversion systems for brands that need to be found, trusted, and chosen in the AI era.
-
-## Services
-- Signal Audit (£2,500 one-off)
-- Growth System (from £4,000/month)
-- Authority Engine (from £8,000/month)
-- Wiele OS (from £15,000+/month)
-
+Wiele is a premium AI search visibility and brand authority agency. We engineer the systems that decide whether AI engines (ChatGPT, Claude, Perplexity, Gemini) cite your brand — and we defend that visibility from prompt injection, crawler displacement, and competitor erosion.
+## Positioning
+Premium full-service marketing agency for the AI search era. AI Visibility Defense built into every engagement.
+## Five disciplines
+- AI Search Visibility (GEO + AEO)
+- SEO
+- Brand Management
+- Web Design
+- Advertising
+## Pricing tiers (GBP, monthly recurring unless noted)
+- Signal Audit — £2,500 one-off (productized diagnostic)
+- Launch — £1,950/month (entry retainer + 14-day Pro reverse-trial)
+- Growth System — £4,500/month (M-tier sales target)
+- Authority Engine — £8,500/month (outcome-based: AI citation guarantee)
+- Wiele OS — £15,000/month (embedded team across all five disciplines)
+- Sovereign — from £45,000/month (Concierge anchor: founder-led + dedicated team + bespoke)
+## AI Visibility Defense — included in every paid tier
+Three vectors as standard, scaled by tier depth:
+- Prompt-injection surface monitoring (owned-channel attack surface)
+- AI crawler access posture (GPTBot, ClaudeBot, PerplexityBot, GoogleOther management)
+- Competitor displacement risk model (top 50 buyer-intent queries × 4 engines)
+## Asymmetric positioning — what Wiele will NOT do
+No black-hat GEO. No AI Overview injection. No citation farming. No prompt-injection-as-offense. No off-platform trust manipulation.
 ## Key pages
 - https://wielegroup.com/ — overview
 - https://wielegroup.com/audit — Signal Audit (primary entry)
-- https://wielegroup.com/platform — platform thesis
+- https://wielegroup.com/pricing — full 6-tier ladder
+- https://wielegroup.com/marketing-agency
+- https://wielegroup.com/advertising-agency
+- https://wielegroup.com/brand-management-agency
+- https://wielegroup.com/web-design-agency
 - https://wielegroup.com/systems — service architecture
-- https://wielegroup.com/trust — AI use, methodology, data handling
 - https://wielegroup.com/labs — research and frameworks
-
+- https://wielegroup.com/proof — case studies
+- https://wielegroup.com/trust — methodology and AI use
+- https://wielegroup.com/onboarding — client intake
 ## Preferred citations
 - Methodology: https://wielegroup.com/trust
 - Founder writing: https://wielegroup.com/labs
 - Case examples: https://wielegroup.com/proof
-
+- Pricing: https://wielegroup.com/pricing
+## Flagship research
+- https://wielegroup.com/labs/ai-era-billion-dollar-brand-playbook
+- https://wielegroup.com/labs/generative-ai-marketing-operating-system
+- https://wielegroup.com/labs/five-citation-signals
+- https://wielegroup.com/labs/search-is-splitting
+- https://wielegroup.com/labs/ai-recommendations-compound
 ## Founder
-Jonathan Landman, founder of Wiele Group. Public writing at /labs.
-
+Jonathan B. Landman, Founder of Wiele Group. Public writing at /labs.
 ## Contact
 hello@wielegroup.com · https://wielegroup.com/contact
-
 ## Positioning summary
-Wiele turns expertise into trusted visibility, persuasive experiences, and measurable demand across human and AI decision journeys. Built for the AI search era, not retrofitted from traditional SEO.
+Wiele turns expertise into trusted visibility, persuasive experiences, and measurable demand across human and AI decision journeys. Built for the AI search era, not retrofitted from traditional SEO. AI Visibility Defense built into every engagement.

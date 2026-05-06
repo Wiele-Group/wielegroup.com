@@ -147,6 +147,20 @@ Expected: `200` on all canonical routes. Anything else is a real signal.
 
 **Other tools that need the same UA:** any `wget`, `httpie`, or `playwright headless` scripts targeting production. If it doesn't send a real-looking UA, expect 403.
 
+## Cloudflare Workers in the Wiele Group account (audited 2026-05-06 v3.0.1)
+
+Account `0edf698a8da62c67cde23e4f97de7a1b`. 5 Workers exist. Don't blind-archive any without re-confirming purpose against this table.
+
+| Worker | Role | Status | Evidence |
+|---|---|---|---|
+| `wielegroup-com` | **PRODUCTION** marketing site (this repo, OpenNext bundle) | KEEP | `wrangler.toml` `name`, route bindings adc463…/2baac9… |
+| `wiele-edge-seo` | Apex/www **routing handler** — issues 308 redirects from `wielegroup.com/*` and serves `www.wielegroup.com` requests | KEEP | Observability shows live `HEAD /`, `HEAD /robots.txt`, `HEAD /trust` traffic from prod hostnames; wired at zone level (no repo refs) |
+| `wiele-dashboard-api` | wiele-ai dashboard backend (`dashboard.wielegroup.com`) — Cron `5 * * * *` plus auth-gated 401 favicon | KEEP | Hourly cron events present; managed in the wiele-ai repo, not here |
+| `wiele-audit-intake-worker` | **Apollo CRM enrollment proxy** (POST `/submit` → Apollo `/contacts` + sequence add + Resend founder alert) | **FOUNDER DECISION PENDING** — superseded by current Next.js `/api/audit` route at the wielegroup.com level (KV + wiele-ai + Resend, no Apollo). 0 traffic 7d. Deletion drops `APOLLO_API_KEY`/`APOLLO_SEQUENCE_ID`/`APOLLO_EMAIL_ACCOUNT_ID` secrets and orphans any active Apollo sequence. Decide Apollo strategy before archiving. |
+| `fragrant-king-50c6` | **UNKNOWN** — auto-generated Cloudflare name, 2 Upload-source deployments same minute on 2026-04-23, 0 traffic 7d, 0 references in `src/` `scripts/` `wrangler.toml`. MCP `workers_get_worker_code` returns malformed response so the script body cannot be inspected from the agent. | **FOUNDER DECISION PENDING** — strongest archive candidate per directive criteria, but archiving without code-level evidence violates §6 (evidence not assertion). Founder confirms via Cloudflare dashboard then `npx wrangler delete fragrant-king-50c6 --force`. |
+
+**Process rule:** before any Worker deletion, capture `name + last-modified + version IDs + reason` in the commit message that authorizes the delete. Worker deletes are irreversible — KV bindings, secrets, route attachments all go with them.
+
 ## Start Here
 Read `../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` once. Then execute Phase 0 (brand asset copy) → Phase 1 (foundation).
 
