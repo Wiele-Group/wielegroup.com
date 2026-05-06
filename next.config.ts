@@ -71,14 +71,21 @@ const nextConfig: NextConfig = {
    * Phase 3 IA cutover — 9 permanent redirects from legacy IA to new IA.
    * Authority: directive §6 Phase 3 + memory/feedback_cutover_discipline.md.
    *
-   * TODO(2026-08-03): Phase 7 task — remove this entire redirects() block
+   * v3.0.3 (2026-05-06) — appended 15 redirects for retired pre-v2.0
+   * Monolith URLs flagged by Google Search Console as 404. Specific paths
+   * are listed BEFORE catch-alls so the existing /services/* specific
+   * rules above win over the new /services/:path* catch-all (Next.js
+   * matches the first rule in source order).
+   *
+   * TODO(2026-08-03): Phase 7 task — remove the Phase 3 IA cutover block
    * IF AND ONLY IF Google Search Console + Plausible referrer data confirm
    * zero traffic to /services/*, /work, /journal in the prior 30 days.
-   * Code that auto-deletes itself in 90 days is a footgun; keep the
-   * removal a deliberate human action with verification first.
+   * The v3.0.3 Monolith block can be reviewed for removal in 2027 once
+   * GSC confirms zero crawl attempts on those paths for 12 months.
    */
   async redirects() {
     return [
+      // Phase 3 IA cutover — preserved
       { source: "/services/seo", destination: "/systems/search", permanent: true },
       { source: "/services/aeo", destination: "/systems/ai-visibility", permanent: true },
       { source: "/services/geo", destination: "/systems/ai-visibility", permanent: true },
@@ -88,6 +95,25 @@ const nextConfig: NextConfig = {
       { source: "/services", destination: "/systems", permanent: true },
       { source: "/work", destination: "/proof", permanent: true },
       { source: "/journal", destination: "/labs", permanent: true },
+
+      // v3.0.3 Monolith retirement — specific paths
+      { source: "/engines/answer-engineering", destination: "/systems/ai-visibility", permanent: true },
+      { source: "/engines/citation-ledger", destination: "/labs/five-citation-signals", permanent: true },
+      { source: "/engines/proof.html", destination: "/proof", permanent: true },
+      { source: "/work.html", destination: "/proof", permanent: true },
+      { source: "/journal/citation-ledger-q2-2026", destination: "/labs/five-citation-signals", permanent: true },
+      { source: "/chatgpt-seo", destination: "/audit", permanent: true },
+      { source: "/claude-seo", destination: "/audit", permanent: true },
+      { source: "/imprint", destination: "/privacy", permanent: true },
+      { source: "/enterprise/portal.html", destination: "/pricing", permanent: true },
+      { source: "/es", destination: "/", permanent: true },
+
+      // v3.0.3 Monolith retirement — catch-alls (must be last so specific rules win)
+      { source: "/engines/:path*", destination: "/systems", permanent: true },
+      { source: "/journal/:path*", destination: "/labs", permanent: true },
+      { source: "/enterprise/:path*", destination: "/pricing", permanent: true },
+      { source: "/es/:path*", destination: "/", permanent: true },
+      { source: "/services/:path*", destination: "/systems", permanent: true },
     ];
   },
 };
