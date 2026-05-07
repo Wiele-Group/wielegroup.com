@@ -19,7 +19,7 @@
   --color-obsidian: #141C2E;        /* legacy → maps to bg-floor */
   --color-graphite: #1A2540;        /* legacy → maps to bg-elevated */
   --color-steel: #2A3447;           /* strong border */
-  --color-smoke: #5C6A82;           /* tertiary text */
+  --color-smoke: #7B8AA0;           /* tertiary text — AA 4.67:1 on bg-floor, 5.43:1 on void (was #5C6A82 / 3.49:1 — failed AA) */
   --color-silver: #A0AFC3;          /* secondary text — AAA 7:1 on near-black */
   --color-cloud: #B8C4D6;           /* body text — chrome-mid */
   --color-white: #EEF2F8;           /* heading + emphasis — chrome-hi (NOT pure white) */
