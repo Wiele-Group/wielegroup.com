@@ -53,9 +53,10 @@ export function Header() {
     >
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
         <div className="flex h-[var(--header-height)] items-center justify-between gap-6">
-          {/* Brand */}
+          {/* Brand — flat stroke variant on mobile (chrome's 3D depth bands
+              become visual noise below ~100px width); chrome PNG above md. */}
           <div className="flex items-center gap-3">
-            <Logo width={92} className="md:hidden" />
+            <Logo variant="flat" width={108} className="md:hidden" />
             <Logo width={124} className="hidden md:block" />
           </div>
 
