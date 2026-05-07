@@ -91,9 +91,9 @@ export const TIMELINE_OPTIONS = [
 ] as const;
 
 export const STEP_TITLES = [
-  "You & Your Company",
-  "Services You Want",
-  "Existing Presence",
-  "Vision, Goals & Market",
-  "Engagement Details",
+  "Company",
+  "Services",
+  "Presence",
+  "Vision",
+  "Engagement",
 ] as const;

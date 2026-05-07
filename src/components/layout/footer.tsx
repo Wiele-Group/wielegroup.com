@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Linkedin, Mail, Twitter } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { footerColumns } from "@/data/nav";
 import { siteConfig } from "@/lib/metadata";
@@ -54,23 +55,29 @@ export function Footer() {
               href={siteConfig.socials.linkedin}
               target="_blank"
               rel="noreferrer noopener"
-              className="text-smoke hover:text-cloud transition-colors"
+              aria-label="Wiele on LinkedIn"
+              className="inline-flex items-center gap-2 text-smoke hover:text-cloud transition-colors focus-visible:outline-none focus-visible:text-cloud"
             >
-              LinkedIn
+              <Linkedin size={14} aria-hidden />
+              <span>LinkedIn</span>
             </a>
             <a
               href={siteConfig.socials.x}
               target="_blank"
               rel="noreferrer noopener"
-              className="text-smoke hover:text-cloud transition-colors"
+              aria-label="Wiele on X"
+              className="inline-flex items-center gap-2 text-smoke hover:text-cloud transition-colors focus-visible:outline-none focus-visible:text-cloud"
             >
-              X
+              <Twitter size={14} aria-hidden />
+              <span>X</span>
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="text-smoke hover:text-cloud transition-colors"
+              aria-label={`Email Wiele at ${siteConfig.email}`}
+              className="inline-flex items-center gap-2 text-smoke hover:text-cloud transition-colors focus-visible:outline-none focus-visible:text-cloud"
             >
-              {siteConfig.email}
+              <Mail size={14} aria-hidden />
+              <span>{siteConfig.email}</span>
             </a>
           </div>
         </div>
