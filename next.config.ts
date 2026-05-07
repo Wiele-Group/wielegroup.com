@@ -113,7 +113,10 @@ const nextConfig: NextConfig = {
       { source: "/journal/:path*", destination: "/labs", permanent: true },
       { source: "/enterprise/:path*", destination: "/pricing", permanent: true },
       { source: "/es/:path*", destination: "/", permanent: true },
-      { source: "/services/:path*", destination: "/systems", permanent: true },
+      // v3.1 (2026-05-07) — negative-lookahead carve-out so the live
+      // /services/premium-brand-site-system page is not swallowed by the
+      // Monolith catch-all. New /services/* SKUs must be added here.
+      { source: "/services/:slug((?!premium-brand-site-system$).+)", destination: "/systems", permanent: true },
     ];
   },
 };

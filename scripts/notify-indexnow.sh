@@ -36,6 +36,10 @@ readonly URL_LIST=(
   "https://${HOST}/advertising-agency"
   "https://${HOST}/brand-management-agency"
   "https://${HOST}/web-design-agency"
+  # Productized service offers — v3.1 (2026-05-07).
+  # Premium Brand Site System: WDA flagship SKU. Token-first builds,
+  # 5-mode delivery, AI revision credits, contractual CWV SLA.
+  "https://${HOST}/services/premium-brand-site-system"
   "https://${HOST}/systems"
   "https://${HOST}/systems/ai-visibility"
   "https://${HOST}/systems/search"
