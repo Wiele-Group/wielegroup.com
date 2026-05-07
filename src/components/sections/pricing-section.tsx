@@ -101,7 +101,7 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
         </span>
       ) : null}
 
-      <h3 className="text-heading-md text-white">{tier.name}</h3>
+      <h3 className="text-heading-md text-white text-balance min-h-[2.6em]">{tier.name}</h3>
 
       <div className="mt-3 mb-1">
         <span className="font-mono text-[1.5rem] leading-none font-semibold text-white">
@@ -154,7 +154,7 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
             rel="noopener noreferrer"
             data-plausible-event-name="Pay Now Click"
             data-plausible-event-tier={tier.id}
-            className="text-center text-body-xs font-mono uppercase tracking-[0.12em] text-smoke hover:text-electric transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:text-electric"
+            className="text-center text-body-xs font-mono uppercase tracking-[0.12em] text-silver hover:text-electric hover:underline underline-offset-4 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:text-electric focus-visible:underline"
           >
             Or pay now <span aria-hidden>→</span>
             <span className="sr-only">
