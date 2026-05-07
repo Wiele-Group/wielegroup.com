@@ -136,7 +136,7 @@ export default function PricingPage() {
           <div className="max-w-3xl">
             <FadeIn>
               <Badge variant="electric" size="sm" className="mb-5">
-                Pricing · v3.0
+                Pricing
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>

@@ -95,8 +95,7 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
     >
       {tier.featured ? (
         <span
-          className="absolute -top-2.5 left-6 px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white"
-          style={{ background: "var(--gradient-duality-edge)" }}
+          className="absolute -top-2.5 left-6 px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white bg-electric shadow-[0_4px_18px_rgba(59,130,246,0.35)]"
         >
           Most chosen
         </span>

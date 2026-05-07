@@ -216,6 +216,6 @@ export const proofPlaceholders = [
     sector: "Premium DTC + Luxury",
     headline: "Integrated Growth System",
     summary:
-      "Brand layer, web experience layer, paid acceleration layer, AI visibility substrate — five disciplines run as one operating system.",
+      "Brand layer, web experience layer, paid acceleration layer, AI visibility substrate — six disciplines run as one operating system.",
   },
 ];

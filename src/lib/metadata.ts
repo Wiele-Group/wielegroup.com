@@ -7,7 +7,7 @@ export const siteConfig = {
   descriptor: "Premium Marketing Agency",
   tagline: "The premium agency engineered for compounding growth.",
   description:
-    "Wiele Group is the premium marketing agency for firms who want every growth lever moving together. Brand, marketing, web design, advertising, SEO, and AI search optimization — five disciplines, one operating system, engineered as one.",
+    "Wiele Group is the premium marketing agency for firms who want every growth lever moving together. Brand, marketing, web design, advertising, SEO, and AI search optimization — six disciplines, one operating system, engineered as one.",
   founder: "Jonathan Landman",
   email: "hello@wielegroup.com",
   ogImage: "/og-image.png",

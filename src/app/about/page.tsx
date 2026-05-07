@@ -20,7 +20,7 @@ const beliefs = [
   {
     title: "Systems beat tactics.",
     body:
-      "Single-channel SEO or one-off content drops don't compound. Integrated growth systems do. Five disciplines pulling in the same direction is worth more than five agencies pulling in five.",
+      "Single-channel SEO or one-off content drops don't compound. Integrated growth systems do. Six disciplines pulling in the same direction is worth more than six agencies pulling in six.",
   },
   {
     title: "Authority compounds for the prepared.",
@@ -54,7 +54,7 @@ export default function AboutPage() {
     name: `About ${siteConfig.name}`,
     url: `${siteConfig.url}/about`,
     description:
-      `${siteConfig.legalName} is a premium marketing agency founded by ${siteConfig.founder}. Five disciplines — brand, web, advertising, SEO, AI search — engineered as one integrated growth system for premium firms.`,
+      `${siteConfig.legalName} is a premium marketing agency founded by ${siteConfig.founder}. Six disciplines — brand, marketing, web, advertising, SEO, AI search — engineered as one integrated growth system for premium firms.`,
     aboutPersonName: siteConfig.founder,
   });
 
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 {siteConfig.legalName} is the premium agency for firms who want
                 every growth lever pulling in the same direction. Brand,
                 marketing, web design, advertising, SEO, and AI search
-                optimization — five disciplines, one operating system,
+                optimization — six disciplines, one operating system,
                 engineered by {siteConfig.founder}.
               </p>
             </FadeIn>
@@ -129,7 +129,7 @@ export default function AboutPage() {
               <p className="text-body-lg text-cloud">
                 {siteConfig.founder} founded {siteConfig.legalName} on a single
                 thesis: in the AI search era, premium growth requires every
-                discipline to compound — not five disconnected agencies billing
+                discipline to compound — not six disconnected agencies billing
                 the same client. Brand sets the narrative. Web converts the
                 visit. Advertising accelerates the demand. SEO captures the
                 intent. AI search decides whether the brand gets named at all.
