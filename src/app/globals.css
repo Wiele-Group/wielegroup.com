@@ -280,21 +280,69 @@ body {
   background: var(--gradient-page-radial);
 }
 
-/* Chrome card — default surface for content blocks */
-.chrome-card {
-  background: var(--color-bg-floor);
-  border: 1px solid var(--color-chrome-vlo);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-chrome-card);
-  transition:
-    transform var(--motion-t3) var(--ease-expressive-in),
-    border-color var(--motion-t3) var(--ease-productive),
-    box-shadow var(--motion-t3) var(--ease-productive);
+/* Chrome card — translucent glass with rotating light-strip + depth shadow.
+   Founder direction (2026-05-07): "glass cards with the light strips as you
+   scroll over them, same as the price cards. shadows behind the cards to add
+   depth, as you scroll over them they lift and the light strip activates
+   going round them same as the pricing cards."
+
+   IMPORTANT: !important on shadow + backdrop-filter — Tailwind 4's Lightning
+   CSS optimizer aggressively strips these otherwise (verified: serves only
+   prefixed -webkit-backdrop-filter and removes the at-rest box-shadow). The
+   !important markers preserve them through the optimizer pipeline. */
+@layer components {
+  .chrome-card {
+    position: relative;
+    background: var(--color-surface-glass);
+    backdrop-filter: blur(20px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+    border-radius: var(--radius-lg);
+    isolation: isolate;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.30) !important;
+    transition: transform var(--motion-t3) var(--ease-expressive-in), box-shadow var(--motion-t3) var(--ease-productive);
+  }
+
+  .chrome-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid var(--color-border-subtle);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .chrome-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(from var(--strip-angle), transparent 0deg, transparent 60deg, rgba(91, 171, 255, 0.0) 80deg, rgba(91, 171, 255, 0.85) 95deg, rgba(255, 255, 255, 1) 110deg, rgba(91, 171, 255, 0.85) 125deg, rgba(91, 171, 255, 0.0) 140deg, transparent 160deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: strip-rotate var(--duration-strip) linear infinite;
+    z-index: 1;
+  }
+
+  .chrome-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 1px rgba(91, 171, 255, 0.12), 0 28px 72px rgba(0, 0, 0, 0.70), 0 4px 12px rgba(0, 0, 0, 0.45), 0 0 60px rgba(91, 171, 255, 0.20) !important;
+  }
+
+  .chrome-card:hover::before {
+    animation-duration: var(--duration-strip-hover);
+  }
 }
-.chrome-card:hover {
-  transform: translateY(var(--lift-z-hero));
-  border-color: var(--color-blue-core);
-  box-shadow: var(--shadow-chrome-card), var(--shadow-glow-blue);
+
+@media (prefers-reduced-motion: reduce) {
+  .chrome-card::before {
+    animation: none;
+    background: linear-gradient(135deg, rgba(91, 171, 255, 0.55), rgba(255, 255, 255, 0.85), rgba(91, 171, 255, 0.0) 60%);
+  }
 }
 
 /* Duality border — bichromatic gradient ring (signature) */

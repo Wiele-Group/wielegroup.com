@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { ease, duration as motionDuration } from "@/lib/motion";
+import { Logo } from "@/components/ui/logo";
 
 /**
  * CinematicEntry — full-viewport brand entry sequence.
@@ -166,30 +167,23 @@ export function CinematicEntry() {
           />
         </motion.div>
 
-        {/* Lowercase wordmark with bichromatic chrome gradient */}
-        <motion.span
-          role="img"
-          aria-label="Wiele"
-          variants={wordmarkVariants}
-          className="block font-mono text-[clamp(3rem,9vw,6rem)] font-light tracking-[-0.04em] leading-none"
-          style={{
-            background:
-              "linear-gradient(135deg, #5BABFF 0%, #EEF2F8 50%, #FFC2A0 100%)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          wiele
-        </motion.span>
+        {/* Brand wordmark — chrome PNG via Logo component (replaces prior gradient-text mono "wiele"). */}
+        <motion.div variants={wordmarkVariants} className="select-none">
+          <Logo
+            variant="chrome"
+            width={340}
+            asLink={false}
+            ariaLabel="Wiele"
+            className="w-[220px] sm:w-[280px] lg:w-[340px]"
+          />
+        </motion.div>
 
         {/* Tagline — chrome-mid mono register */}
         <motion.p
           variants={taglineVariants}
           className="font-mono text-body-xs uppercase tracking-[0.32em] text-[var(--color-chrome-mid)]"
         >
-          The agency operating system
+          WIELE OS
         </motion.p>
 
         {/* Scroll indicator — bottom of viewport */}
