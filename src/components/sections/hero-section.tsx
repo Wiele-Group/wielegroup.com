@@ -3,6 +3,7 @@ import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
+import { HeroBackdrop } from "@/components/sections/hero-backdrop";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import {
   selectFixture,
@@ -15,14 +16,7 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute inset-0 ambient-gradient pointer-events-none"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 grid-pattern opacity-30 pointer-events-none"
-      />
+      <HeroBackdrop />
 
       <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-20 md:pb-28">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 items-center">

@@ -393,6 +393,59 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Hero backdrop — 5-layer constellation field (component:
+   src/components/sections/hero-backdrop.tsx). Token-driven, raster-free.
+   Founder direction (2026-05-07): replace flat ambient + grid with
+   engineered constellation field per ChatGPT-generated reference.
+───────────────────────────────────────────────────────────────── */
+
+.hero-backdrop-mesh {
+  background:
+    radial-gradient(ellipse 90% 70% at 70% 30%, rgba(91, 171, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(26, 37, 64, 0.55), transparent 65%),
+    linear-gradient(135deg, var(--color-void) 0%, var(--color-bg-midnight) 55%, var(--color-bg-elevated) 100%);
+}
+
+.hero-backdrop-light {
+  background: radial-gradient(
+    ellipse 60% 50% at 80% 18%,
+    rgba(238, 242, 248, 0.06) 0%,
+    rgba(91, 171, 255, 0.03) 35%,
+    transparent 70%
+  );
+}
+
+.hero-backdrop-grain {
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+
+/* Constellation pulse — desktop only (≥1280px), respects reduced motion. */
+.hero-backdrop-pulse {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@media (min-width: 1280px) {
+  .hero-backdrop-pulse {
+    animation: hero-pulse 4.2s var(--ease-productive, ease-in-out) infinite;
+  }
+}
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-backdrop-pulse { animation: none; opacity: 0.85; }
+}
+
+@media (prefers-contrast: more) {
+  .hero-backdrop-grid path { stroke-opacity: 0.10 !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────
    Legacy button helpers — TEMPORARY. Remove in Phase 3 once all
    pages use <Button />. Kept so legacy /services/*, /work pages
    continue to render through the phased refactor.
