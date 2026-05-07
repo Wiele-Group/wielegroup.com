@@ -142,13 +142,13 @@ export function AuditForm() {
       }
       setErrors({
         _form:
-          "Submission could not be processed right now. Email us directly at hello@wielegroup.com — we'll handle it manually.",
+          "Submission could not be processed right now. Email us directly at admin@wielegroup.com — we'll handle it manually.",
       });
     } catch (err) {
       console.error("[audit-form] network failure", err);
       setErrors({
         _form:
-          "Network issue. Email us directly at hello@wielegroup.com — we'll handle it manually.",
+          "Network issue. Email us directly at admin@wielegroup.com — we'll handle it manually.",
       });
     } finally {
       setSubmitting(false);

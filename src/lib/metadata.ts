@@ -9,7 +9,7 @@ export const siteConfig = {
   description:
     "Wiele Group is the premium marketing agency for firms who want every growth lever moving together. Brand, marketing, web design, advertising, SEO, and AI search optimization — six disciplines, one operating system, engineered as one.",
   founder: "Jonathan Landman",
-  email: "hello@wielegroup.com",
+  email: "admin@wielegroup.com",
   ogImage: "/og-image.png",
   twitterHandle: "@wielegroup",
   socials: {

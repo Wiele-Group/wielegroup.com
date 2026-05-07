@@ -22,7 +22,7 @@ import { siteConfig } from "./metadata";
 const RESEND_URL = "https://api.resend.com/emails";
 
 const FROM_AUDITS = "Wiele Audits <audits@wielegroup.com>";
-const FROM_CONTACT = "Wiele <hello@wielegroup.com>";
+const FROM_CONTACT = "Wiele <admin@wielegroup.com>";
 const FROM_ONBOARDING = "Wiele Onboarding <onboarding@wielegroup.com>";
 
 /* ─────────────────────────────────────────────────────────────

@@ -41,7 +41,7 @@ Mark `RESEND_API_KEY`, `WIELE_AI_API_KEY`, and `TURNSTILE_SECRET_KEY` as **encry
 1. resend.com → Domains → **Add** `wielegroup.com`
 2. Add the DNS records to Cloudflare DNS
 3. Wait for verification (~10 min)
-4. Configure sending domains: `audits@wielegroup.com` and `hello@wielegroup.com`
+4. Configure sending domains: `audits@wielegroup.com` and `admin@wielegroup.com`
 
 ### 1.5 Cloudflare Turnstile site
 1. Cloudflare dashboard → Turnstile → **Add site** for `wielegroup.com`

@@ -218,12 +218,12 @@ export function OnboardingForm() {
       }
       setErrors({
         _form:
-          "Submission could not be processed right now. Email us directly at hello@wielegroup.com — we'll handle it manually.",
+          "Submission could not be processed right now. Email us directly at admin@wielegroup.com — we'll handle it manually.",
       });
     } catch (err) {
       console.error("[onboarding-form] network failure", err);
       setErrors({
-        _form: "Network issue. Email us directly at hello@wielegroup.com.",
+        _form: "Network issue. Email us directly at admin@wielegroup.com.",
       });
     } finally {
       setSubmitting(false);

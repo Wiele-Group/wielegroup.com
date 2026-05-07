@@ -83,11 +83,11 @@ export function ContactForm() {
       }
       setErrors({
         _form:
-          "Submission could not be processed right now. Email us directly at hello@wielegroup.com.",
+          "Submission could not be processed right now. Email us directly at admin@wielegroup.com.",
       });
     } catch (err) {
       console.error("[contact-form] network failure", err);
-      setErrors({ _form: "Network issue. Email us directly at hello@wielegroup.com." });
+      setErrors({ _form: "Network issue. Email us directly at admin@wielegroup.com." });
     } finally {
       setSubmitting(false);
     }
@@ -102,7 +102,7 @@ export function ContactForm() {
             <h2 className="text-heading-lg text-white mb-2">Message sent.</h2>
             <p className="text-body-md text-cloud">
               We respond inside one business day. If it&apos;s urgent, email
-              hello@wielegroup.com directly.
+              admin@wielegroup.com directly.
             </p>
             <p className="text-body-xs font-mono text-smoke mt-3">
               Reference: {success}
