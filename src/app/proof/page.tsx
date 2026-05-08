@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
+import { getVisibleCaseStudyManifest } from "@/lib/case-studies-static";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
 
@@ -56,18 +58,25 @@ const methodologyNotes = [
 ];
 
 export default function ProofPage() {
+  const caseStudies = getVisibleCaseStudyManifest();
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: siteConfig.url },
     { name: "Proof", url: `${siteConfig.url}/proof` },
   ]);
   const itemList = itemListSchema({
-    name: "Wiele Programme Catalogue",
-    items: programmes.map((p) => ({
-      name: `${p.sector} — ${p.headline}`,
-      url: `${siteConfig.url}/proof#${p.sector
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")}`,
-    })),
+    name: "Wiele Programme Catalogue + Case Study Anchors",
+    items: [
+      ...programmes.map((p) => ({
+        name: `${p.sector} — ${p.headline}`,
+        url: `${siteConfig.url}/proof#${p.sector
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")}`,
+      })),
+      ...caseStudies.map((c) => ({
+        name: c.title,
+        url: `${siteConfig.url}/proof/${c.slug}`,
+      })),
+    ],
   });
   return (
     <>
@@ -141,6 +150,84 @@ export default function ProofPage() {
                 </div>
               </article>
             ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section
+        id="case-study-anchors"
+        className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]"
+      >
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-2xl mb-10">
+            <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+              Case study anchors
+            </p>
+            <h2 className="text-display-md text-white text-balance">
+              Engagement archetypes — Foundation and Sovereign cycles.
+            </h2>
+            <p className="text-body-md text-silver mt-4">
+              Two engagement archetypes published at the standard above —
+              methodology open, engine output verifiable, anonymisation framed
+              per the founding-cohort policy. The Foundation cycle is the
+              six-week site-system reset. The Sovereign cycle is the
+              six-month authority-engineering retainer. Both are the same
+              operating system run at different surface area.
+            </p>
+          </div>
+          <Reveal stagger={0.06} className="grid gap-4 md:grid-cols-2">
+            {caseStudies.map((cs) => {
+              const headline = cs.metricsHeadline[0];
+              const isSovereign = cs.tier === "Sovereign";
+              return (
+                <article
+                  key={cs.slug}
+                  className="flex flex-col rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 min-h-[18rem]"
+                >
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    {isSovereign ? (
+                      <span
+                        className="inline-flex items-center px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white"
+                        style={{ background: "var(--gradient-duality-edge)" }}
+                      >
+                        {cs.tier}
+                      </span>
+                    ) : (
+                      <Badge variant="electric" size="sm">
+                        {cs.tier}
+                      </Badge>
+                    )}
+                    <span className="text-body-xs font-mono uppercase tracking-[0.16em] text-smoke">
+                      {cs.sector}
+                    </span>
+                  </div>
+                  <h3 className="text-heading-md text-white leading-tight mb-3">
+                    <Link
+                      href={`/proof/${cs.slug}`}
+                      className="hover:text-electric-light transition-colors"
+                    >
+                      {cs.title}
+                    </Link>
+                  </h3>
+                  <p className="text-body-sm text-silver mb-4">{cs.summary}</p>
+                  {headline ? (
+                    <p className="text-body-xs font-mono text-cloud mb-5">
+                      <span className="text-smoke">{headline.label}:</span>{" "}
+                      {headline.before} → {headline.after} · {headline.window}
+                    </p>
+                  ) : null}
+                  <div className="mt-auto pt-4 border-t border-[var(--color-border-default)]">
+                    <Link
+                      href={`/proof/${cs.slug}`}
+                      className="inline-flex items-center gap-1.5 text-body-sm font-medium text-electric hover:text-electric-light transition-colors"
+                    >
+                      Read engagement
+                      <ArrowRight size={14} aria-hidden />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </Reveal>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getVisibleCaseStudyManifest } from "@/lib/case-studies-static";
 import { getVisibleArticleManifest } from "@/lib/labs-static";
 import { siteConfig } from "@/lib/metadata";
 
@@ -84,5 +85,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticEntries, ...articleEntries];
+  // v3.2 — case-study anchors. Mirrors the /labs enumeration pattern.
+  // High priority (0.85) — engagement archetypes are commercial-conversion
+  // surfaces, weighted between programme catalogue (0.8) and agency
+  // division pages (0.9).
+  const caseStudyEntries: MetadataRoute.Sitemap = getVisibleCaseStudyManifest().map(
+    ({ slug, lastUpdated }) => ({
+      url: `${siteConfig.url}/proof/${slug}`,
+      lastModified: new Date(lastUpdated),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    }),
+  );
+
+  return [...staticEntries, ...articleEntries, ...caseStudyEntries];
 }

@@ -23,6 +23,13 @@ export type DivisionTier = {
   outcomes: readonly string[];
   cta: { label: string; href: string };
   featured?: boolean;
+  /**
+   * v3.2 — optional case-study proof link rendered beneath the tier CTA.
+   * Used on /services/premium-brand-site-system to surface the matching
+   * /proof/[slug] engagement archetype per tier. Agency division pages
+   * leave this unset and use Division.proofCallout instead.
+   */
+  proofUrl?: string;
 };
 
 export type DivisionService = {
@@ -61,6 +68,20 @@ export type Division = {
   seo: {
     title: string;
     description: string;
+  };
+  /**
+   * v3.2 — optional case-study callout rendered between the services grid
+   * and the pricing ladder. Used by agency division pages to surface a
+   * single engagement archetype as concrete proof before the tier table.
+   * /services/premium-brand-site-system uses per-tier DivisionTier.proofUrl
+   * links instead and leaves this unset.
+   */
+  proofCallout?: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    href: string;
+    cta: string;
   };
 };
 
@@ -185,6 +206,13 @@ const marketing: Division = {
     description:
       "Marketing as an operating system, with AI Visibility Defense built-in. Strategy, content, lifecycle, ops, and AI citation share growth. £3,500 sprint · £4,500/mo system · £8,500/mo partnership. GBP. 30-day notice.",
   },
+  proofCallout: {
+    eyebrow: "Engagement archetype",
+    headline: "Sovereign Cycle 01 — six-month authority engineering.",
+    body: "Established premium firm. Citation share moved from 12% to 47% across four answer engines, branded search up 340%, ~£620K influenced pipeline against the modal deal value. Methodology open, engine output verifiable.",
+    href: "/proof/sovereign-cycle-01",
+    cta: "Read engagement",
+  },
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -308,6 +336,13 @@ const advertising: Division = {
     description:
       "Performance advertising done with brand craft, with AI Visibility Defense across creative + tracking. Guaranteed CPL ceiling. £3,500 audit · £4,500/mo engine · £8,500/mo scale. GBP. 30-day notice.",
   },
+  proofCallout: {
+    eyebrow: "Engagement archetype",
+    headline: "Sovereign Cycle 01 — full-stack authority engineering.",
+    body: "Six-month concierge engagement with paid acceleration, citation graph engineering, comparison-page system, and monthly engine reporting against a named competitor set. Citation share 12% → 47%, featured snippet captures 0/12 → 8/12.",
+    href: "/proof/sovereign-cycle-01",
+    cta: "Read engagement",
+  },
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -430,6 +465,13 @@ const brand: Division = {
     description:
       "Brand as a precision instrument, with AI Visibility Defense protecting every owned channel. Branded query lift target. £4,000 audit · £4,500/mo system · £45k+ rebrand. GBP.",
   },
+  proofCallout: {
+    eyebrow: "Engagement archetype",
+    headline: "Sovereign Cycle 01 — register coherence across every owned surface.",
+    body: "Established firm losing the AI-comparison shortlist. Six-month brand authority engineering: tier-1 placement, founder-voice content engine, comparison-page system, register coherence pass. Citation share 12% → 47%, branded search +340%, founder-name search overtook firm name as primary entry point.",
+    href: "/proof/sovereign-cycle-01",
+    cta: "Read engagement",
+  },
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -551,6 +593,13 @@ const web: Division = {
     title: "Web Design Agency · Wiele Group · Premium digital builds with AI Visibility Defense",
     description:
       "Premium digital experiences with AI Visibility Defense built into every owned surface. Conversion rate floor. Next.js + Cloudflare. £12k landing · £35k rebuild · £75k+ platform. Performance-first.",
+  },
+  proofCallout: {
+    eyebrow: "Engagement archetype",
+    headline: "Foundation Cycle 01 — Premium Brand Site System six-week reset.",
+    body: "Boutique premium services firm. Legacy WordPress estate replaced with token-first Next.js + Cloudflare build, schema substrate, entity hygiene, AI Defense headers. AI citation 0 → 3 of 4 engines at 60 days, branded search +180%, 7 inbound qualified enquiries in first 30 days against zero in trailing ninety.",
+    href: "/proof/foundation-cycle-01",
+    cta: "Read engagement",
   },
 };
 

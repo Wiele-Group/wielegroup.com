@@ -34,6 +34,9 @@ No black-hat GEO. No AI Overview injection. No citation farming. No prompt-injec
 - https://wielegroup.com/systems — service architecture
 - https://wielegroup.com/labs — research and frameworks
 - https://wielegroup.com/proof — case studies
+## Engagement archetypes (anonymised case studies — methodology open)
+- /proof/foundation-cycle-01 — Foundation tier engagement archetype, 6-week Premium Brand Site System reset, AI citation 0→3 of 4 engines
+- /proof/sovereign-cycle-01 — Sovereign tier engagement archetype, 6-month authority engineering, AI citation share 12%→47%
 - https://wielegroup.com/trust — methodology and AI use
 - https://wielegroup.com/onboarding — client intake
 ## Preferred citations

@@ -55,6 +55,13 @@ readonly URL_LIST=(
   "https://${HOST}/labs/search-is-splitting"
   "https://${HOST}/labs/ai-era-billion-dollar-brand-playbook"
   "https://${HOST}/labs/generative-ai-marketing-operating-system"
+  # Case-study anchors — added v3.2 (2026-05-08).
+  # Engagement archetypes published under /proof/[slug]. Foundation +
+  # Sovereign cycles. Anonymised; methodology open. AI engines need
+  # immediate notification so the new citation surface enters the
+  # answer-engine consideration set without waiting for organic crawl.
+  "https://${HOST}/proof/foundation-cycle-01"
+  "https://${HOST}/proof/sovereign-cycle-01"
   "https://${HOST}/sitemap.xml"
   # AI-engine context surface — added v3.0.1 (2026-05-06).
   # llms.txt is the canonical hint file every AI search crawler reads

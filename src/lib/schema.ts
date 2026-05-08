@@ -147,6 +147,47 @@ export type ServiceTierSchema = SchemaBase & {
   };
 };
 
+/**
+ * v3.2 — Service schema with AggregateRating + Review for case-study pages.
+ *
+ * Authority: V3-2-CASE-STUDIES-DIRECTIVE.md §5.
+ *
+ * Distinct from `ServiceSchema` (page-level, hasOfferCatalog) and
+ * `ServiceTierSchema` (priced tier, single Offer). This shape pairs the
+ * Service entity with an anonymised engagement-archetype review so an
+ * answer engine reads case-study pages as proof points for the named
+ * Service rather than independent articles.
+ *
+ * Merchant Listing discipline (per v3.0.4 incident): use Service, never
+ * Product. Product on service offerings triggers Search Console errors.
+ */
+export type CaseStudyServiceSchema = SchemaBase & {
+  "@type": "Service";
+  name: string;
+  url: string;
+  description?: string;
+  provider: { "@type": "Organization"; name: string; url: string };
+  aggregateRating: {
+    "@type": "AggregateRating";
+    ratingValue: number;
+    reviewCount: number;
+    bestRating: number;
+    worstRating: number;
+  };
+  review: {
+    "@type": "Review";
+    reviewRating: {
+      "@type": "Rating";
+      ratingValue: number;
+      bestRating: number;
+      worstRating: number;
+    };
+    author: { "@type": "Person"; name: string };
+    reviewBody: string;
+    url: string;
+  }[];
+};
+
 /* ─────────────────────────────────────────────────────────────
    Phase 7.1 schema additions — Blog, ItemList, AboutPage, ContactPage
 ───────────────────────────────────────────────────────────────── */
@@ -223,6 +264,7 @@ export type AnySchema =
   | WebSiteSchema
   | ServiceSchema
   | ServiceTierSchema
+  | CaseStudyServiceSchema
   | ArticleSchema
   | FaqPageSchema
   | BreadcrumbListSchema
@@ -445,6 +487,67 @@ export function serviceTierSchema(input: {
     serviceType: input.serviceType,
     areaServed: { "@type": "Place", name: "Worldwide" },
     offers,
+  };
+}
+
+/* ─────────────────────────────────────────────────────────────
+   v3.2 helper — case-study Service + AggregateRating + Review
+───────────────────────────────────────────────────────────────── */
+
+export function caseStudySchema(input: {
+  /** Service name, e.g. "Premium Brand Site System — Foundation". */
+  serviceName: string;
+  /** Canonical Service URL, e.g. /services/premium-brand-site-system. */
+  serviceUrl: string;
+  /** Case-study URL, e.g. /proof/foundation-cycle-01. */
+  caseStudyUrl: string;
+  /** Service description / case-study summary. */
+  description: string;
+  /** Rating value (1–5). */
+  ratingValue: number;
+  /** Number of reviews aggregated. */
+  reviewCount: number;
+  /** Short outcome sentence — cite one concrete metric. */
+  reviewBody: string;
+  /**
+   * Review author. Anonymised case studies use
+   * "Wiele engagement archetype" until named-client wins close and
+   * clients approve public framing in writing.
+   */
+  authorName: string;
+}): CaseStudyServiceSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.serviceName,
+    url: input.serviceUrl,
+    description: input.description,
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: input.ratingValue,
+      reviewCount: input.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    review: [
+      {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: input.ratingValue,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        author: { "@type": "Person", name: input.authorName },
+        reviewBody: input.reviewBody,
+        url: input.caseStudyUrl,
+      },
+    ],
   };
 }
 

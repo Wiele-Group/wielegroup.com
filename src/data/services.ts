@@ -79,6 +79,7 @@ const premiumBrandSiteSystem: Division = {
         "Contractual CWV SLA launch (LCP / INP / CLS / WCAG / SEO)",
       ],
       cta: { label: "Scope the foundation", href: "/contact?intent=premium-brand-site-system&tier=foundation" },
+      proofUrl: "/proof/foundation-cycle-01",
     },
     {
       id: "pbss-authority",
@@ -96,6 +97,8 @@ const premiumBrandSiteSystem: Division = {
       ],
       cta: { label: "Talk about the retainer", href: "/contact?intent=premium-brand-site-system&tier=authority" },
       featured: true,
+      // No Authority-specific anchor yet — directs to /proof index per V3-2 §4.5.
+      proofUrl: "/proof",
     },
     {
       id: "pbss-sovereign",
@@ -112,6 +115,7 @@ const premiumBrandSiteSystem: Division = {
         "Direct founder access · 24-hour response SLA",
       ],
       cta: { label: "Apply for Sovereign", href: "/contact?intent=premium-brand-site-system&tier=sovereign" },
+      proofUrl: "/proof/sovereign-cycle-01",
     },
   ],
   faqs: [

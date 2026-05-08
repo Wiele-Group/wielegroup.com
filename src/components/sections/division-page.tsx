@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, Shield } from "lucide-react";
+import { ArrowRight, Check, Shield } from "lucide-react";
 import { buttonStyles } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { Divider } from "@/components/ui/divider";
@@ -165,6 +165,37 @@ export function DivisionPage({ division }: { division: Division }) {
 
       <Divider variant={division.accent === "duality" ? "duality" : "chrome"} />
 
+      {/* ── Proof callout (v3.2 — single engagement archetype) ──── */}
+      {division.proofCallout ? (
+        <section className="py-12 md:py-14 bg-[var(--color-obsidian)]/30">
+          <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-7 md:p-8 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <p
+                  className="text-body-xs font-mono uppercase tracking-[0.16em] mb-3"
+                  style={{ color: accent.eyebrow }}
+                >
+                  {division.proofCallout.eyebrow}
+                </p>
+                <h2 className="text-heading-lg text-white text-balance mb-2">
+                  {division.proofCallout.headline}
+                </h2>
+                <p className="text-body-md text-silver max-w-2xl">
+                  {division.proofCallout.body}
+                </p>
+              </div>
+              <Link
+                href={division.proofCallout.href}
+                className={buttonStyles({ variant: "ghost", size: "md" })}
+              >
+                {division.proofCallout.cta}
+                <ArrowRight size={14} className="ml-1.5" aria-hidden />
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* ── Pricing ladder ──────────────────────────────────────── */}
       <section id="tiers" className="py-20 md:py-28">
         <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
@@ -258,6 +289,15 @@ export function DivisionPage({ division }: { division: Division }) {
                     >
                       {tier.cta.label}
                     </Link>
+                    {tier.proofUrl ? (
+                      <Link
+                        href={tier.proofUrl}
+                        className="mt-3 inline-flex items-center gap-1.5 text-body-xs font-mono uppercase tracking-[0.12em] text-silver hover:text-electric transition-colors"
+                      >
+                        See engagement archetype
+                        <ArrowRight size={12} aria-hidden />
+                      </Link>
+                    ) : null}
                   </div>
                 </article>
               );
