@@ -39,6 +39,7 @@ import FiveCitationSignals from "@/content/labs/five-citation-signals.mdx";
 import SearchIsSplitting from "@/content/labs/search-is-splitting.mdx";
 import AiEraBillionDollarBrandPlaybook from "@/content/labs/ai-era-billion-dollar-brand-playbook.mdx";
 import GenerativeAiMarketingOperatingSystem from "@/content/labs/generative-ai-marketing-operating-system.mdx";
+import AiSearchRoiOperatingSystem from "@/content/labs/ai-search-roi-operating-system.mdx";
 
 const ARTICLE_COMPONENTS: Record<string, React.ComponentType> = {
   "ai-recommendations-compound": AiRecommendationsCompound,
@@ -46,6 +47,7 @@ const ARTICLE_COMPONENTS: Record<string, React.ComponentType> = {
   "search-is-splitting": SearchIsSplitting,
   "ai-era-billion-dollar-brand-playbook": AiEraBillionDollarBrandPlaybook,
   "generative-ai-marketing-operating-system": GenerativeAiMarketingOperatingSystem,
+  "ai-search-roi-operating-system": AiSearchRoiOperatingSystem,
 };
 
 /* ─────────────────────────────────────────────────────────────

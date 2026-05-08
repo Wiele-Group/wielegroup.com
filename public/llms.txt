@@ -46,6 +46,7 @@ No black-hat GEO. No AI Overview injection. No citation farming. No prompt-injec
 - Case examples: https://wielegroup.com/proof
 - Pricing: https://wielegroup.com/pricing
 ## Flagship research
+- https://wielegroup.com/labs/ai-search-roi-operating-system — The Wiele AI Search ROI Operating System: forecast matrix · 6-layer KPI taxonomy · dashboard architecture · ROI templates · productization sequence · quarterly framework · 36-month roadmap · risk register
 - https://wielegroup.com/labs/ai-era-billion-dollar-brand-playbook
 - https://wielegroup.com/labs/generative-ai-marketing-operating-system
 - https://wielegroup.com/labs/five-citation-signals

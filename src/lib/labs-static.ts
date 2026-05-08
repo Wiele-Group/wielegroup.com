@@ -75,6 +75,35 @@ export type ArticleManifestEntry = {
 
 export const ARTICLE_MANIFEST: readonly ArticleManifestEntry[] = [
   {
+    slug: "ai-search-roi-operating-system",
+    title: "The AI Search ROI Operating System",
+    summary:
+      "The integrated framework Wiele runs to replace rankings-and-sessions reporting with a measurement system that maps to AI search as it actually is now. Forecast matrix, KPI taxonomy, dashboard architecture, ROI templates, productization sequence, quarterly framework, 36-month roadmap, risk register.",
+    category: "Strategy",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-08",
+    readingMinutes: 24,
+    faq: [
+      {
+        question: "How is this different from a standard SEO measurement framework?",
+        answer:
+          "A standard SEO measurement framework reports rankings and sessions. The Wiele operating system reports citation share inside answer engines, source weight tiering, named competitor citation share, branded search trend, modelled influenced pipeline, and a compound multiplier that distinguishes asset-building programmes from revenue-buying programmes. The taxonomy is six layers deep where most frameworks stop at two. The distinction is operational, not cosmetic — the layered structure prevents drift back to sessions-only reporting.",
+      },
+      {
+        question: "Why publish the full operating system rather than keep it as a Wiele advantage?",
+        answer:
+          "Two reasons. First, methodology that cannot be audited cannot be trusted, and trust is the binding constraint on retainer renewal in this category. Brands that can audit the framework before they engage close at higher rates and renew at higher rates than brands operating against opaque vendor methodology. Second, the operating system is not the moat — the operating system documented for buyers to read is the moat. Vendors who keep the framework opaque are still selling rankings and sessions in 2026; vendors who publish the framework are selling the future state of the category. The risk of being copied is smaller than the risk of being indistinguishable.",
+      },
+      {
+        question: "Can a brand operationalise this without engaging Wiele?",
+        answer:
+          "Yes — the framework is published. A brand with internal SEO, RevOps, and analytics capability can implement the layered KPI taxonomy, the dashboard architecture, the ROI templates, and the quarterly framework against this document. Brands that engage Wiele either lack one of those internal capabilities or want the operating system delivered as a service rather than built. The Signal Audit, AI Visibility Monitoring retainer, and Premium Brand Site System are the three engagement shapes Wiele uses to deliver the operating system end-to-end.",
+      },
+    ],
+    relatedSystems: ["ai-visibility", "search", "brand-authority", "web-experience"],
+  },
+  {
     slug: "ai-recommendations-compound",
     title: "Why AI recommendations compound where SEO doesn't",
     summary:
@@ -245,6 +274,20 @@ export const ARTICLE_MANIFEST: readonly ArticleManifestEntry[] = [
  * Encoding here makes the TOC runtime-safe.
  */
 export const ARTICLE_TOC: Readonly<Record<string, readonly TocEntry[]>> = {
+  "ai-search-roi-operating-system": [
+    { level: 2, text: "The five simultaneous shifts that broke the old SEO ROI model", slug: "the-five-simultaneous-shifts-that-broke-the-old-seo-roi-model" },
+    { level: 2, text: "What the KPI replacement actually has to do", slug: "what-the-kpi-replacement-actually-has-to-do" },
+    { level: 2, text: "The Wiele KPI taxonomy — six layers", slug: "the-wiele-kpi-taxonomy-six-layers" },
+    { level: 2, text: "Dashboard architecture — six dashboards, one source of truth", slug: "dashboard-architecture-six-dashboards-one-source-of-truth" },
+    { level: 2, text: "Measured lift versus modelled attribution", slug: "measured-lift-versus-modelled-attribution" },
+    { level: 2, text: "The ROI calculation template", slug: "the-roi-calculation-template" },
+    { level: 2, text: "AI as production system, not writing shortcut", slug: "ai-as-production-system-not-writing-shortcut" },
+    { level: 2, text: "Three offers to productize first", slug: "three-offers-to-productize-first" },
+    { level: 2, text: "Compound, expand, restructure — the quarterly decision framework", slug: "compound-expand-restructure-the-quarterly-decision-framework" },
+    { level: 2, text: "The 36-month roadmap", slug: "the-36-month-roadmap" },
+    { level: 2, text: "Risk register", slug: "risk-register" },
+    { level: 2, text: "How Wiele engages against this operating system", slug: "how-wiele-engages-against-this-operating-system" },
+  ],
   "ai-recommendations-compound": [
     { level: 2, text: "The classical SEO compounding curve", slug: "the-classical-seo-compounding-curve" },
     { level: 2, text: "How AI citation compounding actually works", slug: "how-ai-citation-compounding-actually-works" },

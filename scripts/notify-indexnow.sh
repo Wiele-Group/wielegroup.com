@@ -61,6 +61,10 @@ readonly URL_LIST=(
   "https://${HOST}/labs/search-is-splitting"
   "https://${HOST}/labs/ai-era-billion-dollar-brand-playbook"
   "https://${HOST}/labs/generative-ai-marketing-operating-system"
+  # v3.4 (2026-05-08) — AI Search ROI Operating System (sixth flagship).
+  # 11-section methodology document referencing the v3.3 product page as
+  # proof scaffolding. Authority + category-claim play.
+  "https://${HOST}/labs/ai-search-roi-operating-system"
   # Case-study anchors — added v3.2 (2026-05-08).
   # Engagement archetypes published under /proof/[slug]. Foundation +
   # Sovereign cycles. Anonymised; methodology open. AI engines need
