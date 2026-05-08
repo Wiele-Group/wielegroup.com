@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
   path: "/trust",
 });
 
-const LAST_REVIEWED = "2026-05-05";
+const LAST_REVIEWED = "2026-05-08";
 
 const trustSections = [
   {
@@ -158,6 +158,200 @@ export default function TrustPage() {
                 </p>
               </article>
             ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Methodology disclosure: AI Visibility Monitoring (v3.3) ──
+            Source-of-truth: SOP §12 at _OPERATIONS/ai-visibility-monitoring-sop/
+            12-methodology-disclosure.md (v1.0, 2026-05-08). Verbatim under
+            the "Public-facing copy" heading. Cross-referenced from
+            /services/ai-visibility-monitoring and every monthly report PDF. */}
+      <section
+        id="ai-visibility-monitoring"
+        className="scroll-mt-24 py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]"
+      >
+        <div className="mx-auto max-w-3xl px-[var(--container-px)]">
+          <Reveal stagger={0.04} className="flex flex-col gap-6">
+            <div className="flex items-start gap-3">
+              <ShieldCheck
+                size={20}
+                className="mt-0.5 shrink-0 text-electric"
+                aria-hidden
+              />
+              <div className="flex flex-col gap-2">
+                <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric">
+                  Methodology · AI Visibility Monitoring
+                </p>
+                <h2 className="text-heading-lg text-white text-balance">
+                  How Wiele measures AI visibility.
+                </h2>
+              </div>
+            </div>
+
+            <div className="pl-8 flex flex-col gap-6 text-body-md text-silver">
+              <p>
+                Wiele&apos;s AI Visibility Monitoring retainer reports four core
+                metrics: citation share, prompt coverage, source weight
+                distribution, and named competitor citation share (Standard and
+                Pro tiers). These metrics are measured directly from engine
+                output. They are not modelled, projected, or interpolated.
+                Every number in every monthly report is replayable from the
+                citation log Wiele maintains for the client.
+              </p>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">The four engines</h3>
+                <p>
+                  Every monthly run executes against ChatGPT, Gemini,
+                  Perplexity, and Claude — accessed via their public web
+                  applications, in fresh sessions, with no logged-in
+                  personalisation. The web app is what buyers see; the API can
+                  return different output. The web app run is what the retainer
+                  measures.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">The prompt panel</h3>
+                <p>
+                  Each client has a versioned prompt panel — 25 prompts (Lite),
+                  60 prompts (Standard), or 100 prompts (Pro). Prompts span
+                  branded queries, commercial-investigation queries, comparison
+                  queries, service-specific queries, local queries where
+                  applicable, and methodology queries. The panel is signed off
+                  by the client at kickoff and re-reviewed at each Quarterly
+                  Business Review. Mid-quarter changes are forbidden because
+                  they break month-over-month comparability.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">
+                  Citation share, defined
+                </h3>
+                <p>
+                  Citation share is the percentage of panel prompts in which
+                  the client brand appears in the engine response, measured
+                  per engine, per month. It is reported per engine and as a
+                  four-engine average. It is not reported as a single combined
+                  &ldquo;AI ranking&rdquo; — there is no such number. The four
+                  engines have four citation functions, and collapsing them
+                  loses signal that drives action.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">
+                  Source weight, defined
+                </h3>
+                <p>
+                  Not every citation carries equal weight. Wiele scores
+                  citations into four tiers — tier-1 (named press,
+                  peer-reviewed venues, recognised analyst firms, regulatory
+                  and government sources), tier-2 (credible secondary
+                  publications, named-author blogs, established forums),
+                  tier-3 (general web, anonymous content, content farms), and
+                  owned (the client&apos;s first-party content or the
+                  founder&apos;s owned surfaces). The taxonomy is maintained by
+                  founder and reviewed quarterly. Updates are logged with date
+                  and reason.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">
+                  Measured lift vs modelled attribution
+                </h3>
+                <p>
+                  Citation share, prompt coverage, source weight distribution,
+                  branded search volume (pulled from Google Search Console),
+                  and featured snippet captures are{" "}
+                  <strong className="text-white">measured lift</strong> —
+                  directly observable in engine output or in Search Console.
+                  Influenced pipeline (in Standard and Pro reporting where the
+                  client provides CRM access) is{" "}
+                  <strong className="text-white">modelled attribution</strong>{" "}
+                  — opportunities the client&apos;s CRM tags as having an
+                  AI-surface or organic-search touchpoint in the buying
+                  journey. The distinction is named explicitly in every report.
+                  The two answer different questions.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">
+                  What Wiele does not promise
+                </h3>
+                <p>
+                  Wiele does not guarantee specific citation share outcomes.
+                  Engine algorithms drift. Competitors ship work. New entrants
+                  enter the panel. The retainer commits to producing the
+                  cycle — engine runs, citation logs, action queues, monthly
+                  reports, and quarterly reviews — at the documented standard.
+                  Outcomes are measured against the prior baseline, reported
+                  honestly, and acted on through the next month&apos;s queue.
+                </p>
+                <p className="mt-3">
+                  Wiele does not predict future citation share. The retainer
+                  reports observed lift. Forecasting is a Sovereign concierge
+                  service.
+                </p>
+                <p className="mt-3">
+                  Wiele does not aggregate the four engines into a single
+                  &ldquo;score.&rdquo; Single-number rankings destroy the
+                  per-engine signal that drives action.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">Audit posture</h3>
+                <p>
+                  Every client has access to read the citation log that
+                  underpins their reports — on request. If a number in any
+                  report cannot be replayed from the log, the report is wrong
+                  and Wiele rebuilds it. This standard is not a value-add; it
+                  is the floor.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">
+                  Engine algorithm field notes
+                </h3>
+                <p>
+                  Wiele tracks observed shifts in citation behaviour across the
+                  four engines and publishes notable portfolio-wide shifts in
+                  client reports as engine algorithm field notes. Where Wiele
+                  believes a shift is engine-wide rather than client-specific,
+                  this distinction is named explicitly. Field notes inform
+                  panel construction at the next quarterly review.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-heading-sm text-white mb-2">Tier scope</h3>
+                <p>
+                  The Lite, Standard, and Pro tiers differ in panel size, run
+                  cadence (Lite/Standard monthly; Pro bi-weekly), competitor
+                  tracking depth (Standard 3, Pro 5), featured snippet tracking
+                  (Pro only), modelled influenced pipeline (Standard light,
+                  Pro full), and action queue depth (3, 5, or 10 actions per
+                  month). Methodology rigour is identical across tiers. A Lite
+                  client receives the same standard of work; they receive less
+                  of it.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href="/services/ai-visibility-monitoring"
+                  className="inline-flex items-center gap-1.5 text-body-sm font-mono uppercase tracking-[0.12em] text-electric hover:text-white transition-colors"
+                >
+                  See the AI Visibility Monitoring retainer →
+                </Link>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

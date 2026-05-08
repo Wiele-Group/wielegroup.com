@@ -52,6 +52,10 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
        AI revision credits, contractual CWV SLA. High SEO weight — anchor
        page for premium brand site search intent. */
     { path: "/services/premium-brand-site-system", priority: 0.9, changeFrequency: "monthly" },
+    /* v3.3 (2026-05-08) — AI Visibility Monitoring retainer.
+       First recurring monitoring SKU. Anchor for AI-search monitoring buyer
+       intent. Same priority as PBSS (commercial-investigation surface). */
+    { path: "/services/ai-visibility-monitoring", priority: 0.9, changeFrequency: "monthly" },
     /* Client onboarding wizard — v2.2.1 sitemap-fix. Was missing from
        STATIC_ROUTES even though the route shipped in v2.0; now indexed. */
     { path: "/onboarding", priority: 0.7, changeFrequency: "monthly" },

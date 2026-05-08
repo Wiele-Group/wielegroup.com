@@ -384,6 +384,7 @@ body {
   border-bottom: 2px solid transparent;
   border-image: var(--gradient-duality-edge) 1;
 }
+.tier-accent-electric { border-bottom: 2px solid var(--color-electric); }
 
 .grid-pattern {
   background-image:

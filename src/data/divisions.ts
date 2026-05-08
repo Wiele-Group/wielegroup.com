@@ -12,7 +12,7 @@
  *   Web        → duality-edge        (both: conversion + experience)
  */
 
-export type DivisionTierAccent = "blue" | "coral" | "chrome" | "duality";
+export type DivisionTierAccent = "blue" | "coral" | "chrome" | "duality" | "electric";
 
 export type DivisionTier = {
   id: string;
@@ -30,6 +30,13 @@ export type DivisionTier = {
    * leave this unset and use Division.proofCallout instead.
    */
   proofUrl?: string;
+  /**
+   * v3.3 — optional cross-SKU link rendered beneath the proofUrl. Used to
+   * surface compounding SKUs from a tier card (first use: PBSS Sovereign
+   * → AI Visibility Monitoring). Independent of the CTA so the ladder
+   * remains the primary action.
+   */
+  stackWith?: { label: string; href: string };
 };
 
 export type DivisionService = {

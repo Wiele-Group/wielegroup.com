@@ -40,6 +40,12 @@ readonly URL_LIST=(
   # Premium Brand Site System: WDA flagship SKU. Token-first builds,
   # 5-mode delivery, AI revision credits, contractual CWV SLA.
   "https://${HOST}/services/premium-brand-site-system"
+  # v3.3 (2026-05-08) — AI Visibility Monitoring retainer.
+  # First Wiele recurring monitoring SKU. Lite £2.5K · Standard £4K ·
+  # Pro £6K /mo. Citation share + source weight + named-competitor
+  # tracking across ChatGPT/Gemini/Perplexity/Claude. Methodology open
+  # at /trust#ai-visibility-monitoring.
+  "https://${HOST}/services/ai-visibility-monitoring"
   "https://${HOST}/systems"
   "https://${HOST}/systems/ai-visibility"
   "https://${HOST}/systems/search"

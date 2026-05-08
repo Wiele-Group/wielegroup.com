@@ -19,10 +19,11 @@ import type { Division, DivisionTierAccent } from "@/data/divisions";
  * share one visual structure with four distinct visual signatures, per
  * Brand v2 B4 Chromaglass tier rules:
  *
- *   blue    → --color-blue-core   · Marketing
- *   coral   → --color-coral-core  · Advertising
- *   chrome  → --color-chrome-mid  · Brand Management
- *   duality → gradient-duality    · Web Design
+ *   blue     → --color-blue-core   · Marketing
+ *   coral    → --color-coral-core  · Advertising
+ *   chrome   → --color-chrome-mid  · Brand Management
+ *   duality  → gradient-duality    · Web Design / PBSS
+ *   electric → --color-electric    · AI Visibility surface (v3.3 AVM)
  */
 
 const accentToken: Record<DivisionTierAccent, {
@@ -58,6 +59,12 @@ const accentToken: Record<DivisionTierAccent, {
     eyebrow: "var(--color-blue-core)",
     dot: "var(--color-coral-core)",
     tierAccentClass: "tier-accent-duality",
+  },
+  electric: {
+    border: "var(--color-electric)",
+    eyebrow: "var(--color-electric)",
+    dot: "var(--color-electric)",
+    tierAccentClass: "tier-accent-electric",
   },
 };
 
@@ -295,6 +302,15 @@ export function DivisionPage({ division }: { division: Division }) {
                         className="mt-3 inline-flex items-center gap-1.5 text-body-xs font-mono uppercase tracking-[0.12em] text-silver hover:text-electric transition-colors"
                       >
                         See engagement archetype
+                        <ArrowRight size={12} aria-hidden />
+                      </Link>
+                    ) : null}
+                    {tier.stackWith ? (
+                      <Link
+                        href={tier.stackWith.href}
+                        className="mt-2 inline-flex items-center gap-1.5 text-body-xs font-mono uppercase tracking-[0.12em] text-silver hover:text-electric transition-colors"
+                      >
+                        {tier.stackWith.label}
                         <ArrowRight size={12} aria-hidden />
                       </Link>
                     ) : null}
