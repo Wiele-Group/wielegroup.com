@@ -6,7 +6,7 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
 import { JsonLd } from "@/components/json-ld";
-import { getAllArticles, getAllCategories } from "@/lib/labs";
+import { getVisibleArticleManifest } from "@/lib/labs-static";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 
@@ -17,9 +17,23 @@ export const metadata: Metadata = buildMetadata({
   path: "/labs",
 });
 
+// v3.4.1 — pre-rendered static, served via assets binding. Mirrors the
+// [slug] page guard so the index never falls into the runtime function
+// path where the original fs-based reader returned [] (Phase 7.4 bug,
+// silent across all 5 prior labs flagships until v3.4 Gate 6 surfaced it).
+export const dynamic = "force-static";
+export const revalidate = false;
+
 export default function LabsIndexPage() {
-  const articles = getAllArticles();
-  const categories = getAllCategories();
+  // Static manifest — bundled into JS modules, no fs dependency at any
+  // stage. Newest-first ordering by lastUpdated mirrors the previous
+  // fs-derived sort so the article grid order is stable across the swap.
+  const articles = [...getVisibleArticleManifest()].sort((a, b) =>
+    a.lastUpdated < b.lastUpdated ? 1 : -1,
+  );
+  const categories = Array.from(
+    new Set(articles.map((a) => a.category)),
+  ).sort();
 
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: siteConfig.url },
@@ -32,7 +46,7 @@ export default function LabsIndexPage() {
       "Strategy, methodology, and field notes on how AI search actually rewards brands. Founder-led writing from Wiele Group.",
     posts: articles.map((a) => ({
       headline: a.title,
-      url: a.url,
+      url: `${siteConfig.url}/labs/${a.slug}`,
       datePublished: a.lastUpdated,
       authorName: a.author,
     })),

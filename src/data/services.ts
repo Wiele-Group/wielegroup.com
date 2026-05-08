@@ -288,6 +288,13 @@ const aiVisibilityMonitoring: Division = {
     description:
       "Recurring monitoring across ChatGPT, Gemini, Perplexity, and Claude. Citation share, source weight, named competitor tracking, action queue, monthly founder-signed report, quarterly business review. Methodology open — every metric replayable. Lite £2,500/mo · Standard £4,000/mo · Pro £6,000/mo. 6-month minimum.",
   },
+  deeperFramework: {
+    eyebrow: "Open methodology",
+    headline: "Built on the Wiele AI Search ROI Operating System.",
+    body: "This monitoring retainer is the recurring SKU layer of an integrated framework: 6-layer KPI taxonomy, dashboard architecture, ROI templates, productization sequence, quarterly compound/expand/restructure decision, 36-month roadmap, risk register. Read the full operating system before you engage — every metric in the monthly report ladders back to it.",
+    href: "/labs/ai-search-roi-operating-system",
+    cta: "Read the operating system",
+  },
 };
 
 export const services: readonly Division[] = [premiumBrandSiteSystem, aiVisibilityMonitoring];

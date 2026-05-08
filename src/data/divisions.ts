@@ -90,6 +90,20 @@ export type Division = {
     href: string;
     cta: string;
   };
+  /**
+   * v3.4.1 — optional deeper-framework callout rendered between the proof
+   * callout and the pricing ladder. Surfaces the open methodology document
+   * that this SKU is built on (first use: AI Visibility Monitoring →
+   * /labs/ai-search-roi-operating-system). Mirrors proofCallout shape so
+   * DivisionPage can render with the same component primitives.
+   */
+  deeperFramework?: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    href: string;
+    cta: string;
+  };
 };
 
 /* ─────────────────────────────────────────────────────────────

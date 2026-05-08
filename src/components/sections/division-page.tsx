@@ -203,6 +203,37 @@ export function DivisionPage({ division }: { division: Division }) {
         </section>
       ) : null}
 
+      {/* ── Deeper framework callout (v3.4.1 — open methodology link) ─ */}
+      {division.deeperFramework ? (
+        <section className="py-12 md:py-14">
+          <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-7 md:p-8 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <p
+                  className="text-body-xs font-mono uppercase tracking-[0.16em] mb-3"
+                  style={{ color: accent.eyebrow }}
+                >
+                  {division.deeperFramework.eyebrow}
+                </p>
+                <h2 className="text-heading-lg text-white text-balance mb-2">
+                  {division.deeperFramework.headline}
+                </h2>
+                <p className="text-body-md text-silver max-w-2xl">
+                  {division.deeperFramework.body}
+                </p>
+              </div>
+              <Link
+                href={division.deeperFramework.href}
+                className={buttonStyles({ variant: "ghost", size: "md" })}
+              >
+                {division.deeperFramework.cta}
+                <ArrowRight size={14} className="ml-1.5" aria-hidden />
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* ── Pricing ladder ──────────────────────────────────────── */}
       <section id="tiers" className="py-20 md:py-28">
         <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
