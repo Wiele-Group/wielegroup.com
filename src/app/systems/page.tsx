@@ -62,7 +62,7 @@ export default function SystemsIndexPage() {
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/audit"
-                  className={buttonStyles({ variant: "primary", size: "lg" })}
+                  className={buttonStyles({ variant: "featured", size: "lg" })}
                 >
                   Run a Growth Audit
                 </Link>

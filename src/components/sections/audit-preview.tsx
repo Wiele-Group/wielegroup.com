@@ -56,7 +56,7 @@ export function AuditPreview() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/audit"
-                className={buttonStyles({ variant: "primary", size: "lg" })}
+                className={buttonStyles({ variant: "featured", size: "lg" })}
               >
                 Run a Growth Audit · £2,500
               </Link>

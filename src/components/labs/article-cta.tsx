@@ -16,7 +16,7 @@ export function ArticleCta() {
           gap report, 30-day roadmap.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link href="/audit" className={buttonStyles({ variant: "primary", size: "md" })}>
+          <Link href="/audit" className={buttonStyles({ variant: "featured", size: "md" })}>
             Run a Growth Audit
           </Link>
           <Link href="/labs" className={buttonStyles({ variant: "ghost", size: "md" })}>

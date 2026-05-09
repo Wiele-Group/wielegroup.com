@@ -85,7 +85,7 @@ export default function PlatformPage() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link href="/audit" className={buttonStyles({ variant: "primary", size: "lg" })}>
+                <Link href="/audit" className={buttonStyles({ variant: "featured", size: "lg" })}>
                   Run a Growth Audit
                 </Link>
                 <Link href="/contact" className={buttonStyles({ variant: "ghost", size: "lg" })}>
