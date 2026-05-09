@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function BentoSystem() {
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-[var(--color-void)]">
+    <section className="py-20 md:py-28 lg:py-32 bg-[var(--color-void)]/70">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
         <div className="max-w-2xl mb-12 md:mb-16">
           <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">

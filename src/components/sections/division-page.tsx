@@ -125,7 +125,7 @@ export function DivisionPage({ division }: { division: Division }) {
       </section>
 
       {/* ── Services ────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-[var(--color-void)]">
+      <section className="py-20 md:py-24 bg-[var(--color-void)]/70">
         <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
           <div className="max-w-2xl mb-12 md:mb-16">
             <p

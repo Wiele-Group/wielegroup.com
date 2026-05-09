@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/metadata";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border-default)] bg-[var(--color-void)]">
+    <footer className="border-t border-[var(--color-border-default)] bg-[var(--color-void)]/70">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)] py-16 lg:py-20">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:gap-14">
           {/* Brand column */}
