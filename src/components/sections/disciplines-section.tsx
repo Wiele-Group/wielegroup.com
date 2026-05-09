@@ -29,7 +29,7 @@ export function DisciplinesSection() {
   return (
     <section
       id="disciplines"
-      className="relative py-20 md:py-28 lg:py-32 bg-[var(--color-void)]/70"
+      className="relative py-20 md:py-28 lg:py-32 bg-[var(--color-void)]/50"
     >
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
         <div className="max-w-3xl mb-12 md:mb-16">
