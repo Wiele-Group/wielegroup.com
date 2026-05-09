@@ -21,6 +21,19 @@ compatibility_date = "2026-05-03"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true  # keep workers.dev URL for staging/smoke tests
 
+# v3.5.2 (2026-05-09) — SUPERSWEEP fix #1: enable Workers Observability.
+# Production was emitting ZERO observability events for 7 days because
+# this block was absent. With it on, $metadata.service=wielegroup-com
+# events stream into Cloudflare's observability dataset and we can
+# query 5xx, latency, fetch durations, and fingerprint anomalies via
+# the Workers Observability MCP and the dashboard.
+#
+# head_sampling_rate=1 = log 100% (default behaviour for low-volume
+# marketing site; revisit if/when traffic 100×).
+[observability]
+enabled = true
+head_sampling_rate = 1
+
 # Phase 7.4 fix (2026-05-03): custom-domain attachment removed from
 # wrangler.toml. The `custom_domain = true` form re-tries the API attach
 # on every `wrangler deploy`, which fails with 100117 because wrangler's

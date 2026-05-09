@@ -108,6 +108,28 @@ const nextConfig: NextConfig = {
       { source: "/enterprise/portal.html", destination: "/pricing", permanent: true },
       { source: "/es", destination: "/", permanent: true },
 
+      // v3.5.2 (2026-05-09) — SUPERSWEEP fix #4: legacy SEO-equity recovery.
+      // 15 paths confirmed 404ing via live curl 2026-05-09 SUPERSWEEP.
+      // Some (/method, /founder) were in the v1 wiele-edge-seo sitemap =
+      // high-probability past-indexed paths. Others are standard agency
+      // URL patterns external sites would naturally link to.
+      // Specific paths only — no catch-alls in this block.
+      { source: "/blog", destination: "/labs", permanent: true },
+      { source: "/case-studies", destination: "/proof", permanent: true },
+      { source: "/portfolio", destination: "/proof", permanent: true },
+      { source: "/our-work", destination: "/proof", permanent: true },
+      { source: "/our-services", destination: "/systems", permanent: true },
+      { source: "/resources", destination: "/labs", permanent: true },
+      { source: "/digital-marketing", destination: "/systems", permanent: true },
+      { source: "/brand-strategy", destination: "/systems/brand-authority", permanent: true },
+      { source: "/seo", destination: "/systems/search", permanent: true },
+      { source: "/content", destination: "/systems", permanent: true },
+      { source: "/ppc", destination: "/advertising-agency", permanent: true },
+      { source: "/strategy", destination: "/systems", permanent: true },
+      { source: "/agency", destination: "/systems", permanent: true },
+      { source: "/method", destination: "/systems", permanent: true },
+      { source: "/founder", destination: "/about", permanent: true },
+
       // v3.0.3 Monolith retirement — catch-alls (must be last so specific rules win)
       { source: "/engines/:path*", destination: "/systems", permanent: true },
       { source: "/journal/:path*", destination: "/labs", permanent: true },
