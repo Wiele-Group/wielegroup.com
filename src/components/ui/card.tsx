@@ -2,22 +2,31 @@ import { forwardRef, type HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Brand v2 B3 — glass-strip is the new default.
+ * Brand v2 B4 Chromaglass — glass-strip is the default surface treatment.
  * Rolling animated light strip around the card border, glass surface,
- * solid black backdrop expected behind. See globals.css `.glass-strip`.
+ * midnight-gradient backdrop expected behind. See globals.css `.glass-strip`.
  *
  * Variants:
- *   - default  → glass-strip (electric blue sweep) — use for most cards
+ *   - default  → glass-strip (electric blue sweep) — most cards
  *   - pulse    → glass-strip-pulse (violet sweep) — premium tier markers
  *   - neon     → glass-strip-neon (cyan sweep) — data / technical surfaces
- *   - glass    → static glass (no strip) — for minor surfaces
- *   - outline  → ghost border (no fill) — for tertiary contexts
- *   - raised   → opaque obsidian (legacy) — kept for back-compat
+ *   - coral    → glass-strip-coral (Ember Coral sweep, B4 warm accent) —
+ *                use for warm-tone authority moments and second-SKU
+ *                differentiators; pairs with `default` electric cards
+ *                without reading as duplicate
+ *   - duality  → glass-strip-duality (B4 SIGNATURE asymmetric blue → chrome →
+ *                coral sweep) — reserved for hero-grade surfaces, featured
+ *                pricing markers, brand-mark moments. Not decoration.
+ *   - glass    → static glass (no strip) — minor surfaces
+ *   - outline  → ghost border (no fill) — tertiary contexts
+ *   - raised   → opaque obsidian (legacy) — back-compat
  */
 const variantStyles = {
   default: "glass-strip",
   pulse: "glass-strip glass-strip-pulse",
   neon: "glass-strip glass-strip-neon",
+  coral: "glass-strip glass-strip-coral",
+  duality: "glass-strip glass-strip-duality",
   glass:
     "bg-[var(--color-surface-glass)] backdrop-blur-[20px] border border-[var(--color-border-subtle)]",
   outline:

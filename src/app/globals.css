@@ -249,6 +249,57 @@ body {
   );
 }
 
+/* Variant: coral — Ember Coral sweep (B4 warm accent surface treatment).
+   Use for warm-tone authority moments: deeperFramework callouts, second-SKU
+   differentiators, anything that should sit beside an electric card without
+   reading as a duplicate. */
+.glass-strip-coral::before {
+  background: conic-gradient(
+    from var(--strip-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(240, 133, 102, 0.0) 80deg,
+    rgba(240, 133, 102, 0.85) 95deg,
+    rgba(255, 255, 255, 1) 110deg,
+    rgba(240, 133, 102, 0.85) 125deg,
+    rgba(240, 133, 102, 0.0) 140deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+}
+.glass-strip-coral:hover {
+  box-shadow:
+    0 0 0 1px rgba(240, 133, 102, 0.10),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(240, 133, 102, 0.15);
+}
+
+/* Variant: duality — B4 SIGNATURE asymmetric sweep (blue → chrome → coral).
+   The other variants are symmetric color-tints; this one expresses the full
+   bichromatic identity in motion. Reserved for hero-grade surfaces, featured
+   pricing markers, and brand-mark moments. Not decoration. */
+.glass-strip-duality::before {
+  background: conic-gradient(
+    from var(--strip-angle),
+    transparent 0deg,
+    transparent 60deg,
+    rgba(59, 130, 246, 0.0) 80deg,
+    rgba(59, 130, 246, 0.85) 95deg,
+    rgba(238, 242, 248, 1) 110deg,
+    rgba(240, 133, 102, 0.85) 125deg,
+    rgba(240, 133, 102, 0.0) 140deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+}
+.glass-strip-duality:hover {
+  box-shadow:
+    0 0 0 1px rgba(238, 242, 248, 0.10),
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(59, 130, 246, 0.12),
+    0 0 35px rgba(240, 133, 102, 0.12);
+}
+
 @keyframes strip-rotate {
   to { --strip-angle: 360deg; }
 }
@@ -263,6 +314,24 @@ body {
       rgba(59, 130, 246, 0.55),
       rgba(255, 255, 255, 0.85),
       rgba(59, 130, 246, 0.0) 60%
+    );
+  }
+  .glass-strip-coral::before {
+    animation: none;
+    background: linear-gradient(
+      135deg,
+      rgba(240, 133, 102, 0.55),
+      rgba(255, 255, 255, 0.85),
+      rgba(240, 133, 102, 0.0) 60%
+    );
+  }
+  .glass-strip-duality::before {
+    animation: none;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.55),
+      rgba(238, 242, 248, 0.85),
+      rgba(240, 133, 102, 0.55)
     );
   }
 }
