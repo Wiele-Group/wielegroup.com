@@ -93,15 +93,17 @@ export default function ProofPage() {
             </FadeIn>
             <FadeIn delay={0.05}>
               <h1 className="text-display-xl text-white text-balance mb-5">
-                Engine output. Methodology open. Founding cohort opening.
+                Engine output. Methodology open. Two archetypes published.
               </h1>
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-body-lg text-silver max-w-2xl">
-                Wiele&apos;s first commercial cohort is open. Below: the three
-                programme shapes ready for engagement, the methodology that
-                runs through every engagement, and the standard against which
-                future case studies will be published.
+                Foundation Cycle 01 and Sovereign Cycle 01 — anonymised
+                engagement archetypes published under the same standard every
+                future case study on this page will meet. Real methodology,
+                real prompt panels, real engine outputs, traced to source.
+                Named-client framing follows written client consent; until
+                then, the work stands on its evidence.
               </p>
             </FadeIn>
           </div>
