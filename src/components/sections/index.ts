@@ -13,3 +13,4 @@ export { TrustSectionPreview } from "./trust-section-preview";
 export { LabsPreview } from "./labs-preview";
 export { CTASection } from "./cta-section";
 export { PromptSimulator } from "./prompt-simulator";
+export { HorizonStrip } from "./horizon-strip";

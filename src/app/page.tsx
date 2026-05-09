@@ -6,6 +6,7 @@ import {
   CTASection,
   DisciplinesSection,
   HeroSection,
+  HorizonStrip,
   LabsPreview,
   PricingSection,
   ProblemSection,
@@ -44,13 +45,16 @@ export default function HomePage() {
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-home" />
       <CinematicEntry />
       <HeroSection />
+      <HorizonStrip fromLabel="Hero" toLabel="Proof" index={1} total={3} />
       <ProofStrip />
       <DisciplinesSection />
+      <HorizonStrip fromLabel="Disciplines" toLabel="Problem" index={2} total={3} />
       <ProblemSection />
       <BentoSystem />
       <AuditPreview />
       <ProcessSteps />
       <PricingSection />
+      <HorizonStrip fromLabel="Pricing" toLabel="Trust" index={3} total={3} />
       <ProofSection />
       <AnswerEngineStrip />
       <TrustSectionPreview />
