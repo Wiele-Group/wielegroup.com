@@ -345,6 +345,44 @@ body {
   }
 }
 
+/* ─────────────────────────────────────────────────────────────
+   v3.5.0 — Depth (perspective + tilt) primitives.
+   Net-new dimensional layer. Additive on chrome-card; consumes
+   existing motion + ease tokens. Tilt is JS-driven via
+   <DepthRuntime /> (client island in layout.tsx).
+   Mobile + reduced-motion fall back to flat (no transform).
+───────────────────────────────────────────────────────────────── */
+@layer components {
+  .wg-depth-scene {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .wg-depth-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform var(--motion-t4) var(--ease-expressive-out);
+  }
+
+  .wg-depth-layer-1 { transform: translateZ(20px); }
+  .wg-depth-layer-2 { transform: translateZ(40px); }
+  .wg-depth-layer-3 { transform: translateZ(60px); }
+}
+
+@media (max-width: 768px) {
+  .wg-depth-card { transform: none !important; }
+  .wg-depth-layer-1,
+  .wg-depth-layer-2,
+  .wg-depth-layer-3 { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wg-depth-card { transform: none !important; }
+  .wg-depth-layer-1,
+  .wg-depth-layer-2,
+  .wg-depth-layer-3 { transform: none; }
+}
+
 /* Duality border — bichromatic gradient ring (signature) */
 .duality-border {
   position: relative;

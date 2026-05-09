@@ -54,14 +54,14 @@ export function PricingSection({ showHeading = true }: PricingSectionProps = {})
         ) : null}
 
         {anchorTier ? (
-          <div className="mb-6">
+          <div className="wg-depth-scene mb-6">
             <AnchorTierCard tier={anchorTier} />
           </div>
         ) : null}
 
         <Reveal
           stagger={0.05}
-          className="grid gap-4 md:grid-cols-2 lg:grid-cols-5"
+          className="wg-depth-scene grid gap-4 md:grid-cols-2 lg:grid-cols-5"
         >
           {standardTiers.map((tier) => (
             <StandardTierCard key={tier.id} tier={tier} />
@@ -89,7 +89,7 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
       data-tier={tier.id}
       data-featured={tier.featured ? "true" : undefined}
       className={cn(
-        "relative flex flex-col p-6 md:p-7",
+        "relative flex flex-col p-6 md:p-7 wg-depth-card",
         tier.featured ? "duality-border chrome-card" : "glass-strip",
       )}
     >
@@ -177,7 +177,7 @@ function AnchorTierCard({ tier }: { tier: PricingTier }) {
       id={tier.id}
       data-tier={tier.id}
       data-anchor="true"
-      className="relative duality-border chrome-card p-7 md:p-9 lg:p-10"
+      className="relative duality-border chrome-card wg-depth-card p-7 md:p-9 lg:p-10"
     >
       <span
         className="absolute -top-2.5 left-7 px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white"

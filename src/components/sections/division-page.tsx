@@ -141,12 +141,12 @@ export function DivisionPage({ division }: { division: Division }) {
 
           <Reveal
             stagger={0.05}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            className="wg-depth-scene grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {division.services.map((s) => (
               <article
                 key={s.num}
-                className="relative flex flex-col p-6 md:p-7 chrome-card"
+                className="relative flex flex-col p-6 md:p-7 chrome-card wg-depth-card"
               >
                 <div className="flex items-baseline justify-between mb-4">
                   <span className="font-mono text-body-xs text-smoke tracking-[0.18em]">
@@ -254,7 +254,7 @@ export function DivisionPage({ division }: { division: Division }) {
 
           <Reveal
             stagger={0.06}
-            className="grid gap-4 md:grid-cols-3"
+            className="wg-depth-scene grid gap-4 md:grid-cols-3"
           >
             {division.tiers.map((tier) => {
               const isFeatured = !!tier.featured;
@@ -264,7 +264,7 @@ export function DivisionPage({ division }: { division: Division }) {
                   data-tier={tier.id}
                   data-featured={isFeatured ? "true" : undefined}
                   className={cn(
-                    "relative flex flex-col p-6 md:p-7",
+                    "relative flex flex-col p-6 md:p-7 wg-depth-card",
                     isFeatured
                       ? "duality-border chrome-card"
                       : "chrome-card",

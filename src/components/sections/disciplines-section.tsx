@@ -54,7 +54,7 @@ export function DisciplinesSection() {
 
         <Reveal
           stagger={0.05}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(220px,auto)]"
+          className="wg-depth-scene grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(220px,auto)]"
         >
           {disciplines.map((discipline) => (
             <Link
@@ -62,7 +62,7 @@ export function DisciplinesSection() {
               href={discipline.href}
               aria-label={`${discipline.title} — ${discipline.headline}`}
               className={cn(
-                "group relative flex flex-col p-6 md:p-7 chrome-card",
+                "group relative flex flex-col p-6 md:p-7 chrome-card wg-depth-card",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-void)]",
               )}
             >
