@@ -61,8 +61,14 @@ export function HeroSection() {
                 </Link>
               </div>
             </FadeIn>
+            <FadeIn delay={0.18}>
+              <hr
+                className="duality-hairline mt-6 mb-3"
+                aria-hidden="true"
+              />
+            </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="mt-6 text-body-xs text-smoke font-mono">
+              <p className="text-body-xs text-smoke font-mono">
                 Brand · Marketing · Web · Advertising · SEO · AI Search
               </p>
             </FadeIn>

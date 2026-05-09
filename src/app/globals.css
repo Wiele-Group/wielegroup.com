@@ -483,6 +483,26 @@ body {
   border: 0;
 }
 
+/* Duality hairline — bichromatic 1px rule with edge fades.
+   Blue → chrome → coral, transparent at both ends. The full B4
+   signature in a single quiet typographic moment. Reserved for
+   hero-grade and authority-callout surfaces. Reusable across
+   pages — the chrome-divider equivalent for the warm-cool split.
+   Width set by consumer (default 12rem if unset). */
+.duality-hairline {
+  height: 1px;
+  width: 12rem;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.85) 20%,
+    rgba(238, 242, 248, 1) 50%,
+    rgba(240, 133, 102, 0.85) 80%,
+    transparent 100%
+  );
+  border: 0;
+}
+
 /* Tier accent borders — division pages */
 .tier-accent-blue   { border-bottom: 2px solid var(--color-blue-core); }
 .tier-accent-coral  { border-bottom: 2px solid var(--color-coral-core); }
