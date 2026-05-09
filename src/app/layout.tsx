@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/json-ld";
 import { PlausibleScript } from "@/components/plausible";
-import { AmbientGrid } from "@/components/visual/ambient-grid";
+import { SiteBackdrop } from "@/components/visual/site-backdrop";
 import { DepthRuntime } from "@/components/visual/depth-runtime";
 import { fontSans, fontMono } from "@/lib/fonts";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
@@ -52,7 +52,7 @@ export default function RootLayout({
         <PlausibleScript />
         <JsonLd schema={organizationSchema} id="schema-organization" />
         <JsonLd schema={websiteSchema} id="schema-website" />
-        <AmbientGrid />
+        <SiteBackdrop />
         <DepthRuntime />
         <a
           href="#main"
