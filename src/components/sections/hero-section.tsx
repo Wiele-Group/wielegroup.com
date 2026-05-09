@@ -75,8 +75,10 @@ export function HeroSection() {
           </div>
 
           {/* Simulator */}
-          <FadeIn delay={0.1} className="w-full">
-            <PromptSimulator data={fixture} animate />
+          <FadeIn delay={0.1} className="w-full wg-depth-scene">
+            <div className="wg-depth-card">
+              <PromptSimulator data={fixture} animate />
+            </div>
           </FadeIn>
         </div>
       </div>
