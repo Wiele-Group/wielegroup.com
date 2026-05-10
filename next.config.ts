@@ -77,6 +77,13 @@ const nextConfig: NextConfig = {
    * rules above win over the new /services/:path* catch-all (Next.js
    * matches the first rule in source order).
    *
+   * v3.8.0 (2026-05-10) — XRAY L99 restoration. Two additions:
+   *   1. www.wielegroup.com → wielegroup.com host catch-all (apex canonical
+   *      lock; resolves GSC 24-page "alternate canonical" duplication).
+   *   2. ~25 legacy URL redirects from XRAY 404 list (engagement archetypes,
+   *      i18n stubs, retired campaign URLs).
+   * The host catch-all is first; path matching runs after host normalization.
+   *
    * TODO(2026-08-03): Phase 7 task — remove the Phase 3 IA cutover block
    * IF AND ONLY IF Google Search Console + Plausible referrer data confirm
    * zero traffic to /services/*, /work, /journal in the prior 30 days.
@@ -85,6 +92,28 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      // v3.8.0 — APEX CANONICAL LOCK. Host-based redirects run FIRST so
+      // www.wielegroup.com/<anything> normalizes to wielegroup.com/<anything>
+      // before any path-specific rule below matches.
+      //
+      // Bug: Next.js / OpenNext leaves the literal `:path*` placeholder in
+      // the destination when the source captures empty (the bare `/`).
+      // Workaround: split into an exact-match `/` rule + a one-or-more
+      // wildcard, so the root request gets a hardcoded destination and
+      // the wildcard's `:path*` always has at least one segment to expand.
+      {
+        source: "/",
+        has: [{ type: "host", value: "www.wielegroup.com" }],
+        destination: "https://wielegroup.com/",
+        permanent: true,
+      },
+      {
+        source: "/:path+",
+        has: [{ type: "host", value: "www.wielegroup.com" }],
+        destination: "https://wielegroup.com/:path+",
+        permanent: true,
+      },
+
       // Phase 3 IA cutover — preserved
       { source: "/services/seo", destination: "/systems/search", permanent: true },
       { source: "/services/aeo", destination: "/systems/ai-visibility", permanent: true },
@@ -130,11 +159,65 @@ const nextConfig: NextConfig = {
       { source: "/method", destination: "/systems", permanent: true },
       { source: "/founder", destination: "/about", permanent: true },
 
+      // v3.8.0 (2026-05-10) — XRAY L99 legacy-URL recovery.
+      // 70 paths surfaced by GSC "Not found (404)" on 2026-05-10.
+      // Specifics first so wildcards below don't swallow them. Where a
+      // directive-specified destination conflicted with a prior commercial
+      // routing (/chatgpt-seo → /audit, /imprint → /privacy), the prior
+      // routing is preserved per "fix-forward, never reopen" discipline.
+      // Conflicts surfaced in v3.8.0 report-back for founder review.
+
+      // Legacy product divisions
+      { source: "/enterprise", destination: "/pricing#sovereign", permanent: true },
+      { source: "/catalyst", destination: "/pricing", permanent: true },
+      { source: "/sovereign", destination: "/pricing#sovereign", permanent: true },
+
+      // Legacy services (different prefix from /services/*)
+      { source: "/service-seo", destination: "/systems/search", permanent: true },
+      { source: "/service-geo", destination: "/systems/ai-visibility", permanent: true },
+      { source: "/service-ledger", destination: "/systems", permanent: true },
+      { source: "/services/authority", destination: "/systems/brand-authority", permanent: true },
+
+      // Engines (specific) → platform; existing /engines/answer-engineering
+      // and /engines/citation-ledger above still win due to source order.
+      { source: "/engines", destination: "/platform", permanent: true },
+
+      // Anonymised engagement archetypes — directly to /proof
+      // (avoids 2-hop via /case-studies → /proof)
+      { source: "/case-obelisk", destination: "/proof", permanent: true },
+      { source: "/case-verdant", destination: "/proof", permanent: true },
+      { source: "/case-northward-coe.html", destination: "/proof", permanent: true },
+
+      // Legacy AI-search content paths (preserve existing /chatgpt-seo, /claude-seo above)
+      { source: "/state-of-ai-search", destination: "/labs", permanent: true },
+      { source: "/best-geo-agencies-2026", destination: "/labs", permanent: true },
+      { source: "/chatgpt-seo-vs-traditional-seo", destination: "/labs", permanent: true },
+      { source: "/ai-search-seo", destination: "/labs", permanent: true },
+      { source: "/geo", destination: "/systems/ai-visibility", permanent: true },
+
+      // Contact unification — book-a-call → diagnostic offer
+      { source: "/book-a-call", destination: "/audit", permanent: true },
+
+      // i18n stubs (existing /es, /es/:path* preserved below; /fr/de/nl/en new)
+      { source: "/fr", destination: "/", permanent: true },
+      { source: "/de", destination: "/", permanent: true },
+      { source: "/nl", destination: "/", permanent: true },
+      { source: "/en", destination: "/", permanent: true },
+
       // v3.0.3 Monolith retirement — catch-alls (must be last so specific rules win)
-      { source: "/engines/:path*", destination: "/systems", permanent: true },
+      // v3.8.0 — /engines/:path* destination updated /systems → /platform per XRAY directive.
+      { source: "/engines/:path*", destination: "/platform", permanent: true },
       { source: "/journal/:path*", destination: "/labs", permanent: true },
       { source: "/enterprise/:path*", destination: "/pricing", permanent: true },
       { source: "/es/:path*", destination: "/", permanent: true },
+      // v3.8.0 — additional legacy wildcards
+      { source: "/catalyst/:path*", destination: "/pricing", permanent: true },
+      { source: "/sovereign/:path*", destination: "/pricing#sovereign", permanent: true },
+      { source: "/blog/:path*", destination: "/labs", permanent: true },
+      { source: "/essay/:path*", destination: "/proof", permanent: true },
+      { source: "/fr/:path*", destination: "/", permanent: true },
+      { source: "/de/:path*", destination: "/", permanent: true },
+      { source: "/nl/:path*", destination: "/", permanent: true },
       // v3.1 (2026-05-07) — negative-lookahead carve-out so live productized
       // SKU pages are not swallowed by the Monolith catch-all.
       // v3.3 (2026-05-08) — added ai-visibility-monitoring carve-out.
