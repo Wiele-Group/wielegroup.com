@@ -10,7 +10,15 @@ import { fontSans, fontMono } from "@/lib/fonts";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 
-export const metadata: Metadata = buildMetadata();
+// v3.8.0 — Bing Webmaster verification meta tag bundled into universal
+// metadata so every route emits it (Next merges metadata down the tree;
+// child pages don't override `other` so the tag propagates everywhere).
+export const metadata: Metadata = {
+  ...buildMetadata(),
+  other: {
+    "msvalidate.01": "6392E5D05679A01E548B4F101B23B188",
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: "#0C1220", // B4 Chromaglass midnight

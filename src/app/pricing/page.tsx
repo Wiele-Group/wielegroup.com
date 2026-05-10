@@ -10,6 +10,12 @@ import { pricingTiers, tierSchemaPrice } from "@/data/pricing";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema";
 
+// v3.8.0 — force-static + 1h ISR. Pricing data ships as a static module
+// (`@/data/pricing`); no per-request data fetch. Eliminates CF Workers
+// Free CPU exceedance.
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 export const metadata: Metadata = buildMetadata({
   title: "Pricing — Premium AI search dominance, with defense built-in",
   description:

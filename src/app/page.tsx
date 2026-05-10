@@ -16,7 +16,7 @@ import {
   TrustSectionPreview,
 } from "@/components/sections";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, personSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/metadata";
 
 /**
@@ -40,9 +40,22 @@ export default function HomePage() {
     { name: "Home", url: siteConfig.url },
   ]);
 
+  // v3.8.0 — top-level Person schema for the founder. organizationSchema
+  // already carries `founder` as a PersonRef (name+url only); this richer
+  // Person entity carries jobTitle + worksFor + sameAs (personal LinkedIn),
+  // which is what entity-reconciliation pipelines (Wikidata, AI knowledge
+  // graphs) actually consume to disambiguate the person from the brand.
+  const founderPerson = personSchema({
+    name: "Jonathan B. Landman",
+    jobTitle: "Founder",
+    url: `${siteConfig.url}/about#founder`,
+    sameAs: ["https://www.linkedin.com/in/jonathan-b-landman"],
+  });
+
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-home" />
+      <JsonLd schema={founderPerson} id="schema-person-founder-home" />
       <CinematicEntry />
       <HeroSection />
       <HorizonStrip fromLabel="Hero" toLabel="Proof" index={1} total={3} />

@@ -10,6 +10,11 @@ import {
   serviceTierSchema,
 } from "@/lib/schema";
 
+// v3.8.0 — force-static + 1h ISR. Division data is a static module
+// (`@/data/divisions`). Eliminates CF Workers Free CPU exceedance.
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 const division = getDivisionBySlug("marketing-agency")!;
 
 export const metadata: Metadata = buildMetadata({

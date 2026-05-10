@@ -12,6 +12,10 @@ import { systemsDetail } from "@/data/systems-detail";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
+// v3.8.0 — force-static + 1h ISR. Eliminates CF Workers Free CPU exceedance.
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 export const metadata: Metadata = buildMetadata({
   title: "Platform — The AI growth system for brands that need to be chosen",
   description:

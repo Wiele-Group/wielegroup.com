@@ -15,6 +15,14 @@ import {
   serviceSchema,
 } from "@/lib/schema";
 
+// v3.8.0 — force-static + 1h ISR. Page is presentational; AuditForm is a
+// "use client" component so Turnstile + form submission still work after
+// hydration. Eliminates per-request SSR CPU on Cloudflare Workers Free
+// tier (was hitting the 10ms CPU exceed under sequential load per
+// 2026-05-10 XRAY).
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 export const metadata: Metadata = buildMetadata({
   title: "AI Visibility Audit — Find out if AI recommends you (and where you're exposed)",
   description:
