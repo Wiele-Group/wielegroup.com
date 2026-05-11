@@ -221,9 +221,10 @@ const nextConfig: NextConfig = {
       // v3.1 (2026-05-07) — negative-lookahead carve-out so live productized
       // SKU pages are not swallowed by the Monolith catch-all.
       // v3.3 (2026-05-08) — added ai-visibility-monitoring carve-out.
+      // v3.9.0 (2026-05-11) — added print-production carve-out.
       // New /services/* SKUs must be appended to the negative-lookahead
       // alternation below (pipe-separated, anchored with $).
-      { source: "/services/:slug((?!premium-brand-site-system|ai-visibility-monitoring$).+)", destination: "/systems", permanent: true },
+      { source: "/services/:slug((?!premium-brand-site-system|ai-visibility-monitoring$|print-production$).+)", destination: "/systems", permanent: true },
     ];
   },
 };

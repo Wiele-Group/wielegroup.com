@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Shield } from "lucide-react";
 import { buttonStyles } from "@/components/ui/button";
@@ -68,6 +69,10 @@ const accentToken: Record<DivisionTierAccent, {
   },
 };
 
+function tierCountWord(n: number) {
+  return n === 2 ? "Two" : n === 3 ? "Three" : n === 4 ? "Four" : String(n);
+}
+
 export function DivisionPage({ division }: { division: Division }) {
   const accent = accentToken[division.accent];
   const accordionItems = division.faqs.map((f) => ({
@@ -79,47 +84,79 @@ export function DivisionPage({ division }: { division: Division }) {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
+      {/* v3.9.0 — split layout: text left, founder-supplied 16:9 hero image right.
+          Stacks on mobile (image below text). Image rendered at full source
+          resolution via Next.js <Image>, scaled down via container CSS.
+          Source files are founder-supplied — never regenerate or alter. */}
       <section className="relative overflow-hidden">
         <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-16 md:pb-20">
-          <div className="max-w-3xl">
-            <FadeIn>
-              <p
-                className="text-body-xs font-mono uppercase tracking-[0.16em] mb-5"
-                style={{ color: accent.eyebrow }}
-              >
-                {division.eyebrow}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h1 className="text-display-xl text-white text-balance mb-5">
-                {division.headline}
-              </h1>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="text-body-lg text-silver max-w-2xl mb-8">
-                {division.subhead}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href={division.primaryCta.href}
-                  className={buttonStyles({
-                    variant: division.accent === "duality" ? "featured" : "primary",
-                    size: "lg",
-                  })}
+          <div
+            className={cn(
+              "grid gap-10 lg:gap-14 lg:items-center",
+              division.heroImage
+                ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]"
+                : "",
+            )}
+          >
+            <div className="max-w-3xl">
+              <FadeIn>
+                <p
+                  className="text-body-xs font-mono uppercase tracking-[0.16em] mb-5"
+                  style={{ color: accent.eyebrow }}
                 >
-                  {division.primaryCta.label}
-                </Link>
-                <Link
-                  href={division.secondaryCta.href}
-                  className={buttonStyles({ variant: "ghost", size: "lg" })}
+                  {division.eyebrow}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.05}>
+                <h1 className="text-display-xl text-white text-balance mb-5">
+                  {division.headline}
+                </h1>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <p className="text-body-lg text-silver max-w-2xl mb-8">
+                  {division.subhead}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.15}>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href={division.primaryCta.href}
+                    className={buttonStyles({
+                      variant: division.accent === "duality" ? "featured" : "primary",
+                      size: "lg",
+                    })}
+                  >
+                    {division.primaryCta.label}
+                  </Link>
+                  <Link
+                    href={division.secondaryCta.href}
+                    className={buttonStyles({ variant: "ghost", size: "lg" })}
+                  >
+                    {division.secondaryCta.label}
+                  </Link>
+                </div>
+              </FadeIn>
+            </div>
+
+            {division.heroImage ? (
+              <FadeIn delay={0.1}>
+                <div
+                  className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)]"
+                  data-division-hero={division.slug}
                 >
-                  {division.secondaryCta.label}
-                </Link>
-              </div>
-            </FadeIn>
+                  <Image
+                    src={division.heroImage.src}
+                    alt={division.heroImage.alt}
+                    width={division.heroImage.width}
+                    height={division.heroImage.height}
+                    priority
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+              </FadeIn>
+            ) : null}
           </div>
         </div>
       </section>
@@ -248,13 +285,19 @@ export function DivisionPage({ division }: { division: Division }) {
               Diagnose first. Then commit.
             </h2>
             <p className="text-body-md text-silver mt-4">
-              Three engagement tiers. GBP. 30-day notice. No long lock-ins.
+              {division.tiers.length === 1
+                ? "One fixed engagement. "
+                : `${tierCountWord(division.tiers.length)} engagement tiers. `}
+              GBP. 30-day notice. No long lock-ins.
             </p>
           </div>
 
           <Reveal
             stagger={0.06}
-            className="wg-depth-scene grid gap-4 md:grid-cols-3"
+            className={cn(
+              "wg-depth-scene grid gap-4",
+              division.tiers.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3",
+            )}
           >
             {division.tiers.map((tier) => {
               const isFeatured = !!tier.featured;
