@@ -21,6 +21,7 @@ export const metadata: Metadata = buildMetadata({
   title: division.seo.title,
   description: division.seo.description,
   path: `/${division.slug}`,
+  ogImage: division.heroImage?.src,
 });
 
 export default function MarketingAgencyPage() {

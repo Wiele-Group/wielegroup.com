@@ -56,6 +56,10 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
        First recurring monitoring SKU. Anchor for AI-search monitoring buyer
        intent. Same priority as PBSS (commercial-investigation surface). */
     { path: "/services/ai-visibility-monitoring", priority: 0.9, changeFrequency: "monthly" },
+    /* v3.9.0 (2026-05-11) — Print Production standalone offering.
+       Vertical-integration revenue stream, embedded in Brand Growth tier.
+       Commercial-conversion surface. */
+    { path: "/services/print-production", priority: 0.85, changeFrequency: "monthly" },
     /* Client onboarding wizard — v2.2.1 sitemap-fix. Was missing from
        STATIC_ROUTES even though the route shipped in v2.0; now indexed. */
     { path: "/onboarding", priority: 0.7, changeFrequency: "monthly" },

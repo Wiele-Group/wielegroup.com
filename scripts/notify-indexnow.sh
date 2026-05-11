@@ -46,6 +46,9 @@ readonly URL_LIST=(
   # tracking across ChatGPT/Gemini/Perplexity/Claude. Methodology open
   # at /trust#ai-visibility-monitoring.
   "https://${HOST}/services/ai-visibility-monitoring"
+  # v3.9.0 (2026-05-11) — Print Production standalone offering.
+  # Vertical-integration revenue stream, embedded in Brand Growth tier.
+  "https://${HOST}/services/print-production"
   "https://${HOST}/systems"
   "https://${HOST}/systems/ai-visibility"
   "https://${HOST}/systems/search"
