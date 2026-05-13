@@ -81,22 +81,24 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
   ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Build timestamp serves as the fallback for any STATIC_ROUTES entry whose
-  // corresponding page.tsx is missing from the generated map (e.g. just-added
-  // route, codegen not yet rerun). In normal flow every route has a real git
-  // committer date.
-  const buildFallback = new Date(staticRouteLastMod.__build);
-  const lastModFor = (path: string): Date => {
-    const ts = (staticRouteLastMod as Record<string, string>)[path];
-    return ts ? new Date(ts) : buildFallback;
-  };
+  // v3.9.1a — the `__build` field was removed from the generated JSON to
+  // stop every build from dirtying git. For any route that doesn't have a
+  // per-route entry (would only happen if STATIC_ROUTES is edited without
+  // re-running `npm run gen:lastmod`), emit no lastModified rather than
+  // a fake timestamp — Next's MetadataRoute.Sitemap permits the field to
+  // be undefined, and search engines treat absence as "no information"
+  // which is the correct signal vs. a misleading constant.
+  const lookup = staticRouteLastMod as Record<string, string>;
 
-  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
-    url: `${siteConfig.url}${r.path}`,
-    lastModified: lastModFor(r.path),
-    changeFrequency: r.changeFrequency,
-    priority: r.priority,
-  }));
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => {
+    const ts = lookup[r.path];
+    return {
+      url: `${siteConfig.url}${r.path}`,
+      lastModified: ts ? new Date(ts) : undefined,
+      changeFrequency: r.changeFrequency,
+      priority: r.priority,
+    };
+  });
 
   const articleEntries: MetadataRoute.Sitemap = getVisibleArticleManifest().map(
     ({ slug, lastUpdated }) => ({

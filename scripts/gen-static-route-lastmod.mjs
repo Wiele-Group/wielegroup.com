@@ -126,7 +126,9 @@ for (const route of STATIC_ROUTES) {
   const filePath = routeToFile(route);
   if (!existsSync(filePath)) {
     missing.push({ route, expected: filePath });
-    // Use build timestamp as fallback so the sitemap entry still ships
+    // Use build timestamp as last-resort fallback so the sitemap entry
+    // still ships. This case is the only one where a per-build-fresh
+    // timestamp leaks into the JSON — normally never hit.
     map[route] = buildTimestamp;
     continue;
   }
@@ -134,9 +136,13 @@ for (const route of STATIC_ROUTES) {
   map[route] = ts || buildTimestamp;
 }
 
-// Always include the build timestamp under a reserved key so the sitemap
-// can use it as the fallback for routes added between codegen and runtime.
-map.__build = buildTimestamp;
+// v3.9.1a (2026-05-13) — `__build` field removed from this JSON. It used
+// to live as `map.__build = buildTimestamp` so sitemap.ts had a fallback
+// for routes added between codegen runs. The trade-off was that every
+// build dirtied this JSON in git (the only field that changed was
+// __build), polluting diffs and CI signal. Removed in favour of a
+// gitignored `.last-build` sidecar for build-time observability without
+// the diff noise. Sitemap fallback is now handled inline in sitemap.ts.
 
 // Ensure src/lib/ exists (it should — repo invariant — but defensive)
 mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
@@ -144,9 +150,16 @@ mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
 const json = JSON.stringify(map, null, 2) + "\n";
 writeFileSync(OUTPUT_PATH, json, "utf8");
 
+// Sidecar: write the build timestamp out-of-band so it's still available
+// for build-pipeline observability without dirtying the tracked JSON.
+// This file IS gitignored (.last-build entry in .gitignore).
+const sidecarPath = join(REPO_ROOT, ".last-build");
+writeFileSync(sidecarPath, buildTimestamp + "\n", "utf8");
+
 console.log(
-  `[gen-lastmod] wrote ${Object.keys(map).length - 1} routes + __build to ${OUTPUT_PATH}`,
+  `[gen-lastmod] wrote ${Object.keys(map).length} routes to ${OUTPUT_PATH}`,
 );
+console.log(`[gen-lastmod] wrote build timestamp to ${sidecarPath} (gitignored)`);
 
 if (missing.length > 0) {
   console.warn(
