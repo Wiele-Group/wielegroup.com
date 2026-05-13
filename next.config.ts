@@ -65,16 +65,10 @@ const nextConfig: NextConfig = {
         source: "/brand/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
-      // v3.9.0-xray-supersweep (2026-05-13) — apple-touch-icon was serving
-      // with `public, max-age=0, must-revalidate`, forcing iOS to revalidate
-      // every home-screen icon paint. Other touch icons (/favicon.ico) ship
-      // with max-age=86400, this aligns the apple variant to the same
-      // cache hygiene. Per-day TTL is conservative for an icon that almost
-      // never changes (versioned by hash if it does).
-      {
-        source: "/apple-touch-icon.png",
-        headers: [{ key: "Cache-Control", value: "public, max-age=86400, immutable" }],
-      },
+      // Note: /apple-touch-icon.png Cache-Control is set in public/_headers
+      // (v3.9.0-xray-supersweep, 2026-05-13). It's served by the Cloudflare
+      // ASSETS binding, upstream of the Next.js route handler, so headers()
+      // entries here would never reach it.
     ];
   },
   /**
