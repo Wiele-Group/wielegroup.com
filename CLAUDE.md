@@ -1,31 +1,55 @@
-# wielegroup.com — Project Memory
+# wielegroup.com — Primary Directive
 
-## ⚡ TOP AUTHORITY — Read First
-**`../WIELE_CODE_OPERATING_DIRECTIVE.md`** is the binding meta-directive for every Claude Code session against this repo. It encodes:
+## ⚡ §0 — wielegroup.com IS the source-of-truth (founder directive 2026-05-09)
 
-1. The Founder Standard (do the complete thing, no workarounds, ship the finished product)
-2. The Evolution Directive (every task is a learning event; never repeat memorized errors)
-3. The Drive-It Law (command words trigger execution; status words don't)
-4. L99 Perfection (Think → Plan → Execute → Verify with evidence)
-5. 10 memorized lessons (3-tier wrangler resolution, "added != consumed", priority-LCP rule, JSON-LD count formula, sitemap is explicit, pre-deploy reconcile, IndexNow auto-call, Cloudflare Bot Fight Mode + browser UA, bundling discipline, memory hygiene + read-at-start)
-6. Verification standard (evidence not assertion)
-7. Deploy script template (10-step canonical structure)
-8. Forbidden patterns (do not regress)
-9. End-of-session protocol (memory + state + next action documented)
-10. North Star (the system every premium brand trusts to run their growth)
+**Operating mode is PRODUCTION ONLY.** The site is live. Allowed work types going forward:
+1. Visual enhancements
+2. New pages
+3. Edits to existing pages
 
-**This directive supersedes all prior plans on conflict, including this CLAUDE.md.** Read it at session start. Apply it in every task. If you find a new pattern worth memorizing, propose adding it to the directive.
+**Forbidden:** prototype builds, concept explorations, parallel sandbox repos, anything that creates a competing source-of-truth. Future client work goes in **new sibling folders** at `/Wiele Group Operations/`, never in this repo.
+
+**Single source rule:** when founder asks for a visual change, the answer always lives in this repo. There is no other "version" to consult. Files outside this repo are reference only and never override what's here.
+
+## ⚡ §1 — Three binding files, read at session start in this order
+
+| Order | File | Why |
+|---|---|---|
+| 1 | **`VISUAL_FILE_ROUTING.md`** (this directory) | Translates founder language ("hero copy on /proof", "the button on /platform") into exact file paths + line ranges. Builder reads FIRST before any visual edit — eliminates the "I edited the wrong file" failure mode. |
+| 2 | **`LIVE_OR_NOTHING_PROTOCOL.md`** (this directory) | Mechanical post-deploy verification gate. Wrangler success ≠ live; only cache-busted curl with grep -oE proof = live. Builder reads BEFORE any deploy — eliminates the "I confirmed shipped but it isn't" failure mode. |
+| 3 | **`../WIELE_CODE_OPERATING_DIRECTIVE.md`** | Cross-project Wiele code doctrine: Founder Standard, Evolution Directive, L99 Perfection, the 10 memorized lessons, deploy template, forbidden patterns, North Star. |
+
+**Authority order on conflict:** founder live message > §0 (this section) > VISUAL_FILE_ROUTING.md > LIVE_OR_NOTHING_PROTOCOL.md > WIELE_CODE_OPERATING_DIRECTIVE.md > rest of this CLAUDE.md > prior plans.
+
+**On any conflict:** the more recent / more specific rule wins. If still ambiguous, surface to founder — don't guess.
 
 ## Mission
 Build Wiele as a modern AI-native AI Growth Systems company. Site must feel like a premium tech platform, not a traditional SEO/marketing agency. Convert visitors via the Signal Audit.
 
-## Authority
-The binding execution directive is **`../WIELE_CODE_OPERATING_DIRECTIVE.md`** (above). Historical handoff archived at `../_ARCHIVE_COMPLETED_HANDOFFS_2026-05-06/CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` (reference only — superseded by WIELE_CODE_OPERATING_DIRECTIVE.md).
+## Canonical reference paths (post-2026-05-09 cleanup)
 
-Strategic context: `../SYNTHESIS_Brand_x_Build_ActionPlan_2026-05-03.md`
-Brand assets: `../brand-assets/` (master in `_master/`, spec in `specimen/wiele-identity-spec.md`)
-Brand v2 B4 spec (CANONICAL): `../brand-v2-B4-chromaglass.md`
-Wiele Motion System v1: `../wiele-motion-system-v1.md`
+All "find the brand spec" / "find the operating directive" routes are now stable. Builder should NEVER read from any other location:
+
+| What | Path |
+|---|---|
+| **Primary repo (THIS)** | `/Wiele Group Operations/wielegroup.com/` |
+| Brand visual assets (canonical) | `../brand-assets/` (master in `_master/`, spec in `specimen/wiele-identity-spec.md`) |
+| Brand v2 B4 spec (canonical) | `../brand-v2-B4-chromaglass.md` |
+| Brand kit reference | `../wiele-brand-kit-v2.md` |
+| Brand philosophy | `../wiele-brand-philosophy-v2.md` |
+| Motion system | `../wiele-motion-system-v1.md` |
+| Cross-project Wiele code doctrine | `../WIELE_CODE_OPERATING_DIRECTIVE.md` |
+| Current tasks | `../TASKS.md` |
+| Future product reserves | `../_FUTURE_PRODUCT_LINES/` |
+
+**Forbidden source paths** (never read from):
+- `../_ARCHIVE_2026-05-09_post-v3.7.5/` — shipped directives, closed analysis, completed checklists, legacy deploy scripts
+- `../_ARCHIVE_COMPLETED_HANDOFFS_2026-05-06/`
+- `../_ARCHIVE_PRE_V3_DIRECTIVES_2026-05-06/`
+- `../_brand_archives/`
+- `../wiele-ai/` (sister project — different repo, different concerns)
+
+If you find yourself wanting to read a file from any forbidden path, STOP. The information you need is either in this repo or in the canonical paths above. Reading from archives reintroduces the directive-confusion this cleanup eliminated.
 
 ## Brand Direction (locked)
 AI Product Interface + Swiss Minimalism + Modular Bento. Dark-mode futuristic (Linear/Vercel/Raycast register).
@@ -161,9 +185,27 @@ Account `0edf698a8da62c67cde23e4f97de7a1b`. 5 Workers exist. Don't blind-archive
 
 **Process rule:** before any Worker deletion, capture `name + last-modified + version IDs + reason` in the commit message that authorizes the delete. Worker deletes are irreversible — KV bindings, secrets, route attachments all go with them.
 
-## Start Here
-Read `../CLAUDE_CODE_HANDOFF_wielegroup.com_2026-05-03.md` once. Then execute Phase 0 (brand asset copy) → Phase 1 (foundation).
+## Start Here (post-2026-05-09 — site is LIVE)
 
-When in doubt: defer to handoff directive. When directive contradicts memory: directive wins. When directive contradicts founder: founder wins.
+Phase 0–9 are complete. Site shipped. Operating mode is now **production-only**: visual enhancements, new pages, edits.
 
-Boil the ocean. Ship the complete thing.
+**Every session:**
+1. Read `VISUAL_FILE_ROUTING.md` — know which file owns the surface you're about to touch.
+2. Read `LIVE_OR_NOTHING_PROTOCOL.md` — know exactly how to prove a change is live before claiming it.
+3. Cross-reference `../WIELE_CODE_OPERATING_DIRECTIVE.md` for code doctrine.
+4. Execute. Verify with curl. Report with verbatim output.
+
+**When founder asks for a visual change:**
+1. Find the surface in `VISUAL_FILE_ROUTING.md` §1
+2. Edit only the file(s) that map listed
+3. Build + deploy via the protocol in `LIVE_OR_NOTHING_PROTOCOL.md`
+4. Run gate sequence
+5. Report in the format §3 of LIVE_OR_NOTHING_PROTOCOL.md mandates
+6. Do NOT say "shipped" / "live" / "deployed" before gate evidence is on screen
+
+**Conflict resolution priority:**
+- Founder live message > §0 of this file > §1 of this file > VISUAL_FILE_ROUTING.md > LIVE_OR_NOTHING_PROTOCOL.md > WIELE_CODE_OPERATING_DIRECTIVE.md > rest of this CLAUDE.md > prior plans
+
+When in doubt: surface to founder. Never guess.
+
+Ship the complete thing.
