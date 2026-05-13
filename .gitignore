@@ -47,3 +47,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 /.claude/
+
+# v3.9.1a — build-time observability sidecar written by
+# scripts/gen-static-route-lastmod.mjs. Holds the buildTimestamp that
+# previously lived as __build in static-route-lastmod.generated.json
+# (which dirtied git on every build).
+.last-build
