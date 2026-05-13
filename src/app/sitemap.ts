@@ -70,6 +70,11 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
        STATIC_ROUTES even though the route shipped in v2.0; now indexed. */
     { path: "/onboarding", priority: 0.7, changeFrequency: "monthly" },
     { path: "/proof", priority: 0.8, changeFrequency: "monthly" },
+    /* v3.9.2 (2026-05-13) — Google's Own Proof. Sales-conversion artefact
+       built from the 162-page Google Search Central doctrine sweep. 12
+       Google-published case studies + 8 verbatim killed-tactic quotes.
+       High priority (0.85) — doctrine anchor + outreach-link surface. */
+    { path: "/proof/google", priority: 0.85, changeFrequency: "monthly" },
     { path: "/labs", priority: 0.8, changeFrequency: "weekly" },
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },

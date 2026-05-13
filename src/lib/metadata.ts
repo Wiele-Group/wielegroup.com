@@ -53,9 +53,26 @@ export function buildMetadata({
     title: fullTitle,
     description,
     alternates: { canonical: url },
+    // v3.9.2 — AI-maximisation robots directive (Wiele doctrine dogfood).
+    // Per Google's Robots Meta Tag doc, `max-snippet:-1` + `max-image-preview:large`
+    // + `max-video-preview:-1` are the explicit OPT-IN levers for full AI
+    // Overviews + AI Mode citation eligibility. Most enterprise sites are
+    // accidentally opted out via legacy `nosnippet` defaults; wielegroup.com
+    // explicitly opts in site-wide as the Wiele OS reference implementation.
+    // Source: developers.google.com/search/docs/crawling-indexing/robots-meta-tag
     robots: noindex
       ? { index: false, follow: false }
-      : { index: true, follow: true, googleBot: { index: true, follow: true } },
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+          },
+        },
     openGraph: {
       type: "website",
       locale: "en_GB",

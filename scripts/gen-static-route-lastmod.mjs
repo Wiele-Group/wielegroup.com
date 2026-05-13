@@ -66,6 +66,7 @@ const STATIC_ROUTES = [
   "/services/print-production",
   "/onboarding",
   "/proof",
+  "/proof/google",
   "/labs",
   "/trust",
   "/about",
