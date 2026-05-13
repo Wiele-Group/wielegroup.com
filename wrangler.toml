@@ -16,7 +16,12 @@
 # DEPLOY.md (this branch) carries the full 9-gate post-deploy checklist.
 
 name = "wielegroup-com"
-main = ".open-next/worker.js"
+# v3.9.0-xray-supersweep (2026-05-13) — main switched from the OpenNext
+# generated worker to a thin wrapper that adds a Cloudflare Cache API
+# layer (`caches.default`) for prerendered HTML responses. The wrapper
+# imports the OpenNext worker as a module and re-exports its Durable
+# Object class bindings unchanged. See cf-cache-wrapper.ts.
+main = "cf-cache-wrapper.ts"
 compatibility_date = "2026-05-03"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true  # keep workers.dev URL for staging/smoke tests

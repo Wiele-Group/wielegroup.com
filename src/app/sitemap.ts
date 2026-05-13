@@ -2,6 +2,12 @@ import type { MetadataRoute } from "next";
 import { getVisibleCaseStudyManifest } from "@/lib/case-studies-static";
 import { getVisibleArticleManifest } from "@/lib/labs-static";
 import { siteConfig } from "@/lib/metadata";
+// v3.9.0-xray-supersweep (2026-05-13) — per-route lastmod baked at build
+// time by scripts/gen-static-route-lastmod.mjs from git log committer date.
+// Was previously `new Date()` evaluated per fetch (OpenNext on Cloudflare
+// re-evaluates this route despite force-static), which burned the lastmod
+// signal — search engines saw constant churn and discounted it.
+import staticRouteLastMod from "@/lib/static-route-lastmod.generated.json";
 
 // Phase 7.1: explicit static export. OpenNext on Cloudflare Workers was
 // re-evaluating this route at runtime in a context where fs reads fail
@@ -75,11 +81,19 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
   ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Build timestamp serves as the fallback for any STATIC_ROUTES entry whose
+  // corresponding page.tsx is missing from the generated map (e.g. just-added
+  // route, codegen not yet rerun). In normal flow every route has a real git
+  // committer date.
+  const buildFallback = new Date(staticRouteLastMod.__build);
+  const lastModFor = (path: string): Date => {
+    const ts = (staticRouteLastMod as Record<string, string>)[path];
+    return ts ? new Date(ts) : buildFallback;
+  };
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
     url: `${siteConfig.url}${r.path}`,
-    lastModified: now,
+    lastModified: lastModFor(r.path),
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }));
