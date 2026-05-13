@@ -65,6 +65,10 @@ const nextConfig: NextConfig = {
         source: "/brand/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
+      // Note: /apple-touch-icon.png Cache-Control is set in public/_headers
+      // (v3.9.0-xray-supersweep, 2026-05-13). It's served by the Cloudflare
+      // ASSETS binding, upstream of the Next.js route handler, so headers()
+      // entries here would never reach it.
     ];
   },
   /**

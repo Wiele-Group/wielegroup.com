@@ -9,10 +9,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
+    "gen:lastmod": "node scripts/gen-static-route-lastmod.mjs",
+    "indexnow:ping": "node scripts/index-now-ping.mjs",
     "verify": "npm run lint && npm run typecheck && npm run build",
-    "build:cf": "next build && opennextjs-cloudflare build",
+    "build:cf": "npm run gen:lastmod && next build && opennextjs-cloudflare build",
     "preview:cf": "npm run build:cf && wrangler dev",
-    "deploy:cf": "npm run build:cf && wrangler deploy"
+    "deploy:cf": "npm run build:cf && wrangler deploy && npm run indexnow:ping"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -35,6 +37,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260511.1",
     "@eslint/eslintrc": "^3.3.5",
     "@opennextjs/cloudflare": "^1.19.5",
     "@tailwindcss/postcss": "^4.2.4",

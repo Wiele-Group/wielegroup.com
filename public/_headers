@@ -37,6 +37,15 @@
 /favicon.ico
   Cache-Control: public, max-age=86400
 
+# v3.9.0-xray-supersweep (2026-05-13) — apple-touch-icon was serving with
+# `public, max-age=0, must-revalidate` (forces iOS to revalidate every
+# home-screen paint). Aligning to the same 1-day cache as /favicon.ico.
+# Worth noting: next.config.ts headers() does NOT reach static /public
+# files — they're served by the Cloudflare ASSETS binding upstream of
+# the Next.js route handler, so this file is the operative surface.
+/apple-touch-icon.png
+  Cache-Control: public, max-age=86400, immutable
+
 /og-image.png
   Cache-Control: public, max-age=86400
 
