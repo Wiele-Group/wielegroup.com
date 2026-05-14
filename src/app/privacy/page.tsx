@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
-const LAST_UPDATED = "2026-05-05";
+const LAST_UPDATED = "2026-05-14";
 
 export const metadata: Metadata = buildMetadata({
   title: "Privacy",
@@ -29,12 +29,20 @@ export default function PrivacyPage() {
     dateModified: LAST_UPDATED,
   });
 
+  // v3.9.7 (2026-05-14) — GA4 with Consent Mode v2 default-denied added
+  // alongside Plausible. Privacy posture: no cookies set without consent,
+  // no PII collected, no advertising data. GA4 runs in cookieless
+  // aggregate mode only until a future banner exists (none today).
+
   return (
     <>
       <JsonLd schema={webPage} id="schema-webpage-privacy" />
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-privacy" />
       <section className="relative overflow-hidden">
-        <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
+        <div
+          aria-hidden
+          className="absolute inset-0 ambient-gradient pointer-events-none"
+        />
         <div className="relative mx-auto max-w-3xl px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-16">
           <FadeIn>
             <Badge variant="electric" size="sm" className="mb-5">
@@ -65,9 +73,7 @@ export default function PrivacyPage() {
       <section className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]">
         <div className="mx-auto max-w-3xl px-[var(--container-px)] flex flex-col gap-10">
           <article id="data-controller">
-            <h2 className="text-heading-lg text-white mb-3">
-              Data controller
-            </h2>
+            <h2 className="text-heading-lg text-white mb-3">Data controller</h2>
             <p className="text-body-md text-silver">
               {siteConfig.legalName} is the data controller for personal data
               submitted via this site. Contact:{" "}
@@ -82,13 +88,11 @@ export default function PrivacyPage() {
           </article>
 
           <article id="what-we-collect">
-            <h2 className="text-heading-lg text-white mb-3">
-              What we collect
-            </h2>
+            <h2 className="text-heading-lg text-white mb-3">What we collect</h2>
             <ul className="text-body-md text-silver flex flex-col gap-3 pl-5 list-disc marker:text-electric">
               <li>
-                <strong className="text-white">Form submissions</strong> —
-                when you submit the Signal Audit (
+                <strong className="text-white">Form submissions</strong> — when
+                you submit the Signal Audit (
                 <Link
                   href="/audit"
                   className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
@@ -115,22 +119,42 @@ export default function PrivacyPage() {
                 consent (where we follow up by email).
               </li>
               <li>
-                <strong className="text-white">Anonymous analytics</strong> —
-                aggregate traffic data via Plausible (cookieless, no IP
+                <strong className="text-white">
+                  Anonymous analytics — Plausible
+                </strong>{" "}
+                — aggregate traffic data via Plausible (cookieless, no IP
                 logging at the user level, no cross-site tracking, no
                 fingerprinting). Lawful basis: legitimate interest in
                 understanding which pages serve our visitors.
               </li>
               <li>
-                <strong className="text-white">Bot-protection signals</strong>{" "}
-                — Cloudflare Turnstile produces an anonymous proof-of-human
-                token at form submission. No persistent identifier is stored.
+                <strong className="text-white">
+                  Anonymous analytics — Google Analytics 4
+                </strong>{" "}
+                — aggregate traffic data via Google Analytics 4 with Consent
+                Mode v2 set to <em>default-denied</em>. We collect no cookies
+                and no personal data unless and until you explicitly grant
+                analytics consent. In default-denied mode, GA4 receives only
+                cookieless aggregate ping signals used for measurement modelling
+                — no cross-session tracking, no advertising data, no audience
+                export to advertising platforms.
+                <code className="ml-1 text-[0.7em] text-smoke">
+                  anonymize_ip:&nbsp;true
+                </code>{" "}
+                is enforced. Lawful basis: legitimate interest in aggregate
+                measurement, with consent the lawful basis for any future opt-in
+                upgrades.
               </li>
               <li>
-                <strong className="text-white">Server logs</strong> —
-                Cloudflare records standard request data (IP, user agent,
-                timestamp) for security and abuse prevention. Retained per
-                Cloudflare&apos;s retention schedule.
+                <strong className="text-white">Bot-protection signals</strong> —
+                Cloudflare Turnstile produces an anonymous proof-of-human token
+                at form submission. No persistent identifier is stored.
+              </li>
+              <li>
+                <strong className="text-white">Server logs</strong> — Cloudflare
+                records standard request data (IP, user agent, timestamp) for
+                security and abuse prevention. Retained per Cloudflare&apos;s
+                retention schedule.
               </li>
             </ul>
           </article>
@@ -140,9 +164,9 @@ export default function PrivacyPage() {
               What we do not collect
             </h2>
             <p className="text-body-md text-silver">
-              No advertising cookies. No cross-site trackers. No social
-              widgets that exfiltrate visit data to third-party platforms. No
-              session replay tools. No fingerprinting. No data brokers.
+              No advertising cookies. No cross-site trackers. No social widgets
+              that exfiltrate visit data to third-party platforms. No session
+              replay tools. No fingerprinting. No data brokers.
             </p>
           </article>
 
@@ -152,9 +176,9 @@ export default function PrivacyPage() {
             </h2>
             <ul className="text-body-md text-silver flex flex-col gap-3 pl-5 list-disc marker:text-electric">
               <li>
-                <strong className="text-white">Form submissions</strong> live
-                in Cloudflare Workers KV at the EU edge until they are pulled
-                into the engagement that follows from your enquiry.
+                <strong className="text-white">Form submissions</strong> live in
+                Cloudflare Workers KV at the EU edge until they are pulled into
+                the engagement that follows from your enquiry.
               </li>
               <li>
                 <strong className="text-white">Transactional email</strong> —
@@ -162,9 +186,20 @@ export default function PrivacyPage() {
                 email tied to your enquiry.
               </li>
               <li>
-                <strong className="text-white">Analytics</strong> — Plausible
-                (EU-hosted), no personally identifying data leaves the
-                browser.
+                <strong className="text-white">Analytics — Plausible</strong> —
+                EU-hosted, no personally identifying data leaves the browser.
+              </li>
+              <li>
+                <strong className="text-white">
+                  Analytics — Google Analytics 4
+                </strong>{" "}
+                — Google&apos;s regional measurement infrastructure (data routed
+                via region1 / region5 endpoints in the EEA for European
+                visitors). Operating under Consent Mode v2 default-denied — no
+                user-level identifiers are persisted, no cookies are set, no
+                data is exported to advertising audiences. Google is the data
+                processor; you may exercise any UK GDPR right against Wiele as
+                the controller via the contact below.
               </li>
               <li>
                 <strong className="text-white">Bot protection</strong> —
@@ -179,36 +214,32 @@ export default function PrivacyPage() {
             </h2>
             <p className="text-body-md text-silver">
               Form submissions are retained for the duration of the resulting
-              engagement plus seven years for accounting and legal purposes,
-              or deleted on request once no commercial relationship is
-              outstanding. Analytics are retained in aggregate indefinitely
-              and are not tied to identifiable individuals.
+              engagement plus seven years for accounting and legal purposes, or
+              deleted on request once no commercial relationship is outstanding.
+              Analytics are retained in aggregate indefinitely and are not tied
+              to identifiable individuals.
             </p>
           </article>
 
           <article id="your-rights">
-            <h2 className="text-heading-lg text-white mb-3">
-              Your rights
-            </h2>
+            <h2 className="text-heading-lg text-white mb-3">Your rights</h2>
             <p className="text-body-md text-silver">
               Under UK GDPR you have the right to access, rectify, erase,
-              restrict, or port your personal data, and to object to
-              processing. To exercise any of these, email{" "}
+              restrict, or port your personal data, and to object to processing.
+              To exercise any of these, email{" "}
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
               >
                 {siteConfig.email}
               </a>{" "}
-              from the address on file. We respond within one business day
-              and complete the action within thirty days.
+              from the address on file. We respond within one business day and
+              complete the action within thirty days.
             </p>
           </article>
 
           <article id="children">
-            <h2 className="text-heading-lg text-white mb-3">
-              Children
-            </h2>
+            <h2 className="text-heading-lg text-white mb-3">Children</h2>
             <p className="text-body-md text-silver">
               {siteConfig.url} is a B2B site addressed to business decision
               makers. We do not knowingly collect data from anyone under 16.
@@ -228,9 +259,7 @@ export default function PrivacyPage() {
           </article>
 
           <article id="contact">
-            <h2 className="text-heading-lg text-white mb-3">
-              Contact
-            </h2>
+            <h2 className="text-heading-lg text-white mb-3">Contact</h2>
             <p className="text-body-md text-silver">
               Privacy questions or rights requests:{" "}
               <a

@@ -25,7 +25,10 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=()",
+          },
           // Phase 7.2: HSTS + CSP added so SSR/ISR routes get them too.
           // public/_headers (Workers Static Assets) only applies to static
           // files (/llms.txt, /favicon.ico, /fonts/*, /brand/*). The OpenNext
@@ -42,13 +45,21 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
+            // v3.9.7 (2026-05-14): widen for GA4 + Consent Mode v2.
+            // - script-src: add googletagmanager.com (gtag.js library)
+            // - connect-src: add google-analytics.com (collect / pixel beacons,
+            //   region1 + region5 + global endpoints all match wildcard)
+            // - img-src: already permissive (`https:` covers GA4 pixel)
+            // The 'unsafe-inline' is preserved because Next.js inlines
+            // hydration scripts under nonce-less inline; tightening to nonce
+            // is a separate refactor (v3.x.x) gated on app-wide rollout.
             value:
               "default-src 'self'; " +
-              "script-src 'self' 'unsafe-inline' https://plausible.io https://challenges.cloudflare.com; " +
+              "script-src 'self' 'unsafe-inline' https://plausible.io https://challenges.cloudflare.com https://*.googletagmanager.com https://www.googletagmanager.com; " +
               "style-src 'self' 'unsafe-inline'; " +
               "img-src 'self' data: https:; " +
               "font-src 'self'; " +
-              "connect-src 'self' https://plausible.io https://challenges.cloudflare.com; " +
+              "connect-src 'self' https://plausible.io https://challenges.cloudflare.com https://*.google-analytics.com https://www.google-analytics.com https://*.analytics.google.com; " +
               "frame-src https://challenges.cloudflare.com; " +
               "frame-ancestors 'none'; " +
               "base-uri 'self'; " +
@@ -59,11 +70,21 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/fonts/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
       {
         source: "/brand/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
       // Note: /apple-touch-icon.png Cache-Control is set in public/_headers
       // (v3.9.0-xray-supersweep, 2026-05-13). It's served by the Cloudflare
@@ -119,26 +140,66 @@ const nextConfig: NextConfig = {
       },
 
       // Phase 3 IA cutover — preserved
-      { source: "/services/seo", destination: "/systems/search", permanent: true },
-      { source: "/services/aeo", destination: "/systems/ai-visibility", permanent: true },
-      { source: "/services/geo", destination: "/systems/ai-visibility", permanent: true },
-      { source: "/services/marketing", destination: "/systems/brand-authority", permanent: true },
-      { source: "/services/advertising", destination: "/systems/brand-authority", permanent: true },
-      { source: "/services/web-design", destination: "/systems/web-experience", permanent: true },
+      {
+        source: "/services/seo",
+        destination: "/systems/search",
+        permanent: true,
+      },
+      {
+        source: "/services/aeo",
+        destination: "/systems/ai-visibility",
+        permanent: true,
+      },
+      {
+        source: "/services/geo",
+        destination: "/systems/ai-visibility",
+        permanent: true,
+      },
+      {
+        source: "/services/marketing",
+        destination: "/systems/brand-authority",
+        permanent: true,
+      },
+      {
+        source: "/services/advertising",
+        destination: "/systems/brand-authority",
+        permanent: true,
+      },
+      {
+        source: "/services/web-design",
+        destination: "/systems/web-experience",
+        permanent: true,
+      },
       { source: "/services", destination: "/systems", permanent: true },
       { source: "/work", destination: "/proof", permanent: true },
       { source: "/journal", destination: "/labs", permanent: true },
 
       // v3.0.3 Monolith retirement — specific paths
-      { source: "/engines/answer-engineering", destination: "/systems/ai-visibility", permanent: true },
-      { source: "/engines/citation-ledger", destination: "/labs/five-citation-signals", permanent: true },
+      {
+        source: "/engines/answer-engineering",
+        destination: "/systems/ai-visibility",
+        permanent: true,
+      },
+      {
+        source: "/engines/citation-ledger",
+        destination: "/labs/five-citation-signals",
+        permanent: true,
+      },
       { source: "/engines/proof.html", destination: "/proof", permanent: true },
       { source: "/work.html", destination: "/proof", permanent: true },
-      { source: "/journal/citation-ledger-q2-2026", destination: "/labs/five-citation-signals", permanent: true },
+      {
+        source: "/journal/citation-ledger-q2-2026",
+        destination: "/labs/five-citation-signals",
+        permanent: true,
+      },
       { source: "/chatgpt-seo", destination: "/audit", permanent: true },
       { source: "/claude-seo", destination: "/audit", permanent: true },
       { source: "/imprint", destination: "/privacy", permanent: true },
-      { source: "/enterprise/portal.html", destination: "/pricing", permanent: true },
+      {
+        source: "/enterprise/portal.html",
+        destination: "/pricing",
+        permanent: true,
+      },
       { source: "/es", destination: "/", permanent: true },
 
       // v3.5.2 (2026-05-09) — SUPERSWEEP fix #4: legacy SEO-equity recovery.
@@ -153,8 +214,16 @@ const nextConfig: NextConfig = {
       { source: "/our-work", destination: "/proof", permanent: true },
       { source: "/our-services", destination: "/systems", permanent: true },
       { source: "/resources", destination: "/labs", permanent: true },
-      { source: "/digital-marketing", destination: "/systems", permanent: true },
-      { source: "/brand-strategy", destination: "/systems/brand-authority", permanent: true },
+      {
+        source: "/digital-marketing",
+        destination: "/systems",
+        permanent: true,
+      },
+      {
+        source: "/brand-strategy",
+        destination: "/systems/brand-authority",
+        permanent: true,
+      },
       { source: "/seo", destination: "/systems/search", permanent: true },
       { source: "/content", destination: "/systems", permanent: true },
       { source: "/ppc", destination: "/advertising-agency", permanent: true },
@@ -172,15 +241,35 @@ const nextConfig: NextConfig = {
       // Conflicts surfaced in v3.8.0 report-back for founder review.
 
       // Legacy product divisions
-      { source: "/enterprise", destination: "/pricing#sovereign", permanent: true },
+      {
+        source: "/enterprise",
+        destination: "/pricing#sovereign",
+        permanent: true,
+      },
       { source: "/catalyst", destination: "/pricing", permanent: true },
-      { source: "/sovereign", destination: "/pricing#sovereign", permanent: true },
+      {
+        source: "/sovereign",
+        destination: "/pricing#sovereign",
+        permanent: true,
+      },
 
       // Legacy services (different prefix from /services/*)
-      { source: "/service-seo", destination: "/systems/search", permanent: true },
-      { source: "/service-geo", destination: "/systems/ai-visibility", permanent: true },
+      {
+        source: "/service-seo",
+        destination: "/systems/search",
+        permanent: true,
+      },
+      {
+        source: "/service-geo",
+        destination: "/systems/ai-visibility",
+        permanent: true,
+      },
       { source: "/service-ledger", destination: "/systems", permanent: true },
-      { source: "/services/authority", destination: "/systems/brand-authority", permanent: true },
+      {
+        source: "/services/authority",
+        destination: "/systems/brand-authority",
+        permanent: true,
+      },
 
       // Engines (specific) → platform; existing /engines/answer-engineering
       // and /engines/citation-ledger above still win due to source order.
@@ -190,14 +279,30 @@ const nextConfig: NextConfig = {
       // (avoids 2-hop via /case-studies → /proof)
       { source: "/case-obelisk", destination: "/proof", permanent: true },
       { source: "/case-verdant", destination: "/proof", permanent: true },
-      { source: "/case-northward-coe.html", destination: "/proof", permanent: true },
+      {
+        source: "/case-northward-coe.html",
+        destination: "/proof",
+        permanent: true,
+      },
 
       // Legacy AI-search content paths (preserve existing /chatgpt-seo, /claude-seo above)
       { source: "/state-of-ai-search", destination: "/labs", permanent: true },
-      { source: "/best-geo-agencies-2026", destination: "/labs", permanent: true },
-      { source: "/chatgpt-seo-vs-traditional-seo", destination: "/labs", permanent: true },
+      {
+        source: "/best-geo-agencies-2026",
+        destination: "/labs",
+        permanent: true,
+      },
+      {
+        source: "/chatgpt-seo-vs-traditional-seo",
+        destination: "/labs",
+        permanent: true,
+      },
       { source: "/ai-search-seo", destination: "/labs", permanent: true },
-      { source: "/geo", destination: "/systems/ai-visibility", permanent: true },
+      {
+        source: "/geo",
+        destination: "/systems/ai-visibility",
+        permanent: true,
+      },
 
       // Contact unification — book-a-call → diagnostic offer
       { source: "/book-a-call", destination: "/audit", permanent: true },
@@ -212,11 +317,19 @@ const nextConfig: NextConfig = {
       // v3.8.0 — /engines/:path* destination updated /systems → /platform per XRAY directive.
       { source: "/engines/:path*", destination: "/platform", permanent: true },
       { source: "/journal/:path*", destination: "/labs", permanent: true },
-      { source: "/enterprise/:path*", destination: "/pricing", permanent: true },
+      {
+        source: "/enterprise/:path*",
+        destination: "/pricing",
+        permanent: true,
+      },
       { source: "/es/:path*", destination: "/", permanent: true },
       // v3.8.0 — additional legacy wildcards
       { source: "/catalyst/:path*", destination: "/pricing", permanent: true },
-      { source: "/sovereign/:path*", destination: "/pricing#sovereign", permanent: true },
+      {
+        source: "/sovereign/:path*",
+        destination: "/pricing#sovereign",
+        permanent: true,
+      },
       { source: "/blog/:path*", destination: "/labs", permanent: true },
       { source: "/essay/:path*", destination: "/proof", permanent: true },
       { source: "/fr/:path*", destination: "/", permanent: true },
@@ -228,7 +341,12 @@ const nextConfig: NextConfig = {
       // v3.9.0 (2026-05-11) — added print-production carve-out.
       // New /services/* SKUs must be appended to the negative-lookahead
       // alternation below (pipe-separated, anchored with $).
-      { source: "/services/:slug((?!premium-brand-site-system|ai-visibility-monitoring$|print-production$).+)", destination: "/systems", permanent: true },
+      {
+        source:
+          "/services/:slug((?!premium-brand-site-system|ai-visibility-monitoring$|print-production$).+)",
+        destination: "/systems",
+        permanent: true,
+      },
     ];
   },
 };
