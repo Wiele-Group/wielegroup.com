@@ -5,10 +5,17 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { Reveal } from "@/components/motion/reveal";
 import { CTASection } from "@/components/sections/cta-section";
 import { PricingSection } from "@/components/sections/pricing-section";
+import { RecurringAiVisibilityTiers } from "@/components/sections/recurring-ai-visibility-tiers";
 import { JsonLd } from "@/components/json-ld";
 import { pricingTiers, tierSchemaPrice } from "@/data/pricing";
+import { citationScoreTiers } from "@/data/citation-score";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqSchema,
+  productSchema,
+  serviceTierSchema,
+} from "@/lib/schema";
 
 // v3.8.0 — force-static + 1h ISR. Pricing data ships as a static module
 // (`@/data/pricing`); no per-request data fetch. Eliminates CF Workers
@@ -111,7 +118,7 @@ export default function PricingPage() {
   ]);
   const faq = faqSchema(pricingFaq.map((f) => ({ question: f.question, answer: f.answer })));
 
-  // One Product schema per pricing tier. Numeric price comes straight off
+  // One Product schema per one-off pricing tier. Numeric price comes off
   // the tier object — no string-parsing needed in v3.
   const products = pricingTiers.map((tier) =>
     productSchema({
@@ -120,6 +127,21 @@ export default function PricingPage() {
       price: tierSchemaPrice(tier),
       priceCurrency: "GBP",
       url: `${siteConfig.url}/pricing#${tier.id}`,
+    }),
+  );
+
+  // v3.9.4 — Service schemas for Citation Score™ recurring tiers.
+  // `serviceTierSchema(recurring: true)` emits the UnitPriceSpecification
+  // block with billingDuration P1M that the directive AC #2 requires.
+  const citationScoreServiceSchemas = citationScoreTiers.map((tier) =>
+    serviceTierSchema({
+      name: tier.name,
+      description: tier.schemaDescription,
+      serviceType: tier.schemaServiceType,
+      price: String(tier.priceGbp),
+      priceCurrency: "GBP",
+      url: `${siteConfig.url}/pricing#citation-score-${tier.slug}`,
+      recurring: true,
     }),
   );
 
@@ -132,6 +154,13 @@ export default function PricingPage() {
           key={pricingTiers[i].id}
           schema={product}
           id={`schema-product-${pricingTiers[i].id}`}
+        />
+      ))}
+      {citationScoreServiceSchemas.map((service, i) => (
+        <JsonLd
+          key={citationScoreTiers[i].slug}
+          schema={service}
+          id={`schema-citation-score-${citationScoreTiers[i].slug}`}
         />
       ))}
 
@@ -204,6 +233,11 @@ export default function PricingPage() {
           </p>
         </div>
       </section>
+
+      {/* ── v3.9.4 — Citation Score™ subscription tiers (3, GBP/mo) ── */}
+      {/* Positioned ABOVE the one-off ladder per AMENDMENT A §3'.
+          Anchor #recurring-ai-visibility carries Brief #001 deep-link. */}
+      <RecurringAiVisibilityTiers />
 
       {/* ── 6-tier ladder + Sovereign anchor ───────────────────── */}
       <PricingSection showHeading={false} />
