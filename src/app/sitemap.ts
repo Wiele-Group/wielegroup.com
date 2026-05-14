@@ -86,6 +86,14 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
       priority: 0.85,
       changeFrequency: "monthly",
     },
+    /* v3.9.5 (2026-05-14) — Citation Brief #002. Stage 3 Structured
+       Extractability deep-dive. Continues the /citation-brief topic
+       cluster; cross-linked with Brief #001. */
+    {
+      path: "/citation-brief/stage-3-structured-extractability",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.6, changeFrequency: "yearly" },

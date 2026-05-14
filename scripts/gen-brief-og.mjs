@@ -53,6 +53,13 @@ const briefConfig = {
     subtitle: "The Five-Stage Citation Hierarchy.",
     fileContext: "five-stage-citation-hierarchy",
   },
+  "stage-3-structured-extractability": {
+    briefNumber: 2,
+    eyebrow: "AEO Methodology",
+    titlePrimary: "Engineer the answer.",
+    subtitle: "Stage 3 — Structured Extractability.",
+    fileContext: "stage-3-extractability",
+  },
 };
 
 const cfg = briefConfig[slug];

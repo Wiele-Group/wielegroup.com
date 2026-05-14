@@ -115,6 +115,64 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
       },
     ],
   },
+  {
+    slug: "stage-3-structured-extractability",
+    briefNumber: 2,
+    title:
+      "Stage 3 — How to engineer pages AI answer engines actually quote",
+    summary:
+      "Stage 3 of the Five-Stage Citation Hierarchy — Structured Extractability — is the highest-leverage stage. Schema bundle, content pattern, antipatterns, and the Wiele extractability checklist.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-14",
+    readingMinutes: 14,
+    ogImage:
+      "/og/wiele-citation-brief-002-stage-3-extractability.png",
+    faq: [
+      {
+        question: "What is Stage 3 in the Five-Stage Citation Hierarchy?",
+        answer:
+          "Stage 3 is Structured Extractability — whether an AI answer engine can pull a clean, attributable answer block off your page. It stacks on Entity Resolution (Stage 1) and Source Authority (Stage 2), and feeds Freshness (Stage 4) and Recommendation History (Stage 5). The full hierarchy is in Citation Brief #001.",
+      },
+      {
+        question: "Which schema types matter most for AI citation?",
+        answer:
+          "Five do the heavy lifting at Stage 3: Article (the methodology wrapper), FAQPage (the answer-harvester for genuine buyer questions), HowTo (procedural content), Person (named-author authority signal), and BreadcrumbList (structural context). All five should ship as inline JSON-LD, not injected via client-side JavaScript.",
+      },
+      {
+        question: "Should every page have FAQPage schema?",
+        answer:
+          "Only if the page contains genuine buyer Q&A — eight to ten substantive questions with real answers. FAQPage schema stuffed with marketing fluff (Why choose us? How long until results?) gets flagged by Google's rich-result eligibility filter and silently dropped. Reserve FAQPage for buyer-decision questions with substantive answers; mirror the schema content to the visible content exactly.",
+      },
+      {
+        question: "HowTo vs Article — which should I use?",
+        answer:
+          "Article wraps any methodology, brief, case study, or thought-leadership piece — it's the editorial wrapper for substantive content. HowTo wraps procedural content where the page documents a sequence of steps or a checklist. A methodology page that walks a buyer through a five-stage process can carry both: Article as the outer wrapper, HowTo for the procedural section.",
+      },
+      {
+        question: "Does the schema have to be in JSON-LD format?",
+        answer:
+          "Microdata and RDFa work in principle, but every major engine documents JSON-LD first and supports it most reliably. JSON-LD also separates cleanly from rendered content, which makes the schema easier to maintain and harder to break with content edits. Wiele engineers JSON-LD across every engagement.",
+      },
+      {
+        question: "How do I test if my schema is working?",
+        answer:
+          "Google's Rich Results Test (search.google.com/test/rich-results) is the primary tool — it validates the schema and previews how Google might render it. Schema.org Validator (validator.schema.org) catches structural errors. For an end-to-end check, run a fixed prompt panel against the live engines after the schema ships and compare citation share before and after; that's how the Citation Score™ subscription instruments the lift.",
+      },
+      {
+        question: "Does Stage 3 apply to non-English content?",
+        answer:
+          "Yes — schema is language-agnostic and the extractability content pattern (definitive opener, semantic heading hierarchy, table-or-list layouts, on-page citations) transfers across languages. Specific engine weights drift slightly between locales, but the structural lift from a Stage 3 sprint shows up consistently across English, French, German, Spanish, and Japanese in the Wiele Citation Tracker dataset.",
+      },
+      {
+        question: "What's the typical citation-share lift from a Stage 3 sprint?",
+        answer:
+          "Across pre-engagement Signal Audits where Stage 3 was the primary intervention, the typical citation-share lift on Stage-3-sensitive prompts is 30 to 50 percent inside one quarter. The exact lift depends on baseline (sites with no schema and buried answers see the largest delta; sites with partial schema see smaller incremental lift) and competitive context (uncontested verticals lift faster than saturated ones). The Citation Score™ subscription tracks the lift month over month against a named competitor set.",
+      },
+    ],
+  },
 ];
 
 /**

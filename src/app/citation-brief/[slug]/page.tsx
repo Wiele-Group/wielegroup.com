@@ -40,9 +40,11 @@ import {
 ───────────────────────────────────────────────────────────────── */
 
 import HowAgenciesGetCited from "@/content/citation-briefs/how-agencies-get-cited-in-ai-answers.mdx";
+import Stage3StructuredExtractability from "@/content/citation-briefs/stage-3-structured-extractability.mdx";
 
 const BRIEF_COMPONENTS: Record<string, React.ComponentType> = {
   "how-agencies-get-cited-in-ai-answers": HowAgenciesGetCited,
+  "stage-3-structured-extractability": Stage3StructuredExtractability,
 };
 
 export const dynamic = "force-static";
