@@ -129,6 +129,53 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* v3.9.4 — Citation Score canon strip.
+          Adds the "Citation, not clicks." mantra explicitly to /platform,
+          plus the two required cross-links (Brief #001 + Citation Score
+          subscription anchor). Closes P2a positioning drift between the
+          platform page and v3.9.x canon. */}
+      <section className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-3xl">
+            <FadeIn whileInView>
+              <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+                Where this lands for buyers
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.05}>
+              <h2 className="text-display-md text-white text-balance mb-5">
+                Citation, not clicks.
+              </h2>
+            </FadeIn>
+            <FadeIn whileInView delay={0.1}>
+              <p className="text-body-md text-silver mb-6 max-w-2xl">
+                The platform exists to engineer one outcome: getting cited
+                inside AI answer engines, not just ranked in blue links.
+                The Five-Stage Citation Hierarchy is the methodology. The
+                Wiele Citation Score™ subscription is how we instrument
+                the lift, month over month.
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.15}>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/citation-brief/how-agencies-get-cited-in-ai-answers"
+                  className={buttonStyles({ variant: "ghost", size: "md" })}
+                >
+                  Read the Five-Stage Citation Hierarchy
+                </Link>
+                <Link
+                  href="/pricing#recurring-ai-visibility"
+                  className={buttonStyles({ variant: "ghost", size: "md" })}
+                >
+                  See Citation Score™ subscription
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-20 lg:py-24 bg-[var(--color-obsidian)]/40">
         <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
           <div className="max-w-2xl mb-10">
