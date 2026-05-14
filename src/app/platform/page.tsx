@@ -131,6 +131,55 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* v3.9.4 T5 — Stage 0 prerequisite gate.
+          /L99 canon Rule 11 — pages scoring below 7/10 on Krug's First Law
+          get rewritten, not shipped. Stage 0 is the gating prerequisite to
+          the Five-Stage Citation Hierarchy (the brand name is preserved —
+          Stage 0 is the gate, not a counted stage). */}
+      <section className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-3xl">
+            <FadeIn whileInView>
+              <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+                The prerequisite gate
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.05}>
+              <h2 className="text-display-md text-white text-balance mb-5">
+                Stage 0 — Self-Evidence ≥ 7/10.
+              </h2>
+            </FadeIn>
+            <FadeIn whileInView delay={0.1}>
+              <p className="text-body-md text-silver mb-4 max-w-2xl">
+                Before a page enters the Five-Stage Citation Hierarchy at
+                Stage 1, it clears the Stage 0 prerequisite: Krug&apos;s Trunk
+                Test, six 5-second answers — site identity, page identity,
+                primary sections, current location, CTA, buyer-journey position.
+                Self-evidence is scored 1–10. Pages below 7/10 do not enter
+                the hierarchy. They get rewritten.
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.15}>
+              <p className="text-body-md text-silver mb-6 max-w-2xl">
+                The processing-fluency signals that drive 50ms first-impression
+                encoding in human cognition (Jones et al. 2015) drive LLM
+                extraction confidence in the same direction. A page that
+                isn&apos;t self-evident to a human reader cannot be extracted
+                by an LLM with the confidence required to land a named citation.
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.2}>
+              <Link
+                href="/citation-score"
+                className={buttonStyles({ variant: "ghost", size: "md" })}
+              >
+                See the Self-Evidence rubric in Citation Score™ methodology
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* v3.9.4 — Citation Score canon strip.
           Adds the "Citation, not clicks." mantra explicitly to /platform,
           plus the two required cross-links (Brief #001 + Citation Score

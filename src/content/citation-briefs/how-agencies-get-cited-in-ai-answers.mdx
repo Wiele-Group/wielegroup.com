@@ -66,12 +66,44 @@ import Link from "next/link";
   <h2 className="text-display-md text-white text-balance mb-5">
     The Five-Stage Citation Hierarchy.
   </h2>
-  <p className="text-body-md text-silver mb-8">
+  <p className="text-body-md text-silver mb-5">
     Each stage stacks on the one below it. Skip a stage and the
     stages above silently underperform. Wiele engineers all five
     in sequence on every engagement.
   </p>
+  <p className="text-body-md text-silver mb-8">
+    Before a page enters the hierarchy at Stage 1, it clears the{" "}
+    <strong className="text-white">Stage 0 prerequisite</strong>: Self-Evidence
+    ≥ 7/10 on Krug&apos;s Trunk Test. Pages that aren&apos;t self-evident to a
+    human reader cannot be extracted by an LLM with the confidence required
+    to land a named citation. See the rubric on the{" "}
+    <Link
+      href="/citation-score"
+      className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+    >
+      Citation Score™ methodology page
+    </Link>
+    .
+  </p>
   <Reveal stagger={0.06} className="grid gap-4">
+    <div className="rounded-[var(--radius-lg)] border border-electric/30 bg-electric/5 p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">00</p>
+        <h3 className="text-heading-md text-white">Self-Evidence ≥ 7/10 (prerequisite gate)</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Can a human reader answer six questions about the page in five seconds?
+      </p>
+      <p className="text-body-md text-silver">
+        Krug&apos;s Trunk Test scores self-evidence on six answers — site identity,
+        page identity, primary sections, current location, CTA, and buyer-journey
+        position. Pages at 4–6/10 are rewritten before hierarchy work begins; pages
+        at 7–9 enter Stage 1; pages at 10 are reference exemplars and feed our
+        internal Prototype Match training set. The same processing-fluency signals
+        that drive 50ms first-impression encoding in human cognition (Jones et al.
+        2015) drive LLM extraction confidence.
+      </p>
+    </div>
     <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
       <div className="flex items-baseline gap-4 mb-3">
         <p className="text-body-xs font-mono text-electric">01</p>
