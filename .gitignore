@@ -53,3 +53,9 @@ next-env.d.ts
 # previously lived as __build in static-route-lastmod.generated.json
 # (which dirtied git on every build).
 .last-build
+
+# v3.9.4 — Cowork backgrounded-deploy helpers + their stdout log. Local
+# tooling only; never repo state. Underscore prefix marks them as
+# scratch-tier (mirrors /tmp/ semantics inside the repo root).
+/_wiele-deploy.log
+/scripts/_wiele-deploy-bg.sh
