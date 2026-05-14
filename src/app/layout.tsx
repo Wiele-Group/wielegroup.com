@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/json-ld";
 import { PlausibleScript } from "@/components/plausible";
+import { GoogleAnalyticsScript } from "@/components/google-analytics";
 import { SiteBackdrop } from "@/components/visual/site-backdrop";
 import { DepthRuntime } from "@/components/visual/depth-runtime";
 import { fontSans, fontMono } from "@/lib/fonts";
@@ -49,15 +50,40 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/icon-192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/icon-512.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="min-h-dvh flex flex-col bg-[var(--color-void)] text-cloud antialiased">
         <PlausibleScript />
+        <GoogleAnalyticsScript />
         <JsonLd schema={organizationSchema} id="schema-organization" />
         <JsonLd schema={websiteSchema} id="schema-website" />
         <SiteBackdrop />
