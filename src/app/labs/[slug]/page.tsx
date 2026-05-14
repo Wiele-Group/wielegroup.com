@@ -119,11 +119,13 @@ export default async function LabsArticlePage({
   // Per-route Person schema for the article author. Article schema's
   // nested author is good but a top-level Person carries sameAs +
   // jobTitle + worksFor cleanly for AI engines that index entities.
+  // v3.9.3 — sameAs points to the founder's personal LinkedIn, not the
+  // company profile. See about/page.tsx for the disambiguation rationale.
   const author = personSchema({
     name: article.author,
     jobTitle: "Founder & Principal",
     url: `${siteConfig.url}/about#founder`,
-    sameAs: [siteConfig.socials.linkedin, siteConfig.socials.x],
+    sameAs: [siteConfig.socials.founderLinkedin],
   });
 
   return (

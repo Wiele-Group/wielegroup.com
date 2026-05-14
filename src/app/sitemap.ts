@@ -76,6 +76,16 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
        High priority (0.85) — doctrine anchor + outreach-link surface. */
     { path: "/proof/google", priority: 0.85, changeFrequency: "monthly" },
     { path: "/labs", priority: 0.8, changeFrequency: "weekly" },
+    /* v3.9.3 (2026-05-14) — Citation Briefs index. Productized Tier-1 play
+       from the 2026-05-14 Advertising Canon intake. Each brief is an
+       extractable, schema-marked AEO field guide. High priority (0.85) —
+       primary citation-bait surface, AI-extraction-tuned. */
+    { path: "/citation-brief", priority: 0.85, changeFrequency: "weekly" },
+    {
+      path: "/citation-brief/how-agencies-get-cited-in-ai-answers",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.6, changeFrequency: "yearly" },

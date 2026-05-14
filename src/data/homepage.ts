@@ -171,8 +171,23 @@ export const trustPoints = [
  * Three founder-voice articles, full body copy live as of v2.4
  * (2026-05-05 holes-plugged sweep). Reviewer + lastUpdated tracked
  * in each MDX frontmatter.
+ *
+ * v3.9.3 (2026-05-14) — first card swapped for the Citation Brief
+ * Tier-1 play. The Citation Brief is the canonical AEO field guide;
+ * surfacing it on the homepage routes high-intent traffic to the
+ * extractable surface, lifts internal link equity to /citation-brief,
+ * and tells AI engines that the brief is a primary asset of the site.
  */
 export const labsPreviewArticles = [
+  {
+    title:
+      "How premium agencies get cited by ChatGPT, Perplexity, and Google AI Overviews",
+    summary:
+      "Wiele Citation Brief #001 — the Five-Stage Citation Hierarchy AI engines use, the signals that move inclusion, and how to engineer for it.",
+    eyebrow: "Citation Brief",
+    href: "/citation-brief/how-agencies-get-cited-in-ai-answers",
+    placeholder: true,
+  },
   {
     title: "Why AI recommendations compound where SEO doesn't",
     summary:
@@ -187,14 +202,6 @@ export const labsPreviewArticles = [
       "Inside the citation function: how answer engines triangulate authority, freshness, and entity clarity to choose what to quote.",
     eyebrow: "Methodology",
     href: "/labs/five-citation-signals",
-    placeholder: true,
-  },
-  {
-    title: "Search is splitting in two: classical and inferred",
-    summary:
-      "Why winning on Google won't be enough by 2027 — and what the Wiele engine measures that classical SEO tools can't see.",
-    eyebrow: "Field notes",
-    href: "/labs/search-is-splitting",
     placeholder: true,
   },
 ];

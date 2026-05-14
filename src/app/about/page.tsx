@@ -12,7 +12,7 @@ import { aboutPageSchema, breadcrumbSchema, personSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "About — The Wiele thesis and the team behind it",
   description:
-    "Wiele Group is the premium marketing agency engineered for compounding growth — brand, marketing, web design, advertising, SEO, and AI search optimization, run as one integrated system. Founded by Jonathan Landman.",
+    "Wiele Group engineers brands AI engines cite. Six disciplines — brand, marketing, web, ads, SEO, AI search — as one operating system. Founded by Jonathan Landman.",
   path: "/about",
 });
 
@@ -44,11 +44,17 @@ export default function AboutPage() {
     { name: "Home", url: siteConfig.url },
     { name: "About", url: `${siteConfig.url}/about` },
   ]);
+  // v3.9.3 — entity-disambiguation fix. Person.sameAs must point to the
+  // FOUNDER's personal profiles, not the company's. The previous values
+  // (company LinkedIn + company X) confused knowledge-graph reconciliation
+  // because the Person and the Organization shared sameAs targets. Now
+  // Person resolves to the personal LinkedIn and the Organization keeps
+  // its own company-profile sameAs separately.
   const founder = personSchema({
     name: siteConfig.founder,
     jobTitle: "Founder & Principal",
     url: `${siteConfig.url}/about#founder`,
-    sameAs: [siteConfig.socials.linkedin, siteConfig.socials.x],
+    sameAs: [siteConfig.socials.founderLinkedin],
   });
   const aboutPage = aboutPageSchema({
     name: `About ${siteConfig.name}`,

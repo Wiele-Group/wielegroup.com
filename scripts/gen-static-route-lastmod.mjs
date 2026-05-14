@@ -68,6 +68,8 @@ const STATIC_ROUTES = [
   "/proof",
   "/proof/google",
   "/labs",
+  "/citation-brief",
+  "/citation-brief/how-agencies-get-cited-in-ai-answers",
   "/trust",
   "/about",
   "/contact",

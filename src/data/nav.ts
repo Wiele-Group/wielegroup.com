@@ -53,6 +53,10 @@ export const footerColumns = [
       { label: "Pricing", href: "/pricing" },
       { label: "Proof", href: "/proof" },
       { label: "Wiele Labs", href: "/labs" },
+      /* v3.9.3 (2026-05-14) — Citation Briefs surfaced site-wide in the
+         footer. Highest internal-link reachability for the Tier-1
+         AEO field-guide play. */
+      { label: "Citation Briefs", href: "/citation-brief" },
       { label: "Trust", href: "/trust" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },

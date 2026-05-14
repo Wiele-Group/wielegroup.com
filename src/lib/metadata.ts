@@ -5,9 +5,17 @@ export const siteConfig = {
   legalName: "Wiele Group",
   url: "https://wielegroup.com",
   descriptor: "Premium Marketing Agency",
-  tagline: "The premium agency engineered for compounding growth.",
+  // v3.9.3 — USP crystallization pass (Reeves three-gate: Proposition / Unique / Pull).
+  // The owned mantra "Citation, not clicks." leads the tagline so the H1 carries the
+  // proposition itself, the mechanism ("we engineer"), and the pull ("the brand AI engines
+  // choose"). Source-of-truth tagline; render the same line in document <title>, hero H1,
+  // OpenGraph, and Twitter card.
+  tagline: "Citation, not clicks. We engineer the brand AI engines choose.",
+  // Tight 151-char meta description — USP-led, decision-verb-led, repeats the mantra so
+  // SERP snippets and AI Overviews quote it back. Doubles as the hero sub-lede; reads
+  // clean in both surfaces.
   description:
-    "Wiele Group is the premium marketing agency for firms who want every growth lever moving together. Brand, marketing, web design, advertising, SEO, and AI search optimization — six disciplines, one operating system, engineered as one.",
+    "Wiele Group engineers brands AI engines cite. Brand, marketing, web, ads, SEO, AI search — six disciplines, one operating system. Citation, not clicks.",
   founder: "Jonathan Landman",
   email: "admin@wielegroup.com",
   ogImage: "/og-image.png",
@@ -15,6 +23,7 @@ export const siteConfig = {
   socials: {
     linkedin: "https://linkedin.com/company/wiele-group",
     x: "https://x.com/wielegroup",
+    founderLinkedin: "https://www.linkedin.com/in/jonathan-b-landman",
   },
 } as const;
 
