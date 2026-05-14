@@ -60,13 +60,21 @@ export function RecurringAiVisibilityTiers() {
           ))}
         </Reveal>
 
-        <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-          All Citation Score™ tiers billed monthly in GBP, exclude VAT.
-          3-month minimum term · 30-day cancellation notice.
-          <span className="block mt-1 text-[0.6875rem] tracking-[0.08em]">
-            Direct Checkout deferred until named-client case studies close — CTA routes to a principal session.
-          </span>
-        </p>
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <Link
+            href="/citation-score"
+            className="text-body-sm font-medium text-electric hover:text-electric-light underline-offset-4 hover:underline transition-colors"
+          >
+            See Citation Score™ methodology →
+          </Link>
+          <p className="text-body-xs font-mono text-smoke text-center">
+            All Citation Score™ tiers billed monthly in GBP, exclude VAT.
+            3-month minimum term · 30-day cancellation notice.
+            <span className="block mt-1 text-[0.6875rem] tracking-[0.08em]">
+              Direct Checkout deferred until named-client case studies close — CTA routes to a principal session.
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   );

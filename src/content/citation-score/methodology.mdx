@@ -1,0 +1,246 @@
+import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
+
+{/* Cowan 4-chunk rule: max 4 visible items per vertical list in any viewport. Split into columns, numbered tables, or H3 sub-blocks when exceeded. */}
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-electric/30 bg-electric/5 p-6 md:p-8">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+    The 60-second answer
+  </p>
+  <p className="text-body-lg text-cloud mb-4">
+    The Wiele Citation Score™ is the instrumented measure of how often
+    AI answer engines cite a brand against a named competitor set. The
+    score has four components — <strong className="text-white">Engine
+    Coverage, On-Page Extractability, Citation Velocity,</strong> and{" "}
+    <strong className="text-white">Recommendation History</strong> —
+    each scored separately and rolled into a composite tracked month
+    over month.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Brands enter Wiele&apos;s measurement system through the{" "}
+    <Link
+      href="/citation-brief/how-agencies-get-cited-in-ai-answers"
+      className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+    >
+      Five-Stage Citation Hierarchy
+    </Link>
+    {" "}framework — Entity Resolution, Source Authority, Structured
+    Extractability, Freshness, Recommendation History. Citation Score™
+    is the metric layer; the hierarchy is the methodology layer; the{" "}
+    <Link
+      href="/pricing#recurring-ai-visibility"
+      className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+    >
+      Citation Score™ subscription
+    </Link>
+    {" "}is the recurring product.
+  </p>
+  <p className="text-body-sm text-silver">
+    <strong className="text-white">Stage 0 prerequisite.</strong> Before
+    a page enters the hierarchy at Stage 1, it clears the Stage 0
+    Self-Evidence ≥ 7/10 gate (Krug&apos;s Trunk Test, six 5-second
+    answers). Pages below 7/10 are rewritten before any hierarchy work
+    begins. The rubric lives in §2 below.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    §1 · Engine Coverage
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Which AI answer engines does the score track? Coverage breadth is
+    a baseline signal of monitoring rigour — a Citation Score™ that
+    tracks only ChatGPT misses the engines a buyer might actually use
+    on the day they decide. Wiele&apos;s coverage spans ten engines at
+    Authority tier: ChatGPT, Perplexity, Google AI Overviews, Gemini,
+    Microsoft Copilot, Claude, Grok, You.com, Brave Search, and DeepSeek.
+    Coverage stratifies by tier — five engines at Starter, eight at
+    Pro, ten at Authority.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The score for §1 is the proportion of in-scope engines on which the
+    brand appears within the top-three cited sources across the named
+    prompt set, weighted by engine traffic share. A brand that wins
+    citation share on ChatGPT but loses Perplexity is structurally
+    different from one that splits coverage evenly across both — and
+    the score reflects that.
+  </p>
+  <p className="text-body-md text-silver">
+    <strong className="text-white">How Wiele scores it.</strong>{" "}
+    Monthly engine runs against a fixed prompt panel of 30 to 100
+    queries per brand (sized by tier). The panel is locked at engagement
+    start to keep month-over-month comparison honest. Each engine&apos;s
+    weight reflects the engine&apos;s estimated share of relevant
+    buyer-side AI search traffic.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    §2 · On-Page Extractability
+  </h2>
+  <p className="text-body-md text-silver mb-6">
+    How well a page is structured for direct extraction by AI answer
+    engines. Inputs: schema completeness, heading hierarchy clarity,
+    definitive-opener presence, paragraph-block scannability, semantic-HTML
+    correctness.
+  </p>
+
+  <h3 className="text-heading-md text-white mb-4">Sub-metric — Prototype Match Score</h3>
+  <p className="text-body-md text-silver mb-4">
+    How closely the page matches the prototypical exemplar of the content
+    category it claims to occupy (&quot;AEO audit content,&quot; &quot;agency
+    pricing page,&quot; &quot;citation-method explainer&quot;). Anchored on
+    Jones et al. (2015) — the 50ms first-impression study found that
+    prototypicality, moderate visual complexity, and processing fluency
+    drive memorable encoding — and Loken Handbook prototypicality theory
+    (brands ARE categories; the prototypical exemplar wins on attention,
+    attitude-accessibility, and automatic choice).
+  </p>
+
+  <p className="text-body-md text-silver mb-4">
+    <strong className="text-white">Rubric (10-point scale).</strong>
+  </p>
+
+  <div className="overflow-x-auto mb-6">
+    <table className="w-full text-body-sm text-silver border-collapse">
+      <thead>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <th className="text-left py-3 pr-4 font-mono text-electric text-body-xs uppercase tracking-[0.12em]">Score</th>
+          <th className="text-left py-3 font-mono text-electric text-body-xs uppercase tracking-[0.12em]">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="py-3 pr-4 align-top font-mono text-white">0–3</td>
+          <td className="py-3"><strong className="text-white">Atypical or chaotic.</strong> Page does not register as the category it claims; first-impression encoding fails; LLM extraction misroutes the page to an adjacent or wrong category.</td>
+        </tr>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="py-3 pr-4 align-top font-mono text-white">4–6</td>
+          <td className="py-3"><strong className="text-white">Partial match.</strong> Some prototypical elements present (heading shape, schema bundle), but layout or copy violates category expectations. LLM extraction succeeds but at higher cost; competitor pages outrank on prototype-match basis.</td>
+        </tr>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="py-3 pr-4 align-top font-mono text-white">7–9</td>
+          <td className="py-3"><strong className="text-white">High prototypicality.</strong> Page reads as a strong exemplar of its category. LLM extraction is fast and high-confidence; first-impression encoding succeeds within Jones et al.&apos;s 50ms window.</td>
+        </tr>
+        <tr>
+          <td className="py-3 pr-4 align-top font-mono text-white">10</td>
+          <td className="py-3"><strong className="text-white">Reference exemplar.</strong> The page IS the category. Competitors implicitly cite the structure. LLM training data treats it as the prototypical case. (Wiele targets this for every flagship surface.)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p className="text-body-md text-silver mb-4">
+    <strong className="text-white">How Wiele scores it.</strong> Manual
+    rubric against the canonical-exemplar set maintained in our
+    Intelligence Library. A Citation Score™ Authority-tier subscriber
+    receives a Prototype Match audit on every flagship page once per
+    quarter; Pro receives biannually; Starter receives the score but
+    not the audit narrative.
+  </p>
+
+  <h3 className="text-heading-md text-white mb-4 mt-8">Sub-metric — Self-Evidence Score (Stage 0 rubric)</h3>
+  <p className="text-body-md text-silver mb-4">
+    Self-Evidence is the Stage 0 prerequisite gate: can a human reader
+    answer Krug&apos;s Trunk Test in 5 seconds (site identity, page
+    identity, primary sections, current location, CTA, buyer-journey
+    position)? The score is 1–10. Pages at 4–6 are rewritten before
+    hierarchy work begins; pages at 7–9 enter Stage 1; pages at 10 are
+    reference exemplars and feed our internal Prototype Match training
+    set.
+  </p>
+  <p className="text-body-md text-silver">
+    The processing-fluency signals that drive 50ms first-impression
+    encoding in human cognition drive LLM extraction confidence in the
+    same direction — which is why Self-Evidence and Prototype Match
+    cluster together in §2 rather than living on separate scoring axes.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    §3 · Citation Velocity
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The rate at which a brand picks up new citations across the engine
+    set, measured per engine-run. Velocity catches trajectory changes
+    that absolute citation share misses — a brand at 12 percent share
+    that climbed from 5 percent in two months is a different story
+    from one stuck at 12 percent for six.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Velocity is the early-signal metric for Stage 3 (Structured
+    Extractability) interventions. Schema sprints, definitive-opener
+    rewrites, and FAQ pattern adoption typically show up in velocity
+    inside one to two engine runs — months before the absolute share
+    number moves enough to be statistically clean.
+  </p>
+  <p className="text-body-md text-silver">
+    <strong className="text-white">How Wiele scores it.</strong>{" "}
+    Month-over-month delta in citation count per engine, normalised
+    by prompt-panel size. Positive velocity sustained over a quarter
+    feeds the Recommendation History compounding loop (§4); flat or
+    negative velocity triggers a Stage 3 audit on the highest-traffic
+    cited pages.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    §4 · Recommendation History
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Engines that have cited a source before are statistically more
+    likely to cite it again. Recommendation History is the compounding
+    loop and the reason early citation matters disproportionately —
+    every accepted citation strengthens the next one.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    §4 tracks two derived signals: the count of distinct prompts on
+    which a brand was cited in the prior 90-day window (breadth), and
+    the count of repeat citations on the same prompt across consecutive
+    engine runs (depth). Depth without breadth indicates a single
+    captured prompt; breadth without depth indicates volatile citation
+    eligibility. Both rising together is the compounding signal.
+  </p>
+  <p className="text-body-md text-silver">
+    <strong className="text-white">How Wiele scores it.</strong> Rolling
+    90-day window across the prompt panel. Authority-tier engagements
+    receive a quarterly Recommendation History narrative — which prompts
+    became repeat-citation eligible, which slipped, and which compounded
+    against the named competitor set. Pro receives biannually; Starter
+    receives the breadth/depth pair but not the narrative.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Sources and methodology refresh
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The Citation Score™ methodology is refreshed quarterly against the
+    canon library maintained by Wiele&apos;s research operator. Anchors
+    that load-bear the v3.9.4 specification:
+  </p>
+  <ul className="space-y-3 text-body-md text-silver list-disc pl-6">
+    <li>
+      Krug — <em>Don&apos;t Make Me Think</em>. Trunk Test + Self-Evidence ≥ 7/10 gate (§2 sub-metric).
+    </li>
+    <li>
+      Jones et al. (2015) — 50ms first-impression encoding study. Prototypicality + moderate visual complexity + processing fluency as the dominant predictors (§2 sub-metric).
+    </li>
+    <li>
+      Loken Handbook — prototypicality theory; brands as categories; the prototypical exemplar wins (§2 sub-metric).
+    </li>
+    <li>
+      Whalen — <em>Design for How People Think</em> (2019). Six Minds pre-deploy gate, complementary to Self-Evidence scoring.
+    </li>
+  </ul>
+  <p className="text-body-sm text-smoke mt-5">
+    Refresh cadence: 2026-08-14 (quarterly cycle). Changes to the rubric
+    are versioned and disclosed to active subscribers ahead of the run
+    in which they take effect.
+  </p>
+</section>

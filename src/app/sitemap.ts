@@ -94,6 +94,13 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
       priority: 0.85,
       changeFrequency: "monthly",
     },
+    /* v3.9.4 T4 (2026-05-14) — Citation Score™ methodology page.
+       Productizes the four-component metric (Engine Coverage · On-Page
+       Extractability · Citation Velocity · Recommendation History) plus
+       the Prototype Match sub-metric and Stage 0 Self-Evidence rubric.
+       High priority (0.9) — metric-layer anchor + canonical destination
+       for /citation-score links across Briefs #001/#002 and /platform. */
+    { path: "/citation-score", priority: 0.9, changeFrequency: "monthly" },
     { path: "/trust", priority: 0.7, changeFrequency: "yearly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.6, changeFrequency: "yearly" },

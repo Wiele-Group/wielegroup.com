@@ -71,6 +71,7 @@ const STATIC_ROUTES = [
   "/citation-brief",
   "/citation-brief/how-agencies-get-cited-in-ai-answers",
   "/citation-brief/stage-3-structured-extractability",
+  "/citation-score",
   "/trust",
   "/about",
   "/contact",
