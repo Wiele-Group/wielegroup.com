@@ -14,6 +14,7 @@
     "verify": "npm run lint && npm run typecheck && npm run build",
     "build:cf": "npm run gen:lastmod && next build && opennextjs-cloudflare build",
     "preview:cf": "npm run build:cf && wrangler dev",
+    "predeploy:cf": "git diff --quiet HEAD || (echo 'ABORT — working tree dirty. Commit + tag before deploy (Commit-Before-Deploy Law, v3.9.3).' && exit 1)",
     "deploy:cf": "npm run build:cf && wrangler deploy && npm run indexnow:ping"
   },
   "dependencies": {
