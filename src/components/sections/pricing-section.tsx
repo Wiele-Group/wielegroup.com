@@ -2,11 +2,7 @@ import Link from "next/link";
 import { Check, Shield } from "lucide-react";
 import { buttonStyles } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
-import {
-  pricingTiers,
-  tierPriceLabel,
-  type PricingTier,
-} from "@/data/pricing";
+import { pricingTiers, tierPriceLabel, type PricingTier } from "@/data/pricing";
 import { cn } from "@/lib/utils";
 
 type PricingSectionProps = {
@@ -29,7 +25,9 @@ type PricingSectionProps = {
  * renders inline beneath the price block (no JS toggle — render in SSR
  * so AI crawlers see it on first byte).
  */
-export function PricingSection({ showHeading = true }: PricingSectionProps = {}) {
+export function PricingSection({
+  showHeading = true,
+}: PricingSectionProps = {}) {
   const anchorTier = pricingTiers.find((t) => t.anchor);
   const standardTiers = pricingTiers.filter((t) => !t.anchor);
 
@@ -47,8 +45,8 @@ export function PricingSection({ showHeading = true }: PricingSectionProps = {})
             <p className="text-body-lg text-silver mt-5">
               Every paid tier ships with AI Visibility Defense as standard:
               prompt-injection surface monitoring, AI crawler posture
-              management, and competitor displacement counter-engineering.
-              Tier depth scales the team and the frequency.
+              management, and competitor displacement counter-engineering. Tier
+              depth scales the team and the frequency.
             </p>
           </div>
         ) : null}
@@ -69,9 +67,11 @@ export function PricingSection({ showHeading = true }: PricingSectionProps = {})
         </Reveal>
 
         <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-          All prices in GBP, exclude VAT. Wiele bills monthly. 30-day notice. No long-term lock-in.
+          All prices in GBP, exclude VAT. Wiele bills monthly. 30-day notice. No
+          long-term lock-in.
           <span className="block mt-1 text-[0.6875rem] tracking-[0.08em]">
-            Self-serve checkout via Stripe. SCA-compliant. Secured payments.
+            Begin with a Signal Audit or a Strategy Call. Onboarding scope
+            agreed before any cheque is taken.
           </span>
         </p>
       </div>
@@ -94,14 +94,14 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
       )}
     >
       {tier.featured ? (
-        <span
-          className="absolute -top-2.5 left-6 px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white bg-electric shadow-[0_4px_18px_rgba(59,130,246,0.35)]"
-        >
+        <span className="absolute -top-2.5 left-6 px-3 py-1 rounded-full text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white bg-electric shadow-[0_4px_18px_rgba(59,130,246,0.35)]">
           Most chosen
         </span>
       ) : null}
 
-      <h3 className="text-heading-md text-white text-balance min-h-[2.6em]">{tier.name}</h3>
+      <h3 className="text-heading-md text-white text-balance min-h-[2.6em]">
+        {tier.name}
+      </h3>
 
       <div className="mt-3 mb-1">
         <span className="font-mono text-[1.5rem] leading-none font-semibold text-white">
@@ -188,7 +188,9 @@ function AnchorTierCard({ tier }: { tier: PricingTier }) {
 
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-10 items-start">
         <div>
-          <h3 className="text-display-md text-white tracking-tight">{tier.name}</h3>
+          <h3 className="text-display-md text-white tracking-tight">
+            {tier.name}
+          </h3>
           <div className="mt-2 mb-3">
             <span className="font-mono text-[2rem] leading-none font-semibold text-white">
               {tierPriceLabel(tier)}
@@ -224,7 +226,10 @@ function AnchorTierCard({ tier }: { tier: PricingTier }) {
 
           <Link
             href={tier.cta.href}
-            className={cn(buttonStyles({ variant: "featured", size: "lg" }), "w-full")}
+            className={cn(
+              buttonStyles({ variant: "featured", size: "lg" }),
+              "w-full",
+            )}
           >
             {tier.cta.label}
           </Link>
@@ -279,7 +284,10 @@ function DefenseVectors({
               compact ? "text-[0.75rem]" : "text-body-sm",
             )}
           >
-            <span aria-hidden className="mt-1 inline-block h-1 w-1 shrink-0 rounded-full bg-electric" />
+            <span
+              aria-hidden
+              className="mt-1 inline-block h-1 w-1 shrink-0 rounded-full bg-electric"
+            />
             <span>{feat}</span>
           </li>
         ))}

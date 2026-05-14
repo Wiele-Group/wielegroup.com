@@ -54,8 +54,7 @@ export const pricingTiers: readonly PricingTier[] = [
     name: "Signal Audit",
     price: 2500,
     cadence: "one-off",
-    positioning:
-      "Diagnose your AI visibility before you commit to a system.",
+    positioning: "Diagnose your AI visibility before you commit to a system.",
     differentiator: "Diagnostic entry — productized one-off",
     aiDefense: {
       level: "baseline",
@@ -73,7 +72,15 @@ export const pricingTiers: readonly PricingTier[] = [
       "Strategy session with a Wiele principal",
     ],
     cta: { label: "Run a Growth Audit", href: "/audit" },
-    paymentLinkUrl: "https://buy.stripe.com/4gMdR91JL0iieuK8FZao80k",
+    // v3.9.6 (2026-05-14): contact-first per project memory open loop
+    // ("Stripe direct checkout (flip when 5 case studies close)"). The 5
+    // buy.stripe.com payment links were deactivated in Stripe during the
+    // v3.x dashboard lockdown — leaving them rendered as "Or pay now"
+    // links would route Monday-outreach prospects to a dead Stripe page.
+    // Blanking the field hides the secondary CTA (component already guards
+    // on truthy paymentLinkUrl). Flip back to a live URL when ready to
+    // open direct checkout.
+    paymentLinkUrl: "",
     stripePriceId: "price_1TT1tkGuLDs0qzh2S85rJ8Fp",
   },
   {
@@ -81,8 +88,7 @@ export const pricingTiers: readonly PricingTier[] = [
     name: "Launch",
     price: 1950,
     cadence: "/month",
-    positioning:
-      "Establish your AI Visibility Defense baseline.",
+    positioning: "Establish your AI Visibility Defense baseline.",
     differentiator: "14-day Pro reverse-trial",
     aiDefense: {
       level: "baseline",
@@ -100,7 +106,7 @@ export const pricingTiers: readonly PricingTier[] = [
       "14-day reverse-trial of Pro features",
     ],
     cta: { label: "Start with Launch", href: "/contact?tier=launch" },
-    paymentLinkUrl: "https://buy.stripe.com/5kQ8wP2NP5CC0DU2hBao80p",
+    paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrVGuLDs0qzh2MZGJWbT1",
   },
   {
@@ -108,8 +114,7 @@ export const pricingTiers: readonly PricingTier[] = [
     name: "Growth System",
     price: 4500,
     cadence: "/month",
-    positioning:
-      "Defended visibility on the buyer-intent queries that matter.",
+    positioning: "Defended visibility on the buyer-intent queries that matter.",
     differentiator: "AI usage credits + cross-engine citation tracking",
     aiDefense: {
       level: "monitored",
@@ -128,7 +133,7 @@ export const pricingTiers: readonly PricingTier[] = [
     ],
     cta: { label: "Book Strategy Call", href: "/contact?tier=growth-system" },
     featured: true,
-    paymentLinkUrl: "https://buy.stripe.com/bJefZh4VXfdc5Ye4pJao80q",
+    paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrZGuLDs0qzh28535esBR",
   },
   {
@@ -154,8 +159,11 @@ export const pricingTiers: readonly PricingTier[] = [
       "Editorial-grade thought leadership + digital PR",
       "Weekly principal-level strategy",
     ],
-    cta: { label: "Book Strategy Call", href: "/contact?tier=authority-engine" },
-    paymentLinkUrl: "https://buy.stripe.com/dRm8wP7450ii1HYbSbao80r",
+    cta: {
+      label: "Book Strategy Call",
+      href: "/contact?tier=authority-engine",
+    },
+    paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrcGuLDs0qzh2NOjlxs9x",
   },
   {
@@ -182,7 +190,7 @@ export const pricingTiers: readonly PricingTier[] = [
       "Direct line to Wiele principals",
     ],
     cta: { label: "Talk to Wiele", href: "/contact?tier=wiele-os" },
-    paymentLinkUrl: "https://buy.stripe.com/3cIdR94VX2qq2M28FZao80o",
+    paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TT1u0GuLDs0qzh2VQ5jAyZQ",
   },
   {
@@ -209,9 +217,12 @@ export const pricingTiers: readonly PricingTier[] = [
       "Adversarial competitor red-team monthly",
       "Founder-level strategic counsel",
     ],
-    cta: { label: "Book Sovereign Discovery Call", href: "/contact?tier=sovereign" },
+    cta: {
+      label: "Book Sovereign Discovery Call",
+      href: "/contact?tier=sovereign",
+    },
     anchor: true,
-    paymentLinkUrl: "https://buy.stripe.com/dRmfZh1JLe9872i9K3ao80s",
+    paymentLinkUrl: "", // v3.9.6 — Sovereign was always contact-only; the buy.stripe.com Sovereign payment link existed in Stripe but was never wired to the UI (AnchorTierCard doesn't render this field). Blanking for consistency across the ladder.
     stripePriceId: "price_1TTrs0GuLDs0qzh2y4POM9Sq",
   },
 ];
