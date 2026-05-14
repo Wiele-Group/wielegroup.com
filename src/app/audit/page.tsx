@@ -1,3 +1,5 @@
+// COGNITIVE PRE-FLIGHT (v3.9.4): Cowan 4-chunk rule — max 4 visible items per vertical list per viewport. /L99 binding.
+
 import type { Metadata } from "next";
 import { Check, Clock, FileText, Shield, ShieldOff } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
