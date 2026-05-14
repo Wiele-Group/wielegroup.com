@@ -1,0 +1,565 @@
+import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-electric/30 bg-electric/5 p-6 md:p-8">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+    The 60-second answer
+  </p>
+  <p className="text-body-lg text-cloud mb-4">
+    A page can load for a human and load for an AI engine and
+    still fail both. The HTTP request succeeds; the render
+    completes; the crawler indexes the URL — and the answer
+    inside the page never gets extracted. That is the silent
+    failure mode of the 2026 web. The discipline that closes it
+    is <strong className="text-white">cognitive access</strong>:
+    designing the page so a reader, human or model, can pull a
+    self-contained answer out of it in seconds.
+  </p>
+  <p className="text-body-md text-silver">
+    The doctrine has a name and a lineage. In the late 1990s, two
+    researchers at the Italian National Research Council in
+    Palermo — Corrao and Fulantelli — drew the line between
+    <em> information access</em> (reaching a page) and
+    <em> cognitive access</em> (cognitively elaborating its
+    content). They were designing a web-based instruction system
+    for architecture students. They were 25 years early to the
+    problem that now decides which brand the AI engine cites.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The two-tier failure mode.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    A premium agency ships a beautifully designed site. Core Web
+    Vitals are green. Lighthouse scores in the 90s. Schema is
+    present. The page is indexed in Google within hours of
+    publication. By every conventional measure, the page has
+    arrived.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Then the AI Overview answers the prospect&apos;s buying
+    question — and cites the competitor instead. The engine
+    visited the page. The crawler retrieved the HTML. The model
+    parsed the DOM. And the answer it composed did not pull from
+    that page, because that page never made its answer
+    extractable in the first place. The page <em>loaded</em> for
+    the AI. It was not <em>read</em> by the AI.
+  </p>
+  <p className="text-body-md text-silver">
+    This is the failure mode 2026 web optimisation does not see.
+    Lighthouse audits whether the page loads. The Wiele Cognitive
+    Access Audit (£1,950) audits whether the page is cognitively
+    accessible. They measure different tiers. Most pages pass the
+    first. Few pass the second.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Where the doctrine comes from — Palermo, 1998.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The philosophical origin sits in a short paper from the
+    Italian National Research Council (Consiglio Nazionale delle
+    Ricerche, CNR). R. Corrao and G. Fulantelli, at the
+    Institute for Education and Training Technologies in Palermo,
+    were building a web-based instruction system for University
+    of Palermo architecture students. Their paper —
+    <em> Cognitive accessibility to information on the Web</em> —
+    drew a careful distinction the wider web-design field never
+    fully internalised.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Reaching a page, they argued, is not the same as
+    cognitively elaborating its content. A learner can request a
+    resource, render it, scroll it, and walk away without
+    having learned anything. The HTTP transaction succeeded; the
+    cognitive transaction did not. They called the first
+    <em> information access</em> and the second
+    <em> cognitive access</em>, and they argued that web design
+    that ignored the second tier was design that worked only on
+    paper.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Their answer was a set of on-page scaffolds they called the
+    <em> Working Tools Bar</em> — post-its, markers, page-marks,
+    a kit-bag for saved fragments, an operation-aware history
+    they named <em>Iter</em>. The tools were architectural; what
+    matters today is the doctrine underneath them. Corrao and
+    Fulantelli named the wedge before LLMs existed, before the
+    iPhone existed, before mobile-first design existed. The
+    architecture of the problem outlasted their architecture of
+    the solution.
+  </p>
+  <p className="text-body-md text-silver">
+    The AEO era brings the wedge back, harder. AI answer engines
+    do not retrieve passages — they cognitively elaborate them
+    into answers. A page that does not present an extractable,
+    self-contained answer fails AI cognitive access for exactly
+    the reason Corrao identified in 1998. The doctrine is not
+    new. The cost of ignoring it is.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Why pages that load still fail.
+  </h2>
+  <p className="text-body-md text-silver mb-6">
+    Four recurring failure modes turn a fast, indexed page into
+    one the engine cannot extract from. Each is invisible to
+    Lighthouse. Each is fixable inside a sprint.
+  </p>
+  <Reveal stagger={0.06} className="grid gap-4">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">01</p>
+        <h3 className="text-heading-md text-white">Anaphora across paragraph boundaries</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        Pronouns and demonstratives — <em>this</em>, <em>that</em>,
+        <em> it</em>, <em>they</em> — that refer back across a
+        paragraph break lose their referent the moment the engine
+        chunks the passage. The human reader inferred the
+        antecedent; the extractor sees a passage with a dangling
+        pronoun and skips it. Each H2 block must be its own
+        closed referent system.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">02</p>
+        <h3 className="text-heading-md text-white">Heading hierarchy that does not segment the answer</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        Marketing-style headings (<em>The Future of Search</em>,
+        <em> Why It Matters</em>) read well to humans and tell the
+        extractor nothing. A heading should name the answer it
+        introduces. Declarative headings outperform rhetorical
+        headings across every engine class because the heading
+        tree IS the engine&apos;s passage-retrieval index.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">03</p>
+        <h3 className="text-heading-md text-white">Visual emphasis without semantic weight</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        A phrase styled large and bold in the design system but
+        wrapped in a plain <code>&lt;span&gt;</code> reads as
+        important to the eye and as body prose to the parser.
+        Importance has to be expressed in HTML semantics
+        (<code>&lt;strong&gt;</code>, <code>&lt;h2&gt;</code>,
+        <code> &lt;dt&gt;</code>) before any CSS treatment lands
+        on top. Pretty markup with semantic body text is the
+        commonest agency-built failure pattern.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">04</p>
+        <h3 className="text-heading-md text-white">Single-source self-reference</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        The page asserts facts and cites nothing. No Schema.org
+        markup, no named author, no inbound entity links, no
+        sourced statistic, no dated revision. The engine has no
+        signal to weigh the claim and no fragment of citation
+        graph to attach the page to. Authority is something the
+        page either participates in or sits outside of. Self-
+        reference alone keeps the page outside.
+      </p>
+    </div>
+  </Reveal>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The three tests Wiele uses.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Cognitive access is not a vibe. It is auditable against three
+    named tests from the cognitive-psychology and usability
+    canon. Wiele applies all three on every page that needs to
+    be cited.
+  </p>
+  <ol className="space-y-4 text-body-md text-silver list-decimal pl-6">
+    <li>
+      <strong className="text-white">Krug&apos;s Trunk Test —
+      5-second self-evidence.</strong> Steve Krug&apos;s 2014
+      diagnostic: imagine being dumped on the page with no
+      context. Within five seconds, can a reader identify what
+      the page is, what it answers, where it sits in the site,
+      and what to do next? If the page fails that test for a
+      human reader, it fails it for an extractor running on a
+      tighter time budget.
+    </li>
+    <li>
+      <strong className="text-white">Whalen&apos;s Six Minds audit
+      grid.</strong> John Whalen&apos;s 2019 framework: a customer
+      experience is not one thing but six parallel cognitive
+      processes — Vision and Attention, Wayfinding, Memory,
+      Language, Decision-Making, Emotion. A page that lands on
+      five of the six and leaks the sixth is a page that loads
+      and fails. The grid converts cognitive access into a
+      6-row audit any operator can execute.
+    </li>
+    <li>
+      <strong className="text-white">Jones et al. 50-millisecond
+      first-impression test.</strong> Jones, Fitzpatrick and
+      Chassy (Liverpool Hope University, 2015): aesthetic
+      judgement on a web page locks in at 50 milliseconds and
+      persists. The three engineerable variables are
+      prototypicality (does the page match what the reader
+      already expects an authoritative page to look like?),
+      moderate visual complexity (rich enough to signal
+      authority, not so dense it overflows working memory), and
+      processing fluency (clean typography, predictable layout,
+      no cognitive friction in the first viewport).
+    </li>
+  </ol>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What cognitive access requires — the seven signals.
+  </h2>
+  <p className="text-body-md text-silver mb-6">
+    Seven engineering decisions, applied together, move a page
+    from information-accessible to cognitively-accessible. Each
+    is auditable. Each is shippable inside a two-to-four-week
+    sprint.
+  </p>
+  <Reveal stagger={0.05} className="grid gap-3">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>01 · Entity-rich first paragraph.</strong></p>
+      <p className="text-body-md text-silver">The opener names the entities the page is about — brand, framework, category, named author — in the first 50 to 100 words. Entity prominence on first appearance lifts both human salience and crawler resolution.</p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>02 · Self-contained H2 answer blocks.</strong></p>
+      <p className="text-body-md text-silver">Every H2 stands alone. A reader landing on the section via anchor link, or an extractor pulling that block in isolation, gets a complete answer without needing the sections above or below.</p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>03 · Working-memory-safe chunking.</strong></p>
+      <p className="text-body-md text-silver">Cowan&apos;s 4-chunk cap on working memory: visible vertical lists, callouts, and option sets stay at four or fewer items. Longer enumerations get sub-grouped. Compression beats truncation.</p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>04 · JSON-LD structured data, inlined.</strong></p>
+      <p className="text-body-md text-silver">Article, FAQPage, HowTo, Person, BreadcrumbList — server-rendered into the HTML response, not injected after hydration. Non-JS crawlers see the schema; non-JS extractors use it.</p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>05 · Internal entity links, not topical anchors.</strong></p>
+      <p className="text-body-md text-silver">Anchor text is the entity name (<em>Citation Score™</em>) not a generic phrase (<em>learn more</em>). Internal links form an entity graph the engine can traverse; topical anchors form a dead-letter office.</p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>06 · Explicit re-elaboration of the question inside the answer.</strong></p>
+      <p className="text-body-md text-silver">A passage that answers <em>how do agencies get cited in AI answers</em> repeats the question&apos;s entities and verbs inside the answer body, not just in the heading. Re-elaboration is what makes the passage extractable on its own.</p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 md:p-6">
+      <p className="text-body-md text-white mb-1"><strong>07 · Versioned date stamps and authority signals.</strong></p>
+      <p className="text-body-md text-silver">Visible <code>datePublished</code> and <code>dateModified</code>, named author, named methodology source, dated revision history. The engine&apos;s recency filter and authority weighting both reward the visible trail.</p>
+    </div>
+  </Reveal>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Information Access vs Cognitive Access — the side-by-side.
+  </h2>
+  <p className="text-body-md text-silver mb-6">
+    Most pages pass the first column. Few pass the second. The
+    gap between the two is the citation gap.
+  </p>
+  <div className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)]">
+    <table className="w-full text-body-sm text-silver">
+      <thead>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <th className="text-left p-4 font-mono text-body-xs uppercase tracking-[0.12em] text-electric">Dimension</th>
+          <th className="text-left p-4 font-mono text-body-xs uppercase tracking-[0.12em] text-electric">Information Access</th>
+          <th className="text-left p-4 font-mono text-body-xs uppercase tracking-[0.12em] text-electric">Cognitive Access</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="p-4 text-white">What it measures</td>
+          <td className="p-4">The page is reachable, parseable, indexable.</td>
+          <td className="p-4">A reader (human or model) can extract a self-contained answer.</td>
+        </tr>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="p-4 text-white">Signals</td>
+          <td className="p-4">HTTP 200 · Core Web Vitals green · valid HTML · indexed in Google.</td>
+          <td className="p-4">Prototype match · processing fluency ≥ threshold · self-contained passages · entity prominence.</td>
+        </tr>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="p-4 text-white">Tooling</td>
+          <td className="p-4">Lighthouse · PageSpeed Insights · Search Console.</td>
+          <td className="p-4">Trunk Test · Six Minds grid · 50ms first-impression test · extractability rubric.</td>
+        </tr>
+        <tr className="border-b border-[var(--color-border-default)]">
+          <td className="p-4 text-white">Failure mode</td>
+          <td className="p-4">Page does not load or does not index.</td>
+          <td className="p-4">Page loads, indexes, ranks — and is silently passed over by the AI Overview.</td>
+        </tr>
+        <tr>
+          <td className="p-4 text-white">Wiele instrument</td>
+          <td className="p-4">Site Hygiene baseline (precondition).</td>
+          <td className="p-4"><Link href="/pricing" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Score™</Link> §2 · Cognitive Access Audit.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Why Lighthouse will not tell you this.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Lighthouse, PageSpeed Insights, Search Console, the entire
+    classical web-perf tool-chain — they all audit the first
+    tier. They ask whether the page loaded, how fast it loaded,
+    whether the HTML validated, whether the schema parsed. They
+    cannot ask whether the answer was extractable, because that
+    question requires a reader. The reader is the missing
+    component in classical web auditing.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The Wiele Cognitive Access Audit is the second-tier audit.
+    It executes the three named tests (Trunk Test, Six Minds,
+    50ms first-impression) against a client&apos;s top buyer-decision
+    pages, scores each page on the seven cognitive-access
+    signals, and outputs a prioritised remediation roadmap. One
+    fixed fee. £1,950. Productised methodology, not consultative
+    hand-waving.
+  </p>
+  <p className="text-body-md text-silver">
+    The audit is the front-door product. The instrumentation
+    behind it is the
+    {" "}<Link href="/pricing" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Score™</Link>{" "}
+    subscription — Starter (£2k/mo) tracks the citation lift
+    over time; Pro (£4k/mo) tracks the lift against a named
+    competitor set; Authority (£6k/mo) tracks the lift, the
+    competitor set, and the Six Minds grid as a monthly
+    diagnostic on the client&apos;s top 10 pages.
+  </p>
+</section>
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-3">
+    Read next · Brief #003
+  </p>
+  <h3 className="text-heading-md text-white text-balance mb-3">
+    AEO is the 2026 WCAG — accessibility for machine readers.
+  </h3>
+  <p className="text-body-md text-silver mb-4">
+    Brief #003 frames AEO as the structural accessibility
+    discipline of the AI era — an architectural commitment, not
+    a content tactic. Cognitive access is the underlying
+    doctrine; AEO-as-WCAG is the policy framing every agency
+    operator needs to adopt before the next planning cycle.
+  </p>
+  <Link
+    href="/citation-brief/aeo-is-the-2026-wcag"
+    className="inline-flex items-center gap-1.5 text-body-sm font-medium text-electric hover:text-electric-light underline-offset-4 hover:underline"
+  >
+    Read Brief #003 →
+  </Link>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What it means for agency owners.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Agency operators recognise this pattern immediately. A
+    client&apos;s site is polished. Performance scores are strong.
+    Rankings on the head terms are healthy. The traffic graph
+    looks fine. And the AI Overview, the Perplexity answer, the
+    ChatGPT response — they cite a different brand. The client
+    asks why, and the conventional toolchain has no answer for
+    them, because the conventional toolchain measures
+    information access and the failure is at the cognitive
+    access tier.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    This is the diagnostic agencies need to be able to deliver
+    in 2026, and the fix is teachable. The doctrine has a
+    25-year lineage and a peer-reviewed cognitive-psychology
+    defence. The audit is one fixed fee. The remediation is a
+    schema bundle, a heading rewrite, an entity-rich opener, a
+    re-chunked layout, and a date-stamped versioning discipline.
+    None of it is mystery. All of it is measurable.
+  </p>
+  <p className="text-body-md text-silver">
+    The agencies that productise this discipline first will own
+    the diagnosis in their market. The agencies that wait will
+    find their clients hiring the agencies that did not.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The Citation Score™ tie-in.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The Two-Tier Access doctrine is not a positioning idea
+    pulled from nowhere. It is the operating substrate of
+    Citation Score™ §2 — the on-page extractability dimension
+    of the Wiele subscription product. Every Citation Score
+    delivery measures the client&apos;s pages against the seven
+    cognitive-access signals; every monthly run scores the
+    drift; every named-competitor comparison surfaces which
+    competitors are out-engineering the client on cognitive
+    access specifically.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The Cognitive Access Audit (£1,950) is the
+    front-door product — fixed-fee, one-off, ICP-friendly. The
+    {" "}<Link href="/pricing" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Score™</Link>{" "}
+    subscription is the recurring instrument — £2-6k per month,
+    depending on tier, tracking the lift over time. Both
+    productise the same doctrine. Both are buildable in a
+    sprint. Both are owned positioning that no Wiele competitor
+    is currently shipping.
+  </p>
+  <p className="text-body-md text-silver">
+    The compounding loop sits between the two. Audit identifies
+    the gaps; subscription tracks the close; the close becomes
+    the case study; the case study compounds the authority that
+    makes the next audit easier to sell. Information access was
+    the discipline of the 1998-2024 web. Cognitive access is
+    the discipline of the AI-mediated web from 2025 forward.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Methodology &amp; sources.
+  </h2>
+  <p className="text-body-md text-silver mb-3">
+    The Two-Tier Access doctrine combines a primary academic
+    source from 1998 with three secondary sources from the
+    usability and cognitive-engineering canon, instrumented
+    against the Wiele AI Citation Tracker dataset:
+  </p>
+  <ul className="space-y-2 text-body-md text-silver list-disc pl-6">
+    <li>
+      Corrao, R. &amp; Fulantelli, G. (c.1998).
+      <em> Cognitive accessibility to information on the Web:
+      insights from a system for teaching and learning
+      Architecture through the Net.</em> Italian National
+      Research Council, Institute for Education and Training
+      Technologies, Palermo — the primary source for the
+      Information Access vs Cognitive Access distinction.
+    </li>
+    <li>
+      Krug, S. (2014). <em>Don&apos;t Make Me Think, Revisited
+      </em> (3rd ed.). New Riders / Peachpit — source for the
+      Trunk Test and the three-laws-of-usability operational
+      doctrine.
+    </li>
+    <li>
+      Whalen, J. (2019). <em>Design for How People Think</em>.
+      O&apos;Reilly Media — source for the Six Minds audit grid
+      (Vision/Attention, Wayfinding, Memory, Language, Decision-
+      Making, Emotion).
+    </li>
+    <li>
+      Jones, J., Fitzpatrick, J. &amp; Chassy, P. (2015).
+      <em> The Cognitive Engineering of Memory in Educational
+      Website Design.</em> Advances in Social Sciences Research
+      Journal 2(5), pp.115-121. DOI 10.14738/assrj.25.1147 —
+      peer-reviewed source for the 50ms first-impression
+      window, prototypicality, and the inverted-U complexity
+      curve.
+    </li>
+    <li>
+      Schema.org — Article, FAQPage, HowTo, Person,
+      BreadcrumbList type specifications.
+    </li>
+    <li>
+      Google Search Central — Structured-data guidelines, Rich
+      Results eligibility, AI Overview opt-in mechanics.
+    </li>
+    <li>
+      Wiele AI Citation Tracker dataset — private, anonymised,
+      longitudinal engine-run data feeding the Citation Score™
+      subscription rubric.
+    </li>
+    <li>
+      Companion briefs: the
+      {" "}<Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Five-Stage Citation Hierarchy</Link>{" "}
+      (Brief #001) and
+      {" "}<Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Stage 3 — Structured Extractability</Link>{" "}
+      (Brief #002).
+    </li>
+  </ul>
+  <p className="text-body-sm text-smoke mt-5">
+    The Corrao &amp; Fulantelli paper is a Wiele owned-lineage
+    asset. To the best of the Wiele Citation Tracker&apos;s
+    knowledge, no current AEO/GEO agency has yet cited this
+    source in their public positioning. Engagement clients
+    receive the full cognitive-access scorecard against their
+    top buyer-decision pages inside the Citation Score™
+    dashboard.
+  </p>
+</section>
+
+<section className="mb-2">
+  <p className="text-body-md text-silver">
+    Information access is the discipline of the web that loads.
+    Cognitive access is the discipline of the web that gets
+    cited. If you want the cognitive-access scorecard against
+    your live site — plus the seven-signal remediation roadmap —
+    start with the <Link href="/audit" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Cognitive Access Audit</Link>,
+    or instrument the lift over time with the
+    {" "}<Link href="/pricing" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Score™</Link>{" "}
+    subscription. Brief #001 covers the
+    {" "}<Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Five-Stage Citation Hierarchy</Link>;
+    Brief #002 deep-dives
+    {" "}<Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Stage 3 Structured Extractability</Link>;
+    Brief #003 frames
+    {" "}<Link href="/citation-brief/aeo-is-the-2026-wcag" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">AEO as the 2026 WCAG</Link>.
+  </p>
+</section>
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Two-Tier Access Doctrine: Why Pages That Load Still Fail in AI Answers",
+      "description": "Information access (the page loaded) is not cognitive access (an LLM or human can extract a self-contained answer). The Wiele doctrine, traced to Corrao & Fulantelli (CNR Palermo, 1998).",
+      "datePublished": "2026-05-14",
+      "dateModified": "2026-05-14",
+      "author": {
+        "@type": "Person",
+        "name": "Jonathan B. Landman",
+        "url": "https://wielegroup.com/about",
+        "sameAs": [
+          "https://www.linkedin.com/in/jonathanlandman"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Wiele Group",
+        "url": "https://wielegroup.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wielegroup.com/brand/wiele-logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://wielegroup.com/citation-brief/two-tier-access-doctrine"
+      },
+      "image": "https://wielegroup.com/og/citation-brief-two-tier-access-doctrine.png",
+      "articleSection": "Citation Brief",
+      "keywords": "AEO, cognitive access, Citation Score, agency, AI search, extractability, Corrao Fulantelli, CNR Palermo"
+    })
+  }}
+/>

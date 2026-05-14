@@ -94,6 +94,24 @@ const STATIC_ROUTES: { path: string; priority: Priority; changeFrequency: Freque
       priority: 0.85,
       changeFrequency: "monthly",
     },
+    /* v3.9.4 T6 Amendment A (2026-05-14) — Citation Brief #003.
+       AEO-is-the-2026-WCAG: the accessibility lineage of AI citation.
+       Robbins 2007 + Corrao 1998 lineage argument; Cognitive Access
+       Audit + Citation Score™ tie-in. */
+    {
+      path: "/citation-brief/aeo-is-the-2026-wcag",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
+    /* v3.9.4 T6 Amendment A (2026-05-14) — Citation Brief #004.
+       Two-Tier Access Doctrine — why pages that load still fail in AI
+       answers. Corrao + Fulantelli 1998 CNR Palermo source. Krug + Whalen
+       + Jones 2015 grounding. */
+    {
+      path: "/citation-brief/two-tier-access-doctrine",
+      priority: 0.85,
+      changeFrequency: "monthly",
+    },
     /* v3.9.4 T4 (2026-05-14) — Citation Score™ methodology page.
        Productizes the four-component metric (Engine Coverage · On-Page
        Extractability · Citation Velocity · Recommendation History) plus

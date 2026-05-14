@@ -173,6 +173,34 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
       },
     ],
   },
+  {
+    slug: "aeo-is-the-2026-wcag",
+    briefNumber: 3,
+    title:
+      "AEO is the 2026 WCAG — the accessibility lineage of AI citation",
+    summary:
+      "AEO is the 2026 successor to WCAG. The same disciplines that made the 2000s web legible to screen readers now make pages legible to AI engines. The lineage is direct; the buyer is new.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-14",
+    readingMinutes: 14,
+  },
+  {
+    slug: "two-tier-access-doctrine",
+    briefNumber: 4,
+    title:
+      "The Two-Tier Access Doctrine — why pages that load still fail in AI answers",
+    summary:
+      "Information access (reaching a page) is solved. Cognitive access (extracting an answer from it) is not. Corrao + Fulantelli 1998 is the doctrine that closes the gap — 25 years early.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-14",
+    readingMinutes: 12,
+  },
 ];
 
 /**

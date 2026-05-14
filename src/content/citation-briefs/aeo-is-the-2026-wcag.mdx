@@ -1,0 +1,647 @@
+import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-electric/30 bg-electric/5 p-6 md:p-8">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+    The 60-second answer
+  </p>
+  <p className="text-body-lg text-cloud mb-4">
+    AEO is the 2026 successor to <strong className="text-white">WCAG</strong>. The
+    same disciplines that made the 2000s web legible to screen
+    readers — semantic HTML, alt text, plain language, scannable
+    headings, descriptive link text — now make pages legible to{" "}
+    <strong className="text-white">ChatGPT, Gemini, Perplexity</strong>
+    {" "}and the AI answer layer that increasingly sits between buyers
+    and brands. The lineage is direct. The buyer is new.
+  </p>
+  <p className="text-body-md text-silver">
+    Agencies whose clients already pass WCAG-AA — healthcare,
+    government, finance, education — are 60-70% of the way to AEO
+    readiness without knowing it. The upgrade is teachable, the
+    instrumentation is named, and the regulatory tailwind that
+    pulled accessibility from optional to mandatory in 2010–2020
+    is poised to do the same for AI extractability between now and
+    2030.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The lineage no one is naming.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Between 1999 and 2008 a quiet discipline reshaped how the web
+    was built. Section 508 of the US Rehabilitation Act landed in
+    1998; the Web Content Accessibility Guidelines 1.0 followed in
+    1999; WCAG 2.0 became the durable standard in 2008. Jennifer
+    Robbins published <em>Learning Web Design</em> through O&apos;Reilly
+    across three editions (2001 / 2003 / 2007) and taught a
+    generation of practitioners that accessibility was not a
+    cosmetic extra. It was the structural floor that decided
+    whether a page could be reached at all by readers using JAWS,
+    NVDA, switch devices, or screen magnifiers.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The disciplines that floor required are now exactly the
+    disciplines AI answer engines reward. Semantic heading
+    hierarchy. Alt text on every meaningful image. Link text that
+    says where the link goes. Plain language that survives a
+    paragraph-by-paragraph parse. Tables and lists where the data
+    permits. The technology that consumes these signals has
+    changed — JAWS replaced by GPT-4o, NVDA joined by Gemini and
+    Perplexity — but the signals themselves are continuous with
+    the WCAG era.
+  </p>
+  <p className="text-body-md text-silver">
+    Wiele&apos;s working position is that <strong className="text-white">AEO is the 2026 WCAG</strong>{" "}— the same
+    structural discipline, the same regulatory direction of
+    travel, the same long-tail economics for the agencies that
+    learn it first. The remainder of this brief unpacks the
+    parallel in the five technical disciplines, names what is
+    genuinely new in the LLM era, and shows agency owners how to
+    convert existing WCAG-AA capability into Citation Score™ lift.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The 1999–2008 WCAG era — what the discipline already taught.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The accessibility canon Robbins distilled into Chapter 3 of{" "}
+    <em>Learning Web Design</em> (3rd edition, 2007, pages 34–35)
+    named sixteen federally codified Section 508 requirements and
+    the WCAG layer above them. Most of the canon compresses into
+    five operational rules, each of which still binds in 2026.
+  </p>
+  <Reveal stagger={0.06} className="grid gap-4">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">01</p>
+        <h3 className="text-heading-md text-white">Semantic markup</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Use the element that means what you mean.
+      </p>
+      <p className="text-body-md text-silver">
+        Headings are H1–H6, lists are <code>ul</code>/<code>ol</code>,
+        navigation is <code>nav</code>, the main column is{" "}
+        <code>main</code>. Screen readers reconstruct the document
+        outline from these elements and announce it; without them
+        the page is a wall of prose with no landmarks. WCAG 2.0
+        Success Criterion 1.3.1 — Info and Relationships — is the
+        canonical articulation.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">02</p>
+        <h3 className="text-heading-md text-white">Alt text on every meaningful image</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Every non-text element gets a text alternative.
+      </p>
+      <p className="text-body-md text-silver">
+        WCAG 1.1.1 — Non-text Content. A screen reader cannot see
+        the image; the alt attribute is the only channel through
+        which its meaning reaches the user. Empty alt for purely
+        decorative images, descriptive alt for content images,
+        long-form description for complex graphics or charts.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">03</p>
+        <h3 className="text-heading-md text-white">Plain, structured language</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Read the page, not the rhetoric.
+      </p>
+      <p className="text-body-md text-silver">
+        WCAG 3.1.5 — Reading Level. Content should be readable at
+        a lower-secondary education level where possible.
+        Short sentences, defined acronyms, no marketing fog. A
+        reader navigating with synthesised speech and 100 ms
+        latency cannot tolerate a 60-word sentence with three
+        embedded clauses.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">04</p>
+        <h3 className="text-heading-md text-white">Descriptive link text</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        The link says where the link goes.
+      </p>
+      <p className="text-body-md text-silver">
+        WCAG 2.4.4 — Link Purpose (In Context). &quot;Click here&quot;
+        and &quot;read more&quot; fail the standard. Screen-reader users
+        often tab through a link-only view of the page; if every
+        link says the same thing, the page is structurally
+        unnavigable.
+      </p>
+    </div>
+  </Reveal>
+  <p className="text-body-md text-silver mt-6">
+    Add a fifth — scannable heading hierarchy two levels deep
+    minimum, no skipped levels, declarative headings that name
+    the section&apos;s subject — and the foundational WCAG-AA
+    discipline is on the page. Robbins&apos;s 2007 framing of these
+    rules survives almost untouched because the discipline they
+    encode is structural, not stylistic.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The 2026 AEO era — same disciplines, different consumer.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Swap the screen-reader user for an AI answer engine and the
+    five disciplines re-appear with the same operational
+    requirements. ChatGPT, Gemini, Perplexity, and Claude consume
+    pages through HTTP-fetching crawlers and feed the rendered
+    HTML into models that parse structure before they parse
+    sentiment. They use the document outline to segment context.
+    They use alt text as the textual proxy when an image is
+    referenced. They use link text as an entity-disambiguation
+    signal. They privilege plain language because plain language
+    survives tokenisation without semantic loss.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The technical mapping is almost one-for-one. Heading
+    hierarchy &rarr; LLM context segmentation. Alt text &rarr; image
+    captioning fallback when the model is multimodal but the
+    crawler captured text-only. Link text &rarr; entity reconciliation
+    inside the knowledge graph. Plain language &rarr; clean
+    extractability with low paraphrase risk. Semantic markup &rarr;
+    passage-retrieval index quality.
+  </p>
+  <p className="text-body-md text-silver">
+    The shift this brief names is not technical — the engineering
+    work is largely the same. The shift is who the work is now
+    for. WCAG made the web legible to a few hundred thousand
+    screen-reader users in the early 2000s. AEO makes it legible
+    to several hundred million weekly AI-engine users in 2026,
+    and rising. The discipline that quietly mattered to one
+    audience is about to loudly matter to almost everyone.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The five disciplines that bridge.
+  </h2>
+  <p className="text-body-md text-silver mb-8">
+    Each row below names a WCAG-AA discipline, what AEO inherits
+    unchanged, and what is genuinely new in the AI era. Agencies
+    auditing the bridge for a client should expect 60–70% of
+    column two to already be in place wherever WCAG compliance is
+    a contractual obligation.
+  </p>
+  <Reveal stagger={0.06} className="grid gap-4">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">Discipline 1</p>
+        <h3 className="text-heading-md text-white">Semantic structure</h3>
+      </div>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">WCAG required:</strong> H1
+        through H6 in nested order; landmarks (<code>main</code>,{" "}
+        <code>nav</code>, <code>aside</code>); list elements where
+        the content is a list.
+      </p>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">AEO requires:</strong>{" "}
+        identical semantic outline; H2 sections that are
+        self-contained answer blocks; one idea per heading; no
+        marketing-style click-bait headings that obscure the
+        section&apos;s subject.
+      </p>
+      <p className="text-body-md text-silver">
+        <strong className="text-white">Net new:</strong> declarative
+        H2 phrasing optimised for passage retrieval. A heading that
+        names a substantive claim outperforms a heading that poses
+        a question without answering it.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">Discipline 2</p>
+        <h3 className="text-heading-md text-white">Alt text and descriptors</h3>
+      </div>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">WCAG required:</strong>{" "}
+        descriptive alt for content images; empty alt for purely
+        decorative images; long descriptions for charts and
+        complex graphics.
+      </p>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">AEO requires:</strong>{" "}
+        identical alt-text discipline; filename-as-keyword
+        signalling (<code>wiele-citation-hierarchy-diagram.png</code>{" "}
+        beats <code>image-04.png</code>); 80–125 character entity-rich
+        alt strings.
+      </p>
+      <p className="text-body-md text-silver">
+        <strong className="text-white">Net new:</strong> structured
+        <code>ImageObject</code> schema for diagrams, charts, and
+        proof artefacts. The AI engine treats schema-described
+        images as first-class evidence.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">Discipline 3</p>
+        <h3 className="text-heading-md text-white">Plain language</h3>
+      </div>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">WCAG required:</strong>{" "}
+        readable at lower-secondary level; defined jargon;
+        short sentences; expanded acronyms on first use.
+      </p>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">AEO requires:</strong>{" "}
+        identical plain-language discipline; one idea per
+        paragraph; sentences under approximately 18 words; no
+        anaphora that loses meaning when the paragraph is
+        extracted in isolation.
+      </p>
+      <p className="text-body-md text-silver">
+        <strong className="text-white">Net new:</strong>{" "}
+        self-contained answer blocks. Every H2 section is parsable
+        as a stand-alone snippet — &quot;as discussed above&quot; is a
+        bug, not a stylistic choice.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">Discipline 4</p>
+        <h3 className="text-heading-md text-white">Link text precision</h3>
+      </div>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">WCAG required:</strong>{" "}
+        link purpose clear from link text in context; no &quot;click
+        here&quot;; no duplicate link text pointing at different
+        destinations.
+      </p>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">AEO requires:</strong>{" "}
+        identical discipline; link text that names the destination
+        entity (&quot;the Five-Stage Citation Hierarchy&quot;, not &quot;our
+        framework&quot;); internal anchor links to specific H2
+        fragments.
+      </p>
+      <p className="text-body-md text-silver">
+        <strong className="text-white">Net new:</strong> anchor
+        URLs that resolve to stable fragment IDs. AI engines cite
+        sub-section URLs when the markup makes them addressable;
+        finer-grained attribution beats whole-page attribution
+        every time.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">Discipline 5</p>
+        <h3 className="text-heading-md text-white">Heading hierarchy</h3>
+      </div>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">WCAG required:</strong>{" "}
+        no skipped heading levels; one H1 per page; H2/H3 nested
+        coherently.
+      </p>
+      <p className="text-body-md text-silver mb-2">
+        <strong className="text-white">AEO requires:</strong>{" "}
+        identical structural rules; H2 sections sized to fit
+        inside the LLM&apos;s working context window without
+        truncation; predictable two-level depth on long-form
+        content.
+      </p>
+      <p className="text-body-md text-silver">
+        <strong className="text-white">Net new:</strong> each H2
+        functions as a retrievable passage with its own implicit
+        question and explicit answer. The hierarchy is no longer
+        navigational furniture — it is the retrieval index.
+      </p>
+    </div>
+  </Reveal>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What is genuinely new — and what WCAG didn&apos;t anticipate.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Four AEO requirements have no clean WCAG ancestor. They sit
+    on top of the accessibility foundation rather than overlapping
+    with it, and they are where the agency upgrade work
+    concentrates.
+  </p>
+  <ol className="space-y-4 text-body-md text-silver list-decimal pl-6">
+    <li>
+      <strong className="text-white">Self-contained answer blocks.</strong>
+      {" "}WCAG never required a paragraph to be cognitively
+      complete on its own — a screen-reader user reads in
+      sequence. An AI engine extracts in isolation. Pages with
+      heavy anaphora (&quot;the above process&quot;, &quot;these five
+      principles&quot;, &quot;as we saw earlier&quot;) lose meaning when
+      a single H2 is pulled into an answer. Every section in this
+      brief was written to survive extraction.
+    </li>
+    <li>
+      <strong className="text-white">Entity-rich opening paragraphs.</strong>
+      {" "}WCAG was indifferent to whether the first paragraph
+      named the topic explicitly; AEO is not. Engines weight the
+      first 100–200 words heavily as the page&apos;s self-description.
+      An opening that names the brand, the framework, the
+      discipline, and the claim outperforms an opening that
+      builds toward them.
+    </li>
+    <li>
+      <strong className="text-white">JSON-LD structured data.</strong>
+      {" "}WCAG never required Schema.org markup. AEO does.
+      <code>Article</code>, <code>FAQPage</code>, <code>HowTo</code>,
+      <code>Person</code>, and <code>BreadcrumbList</code> hand
+      engines pre-extracted answer blocks. The full schema
+      treatment is covered in{" "}
+      <Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+        Brief #002 — Stage 3 Structured Extractability
+      </Link>
+      .
+    </li>
+    <li>
+      <strong className="text-white">Two-Tier Access — information access vs cognitive access.</strong>
+      {" "}Corrao and Fulantelli (CNR Palermo, late 1990s) named
+      the principle a decade before WCAG 2.0: a page that loads
+      is not the same as a page that elaborates. In the AEO era,
+      a page that loads but does not re-elaborate its underlying
+      facts into self-contained, structured, attributable claims
+      fails the deeper test. Wiele treats this as the
+      philosophical lineage of the Citation Score™ §2 sub-metric.{" "}
+      <Link href="/citation-brief/two-tier-access-doctrine" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+        Brief #004 covers the doctrine in full.
+      </Link>
+    </li>
+  </ol>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The audit overlap — WCAG-AA passes are 60–70% AEO-ready.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    For agency principals serving clients in regulated verticals
+    — healthcare, government, finance, higher education, public
+    transport — WCAG-AA compliance is already a contractual floor.
+    Wiele&apos;s pre-engagement Signal Audits find the same pattern
+    repeatedly: the existing accessibility work has done most of
+    the heavy AEO lifting, but the structural-data and
+    extractability upgrades have not been ordered.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The overlap breaks down across three tiers. <strong className="text-white">Transfers
+    directly</strong>: semantic heading hierarchy, descriptive
+    link text, alt text on meaningful images, plain-language
+    discipline, scannable paragraph structure. <strong className="text-white">Needs
+    extension</strong>: heading wording optimised for passage
+    retrieval (declarative not click-bait); alt text optimised
+    for entity signalling (filename + 80–125 character entity-rich
+    alt); link text optimised for entity disambiguation. <strong className="text-white">Net
+    new</strong>: JSON-LD schema bundle, entity-rich opening
+    paragraph, self-contained answer blocks, anchor-link
+    fragments, on-page source attribution.
+  </p>
+  <p className="text-body-md text-silver">
+    The practical implication for agency owners is direct. An
+    accessibility specialist who can already audit a client site
+    against WCAG-AA is 60–70% of the way to being able to audit
+    the same site against AEO requirements. The remaining 30–40%
+    is teachable in a sprint. Wiele&apos;s Cognitive Access Audit
+    (£1,950, productised) instruments exactly this gap as a
+    deliverable that converts a WCAG report into an AEO roadmap.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The regulatory tailwind.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Accessibility moved from optional to mandatory between 1998
+    and 2020 because regulators backed it. Section 508 (US, 1998)
+    and its 2017 refresh. The Equality Act (UK, 2010). The European
+    Accessibility Act (2019, in force 2025). Web-based ADA
+    Title III rulings in US federal courts from 2018 onward,
+    setting WCAG 2.1 AA as the operational standard for
+    commercial websites.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The 2024–2030 regulatory direction of travel for AI
+    extractability rhymes. The EU AI Act (2024, phased through
+    2026) classifies high-risk AI systems and requires that the
+    information they consume be auditable and accountable. The
+    UK&apos;s AI regulatory framework (2024 white paper, 2026 detail)
+    signals similar direction. The US FTC has begun enforcement
+    around AI-driven decision systems, including how those
+    systems source the information they act on.
+  </p>
+  <p className="text-body-md text-silver">
+    The straight-line forecast: between now and 2030, AI-mediated
+    information access will inherit the regulatory legitimacy
+    that human-mediated information access acquired in the prior
+    decade. Pages that fail to present accountable, attributable,
+    structured information to the AI layer will increasingly be
+    pages that fail to serve regulated industries at all. Agencies
+    that learn the discipline now will be billing for compliance
+    work in 2028 that competitors are scrambling to staff.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What this means for agency owners.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    If your firm already ships WCAG-AA work, the upgrade path
+    into AEO delivery is shorter than your competitors realise.
+    Three operational points worth naming.
+  </p>
+  <ul className="space-y-3 text-body-md text-silver list-disc pl-6">
+    <li>
+      <strong className="text-white">Your accessibility specialist
+      is your AEO lead-in-waiting.</strong> The audit muscle, the
+      semantic-HTML literacy, the alt-text discipline, the
+      heading-hierarchy instinct — all of it transfers. The
+      upgrade is structured data, entity engineering, and the
+      Two-Tier Access doctrine, all of which are teachable inside
+      a single delivery cycle.
+    </li>
+    <li>
+      <strong className="text-white">Your existing WCAG audit
+      template is the scaffold for your AEO audit template.</strong>
+      {" "}Add three columns — schema bundle, extractability
+      pattern, entity signalling — and a working AEO audit
+      deliverable sits on top of work your team is already
+      shipping. Wiele&apos;s Cognitive Access Audit format is
+      available as a reference structure.
+    </li>
+    <li>
+      <strong className="text-white">Your regulated clients are
+      your fastest AEO upsell.</strong> Healthcare systems,
+      financial institutions, government agencies, and university
+      websites are already paying for accessibility and already
+      sensitive to compliance risk. They will buy AEO when it is
+      framed as the next regulatory floor, not when it is framed
+      as a marketing upgrade. The framing matters as much as the
+      capability.
+    </li>
+  </ul>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    How Wiele productises the lineage.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The Wiele Citation Score™ programme operationalises the
+    WCAG-to-AEO bridge as a measurable lift. Two artefacts are
+    worth naming for agency principals reading this brief.
+  </p>
+  <ol className="space-y-4 text-body-md text-silver list-decimal pl-6">
+    <li>
+      <strong className="text-white">The Cognitive Access Audit
+      (£1,950).</strong> A standalone deliverable that scores a
+      target site on both tiers — Information Access (loads,
+      semantic markup, indexable) and Cognitive Access (passages
+      extractable, structure scannable, claims re-elaborated,
+      citations resolvable). Output is a populated scorecard plus
+      a 30-day implementation roadmap. The Corrao + Fulantelli
+      two-tier model supplies the philosophical lineage; the
+      WCAG-AA discipline supplies the operational floor; the
+      Citation Score™ rubric supplies the measurable scoring.
+    </li>
+    <li>
+      <strong className="text-white">The Citation Score™
+      subscription (£2–6k/mo).</strong> Monthly engine-run
+      instrumentation against a named competitor set. The lift
+      from a Cognitive Access Audit fix is visible in the next
+      monthly run on Stage-3-sensitive prompts; the compounding
+      curve from sustained discipline is visible by month three.
+      Pricing tiers (Starter / Pro / Authority) follow the same
+      access-tier logic that Corrao and Fulantelli proposed
+      twenty-five years ago for educational platforms.
+    </li>
+  </ol>
+</section>
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-3">
+    Read next · Brief #004
+  </p>
+  <h3 className="text-heading-md text-white text-balance mb-3">
+    The Two-Tier Access Doctrine — information access vs cognitive access.
+  </h3>
+  <p className="text-body-md text-silver mb-4">
+    Brief #004 unpacks the Corrao and Fulantelli (CNR Palermo,
+    late 1990s) philosophical lineage that grounds Citation
+    Score™ §2. Why a page that loads is not the same as a page
+    that elaborates, why AI engines treat the two differently,
+    and how Wiele instruments the cognitive layer as a measurable
+    deliverable.
+  </p>
+  <Link
+    href="/citation-brief/two-tier-access-doctrine"
+    className="inline-flex items-center gap-1.5 text-body-sm font-medium text-electric hover:text-electric-light underline-offset-4 hover:underline"
+  >
+    Read Brief #004 &rarr;
+  </Link>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What to do on Monday morning.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Two concrete moves for an agency principal whose firm already
+    ships WCAG-AA work. First, pull one client site that has a
+    current WCAG-AA report and run it against the five disciplines
+    above. Score column-two coverage honestly; the gap on
+    column-three is your AEO upsell template. Second, add the
+    schema bundle (<code>Article</code>, <code>FAQPage</code>,{" "}
+    <code>HowTo</code>, <code>Person</code>, <code>BreadcrumbList</code>)
+    to the next three pieces of content you ship for that client.
+    The lift on AI extractability is visible inside one monthly
+    engine run.
+  </p>
+  <p className="text-body-md text-silver">
+    The agencies that move first on this win twice — once on the
+    incumbency curve as AI citation history compounds, and once
+    on the regulatory curve as AI extractability migrates from
+    optional to mandatory. WCAG took eight years to move from
+    1.0 to mandatory enforcement. AEO will not take that long.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Methodology &amp; sources.
+  </h2>
+  <p className="text-body-md text-silver mb-3">
+    WCAG-to-AEO transfer patterns observed across pre-engagement
+    Signal Audits and the Wiele AI Citation Tracker dataset
+    (private, anonymised, 18 months of weekly engine runs).
+    Lineage anchors triangulated against the public canon:
+  </p>
+  <ul className="space-y-2 text-body-md text-silver list-disc pl-6">
+    <li>W3C — Web Content Accessibility Guidelines 1.0 (1999), 2.0 (2008), 2.1 (2018), 2.2 (2023)</li>
+    <li>US Access Board — Section 508 Standards (1998, refreshed 2017)</li>
+    <li>EU — European Accessibility Act 2019/882 (in force 2025)</li>
+    <li>UK — Equality Act 2010, Public Sector Bodies Accessibility Regulations 2018</li>
+    <li>Robbins, J. — <em>Learning Web Design</em>, 3rd edition (O&apos;Reilly, 2007) — Chapter 3 accessibility framing, pages 34–35</li>
+    <li>Corrao, R. &amp; Fulantelli, G. — <em>Cognitive accessibility to information on the Web</em> (CNR Palermo, late 1990s)</li>
+    <li>Schema.org — Article, FAQPage, HowTo, Person, BreadcrumbList, ImageObject type specifications</li>
+    <li>Google Search Central — Structured data guidelines and Rich Results eligibility</li>
+    <li>The <Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Five-Stage Citation Hierarchy</Link> (Brief #001) and <Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Stage 3 deep-dive</Link> (Brief #002) provide the wider methodological context</li>
+  </ul>
+  <p className="text-body-sm text-smoke mt-5">
+    Every claim above is reproducible from public sources or
+    Wiele&apos;s instrumented engine-run dataset. The full prompt
+    panel, source-level citation logging, and methodology rubric
+    are published at{" "}
+    <Link href="/trust" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+      /trust
+    </Link>
+    .
+  </p>
+</section>
+
+<section className="mb-2">
+  <p className="text-body-md text-silver">
+    AEO is the 2026 WCAG. The discipline is older than the
+    acronym; the regulatory tailwind is real; the agencies that
+    learn the bridge first will own the next cycle. If you want a
+    populated WCAG-to-AEO transfer scorecard against a live
+    client site, start with a{" "}
+    <Link href="/audit" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+      Signal Audit
+    </Link>
+    , or instrument the monthly lift with the{" "}
+    <Link href="/pricing#recurring-ai-visibility" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+      Citation Score™ subscription
+    </Link>
+    . Brief #001 covers the full{" "}
+    <Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+      Five-Stage Citation Hierarchy
+    </Link>
+    ; Brief #002 deep-dives{" "}
+    <Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+      Structured Extractability
+    </Link>
+    ; Brief #004 covers the{" "}
+    <Link href="/citation-brief/two-tier-access-doctrine" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">
+      Two-Tier Access Doctrine
+    </Link>
+    {" "}that grounds Citation Score™ §2.
+  </p>
+</section>

@@ -71,6 +71,8 @@ const STATIC_ROUTES = [
   "/citation-brief",
   "/citation-brief/how-agencies-get-cited-in-ai-answers",
   "/citation-brief/stage-3-structured-extractability",
+  "/citation-brief/aeo-is-the-2026-wcag",
+  "/citation-brief/two-tier-access-doctrine",
   "/citation-score",
   "/trust",
   "/about",
