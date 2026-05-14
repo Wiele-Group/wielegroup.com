@@ -12,6 +12,7 @@ import {
   itemListSchema,
   webPageSchema,
 } from "@/lib/schema";
+import { getVisibleBriefManifest } from "@/lib/citation-briefs-static";
 
 /**
  * v3.9.3 — Wiele Citation Brief index.
@@ -22,9 +23,10 @@ import {
  * top-of-funnel citation asset in the Wiele Citation Score™ subscription.
  *
  * Architecture: this page is the index. Each individual brief lives at
- * /citation-brief/[slug]/page.tsx as a static route (matching the labs/
- * pattern — explicit imports = bundler can track them, no fs-dependent
- * runtime fallback).
+ * /citation-brief/[slug]/page.tsx as a static route. Brief identity +
+ * metadata lives in src/lib/citation-briefs-static.ts (the manifest is
+ * the single source of truth — this index and the dynamic route both
+ * read from it). Mirrors the labs/[slug] + labs-static pattern.
  */
 
 export const metadata: Metadata = buildMetadata({
@@ -37,19 +39,8 @@ export const metadata: Metadata = buildMetadata({
 export const dynamic = "force-static";
 export const revalidate = false;
 
-const briefs = [
-  {
-    slug: "how-agencies-get-cited-in-ai-answers",
-    eyebrow: "AEO methodology",
-    title:
-      "How premium agencies get cited by ChatGPT, Perplexity, and Google AI Overviews",
-    summary:
-      "The Five-Stage Citation Hierarchy AI answer engines use, the signals that move the needle, and how to engineer for inclusion. Field guide #001.",
-    readingMinutes: 12,
-  },
-] as const;
-
 export default function CitationBriefIndexPage() {
+  const briefs = getVisibleBriefManifest();
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: siteConfig.url },
     { name: "Citation Briefs", url: `${siteConfig.url}/citation-brief` },

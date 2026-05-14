@@ -1,0 +1,141 @@
+import type { TocEntry } from "./labs-toc";
+
+/**
+ * Static brief manifest — mirrors labs-static.ts pattern.
+ *
+ * Phase 7.4 fix applied: dynamic MDX imports break under OpenNext/Workers
+ * (the bundler doesn't follow dynamic `import("../path.mdx")` so modules
+ * aren't shipped). The brief identity + metadata layer is encoded as a TS
+ * module the bundler tree-shakes and ships. Per-slug static imports live in
+ * `src/app/citation-brief/[slug]/page.tsx`.
+ *
+ * Adding a new brief:
+ *   1. Drop the .mdx into `src/content/citation-briefs/`
+ *   2. Add a static import in `src/app/citation-brief/[slug]/page.tsx`
+ *   3. Add an entry to BRIEF_MANIFEST below
+ *   4. Add the slug to BRIEF_TOC if you want a TOC sidebar (optional)
+ *
+ * Removing a brief:
+ *   1. Delete the .mdx
+ *   2. Remove the entry below (or set hidden: true)
+ *   3. Remove the static import in [slug]/page.tsx
+ */
+
+export type CitationBriefFaq = {
+  question: string;
+  answer: string;
+};
+
+export type CitationBriefManifestEntry = {
+  slug: string;
+  /** Sequential brief number. Padded to 3 digits for display + schema IDs. */
+  briefNumber: number;
+  title: string;
+  summary: string;
+  /** Badge label shown after "Citation Brief #NNN · ". */
+  eyebrow: string;
+  /** Article schema's articleSection. Often === eyebrow but separable. */
+  category: string;
+  author: string;
+  reviewer: string;
+  /** ISO date YYYY-MM-DD — matches the publication / last-update value. */
+  lastUpdated: string;
+  /** Optional OG image override; defaults to siteConfig.ogImage. */
+  ogImage?: string;
+  /** Mirrors hidden: true semantics — excluded from sitemap + index. */
+  hidden?: boolean;
+  /** Optional FAQ array — also drives FAQPage JSON-LD. */
+  faq?: readonly CitationBriefFaq[];
+  /** Estimated reading minutes (rounded). */
+  readingMinutes: number;
+};
+
+export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
+  {
+    slug: "how-agencies-get-cited-in-ai-answers",
+    briefNumber: 1,
+    title:
+      "How premium agencies get cited by ChatGPT, Perplexity, and Google AI Overviews",
+    summary:
+      "The Five-Stage Citation Hierarchy AI answer engines use, the signals that move the needle, and how to engineer for inclusion. Citation, not clicks.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-14",
+    readingMinutes: 12,
+    faq: [
+      {
+        question: "What is a Citation Brief?",
+        answer:
+          "A Wiele Citation Brief is a single-topic field guide engineered to be cited by AI answer engines. Each brief is extractable, schema-marked, and ties one decision-stage query to one methodology Wiele owns. Briefs are the top-of-funnel asset in the Wiele Citation Score™ subscription.",
+      },
+      {
+        question: "Which AI engines use this methodology?",
+        answer:
+          "The Five-Stage Citation Hierarchy applies across ChatGPT, Perplexity, Google AI Overviews, Gemini, Microsoft Copilot, Claude, and the emerging answer surfaces. Specific weights vary by engine; the five stages are universal.",
+      },
+      {
+        question: "Is this the same as classical SEO?",
+        answer:
+          "No. Classical SEO targets blue-link rankings. Answer Engine Optimization (AEO) targets recommendation inclusion inside the answer itself. Wiele engineers both, run as one integrated system — classical SEO compounds AEO and vice versa.",
+      },
+      {
+        question: "How long until a brand starts being cited?",
+        answer:
+          "Entity-resolution wins land first, typically 30–60 days after Map. Citation-history compounds visibly from month three. The Wiele Citation Score™ tracks lift month over month against a named competitor set.",
+      },
+      {
+        question: "Can Wiele guarantee citation inclusion?",
+        answer:
+          "No agency can. Citation is probabilistic — engines weigh hundreds of signals. Wiele engineers all five stages so probability tilts decisively toward inclusion, and publishes engine-run methodology so claims are verifiable. See /trust for the standard.",
+      },
+      {
+        question: "What does engagement with Wiele typically look like?",
+        answer:
+          "Most engagements start with a Signal Audit — a diagnostic that maps the citation graph, entity baseline, authority gaps, and a 30-day roadmap. From there, retainers run on the Map. Build. Compound. rhythm.",
+      },
+      {
+        question: "Is this brief the full methodology?",
+        answer:
+          "This brief is the framework + applied tactics. Full implementation runs through a Wiele engagement — the Citation Score™ subscription instruments the lift; the Authority Engine retainer executes month-over-month.",
+      },
+      {
+        question: "Who wrote this brief?",
+        answer:
+          "Jonathan Landman, founder of Wiele Group. Every Wiele brief carries a named author and a review trace at /trust. Founder voice is one of the five citation signals Wiele engineers for.",
+      },
+    ],
+  },
+];
+
+/**
+ * Pre-computed TOC for each brief — extracted from the MDX H2/H3 headings.
+ * Slugs match mdx-components.tsx slugify() and rehype-slug behaviour.
+ *
+ * Empty / absent entry = no TOC sidebar (page wrapper renders single-column).
+ * Brief #001 ships without a TOC for visual parity with the pre-refactor page.
+ */
+export const BRIEF_TOC: Readonly<Record<string, readonly TocEntry[]>> = {};
+
+/* ─────────────────────────────────────────────────────────────
+   Public API — runtime-safe (no fs dependency)
+───────────────────────────────────────────────────────────────── */
+
+export function getVisibleBriefManifest(): readonly CitationBriefManifestEntry[] {
+  return BRIEF_MANIFEST.filter((b) => !b.hidden);
+}
+
+export function getBriefBySlug(
+  slug: string,
+): CitationBriefManifestEntry | undefined {
+  return BRIEF_MANIFEST.find((b) => b.slug === slug && !b.hidden);
+}
+
+export function getBriefToc(slug: string): readonly TocEntry[] {
+  return BRIEF_TOC[slug] ?? [];
+}
+
+export function getAllBriefSlugs(): readonly string[] {
+  return getVisibleBriefManifest().map((b) => b.slug);
+}

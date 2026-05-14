@@ -1,0 +1,282 @@
+import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-electric/30 bg-electric/5 p-6 md:p-8">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+    The 60-second answer
+  </p>
+  <p className="text-body-lg text-cloud mb-4">
+    AI answer engines decide what to cite using five stacked
+    signals: <strong className="text-white">entity resolution,
+    source authority, structured extractability, freshness,</strong>
+    {" "}and <strong className="text-white">recommendation
+    history</strong>. Brands that engineer all five compound a
+    citation moat — every accepted citation makes the next one
+    more probable. Classical SEO targets rankings; AEO targets
+    inclusion inside the answer itself.
+  </p>
+  <p className="text-body-md text-silver">
+    The work is structural, not promotional. Run the diagnostic,
+    fix the substrate, ship the citation assets, and the engines
+    start recommending you within 30–60 days for entity wins and
+    three months for compounding citation history.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Why classical SEO doesn&apos;t get you cited.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Classical SEO was engineered for a discovery model that no
+    longer dominates buyer journeys. The model was: rank in
+    position 1–3, capture the click, convert on-site. The new
+    model is: the engine answers the question, names a brand,
+    and the buyer arrives pre-qualified — or doesn&apos;t arrive
+    at all.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Ranking and citation use different functions. A page can
+    rank #1 organically and not be cited inside the AI Overview
+    that appears above it. A different page — sometimes from a
+    lower-traffic domain — wins the citation because it nailed
+    entity clarity, schema extractability, and named-author
+    authority. The blue link is no longer the unit of victory.
+    The cited slot is.
+  </p>
+  <p className="text-body-md text-silver">
+    This is why classical SEO agencies underperform on AEO:
+    their toolchain measures the wrong outcome. Wiele
+    instruments the citation directly — every brief, every
+    engine run, every monthly delta is tracked against a named
+    competitor set inside the{" "}
+    <Link
+      href="/pricing"
+      className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+    >
+      Wiele Citation Score™
+    </Link>
+    {" "}subscription.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The Five-Stage Citation Hierarchy.
+  </h2>
+  <p className="text-body-md text-silver mb-8">
+    Each stage stacks on the one below it. Skip a stage and the
+    stages above silently underperform. Wiele engineers all five
+    in sequence on every engagement.
+  </p>
+  <Reveal stagger={0.06} className="grid gap-4">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">01</p>
+        <h3 className="text-heading-md text-white">Entity Resolution</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Does the engine know what — and who — you are?
+      </p>
+      <p className="text-body-md text-silver">
+        AI engines resolve queries to entities, not strings. If your brand is ambiguous (shared name, weak knowledge graph footprint, no Organization or Person schema, missing sameAs links), the engine cannot deterministically cite you. Entity resolution is the floor; everything above it depends on this stage being clean.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">02</p>
+        <h3 className="text-heading-md text-white">Source Authority</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Does the engine trust your domain as a primary source?
+      </p>
+      <p className="text-body-md text-silver">
+        Authority is a weighted blend of domain trust signals, external mentions (especially Tier-1 publications and authoritative databases), structured citations to your work, and the founder&apos;s named-author presence. Authority is slow to build, slow to lose — which is precisely why early movers compound a moat.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">03</p>
+        <h3 className="text-heading-md text-white">Structured Extractability</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Can the engine pull a clean answer block from your page?
+      </p>
+      <p className="text-body-md text-silver">
+        Engines reward pages that hand them an extractable answer: a short, definitive opening paragraph; clear H2/H3 hierarchy; FAQPage and HowTo schema where applicable; tables and lists that map directly to query intent. Pages that hide the answer three scrolls deep get skipped.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">04</p>
+        <h3 className="text-heading-md text-white">Freshness</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Is the content recent enough to survive the engine&apos;s recency filter?
+      </p>
+      <p className="text-body-md text-silver">
+        Most answer engines apply a recency weight, especially on commercial and time-sensitive queries. Pages that ship a clear lastModified, get re-indexed via IndexNow, and demonstrate ongoing update cadence pass the filter. Stale evergreen content quietly drops from the recommendation set even when it ranks classically.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">05</p>
+        <h3 className="text-heading-md text-white">Recommendation History</h3>
+      </div>
+      <p className="text-body-md text-cloud mb-3 italic">
+        Has the engine cited you before — and how does that loop compound?
+      </p>
+      <p className="text-body-md text-silver">
+        Engines that have cited a source before are statistically more likely to cite it again. This is the compounding loop and the reason early citation matters disproportionately. Every accepted citation strengthens the next one. Late entrants compete against incumbents who have been compounding for cycles.
+      </p>
+    </div>
+  </Reveal>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What agencies typically miss.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Five recurring failure patterns Wiele sees in pre-engagement
+    Signal Audits across premium agencies and B2B firms:
+  </p>
+  <ul className="space-y-3 text-body-md text-silver list-disc pl-6">
+    <li>
+      <strong className="text-white">No Person schema for the
+      founder.</strong> The Organization is named, but the human
+      whose voice the engines should attribute writing to is
+      invisible to the knowledge graph. Founder-voice authority
+      evaporates at the entity-resolution stage.
+    </li>
+    <li>
+      <strong className="text-white">FAQ and HowTo schema
+      missing.</strong> Pages carry the right content but skip
+      the structured-data wrappers that hand the engine a
+      pre-extracted answer block. Engines pass over them in
+      favour of competitors who served the answer on a plate.
+    </li>
+    <li>
+      <strong className="text-white">Same sameAs on Person and
+      Organization.</strong> Founder Person schema points at the
+      company LinkedIn instead of the personal one. The
+      knowledge graph cannot disambiguate the human from the
+      brand. Two entities collapse into one — and citation
+      attribution gets diluted.
+    </li>
+    <li>
+      <strong className="text-white">No IndexNow distribution.</strong>
+      {" "}Sites rely on Google and Bing to discover updates on their
+      own crawl cadence. Days or weeks of delay where a fresh
+      page should already be eligible for citation.
+    </li>
+    <li>
+      <strong className="text-white">Generic positioning.</strong>
+      {" "}The page says everything every other agency says.
+      Engines reward specificity, named frameworks, and
+      founder-voice points of view. Boilerplate is filtered out
+      before it&apos;s ever quoted.
+    </li>
+  </ul>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    How to engineer for citation.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    Wiele runs every engagement on a three-stage rhythm. The
+    rhythm is canonical — it&apos;s the same engine that powers a
+    Signal Audit on day one and an Authority Engine retainer on
+    month twelve.
+  </p>
+  <ol className="space-y-4 text-body-md text-silver list-decimal pl-6">
+    <li>
+      <strong className="text-white">Map.</strong> Diagnose AI
+      visibility, citation graph, and authority gaps across the
+      prompt surface that matters to your buyer. Output: a
+      baseline citation score against a named competitor set,
+      plus a 30-day implementation roadmap.{" "}
+      <Link
+        href="/audit"
+        className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+      >
+        Start with a Signal Audit
+      </Link>
+      .
+    </li>
+    <li>
+      <strong className="text-white">Build.</strong> Engineer
+      the content, schema, comparison hubs, founder-voice
+      articles, Citation Briefs, and authority assets that AI
+      engines cite — and humans convert from. Output: a
+      shipping cadence that lifts every stage of the hierarchy.{" "}
+      <Link
+        href="/systems/ai-visibility"
+        className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+      >
+        See the AI Visibility system
+      </Link>
+      .
+    </li>
+    <li>
+      <strong className="text-white">Compound.</strong>
+      {" "}Visibility, citations, and demand compound month over
+      month. The asset gets stronger; the moat gets deeper. The
+      Citation Score™ subscription instruments the lift; the
+      Authority Engine retainer executes the cadence.{" "}
+      <Link
+        href="/proof"
+        className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+      >
+        See programme shapes
+      </Link>
+      .
+    </li>
+  </ol>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Methodology &amp; sources.
+  </h2>
+  <p className="text-body-md text-silver mb-3">
+    Citation behaviour observed across longitudinal runs of the
+    Wiele AI Citation Tracker dataset (private, anonymised).
+    Engine-specific guidance cross-referenced with each
+    provider&apos;s public documentation:
+  </p>
+  <ul className="space-y-2 text-body-md text-silver list-disc pl-6">
+    <li>
+      Google Search Central — Structured data (FAQPage, HowTo,
+      Article, Person, Organization)
+    </li>
+    <li>
+      Google AI Overviews — robots-meta-tag opt-in (max-snippet,
+      max-image-preview)
+    </li>
+    <li>
+      IndexNow Protocol — fast notification surface for Bing,
+      Yandex, Seznam, Naver, Yep
+    </li>
+    <li>
+      Schema.org — Person sameAs and Organization sameAs entity
+      reconciliation
+    </li>
+    <li>
+      Wiele Branding Canon 2026-05-14 — CBBE Pyramid, BAV Four
+      Pillars, Brand Value Chain
+    </li>
+    <li>
+      Wiele Advertising Canon 2026-05-14 — Reeves USP, Steel
+      Account Planning, Hackley IMC
+    </li>
+  </ul>
+  <p className="text-body-sm text-smoke mt-5">
+    The Wiele standard is full methodology transparency. Every
+    claim above is reproducible from public sources or Wiele&apos;s
+    instrumented engine-run dataset. Engagement clients receive
+    the named-competitor lift trace inside the Citation Score™
+    dashboard.
+  </p>
+</section>
