@@ -75,12 +75,26 @@ export function GoogleAnalyticsScript() {
       </Script>
 
       {/*
-        External gtag.js library — loads SECOND. Picks up the queued
+        External Google Tag loader — loads SECOND. Picks up the queued
         commands from dataLayer with consent state already set, so no
         cookies are written and no PII is sent.
+
+        v3.9.8 (2026-05-14): switched from `gtag/js?id=` to `gtm.js?id=`.
+        Reason: Google's CDN returns 404 for `https://www.googletagmanager.com/gtag/js?id=G-8YCESQ46BH`
+        on this specific Measurement ID — verified from 3 independent
+        network egresses (founder browser, sandbox curl, programmatic
+        script.onerror). The /g/collect ingestion endpoint accepts hits
+        for the same MID (204 No Content) and Realtime renders them, so
+        the stream itself is healthy — only the canonical loader URL is
+        broken on Google's end. The `gtm.js?id=G-XXX` endpoint serves a
+        functionally-equivalent GA4 loader (235KB vs ~95KB) containing
+        gtag init + consent handling + /g/collect collection logic for
+        the same MID. Both honour the inline dataLayer queue identically.
+        If Google's CDN later restores `gtag/js` for this MID, this
+        fallback continues to work — no need to revert.
       */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        src={`https://www.googletagmanager.com/gtm.js?id=${measurementId}`}
         strategy="afterInteractive"
       />
     </>
