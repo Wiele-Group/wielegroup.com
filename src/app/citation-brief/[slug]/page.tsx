@@ -45,12 +45,14 @@ import HowAgenciesGetCited from "@/content/citation-briefs/how-agencies-get-cite
 import Stage3StructuredExtractability from "@/content/citation-briefs/stage-3-structured-extractability.mdx";
 import AeoIsThe2026Wcag from "@/content/citation-briefs/aeo-is-the-2026-wcag.mdx";
 import TwoTierAccessDoctrine from "@/content/citation-briefs/two-tier-access-doctrine.mdx";
+import BrandSemanticsInfrastructure from "@/content/citation-briefs/brand-semantics-infrastructure.mdx";
 
 const BRIEF_COMPONENTS: Record<string, React.ComponentType> = {
   "how-agencies-get-cited-in-ai-answers": HowAgenciesGetCited,
   "stage-3-structured-extractability": Stage3StructuredExtractability,
   "aeo-is-the-2026-wcag": AeoIsThe2026Wcag,
   "two-tier-access-doctrine": TwoTierAccessDoctrine,
+  "brand-semantics-infrastructure": BrandSemanticsInfrastructure,
 };
 
 export const dynamic = "force-static";
@@ -110,7 +112,9 @@ export default async function CitationBriefPage({
   ]);
   const faq =
     brief.faq && brief.faq.length > 0
-      ? faqSchema(brief.faq.map((f) => ({ question: f.question, answer: f.answer })))
+      ? faqSchema(
+          brief.faq.map((f) => ({ question: f.question, answer: f.answer })),
+        )
       : null;
   // Per-route Person schema for the brief author. Article schema's nested
   // author is good but a top-level Person carries sameAs + jobTitle +
@@ -180,9 +184,9 @@ export default async function CitationBriefPage({
           Start with a Signal Audit.
         </h2>
         <p className="text-body-lg text-silver mb-6 max-w-2xl">
-          A diagnostic that maps your citation graph, entity baseline,
-          and authority gaps — plus a 30-day implementation roadmap. The
-          fastest way to know where you stand inside the answer economy.
+          A diagnostic that maps your citation graph, entity baseline, and
+          authority gaps — plus a 30-day implementation roadmap. The fastest way
+          to know where you stand inside the answer economy.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <Link

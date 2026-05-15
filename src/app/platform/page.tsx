@@ -2,7 +2,14 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Cpu, Database, Layers, LineChart, ShieldCheck, Users } from "lucide-react";
+import {
+  Cpu,
+  Database,
+  Layers,
+  LineChart,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -67,8 +74,14 @@ export default function PlatformPage() {
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-platform" />
       <section className="relative overflow-hidden">
-        <div aria-hidden className="absolute inset-0 ambient-gradient pointer-events-none" />
-        <div aria-hidden className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
+        <div
+          aria-hidden
+          className="absolute inset-0 ambient-gradient pointer-events-none"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 grid-pattern opacity-30 pointer-events-none"
+        />
         <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-12 md:pb-20">
           <div className="max-w-3xl">
             <FadeIn>
@@ -83,18 +96,24 @@ export default function PlatformPage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-body-lg text-silver max-w-2xl">
-                Wiele OS runs all four growth systems on one engine.
-                Continuous monitoring, dedicated strategist team, attribution
-                back to revenue. Built for brands that compete on being
-                recommended, not just ranked.
+                Wiele OS runs all four growth systems on one engine. Continuous
+                monitoring, dedicated strategist team, attribution back to
+                revenue. Built for brands that compete on being recommended, not
+                just ranked.
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link href="/audit" className={buttonStyles({ variant: "featured", size: "lg" })}>
+                <Link
+                  href="/audit"
+                  className={buttonStyles({ variant: "featured", size: "lg" })}
+                >
                   Run a Growth Audit
                 </Link>
-                <Link href="/contact" className={buttonStyles({ variant: "ghost", size: "lg" })}>
+                <Link
+                  href="/contact"
+                  className={buttonStyles({ variant: "ghost", size: "lg" })}
+                >
                   Talk to Wiele
                 </Link>
               </div>
@@ -113,7 +132,10 @@ export default function PlatformPage() {
               How the platform fits together.
             </h2>
           </div>
-          <Reveal stagger={0.05} className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Reveal
+            stagger={0.05}
+            className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          >
             {modules.map((m) => {
               const Icon = m.icon;
               return (
@@ -122,7 +144,9 @@ export default function PlatformPage() {
                   className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6"
                 >
                   <Icon size={20} className="text-electric mb-4" aria-hidden />
-                  <h3 className="text-heading-sm text-white mb-2.5">{m.title}</h3>
+                  <h3 className="text-heading-sm text-white mb-2.5">
+                    {m.title}
+                  </h3>
                   <p className="text-body-sm text-silver">{m.body}</p>
                 </div>
               );
@@ -151,12 +175,12 @@ export default function PlatformPage() {
             </FadeIn>
             <FadeIn whileInView delay={0.1}>
               <p className="text-body-md text-silver mb-4 max-w-2xl">
-                Before a page enters the Five-Stage Citation Hierarchy at
-                Stage 1, it clears the Stage 0 prerequisite: Krug&apos;s Trunk
-                Test, six 5-second answers — site identity, page identity,
-                primary sections, current location, CTA, buyer-journey position.
-                Self-evidence is scored 1–10. Pages below 7/10 do not enter
-                the hierarchy. They get rewritten.
+                Before a page enters the Five-Stage Citation Hierarchy at Stage
+                1, it clears the Stage 0 prerequisite: Krug&apos;s Trunk Test,
+                six 5-second answers — site identity, page identity, primary
+                sections, current location, CTA, buyer-journey position.
+                Self-evidence is scored 1–10. Pages below 7/10 do not enter the
+                hierarchy. They get rewritten.
               </p>
             </FadeIn>
             <FadeIn whileInView delay={0.15}>
@@ -164,8 +188,8 @@ export default function PlatformPage() {
                 The processing-fluency signals that drive 50ms first-impression
                 encoding in human cognition (Jones et al. 2015) drive LLM
                 extraction confidence in the same direction. A page that
-                isn&apos;t self-evident to a human reader cannot be extracted
-                by an LLM with the confidence required to land a named citation.
+                isn&apos;t self-evident to a human reader cannot be extracted by
+                an LLM with the confidence required to land a named citation.
               </p>
             </FadeIn>
             <FadeIn whileInView delay={0.2}>
@@ -201,10 +225,10 @@ export default function PlatformPage() {
             <FadeIn whileInView delay={0.1}>
               <p className="text-body-md text-silver mb-6 max-w-2xl">
                 The platform exists to engineer one outcome: getting cited
-                inside AI answer engines, not just ranked in blue links.
-                The Five-Stage Citation Hierarchy is the methodology. The
-                Wiele Citation Score™ subscription is how we instrument
-                the lift, month over month.
+                inside AI answer engines, not just ranked in blue links. The
+                Five-Stage Citation Hierarchy is the methodology. The Wiele
+                Citation Score™ subscription is how we instrument the lift,
+                month over month.
               </p>
             </FadeIn>
             <FadeIn whileInView delay={0.15}>
@@ -222,6 +246,58 @@ export default function PlatformPage() {
                   See Citation Score™ subscription
                 </Link>
               </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* v3.9.9 — Third-party Google authority block.
+          Reinforces the "Citation, not clicks." mantra with a direct
+          Think with Google quote from the 2026 Marketing Predictions
+          guide. Anchors Wiele's positioning in Google's own voice ahead
+          of GML 2026 (May 20). Single quote, named attribution, link
+          to Brief #005 for the deeper read. */}
+      <section className="py-12 md:py-16 lg:py-20 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+          <div className="max-w-3xl">
+            <FadeIn whileInView>
+              <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+                What Google says about it
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.05}>
+              <h2 className="text-display-md text-white text-balance mb-6">
+                Google named the discipline first.
+              </h2>
+            </FadeIn>
+            <FadeIn whileInView delay={0.1}>
+              <blockquote className="mb-5 border-l-2 border-electric/60 bg-electric/[0.03] pl-5 py-3 italic text-cloud text-body-lg">
+                &ldquo;AI collapses the consideration phase, acting as a
+                personalized consultant that instantly synthesizes information
+                and compares options, so customers have what they need after one
+                chat.&rdquo;
+              </blockquote>
+            </FadeIn>
+            <FadeIn whileInView delay={0.15}>
+              <p className="text-body-md text-silver mb-5 max-w-2xl">
+                Google&apos;s 2026 Marketing Predictions guide tells CMOs to{" "}
+                <em>
+                  build brand semantics infrastructure, establish data exposure
+                  governance, prioritize agent-native creative evaluation, and
+                  invest in agentic visibility intelligence
+                </em>
+                . Four disciplines, named in Google&apos;s own voice. The stack
+                Wiele Group builds is the stack Google just told CMOs to
+                commission.
+              </p>
+            </FadeIn>
+            <FadeIn whileInView delay={0.2}>
+              <Link
+                href="/citation-brief/brand-semantics-infrastructure"
+                className={buttonStyles({ variant: "ghost", size: "md" })}
+              >
+                Read Citation Brief #005 — Brand Semantics Infrastructure
+              </Link>
             </FadeIn>
           </div>
         </div>
