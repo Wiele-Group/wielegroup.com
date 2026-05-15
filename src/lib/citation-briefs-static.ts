@@ -70,8 +70,7 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
     // Alt text (112 chars) wired in og:image:alt downstream:
     //   "Wiele Citation Brief #001 — Five-Stage Citation Hierarchy for AI
     //    answer engines. Citation, not clicks."
-    ogImage:
-      "/og/wiele-citation-brief-001-five-stage-citation-hierarchy.png",
+    ogImage: "/og/wiele-citation-brief-001-five-stage-citation-hierarchy.png",
     faq: [
       {
         question: "What is a Citation Brief?",
@@ -118,8 +117,7 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
   {
     slug: "stage-3-structured-extractability",
     briefNumber: 2,
-    title:
-      "Stage 3 — How to engineer pages AI answer engines actually quote",
+    title: "Stage 3 — How to engineer pages AI answer engines actually quote",
     summary:
       "Stage 3 of the Five-Stage Citation Hierarchy — Structured Extractability — is the highest-leverage stage. Schema bundle, content pattern, antipatterns, and the Wiele extractability checklist.",
     eyebrow: "AEO methodology",
@@ -128,8 +126,7 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
     reviewer: "Jonathan Landman",
     lastUpdated: "2026-05-14",
     readingMinutes: 14,
-    ogImage:
-      "/og/wiele-citation-brief-002-stage-3-extractability.png",
+    ogImage: "/og/wiele-citation-brief-002-stage-3-extractability.png",
     faq: [
       {
         question: "What is Stage 3 in the Five-Stage Citation Hierarchy?",
@@ -167,7 +164,8 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
           "Yes — schema is language-agnostic and the extractability content pattern (definitive opener, semantic heading hierarchy, table-or-list layouts, on-page citations) transfers across languages. Specific engine weights drift slightly between locales, but the structural lift from a Stage 3 sprint shows up consistently across English, French, German, Spanish, and Japanese in the Wiele Citation Tracker dataset.",
       },
       {
-        question: "What's the typical citation-share lift from a Stage 3 sprint?",
+        question:
+          "What's the typical citation-share lift from a Stage 3 sprint?",
         answer:
           "Across pre-engagement Signal Audits where Stage 3 was the primary intervention, the typical citation-share lift on Stage-3-sensitive prompts is 30 to 50 percent inside one quarter. The exact lift depends on baseline (sites with no schema and buried answers see the largest delta; sites with partial schema see smaller incremental lift) and competitive context (uncontested verticals lift faster than saturated ones). The Citation Score™ subscription tracks the lift month over month against a named competitor set.",
       },
@@ -176,8 +174,7 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
   {
     slug: "aeo-is-the-2026-wcag",
     briefNumber: 3,
-    title:
-      "AEO is the 2026 WCAG — the accessibility lineage of AI citation",
+    title: "AEO is the 2026 WCAG — the accessibility lineage of AI citation",
     summary:
       "AEO is the 2026 successor to WCAG. The same disciplines that made the 2000s web legible to screen readers now make pages legible to AI engines. The lineage is direct; the buyer is new.",
     eyebrow: "AEO methodology",
@@ -200,6 +197,62 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
     reviewer: "Jonathan Landman",
     lastUpdated: "2026-05-14",
     readingMinutes: 12,
+  },
+  {
+    slug: "brand-semantics-infrastructure",
+    briefNumber: 5,
+    title:
+      "Build brand semantics infrastructure — the 2026 mandate Google named first",
+    summary:
+      "Google's 2026 marketing predictions guide literally tells CMOs to 'build brand semantics infrastructure.' The discipline now has a name, a primary source, and a 90-day build path. Four sub-disciplines, four failure modes, four capability layers — the stack that decides which brand AI agents recommend.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-15",
+    readingMinutes: 12,
+    faq: [
+      {
+        question: "Where did Google name 'brand semantics infrastructure'?",
+        answer:
+          "In the 2026 Marketing Predictions Guide published on Think with Google at business.google.com/en-all/think/future-of-marketing/marketing-predictions-guide-2026/. The exact quote: 'Preparing for an agentic world requires building brand semantics infrastructure, establishing data exposure governance, and prioritizing agent-native creative evaluation by scoring for model comprehension rather than just human appeal. Invest in agentic visibility intelligence to measure how often agents surface your brand, how they rank you, and where you are excluded.' Four disciplines named inside one sentence.",
+      },
+      {
+        question: "How is this different from classical SEO?",
+        answer:
+          "Classical SEO targets blue-link rankings — page position in a results list of ten. Brand semantics infrastructure targets recommendation inclusion inside the AI-generated answer itself. The two compound: SEO authority lifts the model's confidence in the source; brand semantics infrastructure determines whether the model has a clean, extractable, attributable answer to pull from the source it now trusts.",
+      },
+      {
+        question: "How is this different from existing brand work?",
+        answer:
+          "Visual identity governs how the brand is seen by humans. Verbal identity governs how it sounds. Brand semantics infrastructure governs how the brand is parsed by language models. The first two tiers are mature procurement categories with established agency partners; the third tier is the one Google just named and the one that decides whether the brand appears in the AI-mediated answer set buyers will see.",
+      },
+      {
+        question: "What are the four sub-disciplines?",
+        answer:
+          "Brand semantics infrastructure (the substrate AI agents parse — entity graph, schema, extractable answers, named-author trace). Data exposure governance (deciding what the agent is allowed to see, by design). Agent-native creative evaluation (scoring content for model comprehension, not just human appeal). Agentic visibility intelligence (continuous panel-based measurement across ChatGPT, Perplexity, Gemini, AI Overviews, Copilot). All four are named in Google's 2026 sentence; all four become workstreams inside a Wiele Citation Score™ engagement.",
+      },
+      {
+        question: "Who needs to build it first?",
+        answer:
+          "Brands whose buyers ask AI agents which firm to choose — premium B2B services, high-consideration consumer categories, anything where the consideration phase compresses to a single chat. Google's own data: AI Mode reaches 75 million daily active users across 40 languages; AI Overviews reach 1.5 billion monthly users; AI Mode users self-report deciding faster (77%) and more confidently (75%) than with classical search. Any brand reliant on consideration-stage discovery needs the substrate.",
+      },
+      {
+        question: "How long does the substrate take to build?",
+        answer:
+          "The 90-day starting move covers Layer 1 (entity) and Layer 2 (schema) across the full top page set, plus Layer 3 (extraction) on the top eight pages and Layer 4 (measurement) baseline. The full four-layer stack at production maturity typically lands inside two quarters. The Wiele Citation Score™ subscription instruments the lift continuously after the initial build.",
+      },
+      {
+        question: "Can my in-house team or existing agency build it?",
+        answer:
+          "Yes, with the right specification — the disciplines are teachable and the sequencing is named. The compound is the friction. Entity + schema + extractability + measurement run as separate workstreams elsewhere; Wiele's contribution is running them as one system with a Citation Score™ baseline against a named competitor set, which is where the agencies and in-house teams trying to build it themselves typically lose months. The published Five-Stage Citation Hierarchy in Citation Brief #001 documents the methodology so any capable team can apply it.",
+      },
+      {
+        question: "What does a Wiele engagement look like?",
+        answer:
+          "Most engagements start with a Signal Audit — a diagnostic that grades the four layers, surfaces the gaps that matter, prices the build against the lift it unlocks. From there, retainers run on the Map. Build. Compound. rhythm. The Citation Score™ subscription instruments the lift month over month against a named competitor set. Full methodology and engagement model at /pricing.",
+      },
+    ],
   },
 ];
 
