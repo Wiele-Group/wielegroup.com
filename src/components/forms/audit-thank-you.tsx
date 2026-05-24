@@ -16,7 +16,7 @@ import { siteConfig } from "@/lib/metadata";
  *  · personalised PromptSimulator (animate=false) with the user's
  *    brand highlighted as the audited entity
  *  · 14-day timeline
- *  · upsell bar: 7-day delivery £4,000 (Phase 5 conversion lever)
+ *  · upsell bar: 7-day delivery €4,000 (Phase 5 conversion lever)
  */
 export function AuditThankYou({
   input,
@@ -131,7 +131,7 @@ function UpsellBar() {
             Want this in 7 days instead of 14?
           </p>
           <p className="text-body-sm text-silver">
-            Upgrade to express delivery — £4,000, includes a 60-minute
+            Upgrade to express delivery — €4,000, includes a 60-minute
             strategy session in week one with a Wiele principal.
           </p>
         </div>

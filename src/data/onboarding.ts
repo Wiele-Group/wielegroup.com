@@ -47,11 +47,11 @@ export const COMPANY_STAGE_OPTIONS = [
 ] as const;
 
 export const REVENUE_RANGE_OPTIONS = [
-  { value: "lt-500k", label: "Under £500k" },
-  { value: "500k-2m", label: "£500k – £2M" },
-  { value: "2m-10m", label: "£2M – £10M" },
-  { value: "10m-50m", label: "£10M – £50M" },
-  { value: "50m-plus", label: "£50M+" },
+  { value: "lt-500k", label: "Under €500k" },
+  { value: "500k-2m", label: "€500k – €2M" },
+  { value: "2m-10m", label: "€2M – €10M" },
+  { value: "10m-50m", label: "€10M – €50M" },
+  { value: "50m-plus", label: "€50M+" },
   { value: "prefer-not", label: "Prefer not to say" },
 ] as const;
 
@@ -74,12 +74,12 @@ export const BRAND_ASSETS_OPTIONS = [
  *   tiers + Signal Audit + "not sure" now mirror the live ladder.
  */
 export const BUDGET_TIER_OPTIONS = [
-  { value: "signal-audit", label: "Signal Audit — £2,500 one-off" },
-  { value: "launch", label: "Launch — £1,950 / mo" },
-  { value: "growth-system", label: "Growth System — £4,500 / mo" },
-  { value: "authority-engine", label: "Authority Engine — £8,500 / mo" },
-  { value: "wiele-os", label: "Wiele OS — £15,000+ / mo" },
-  { value: "sovereign", label: "Sovereign — from £45,000 / mo" },
+  { value: "signal-audit", label: "Signal Audit — €2,500 one-off" },
+  { value: "launch", label: "Launch — €1,950 / mo" },
+  { value: "growth-system", label: "Growth System — €4,500 / mo" },
+  { value: "authority-engine", label: "Authority Engine — €8,500 / mo" },
+  { value: "wiele-os", label: "Wiele OS — €15,000+ / mo" },
+  { value: "sovereign", label: "Sovereign — from €45,000 / mo" },
   { value: "not-sure", label: "Not sure yet" },
 ] as const;
 

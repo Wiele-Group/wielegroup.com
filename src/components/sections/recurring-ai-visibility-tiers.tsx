@@ -46,7 +46,7 @@ export function RecurringAiVisibilityTiers() {
               The subscription layer of the Wiele Citation Score™ system —
               tracked citation lift across the engines that decide who gets
               recommended, plus the briefs that compound the authority graph
-              month over month. Three tiers. GBP. Monthly. 3-month minimum.
+              month over month. Three tiers. EUR. Monthly. 3-month minimum.
             </p>
           </FadeIn>
         </div>
@@ -68,7 +68,7 @@ export function RecurringAiVisibilityTiers() {
             See Citation Score™ methodology →
           </Link>
           <p className="text-body-xs font-mono text-smoke text-center">
-            All Citation Score™ tiers billed monthly in GBP, exclude VAT.
+            All Citation Score™ tiers billed monthly in EUR, exclude VAT where applicable.
             3-month minimum term · 30-day cancellation notice.
             <span className="block mt-1 text-[0.6875rem] tracking-[0.08em]">
               Direct Checkout deferred until named-client case studies close — CTA routes to a principal session.
@@ -144,7 +144,7 @@ function CitationScoreTierCard({ tier }: { tier: CitationScoreTier }) {
             "w-full",
           )}
         >
-          Talk to Wiele
+          Book Strategy Call
         </Link>
       </div>
     </article>

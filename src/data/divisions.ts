@@ -131,7 +131,7 @@ const marketing: Division = {
   headline: "Marketing as an operating system, not a campaign list.",
   subhead:
     "Strategy, audience, content, and growth — engineered as one engine, with AI Visibility Defense built into every layer. We design the system that makes every channel compound, then run it — and defend it from displacement.",
-  primaryCta: { label: "Run a Growth Audit", href: "/audit" },
+  primaryCta: { label: "Start AI Visibility Audit", href: "/audit" },
   secondaryCta: { label: "See pricing", href: "#tiers" },
   heroImage: {
     src: "/images/agencies/wiele-marketing-agency-hero-systems-intelligence.png",
@@ -179,7 +179,7 @@ const marketing: Division = {
     {
       id: "marketing-audit",
       name: "Marketing Audit",
-      price: "£750",
+      price: "€750",
       cadence: "one-off · 2 weeks",
       positioning: "Diagnose your marketing system. Get the playbook before you commit to a retainer.",
       outcomes: [
@@ -193,7 +193,7 @@ const marketing: Division = {
     {
       id: "marketing-starter",
       name: "Marketing Starter",
-      price: "£1,500",
+      price: "€1,500",
       cadence: "/ month",
       positioning:
         "Core marketing system for growing businesses. Content, email, monthly strategy — with AI Visibility Defense built in.",
@@ -210,7 +210,7 @@ const marketing: Division = {
     {
       id: "marketing-growth",
       name: "Marketing Growth",
-      price: "£3,500",
+      price: "€3,500",
       cadence: "/ month",
       positioning:
         "Full marketing system + AI citation share growth target. For brands ready to compound.",
@@ -247,12 +247,12 @@ const marketing: Division = {
   seo: {
     title: "Marketing Agency · Wiele Group · Full-service marketing with AI Visibility Defense",
     description:
-      "Marketing as an operating system, with AI Visibility Defense built-in. Strategy, content, lifecycle, ops, and AI citation share growth. £750 audit · £1,500/mo starter · £3,500/mo growth. GBP. 30-day notice.",
+      "Marketing as an operating system, with AI Visibility Defense built-in. Strategy, content, lifecycle, ops, and AI citation share growth. €750 audit · €1,500/mo starter · €3,500/mo growth. EUR. 30-day notice.",
   },
   proofCallout: {
     eyebrow: "Engagement archetype",
     headline: "Sovereign Cycle 01 — six-month authority engineering.",
-    body: "Established premium firm. Citation share moved from 12% to 47% across four answer engines, branded search up 340%, ~£620K influenced pipeline against the modal deal value. Methodology open, engine output verifiable.",
+    body: "Established premium firm. Citation share moved from 12% to 47% across four answer engines, branded search up 340%, ~€620K influenced pipeline against the modal deal value. Methodology open, engine output verifiable.",
     href: "/proof/sovereign-cycle-01",
     cta: "Read engagement",
   },
@@ -315,7 +315,7 @@ const advertising: Division = {
     {
       id: "advertising-audit",
       name: "Spend Audit",
-      price: "£750",
+      price: "€750",
       cadence: "one-off · 2 weeks",
       positioning: "Diagnose what's working, what's leaking, what to fix before scaling spend.",
       outcomes: [
@@ -329,7 +329,7 @@ const advertising: Division = {
     {
       id: "advertising-starter",
       name: "Performance Starter",
-      price: "£1,500",
+      price: "€1,500",
       cadence: "/ month + media spend",
       positioning:
         "Core paid acquisition for growing businesses. 1-2 channels + creative + tracking — with AI Visibility Defense across the funnel.",
@@ -345,10 +345,10 @@ const advertising: Division = {
     {
       id: "advertising-growth",
       name: "Performance Growth",
-      price: "£3,500",
+      price: "€3,500",
       cadence: "/ month + media spend",
       positioning:
-        "Full-stack paid acquisition. Up to 4 channels + dedicated creative + server-side tracking. For brands scaling beyond £10k/mo media.",
+        "Full-stack paid acquisition. Up to 4 channels + dedicated creative + server-side tracking. For brands scaling beyond €10k/mo media.",
       outcomes: [
         "Up to 4 active channels",
         "Continuous creative production (6+ ads/mo)",
@@ -370,7 +370,7 @@ const advertising: Division = {
       id: "min-spend",
       question: "Is there a minimum ad spend to work with you?",
       answer:
-        "No hard minimum. The Performance Starter tier works from £2–10k/mo media; Performance Growth fits brands at £10k+/mo. Below £2k/mo media, the Spend Audit + DIY playbook is the better-fit move.",
+        "No hard minimum. The Performance Starter tier works from €2–10k/mo media; Performance Growth fits brands at €10k+/mo. Below €2k/mo media, the Spend Audit + DIY playbook is the better-fit move.",
     },
     {
       id: "creative",
@@ -382,7 +382,7 @@ const advertising: Division = {
   seo: {
     title: "Advertising Agency · Wiele Group · Performance with brand craft + AI Visibility Defense",
     description:
-      "Performance advertising done with brand craft, with AI Visibility Defense across creative + tracking. £750 audit · £1,500/mo starter · £3,500/mo growth (+ media spend). GBP. 30-day notice.",
+      "Performance advertising done with brand craft, with AI Visibility Defense across creative + tracking. €750 audit · €1,500/mo starter · €3,500/mo growth (+ media spend). EUR. 30-day notice.",
   },
   proofCallout: {
     eyebrow: "Engagement archetype",
@@ -450,7 +450,7 @@ const brand: Division = {
     {
       id: "brand-audit",
       name: "Positioning Audit",
-      price: "£950",
+      price: "€950",
       cadence: "one-off · 2 weeks",
       positioning: "Diagnose your brand's market position before investing in identity work.",
       outcomes: [
@@ -465,7 +465,7 @@ const brand: Division = {
     {
       id: "brand-starter",
       name: "Brand Starter",
-      price: "£1,750",
+      price: "€1,750",
       cadence: "/ month",
       positioning:
         "Ongoing brand stewardship for growing businesses. Positioning, narrative, visual identity maintenance.",
@@ -482,7 +482,7 @@ const brand: Division = {
     {
       id: "brand-growth",
       name: "Brand Growth",
-      price: "£3,750",
+      price: "€3,750",
       cadence: "/ month",
       positioning:
         "Full brand system + identity work. Includes monthly business cards / branded collateral production. For brands building presence.",
@@ -519,7 +519,7 @@ const brand: Division = {
   seo: {
     title: "Brand Management Agency · Wiele Group · Category authority + AI Visibility Defense",
     description:
-      "Brand as a precision instrument, with AI Visibility Defense protecting every owned channel. £950 audit · £1,750/mo starter · £3,750/mo growth with monthly print collateral. GBP.",
+      "Brand as a precision instrument, with AI Visibility Defense protecting every owned channel. €950 audit · €1,750/mo starter · €3,750/mo growth with monthly print collateral. EUR.",
   },
   proofCallout: {
     eyebrow: "Engagement archetype",
@@ -588,7 +588,7 @@ const web: Division = {
     {
       id: "web-landing",
       name: "Landing Page",
-      price: "£2,500",
+      price: "€2,500",
       cadence: "fixed scope · 3-4 weeks",
       positioning: "High-conversion single landing page. Built on Next.js + Cloudflare. Fast ship.",
       outcomes: [
@@ -603,7 +603,7 @@ const web: Division = {
     {
       id: "web-build",
       name: "Website Build",
-      price: "£6,500",
+      price: "€6,500",
       cadence: "fixed scope · 6-8 weeks",
       positioning:
         "Multi-page premium website. AI-extractable architecture + AI Visibility Defense built in. For brands that need a real digital presence.",
@@ -642,7 +642,7 @@ const web: Division = {
   seo: {
     title: "Web Design Agency · Wiele Group · Premium digital builds with AI Visibility Defense",
     description:
-      "Premium digital experiences with AI Visibility Defense built into every owned surface. Next.js + Cloudflare. £2,500 landing page · £6,500 website build. Performance-first. Larger platforms quoted bespoke.",
+      "Premium digital experiences with AI Visibility Defense built into every owned surface. Next.js + Cloudflare. €2,500 landing page · €6,500 website build. Performance-first. Larger platforms quoted bespoke.",
   },
   proofCallout: {
     eyebrow: "Engagement archetype",

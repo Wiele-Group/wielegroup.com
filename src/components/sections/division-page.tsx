@@ -288,7 +288,7 @@ export function DivisionPage({ division }: { division: Division }) {
               {division.tiers.length === 1
                 ? "One fixed engagement. "
                 : `${tierCountWord(division.tiers.length)} engagement tiers. `}
-              GBP. 30-day notice. No long lock-ins.
+              EUR. 30-day notice. No long lock-ins.
             </p>
           </div>
 
@@ -395,7 +395,7 @@ export function DivisionPage({ division }: { division: Division }) {
           </Reveal>
 
           <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-            All prices in GBP, exclude VAT. 30-day notice. No long-term lock-in.
+            All prices in EUR, exclude VAT where applicable. 30-day notice. No long-term lock-in.
           </p>
         </div>
       </section>

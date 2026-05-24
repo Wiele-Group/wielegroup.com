@@ -48,7 +48,7 @@ export default function MarketingAgencyPage() {
       description: tier.positioning,
       serviceType: division.eyebrow.replace(" Agency", ""),
       price: numeric,
-      priceCurrency: "GBP",
+      priceCurrency: "EUR",
       url: `${siteConfig.url}/${division.slug}#${tier.id}`,
       recurring: tier.cadence.includes("/ month"),
     });

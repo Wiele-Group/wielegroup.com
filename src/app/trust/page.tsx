@@ -366,7 +366,7 @@ export default function TrustPage() {
             href="/contact"
             className={buttonStyles({ variant: "ghost", size: "md" })}
           >
-            Talk to Wiele
+            Book Strategy Call
           </Link>
         </div>
       </section>

@@ -9,12 +9,12 @@
  * ABOVE the existing one-off / project pricing ladder (`@/data/pricing`)
  * under the heading "Recurring AI Visibility" on /pricing.
  *
- * Currency: GBP. Cadence: monthly only. Minimum term: 3 months (Stage-5
+ * Currency: EUR. Cadence: monthly only. Minimum term: 3 months (Stage-5
  * Recommendation-History compounding loop needs the seeding window).
  *
  * CTAs route through /contact?tier=… for principal-mediated close until
  * 5 named-client case studies land; direct Checkout is deferred. Stripe
- * products + recurring GBP prices were created via MCP at deploy time:
+ * products + recurring EUR prices were created via MCP at deploy time:
  *   Starter   → prod_UVyMwHsUCKJhG4 · price_1TWwQBGuLDs0qzh2qDxsT6EE
  *   Pro       → prod_UVyMrlf2sWVsI7 · price_1TWwQEGuLDs0qzh2C8Uh8Lgx
  *   Authority → prod_UVyMIUmkOZbqTp · price_1TWwQIGuLDs0qzh2nmFZhqtg
@@ -26,7 +26,7 @@ export type CitationScoreTier = {
   slug: CitationScoreTierSlug;
   /** Full SKU name including the ™ symbol, e.g. "Citation Score™ Starter". */
   name: string;
-  /** Monthly price in GBP, integer. Formatted at render. */
+  /** Monthly price in EUR, integer. Formatted at render. */
   priceGbp: number;
   /** Tier badge label, e.g. "Starter" / "Pro" / "Authority". */
   badgeLabel: string;
@@ -101,7 +101,7 @@ export const citationScoreTiers: readonly CitationScoreTier[] = [
   },
 ];
 
-/** Format a Citation Score™ tier price — always GBP, always /mo. */
+/** Format a Citation Score™ tier price — always EUR, always /mo. */
 export function formatCitationScorePrice(priceGbp: number): string {
-  return `£${priceGbp.toLocaleString("en-GB")} / mo`;
+  return `€${priceGbp.toLocaleString("en-GB")} / mo`;
 }

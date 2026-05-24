@@ -50,7 +50,7 @@ export type CaseStudyManifestEntry = {
   title: string;
   summary: string;
   tier: CaseStudyTier;
-  /** Display label for the tier price + cadence (e.g. "£18,000 fixed-fee · 6-week sprint"). */
+  /** Display label for the tier price + cadence (e.g. "€18,000 fixed-fee · 6-week sprint"). */
   tierPriceLabel: string;
   /** Sector category — not enforced as enum; manifest-author judgement. */
   sector: string;
@@ -87,7 +87,7 @@ export const CASE_STUDY_MANIFEST: readonly CaseStudyManifestEntry[] = [
     summary:
       "Foundation tier engagement archetype. Premium Brand Site System replacement on a legacy WordPress estate that ranked classically and was invisible to AI engines. Engine output below.",
     tier: "Foundation",
-    tierPriceLabel: "£18,000 fixed-fee · 6-week sprint",
+    tierPriceLabel: "€18,000 fixed-fee · 6-week sprint",
     sector: "Premium Services",
     engagementShape: "Foundation — Premium Brand Site System",
     durationWeeks: 6,
@@ -142,7 +142,7 @@ export const CASE_STUDY_MANIFEST: readonly CaseStudyManifestEntry[] = [
     summary:
       "Sovereign retainer engagement archetype. Established firm with strong revenue but invisible in AI answer surfaces — competitors cited, this firm absent. Six-month full-stack authority engineering. Engine output below.",
     tier: "Sovereign",
-    tierPriceLabel: "£45,000/mo concierge retainer · 6-month cycle shown",
+    tierPriceLabel: "€45,000/mo concierge retainer · 6-month cycle shown",
     sector: "Premium Services",
     engagementShape: "Sovereign — Full-stack authority + AI search dominance",
     durationWeeks: 26,
@@ -168,7 +168,7 @@ export const CASE_STUDY_MANIFEST: readonly CaseStudyManifestEntry[] = [
       {
         label: "Inbound qualified pipeline",
         before: "Baseline",
-        after: "24 qualified enquiries · ~£620K influenced pipeline",
+        after: "24 qualified enquiries · ~€620K influenced pipeline",
         window: "6 months",
       },
       {
@@ -187,10 +187,10 @@ export const CASE_STUDY_MANIFEST: readonly CaseStudyManifestEntry[] = [
       {
         question: "What separates Sovereign from Foundation and Authority?",
         answer:
-          "Foundation is a fixed-fee six-week site-system reset. Authority is a £14,000/mo retainer focused on the citation graph and editorial engine. Sovereign is concierge — full-stack authority engineering, paid acceleration, brand management, tier-1 placement, founder-voice content, and monthly engine reporting against a named competitor set. One operating system across every surface. Pricing reflects the surface area, not the brand premium.",
+          "Foundation is a fixed-fee six-week site-system reset. Authority is a €14,000/mo retainer focused on the citation graph and editorial engine. Sovereign is concierge — full-stack authority engineering, paid acceleration, brand management, tier-1 placement, founder-voice content, and monthly engine reporting against a named competitor set. One operating system across every surface. Pricing reflects the surface area, not the brand premium.",
       },
       {
-        question: "Is the £620K influenced pipeline figure attribution-clean?",
+        question: "Is the €620K influenced pipeline figure attribution-clean?",
         answer:
           "Influenced pipeline is modeled attribution — opportunities where AI surface or organic search was a touchpoint in the buying journey. Wiele's reporting separates measured lift (AI citation share, branded search volume, featured snippet captures — all directly observable in engine output) from modeled attribution (influenced pipeline). Both are useful. They answer different questions.",
       },

@@ -359,7 +359,7 @@ function SystemFinalCta() {
           Diagnose first. Then commit.
         </h2>
         <p className="text-body-lg text-silver mb-8 max-w-xl mx-auto">
-          Every Wiele engagement starts with a Signal Audit. £2,500 one-off, 14
+          Every Wiele engagement starts with a Signal Audit. €2,500 one-off, 14
           days to delivery, no retainer required.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -367,7 +367,7 @@ function SystemFinalCta() {
             href="/audit"
             className={buttonStyles({ variant: "primary", size: "lg" })}
           >
-            Run a Growth Audit
+            Start AI Visibility Audit
           </Link>
           <Link
             href="/contact"

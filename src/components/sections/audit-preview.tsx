@@ -58,7 +58,7 @@ export function AuditPreview() {
                 href="/audit"
                 className={buttonStyles({ variant: "featured", size: "lg" })}
               >
-                Run a Growth Audit · £2,500
+                Start AI Visibility Audit · €2,500
               </Link>
               <Link
                 href="/platform"

@@ -43,7 +43,7 @@ export default function AiVisibilityMonitoringPage() {
       description: tier.positioning,
       serviceType: "AI Visibility Monitoring",
       price: numeric,
-      priceCurrency: "GBP",
+      priceCurrency: "EUR",
       url: `${siteConfig.url}/services/${service.slug}#${tier.id}`,
       recurring: tier.cadence.includes("/ month"),
     });

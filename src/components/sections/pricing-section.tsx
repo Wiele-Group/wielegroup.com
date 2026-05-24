@@ -67,11 +67,10 @@ export function PricingSection({
         </Reveal>
 
         <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-          All prices in GBP, exclude VAT. Wiele bills monthly. 30-day notice. No
+          All prices in EUR, exclude VAT where applicable. Wiele bills monthly. 30-day notice. No
           long-term lock-in.
           <span className="block mt-1 text-[0.6875rem] tracking-[0.08em]">
-            Begin with a Signal Audit or a Strategy Call. Onboarding scope
-            agreed before any cheque is taken.
+            Begin with a Signal Audit or a Strategy Call. Onboarding scope agreed before payment is taken.
           </span>
         </p>
       </div>
