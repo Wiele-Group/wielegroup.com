@@ -68,6 +68,10 @@ const STATIC_ROUTES: {
     changeFrequency: "monthly",
   },
   { path: "/web-design-agency", priority: 0.9, changeFrequency: "monthly" },
+  /* Phase 2 (2026-05-24) — ICP landing page for AEO/GEO agencies.
+       Positions Wiele OS as the capability layer for agency AI-search delivery.
+       Primary CTA: Book Strategy Call. Secondary: Start AI Visibility Audit. */
+  { path: "/for-agencies", priority: 0.9, changeFrequency: "monthly" },
   /* Productized service offers — v3.1 (2026-05-07). Premium Brand Site
        System is the WDA flagship SKU: token-first builds, 5-mode delivery,
        AI revision credits, contractual CWV SLA. High SEO weight — anchor
