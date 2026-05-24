@@ -117,7 +117,7 @@ export type ProductSchema = SchemaBase & {
  *
  * Distinct from `ServiceSchema` (which models page-level descriptions
  * via `hasOfferCatalog`). This type represents a single priced tier of
- * an agency service (e.g. "Marketing System £4,500/mo") and is the
+ * an agency service (e.g. "Marketing System €4,500/mo") and is the
  * semantically correct replacement for the old per-tier Product schema
  * that GSC flagged as invalid Merchant Listings on division pages.
  *

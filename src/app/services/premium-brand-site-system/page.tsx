@@ -43,7 +43,7 @@ export default function PremiumBrandSiteSystemPage() {
       description: tier.positioning,
       serviceType: "Premium Brand Site System",
       price: numeric,
-      priceCurrency: "GBP",
+      priceCurrency: "EUR",
       url: `${siteConfig.url}/services/${service.slug}#${tier.id}`,
       recurring: tier.cadence.includes("/ month"),
     });

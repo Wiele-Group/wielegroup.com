@@ -41,7 +41,7 @@ export function CTASection() {
               href="/audit"
               className={buttonStyles({ variant: "primary", size: "lg" })}
             >
-              Run a Growth Audit
+              Start AI Visibility Audit
             </Link>
             <Link
               href="/contact"
@@ -53,7 +53,7 @@ export function CTASection() {
         </FadeIn>
         <FadeIn whileInView delay={0.2}>
           <p className="mt-6 text-body-xs text-smoke font-mono">
-            £2,500 one-off · No retainer required to start
+            €2,500 one-off · No retainer required to start
           </p>
         </FadeIn>
       </div>

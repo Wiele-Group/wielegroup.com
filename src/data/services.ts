@@ -15,8 +15,8 @@
  *     blueprint as immediate-revenue agency value (vs Year-2 SaaS build).
  *
  * 2 · AI Visibility Monitoring (v3.3 — 2026-05-08)
- *     The first Wiele recurring monitoring SKU. Lite £2.5K · Standard
- *     £4K · Pro £6K /mo. Compounds with every Authority and Sovereign
+ *     The first Wiele recurring monitoring SKU. Lite €2.5K · Standard
+ *     €4K · Pro €6K /mo. Compounds with every Authority and Sovereign
  *     retainer. Source-of-truth: SOP at _OPERATIONS/
  *     ai-visibility-monitoring-sop/ v1.0.
  */
@@ -74,7 +74,7 @@ const premiumBrandSiteSystem: Division = {
     {
       id: "pbss-foundation",
       name: "Foundation Build",
-      price: "£18,000",
+      price: "€18,000",
       cadence: "fixed scope · 6-8 weeks",
       positioning:
         "Token system + 8-12 page production build + AI-Search-Native architecture + CWV SLA-backed launch. The system installed.",
@@ -91,7 +91,7 @@ const premiumBrandSiteSystem: Division = {
     {
       id: "pbss-authority",
       name: "Authority Retainer",
-      price: "£14,000",
+      price: "€14,000",
       cadence: "/ month",
       positioning:
         "Full agency partnership. Continuous evolution, multi-property scope, 1,200 AI revision credits, performance and AI-defense monitoring. The system run for you.",
@@ -110,7 +110,7 @@ const premiumBrandSiteSystem: Division = {
     {
       id: "pbss-sovereign",
       name: "Sovereign Concierge",
-      price: "£45,000",
+      price: "€45,000",
       cadence: "/ month",
       positioning:
         "Founder-level access. Unlimited AI revision credits. Private AI routing. Embedded brand-defense engineering. Reserved for premium brands operating at category-leader scale.",
@@ -151,7 +151,7 @@ const premiumBrandSiteSystem: Division = {
   seo: {
     title: "Premium Brand Site System · Wiele Group · Token-first builds with contractual CWV SLA",
     description:
-      "Token-first architecture · 5-mode delivery · AI revision credits · contractual Core Web Vitals SLA. Premium brand websites built to compound, not decay. £18k Foundation · £14k/mo Authority · £45k/mo Sovereign. Built on Next.js + Cloudflare. AI-Search-Native by default.",
+      "Token-first architecture · 5-mode delivery · AI revision credits · contractual Core Web Vitals SLA. Premium brand websites built to compound, not decay. €18k Foundation · €14k/mo Authority · €45k/mo Sovereign. Built on Next.js + Cloudflare. AI-Search-Native by default.",
   },
 };
 
@@ -210,7 +210,7 @@ const aiVisibilityMonitoring: Division = {
     {
       id: "avm-lite",
       name: "Lite",
-      price: "£2,500",
+      price: "€2,500",
       cadence: "/ month",
       positioning:
         "Boutique premium services firms ready to compound visibility. 25-prompt panel, four engines monthly, top 3 actions, 30-min monthly review. The retainer floor.",
@@ -228,7 +228,7 @@ const aiVisibilityMonitoring: Division = {
     {
       id: "avm-standard",
       name: "Standard",
-      price: "£4,000",
+      price: "€4,000",
       cadence: "/ month",
       positioning:
         "Established firms in active competitive battles. 60 prompts across 3-5 categories, 3 named competitors tracked, modelled influenced pipeline, live dashboard, quarterly QBR. The modal Wiele Monitoring tier.",
@@ -247,7 +247,7 @@ const aiVisibilityMonitoring: Division = {
     {
       id: "avm-pro",
       name: "Pro",
-      price: "£6,000",
+      price: "€6,000",
       cadence: "/ month",
       positioning:
         "Category-leader firms in fast-moving competitive surfaces. 100 prompts, bi-weekly engine runs, 5 competitors, featured snippet tracking, full influenced pipeline modelling, 2 Wiele-executed quick wins per month, 90-min founder time, Slack channel. The instrumented edge.",
@@ -286,7 +286,7 @@ const aiVisibilityMonitoring: Division = {
   seo: {
     title: "AI Visibility Monitoring · Wiele Group · Recurring retainer for ChatGPT, Gemini, Perplexity, Claude citation tracking",
     description:
-      "Recurring monitoring across ChatGPT, Gemini, Perplexity, and Claude. Citation share, source weight, named competitor tracking, action queue, monthly founder-signed report, quarterly business review. Methodology open — every metric replayable. Lite £2,500/mo · Standard £4,000/mo · Pro £6,000/mo. 6-month minimum.",
+      "Recurring monitoring across ChatGPT, Gemini, Perplexity, and Claude. Citation share, source weight, named competitor tracking, action queue, monthly founder-signed report, quarterly business review. Methodology open — every metric replayable. Lite €2,500/mo · Standard €4,000/mo · Pro €6,000/mo. 6-month minimum.",
   },
   deeperFramework: {
     eyebrow: "Open methodology",

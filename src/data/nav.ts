@@ -8,7 +8,7 @@
 export type NavLink = { label: string; href: string };
 
 export const primaryNav: NavLink[] = [
-  { label: "Platform", href: "/platform" },
+  { label: "Services", href: "/platform" },
   { label: "Systems", href: "/systems" },
   { label: "Proof", href: "/proof" },
   { label: "Labs", href: "/labs" },
@@ -16,7 +16,7 @@ export const primaryNav: NavLink[] = [
   { label: "Trust", href: "/trust" },
 ];
 
-export const ctaLink: NavLink = { label: "Run Audit", href: "/audit" };
+export const ctaLink: NavLink = { label: "Start AI Visibility Audit", href: "/audit" };
 
 /**
  * Footer layout per directive §6 Phase 1, extended v2.2 (2026-05-04):

@@ -28,7 +28,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = buildMetadata({
   title: "Pricing — Premium AI search dominance, with defense built-in",
   description:
-    "Six-tier ladder. AI Visibility Defense baked into every tier. Signal Audit £2,500 · Launch £1,950 · Growth £4,500 · Authority £8,500 · Wiele OS £15,000 · Sovereign from £45,000. GBP. 30-day notice.",
+    "Six-tier ladder. AI Visibility Defense baked into every tier. Signal Audit €2,500 · Launch €1,950 · Growth €4,500 · Authority €8,500 · Wiele OS €15,000 · Sovereign from €45,000. EUR. 30-day notice.",
   path: "/pricing",
 });
 
@@ -73,7 +73,7 @@ const pricingFaq = [
     id: "audit-required",
     question: "Do I need to do the Signal Audit before a Growth System engagement?",
     answer:
-      "We recommend it for every engagement. £2,500 one-off, 14 days, credited against month one if you continue with a Growth System or above.",
+      "We recommend it for every engagement. €2,500 one-off, 14 days, credited against month one if you continue with a Growth System or above.",
   },
   {
     id: "minimum-commitment",
@@ -127,7 +127,7 @@ export default function PricingPage() {
       name: `Wiele ${tier.name}`,
       description: tier.positioning,
       price: tierSchemaPrice(tier),
-      priceCurrency: "GBP",
+      priceCurrency: "EUR",
       url: `${siteConfig.url}/pricing#${tier.id}`,
     }),
   );
@@ -141,7 +141,7 @@ export default function PricingPage() {
       description: tier.schemaDescription,
       serviceType: tier.schemaServiceType,
       price: String(tier.priceGbp),
-      priceCurrency: "GBP",
+      priceCurrency: "EUR",
       url: `${siteConfig.url}/pricing#citation-score-${tier.slug}`,
       recurring: true,
     }),
@@ -236,7 +236,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── v3.9.4 — Citation Score™ subscription tiers (3, GBP/mo) ── */}
+      {/* ── v3.9.4 — Citation Score™ subscription tiers (3, EUR/mo) ── */}
       {/* Positioned ABOVE the one-off ladder per AMENDMENT A §3'.
           Anchor #recurring-ai-visibility carries Brief #001 deep-link. */}
       <RecurringAiVisibilityTiers />

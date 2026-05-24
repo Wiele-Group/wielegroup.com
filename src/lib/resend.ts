@@ -119,25 +119,26 @@ const STAGE_LABELS: Record<string, string> = {
   enterprise: "Enterprise",
 };
 const REVENUE_LABELS: Record<string, string> = {
-  "lt-500k": "Under £500k",
-  "500k-2m": "£500k – £2M",
-  "2m-10m": "£2M – £10M",
-  "10m-50m": "£10M – £50M",
-  "50m-plus": "£50M+",
+  "lt-500k": "Under €500k",
+  "500k-2m": "€500k – €2M",
+  "2m-10m": "€2M – €10M",
+  "10m-50m": "€10M – €50M",
+  "50m-plus": "€50M+",
   "prefer-not": "Prefer not to say",
 };
 // Budget tier labels for founder-facing onboarding email rendering.
 // Keys mirror src/data/pricing.ts tier IDs exactly. Keep in lockstep with
 // src/data/onboarding.ts BUDGET_TIER_OPTIONS + src/lib/validations.ts.
 // Updated 2026-05-06 v3.0-pricing-overhaul (added launch + sovereign;
-// repriced growth £4,000 → £4,500 and authority £8,000 → £8,500).
+// repriced growth €4,000 → €4,500 and authority €8,000 → €8,500).
+// Updated 2026-05-24: currency GBP → EUR (Phase 1 hardening).
 const BUDGET_LABELS: Record<string, string> = {
-  "signal-audit": "Signal Audit (£2,500 one-off)",
-  "launch": "Launch (£1,950 / mo)",
-  "growth-system": "Growth System (£4,500 / mo)",
-  "authority-engine": "Authority Engine (£8,500 / mo)",
-  "wiele-os": "Wiele OS (£15,000+ / mo)",
-  "sovereign": "Sovereign (from £45,000 / mo)",
+  "signal-audit": "Signal Audit (€2,500 one-off)",
+  "launch": "Launch (€1,950 / mo)",
+  "growth-system": "Growth System (€4,500 / mo)",
+  "authority-engine": "Authority Engine (€8,500 / mo)",
+  "wiele-os": "Wiele OS (€15,000+ / mo)",
+  "sovereign": "Sovereign (from €45,000 / mo)",
   "not-sure": "Not sure yet",
 };
 const TIMELINE_LABELS: Record<string, string> = {

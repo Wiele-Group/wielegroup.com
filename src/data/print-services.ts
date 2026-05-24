@@ -4,7 +4,7 @@
  * 2026-05-10) + CLAUDE_CODE_DIRECTIVE_WEBSITE_UPDATE_v3.9.0_2026-05-10.md.
  *
  * Lives at /services/print-production. Embedded versions appear in
- * Brand Management Agency Brand Growth tier (£3,750/mo) — monthly
+ * Brand Management Agency retainer — monthly
  * business cards + branded collateral production included.
  *
  * v3.9.0 (2026-05-11) — competitive UK 2026 startup pricing.
@@ -25,7 +25,7 @@ export const printServices: readonly PrintService[] = [
   {
     id: "business-cards-premium",
     name: "Business Cards",
-    price: "£180",
+    price: "€180",
     cadence: "one-off · 500 cards · UK delivery",
     positioning: "Premium business cards on quality stock. The card people keep.",
     details: [
@@ -40,7 +40,7 @@ export const printServices: readonly PrintService[] = [
   {
     id: "stationery-suite",
     name: "Stationery Suite",
-    price: "£450",
+    price: "€450",
     cadence: "one-off · UK delivery",
     positioning: "Complete branded stationery system — cards, letterhead, envelopes, compliments slips.",
     details: [
@@ -54,7 +54,7 @@ export const printServices: readonly PrintService[] = [
   {
     id: "brand-book-print",
     name: "Brand Book Print Run",
-    price: "£950",
+    price: "€950",
     cadence: "one-off · 50 copies",
     positioning: "Bound brand book — for internal teams, partners, and prospect leave-behinds.",
     details: [
@@ -137,7 +137,7 @@ export const printFaqs: readonly PrintFaq[] = [
     id: "print-retainer",
     question: "Do you offer ongoing print retainers?",
     answer:
-      "Yes. Embedded in the Brand Growth tier (£3,750/mo) of the Brand Management Agency — monthly business cards plus branded collateral production included. Larger print volumes can be scoped as a quarterly retainer.",
+      "Yes. Included in select Brand Management Agency retainers — monthly business cards plus branded collateral production. Larger print volumes scoped as a quarterly retainer.",
   },
   {
     id: "sustainability",

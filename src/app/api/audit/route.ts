@@ -28,7 +28,7 @@ export const runtime = "nodejs";
  *  7. Return 202 { runId, queuedAt }
  *
  * Customer-facing failure path = invalid input or bot. Everything
- * else = succeed and recover async. A £2,500 audit lead must never
+ * else = succeed and recover async. A €2,500 audit lead must never
  * see "submission failed."
  */
 export async function POST(request: Request): Promise<Response> {

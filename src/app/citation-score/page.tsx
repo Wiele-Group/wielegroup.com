@@ -116,7 +116,7 @@ export default function CitationScoreMethodologyPage() {
                 The Citation Score™ subscription runs the engine panel
                 month over month and surfaces the four-component score
                 against your named competitor set. Three tiers, monthly
-                in GBP, three-month minimum.
+                in EUR, three-month minimum.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link

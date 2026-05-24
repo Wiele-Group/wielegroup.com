@@ -101,7 +101,7 @@ export const problemPoints = [
   {
     title: "Recommendation layers compound for the prepared.",
     body:
-      "Brands that engineer citation-readiness now own the cited slot for years. Late entrants compete against compounded incumbents.",
+      "Brands that engineer citation-readiness build compounding citation presence. Late entrants compete against compounded incumbents.",
   },
   {
     title: "Generic content is invisible content.",

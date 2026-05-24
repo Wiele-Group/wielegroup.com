@@ -28,7 +28,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = buildMetadata({
   title: "AI Visibility Audit — Find out if AI recommends you (and where you're exposed)",
   description:
-    "£2,500. 14 days. Visibility score, mention strength, citation readiness, plus prompt-injection surface map, AI crawler posture audit, and competitor displacement risk model.",
+    "€2,500. 14 days. Visibility score, mention strength, citation readiness, plus prompt-injection surface map, AI crawler posture audit, and competitor displacement risk model.",
   path: "/audit",
 });
 
@@ -120,7 +120,7 @@ const detailSections = [
   {
     title: "What it costs",
     body:
-      "£2,500 one-off. No retainer required. Engagement-pricing applies if you decide to continue with a Launch tier or above; the £2,500 is credited against month one.",
+      "€2,500 one-off. No retainer required. Engagement-pricing applies if you decide to continue with a Launch tier or above; the €2,500 is credited against month one.",
   },
   {
     title: "Who runs the engine",
@@ -146,7 +146,7 @@ export default function AuditPage() {
     description:
       "Full Wiele OS engine run for your brand. Visibility, mention, citation, gaps, plus prompt-injection surface map, AI crawler posture audit, and competitor displacement risk model. 14-day delivery.",
     price: "2500.00",
-    priceCurrency: "GBP",
+    priceCurrency: "EUR",
     url: `${siteConfig.url}/audit`,
   });
   const service = serviceSchema({
@@ -184,7 +184,7 @@ export default function AuditPage() {
             <div>
               <FadeIn>
                 <Badge variant="electric" size="sm" className="mb-5">
-                  AI Visibility Audit · £2,500 · 14 days
+                  AI Visibility Audit · €2,500 · 14 days
                 </Badge>
               </FadeIn>
               <FadeIn delay={0.05}>
@@ -371,12 +371,24 @@ export default function AuditPage() {
               Submit your brand
             </Badge>
             <h2 className="text-heading-lg text-white mb-2">
-              Run a Growth Audit
+              Start AI Visibility Audit
             </h2>
             <p className="text-body-sm text-silver mb-6">
               Eight fields, two steps, fourteen-day delivery. The engine runs
               once you submit; you receive a full report (visibility + defense)
               and a strategy session with a Wiele principal.
+            </p>
+            {/* Trust strip — Phase 1 hardening */}
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mb-6 text-body-xs font-mono text-smoke">
+              <span>✓ Human-reviewed</span>
+              <span>✓ Source-level citation log</span>
+              <span>✓ No private analytics access required</span>
+              <span>✓ GDPR-aligned intake</span>
+              <span>✓ Delivered in 14 days</span>
+            </div>
+            <p className="text-[0.6875rem] font-mono text-smoke/70 mb-6">
+              Wiele uses your submission only to scope the audit and produce your
+              visibility report. We do not sell, rent, or syndicate enquiry data.
             </p>
             <AuditForm />
           </div>

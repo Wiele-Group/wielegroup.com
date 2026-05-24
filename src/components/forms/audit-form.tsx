@@ -284,7 +284,7 @@ export function AuditForm() {
                   Submitting…
                 </>
               ) : (
-                "Submit audit · £2,500"
+                "Submit audit · €2,500"
               )}
             </Button>
             <button

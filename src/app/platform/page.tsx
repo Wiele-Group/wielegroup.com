@@ -19,7 +19,7 @@ import { JsonLd } from "@/components/json-ld";
 import { PromptSimulator } from "@/components/sections/prompt-simulator";
 import { systemsDetail } from "@/data/systems-detail";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 
 // v3.8.0 — force-static + 1h ISR. Eliminates CF Workers Free CPU exceedance.
 export const dynamic = "force-static";
@@ -70,9 +70,17 @@ export default function PlatformPage() {
     { name: "Home", url: siteConfig.url },
     { name: "Platform", url: `${siteConfig.url}/platform` },
   ]);
+  const platformService = serviceSchema({
+    name: "Wiele OS — AI Growth Platform",
+    description:
+      "Wiele OS runs AI Visibility, Search Authority, Brand Authority, Web Experience, and Revenue Intelligence on one continuous engine. Dedicated strategists, structured attribution, and AI Visibility Defense built into every engagement.",
+    url: `${siteConfig.url}/platform`,
+    serviceType: "AI Growth Platform",
+  });
   return (
     <>
       <JsonLd schema={breadcrumbs} id="schema-breadcrumb-platform" />
+      <JsonLd schema={platformService} id="schema-service-platform" />
       <section className="relative overflow-hidden">
         <div
           aria-hidden
@@ -108,13 +116,13 @@ export default function PlatformPage() {
                   href="/audit"
                   className={buttonStyles({ variant: "featured", size: "lg" })}
                 >
-                  Run a Growth Audit
+                  Start AI Visibility Audit
                 </Link>
                 <Link
                   href="/contact"
                   className={buttonStyles({ variant: "ghost", size: "lg" })}
                 >
-                  Talk to Wiele
+                  Book Strategy Call
                 </Link>
               </div>
             </FadeIn>

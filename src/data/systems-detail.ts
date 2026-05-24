@@ -206,7 +206,7 @@ const aiVisibility: SystemDetailEntry = {
     {
       question: "What's the minimum engagement length?",
       answer:
-        "The Signal Audit is one-off (£2,500). Ongoing systems work is a 90-day initial commitment, then 30-day rolling. We don't require long lock-ins.",
+        "The Signal Audit is one-off (€2,500). Ongoing systems work is a 90-day initial commitment, then 30-day rolling. We don't require long lock-ins.",
     },
     {
       question: "Can we run AI Visibility without your other systems?",

@@ -193,7 +193,7 @@ export default async function CitationBriefPage({
             href="/audit"
             className={buttonStyles({ variant: "primary", size: "lg" })}
           >
-            Run a Growth Audit
+            Start AI Visibility Audit
           </Link>
           <Link
             href="/pricing"

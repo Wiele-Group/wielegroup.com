@@ -1,7 +1,7 @@
 /**
  * Pricing tiers — v3.0 (2026-05-06).
  * 6-tier ladder + AI Visibility Defense baked into every paid tier.
- * Currency: GBP. Display: £.
+ * Currency: EUR. Display: €.
  *
  * AI Defense vectors (scaled by tier depth):
  *   1. Prompt-injection surface monitoring
@@ -23,7 +23,7 @@ export type PricingTier = {
   name: string;
   /** Numeric price — formatted at render time. */
   price: number;
-  /** Display "from £X" prefix (Sovereign anchor). */
+  /** Display "from €X" prefix (Sovereign anchor). */
   priceFrom?: boolean;
   cadence: "one-off" | "/month";
   /** Short positioning sentence under the name. */
@@ -71,7 +71,7 @@ export const pricingTiers: readonly PricingTier[] = [
       "Authority gap report + 30-day roadmap",
       "Strategy session with a Wiele principal",
     ],
-    cta: { label: "Run a Growth Audit", href: "/audit" },
+    cta: { label: "Start AI Visibility Audit", href: "/audit" },
     // v3.9.6 (2026-05-14): contact-first per project memory open loop
     // ("Stripe direct checkout (flip when 5 case studies close)"). The 5
     // buy.stripe.com payment links were deactivated in Stripe during the
@@ -105,7 +105,7 @@ export const pricingTiers: readonly PricingTier[] = [
       "Quarterly displacement risk report",
       "14-day reverse-trial of Pro features",
     ],
-    cta: { label: "Start with Launch", href: "/contact?tier=launch" },
+    cta: { label: "Book Strategy Call", href: "/contact?tier=launch" },
     paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrVGuLDs0qzh2MZGJWbT1",
   },
@@ -183,13 +183,13 @@ export const pricingTiers: readonly PricingTier[] = [
       ],
     },
     outcomes: [
-      "Category-defining AI citation dominance + revenue compounding",
+      "Compounding AI citation share growth across all five growth levers",
       "All five Wiele systems on one engine",
       "Dedicated growth-systems team",
       "Custom platform configuration + private benchmarks",
       "Direct line to Wiele principals",
     ],
-    cta: { label: "Talk to Wiele", href: "/contact?tier=wiele-os" },
+    cta: { label: "Book Strategy Call", href: "/contact?tier=wiele-os" },
     paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TT1u0GuLDs0qzh2VQ5jAyZQ",
   },
@@ -200,7 +200,7 @@ export const pricingTiers: readonly PricingTier[] = [
     priceFrom: true,
     cadence: "/month",
     positioning:
-      "Founder-led strategy. Dedicated team. AI engines that default to your authority.",
+      "Founder-led strategy. Dedicated team. Built to be the brand AI engines consistently surface.",
     differentiator: "Founder-led strategy + dedicated team + bespoke",
     aiDefense: {
       level: "real-time",
@@ -211,7 +211,7 @@ export const pricingTiers: readonly PricingTier[] = [
       ],
     },
     outcomes: [
-      "Sovereign brand status: AI engines default to your authority",
+      "Sovereign brand status: engineered to be the authority AI engines surface and recommend",
       "Real-time AI defense across owned + earned surfaces",
       "Dedicated AI defender team",
       "Adversarial competitor red-team monthly",
@@ -229,9 +229,9 @@ export const pricingTiers: readonly PricingTier[] = [
 
 /**
  * Format a tier price for display.
- *   formatTierPrice(1950, "/month")             → "£1,950 / mo"
- *   formatTierPrice(2500, "one-off")            → "£2,500"
- *   formatTierPrice(45000, "/month", true)      → "From £45,000 / mo"
+ *   formatTierPrice(1950, "/month")             → "€1,950 / mo"
+ *   formatTierPrice(2500, "one-off")            → "€2,500"
+ *   formatTierPrice(45000, "/month", true)      → "From €45,000 / mo"
  */
 export function formatTierPrice(
   price: number,
@@ -240,7 +240,7 @@ export function formatTierPrice(
 ): string {
   const num = price.toLocaleString("en-GB");
   const suffix = cadence === "/month" ? " / mo" : "";
-  return `${priceFrom ? "From " : ""}£${num}${suffix}`;
+  return `${priceFrom ? "From " : ""}€${num}${suffix}`;
 }
 
 /** Convenience for tier objects. */

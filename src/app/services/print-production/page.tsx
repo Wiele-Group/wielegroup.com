@@ -33,7 +33,7 @@ const HERO_IMAGE = {
 export const metadata: Metadata = buildMetadata({
   title: "Print Production · Premium letterpress, brand books, OOH",
   description:
-    "Premium print engineered to the same standard as the digital brand. Business cards from £180. Stationery suites from £450. Brand book print runs from £950. Packaging, OOH, direct mail. UK manufacture · curated partners · designed by Wiele.",
+    "Premium print engineered to the same standard as the digital brand. Business cards from €180. Stationery suites from €450. Brand book print runs from €950. Packaging, OOH, direct mail. UK manufacture · curated partners · designed by Wiele.",
   path: "/services/print-production",
   ogImage: HERO_IMAGE.src,
 });
@@ -88,7 +88,7 @@ export default function PrintProductionPage() {
         description: s.positioning,
         serviceType: "Print Production",
         price: s.price.replace(/[^\d]/g, "") + ".00",
-        priceCurrency: "GBP",
+        priceCurrency: "EUR",
         url: `${siteConfig.url}/services/print-production#${s.id}`,
         recurring: false,
       }),
@@ -151,7 +151,7 @@ export default function PrintProductionPage() {
                     href="/contact?intent=print"
                     className={buttonStyles({ variant: "ghost", size: "lg" })}
                   >
-                    Talk to Wiele
+                    Book Strategy Call
                   </Link>
                 </div>
               </FadeIn>
@@ -255,7 +255,7 @@ export default function PrintProductionPage() {
               Six print products. One standard.
             </h2>
             <p className="text-body-md text-silver mt-4">
-              UK manufacture. GBP. Custom and large-format quoted bespoke.
+              UK manufacture. EUR. Custom and large-format quoted bespoke.
             </p>
           </div>
 
@@ -328,8 +328,8 @@ export default function PrintProductionPage() {
           </Reveal>
 
           <p className="mt-8 text-body-xs font-mono text-smoke text-center">
-            All prices in GBP, exclude VAT and delivery outside the UK.
-            Recurring print included in Brand Growth (£3,750/mo).
+            All prices in EUR, exclude VAT where applicable. UK delivery included where quoted.
+            Recurring print included in selected retainers — ask about scope during onboarding.
           </p>
 
           <div className="mt-6 flex justify-center">
