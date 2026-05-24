@@ -153,6 +153,48 @@ const premiumBrandSiteSystem: Division = {
     description:
       "Token-first architecture · 5-mode delivery · AI revision credits · contractual Core Web Vitals SLA. Premium brand websites built to compound, not decay. €18k Foundation · €14k/mo Authority · €45k/mo Sovereign. Built on Next.js + Cloudflare. AI-Search-Native by default.",
   },
+  directAnswer: {
+    eyebrow: "Direct answer",
+    headline: "What is the Wiele Premium Brand Site System?",
+    body: "The Premium Brand Site System is Wiele's flagship web design and engineering SKU — a token-first, AI-Search-Native production build on Next.js and Cloudflare, backed by a contractual Core Web Vitals SLA. It delivers the technical substrate that makes a brand citeable by ChatGPT, Gemini, Perplexity, and Claude — not just ranked on Google. Three engagement shapes: Foundation Build at €18,000 fixed-fee over 6–8 weeks, Authority Retainer at €14,000 per month for continuous evolution, and Sovereign Concierge at €45,000 per month for category-leader brands requiring private AI routing and embedded brand-defense engineering.",
+  },
+  audienceItems: [
+    "Premium B2B brands replacing legacy WordPress or Webflow estates",
+    "Founders and CMOs whose sites are invisible to AI-generated answers",
+    "Category-leader firms preparing for AI-search-first buyer journeys",
+    "Brands requiring contractual performance guarantees (LCP · INP · CLS · WCAG 2.2 AA)",
+    "Marketing and brand agencies delivering AI-native web builds for premium clients",
+    "Multi-domain, multi-language brands operating at Sovereign scale",
+  ],
+  deeperFramework: {
+    eyebrow: "Methodology",
+    headline: "Built on the Wiele AI Search ROI Operating System.",
+    body: "The Foundation Build installs the technical substrate the ROI Operating System runs on: entity reconciliation, schema layer, llms.txt, sitemap, IndexNow, Core Web Vitals tuning. The Authority Retainer runs the editorial engine and visibility compounding loop. Read the full operating system to understand what you are buying — every deliverable ladders back to it.",
+    href: "/labs/ai-search-roi-operating-system",
+    cta: "Read the operating system",
+  },
+  internalLinks: [
+    {
+      label: "AI Visibility Audit",
+      description: "One-shot diagnostic: where your brand stands today across ChatGPT, Gemini, Perplexity, and Claude — with a gap analysis and 30-day roadmap. The recommended entry point before scoping a Foundation Build.",
+      href: "/audit",
+    },
+    {
+      label: "AI Visibility Monitoring",
+      description: "The recurring retainer that defends the citation surface after the Foundation Build ships. Monthly engine runs, citation share tracking, named-competitor comparison, action queue. Stack with any tier.",
+      href: "/services/ai-visibility-monitoring",
+    },
+    {
+      label: "Web Design Agency",
+      description: "The Wiele Web Design Agency overview — engagement shapes, philosophy, and the full scope of what we build. The Premium Brand Site System is the productized SKU from this division.",
+      href: "/web-design-agency",
+    },
+    {
+      label: "Pricing",
+      description: "Full Wiele pricing ladder — Signal Audit through Sovereign. The Foundation Build and Authority Retainer live inside the six-tier ladder. See how the tiers stack.",
+      href: "/pricing",
+    },
+  ],
 };
 
 /* ─────────────────────────────────────────────────────────────

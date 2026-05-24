@@ -30,6 +30,26 @@ export default function PremiumBrandSiteSystemPage() {
     description: service.subhead,
     url: `${siteConfig.url}/services/${service.slug}`,
     serviceType: "Premium Web Design and Development System",
+    offerCatalog: {
+      name: "Premium Brand Site System engagement shapes",
+      items: [
+        {
+          name: "Premium Brand Site System — Foundation Build",
+          description:
+            "Token-first design system, 5-mode delivery, 8–12 page Next.js + Cloudflare production build, AI-Search-Native content layer, llms.txt, schema.org, contractual Core Web Vitals SLA. Fixed scope, 6–8 weeks.",
+        },
+        {
+          name: "Premium Brand Site System — Authority Retainer",
+          description:
+            "1,200 AI revision credits per month, continuous CWV + SEO monitoring, AI Visibility Defense (citation tracking, prompt-injection surface audit), conversion optimisation, design-system extension.",
+        },
+        {
+          name: "Premium Brand Site System — Sovereign Concierge",
+          description:
+            "Unlimited AI revision credits, private AI routing, embedded brand-defense engineering team, multi-domain and multi-language scope, direct founder access, 24-hour response SLA.",
+        },
+      ],
+    },
   });
 
   const faq = faqSchema(
