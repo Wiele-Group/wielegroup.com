@@ -172,8 +172,8 @@ const aiVisibilityMonitoring: Division = {
   headline: "Citations compound. We measure what compounds.",
   subhead:
     "The first Wiele recurring monitoring retainer. Every month, your brand is tracked across ChatGPT, Gemini, Perplexity, and Claude — citation share, prompt coverage, source weight, named-competitor share, branded search lift. Methodology open. Every metric replayable from the citation log. Founder reviews every report. The compounding loop, instrumented.",
-  primaryCta: { label: "Book a Strategic Review", href: "/contact?intent=ai-visibility-monitoring" },
-  secondaryCta: { label: "See pricing", href: "#tiers" },
+  primaryCta: { label: "Start AI Visibility Audit", href: "/audit" },
+  secondaryCta: { label: "Book Strategy Call", href: "/contact" },
   services: [
     {
       num: "01",
@@ -295,6 +295,41 @@ const aiVisibilityMonitoring: Division = {
     href: "/labs/ai-search-roi-operating-system",
     cta: "Read the operating system",
   },
+  directAnswer: {
+    eyebrow: "Direct answer",
+    headline: "What is AI Visibility Monitoring?",
+    body: "AI Visibility Monitoring is a recurring retainer that tracks where a brand appears, disappears, or gets cited inside AI-generated answers across ChatGPT, Gemini, Perplexity, and Claude. Every month, a structured panel of buyer-intent prompts runs across all four engines. The output is a citation share score, source weight breakdown, named-competitor comparison, prioritised action queue, and a founder-signed report. The methodology is open — every metric is replayable from the citation log.",
+  },
+  audienceItems: [
+    "AEO and GEO agencies monitoring AI visibility for clients",
+    "SEO agencies expanding into answer-engine deliverables",
+    "Premium B2B firms in competitive AI-search categories",
+    "Brand and marketing agencies building AI visibility reporting",
+    "Founders and marketing leads who need to know where they stand in AI answers",
+    "Businesses preparing for AI-search-first buyer journeys",
+  ],
+  internalLinks: [
+    {
+      label: "AI Visibility Audit",
+      description: "One-shot diagnostic: where your brand stands today across four AI engines, with a gap analysis and 30-day roadmap. The recommended entry point before committing to Monitoring.",
+      href: "/audit",
+    },
+    {
+      label: "For AEO & GEO Agencies",
+      description: "How Wiele Group works as an AI-search capability layer for agencies — including the strategy, audit frameworks, and delivery architecture for client work.",
+      href: "/for-agencies",
+    },
+    {
+      label: "Pricing",
+      description: "Full Wiele pricing ladder — Signal Audit, Launch, Growth, Authority, Wiele OS, Sovereign. Monitoring is the recurring layer that stacks with every tier.",
+      href: "/pricing",
+    },
+    {
+      label: "Premium Brand Site System",
+      description: "The Wiele web design flagship — AI-Search-Native architecture, contractual Core Web Vitals SLA. Stack with Monitoring for the full visibility-plus-defence system.",
+      href: "/services/premium-brand-site-system",
+    },
+  ],
 };
 
 export const services: readonly Division[] = [premiumBrandSiteSystem, aiVisibilityMonitoring];

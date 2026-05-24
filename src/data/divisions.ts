@@ -117,6 +117,31 @@ export type Division = {
     href: string;
     cta: string;
   };
+  /**
+   * phase2-step2 — optional direct-answer block rendered between hero
+   * and capabilities grid. Provides AI-extractable answer for the
+   * "what is X" query. eyebrow = mono label, headline = H2, body = paragraph.
+   */
+  directAnswer?: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+  };
+  /**
+   * phase2-step2 — optional audience section rendered after the direct-answer
+   * block. Array of strings. Renders as a two-column check-list (mirrors
+   * /for-agencies audience section pattern).
+   */
+  audienceItems?: readonly string[];
+  /**
+   * phase2-step2 — optional internal-links mesh rendered after the deeper-
+   * framework callout and before the pricing tiers. Max 4 items.
+   */
+  internalLinks?: readonly {
+    label: string;
+    description: string;
+    href: string;
+  }[];
 };
 
 /* ─────────────────────────────────────────────────────────────

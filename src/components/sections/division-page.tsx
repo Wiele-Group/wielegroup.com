@@ -161,6 +161,65 @@ export function DivisionPage({ division }: { division: Division }) {
         </div>
       </section>
 
+      {/* ── Direct Answer block (phase2-step2 — optional) ─────── */}
+      {division.directAnswer ? (
+        <section className="py-12 md:py-16 border-t border-[var(--color-border-default)]">
+          <div className="mx-auto max-w-3xl px-[var(--container-px)]">
+            <FadeIn whileInView>
+              <p
+                className="text-body-xs font-mono uppercase tracking-[0.16em] mb-4"
+                style={{ color: accent.eyebrow }}
+              >
+                {division.directAnswer.eyebrow}
+              </p>
+              <h2 className="text-display-md text-white text-balance mb-5">
+                {division.directAnswer.headline}
+              </h2>
+              <p className="text-body-lg text-silver leading-relaxed">
+                {division.directAnswer.body}
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+      ) : null}
+
+      {/* ── Audience (phase2-step2 — optional) ─────────────────── */}
+      {division.audienceItems && division.audienceItems.length > 0 ? (
+        <section className="py-16 md:py-20 bg-[var(--color-obsidian)]/40">
+          <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] items-start">
+              <div>
+                <p
+                  className="text-body-xs font-mono uppercase tracking-[0.16em] mb-4"
+                  style={{ color: accent.eyebrow }}
+                >
+                  Who this is for
+                </p>
+                <h2 className="text-display-md text-white text-balance">
+                  Built for firms that need to know where they stand in AI answers
+                </h2>
+              </div>
+              <Reveal stagger={0.05} className="flex flex-col gap-2">
+                {division.audienceItems.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] px-4 py-3"
+                  >
+                    <span
+                      aria-hidden
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-electric/15 text-electric"
+                    >
+                      <Check size={12} />
+                    </span>
+                    <span className="text-body-md text-cloud">{item}</span>
+                  </div>
+                ))}
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* ── Services ────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 bg-[var(--color-void)]/50">
         <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
@@ -267,6 +326,35 @@ export function DivisionPage({ division }: { division: Division }) {
                 <ArrowRight size={14} className="ml-1.5" aria-hidden />
               </Link>
             </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* ── Internal links mesh (phase2-step2 — optional) ──────── */}
+      {division.internalLinks && division.internalLinks.length > 0 ? (
+        <section className="py-12 md:py-16 border-t border-[var(--color-border-default)]">
+          <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
+            <p
+              className="text-body-xs font-mono uppercase tracking-[0.16em] mb-8"
+              style={{ color: accent.eyebrow }}
+            >
+              Related
+            </p>
+            <Reveal stagger={0.05} className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {division.internalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex flex-col p-5 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] hover:border-electric/40 transition-colors"
+                >
+                  <span className="text-heading-sm text-white mb-2 group-hover:text-electric transition-colors">
+                    {link.label}
+                    <ArrowRight size={13} className="inline ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
+                  </span>
+                  <span className="text-body-sm text-silver">{link.description}</span>
+                </Link>
+              ))}
+            </Reveal>
           </div>
         </section>
       ) : null}

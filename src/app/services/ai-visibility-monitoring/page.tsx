@@ -30,6 +30,23 @@ export default function AiVisibilityMonitoringPage() {
     description: service.subhead,
     url: `${siteConfig.url}/services/${service.slug}`,
     serviceType: "AI Visibility Monitoring Retainer",
+    offerCatalog: {
+      name: "AI Visibility Monitoring tiers",
+      items: [
+        {
+          name: "AI Visibility Monitoring — Lite",
+          description: "25-prompt panel, four engines monthly, citation share + source weight, top 3 actions, monthly founder-signed report.",
+        },
+        {
+          name: "AI Visibility Monitoring — Standard",
+          description: "60-prompt panel, 3 named competitors, live dashboard, modelled influenced pipeline, top 5 actions with spec docs, quarterly QBR.",
+        },
+        {
+          name: "AI Visibility Monitoring — Pro",
+          description: "100-prompt panel, bi-weekly runs, 5 competitors, featured snippet capture, full pipeline modelling, 2 Wiele-executed quick wins, 90-min founder QBR.",
+        },
+      ],
+    },
   });
 
   const faq = faqSchema(
