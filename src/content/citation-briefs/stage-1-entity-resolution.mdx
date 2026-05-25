@@ -1,0 +1,207 @@
+import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
+
+{/* Cowan 4-chunk rule: max 4 visible items per vertical list in any viewport. Split into columns, numbered tables, or H3 sub-blocks when exceeded. */}
+
+<section className="mb-12 rounded-[var(--radius-lg)] border border-electric/30 bg-electric/5 p-6 md:p-8">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-4">
+    The 60-second answer
+  </p>
+  <p className="text-body-lg text-cloud mb-4">
+    Stage 1 of the <Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Five-Stage Citation Hierarchy</Link> is <strong className="text-white">Entity Resolution</strong> — whether an AI engine can unambiguously identify your brand as a distinct, trusted entity. It is the gate that every other stage is locked behind. Without clean entity resolution, Stage 3 schema work, Stage 2 authority building, and Stage 5 recommendation history all underperform silently.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    Four signals determine whether an engine resolves your brand correctly: your knowledge graph footprint (Wikidata entry, Google Knowledge Panel anchor), schema.org sameAs links across your top pages, a named-author publishing trace, and consistent identity data across trusted third-party sources. A brand missing two or more of these signals is, from the engine&apos;s perspective, ambiguous — and ambiguous entities do not receive named citations.
+  </p>
+  <p className="text-body-sm text-silver">
+    The engineering sprint that installs all four signals runs in three weeks. Entity-resolution wins from a clean sprint typically show up in citation share within 30 to 60 days. The ceiling on Stage 1 is not citation — it is eligibility for citation.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Why Stage 1 is the gate, not the ceiling.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    The Five-Stage Citation Hierarchy is a stack. Each stage gates the one above it. Stage 1 — Entity Resolution — is different from every other stage in one specific way: it is binary. Either the engine can identify your brand as a distinct, trusted entity, or it cannot. There is no partial credit. A brand that passes Stage 1 is eligible for citation. A brand that fails it is invisible — regardless of how strong its Stage 3 schema, how authoritative its domain, or how many times it has been cited in press.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    This binary quality is what distinguishes Stage 1 from the compounding stages above it. Stage 2 — Source Authority — is slow to build and slow to lose; it compounds over years. Stage 5 — Recommendation History — is the long-game moat; early citation begets later citation, and the loop strengthens over cycles. Both are continuous and directional. Stage 1 is a threshold. Cross it, and the hierarchy opens. Miss it, and nothing above it fires.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The implication is that Stage 1 is not where the citation ceiling lives. Brands with clean entity resolution still need Stage 3 extractability, Stage 2 authority depth, and Stage 5 citation history to move from eligible to cited to frequently recommended. Stage 1 resolution does not guarantee a citation. It guarantees that a citation is possible. That distinction matters when sequencing the engineering sprint: fix Stage 1 first, not because it produces the most lift in isolation, but because it is the prerequisite gate that makes every other investment return anything at all.
+  </p>
+  <p className="text-body-md text-silver">
+    In practice, the most common pre-engagement pattern Wiele sees is a brand that has invested months in content and schema — genuine Stage 3 work — while sitting on an unresolved Stage 1 failure. The pages are well-structured, the FAQ schema is correct, the founder has published consistently. But the engine still cannot cite the brand because it cannot unambiguously resolve the brand name to a specific entity. The Stage 3 investment returns nothing. Fix Stage 1 first, then the Stage 3 lift becomes real.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The four entity signals AI engines read.
+  </h2>
+  <p className="text-body-md text-silver mb-8">
+    Entity resolution is not a single signal — it is a composite. Engines weigh four distinct layers of identity evidence. A brand with all four layers clean resolves unambiguously. A brand missing two or more layers is treated as ambiguous, which means it drops from the named-citation pool entirely and may still appear as an unnamed secondary source at best.
+  </p>
+  <Reveal stagger={0.06} className="grid gap-4">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">01</p>
+        <h3 className="text-heading-md text-white">Knowledge graph footprint</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        The knowledge graph is where entity resolution starts. For Google-class engines, the relevant graph is the Google Knowledge Graph — populated primarily from Wikipedia, Wikidata, and a small set of authoritative third-party databases. An entity with a Wikidata Q-number and a confirmed Google Knowledge Panel is unambiguously resolved: the engine has a canonical anchor to pull citations from. An entity without either is working from secondary inference — the engine may guess, but it will not cite with confidence. Wikidata is the fastest path to the knowledge graph: any brand can file a Wikidata entry without Wikipedia notability requirements, as long as the entry is verifiable (official website, registration documents, named founder). The Google Knowledge Panel typically follows within two to four crawl cycles after a clean Wikidata entry is filed and stabilised.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">02</p>
+        <h3 className="text-heading-md text-white">Schema.org sameAs disambiguation</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        The sameAs property in Schema.org Organization and Person markup is the machine-readable disambiguation layer. It tells the engine: this entity on this page is the same as this entity at this external URL. A well-formed sameAs block on an Organization schema links the brand&apos;s domain to its Wikidata Q-entry, its Companies House or equivalent registration record, its LinkedIn company profile, and any other authoritative external anchor. A well-formed sameAs on a Person schema links the founder&apos;s bio page to their personal LinkedIn, their Twitter/X handle, their Wikidata Q-entry if it exists, and any notable press profiles. Critical detail: Person.sameAs must point to the human&apos;s personal profiles, not the company&apos;s. Collapsing the two into the same sameAs array dilutes the disambiguation — the engine cannot cleanly separate the human entity from the brand entity, and citation attribution for founder-voice content gets split or lost. Ship Organization sameAs and Person sameAs as separate schema blocks, with non-overlapping target URLs.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">03</p>
+        <h3 className="text-heading-md text-white">Named-author publishing trace</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        Entity resolution for a brand is reinforced by founder-voice publishing that carries a consistent named-author signal. When the founder publishes under their own name on the brand&apos;s domain — with bylines, Person schema, and sameAs anchors pointing to their personal profiles — the engine sees a human entity authoring content on behalf of a brand entity. The two entities reinforce each other: the brand&apos;s identity is confirmed by the founder&apos;s verifiable presence, and the founder&apos;s authority is grounded in the brand&apos;s domain trust. Neither operates at full signal strength without the other. The named-author trace is also what drives Stage 2 — Source Authority — over the medium term. A domain whose content is consistently attributed to a named, verifiable author accumulates authority faster than one whose content is published without attribution. Start the named-author trace at Stage 1 because it pays dividends at Stage 2 and Stage 5.
+      </p>
+    </div>
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-6 md:p-7">
+      <div className="flex items-baseline gap-4 mb-3">
+        <p className="text-body-xs font-mono text-electric">04</p>
+        <h3 className="text-heading-md text-white">Consistent NAP / identity data across trusted sources</h3>
+      </div>
+      <p className="text-body-md text-silver">
+        NAP — Name, Address, Phone — is the local SEO term for the identity consistency signal. In an AI-search context, the relevant version of this signal is brand identity consistency: the brand name, the founder name, the core offering description, and the domain URL must be consistent across every third-party source where the brand appears. Inconsistencies — a different brand name spelling on Crunchbase, a different founder name format on LinkedIn, a different service description on a press mention — create resolution failures. The engine sees two or more conflicting descriptions of the same entity and cannot resolve them to a single canonical node. The result is citation suppression: rather than guess, the engine cites no one. Audit the top ten sources where your brand is mentioned, verify that name and description strings match, and correct the inconsistencies at source before running the sprint.
+      </p>
+    </div>
+  </Reveal>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    How to diagnose a Stage 1 failure.
+  </h2>
+  <p className="text-body-md text-silver mb-5">
+    Stage 1 failures present in four recognisable patterns. The first diagnostic move for any pre-engagement <Link href="/audit" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Signal Audit</Link> is to check for each. Any one of them is enough to suppress named citations; two or more compound the failure and extend the time-to-resolution.
+  </p>
+  <ul className="space-y-5 text-body-md text-silver">
+    <li className="border-l-2 border-electric/40 pl-5">
+      <strong className="text-white block mb-2">The brand name resolves to the wrong entity — or to no entity.</strong>
+      Search the brand name on Google and check whether a Knowledge Panel appears. If no panel appears, the brand is not anchored to the knowledge graph. If a panel appears but describes a different company or a generic concept, the brand name is ambiguous and resolution is failing. This is the clearest Stage 1 signal. Brands with generic names (common nouns, shared acronyms, person names used as brand names) are especially vulnerable. The fix is a Wikidata entry plus a sameAs layer that anchors the brand to a specific Q-number — giving the engine a canonical tie-break.
+    </li>
+    <li className="border-l-2 border-electric/40 pl-5">
+      <strong className="text-white block mb-2">AI engines cite competitors for category prompts but not the brand, despite on-topic content.</strong>
+      Run a panel of ten buyer-intent prompts that the brand&apos;s pages directly address. If competitors appear consistently and the brand does not — even when the brand has published content on the same topic — the failure is typically Stage 1, not Stage 3. Stage 3 failures produce partial citations (the content is pulled from but the brand is not named) or generic sourcing (the page is used but not attributed). A consistent absence across multiple engines on multiple prompts points to the engine being unable to resolve the brand name, not being unable to find the content.
+    </li>
+    <li className="border-l-2 border-electric/40 pl-5">
+      <strong className="text-white block mb-2">Schema.org markup carries no sameAs properties.</strong>
+      Inspect the Organization and Person schema blocks in view-source (or via Google&apos;s Rich Results Test). If the sameAs array is absent or empty, the machine-readable disambiguation layer is missing. This is a sprint-resolvable engineering fix. Add sameAs to Organization pointing to Wikidata Q-entry, LinkedIn company page, and the equivalent business registry. Add sameAs to Person (founder schema) pointing to the founder&apos;s personal LinkedIn, X profile, and any notable press pages with a byline. Verify the sameAs targets are reachable and return the expected content when crawled.
+    </li>
+    <li className="border-l-2 border-electric/40 pl-5">
+      <strong className="text-white block mb-2">Brand mentions across third-party sources show name or description inconsistency.</strong>
+      Pull the top ten external sources where the brand appears: LinkedIn, Companies House or equivalent, Crunchbase, Clutch, any press mentions, directory listings. Check that the brand name spelling, founder name format, and core offering description are consistent across all ten. A brand named &quot;Wiele Group Ltd&quot; on Companies House but &quot;Wiele&quot; on LinkedIn and &quot;Wiele Group&quot; on press creates a tripartite resolution problem. The engine treats them as related but distinct entities, cannot collapse them confidently, and suppresses the named citation. Standardise to one canonical form across all sources before deploying the sprint.
+    </li>
+  </ul>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    The entity resolution sprint.
+  </h2>
+  <p className="text-body-md text-silver mb-6">
+    The sprint runs in three weeks. The sequence is fixed — each week&apos;s work is a prerequisite for the next. Running them out of order or in parallel reduces the signal clarity and extends the timeline to measurable lift.
+  </p>
+  <ol className="space-y-6 text-body-md text-silver list-decimal pl-6">
+    <li>
+      <strong className="text-white">Week one — entity audit, Wikidata filing, and schema sameAs layer.</strong>{" "}
+      Start with the full entity audit: check Knowledge Panel status, audit the top ten third-party sources for name and description consistency, review existing Organization and Person schema for sameAs coverage. Standardise the brand name and founder name to a single canonical form and correct every inconsistency at source. File the Wikidata entry if it is absent — include the official website URL, founding date, founder name, registered jurisdiction, and at least one reliable external reference. If the entry already exists, claim it and verify that the property set is complete. Simultaneously, update the Organization schema on every page that carries it: add the sameAs array pointing to Wikidata Q-entry, LinkedIn company page, and jurisdiction-specific registry. Update the Person schema on every founder-authored page: add sameAs pointing to the founder&apos;s personal LinkedIn and X profile. Submit the updated pages via IndexNow. By the end of week one, the machine-readable disambiguation layer is live and the knowledge graph entry is filed.
+    </li>
+    <li>
+      <strong className="text-white">Week two — founder-voice publishing with consistent identity signals.</strong>{" "}
+      Publish two to three founder-voice pieces on the brand&apos;s owned domain. Each piece must carry a visible byline with the founder&apos;s name (matching the sameAs canonical form), a Person schema with sameAs, and an Article schema with a named author. The content itself matters less than the identity signal — these are the publications that reinforce the connection between the founder entity and the brand entity in the engine&apos;s model. Aim for pieces that address buyer-intent queries the brand already ranks for or wants to rank for; this way the identity signal compounds with Stage 3 extractability. Submit each new page via IndexNow immediately after publishing. By the end of week two, the engine has fresh crawl evidence connecting the founder name to the brand domain, with consistent sameAs anchors across both entities.
+    </li>
+    <li>
+      <strong className="text-white">Week three — structured third-party citation placement.</strong>{" "}
+      Secure one tier-1 citation that names the founder and the brand in a single piece: a press mention on a credible publication, a podcast transcript hosted on an authoritative domain, or a guest publication on a recognised trade site. This is the hardest and most important week — one tier-1 mention with a named author is worth more for entity resolution than twenty directory listings. The citation does not need to be in a top-five national newspaper; it needs to be on a domain the engine trusts, with a named author (the founder or an interviewer naming the founder), and a direct mention of the brand name in its canonical form. By the end of week three, the engine has an external, trusted, structured signal confirming that the brand and founder it knows from Wikidata and schema are a credible, externally-verified entity.
+    </li>
+  </ol>
+  <p className="text-body-sm text-smoke mt-6">
+    Engines re-crawl within days if pages are submitted via IndexNow. Citation-share lift from a clean Stage 1 sprint typically registers in the second monthly engine run — 30 to 60 days after the Wikidata entry and sameAs layer are live. The <Link href="/citation-score" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Score™ subscription</Link> instruments the lift month over month and surfaces which of the four entity signals is driving the change.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    What Stage 1 unlocks — and what it does not.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    A clean Stage 1 resolution does three things for every stage above it:
+  </p>
+  <ul className="space-y-4 text-body-md text-silver list-disc pl-6">
+    <li>
+      <strong className="text-white">Stage 3 Structured Extractability becomes attributable.</strong>{" "}
+      The highest-leverage sprint-scale stage in the hierarchy is Stage 3 — schema markup, definitive openers, FAQPage schema, extractable content patterns. But Stage 3 work that the engine cannot attribute to a resolved entity gets cited as an anonymous or generic source, or not cited at all. A clean Stage 1 resolution gives the engine an entity to attach the Stage 3 citation to. The two stages are complementary: Stage 1 provides the anchor, Stage 3 provides the quotable content. Run both. The <Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Stage 3 deep-dive in Citation Brief #002</Link> covers the full schema bundle and extractability content pattern.
+    </li>
+    <li>
+      <strong className="text-white">Stage 2 Source Authority compounds faster.</strong>{" "}
+      Source Authority — the engine&apos;s trust in the domain as a primary source — builds through tier-1 press mentions, named-author publishing, domain trust signals, and structured citations to the brand&apos;s work. All of these authority signals are anchored to the entity. A resolved entity accumulates authority with each new mention; an unresolved entity&apos;s mentions scatter across ambiguous interpretation. After Stage 1 resolution, every press mention, every podcast, every case study that names the brand adds to a single, unified authority account — not split across a disambiguation cloud.
+    </li>
+    <li>
+      <strong className="text-white">Stage 5 Recommendation History starts its compounding loop.</strong>{" "}
+      Stage 5 is the long-game moat: early citation begets later citation, and the loop strengthens over cycles. But the loop only begins once the engine has resolved the entity and logged the first citation against it. Unresolved entities cannot build recommendation history — the engine has no stable node to attach the citation chain to. Stage 1 is the prerequisite for Stage 5. Fix it in the three-week sprint; let Stage 5 compound from there. Agencies running white-label entity resolution sprints for clients can deliver Stage 1 as a standalone engagement scoped inside the first four weeks — an immediately deliverable capability tied to the <Link href="/for-agencies" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">agency capability layer</Link> Wiele provides.
+    </li>
+  </ul>
+  <p className="text-body-md text-silver mt-6">
+    What Stage 1 does not do: it does not make the brand well-known, authoritative, or frequently cited in isolation. It clears the floor. The ceiling is set by what happens at Stages 2 through 5. A brand that resolves Stage 1 and stops there will be eligible for citation in the engine&apos;s model but will not rank highly enough in the citation-selection process to appear consistently in buyer-intent responses. Run Stage 1 first, then the <Link href="/services/premium-brand-site-system" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Foundation Build</Link> installs the full technical substrate — entity layer, schema, llms.txt, IndexNow, CWV-tuned architecture — that Stage 3 through 5 compound on top of.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Stage 1 and the agency brief.
+  </h2>
+  <p className="text-body-md text-silver mb-4">
+    For agencies delivering AEO and GEO work, Stage 1 is the natural first deliverable in any new client engagement. &quot;Why doesn&apos;t my brand appear in ChatGPT?&quot; is a Stage 1 question 80% of the time. The answer — ambiguous entity, missing knowledge graph anchor, no sameAs disambiguation layer — is diagnosable in a two-hour audit, and the fix is a three-week sprint with a defined output: Wikidata entry, Organisation schema with sameAs, Person schema with sameAs, two to three founder-voice publications, one tier-1 external citation. The sprint can be scoped, priced, and delivered as a standalone agency product before the broader retainer conversation begins.
+  </p>
+  <p className="text-body-md text-silver mb-4">
+    The citation-share lift from a clean Stage 1 sprint gives the agency a measurable outcome to show at month two — before the longer-compounding Stage 2 and Stage 5 work has had time to register. This is what makes Stage 1 a good entry-point deliverable: it produces a visible result on the shortest timeline in the hierarchy, which builds client confidence for the wider engagement. The <Link href="/services/ai-visibility-monitoring" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">AI Visibility Monitoring</Link> retainer tracks the entity signals that confirm Stage 1 resolution landed and measures citation lift month over month — giving the agency the instrumentation layer to show clients that the sprint worked and the compounding retainer is justified.
+  </p>
+  <p className="text-body-md text-silver">
+    Wiele runs entity resolution sprints as a white-label deliverable inside the agency capability layer. The full brief for how to package and deliver this as an agency product, alongside citation mapping, answer-asset architecture, and authority engineering, is at <Link href="/for-agencies" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">/for-agencies</Link>.
+  </p>
+</section>
+
+<section className="mb-14">
+  <h2 className="text-display-md text-white text-balance mb-5">
+    Methodology &amp; sources.
+  </h2>
+  <p className="text-body-md text-silver mb-3">
+    Stage 1 patterns observed across the Wiele AI Citation Tracker dataset (private, anonymised) over 18 months of weekly engine runs across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews. Entity resolution mechanics cross-referenced against each provider&apos;s public documentation and the underlying knowledge graph infrastructure:
+  </p>
+  <ul className="space-y-2 text-body-md text-silver list-disc pl-6">
+    <li>Schema.org — Organization and Person type specifications, sameAs property documentation</li>
+    <li>Wikidata — entity creation guidelines, Q-number assignment mechanics, property P18 and P856 (official website)</li>
+    <li>Google Search Central — Knowledge Graph documentation, entity reconciliation guidance</li>
+    <li>Google Knowledge Panel Help — Knowledge Panel eligibility and claim process</li>
+    <li>IndexNow Protocol — rapid URL submission to Bing, Yandex, Seznam, Naver, Yep</li>
+    <li>OpenAI ChatGPT search — named-entity citation behaviour observed across 240+ panel queries</li>
+    <li>Perplexity — public source-weight and citation attribution methodology</li>
+    <li>Wiele Citation Tracker dataset — 18 months · 12 client cohorts · weekly engine runs across 10 engines</li>
+    <li>The <Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Five-Stage Citation Hierarchy</Link> (Citation Brief #001) provides the broader methodological context for all five stages</li>
+  </ul>
+  <p className="text-body-sm text-smoke mt-5">
+    Every claim above is reproducible from public sources or Wiele&apos;s instrumented engine-run dataset. Engagement clients receive the named-competitor Stage-1 lift trace inside the Citation Score™ dashboard. The full prompt panel, source-level citation logging, and methodology rubric are published at <Link href="/trust" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">/trust</Link>.
+  </p>
+</section>
+
+<section className="mb-2">
+  <p className="text-body-md text-silver">
+    Stage 1 is the sprint that makes every other investment in the hierarchy possible. If you want a populated entity-resolution scorecard against your live brand — and the 30-day roadmap to close the gaps — start with a <Link href="/audit" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Signal Audit</Link>. The entity baseline is the first diagnostic output; everything else ladders from it. Once Stage 1 is clean, <Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Stage 3 Structured Extractability</Link> is the highest-leverage sprint-scale next move. The full <Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Five-Stage Citation Hierarchy</Link> in Citation Brief #001 maps the complete architecture.
+  </p>
+</section>

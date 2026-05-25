@@ -194,6 +194,12 @@ const premiumBrandSiteSystem: Division = {
       description: "Full Wiele pricing ladder — Signal Audit through Sovereign. The Foundation Build and Authority Retainer live inside the six-tier ladder. See how the tiers stack.",
       href: "/pricing",
     },
+    {
+      label: "Stage 1 — Entity Resolution",
+      description:
+        "The technical substrate of the Foundation Build installs the entity layer first: schema sameAs, structured identity signals, llms.txt, knowledge-graph footprint. Understand Stage 1 before scoping the build.",
+      href: "/citation-brief/stage-1-entity-resolution",
+    },
   ],
 };
 
@@ -370,6 +376,12 @@ const aiVisibilityMonitoring: Division = {
       label: "Premium Brand Site System",
       description: "The Wiele web design flagship — AI-Search-Native architecture, contractual Core Web Vitals SLA. Stack with Monitoring for the full visibility-plus-defence system.",
       href: "/services/premium-brand-site-system",
+    },
+    {
+      label: "Stage 1 — Entity Resolution",
+      description:
+        "The foundation of AI citation — whether engines can unambiguously identify your brand as a distinct entity. AI Visibility Monitoring tracks the signals that confirm entity resolution landed and measures citation lift month over month.",
+      href: "/citation-brief/stage-1-entity-resolution",
     },
   ],
 };

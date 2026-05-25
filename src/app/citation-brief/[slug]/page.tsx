@@ -46,6 +46,7 @@ import Stage3StructuredExtractability from "@/content/citation-briefs/stage-3-st
 import AeoIsThe2026Wcag from "@/content/citation-briefs/aeo-is-the-2026-wcag.mdx";
 import TwoTierAccessDoctrine from "@/content/citation-briefs/two-tier-access-doctrine.mdx";
 import BrandSemanticsInfrastructure from "@/content/citation-briefs/brand-semantics-infrastructure.mdx";
+import Stage1EntityResolution from "@/content/citation-briefs/stage-1-entity-resolution.mdx";
 
 const BRIEF_COMPONENTS: Record<string, React.ComponentType> = {
   "how-agencies-get-cited-in-ai-answers": HowAgenciesGetCited,
@@ -53,6 +54,7 @@ const BRIEF_COMPONENTS: Record<string, React.ComponentType> = {
   "aeo-is-the-2026-wcag": AeoIsThe2026Wcag,
   "two-tier-access-doctrine": TwoTierAccessDoctrine,
   "brand-semantics-infrastructure": BrandSemanticsInfrastructure,
+  "stage-1-entity-resolution": Stage1EntityResolution,
 };
 
 export const dynamic = "force-static";

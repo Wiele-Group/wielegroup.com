@@ -213,7 +213,7 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
     readingMinutes: 12,
     faq: [
       {
-        question: "Where did Google name 'brand semantics infrastructure'?",
+        question: "Where did Google name ‘brand semantics infrastructure’?",
         answer:
           "In the 2026 Marketing Predictions Guide published on Think with Google at business.google.com/en-all/think/future-of-marketing/marketing-predictions-guide-2026/. The exact quote: 'Preparing for an agentic world requires building brand semantics infrastructure, establishing data exposure governance, and prioritizing agent-native creative evaluation by scoring for model comprehension rather than just human appeal. Invest in agentic visibility intelligence to measure how often agents surface your brand, how they rank you, and where you are excluded.' Four disciplines named inside one sentence.",
       },
@@ -251,6 +251,64 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
         question: "What does a Wiele engagement look like?",
         answer:
           "Most engagements start with a Signal Audit — a diagnostic that grades the four layers, surfaces the gaps that matter, prices the build against the lift it unlocks. From there, retainers run on the Map. Build. Compound. rhythm. The Citation Score™ subscription instruments the lift month over month against a named competitor set. Full methodology and engagement model at /pricing.",
+      },
+    ],
+  },
+  {
+    slug: "stage-1-entity-resolution",
+    briefNumber: 6,
+    title:
+      "Stage 1 — Entity Resolution: how AI engines learn which brands to trust",
+    summary:
+      "Stage 1 of the Five-Stage Citation Hierarchy is Entity Resolution — whether AI engines can unambiguously identify your brand as a distinct entity. Every other stage in the hierarchy is gated on it. The engineering sprint that fixes it, and the signals that confirm it landed.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-25",
+    readingMinutes: 13,
+    faq: [
+      {
+        question: "What is entity resolution in the context of AI search?",
+        answer:
+          "Entity resolution is the process by which an AI answer engine disambiguates a brand name from all other entities sharing the same or similar names and anchors it to a unique, trusted knowledge node. Once resolved, the engine can attribute content, citations, and authority to that specific entity — and pull from it confidently when answering buyer-intent prompts. Until resolution is clean, the engine either ignores the brand, conflates it with a competitor, or cites it as an unnamed secondary source.",
+      },
+      {
+        question: "How do I know if my brand has an entity resolution problem?",
+        answer:
+          "Four signals: (1) Your brand name returns a generic description rather than a specific entity card in Google's Knowledge Panel. (2) AI engines cite your competitors when asked about your category but not you, even when your content directly addresses the query. (3) Schema.org markup on your site carries no sameAs links to recognised third-party profiles. (4) Your brand name is a common noun, a person's name, or an acronym shared with other entities — and you have no published disambiguation layer. A Wiele Signal Audit grades Stage 1 first and surfaces the specific failure mode.",
+      },
+      {
+        question: "Is entity resolution the same as building a Wikipedia page?",
+        answer:
+          "Wikipedia is one input — and a strong one — but it is not the only path. AI engines synthesise entity information from structured data (JSON-LD sameAs links), named-author publishing, consistent NAP (name, address, phone or brand-equivalent identity data) across trusted sources, and Wikidata entries. A brand without a Wikipedia article can still achieve clean entity resolution by engineering the other three signals. Conversely, a brand with a Wikipedia article but no schema layer, no named author, and inconsistent identity data across sources will still fail Stage 1 queries.",
+      },
+      {
+        question: "How long does entity resolution take?",
+        answer:
+          "The engineering sprint runs three weeks. Week one: audit the existing entity footprint, file the Wikidata claim if absent, publish or update the schema sameAs layer across the top pages. Week two: founder-voice publishing on the brand's owned domain with consistent identity signals. Week three: structured third-party citation placement (one tier-1 press mention or podcast transcript is worth more than twenty directory listings). Engines re-crawl within days if you submit via IndexNow; citation-share lift from Stage 1 resolution typically shows up in the second monthly engine run.",
+      },
+      {
+        question: "Does entity resolution help with classical search rankings too?",
+        answer:
+          "Yes — entity resolution improves Google's entity understanding, which feeds the Knowledge Graph, which in turn raises E-E-A-T signals on ranking decisions. The compound is intentional: classical SEO authority (Stage 2) and entity resolution (Stage 1) are the two foundational layers that make every other investment in the Five-Stage Hierarchy more efficient. Wiele runs both as one integrated system.",
+      },
+      {
+        question:
+          "What is the difference between Stage 1 entity resolution and Stage 5 recommendation history?",
+        answer:
+          "Stage 1 is binary: the engine either resolves your brand to a clean entity or it does not. You can fix a Stage 1 failure in three weeks. Stage 5 — Recommendation History — is a compounding signal; early citation begets later citation, and the loop strengthens over years. Stage 5 requires Stage 1 to be clean first: an engine cannot build a citation-history loop for an entity it has not yet resolved. Fix Stage 1 in a sprint; build Stage 5 through the compounding retainer.",
+      },
+      {
+        question: "Can my in-house team run the entity resolution sprint?",
+        answer:
+          "Yes, with the right specification. The sequence is: entity audit → Wikidata filing → schema sameAs layer → founder-voice content → structured tier-1 citation placement. The friction is prioritisation and completion rate — most in-house teams file the Wikidata entry but skip the sameAs layer, or publish the founder-voice content but let it sit without a named-author schema wrapper. Wiele runs the sprint as a turnkey delivery inside the Signal Audit engagement. Agencies can licence the sprint as a white-label deliverable through the /for-agencies capability layer.",
+      },
+      {
+        question:
+          "Where does entity resolution sit in the Five-Stage Citation Hierarchy?",
+        answer:
+          "Stage 1 — the gate. The full hierarchy: Stage 1 Entity Resolution → Stage 2 Source Authority → Stage 3 Structured Extractability → Stage 4 Freshness → Stage 5 Recommendation History. Every stage compounds on the previous. Stage 3 Structured Extractability is the highest-leverage sprint-scale intervention, but only on pages where Stage 1 is already solved — the engine needs to know who is publishing the page before it trusts what the page says. The full hierarchy is in Citation Brief #001.",
       },
     ],
   },

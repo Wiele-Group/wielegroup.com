@@ -75,6 +75,10 @@ readonly URL_LIST=(
   # answer-engine consideration set without waiting for organic crawl.
   "https://${HOST}/proof/foundation-cycle-01"
   "https://${HOST}/proof/sovereign-cycle-01"
+  # Phase 2 Step 4 (2026-05-25) — Citation Brief #006 Stage 1 Entity Resolution.
+  # Stage 1 deep-dive: how AI engines learn which brands to trust. Entity signals,
+  # knowledge graph footprint, sameAs disambiguation, 3-week sprint sequence.
+  "https://${HOST}/citation-brief/stage-1-entity-resolution"
   "https://${HOST}/sitemap.xml"
   # AI-engine context surface — added v3.0.1 (2026-05-06).
   # llms.txt is the canonical hint file every AI search crawler reads

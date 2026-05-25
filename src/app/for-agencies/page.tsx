@@ -306,6 +306,15 @@ export default function ForAgenciesPage() {
               </div>
             ))}
           </Reveal>
+          <p className="text-body-sm text-silver mt-8">
+            Entity and Authority Engineering in depth:{" "}
+            <Link
+              href="/citation-brief/stage-1-entity-resolution"
+              className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+            >
+              Read Citation Brief #006 — Stage 1 Entity Resolution →
+            </Link>
+          </p>
         </div>
       </section>
 
