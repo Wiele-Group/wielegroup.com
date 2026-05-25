@@ -170,6 +170,15 @@ const STATIC_ROUTES: {
     priority: 0.85,
     changeFrequency: "monthly" as const,
   },
+  /* Phase 2 Step 7 (2026-05-25) — Citation Brief #007.
+     Stage 2 Source Authority deep-dive. Compounding retainer argument.
+     Cross-linked from /for-brands, /for-agencies, AVM, and CB#006.
+     NOTE: STATIC_ROUTES is hand-maintained — each brief requires a manual entry. */
+  {
+    path: "/citation-brief/stage-2-source-authority",
+    priority: 0.85,
+    changeFrequency: "monthly" as const,
+  },
   /* v3.9.4 T4 (2026-05-14) — Citation Score™ methodology page.
        Productizes the four-component metric (Engine Coverage · On-Page
        Extractability · Citation Velocity · Recommendation History) plus

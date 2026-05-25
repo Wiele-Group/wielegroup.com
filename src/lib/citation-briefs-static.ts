@@ -312,6 +312,65 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
       },
     ],
   },
+  {
+    slug: "stage-2-source-authority",
+    briefNumber: 7,
+    title:
+      "Stage 2 — Source Authority: how AI engines decide which domains to trust",
+    summary:
+      "Stage 2 of the Five-Stage Citation Hierarchy is Source Authority — the engine's confidence that your domain is a primary, trustworthy source. Unlike Stage 1, it cannot be sprint-fixed. It compounds over months through five signals: tier-1 editorial citations, named-author publishing consistency, cross-entity citations, topical concentration, and temporal consistency. The authority layer that determines whether you are cited or merely eligible.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-25",
+    readingMinutes: 14,
+    faq: [
+      {
+        question:
+          "What is Stage 2 Source Authority in the Five-Stage Citation Hierarchy?",
+        answer:
+          "Stage 2 Source Authority is the engine's confidence that your domain is a primary, trustworthy source for the topics it covers. It is the second stage of the Five-Stage Citation Hierarchy — stacking on Entity Resolution (Stage 1) and feeding Structured Extractability (Stage 3), Freshness (Stage 4), and Recommendation History (Stage 5). Unlike Stage 1, which is binary and sprint-resolvable in three weeks, Stage 2 is a continuous variable that compounds through five measurable signals over months and quarters: tier-1 editorial citations, named-author publishing consistency, cross-entity citations, topical concentration, and temporal consistency.",
+      },
+      {
+        question: "How is Source Authority different from Entity Resolution?",
+        answer:
+          "Entity Resolution (Stage 1) is binary: either the engine can identify your brand as a distinct entity or it cannot. It is a threshold, fixed in a three-week sprint. Source Authority (Stage 2) is a continuous variable: the engine's cumulative assessment of how trustworthy your domain is as a primary source, built over months of consistent publishing, external citation, and editorial validation. Stage 1 asks: 'Do we know who this brand is?' Stage 2 asks: 'Do we trust this brand as a primary source when we have a choice of sources?' You cannot shortcut Stage 2 the way you can Stage 1. It compounds — and that is precisely what makes it a moat.",
+      },
+      {
+        question: "How long does it take to build Stage 2 Source Authority?",
+        answer:
+          "Expect the first measurable Stage 2 lift — moving from secondary to primary citation in the monthly engine-run panel — between months three and six of deliberate building, after a clean Stage 1 sprint. Expect Stage 2 citation share to stabilise (within ±10 percentage points month over month) between months nine and fifteen, depending on vertical competition and citation quality. Stage 5 Recommendation History begins reinforcing Stage 2 between months twelve and eighteen. The AI Visibility Monitoring retainer instruments the lift monthly — citation share, source weight tier, and authority delta against a named competitor set — so the compounding is visible and attributable throughout.",
+      },
+      {
+        question:
+          "What counts as a tier-1 citation for AI engine authority?",
+        answer:
+          "A tier-1 editorial citation is a mention of your brand, founder, or methodology in a publication the engine already treats as an authoritative source: national and trade press, podcast transcripts hosted on authoritative domains, academic or professional publications, and recognised industry databases. The weight hierarchy is steep: one tier-1 press mention in a domain the engine trusts carries more Stage 2 signal than one hundred directory listings. The editorial process — a journalist researching and choosing to mention the brand, a podcast host inviting the founder — is what the engine uses as a proxy for genuine external validation. It cannot be replicated by publishing your own content, no matter how well-structured that content is.",
+      },
+      {
+        question: "Can a Stage 2 deficit be sprint-fixed?",
+        answer:
+          "No. Stage 2 is the one stage in the Five-Stage Hierarchy that cannot be resolved in a fixed sprint. Stage 1 Entity Resolution is a three-week engineering sprint. Stage 3 Structured Extractability is a focused sprint across your top pages. Stage 2 Source Authority is the engine's cumulative model of your domain, built from months of consistent publishing, external citation, and editorial validation. There is no API call or schema property that installs it. The right framing: Stage 2 is always running in the background — the question is whether you are actively building it through deliberate authority compounding or passively letting competitors outpace you. The compounding retainer is the vehicle; the one-off sprint is not.",
+      },
+      {
+        question: "How does Source Authority relate to Google's E-E-A-T?",
+        answer:
+          "E-E-A-T — Experience, Expertise, Authoritativeness, Trustworthiness — is Google's internal quality-rater framework for assessing content quality. Stage 2 Source Authority is the AI-search-era operationalisation of the same underlying concept: the engine's confidence in a domain as a trustworthy primary source. The five Stage 2 signals (tier-1 citations, named-author publishing, cross-entity citations, topical concentration, temporal consistency) each map to E-E-A-T sub-components. Building Stage 2 systematically improves E-E-A-T signals — and vice versa. The two are complementary, not competing frameworks. Wiele engineers both as one integrated system: classical SEO authority compounds AEO citation, and AEO citation feeds E-E-A-T signals on ranking decisions.",
+      },
+      {
+        question:
+          "Does Source Authority apply to the whole domain or to individual pages?",
+        answer:
+          "Stage 2 Source Authority is primarily a domain-level signal, not a page-level one. The engine builds a model of the domain — this is the source it trusts for AI search authority, this is the source it weights secondary for financial services, this is the source it treats as a primary source for AEO methodology — and applies that model across all pages from that domain. Page-level extractability (Stage 3) determines which specific content gets pulled, but domain-level authority (Stage 2) determines how confidently the engine attributes the citation. A strong Stage 3 page on a weak Stage 2 domain will be pulled from but not prominently attributed; the same page on a strong Stage 2 domain will be cited with confidence and named attribution.",
+      },
+      {
+        question: "How does Wiele build Source Authority for clients?",
+        answer:
+          "Wiele builds Stage 2 through the Authority Engine retainer: one tier-1 editorial outreach target per month (pitch, placement, transcript submission), founder-voice publishing review and schema audit each quarter, structured cross-entity co-mention facilitation, and consistent named-author publishing support. The AI Visibility Monitoring retainer instruments the lift: monthly citation share against a named competitor set, source weight tier tracking, and authority delta reporting — so the compounding is visible, not inferred. Most engagements start with a Signal Audit that grades Stage 2 specifically and surfaces the gap against named competitors. The Signal Audit is the recommended first step: it scopes the programme and sets the baseline before any compounding investment is made.",
+      },
+    ],
+  },
 ];
 
 /**

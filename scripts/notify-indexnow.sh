@@ -79,6 +79,10 @@ readonly URL_LIST=(
   # Stage 1 deep-dive: how AI engines learn which brands to trust. Entity signals,
   # knowledge graph footprint, sameAs disambiguation, 3-week sprint sequence.
   "https://${HOST}/citation-brief/stage-1-entity-resolution"
+  # Phase 2 Step 7 (2026-05-25) — Citation Brief #007 Stage 2 Source Authority.
+  # Stage 2 deep-dive: five authority signals, compounding retainer argument,
+  # E-E-A-T operationalisation. The moat brief — cannot be sprint-fixed.
+  "https://${HOST}/citation-brief/stage-2-source-authority"
   # Phase 2 Step 5 (2026-05-25) — ICP landing page for premium brands.
   # Direct-client counterpart to /for-agencies. Primary CTA: Start AI Visibility
   # Audit. Audience: CMOs, founders, marketing leaders who need AI citation
