@@ -180,6 +180,16 @@ const premiumBrandSiteSystem: Division = {
       href: "/audit",
     },
     {
+      label: "For Premium Brands",
+      description: "How Wiele engineers AI visibility for premium brands directly — entity trust, citation architecture, answer-engine monitoring. The Foundation Build installs the technical substrate this page describes.",
+      href: "/for-brands",
+    },
+    {
+      label: "For AEO & GEO Agencies",
+      description: "How Wiele Group works as a capability layer for agencies. The Premium Brand Site System is the flagship build SKU within the agency delivery stack.",
+      href: "/for-agencies",
+    },
+    {
       label: "AI Visibility Monitoring",
       description: "The recurring retainer that defends the citation surface after the Foundation Build ships. Monthly engine runs, citation share tracking, named-competitor comparison, action queue. Stack with any tier.",
       href: "/services/ai-visibility-monitoring",
@@ -366,6 +376,11 @@ const aiVisibilityMonitoring: Division = {
       label: "For AEO & GEO Agencies",
       description: "How Wiele Group works as an AI-search capability layer for agencies — including the strategy, audit frameworks, and delivery architecture for client work.",
       href: "/for-agencies",
+    },
+    {
+      label: "For Premium Brands",
+      description: "AI search visibility engineered for brands that need to appear in AI-generated answers — entity trust, citation architecture, and monthly monitoring.",
+      href: "/for-brands",
     },
     {
       label: "Pricing",

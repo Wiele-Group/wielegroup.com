@@ -160,6 +160,16 @@ const STATIC_ROUTES: {
     priority: 0.85,
     changeFrequency: "monthly",
   },
+  /* Phase 2 Step 4 (2026-05-25) — Citation Brief #006.
+     Stage 1 Entity Resolution deep-dive. Core AEO methodology anchor.
+     Cross-linked from /for-agencies, /for-brands, AVM, and PBSS.
+     NOTE: STATIC_ROUTES is hand-maintained (not auto-derived from
+     getAllBriefSlugs) — each brief requires a manual entry here. */
+  {
+    path: "/citation-brief/stage-1-entity-resolution",
+    priority: 0.85,
+    changeFrequency: "monthly" as const,
+  },
   /* v3.9.4 T4 (2026-05-14) — Citation Score™ methodology page.
        Productizes the four-component metric (Engine Coverage · On-Page
        Extractability · Citation Velocity · Recommendation History) plus
