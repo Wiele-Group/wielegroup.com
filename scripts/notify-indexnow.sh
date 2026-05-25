@@ -79,6 +79,11 @@ readonly URL_LIST=(
   # Stage 1 deep-dive: how AI engines learn which brands to trust. Entity signals,
   # knowledge graph footprint, sameAs disambiguation, 3-week sprint sequence.
   "https://${HOST}/citation-brief/stage-1-entity-resolution"
+  # Phase 2 Step 5 (2026-05-25) — ICP landing page for premium brands.
+  # Direct-client counterpart to /for-agencies. Primary CTA: Start AI Visibility
+  # Audit. Audience: CMOs, founders, marketing leaders who need AI citation
+  # visibility for their own brand.
+  "https://${HOST}/for-brands"
   "https://${HOST}/sitemap.xml"
   # AI-engine context surface — added v3.0.1 (2026-05-06).
   # llms.txt is the canonical hint file every AI search crawler reads

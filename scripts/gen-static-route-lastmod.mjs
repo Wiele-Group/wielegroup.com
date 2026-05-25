@@ -62,6 +62,7 @@ const STATIC_ROUTES = [
   "/brand-management-agency",
   "/web-design-agency",
   "/for-agencies",
+  "/for-brands",
   "/services/premium-brand-site-system",
   "/services/ai-visibility-monitoring",
   "/services/print-production",

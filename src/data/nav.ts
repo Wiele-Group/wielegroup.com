@@ -49,6 +49,8 @@ export const footerColumns = [
     title: "Resources",
     links: [
       { label: "Signal Audit", href: "/audit" },
+      { label: "For Agencies", href: "/for-agencies" },
+      { label: "For Brands", href: "/for-brands" },
       { label: "Client Onboarding", href: "/onboarding" },
       { label: "Pricing", href: "/pricing" },
       { label: "Proof", href: "/proof" },
