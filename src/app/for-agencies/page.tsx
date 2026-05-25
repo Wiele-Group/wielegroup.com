@@ -428,6 +428,45 @@ export default function ForAgenciesPage() {
         </div>
       </section>
 
+      {/* Internal links — service pages */}
+      <section className="py-12 md:py-16 border-t border-[var(--color-border-default)]">
+        <div className="mx-auto max-w-3xl px-[var(--container-px)]">
+          <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-6">
+            Go deeper
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/services/ai-visibility-monitoring"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 hover:border-electric/40 transition-colors"
+            >
+              <h3 className="text-heading-sm text-white mb-1.5">AI Visibility Monitoring</h3>
+              <p className="text-body-sm text-silver">Monthly citation share tracking for your clients across ChatGPT, Gemini, Perplexity, and Claude — the recurring retainer that stacks with every delivery tier.</p>
+            </Link>
+            <Link
+              href="/services/premium-brand-site-system"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 hover:border-electric/40 transition-colors"
+            >
+              <h3 className="text-heading-sm text-white mb-1.5">Premium Brand Site System</h3>
+              <p className="text-body-sm text-silver">The Wiele web design flagship — AI-Search-Native architecture, contractual Core Web Vitals SLA. The Foundation Build clients need before monitoring lands.</p>
+            </Link>
+            <Link
+              href="/citation-brief/stage-1-entity-resolution"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 hover:border-electric/40 transition-colors"
+            >
+              <h3 className="text-heading-sm text-white mb-1.5">Citation Brief #006 — Entity Resolution</h3>
+              <p className="text-body-sm text-silver">How AI engines learn which brands to trust — the Stage 1 deep-dive and methodology behind the Citation Readiness System you deliver to clients.</p>
+            </Link>
+            <Link
+              href="/pricing"
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 hover:border-electric/40 transition-colors"
+            >
+              <h3 className="text-heading-sm text-white mb-1.5">Pricing</h3>
+              <p className="text-body-sm text-silver">Signal Audit through Sovereign — the full Wiele pricing ladder, including agency engagement tiers.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-16 md:py-20 lg:py-24 bg-[var(--color-obsidian)]/40">
         <div className="mx-auto max-w-3xl px-[var(--container-px)]">
