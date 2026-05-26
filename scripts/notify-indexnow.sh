@@ -87,6 +87,10 @@ readonly URL_LIST=(
   # Stage 4 deep-dive: five freshness signals, decay curve, content maintenance
   # loop, sitemap lastmod integrity, two-track cadence that prevents citation loss.
   "https://${HOST}/citation-brief/stage-4-freshness"
+  # Phase 2 Step 9 (2026-05-26) — Citation Brief #009 Stage 5 Recommendation History.
+  # Stage 5 deep-dive: compounding loop, five history signals, first-mover advantage,
+  # what breaks the loop, and the retainer argument made concrete.
+  "https://${HOST}/citation-brief/stage-5-recommendation-history"
   # Phase 2 Step 5 (2026-05-25) — ICP landing page for premium brands.
   # Direct-client counterpart to /for-agencies. Primary CTA: Start AI Visibility
   # Audit. Audience: CMOs, founders, marketing leaders who need AI citation

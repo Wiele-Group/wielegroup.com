@@ -433,6 +433,66 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
       },
     ],
   },
+  {
+    slug: "stage-5-recommendation-history",
+    briefNumber: 9,
+    title:
+      "Stage 5 — Recommendation History: how early citation becomes a compounding moat",
+    summary:
+      "Stage 5 of the Five-Stage Citation Hierarchy is Recommendation History — the engine's accumulated record of having cited your brand on a topic. It is the only stage that compounds without a ceiling: early citation makes future citation more likely, which deepens the history, which raises citation probability further. Every other stage in the hierarchy exists to earn the first citations that start this loop. Stage 5 is where those citations become a moat.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-26",
+    readingMinutes: 13,
+    faq: [
+      {
+        question:
+          "What is Stage 5 Recommendation History in the Five-Stage Citation Hierarchy?",
+        answer:
+          "Stage 5 Recommendation History is the engine's accumulated record of having cited your brand on a given topic or query cluster. It is the capstone of the Five-Stage Citation Hierarchy — stacking on Entity Resolution (Stage 1), Source Authority (Stage 2), Structured Extractability (Stage 3), and Freshness (Stage 4). Unlike the earlier stages, which establish the conditions for citation, Stage 5 is what happens after the first citations land: the engine builds a pattern, and that pattern becomes a prior. The more consistently and recently your brand has been cited on a topic, the higher the engine's default probability of citing it again. Stage 5 is the only stage that compounds without a ceiling — and the only stage where a first-mover advantage persists.",
+      },
+      {
+        question: "How does Recommendation History compound?",
+        answer:
+          "The compounding mechanism is probabilistic reinforcement. When an AI engine cites a brand on a topic and that citation is not corrected, disputed, or displaced, the engine's internal confidence in that citation increases slightly. The next time the same or a similar query arrives, the brand's probability of citation is marginally higher. Over months of consistent citation across a topic cluster, the probability tilts decisively — not because the brand is actively winning a competition, but because its history has become the engine's default. The loop accelerates when citation spreads across multiple engines: a brand cited by ChatGPT, Perplexity, and Gemini on the same topic cluster has three independent history threads compounding in parallel. Cross-engine citation history is the strongest form of Stage 5.",
+      },
+      {
+        question:
+          "Can a new entrant compete with a brand that has years of citation history?",
+        answer:
+          "Yes — but the path is narrow and requires deliberate sequencing. A brand with years of citation history has a Stage 5 moat: the engine's prior is strong and the compounding has run for long enough that displacement requires sustained effort across all five stages simultaneously. The new entrant's best approach is not to compete on the same queries directly, but to dominate an adjacent sub-topic cluster where the incumbent has shallow history, build Stage 5 depth there, and expand from that beachhead. The other lever is Stage 3 Structured Extractability: a new entrant with cleaner, more extractable answers on a query where the incumbent's content is dense or poorly structured can earn citations faster than the history gap would suggest. Stage 5 favours incumbents; Stage 3 favours challengers. The combination is how the gap closes.",
+      },
+      {
+        question:
+          "How long does it take to build measurable Recommendation History?",
+        answer:
+          "The first measurable Stage 5 signal — a consistent citation pattern emerging in the monthly engine-panel run across two or more query variants — typically appears between months three and six of deliberate compounding after a clean Stage 1 sprint. Stage 5 becomes durable (resistant to single-query competitor displacement) between months nine and fifteen. Cross-engine citation history, where the pattern holds across ChatGPT, Perplexity, Gemini, and Claude simultaneously, typically stabilises between months twelve and twenty-four, depending on vertical competition and content quality. These timelines assume consistent Stage 4 maintenance throughout — a gap in freshness interrupts the compounding and partially resets the history thread for affected queries.",
+      },
+      {
+        question: "What breaks the compounding loop?",
+        answer:
+          "Three failure modes interrupt Stage 5 compounding. First, Stage 4 neglect: if content goes stale and the engine pulls an outdated answer, the citation quality signal decays and the probability prior softens. The history does not reset to zero, but the compounding slows or reverses on stale queries. Second, Stage 3 degradation: if a structural change to the page breaks the extractable answer block, the engine stops pulling from the page. The history thread pauses; a competitor fills the gap. Third, competitor breakthrough: if a competitor completes stages 1 through 4 cleanly on a query where your history is thin or uneven, the engine splits citations and the exclusive history advantage ends. The first two failure modes are preventable through maintenance; the third is managed by building history depth across a topic cluster rather than a single query.",
+      },
+      {
+        question: "How does Stage 5 relate to Stage 2 Source Authority?",
+        answer:
+          "Stage 2 Source Authority is the engine's domain-level trust signal, built from external editorial citations, named-author publishing, and topical concentration. Stage 5 Recommendation History is the engine's query-level citation pattern, built from being cited consistently on specific topics over time. Stage 2 makes the engine confident enough to start citing your brand — it is the threshold that earns the first citations. Stage 5 is what those citations become over time: a pattern that raises citation probability further. A strong Stage 2 domain that neglects Stage 5 holds broad trust but shallow topical citation depth. A domain with deep Stage 5 history on a narrow topic cluster and weak Stage 2 is vulnerable to displacement when a higher-authority competitor enters. The strongest citation posture combines strong Stage 2 across the domain with deep Stage 5 history across the priority topic cluster.",
+      },
+      {
+        question:
+          "Is Recommendation History the same across all AI engines?",
+        answer:
+          "No — each engine builds its history independently. Citation patterns in ChatGPT do not automatically transfer to Perplexity or Gemini. A brand cited exclusively by one engine has a single-thread history that is vulnerable if that engine's behaviour changes or a competitor displaces it on that engine specifically. The strongest Stage 5 posture is cross-engine citation history: consistent citation across ChatGPT, Perplexity, Gemini, and Claude on the same query cluster. Cross-engine history is also the strongest external signal that Stage 2 Source Authority is genuinely established rather than engine-specific. The Wiele AI Visibility Monitoring retainer tracks citation share per engine per query cluster — the cross-engine view is the primary Stage 5 dashboard.",
+      },
+      {
+        question: "How does Wiele build Recommendation History for clients?",
+        answer:
+          "Wiele builds Stage 5 through the Authority Engine retainer, which runs all five stages as one integrated system. Stage 5 specifically: monthly engine-panel runs track citation share per query cluster per engine — surfacing where history is building, where it is stalling, and where a competitor is building a competing history thread. Stage 4 maintenance is built into the retainer cadence to ensure freshness does not interrupt the compounding. Stage 3 audits are run quarterly to catch structural changes that would break the extractable answer. Stage 2 outreach continuously feeds the authority layer that Stage 5 compounds on. The Citation Score™ subscription instruments Stage 5 directly through its Recommendation History component — tracking the citation pattern across engines and surfacing the depth and durability of the history on each priority query. Most engagements start with a Signal Audit that maps the current Stage 5 baseline against a named competitor set.",
+      },
+    ],
+  },
 ];
 
 /**

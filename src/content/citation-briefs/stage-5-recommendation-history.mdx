@@ -1,0 +1,129 @@
+import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
+
+<div className="rounded-xl border border-electric/30 bg-electric/5 px-6 py-5 mb-10">
+  <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-2">60-second answer</p>
+  <p className="text-body-sm text-primary leading-relaxed">
+    Stage 5 Recommendation History is the engine's accumulated record of having cited your brand on a topic. It is the only stage in the Five-Stage Citation Hierarchy that compounds without a ceiling: early citation raises citation probability, which generates more citation, which deepens the history, which raises probability further. Every other stage exists to earn the first citations that start this loop. Stage 5 is where those citations become a moat — and where the brands that started earliest hold a structural advantage that widens with every month.
+  </p>
+</div>
+
+## The stage where citation becomes compounding
+
+The first four stages of the Five-Stage Citation Hierarchy are about earning the right to be cited. Stage 1 Entity Resolution establishes who you are. Stage 2 Source Authority establishes why the engine should trust you. Stage 3 Structured Extractability ensures the engine can pull a clean answer from your page. Stage 4 Freshness ensures that answer is current.
+
+Stage 5 is what happens after the first citations land.
+
+An AI engine that has cited a brand on a topic — and found that citation to be accurate, extractable, and not disputed — develops a prior. The next time a similar query arrives, the brand's probability of citation is slightly higher. The time after that, slightly higher again. Over months and quarters, this prior deepens into a history thread: the engine's accumulated evidence that this brand is reliably cited when this query cluster comes up.
+
+That history thread compounds. It does not plateau. A brand with two years of consistent citation history on a topic is not twice as hard to displace as a brand with one year — it is significantly harder, because the depth of the prior makes the engine resistant to single-query interventions. Competitors can earn citations on adjacent queries. They cannot quickly overwrite an established history on the queries where the incumbent has deep Recommendation History.
+
+This is the only stage in the hierarchy where a first-mover advantage persists structurally. The brands building citation history now are creating compounding advantages that will widen every month — not because they will necessarily always have the best content, but because their history thread will make the engine's default harder to shift.
+
+---
+
+## The five Recommendation History signals
+
+<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 my-8">
+  <Reveal delay={0}>
+    <div className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 h-full">
+      <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-2">Signal 1</p>
+      <h3 className="text-body-sm font-semibold text-primary mb-2">Citation frequency</h3>
+      <p className="text-body-xs text-secondary leading-relaxed">How often the brand appears in the engine's citation set for a given topic cluster. Frequency across multiple query variants on the same topic is more valuable than a high count on a single query — it signals topic-level authority, not query-level optimisation.</p>
+    </div>
+  </Reveal>
+  <Reveal delay={0.05}>
+    <div className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 h-full">
+      <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-2">Signal 2</p>
+      <h3 className="text-body-sm font-semibold text-primary mb-2">Citation longevity</h3>
+      <p className="text-body-xs text-secondary leading-relaxed">Whether the brand has been cited on this topic for months or years, not just in a recent campaign spike. Longevity is what distinguishes a durable prior from a temporary optimisation effect — the engine weights sustained history above recent peaks.</p>
+    </div>
+  </Reveal>
+  <Reveal delay={0.1}>
+    <div className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 h-full">
+      <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-2">Signal 3</p>
+      <h3 className="text-body-sm font-semibold text-primary mb-2">Cross-engine citation</h3>
+      <p className="text-body-xs text-secondary leading-relaxed">Whether the brand is cited by multiple engines — ChatGPT, Perplexity, Gemini, Claude — on the same topic cluster. Cross-engine history is the strongest form of Stage 5: independent systems reaching the same citation conclusion is the highest-confidence signal that the brand is the primary source for the topic.</p>
+    </div>
+  </Reveal>
+  <Reveal delay={0.15}>
+    <div className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 h-full">
+      <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-2">Signal 4</p>
+      <h3 className="text-body-sm font-semibold text-primary mb-2">Topical depth</h3>
+      <p className="text-body-xs text-secondary leading-relaxed">Whether the brand is cited across multiple sub-topics within a category, not just one anchor query. Shallow history — dominant on one query, absent on adjacent ones — is fragile. Deep topical history creates a citation surface that is difficult to displace partially and nearly impossible to displace entirely.</p>
+    </div>
+  </Reveal>
+  <Reveal delay={0.2}>
+    <div className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 h-full">
+      <p className="text-body-xs font-mono uppercase tracking-[0.16em] text-electric mb-2">Signal 5</p>
+      <h3 className="text-body-sm font-semibold text-primary mb-2">History continuity</h3>
+      <p className="text-body-xs text-secondary leading-relaxed">Whether the citation pattern is uninterrupted — no gaps from content going stale, no structural breaks from site migrations, no periods of zero citation on core queries. Continuity is what turns frequency and longevity into a durable prior. A gap resets the compounding partially; the longer the gap, the larger the reset.</p>
+    </div>
+  </Reveal>
+</div>
+
+---
+
+## How to diagnose a Stage 5 deficit
+
+Four patterns indicate a Stage 5 problem:
+
+- **A competitor is cited consistently on your core topic; you appear occasionally or not at all.** The competitor has established a prior. You have not started building one, or your history thread was interrupted. The gap will widen with every month the competitor's citations continue and yours do not.
+
+- **Your citation share peaked after a sprint and then declined.** Stage 5 did not build because Stage 4 slipped — content went stale, the engine stopped pulling from your pages, and the history thread paused while the competitor's continued. The sprint created a window; the lack of maintenance closed it.
+
+- **One engine cites you regularly; others do not.** Single-engine history is fragile. Cross-engine citation is the Stage 5 posture that persists when any one engine changes its retrieval behaviour, updates its training data, or shifts its weighting model.
+
+- **You are cited for one specific query but not for adjacent queries in the same topic cluster.** Shallow topical history. A competitor who dominates the adjacent queries can surround your anchor query and compress your citation surface over time.
+
+---
+
+## The Stage 5 compounding loop
+
+The full hierarchy runs as a loop once Stage 5 begins building:
+
+Clean entity (Stage 1) → domain trust earned (Stage 2) → extractable answers available (Stage 3) → content maintained as current (Stage 4) → **first citation lands** → Recommendation History begins (Stage 5) → citation probability increases → more citations follow → history deepens → Stage 2 reinforced by citation pattern → Stage 5 compounds further.
+
+Each full loop tightens the prior. Each interrupted loop — from a Stage 4 freshness gap, a Stage 3 structural break, or a Stage 2 authority deficit — softens it.
+
+The practical implication: the loop cannot be started from Stage 5. It must be started from Stage 1 and run sequentially through the hierarchy. All five stages running simultaneously is what produces compounding. Any stage running at zero stops the loop at that point and caps the Stage 5 output at its current level.
+
+---
+
+## Stage 5 in the Five-Stage stack
+
+Stage 5 is the capstone. Its relationship to every other stage:
+
+- **Stage 1 prerequisite.** Recommendation History cannot build for an entity the engine has not resolved. Citations on an ambiguous or unresolved brand name are attributed to the category, not the brand. Stage 1 must be clean before Stage 5 can start.
+
+- **Stage 2 feed.** Source Authority earns the first citations. Without a domain-level trust signal, the engine will not cite the brand frequently enough to build a history pattern — one-off citations are not Stage 5. Stage 2 is the input; Stage 5 is the output accumulated over time.
+
+- **Stage 3 enabler.** Structured Extractability determines whether each citation is clean and attributable. A history built on poorly extracted, garbled, or misattributed citations is weaker than one built on clean, schema-confirmed, named-author citations. Stage 3 quality affects Stage 5 durability.
+
+- **Stage 4 protector.** Freshness decay interrupts the loop. A stale page stops being cited; the history thread for that page's queries stops building. High Stage 4 maintenance is the most direct lever for ensuring Stage 5 continuity. Stage 4 does not build Stage 5; it prevents Stage 5 from being reset.
+
+The full hierarchy: <Link href="/citation-brief/how-agencies-get-cited-in-ai-answers" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Brief #001</Link>. Stage 1: <Link href="/citation-brief/stage-1-entity-resolution" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Brief #006</Link>. Stage 2: <Link href="/citation-brief/stage-2-source-authority" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Brief #007</Link>. Stage 3: <Link href="/citation-brief/stage-3-structured-extractability" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Brief #002</Link>. Stage 4: <Link href="/citation-brief/stage-4-freshness" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Citation Brief #008</Link>.
+
+---
+
+## Stage 5 and the retainer argument
+
+Stage 5 is the commercial argument for the long-term retainer made concrete.
+
+A one-off sprint — however well-executed — addresses stages 1, 3, and partially 4. It does not build Recommendation History. History is the product of consistent citation over time, and consistent citation is the product of a system running continuously: monthly engine-panel measurement, quarterly content audits, ongoing Stage 2 outreach, and continuous Stage 3 structural maintenance.
+
+The <Link href="/services/ai-visibility-monitoring" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">AI Visibility Monitoring retainer</Link> instruments Stage 5 directly: monthly citation share per engine per query cluster, with Recommendation History tracked as one of the four <Link href="/citation-score" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Wiele Citation Score™</Link> components. The history thread is visible, the compounding is attributable, and the competitive gap is measurable against a named competitor set every month.
+
+For agencies, Stage 5 is the most defensible client value story in the AEO brief. Clients can see the history building in the monthly panel. They can see competitor history threads. They can see the compounding expressed as a widening gap on priority queries. The dependency on ongoing delivery is built into the methodology — not manufactured by the agency — because the loop cannot maintain itself without the four-stage foundation running beneath it. <Link href="/for-agencies" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Wiele OS for agencies</Link> covers Stage 5 delivery frameworks and the retainer architecture that produces them.
+
+For brands, Stage 5 makes the cost of delay visible. Every month a brand is not building Recommendation History, a competitor is. The history gap that opens in 2026 will compound against the brand in 2027 and 2028. The <Link href="/for-brands" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Wiele brand engagement</Link> is designed to start the loop at the right stage and instrument the compounding so the value is visible from month three onward.
+
+Start with the <Link href="/audit" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Signal Audit</Link> to map the current Stage 5 baseline: which queries have history, which are open, which competitors are compounding, and what the first-90-day build path looks like.
+
+---
+
+## Methodology & sources
+
+The Five-Stage Citation Hierarchy is a Wiele Group framework. Stage 5 Recommendation History reflects Wiele's applied methodology across client engagements, tracked in the Wiele AI Citation Tracker dataset.
+
+The compounding loop observations and cross-engine citation patterns are drawn from Wiele's monthly engine-panel methodology — documented at <Link href="/trust" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">/trust</Link>. Citation share tracking methodology uses the <Link href="/citation-score" className="text-electric hover:text-electric-light underline-offset-4 hover:underline">Wiele Citation Score™</Link> four-component metric, of which Recommendation History is the fourth component.

@@ -49,6 +49,7 @@ import BrandSemanticsInfrastructure from "@/content/citation-briefs/brand-semant
 import Stage1EntityResolution from "@/content/citation-briefs/stage-1-entity-resolution.mdx";
 import Stage2SourceAuthority from "@/content/citation-briefs/stage-2-source-authority.mdx";
 import Stage4Freshness from "@/content/citation-briefs/stage-4-freshness.mdx";
+import Stage5RecommendationHistory from "@/content/citation-briefs/stage-5-recommendation-history.mdx";
 
 const BRIEF_COMPONENTS: Record<string, React.ComponentType> = {
   "how-agencies-get-cited-in-ai-answers": HowAgenciesGetCited,
@@ -59,6 +60,7 @@ const BRIEF_COMPONENTS: Record<string, React.ComponentType> = {
   "stage-1-entity-resolution": Stage1EntityResolution,
   "stage-2-source-authority": Stage2SourceAuthority,
   "stage-4-freshness": Stage4Freshness,
+  "stage-5-recommendation-history": Stage5RecommendationHistory,
 };
 
 export const dynamic = "force-static";

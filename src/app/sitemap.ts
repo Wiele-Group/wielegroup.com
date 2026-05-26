@@ -189,6 +189,17 @@ const STATIC_ROUTES: {
     priority: 0.85,
     changeFrequency: "monthly" as const,
   },
+  /* Phase 2 Step 9 (2026-05-26) — Citation Brief #009.
+     Stage 5 Recommendation History — the compounding capstone of the
+     Five-Stage Citation Hierarchy. First-mover advantage · cross-engine
+     history · the retainer argument made concrete.
+     NOTE: STATIC_ROUTES is hand-maintained — each brief requires a manual
+     entry here. */
+  {
+    path: "/citation-brief/stage-5-recommendation-history",
+    priority: 0.85,
+    changeFrequency: "monthly" as const,
+  },
   /* v3.9.4 T4 (2026-05-14) — Citation Score™ methodology page.
        Productizes the four-component metric (Engine Coverage · On-Page
        Extractability · Citation Velocity · Recommendation History) plus

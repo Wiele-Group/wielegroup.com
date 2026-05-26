@@ -79,6 +79,7 @@ const STATIC_ROUTES = [
   "/citation-brief/stage-1-entity-resolution",
   "/citation-brief/stage-2-source-authority",
   "/citation-brief/stage-4-freshness",
+  "/citation-brief/stage-5-recommendation-history",
   "/citation-score",
   "/trust",
   "/about",
