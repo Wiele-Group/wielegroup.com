@@ -16,6 +16,8 @@ import {
   productSchema,
   serviceSchema,
 } from "@/lib/schema";
+import Link from "next/link";
+import { buttonStyles } from "@/components/ui/button";
 
 // v3.8.0 — force-static + 1h ISR. Page is presentational; AuditForm is a
 // "use client" component so Turnstile + form submission still work after
@@ -213,6 +215,22 @@ export default function AuditPage() {
                     <Shield size={15} className="text-electric" aria-hidden />
                     Defense baseline
                   </span>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <Link
+                    href="#audit-form"
+                    className={buttonStyles({ variant: "primary", size: "lg" })}
+                  >
+                    Start AI Visibility Audit
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className={buttonStyles({ variant: "ghost", size: "lg" })}
+                  >
+                    Book Strategy Call
+                  </Link>
                 </div>
               </FadeIn>
             </div>

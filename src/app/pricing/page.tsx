@@ -18,6 +18,8 @@ import {
   productSchema,
   serviceTierSchema,
 } from "@/lib/schema";
+import Link from "next/link";
+import { buttonStyles } from "@/components/ui/button";
 
 // v3.8.0 — force-static + 1h ISR. Pricing data ships as a static module
 // (`@/data/pricing`); no per-request data fetch. Eliminates CF Workers
@@ -113,6 +115,35 @@ const pricingFaq = [
   },
 ];
 
+const pricingFaqAccordion = pricingFaq.map((item) => ({
+  ...item,
+  answer:
+    item.id === "audit-required" ? (
+      <>
+        We recommend it for every engagement.{" "}
+        <Link
+          href="/audit"
+          className="text-electric underline-offset-4 hover:underline"
+        >
+          €2,500 one-off, 14 days
+        </Link>
+        , credited against month one if you continue with a Growth System or above.
+      </>
+    ) : item.id === "custom-scope" ? (
+      <>
+        Wiele OS and Sovereign are scoped to outcome by default. Growth System and
+        Authority Engine can be scoped against specific outcomes —{" "}
+        <Link
+          href="/contact"
+          className="text-electric underline-offset-4 hover:underline"
+        >
+          talk to us
+        </Link>{" "}
+        about what you&apos;re trying to achieve.
+      </>
+    ) : item.answer,
+}));
+
 export default function PricingPage() {
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: siteConfig.url },
@@ -189,6 +220,22 @@ export default function PricingPage() {
                 authority. Compound your revenue.
               </p>
             </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                <Link
+                  href="/audit"
+                  className={buttonStyles({ variant: "primary", size: "lg" })}
+                >
+                  Start AI Visibility Audit
+                </Link>
+                <Link
+                  href="/contact"
+                  className={buttonStyles({ variant: "ghost", size: "lg" })}
+                >
+                  Book Strategy Call
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -253,7 +300,7 @@ export default function PricingPage() {
           <h2 className="text-display-md text-white text-balance text-center mb-10">
             Common questions on tiers, defense, and what&apos;s included.
           </h2>
-          <Accordion items={pricingFaq} />
+          <Accordion items={pricingFaqAccordion} />
         </div>
       </section>
 
