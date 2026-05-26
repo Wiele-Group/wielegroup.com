@@ -443,11 +443,11 @@ export default function ForBrandsPage() {
               <p className="text-body-sm text-silver">Token-first AI-native website builds with contractual Core Web Vitals SLAs.</p>
             </Link>
             <Link
-              href="/citation-brief/stage-1-entity-resolution"
+              href="/citation-brief/stage-5-recommendation-history"
               className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 hover:border-electric/40 transition-colors"
             >
-              <h3 className="text-heading-sm text-white mb-1.5">Citation Brief #006 — Entity Resolution</h3>
-              <p className="text-body-sm text-silver">How AI engines learn which brands to trust — the Stage 1 deep-dive.</p>
+              <h3 className="text-heading-sm text-white mb-1.5">Citation Brief #009 — Recommendation History</h3>
+              <p className="text-body-sm text-silver">Why AI engines build compounding recommendation loops — and why the brands that land first keep compounding. The brief that makes the retainer argument concrete.</p>
             </Link>
             <Link
               href="/pricing"

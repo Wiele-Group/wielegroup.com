@@ -450,11 +450,11 @@ export default function ForAgenciesPage() {
               <p className="text-body-sm text-silver">The Wiele web design flagship — AI-Search-Native architecture, contractual Core Web Vitals SLA. The Foundation Build clients need before monitoring lands.</p>
             </Link>
             <Link
-              href="/citation-brief/stage-1-entity-resolution"
+              href="/citation-brief/stage-5-recommendation-history"
               className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] p-5 hover:border-electric/40 transition-colors"
             >
-              <h3 className="text-heading-sm text-white mb-1.5">Citation Brief #006 — Entity Resolution</h3>
-              <p className="text-body-sm text-silver">How AI engines learn which brands to trust — the Stage 1 deep-dive and methodology behind the Citation Readiness System you deliver to clients.</p>
+              <h3 className="text-heading-sm text-white mb-1.5">Citation Brief #009 — Recommendation History</h3>
+              <p className="text-body-sm text-silver">The compounding capstone of the Five-Stage Citation Hierarchy — why AI engines build recommendation loops, how the first-mover advantage works, and the retainer argument made concrete for your clients.</p>
             </Link>
             <Link
               href="/pricing"

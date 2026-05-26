@@ -210,6 +210,12 @@ const premiumBrandSiteSystem: Division = {
         "The technical substrate of the Foundation Build installs the entity layer first: schema sameAs, structured identity signals, llms.txt, knowledge-graph footprint. Understand Stage 1 before scoping the build.",
       href: "/citation-brief/stage-1-entity-resolution",
     },
+    {
+      label: "Stage 3 — Structured Extractability",
+      description:
+        "How AI engines decide whether your content is safe to quote. The Foundation Build engineers the extractability layer — schema markup, answer blocks, heading hierarchy, citation-ready prose. Understand Stage 3 to understand what the build delivers.",
+      href: "/citation-brief/stage-3-structured-extractability",
+    },
   ],
 };
 
@@ -397,6 +403,12 @@ const aiVisibilityMonitoring: Division = {
       description:
         "The foundation of AI citation — whether engines can unambiguously identify your brand as a distinct entity. AI Visibility Monitoring tracks the signals that confirm entity resolution landed and measures citation lift month over month.",
       href: "/citation-brief/stage-1-entity-resolution",
+    },
+    {
+      label: "Stage 4 — Freshness",
+      description:
+        "Why AI engines prefer maintained sources — the five freshness signals, the content decay curve, and the two-track maintenance cadence. AI Visibility Monitoring tracks freshness signals monthly and surfaces decay before it costs citation share.",
+      href: "/citation-brief/stage-4-freshness",
     },
   ],
 };

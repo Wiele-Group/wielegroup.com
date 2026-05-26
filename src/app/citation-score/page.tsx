@@ -132,6 +132,15 @@ export default function CitationScoreMethodologyPage() {
                   Read the Five-Stage Citation Hierarchy
                 </Link>
               </div>
+              <p className="mt-5 text-body-sm text-silver">
+                Not sure where you stand?{" "}
+                <Link
+                  href="/audit"
+                  className="text-electric hover:text-electric-light underline-offset-4 hover:underline"
+                >
+                  Start with the Signal Audit →
+                </Link>
+              </p>
             </section>
           </div>
         </div>
