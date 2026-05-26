@@ -75,6 +75,9 @@ const STATIC_ROUTES = [
   "/citation-brief/stage-3-structured-extractability",
   "/citation-brief/aeo-is-the-2026-wcag",
   "/citation-brief/two-tier-access-doctrine",
+  "/citation-brief/brand-semantics-infrastructure",
+  "/citation-brief/stage-1-entity-resolution",
+  "/citation-brief/stage-2-source-authority",
   "/citation-brief/stage-4-freshness",
   "/citation-score",
   "/trust",
@@ -85,6 +88,17 @@ const STATIC_ROUTES = [
 ];
 
 function routeToFile(route) {
+  // Special case: individual citation brief routes resolve to their MDX
+  // source file. The shared dynamic route is at
+  // src/app/citation-brief/[slug]/page.tsx — there is no per-slug page.tsx,
+  // so the standard App Router convention produces a path that doesn't exist.
+  // The MDX source file is the correct lastmod target: its git commit date
+  // reflects when the brief's content was last changed.
+  const briefMatch = route.match(/^\/citation-brief\/(.+)$/);
+  if (briefMatch) {
+    return join(REPO_ROOT, "src/content/citation-briefs", `${briefMatch[1]}.mdx`);
+  }
+
   // Next.js App Router: route `/foo/bar` → `src/app/foo/bar/page.tsx`,
   // root `/` → `src/app/page.tsx`.
   const segments = route === "/" ? [] : route.split("/").filter(Boolean);
