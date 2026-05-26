@@ -83,6 +83,10 @@ readonly URL_LIST=(
   # Stage 2 deep-dive: five authority signals, compounding retainer argument,
   # E-E-A-T operationalisation. The moat brief — cannot be sprint-fixed.
   "https://${HOST}/citation-brief/stage-2-source-authority"
+  # Phase 2 Step 8 (2026-05-25) — Citation Brief #008 Stage 4 Freshness.
+  # Stage 4 deep-dive: five freshness signals, decay curve, content maintenance
+  # loop, sitemap lastmod integrity, two-track cadence that prevents citation loss.
+  "https://${HOST}/citation-brief/stage-4-freshness"
   # Phase 2 Step 5 (2026-05-25) — ICP landing page for premium brands.
   # Direct-client counterpart to /for-agencies. Primary CTA: Start AI Visibility
   # Audit. Audience: CMOs, founders, marketing leaders who need AI citation

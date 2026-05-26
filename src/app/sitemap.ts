@@ -179,6 +179,16 @@ const STATIC_ROUTES: {
     priority: 0.85,
     changeFrequency: "monthly" as const,
   },
+  /* Phase 2 Step 8 (2026-05-25) — Citation Brief #008.
+     Stage 4 Freshness deep-dive. Five freshness signals · decay curve ·
+     content maintenance loop · sitemap lastmod integrity.
+     NOTE: STATIC_ROUTES is hand-maintained (not auto-derived from
+     getAllBriefSlugs) — each brief requires a manual entry here. */
+  {
+    path: "/citation-brief/stage-4-freshness",
+    priority: 0.85,
+    changeFrequency: "monthly" as const,
+  },
   /* v3.9.4 T4 (2026-05-14) — Citation Score™ methodology page.
        Productizes the four-component metric (Engine Coverage · On-Page
        Extractability · Citation Velocity · Recommendation History) plus

@@ -371,6 +371,68 @@ export const BRIEF_MANIFEST: readonly CitationBriefManifestEntry[] = [
       },
     ],
   },
+  {
+    slug: "stage-4-freshness",
+    briefNumber: 8,
+    title:
+      "Stage 4 — Freshness: why AI engines prefer maintained sources over published ones",
+    summary:
+      "Stage 4 of the Five-Stage Citation Hierarchy is Freshness — the engine's assessment of whether your content reflects current information. Unlike Stage 2 Source Authority, Freshness decays: content that was current becomes stale, and citations follow. Five signals, one compounding vulnerability, and the content cadence that prevents decay.",
+    eyebrow: "AEO methodology",
+    category: "AEO methodology",
+    author: "Jonathan Landman",
+    reviewer: "Jonathan Landman",
+    lastUpdated: "2026-05-25",
+    readingMinutes: 13,
+    faq: [
+      {
+        question:
+          "What is Stage 4 Freshness in the Five-Stage Citation Hierarchy?",
+        answer:
+          "Stage 4 Freshness is the engine's assessment of whether your content reflects current, accurate information at the time of citation. It is the fourth stage of the Five-Stage Citation Hierarchy — stacking on Entity Resolution (Stage 1), Source Authority (Stage 2), and Structured Extractability (Stage 3), and feeding Recommendation History (Stage 5). Unlike Stage 2, which compounds over time, Stage 4 decays: content that was current when published becomes stale as the year advances, benchmarks are superseded, tools change, and the engine's training data is refreshed. The five freshness signals — temporal currency, schema date accuracy, sitemap lastmod integrity, domain publishing cadence, and link freshness — determine how much confidence the engine has that what it extracts from your page reflects today's reality.",
+      },
+      {
+        question: "How do AI engines detect that content is stale?",
+        answer:
+          "AI engines use four primary signals to assess content staleness: (1) Temporal currency — statistics, benchmarks, tool names, and event references that are tied to a prior year flag the content as potentially outdated. (2) Schema date signals — the dateModified value in Article schema is a direct input to the engine's freshness model; if it never changes, or is absent, the engine defaults to datePublished and applies a decay curve from there. (3) Sitemap lastmod accuracy — engines learn quickly if a domain's sitemap shows today's date on every URL regardless of actual content changes; a sitemap that lies about freshness eventually gets discounted. (4) Domain publishing cadence — a domain that publishes no new substantive content for 60 or more days signals dormancy; the engine begins to down-weight all pages from that domain in freshness-sensitive queries.",
+      },
+      {
+        question:
+          "Is publishing frequency more important than content depth?",
+        answer:
+          "Neither in isolation. The engine rewards substantive updates to existing high-authority pages more than thin new content published frequently. The optimal cadence is two-track: a regular cadence of new substantive pieces (minimum one per fortnight) combined with a quarterly audit and meaningful update of the top-cited existing pages. Superficial edits — changing a date without updating the substance, adding a sentence without revising the core claim — are detected and discounted. The test is whether the information extracted from the page has changed in a way that matters to a buyer-intent query. If not, the freshness signal does not move.",
+      },
+      {
+        question:
+          "What is the difference between content freshness and domain freshness?",
+        answer:
+          "Content freshness is a page-level signal: whether this specific page's claims, statistics, and examples are current. Domain freshness is an aggregate signal: how consistently the domain publishes new substantive content across its full URL set. Both matter. A single page with a recent dateModified on a dormant domain scores better on content freshness than on domain freshness — the engine trusts the update but down-weights the domain as an active, maintained source. The strongest freshness posture is consistent page-level updates AND a live domain publishing cadence. Domain freshness is what protects your whole citation footprint; content freshness is what protects individual high-value pages.",
+      },
+      {
+        question:
+          "Does Stage 2 Source Authority protect you from freshness decay?",
+        answer:
+          "Partially — but not indefinitely. High-authority domains receive a grace period: the engine accepts that a trusted primary source may not update every page constantly, and applies a longer decay curve before freshness penalties affect citation share. This grace period is real and measurable: a Stage 2 domain with 18 months of stale content on a key methodology page will hold citation share longer than a low-authority domain with the same staleness. But Stage 2 is not a shield against Stage 4. At some point, even the most authoritative domain loses citation share on stale content if a well-structured competitor publishes a fresher, cleaner answer. The right framing: Stage 2 buys you time; Stage 4 maintenance is still required.",
+      },
+      {
+        question:
+          "How accurate do publication dates need to be in schema?",
+        answer:
+          "The dateModified value in Article schema must reflect the date of the last meaningful content change — not the build date, not today's date added automatically by the CMS, and not a fabricated future date. Engines cross-reference the schema date against the actual content change history available in their crawl logs. A page that reports a recent dateModified but whose extractable content has not changed will eventually be flagged as a freshness signal manipulator and down-weighted. The correct practice: update dateModified only when substantive content changes, and regenerate sitemap lastmod values from actual git commit dates rather than build time. Wiele's own sitemap uses a build-time lastmod generator seeded from git log committer dates — not new Date() evaluated at deploy time.",
+      },
+      {
+        question:
+          "What counts as a meaningful update versus a superficial edit?",
+        answer:
+          "A meaningful update changes the extractable information in a way that matters to a buyer-intent query: a statistic revised to a current-year figure, a tool recommendation updated to reflect the current market, a methodology step refined based on new evidence, a case study result added from a recent engagement. A superficial edit does not change the core extractable answer: rewording a paragraph without updating the claim, adding a sentence without revising the statistic, or changing a heading without updating the content beneath it. The practical test: run the same AI query against the page before and after the edit. If the engine would pull a different, more current answer after the edit, it was meaningful. If the extracted answer is unchanged, the freshness signal did not move.",
+      },
+      {
+        question: "How does Wiele maintain freshness for clients?",
+        answer:
+          "Wiele builds Stage 4 maintenance into every retainer through two mechanisms. First, the AI Visibility Monitoring retainer runs monthly engine-panel queries against the client's top-cited pages and flags citations that pull stale statistics or superseded claims — giving the client a specific, prioritised list of pages to update each month. Second, the Authority Engine retainer includes a quarterly content audit across the top-cited page set: statistics are refreshed to current-year sources, schema dateModified values are updated, and the sitemap lastmod layer is regenerated from actual content-change commits. Most engagements start with a Signal Audit that grades Stage 4 specifically: it maps which pages are decaying, which freshness signals are missing, and what the update cadence needs to be to hold citation share against named competitors.",
+      },
+    ],
+  },
 ];
 
 /**
