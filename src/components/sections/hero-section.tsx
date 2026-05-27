@@ -20,7 +20,7 @@ export function HeroSection() {
       <HeroBackdrop />
 
       <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-20 md:pb-28">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 items-center">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 items-center">
           {/* Copy */}
           <div className="max-w-xl min-w-0">
             <FadeIn>
@@ -29,7 +29,7 @@ export function HeroSection() {
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>
-              <h1 className="text-display-xl font-semibold text-white mb-4 max-w-full break-words text-pretty sm:text-balance">
+              <h1 className="text-display-xl font-semibold text-white mb-4 break-words">
                 {siteConfig.tagline}
               </h1>
             </FadeIn>
