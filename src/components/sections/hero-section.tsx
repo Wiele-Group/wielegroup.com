@@ -29,7 +29,7 @@ export function HeroSection() {
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>
-              <h1 className="text-display-xl text-white mb-4 text-balance">
+              <h1 className="text-display-2xl text-white mb-4 text-balance">
                 {siteConfig.tagline}
               </h1>
             </FadeIn>
@@ -50,7 +50,7 @@ export function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <TrackingLink
                   href="/audit"
-                  className={buttonStyles({ variant: "primary", size: "lg" })}
+                  className={buttonStyles({ variant: "featured", size: "lg" })}
                   eventName="cta_audit_click"
                   eventProps={{ source: "hero" }}
                 >
@@ -79,7 +79,7 @@ export function HeroSection() {
 
           {/* Simulator */}
           <FadeIn delay={0.1} className="w-full wg-depth-scene">
-            <div className="wg-depth-card">
+            <div className="wg-depth-card glow-edge rounded-[var(--radius-2xl)]">
               <PromptSimulator data={fixture} animate />
             </div>
           </FadeIn>

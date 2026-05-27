@@ -548,16 +548,20 @@ body {
   mix-blend-mode: overlay;
 }
 
-/* Constellation pulse — desktop only (≥1280px), respects reduced motion. */
+/* Constellation pulse — tablet+ (≥768px), respects reduced motion. */
 .hero-backdrop-pulse {
   transform-origin: center;
   transform-box: fill-box;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .hero-backdrop-pulse {
     animation: hero-pulse 4.2s var(--ease-productive, ease-in-out) infinite;
   }
+}
+
+.hero-backdrop-warm {
+  pointer-events: none;
 }
 
 @keyframes hero-pulse {
@@ -621,12 +625,9 @@ body {
 .reveal { animation: fadeUp 0.6s var(--ease-emphasized) both; }
 
 /* ─────────────────────────────────────────────────────────────
-   Phase 9 — Visual upgrade primitives (additive).
-
-   Authority: ../CLAUDE_CODE_HANDOFF_visual_award_winning_blueprint.pdf
-   adapted to v1.0 colour schema. Founder direction: keep electric +
-   neon + pulse tokens; add cinematic primitives without restructuring
-   sections. Patterns NOT to regress: see CLAUDE.md ⚠️.
+   Visual upgrade primitives (additive — B4 Chromaglass aligned).
+   All colour values reference B4 tokens (blue-core, blue-hi, neon).
+   Patterns NOT to regress: see CLAUDE.md ⚠️.
 ───────────────────────────────────────────────────────────────── */
 
 /* Edge-glow shadow stack — layered inset highlight + outer electric

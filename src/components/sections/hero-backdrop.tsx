@@ -47,6 +47,20 @@ export function HeroBackdrop() {
 
       <div className="hero-backdrop-light absolute inset-0" />
 
+      <div
+        className="hero-backdrop-warm absolute pointer-events-none"
+        aria-hidden="true"
+        style={{
+          top: "10%",
+          left: "-8%",
+          width: "50%",
+          height: "60%",
+          background:
+            "radial-gradient(ellipse at center, rgba(240,133,102,0.055) 0%, transparent 65%)",
+          filter: "blur(80px)",
+        }}
+      />
+
       <svg
         className="hero-backdrop-star absolute inset-0 hidden md:block h-full w-full"
         viewBox="0 0 1440 810"
