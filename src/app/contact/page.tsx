@@ -21,7 +21,7 @@ const channels = [
     icon: Calendar,
     title: "Book a strategy call",
     body: "30-minute call with a Wiele principal. Best for active engagements or sizing fit.",
-    cta: { label: "Open calendar", href: "/contact#form", external: false },
+    cta: { label: "Send a message →", href: "/contact#form", external: false },
   },
   {
     icon: Mail,
@@ -71,6 +71,22 @@ export default function ContactPage() {
                 Three ways to reach us. Pick the one that matches what you
                 need; we&apos;ll route from there.
               </p>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                <Link
+                  href="#form"
+                  className={buttonStyles({ variant: "primary", size: "lg" })}
+                >
+                  Send a message
+                </Link>
+                <Link
+                  href="/audit"
+                  className={buttonStyles({ variant: "ghost", size: "lg" })}
+                >
+                  Start AI Visibility Audit
+                </Link>
+              </div>
             </FadeIn>
           </div>
         </div>
