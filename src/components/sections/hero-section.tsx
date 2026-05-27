@@ -29,7 +29,7 @@ export function HeroSection() {
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>
-              <h1 className="text-display-2xl text-white mb-4 text-balance">
+              <h1 className="text-display-xl font-semibold text-white mb-4 text-balance">
                 {siteConfig.tagline}
               </h1>
             </FadeIn>
