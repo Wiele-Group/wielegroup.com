@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 import { Button, buttonStyles } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,6 +43,11 @@ export function AuditForm() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState<{ runId: string; input: AuditInput } | null>(null);
+
+  // Fire audit_form_start once on first interaction with the name field.
+  // useRef ensures the event fires at most once per component mount
+  // even if the user focuses/blurs the field multiple times.
+  const startedRef = useRef(false);
 
   const update =
     <K extends keyof typeof values>(key: K) =>
@@ -180,6 +185,12 @@ export function AuditForm() {
               autoComplete="name"
               value={values.name}
               onChange={update("name")}
+              onFocus={() => {
+                if (!startedRef.current) {
+                  startedRef.current = true;
+                  track("audit_form_start");
+                }
+              }}
               error={errors.name}
               required
             />

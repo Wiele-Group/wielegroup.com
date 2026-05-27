@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackingLink } from "@/components/ui/tracking-link";
 import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
 
@@ -37,18 +38,22 @@ export function CTASection() {
         </FadeIn>
         <FadeIn whileInView delay={0.15}>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
+            <TrackingLink
               href="/audit"
               className={buttonStyles({ variant: "primary", size: "lg" })}
+              eventName="cta_audit_click"
+              eventProps={{ source: "cta_section" }}
             >
               Start AI Visibility Audit
-            </Link>
-            <Link
+            </TrackingLink>
+            <TrackingLink
               href="/contact"
               className={buttonStyles({ variant: "ghost", size: "lg" })}
+              eventName="cta_contact_click"
+              eventProps={{ source: "cta_section" }}
             >
               Book Strategy Call
-            </Link>
+            </TrackingLink>
           </div>
         </FadeIn>
         <FadeIn whileInView delay={0.2}>

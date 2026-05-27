@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackingLink } from "@/components/ui/tracking-link";
 import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
@@ -54,12 +55,14 @@ export function AuditPreview() {
             </Reveal>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link
+              <TrackingLink
                 href="/audit"
                 className={buttonStyles({ variant: "featured", size: "lg" })}
+                eventName="cta_audit_click"
+                eventProps={{ source: "audit_preview" }}
               >
                 Start AI Visibility Audit · €2,500
-              </Link>
+              </TrackingLink>
               <Link
                 href="/platform"
                 className={buttonStyles({ variant: "ghost", size: "lg" })}

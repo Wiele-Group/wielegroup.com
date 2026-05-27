@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackingLink } from "@/components/ui/tracking-link";
 import { buttonStyles } from "@/components/ui/button";
 
 export function ArticleCta() {
@@ -16,9 +17,14 @@ export function ArticleCta() {
           gap report, 30-day roadmap.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link href="/audit" className={buttonStyles({ variant: "featured", size: "md" })}>
+          <TrackingLink
+            href="/audit"
+            className={buttonStyles({ variant: "featured", size: "md" })}
+            eventName="cta_audit_click"
+            eventProps={{ source: "article_cta" }}
+          >
             Start AI Visibility Audit
-          </Link>
+          </TrackingLink>
           <Link href="/labs" className={buttonStyles({ variant: "ghost", size: "md" })}>
             More field notes
           </Link>

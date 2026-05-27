@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackingLink } from "@/components/ui/tracking-link";
 import { Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonStyles } from "@/components/ui/button";
@@ -47,12 +48,14 @@ export function HeroSection() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link
+                <TrackingLink
                   href="/audit"
                   className={buttonStyles({ variant: "primary", size: "lg" })}
+                  eventName="cta_audit_click"
+                  eventProps={{ source: "hero" }}
                 >
                   Start AI Visibility Audit
-                </Link>
+                </TrackingLink>
                 <Link
                   href="#disciplines"
                   className={buttonStyles({ variant: "ghost", size: "lg" })}
