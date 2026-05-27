@@ -1,25 +1,19 @@
 /**
  * AmbientGrid — global cinematic background layer.
  *
- * Mounted as the first child of <body> in src/app/layout.tsx, sits behind
- * all content (-z-10). Provides three layers of depth:
+ * DEPRECATED (v3.7.0): SiteBackdrop (art-directed webp crops) replaced this
+ * component as the primary background layer. This file is retained as a
+ * pure-CSS fallback for contexts where the backdrop images are unavailable.
+ * It is NOT mounted in layout.tsx.
  *
- *   1. 64px grid lattice (linear-gradient overlay), masked with a
- *      radial fade so it dissolves at the viewport edges.
- *   2. Top-centre electric glow (#4A9EFF) — anchors the hero band.
- *   3. Right-third neon glow (#00D9FF) — pulls the eye into the rail.
+ * Provides three depth layers when used:
+ *   1. 64px grid lattice (linear-gradient overlay), radial-masked at edges.
+ *   2. Top-centre blue glow (--color-blue-hi) — anchors the hero band.
+ *   3. Right-third neon glow (--color-neon) — pulls the eye into the rail.
  *
- * Brand v2 — Midnight Platinum (B3). Glow tints retuned from indigo/cyan
- * to signal-blue/cyan to match the new restrained accent system. See
- * project_brand_v2_doctrine.md for authority.
- *
- * Pure CSS, no JS, no observers. `fixed` positioning so it persists
- * across route changes without remount. `pointer-events: none` so it
- * never blocks interaction. `aria-hidden` so screen readers skip it.
- *
- * Phase 9 (visual upgrade) — additive only. Existing components still
- * render their own `.ambient-gradient` utility on hero sections; this
- * layer sits beneath them and adds global depth.
+ * Brand v2 — B4 Chromaglass. Glow tints use B4 blue-hi and neon tokens.
+ * Pure CSS, no JS, no observers. `fixed` positioning persists across routes.
+ * `pointer-events: none` never blocks interaction. `aria-hidden` skips screen readers.
  */
 export function AmbientGrid() {
   return (
@@ -48,7 +42,7 @@ export function AmbientGrid() {
         className="absolute -top-32 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at center, rgba(74, 158, 255, 0.13) 0%, transparent 60%)",
+            "radial-gradient(circle at center, rgba(91, 171, 255, 0.13) 0%, transparent 60%)",
           filter: "blur(60px)",
         }}
       />
