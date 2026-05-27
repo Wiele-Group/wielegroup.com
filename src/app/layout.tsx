@@ -31,11 +31,8 @@ export const viewport: Viewport = {
 
 /**
  * Root layout — wires fonts, sets dark theme, mounts Header + Footer
- * around every route.
- *
- * NOTE: JSON-LD schema injection (organizationSchema, websiteSchema)
- * lands in Phase 4 alongside sitemap.ts, robots.ts, and llms.txt.
- * Helpers are already exported from `@/lib/schema` and ready to wire.
+ * around every route. JSON-LD, SiteBackdrop, and DepthRuntime are
+ * mounted here so they apply universally without per-page wiring.
  */
 export default function RootLayout({
   children,

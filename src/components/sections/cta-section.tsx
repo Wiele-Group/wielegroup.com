@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { TrackingLink } from "@/components/ui/tracking-link";
 import { buttonStyles } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
