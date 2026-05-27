@@ -20,29 +20,29 @@ export function HeroSection() {
       <HeroBackdrop />
 
       <div className="relative mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pt-16 md:pt-24 pb-20 md:pb-28">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 items-center">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 items-center">
           {/* Copy */}
-          <div className="max-w-xl">
+          <div className="max-w-xl min-w-0">
             <FadeIn>
               <Badge variant="electric" size="sm" className="mb-6">
                 <span aria-hidden>●</span> {siteConfig.descriptor}
               </Badge>
             </FadeIn>
             <FadeIn delay={0.05}>
-              <h1 className="text-display-xl text-white mb-4 text-balance">
+              <h1 className="text-display-xl font-semibold text-white mb-4 break-words">
                 {siteConfig.tagline}
               </h1>
             </FadeIn>
             <FadeIn delay={0.075}>
-              <div className="inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-electric/30 bg-electric/5">
-                <Shield size={12} className="text-electric" aria-hidden />
-                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-electric">
+              <div className="flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-electric/30 bg-electric/5 max-w-full overflow-hidden">
+                <Shield size={12} className="text-electric shrink-0" aria-hidden />
+                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-electric truncate">
                   AI Visibility Defense built into every engagement
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p className="text-body-lg text-silver mb-8 max-w-lg">
+              <p className="text-body-lg text-silver mb-8 max-w-full sm:max-w-lg break-words">
                 {siteConfig.description}
               </p>
             </FadeIn>
@@ -50,7 +50,7 @@ export function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <TrackingLink
                   href="/audit"
-                  className={buttonStyles({ variant: "primary", size: "lg" })}
+                  className={buttonStyles({ variant: "featured", size: "lg" })}
                   eventName="cta_audit_click"
                   eventProps={{ source: "hero" }}
                 >
@@ -79,7 +79,7 @@ export function HeroSection() {
 
           {/* Simulator */}
           <FadeIn delay={0.1} className="w-full wg-depth-scene">
-            <div className="wg-depth-card">
+            <div className="wg-depth-card glow-edge rounded-[var(--radius-2xl)]">
               <PromptSimulator data={fixture} animate />
             </div>
           </FadeIn>
