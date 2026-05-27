@@ -9,6 +9,7 @@ import { TurnstileWidget } from "@/components/forms/turnstile-widget";
 import { AuditThankYou } from "@/components/forms/audit-thank-you";
 import { auditSchema, type AuditInput } from "@/lib/validations";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/track";
 
 /**
  * Audit form — progressive disclosure (4 + 4 fields), every field
@@ -79,7 +80,10 @@ export function AuditForm() {
   }, [values]);
 
   const handleContinue = () => {
-    if (validateStep1()) setStep(2);
+    if (validateStep1()) {
+      setStep(2);
+      track("audit_form_step2");
+    }
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -122,6 +126,10 @@ export function AuditForm() {
       };
 
       if (res.status === 202 && data.runId) {
+        track("audit_submitted", {
+          industry: parsed.data.industry,
+          market: parsed.data.market,
+        });
         setSuccess({ runId: data.runId, input: parsed.data });
         return;
       }

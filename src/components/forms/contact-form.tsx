@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema, type ContactInput } from "@/lib/validations";
+import { track } from "@/lib/track";
 
 type FieldErrors = Partial<Record<keyof ContactInput | "_form", string>>;
 
@@ -63,6 +64,7 @@ export function ContactForm() {
       };
 
       if (res.status === 202 && data.ticketId) {
+        track("contact_submitted");
         setSuccess(data.ticketId);
         return;
       }
