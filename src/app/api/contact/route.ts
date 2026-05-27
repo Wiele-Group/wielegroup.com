@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations";
 import { recordContactSubmission, type ContactQueueRecord } from "@/lib/kv";
-import { sendContactNotification } from "@/lib/resend";
+import { sendContactNotification, sendContactCustomerConfirmation } from "@/lib/resend";
 
 export const runtime = "nodejs";
 
@@ -76,12 +76,21 @@ export async function POST(request: Request): Promise<Response> {
     );
   }
 
-  const emailResult = await sendContactNotification(input, ticketId, meta).catch((err) => ({
-    ok: false as const,
-    reason: err instanceof Error ? err.message : "unknown",
-  }));
-  if (!emailResult.ok) {
-    console.error(`[contact] founder email failed for ${ticketId}: ${emailResult.reason}`);
+  const [customerResult, founderResult] = await Promise.all([
+    sendContactCustomerConfirmation(input, ticketId).catch((err) => ({
+      ok: false as const,
+      reason: err instanceof Error ? err.message : "unknown",
+    })),
+    sendContactNotification(input, ticketId, meta).catch((err) => ({
+      ok: false as const,
+      reason: err instanceof Error ? err.message : "unknown",
+    })),
+  ]);
+  if (!customerResult.ok) {
+    console.error(`[contact] customer email failed for ${ticketId}: ${customerResult.reason}`);
+  }
+  if (!founderResult.ok) {
+    console.error(`[contact] founder email failed for ${ticketId}: ${founderResult.reason}`);
   }
 
   return NextResponse.json({ ticketId, queuedAt }, { status: 202 });

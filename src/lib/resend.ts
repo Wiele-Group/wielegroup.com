@@ -4,7 +4,7 @@ import { siteConfig } from "./metadata";
 /**
  * Transactional email senders for audit + contact + onboarding submissions.
  *
- * Two emails per audit / onboarding submission, not one
+ * Two emails per audit / contact / onboarding submission, not one
  * (founder reinforcement #3): customer confirmation + founder notification.
  *
  * All via Resend. Transactional only — no marketing list, no double-opt-in
@@ -316,7 +316,7 @@ ${row("Referer", meta.referer ?? "(none)")}
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Contact email (single — founder notification only)
+   Contact emails — two per submission (customer confirm + founder notify).
 ───────────────────────────────────────────────────────────────── */
 
 export async function sendContactNotification(
@@ -346,6 +346,42 @@ IP:           ${meta.ip ?? "(none)"}`;
     from: FROM_CONTACT,
     to: siteConfig.email,
     replyTo: input.email,
+    subject,
+    text,
+    html,
+  });
+}
+
+export async function sendContactCustomerConfirmation(
+  input: ContactInput,
+  ticketId: string,
+): Promise<ResendResult> {
+  const firstName = input.name.split(" ")[0];
+  const subject = `Wiele — message received`;
+  const text = `Hi ${firstName},
+
+We've received your message and will respond inside one business day.
+${input.company ? `\nCompany: ${input.company}` : ""}
+Your message:
+"${input.message}"
+
+If it's urgent, reply to this email directly — it reaches us immediately.
+
+— ${siteConfig.founder}
+${siteConfig.legalName} · ${siteConfig.url}
+Reference: ${ticketId}`;
+  const body = `
+<p style="margin:0 0 16px;color:${C.chromeHi};font-size:16px;">Hi ${escapeHtml(firstName)},</p>
+<p style="margin:0 0 24px;">We've received your message and will respond inside <strong style="color:${C.blueHi};">one business day</strong>.</p>
+<div style="white-space:pre-wrap;line-height:1.65;background:${C.bgFloor};border:1px solid ${C.chromeVlo};border-left:3px solid ${C.coralCore};padding:16px 20px;border-radius:8px;color:${C.chromeMid};margin:0 0 24px;">${escapeHtml(input.message)}</div>
+<p style="margin:0 0 16px;">If it's urgent, reply to this email directly — it reaches us immediately.</p>
+<p style="margin:24px 0 0;color:${C.chromeMid};">— ${escapeHtml(siteConfig.founder)}<br/><span style="color:${C.chromeLo};">${escapeHtml(siteConfig.legalName)}</span> · <a href="${siteConfig.url}" style="color:${C.blueHi};text-decoration:none;">${siteConfig.url.replace(/^https?:\/\//, "")}</a></p>`;
+  const html = chromaglassShell(body, { footerNote: `Reference: ${escapeHtml(ticketId)}` });
+
+  return send({
+    from: FROM_CONTACT,
+    to: input.email,
+    replyTo: siteConfig.email,
     subject,
     text,
     html,
