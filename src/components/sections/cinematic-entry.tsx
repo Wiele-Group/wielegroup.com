@@ -157,12 +157,12 @@ export function CinematicEntry() {
         {/* The chrome W mark — LCP candidate */}
         <motion.div variants={markVariants} className="select-none">
           <Image
-            src="/brand/wiele-w-chrome-1024.png"
+            src="/brand/wiele-w-chrome-512.png"
             alt="Wiele Group — Chrome W mark"
-            width={1024}
-            height={1024}
+            width={512}
+            height={512}
             priority
-            sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 440px"
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 384px"
             className="h-auto w-[280px] sm:w-[360px] lg:w-[440px] drop-shadow-[0_24px_80px_rgba(59,130,246,0.25)]"
           />
         </motion.div>
