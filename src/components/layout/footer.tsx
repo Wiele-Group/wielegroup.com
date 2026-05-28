@@ -26,9 +26,9 @@ export function Footer() {
           {/* Link columns */}
           {footerColumns.map((col) => (
             <div key={col.title}>
-              <h4 className="text-body-xs font-semibold uppercase tracking-[0.12em] text-smoke mb-4">
+              <h3 className="text-body-xs font-semibold uppercase tracking-[0.12em] text-smoke mb-4">
                 {col.title}
-              </h4>
+              </h3>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((l) => (
                   <li key={l.href}>

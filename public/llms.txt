@@ -25,8 +25,12 @@ Three vectors as standard, scaled by tier depth:
 No black-hat GEO. No AI Overview injection. No citation farming. No prompt-injection-as-offense. No off-platform trust manipulation.
 ## Key pages
 - https://wielegroup.com/ — overview
-- https://wielegroup.com/audit — Signal Audit (primary entry)
+- https://wielegroup.com/platform — services and disciplines overview
+- https://wielegroup.com/systems — service architecture
 - https://wielegroup.com/pricing — full 6-tier ladder
+- https://wielegroup.com/audit — Signal Audit (primary entry)
+- https://wielegroup.com/citation-brief — Citation Brief hub: Five-Stage Citation Hierarchy
+- https://wielegroup.com/contact — contact and enquiries
 - https://wielegroup.com/marketing-agency
 - https://wielegroup.com/advertising-agency
 - https://wielegroup.com/brand-management-agency
@@ -39,7 +43,6 @@ No black-hat GEO. No AI Overview injection. No citation farming. No prompt-injec
 - https://wielegroup.com/citation-brief/stage-5-recommendation-history — Citation Brief #009: Stage 5 Recommendation History — the compounding capstone of the Five-Stage Citation Hierarchy, the five history signals, the first-mover advantage, what breaks the loop, and the retainer argument made concrete
 - https://wielegroup.com/services/premium-brand-site-system — productized WDA flagship: token-first builds, 5-mode delivery, AI revision credits, contractual CWV SLA. €18k Foundation · €14k/mo Authority · €45k/mo Sovereign.
 - https://wielegroup.com/services/ai-visibility-monitoring — Recurring monitoring retainer (Lite €2.5K · Standard €4K · Pro €6K /mo) tracking citation share across ChatGPT · Gemini · Perplexity · Claude with action queue and quarterly business review
-- https://wielegroup.com/systems — service architecture
 - https://wielegroup.com/labs — research and frameworks
 - https://wielegroup.com/proof — case studies
 ## Engagement archetypes (anonymised case studies — methodology open)

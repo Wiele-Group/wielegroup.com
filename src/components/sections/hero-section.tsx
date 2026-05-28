@@ -78,8 +78,8 @@ export function HeroSection() {
           </div>
 
           {/* Simulator */}
-          <FadeIn delay={0.1} className="w-full wg-depth-scene">
-            <div className="wg-depth-card glow-edge rounded-[var(--radius-2xl)]">
+          <FadeIn delay={0.1} className="w-full min-w-0 wg-depth-scene">
+            <div className="wg-depth-card max-w-full glow-edge rounded-[var(--radius-2xl)]">
               <PromptSimulator data={fixture} animate />
             </div>
           </FadeIn>
