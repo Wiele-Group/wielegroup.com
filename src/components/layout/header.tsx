@@ -92,7 +92,10 @@ export function Header() {
               href={ctaLink.href}
               className={cn(
                 buttonStyles({ variant: "primary", size: "sm" }),
-                "hidden sm:inline-flex",
+                // P3.2 — darken base to electric-deep (#1E4FA8, ~7:1 on white)
+                // so the CTA passes WCAG AA 4.5:1. hover lightens back to
+                // standard electric (#3B82F6). twMerge resolves the bg conflict.
+                "hidden sm:inline-flex bg-[var(--color-electric-deep)] hover:bg-electric",
               )}
             >
               {ctaLink.label}
@@ -143,7 +146,7 @@ export function Header() {
               href={ctaLink.href}
               className={cn(
                 buttonStyles({ variant: "primary", size: "lg" }),
-                "mt-4 w-full",
+                "mt-4 w-full bg-[var(--color-electric-deep)] hover:bg-electric",
               )}
             >
               {ctaLink.label}

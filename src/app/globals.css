@@ -40,6 +40,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* P3.2 — clip horizontal overflow at root so fixed/absolute descendants
+     (SiteBackdrop, depth-card perspective containers) cannot expand scrollWidth.
+     `clip` is preferred over `hidden` here because it does NOT create a new
+     block formatting context or scroll container — position:sticky in the
+     header continues to work correctly. */
+  overflow-x: clip;
 }
 
 body {
@@ -52,6 +58,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -439,6 +446,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* Disable 3D context entirely on mobile — eliminates the perspective
+     container from contributing to scrollWidth on narrow viewports. */
+  .wg-depth-scene { perspective: none; transform-style: flat; }
   .wg-depth-card { transform: none !important; }
   .wg-depth-layer-1,
   .wg-depth-layer-2,
