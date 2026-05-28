@@ -1,3 +1,4 @@
+export { AuthorityCommand } from "./authority-command";
 export { CinematicEntry } from "./cinematic-entry";
 export { HeroSection } from "./hero-section";
 export { ProofStrip } from "./proof-strip";

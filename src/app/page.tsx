@@ -3,6 +3,7 @@
 import {
   AnswerEngineStrip,
   AuditPreview,
+  AuthorityCommand,
   BentoSystem,
   CinematicEntry,
   CTASection,
@@ -148,6 +149,7 @@ export default function HomePage() {
       <CinematicEntry />
       <HeroSection />
       <HorizonStrip fromLabel="Hero" toLabel="Proof" index={1} total={3} />
+      <AuthorityCommand />
       <ProofStrip />
       <DisciplinesSection />
       <HorizonStrip fromLabel="Disciplines" toLabel="Problem" index={2} total={3} />
