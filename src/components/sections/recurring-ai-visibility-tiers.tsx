@@ -144,7 +144,7 @@ function CitationScoreTierCard({ tier }: { tier: CitationScoreTier }) {
             "w-full",
           )}
         >
-          Book Strategy Call
+          Book Measurement Call
         </Link>
       </div>
     </article>

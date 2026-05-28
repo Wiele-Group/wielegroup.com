@@ -288,6 +288,38 @@ export default function PricingPage() {
           Anchor #recurring-ai-visibility carries Brief #001 deep-link. */}
       <RecurringAiVisibilityTiers />
 
+      {/* ── Two-track connector ───────────────────────────────── */}
+      <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)] py-8 md:py-10">
+        <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-elevated)] px-6 py-5 md:px-8 md:py-6 grid md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-0 items-center">
+
+          <div className="md:pr-8">
+            <p className="text-[0.625rem] font-mono uppercase tracking-[0.16em] text-electric mb-1.5">
+              Measurement Layer
+            </p>
+            <p className="text-body-sm text-cloud font-medium mb-1">Citation Score™</p>
+            <p className="text-body-xs text-smoke">
+              Track AI citation share across engines. Know exactly where you stand before you build.
+            </p>
+          </div>
+
+          <div aria-hidden className="hidden md:block border-r border-[var(--color-border-default)] self-stretch" />
+
+          <div className="md:pl-8">
+            <p className="text-[0.625rem] font-mono uppercase tracking-[0.16em] text-electric mb-1.5">
+              Execution Layer
+            </p>
+            <p className="text-body-sm text-cloud font-medium mb-1">Wiele Ladder</p>
+            <p className="text-body-xs text-smoke">
+              Build authority, attribution, and revenue growth. Activate when you are ready to compound.
+            </p>
+          </div>
+
+        </div>
+        <p className="mt-3 text-body-xs font-mono text-smoke text-center">
+          Both layers can run simultaneously. Citation Score™ measures what the ladder builds.
+        </p>
+      </div>
+
       {/* ── 6-tier ladder + Sovereign anchor ───────────────────── */}
       <PricingSection showHeading={false} />
 

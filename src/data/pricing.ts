@@ -42,6 +42,14 @@ export type PricingTier = {
   featured?: boolean;
   /** Concierge anchor — chrome-bordered, top-row treatment. */
   anchor?: boolean;
+  /** Short buyer-type label — rendered beneath tier name. Optional. */
+  buyerLabel?: string;
+  /** Surface the outcome guarantee badge on card. Copy = value string. Optional. */
+  guaranteeBadge?: string;
+  /** Surface the reverse-trial badge. Optional. */
+  trialBadge?: boolean;
+  /** Small eyebrow shown above tier name — marks recommended entry point. */
+  entryLabel?: string;
   /** Stripe Payment Link — direct hosted Checkout. */
   paymentLinkUrl: string;
   /** Stripe Price ID — for Checkout Session API integration. */
@@ -72,6 +80,8 @@ export const pricingTiers: readonly PricingTier[] = [
       "Strategy session with a Wiele principal",
     ],
     cta: { label: "Start AI Visibility Audit", href: "/audit" },
+    entryLabel: "Where to start →",
+    buyerLabel: "Any brand entering AI search for the first time.",
     // v3.9.6 (2026-05-14): contact-first per project memory open loop
     // ("Stripe direct checkout (flip when 5 case studies close)"). The 5
     // buy.stripe.com payment links were deactivated in Stripe during the
@@ -105,7 +115,9 @@ export const pricingTiers: readonly PricingTier[] = [
       "Quarterly displacement risk report",
       "14-day reverse-trial of Pro features",
     ],
-    cta: { label: "Book Strategy Call", href: "/contact?tier=launch" },
+    cta: { label: "Build the Foundation", href: "/contact?tier=launch" },
+    buyerLabel: "Early-stage brands building AI visibility baseline.",
+    trialBadge: true,
     paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrVGuLDs0qzh2MZGJWbT1",
   },
@@ -131,7 +143,8 @@ export const pricingTiers: readonly PricingTier[] = [
       "Schema, citation, and entity engineering",
       "Quarterly business review with attribution",
     ],
-    cta: { label: "Book Strategy Call", href: "/contact?tier=growth-system" },
+    cta: { label: "Start Growth System", href: "/contact?tier=growth-system" },
+    buyerLabel: "Scaling B2B brands defending inbound growth.",
     featured: true,
     paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrZGuLDs0qzh28535esBR",
@@ -160,9 +173,11 @@ export const pricingTiers: readonly PricingTier[] = [
       "Weekly principal-level strategy",
     ],
     cta: {
-      label: "Book Strategy Call",
+      label: "Apply for Authority Engine",
       href: "/contact?tier=authority-engine",
     },
+    buyerLabel: "Brands where AI citation share is a board objective.",
+    guaranteeBadge: "Outcome guarantee · Citation share growth Q/Q",
     paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TTrrcGuLDs0qzh2NOjlxs9x",
   },
@@ -189,7 +204,8 @@ export const pricingTiers: readonly PricingTier[] = [
       "Custom platform configuration + private benchmarks",
       "Direct line to Wiele principals",
     ],
-    cta: { label: "Book Strategy Call", href: "/contact?tier=wiele-os" },
+    cta: { label: "Discuss Wiele OS", href: "/contact?tier=wiele-os" },
+    buyerLabel: "Enterprise teams needing all five growth levers.",
     paymentLinkUrl: "", // v3.9.6 — see Signal Audit tier comment above.
     stripePriceId: "price_1TT1u0GuLDs0qzh2VQ5jAyZQ",
   },
@@ -222,6 +238,7 @@ export const pricingTiers: readonly PricingTier[] = [
       href: "/contact?tier=sovereign",
     },
     anchor: true,
+    buyerLabel: "Category leaders built to be the AI engine default.",
     paymentLinkUrl: "", // v3.9.6 — Sovereign was always contact-only; the buy.stripe.com Sovereign payment link existed in Stripe but was never wired to the UI (AnchorTierCard doesn't render this field). Blanking for consistency across the ladder.
     stripePriceId: "price_1TTrs0GuLDs0qzh2y4POM9Sq",
   },

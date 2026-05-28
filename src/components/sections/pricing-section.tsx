@@ -98,9 +98,21 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
         </span>
       ) : null}
 
+      {tier.entryLabel ? (
+        <p className="text-[0.625rem] font-mono uppercase tracking-[0.16em] text-electric mb-2">
+          {tier.entryLabel}
+        </p>
+      ) : null}
+
       <h3 className="text-heading-md text-white text-balance min-h-[2.6em]">
         {tier.name}
       </h3>
+
+      {tier.buyerLabel ? (
+        <p className="text-body-xs font-mono text-smoke italic mt-1.5 mb-0">
+          {tier.buyerLabel}
+        </p>
+      ) : null}
 
       <div className="mt-3 mb-1">
         <span className="font-mono text-[1.5rem] leading-none font-semibold text-white">
@@ -109,6 +121,8 @@ function StandardTierCard({ tier }: { tier: PricingTier }) {
       </div>
 
       <DefenseBadge level={tier.aiDefense.level} />
+      {tier.trialBadge ? <TrialBadge /> : null}
+      {tier.guaranteeBadge ? <GuaranteeBadge /> : null}
 
       <p className="text-body-sm text-silver mt-3 mb-2">{tier.positioning}</p>
       <p className="text-body-xs font-mono text-smoke italic mb-4">
@@ -190,6 +204,11 @@ function AnchorTierCard({ tier }: { tier: PricingTier }) {
           <h3 className="text-display-md text-white tracking-tight">
             {tier.name}
           </h3>
+          {tier.buyerLabel ? (
+            <p className="text-body-sm font-mono text-smoke italic mt-1 mb-2">
+              {tier.buyerLabel}
+            </p>
+          ) : null}
           <div className="mt-2 mb-3">
             <span className="font-mono text-[2rem] leading-none font-semibold text-white">
               {tierPriceLabel(tier)}
@@ -247,6 +266,28 @@ function DefenseBadge({ level }: { level: string }) {
       <Shield size={11} className="text-electric" aria-hidden />
       <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-electric">
         AI Visibility Defense built-in · {level}
+      </span>
+    </div>
+  );
+}
+
+function TrialBadge() {
+  return (
+    <div className="inline-flex items-center gap-1.5 mt-1.5 px-2.5 py-1 rounded-full border border-[var(--color-border-strong,rgba(255,255,255,0.15))] bg-[var(--color-surface-elevated)]">
+      <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-silver shrink-0" />
+      <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-silver">
+        14-day Pro reverse-trial included
+      </span>
+    </div>
+  );
+}
+
+function GuaranteeBadge() {
+  return (
+    <div className="inline-flex items-center gap-1.5 mt-1.5 px-2.5 py-1 rounded-full border border-orange-500/30 bg-orange-500/5">
+      <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-orange-400 shrink-0" />
+      <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-orange-400">
+        Outcome guarantee · Citation share growth Q/Q
       </span>
     </div>
   );
