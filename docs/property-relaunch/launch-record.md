@@ -82,3 +82,11 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Final OpenNext build including TypeScript passed. Deployed existing Worker via official Wrangler, version 84bd1826-f467-44e1-8490-a298a0888d20.
 - Final live HTTP audit passed nine pages, 15 assets, 11 internal destinations, metadata and retired-route behaviour. Initial asset request returned a transient 404 immediately after release; subsequent full audit passed.
 - Live homepage visually verified at 390 px; descriptor read back as Property · Malta and document width 375 px. Saved live-launch-wordmark-mobile.png and live-launch-wordmark-default.png. Desktop preview was inspected earlier in this revision; final live desktop resize was blocked by a stale stopped-local-preview tab, so no final live desktop screenshot is claimed.
+
+## Premium ring revision after Pam Golding comparison
+- User requested a more premium site, reference comparison, refined copy/visuals and use of the source gold-ring logo. Review: pam-golding-review.md.
+- Rebuilt the homepage with a forest masthead and source-derived retouched ring emblem, more visible architecture, editorial typography, separate owner/buyer entry points, varied lifestyle photography and a clearer seller presentation section.
+- Consolidated prior layered CSS into one current responsive system. Refined seller/buyer/about/contact introductions. Added ring icons, collection emblem and social preview.
+- Preserved source images, confirmed contacts, actual service scope, decorative imagery disclosures and honest no-inventory state. No forms submitted externally in this revision.
+- Lint: zero errors, one existing warning in unrelated untracked social-branding script. TypeScript and ten enquiry tests passed. Local HTTP checker passed nine pages, 24 assets and 11 internal destinations before production build.
+- Browser preview: desktop inspected at 1440 px; phone at 390 px and 320 px, tablet seller page at 768 px; no horizontal overflow. Mobile menu opens/closes and Escape dismisses it; buyer path selects buying in the enquiry form. Existing localhost Turnstile limitation remains; production binding is retained.

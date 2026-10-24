@@ -39,3 +39,10 @@ Approved identity: user selected Option 2 (Editorial). Current wordmark is type-
 - User supplied new standalone WIELE wordmarks in project sources, replacing the primary Option 2 lockup. Web derivatives live in public/property-identity/launch; preserve synced originals.
 - Use charcoal on ivory and champagne gold on dark fields. User requested removal of Property marketing from the header; descriptor is now Property · Malta. Supplied full brokerage lockup and circular emblem have coloured edge artefacts and are not used. Existing compact W favicon remains.
 - Homepage now routes sellers/buyers directly to their selected enquiry interests. No-inventory and concept-imagery disclosures remain visible. Social preview uses the new gold wordmark.
+
+## Current premium ring identity — supersedes previous identity selections
+- User explicitly requested use of the gold-ring logo from project sources and a premium revision compared with Pam Golding. The prior no-symbol editorial decision is superseded.
+- Current primary mark combines the supplied gold-ring W (retouched from the source to remove coloured fringes, on a forest matte) with the supplied standalone gold WIELE wordmark. Masthead descriptor remains Property · Malta, with no marketing descriptor.
+- Refined raster master: assets-source/property-identity/ring/wiele-ring-refined-forest.png. Web mark, icons: public/property-identity/ring. Existing synced originals remain untouched. This is a raster asset, not a vector master.
+- Shared style system is now consolidated in globals.css: forest masthead, gold identity, ivory reading surfaces, Instrument Serif headings, Geist body, responsive image-led editorial layouts. Home uses estate-* components/classes.
+- Homepage photography is decorative AI-created imagery plus the credited Valletta location photo; disclosures remain immediate and in footer/credits. No advertised stock yet.
