@@ -67,3 +67,6 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Primary website header/footer, favicon, touch icons and social previews updated. New versioned asset URLs and edge cache namespace avoid carrying the previous identity forward in caches.
 - Approved package: assets-source/property-identity/wiele-property-logo-pack.zip. Source, usage notes and original SIL font licences included.
 - Earlier concepts remain separate from approved artwork. No trademark clearance or physical production certification is claimed.
+- Production source a1a0873, tag property-platform-v1.2.0-editorial-20261024. Worker version 644ef052-84fd-497f-9903-bce0ca1620de.
+- Build (including TypeScript) and lint passed. Final live HTTP audit passed nine pages, referenced assets, search metadata and retired-route behaviour.
+- Selected wordmark inspected on the live desktop and phone homepage. Phone width 375 px within 390 px viewport; correct forest/ivory asset switching confirmed. Screenshots: live-editorial-desktop.png and live-editorial-mobile.png.
