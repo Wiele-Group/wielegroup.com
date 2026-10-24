@@ -90,3 +90,8 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Preserved source images, confirmed contacts, actual service scope, decorative imagery disclosures and honest no-inventory state. No forms submitted externally in this revision.
 - Lint: zero errors, one existing warning in unrelated untracked social-branding script. TypeScript and ten enquiry tests passed. Local HTTP checker passed nine pages, 24 assets and 11 internal destinations before production build.
 - Browser preview: desktop inspected at 1440 px; phone at 390 px and 320 px, tablet seller page at 768 px; no horizontal overflow. Mobile menu opens/closes and Escape dismisses it; buyer path selects buying in the enquiry form. Existing localhost Turnstile limitation remains; production binding is retained.
+- Production source d33f092; release tag property-platform-v1.4.0-gold-ring-20261024. Final OpenNext build including TypeScript passed.
+- Existing Worker deployed successfully: c822662c-225d-4d34-bdee-cf00bb1c69b4. Recovery version: 84bd1826-f467-44e1-8490-a298a0888d20.
+- Final live HTTP audit passed nine pages, 16 assets, 11 internal link destinations, search metadata and retired-route behaviour.
+- Live browser inspected at 1440 px and 390 px. Gold ring decoded at 320 px native width; all nine image elements loaded after scrolling. No horizontal overflow (document width 1425/375 within 1440/390 viewports).
+- Saved live-gold-ring-desktop.png, live-gold-ring-mobile.png, live-gold-ring-editorial.png and live-gold-ring-full-page.png. Browser viewport override reset after verification.

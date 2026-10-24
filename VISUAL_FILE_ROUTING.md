@@ -29,3 +29,5 @@ Updated 24 October 2026 for the property-platform relaunch. Previous agency map 
 | Recovery and validation notes | docs/property-relaunch/launch-record.md |
 
 Older agency components/data still in the repository are historical and are not mounted in the public site. Update current source and verify live output; do not edit historical files expecting them to change the website.
+
+Current premium ring revision (24 October 2026): homepage uses estate-* classes in globals.css. Primary source-derived ring asset and browser icons: public/property-identity/ring; retouched raster master: assets-source/property-identity/ring. Header and footer combine this ring with public/property-identity/launch/wiele-wordmark-gold.webp. Social preview: public/property/og-property-ring.jpg. Reference review: docs/property-relaunch/pam-golding-review.md. Earlier identity folders remain historical assets.
