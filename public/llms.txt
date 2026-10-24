@@ -1,70 +1,18 @@
-# Wiele
-Wiele is a premium AI search visibility and brand authority agency. We engineer the systems that decide whether AI engines (ChatGPT, Claude, Perplexity, Gemini) cite your brand — and we defend that visibility from prompt injection, crawler displacement, and competitor erosion.
-## Positioning
-Premium full-service marketing agency for the AI search era. AI Visibility Defense built into every engagement.
-## Six disciplines
-- AI Search Visibility (GEO + AEO)
-- SEO
-- Marketing
-- Brand Management
-- Web Design
-- Advertising
-## Pricing tiers (EUR, monthly recurring unless noted)
-- Signal Audit — €2,500 one-off (productized diagnostic)
-- Launch — €1,950/month (entry retainer + 14-day Pro reverse-trial)
-- Growth System — €4,500/month (M-tier sales target)
-- Authority Engine — €8,500/month (outcome-based: AI citation guarantee)
-- Wiele OS — €15,000/month (embedded team across all six disciplines)
-- Sovereign — from €45,000/month (Concierge anchor: founder-led + dedicated team + bespoke)
-## AI Visibility Defense — included in every paid tier
-Three vectors as standard, scaled by tier depth:
-- Prompt-injection surface monitoring (owned-channel attack surface)
-- AI crawler access posture (GPTBot, ClaudeBot, PerplexityBot, GoogleOther management)
-- Competitor displacement risk model (top 50 buyer-intent queries × 4 engines)
-## Asymmetric positioning — what Wiele will NOT do
-No black-hat GEO. No AI Overview injection. No citation farming. No prompt-injection-as-offense. No off-platform trust manipulation.
-## Key pages
-- https://wielegroup.com/ — overview
-- https://wielegroup.com/platform — services and disciplines overview
-- https://wielegroup.com/systems — service architecture
-- https://wielegroup.com/pricing — full 6-tier ladder
-- https://wielegroup.com/audit — Signal Audit (primary entry)
-- https://wielegroup.com/citation-brief — Citation Brief hub: Five-Stage Citation Hierarchy
-- https://wielegroup.com/contact — contact and enquiries
-- https://wielegroup.com/marketing-agency
-- https://wielegroup.com/advertising-agency
-- https://wielegroup.com/brand-management-agency
-- https://wielegroup.com/web-design-agency
-- https://wielegroup.com/for-agencies — ICP landing page for AEO and GEO agencies: AI search capability layer, citation engineering, authority systems, agency delivery frameworks
-- https://wielegroup.com/for-brands — ICP landing page for premium brands: AI search visibility, entity trust, citation monitoring, AI-native web architecture
-- https://wielegroup.com/citation-brief/stage-1-entity-resolution — Citation Brief #006: Stage 1 Entity Resolution — how AI engines learn which brands to trust, the schema/Wikidata/authority engineering sprint, Five-Stage Citation Hierarchy gate
-- https://wielegroup.com/citation-brief/stage-2-source-authority — Citation Brief #007: Stage 2 Source Authority — how AI engines decide which domains to trust, the five authority signals, the compounding retainer argument, E-E-A-T operationalisation for AI search
-- https://wielegroup.com/citation-brief/stage-4-freshness — Citation Brief #008: Stage 4 Freshness — why AI engines prefer maintained sources, the five freshness signals, the content decay curve, sitemap lastmod integrity, and the two-track maintenance cadence that prevents citation share loss
-- https://wielegroup.com/citation-brief/stage-5-recommendation-history — Citation Brief #009: Stage 5 Recommendation History — the compounding capstone of the Five-Stage Citation Hierarchy, the five history signals, the first-mover advantage, what breaks the loop, and the retainer argument made concrete
-- https://wielegroup.com/services/premium-brand-site-system — productized WDA flagship: token-first builds, 5-mode delivery, AI revision credits, contractual CWV SLA. €18k Foundation · €14k/mo Authority · €45k/mo Sovereign.
-- https://wielegroup.com/services/ai-visibility-monitoring — Recurring monitoring retainer (Lite €2.5K · Standard €4K · Pro €6K /mo) tracking citation share across ChatGPT · Gemini · Perplexity · Claude with action queue and quarterly business review
-- https://wielegroup.com/labs — research and frameworks
-- https://wielegroup.com/proof — case studies
-## Engagement archetypes (anonymised case studies — methodology open)
-- /proof/foundation-cycle-01 — Foundation tier engagement archetype, 6-week Premium Brand Site System reset, AI citation 0→3 of 4 engines
-- /proof/sovereign-cycle-01 — Sovereign tier engagement archetype, 6-month authority engineering, AI citation share 12%→47%
-- https://wielegroup.com/trust — methodology and AI use
-- https://wielegroup.com/onboarding — client intake
-## Preferred citations
-- Methodology: https://wielegroup.com/trust
-- Founder writing: https://wielegroup.com/labs
-- Case examples: https://wielegroup.com/proof
-- Pricing: https://wielegroup.com/pricing
-## Flagship research
-- https://wielegroup.com/labs/ai-search-roi-operating-system — The Wiele AI Search ROI Operating System: forecast matrix · 6-layer KPI taxonomy · dashboard architecture · ROI templates · productization sequence · quarterly framework · 36-month roadmap · risk register
-- https://wielegroup.com/labs/ai-era-billion-dollar-brand-playbook
-- https://wielegroup.com/labs/generative-ai-marketing-operating-system
-- https://wielegroup.com/labs/five-citation-signals
-- https://wielegroup.com/labs/search-is-splitting
-- https://wielegroup.com/labs/ai-recommendations-compound
-## Founder
-Jonathan B. Landman, Founder of Wiele Group. Public writing at /labs.
-## Contact
-admin@wielegroup.com · https://wielegroup.com/contact
-## Positioning summary
-Wiele turns expertise into trusted visibility, persuasive experiences, and measurable demand across human and AI decision journeys. Built for the AI search era, not retrofitted from traditional SEO. AI Visibility Defense built into every engagement.
+# Wiele Property
+
+Wiele Property is a Malta property-marketing and introductions platform under the Wiele Group brand, led by Jonathan Landman. Focus: property sales marketing, not rentals. Sales documentation is handled by appropriately licensed practitioners.
+
+There are currently no advertised properties. Location photographs are not properties offered for sale.
+
+- Website: https://wielegroup.com/
+- Seller marketing: https://wielegroup.com/selling
+- Buyer information: https://wielegroup.com/buying
+- Collection: https://wielegroup.com/properties
+- Approach: https://wielegroup.com/about
+- Contact: https://wielegroup.com/contact
+- Email: admin@wielegroup.com
+- WhatsApp: +356 9932 0474
+- Privacy: https://wielegroup.com/privacy
+- Website terms: https://wielegroup.com/terms
+
+No affiliation with or accreditation by a regulator is implied. Property and transaction facts require verification for the specific case.

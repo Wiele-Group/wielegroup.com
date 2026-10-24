@@ -100,7 +100,7 @@ export function TurnstileWidget({ onToken, onError, className }: TurnstileWidget
           callback: onToken,
           "error-callback": () => onError?.(),
           "expired-callback": () => onError?.(),
-          theme: "dark",
+          theme: "light",
           size: "flexible",
         });
       })
@@ -124,7 +124,7 @@ export function TurnstileWidget({ onToken, onError, className }: TurnstileWidget
     return (
       <p className={className}>
         <span className="text-body-xs font-mono text-smoke">
-          Verification skipped (dev mode — Turnstile not configured)
+          Verification is unavailable. Please contact us by email or WhatsApp.
         </span>
       </p>
     );

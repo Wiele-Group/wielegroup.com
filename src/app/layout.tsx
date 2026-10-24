@@ -1,103 +1,23 @@
 import type { Metadata, Viewport } from "next";
+import { Geist, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { JsonLd } from "@/components/json-ld";
-import { PlausibleScript } from "@/components/plausible";
-import { GoogleAnalyticsScript } from "@/components/google-analytics";
-import { SiteBackdrop } from "@/components/visual/site-backdrop";
-import { DepthRuntime } from "@/components/visual/depth-runtime";
-import { fontSans, fontMono } from "@/lib/fonts";
-import { buildMetadata, siteConfig } from "@/lib/metadata";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
-
-// v3.8.0 — Bing Webmaster verification meta tag bundled into universal
-// metadata so every route emits it (Next merges metadata down the tree;
-// child pages don't override `other` so the tag propagates everywhere).
+import { Header, Footer } from "@/components/property/chrome";
+import { propertyBrand } from "@/lib/property";
+const sans = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans", display: "swap" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
 export const metadata: Metadata = {
-  ...buildMetadata(),
-  other: {
-    "msvalidate.01": "6392E5D05679A01E548B4F101B23B188",
-  },
+ metadataBase: new URL(propertyBrand.url),
+ title: { default: "Wiele Property | Independent Property Marketing in Malta", template: "%s | Wiele Property" },
+ description: propertyBrand.description,
+ alternates: { canonical: "/" },
+ openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Wiele Property — A more personal way home.", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-property.jpg", width: 1200, height: 630, alt: "Wiele Property — Independent property marketing in Malta" }] },
+ twitter: { card: "summary_large_image", title: "Wiele Property", description: propertyBrand.description, images: ["/property/og-property.jpg"] },
+ icons: { icon: "/property-identity/favicon.svg", apple: "/apple-touch-icon.png" },
+ other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
+ robots: { index: true, follow: true },
 };
-
-export const viewport: Viewport = {
-  themeColor: "#0C1220", // B4 Chromaglass midnight
-  colorScheme: "dark",
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-};
-
-/**
- * Root layout — wires fonts, sets dark theme, mounts Header + Footer
- * around every route. JSON-LD, SiteBackdrop, and DepthRuntime are
- * mounted here so they apply universally without per-page wiring.
- */
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html
-      lang="en-GB"
-      className={`${fontSans.variable} ${fontMono.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/icon-192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/icon-512.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className="min-h-dvh flex flex-col bg-[var(--color-void)] text-cloud antialiased">
-        <PlausibleScript />
-        <GoogleAnalyticsScript />
-        <JsonLd schema={organizationSchema} id="schema-organization" />
-        <JsonLd schema={websiteSchema} id="schema-website" />
-        <SiteBackdrop />
-        <DepthRuntime />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-md)] focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
-        >
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <span className="sr-only">{siteConfig.legalName}</span>
-      </body>
-    </html>
-  );
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f6f3ed" };
+export default function Layout({ children }: { children: React.ReactNode }) {
+ const schema = { "@context": "https://schema.org", "@type": "Organization", name: propertyBrand.name, url: propertyBrand.url, email: propertyBrand.email, telephone: propertyBrand.phone, description: propertyBrand.description, areaServed: { "@type": "Country", name: "Malta" } };
+ return <html lang="en-GB" className={`${sans.variable} ${serif.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\u003c") }} /></body></html>;
 }

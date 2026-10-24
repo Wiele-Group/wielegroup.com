@@ -16,6 +16,7 @@
 # DEPLOY.md (this branch) carries the full 9-gate post-deploy checklist.
 
 name = "wielegroup-com"
+account_id = "0edf698a8da62c67cde23e4f97de7a1b"
 # v3.9.0-xray-supersweep (2026-05-13) — main switched from the OpenNext
 # generated worker to a thin wrapper that adds a Cloudflare Cache API
 # layer (`caches.default`) for prerendered HTML responses. The wrapper

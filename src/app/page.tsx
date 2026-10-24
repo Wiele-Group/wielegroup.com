@@ -1,169 +1,23 @@
-// COGNITIVE PRE-FLIGHT (v3.9.4): Cowan 4-chunk rule — max 4 visible items per vertical list per viewport. /L99 binding.
+import Link from "next/link";
+import Image from "next/image";
+import { Arrow, ContactBand } from "@/components/property/chrome";
 
-import {
-  AnswerEngineStrip,
-  AuditPreview,
-  AuthorityCommand,
-  BentoSystem,
-  CinematicEntry,
-  CTASection,
-  DisciplinesSection,
-  HeroSection,
-  HorizonStrip,
-  LabsPreview,
-  PricingSection,
-  ProblemSection,
-  ProcessSteps,
-  ProofSection,
-  ProofStrip,
-  TrustSectionPreview,
-} from "@/components/sections";
-import { JsonLd } from "@/components/json-ld";
-import {
-  breadcrumbSchema,
-  faqSchema,
-  howToSchema,
-  personSchema,
-} from "@/lib/schema";
-import { siteConfig } from "@/lib/metadata";
-
-/**
- * ISR — re-generate the homepage every 60 seconds at the edge so the
- * minute-rotating fixture in HeroSection actually rotates between
- * deploys. Scope is `/` only; other routes stay fully static. Adding
- * `revalidate` elsewhere is a wasted runtime cost — Labs articles
- * change on git push (which redeploys), system pages are content
- * stable, audit/contact are dynamic on submit, sitemap is rebuilt.
- *
- * Authority: founder reinforcement #3 from Phase 6 brief (binding scope).
- */
-export const revalidate = 60;
-
-/**
- * Homepage — 12-section blueprint per CLAUDE_CODE_HANDOFF §9.
- * Header + Footer live in src/app/layout.tsx so they wrap every route.
- */
-export default function HomePage() {
-  const breadcrumbs = breadcrumbSchema([
-    { name: "Home", url: siteConfig.url },
-  ]);
-
-  // v3.8.0 — top-level Person schema for the founder. organizationSchema
-  // already carries `founder` as a PersonRef (name+url only); this richer
-  // Person entity carries jobTitle + worksFor + sameAs (personal LinkedIn),
-  // which is what entity-reconciliation pipelines (Wikidata, AI knowledge
-  // graphs) actually consume to disambiguate the person from the brand.
-  // v3.9.3 — sameAs sourced from siteConfig.socials.founderLinkedin (DRY).
-  const founderPerson = personSchema({
-    name: "Jonathan B. Landman",
-    jobTitle: "Founder",
-    url: `${siteConfig.url}/about#founder`,
-    sameAs: [siteConfig.socials.founderLinkedin],
-  });
-
-  // v3.9.3 — homepage FAQPage schema. Eight buyer-intent questions covering
-  // the AEO/GEO decision path. Each answer is extractable (≤2 sentences)
-  // and repeats the "Citation, not clicks." mantra in at least one slot
-  // so AI Overviews and ChatGPT quote it back. Per Google's FAQPage rich
-  // result spec, answers may include up to ~500 chars of plain text.
-  const homepageFaq = faqSchema([
-    {
-      question: "What does Wiele Group actually do?",
-      answer:
-        "Wiele Group engineers the brand that AI engines cite. Six disciplines — brand, marketing, web design, advertising, SEO, and AI search optimization — run as one integrated operating system. Citation, not clicks.",
-    },
-    {
-      question: "What is AEO (Answer Engine Optimization)?",
-      answer:
-        "AEO is the discipline of engineering a brand to be cited inside AI-generated answers from ChatGPT, Perplexity, Google AI Overviews, Gemini, Copilot, and Claude. Classical SEO targets blue-link rankings; AEO targets recommendation inclusion inside the answer itself.",
-    },
-    {
-      question: "What is GEO (Generative Engine Optimization)?",
-      answer:
-        "GEO is the broader umbrella covering how content, entities, and authority signals are structured so generative AI systems quote, cite, and recommend a brand. AEO is the answer-inclusion layer of GEO.",
-    },
-    {
-      question: "How is Wiele different from a classical SEO agency?",
-      answer:
-        "Classical SEO optimizes for blue-link rankings. Wiele engineers for citation inside AI answers — the next layer of discovery. The methodology (Map. Build. Compound.) is open; outcomes are tied to named engine runs, not aspirational lift ranges.",
-    },
-    {
-      question: "Who is Wiele Group built for?",
-      answer:
-        "Premium B2B firms, agencies, and high-margin services brands that compete on perception, trust, and authority. The economics favour clients with high lifetime value where a single AI citation can move a deal forward.",
-    },
-    {
-      question: "How do I get cited by ChatGPT or Perplexity?",
-      answer:
-        "Five signals decide citation: entity clarity, source authority, structured extractability, freshness, and recommendation history. Wiele engineers all five through a structured Map → Build → Compound rhythm. Start with a Signal Audit at /audit.",
-    },
-    {
-      question: "Does Wiele Group disclose AI use?",
-      answer:
-        "Yes. Every workflow that uses AI is named. Every deliverable is reviewed by a Wiele principal before it ships. Claims trace to public, verifiable sources. See /trust for the full standard.",
-    },
-    {
-      question: "How do engagements start?",
-      answer:
-        "Most engagements begin with a Signal Audit — a diagnostic that maps citation graph, entity baseline, authority gaps, and a 30-day implementation roadmap. From there, retainers compound month over month.",
-    },
-  ]);
-
-  // v3.9.3 — HowTo schema for the Map. Build. Compound. process. Mirrors
-  // src/data/homepage.ts processSteps so the structured data matches the
-  // human-readable section verbatim. Total time = ~12 weeks for a typical
-  // first engagement cycle.
-  const processHowTo = howToSchema({
-    name: "How Wiele engineers a brand to be cited by AI engines",
-    description:
-      "The three-stage Map. Build. Compound. process Wiele runs on every engagement to move a brand from invisible to cited inside answer engines.",
-    totalTime: "P84D",
-    steps: [
-      {
-        name: "Map — Diagnose AI visibility",
-        text:
-          "Diagnose AI visibility, citation graph, and authority gaps across the prompt surface that matters to your buyer.",
-        url: `${siteConfig.url}/audit`,
-      },
-      {
-        name: "Build — Engineer citation assets",
-        text:
-          "Engineer content, schema, comparison hubs, and authority assets that AI engines cite — and humans convert from.",
-        url: `${siteConfig.url}/systems/ai-visibility`,
-      },
-      {
-        name: "Compound — Stack the moat",
-        text:
-          "Visibility, citations, and demand compound month over month. The asset gets stronger; the moat gets deeper.",
-        url: `${siteConfig.url}/proof`,
-      },
-    ],
-  });
-
-  return (
-    <>
-      <JsonLd schema={breadcrumbs} id="schema-breadcrumb-home" />
-      <JsonLd schema={founderPerson} id="schema-person-founder-home" />
-      <JsonLd schema={homepageFaq} id="schema-faq-home" />
-      <JsonLd schema={processHowTo} id="schema-howto-home" />
-      <CinematicEntry />
-      <HeroSection />
-      <HorizonStrip fromLabel="Hero" toLabel="Proof" index={1} total={3} />
-      <AuthorityCommand />
-      <ProofStrip />
-      <DisciplinesSection />
-      <HorizonStrip fromLabel="Disciplines" toLabel="Problem" index={2} total={3} />
-      <ProblemSection />
-      <BentoSystem />
-      <AuditPreview />
-      <ProcessSteps />
-      <PricingSection />
-      <HorizonStrip fromLabel="Pricing" toLabel="Trust" index={3} total={3} />
-      <ProofSection />
-      <AnswerEngineStrip />
-      <TrustSectionPreview />
-      <LabsPreview />
-      <CTASection />
-    </>
-  );
+const principles = [
+ ["01", "One relationship.", "Direct contact with the person shaping your property’s marketing. A clear conversation, from the first question to the next step."],
+ ["02", "A considered presentation.", "Photography, words and a marketing plan built around what makes a property worth noticing."],
+ ["03", "The right connections.", "Thoughtful introductions, with sales documentation handled by appropriately licensed practitioners."],
+];
+export default function Home() {
+ return <>
+  <section className="hero">
+   <div className="hero-copy"><span className="eyebrow"><span className="tiny-line" />Malta · Independent property marketing</span><h1>A more<br /><em>personal</em><br />way home.</h1><p>Good property deserves thoughtful attention. A fresh perspective on marketing homes in Malta, built around people and the places they call home.</p><Link className="button" href="/selling">Explore our approach <Arrow diagonal /></Link><div className="hero-footnote"><span className="coordinate">35.8992° N · 14.5141° E</span><span>Rooted in Malta.</span></div></div>
+   <figure className="hero-image"><Image src="/property/malta-harbour.webp" alt="Valletta’s limestone waterfront and skyline across the blue Mediterranean" fill sizes="(max-width: 760px) 100vw, 58vw" priority fetchPriority="high" /><div className="image-caption"><span>AN ISLAND. A SENSE OF BELONGING.</span><span>Valletta, Malta <Arrow diagonal /></span></div><span className="image-vertical">THE WIELE PERSPECTIVE / 01</span></figure>
+  </section>
+  <div className="editorial-strip"><span>Thoughtful marketing.</span><span>Personal attention.</span><span>A local perspective.</span></div>
+  <section className="intro-section wrap"><div><span className="eyebrow">Property is personal</span><h2>More than a place.<br /><em>A next chapter.</em></h2></div><div className="intro-copy"><p className="lead">A home is never just square metres. It is a daily rhythm, a neighbourhood, a feeling when you walk through the door.</p><p>Wiele brings that perspective to property marketing in Malta. Clear presentation. Direct communication. Space for the details that matter to you.</p><Link className="text-link" href="/about">Meet the Wiele approach <Arrow /></Link></div></section>
+  <section className="pathways wrap"><Link href="/selling" className="pathway"><span className="eyebrow">01 / For property owners</span><div><h3>Make your home’s<br />next impression count.</h3><span className="round-arrow"><Arrow diagonal /></span></div><p>Discover a considered approach to presenting and marketing your property.</p><span className="text-link">The seller perspective <Arrow /></span></Link><Link href="/buying" className="pathway pathway-green"><span className="eyebrow">02 / For property seekers</span><div><h3>Find the place<br />that feels like you.</h3><span className="round-arrow"><Arrow diagonal /></span></div><p>Start with what matters: the place, the possibilities and how you want to live.</p><span className="text-link">The buyer perspective <Arrow /></span></Link></section>
+  <section className="place-section wrap"><figure><Image src="/property/valletta-balconies.webp" alt="Traditional green timber balconies against sunlit Maltese limestone in Valletta" fill sizes="(max-width: 760px) 100vw, 45vw" /><figcaption>THE DETAILS MAKE THE DIFFERENCE.</figcaption></figure><div><span className="eyebrow">Our point of view</span><h2>The character<br />is in <em>the detail.</em></h2><p>From limestone streets to a quieter stretch of coastline, Malta’s neighbourhoods each have their own rhythm. The right property story starts with understanding its setting.</p><p>We look beyond a checklist to the light, the layout and the life a place makes possible—then bring those details into focus.</p><Link className="text-link" href="/properties">Explore the collection <Arrow /></Link></div></section>
+  <section className="principles-section"><div className="wrap"><div className="section-heading"><span className="eyebrow">The Wiele difference</span><h2>Considered at every step.</h2></div><div className="principles-grid">{principles.map(([n,title,body])=><article key={n}><span className="principle-number">{n}</span><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
+  <ContactBand />
+ </>;
 }
