@@ -55,3 +55,8 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Added four original AI-generated decorative residential images. These are fictional and disclosed in the page, footer and credits; no property stock is invented.
 - Preserved the sales-only scope, existing inbox and WhatsApp number, and existing enquiry workflow.
 - Palette, usage and contrast notes: premium-direction.md. Full prompts and PNG masters: assets-source/property-photography.
+- Final production source commit efdbfac; tag property-platform-v1.1.0-premium-20261024.
+- Deployed existing Worker successfully, version 966d450f-6410-4799-acd4-355c47d1c0f7. Infrastructure routes and email settings were not modified by this visual revision.
+- Final OpenNext build passed. Lint/TypeScript and the existing ten enquiry API tests passed during the revision. Final live HTTP checker passed all nine pages, 15 assets, metadata and internal link destinations.
+- Live desktop (1440 px) and phone (390 px) visually inspected. Phone header spacing corrected, mobile navigation opens and links correctly; page width 375 px within 390 px viewport. All eight rendered image elements loaded after scrolling through the page.
+- Proof screenshots: live-premium-desktop.png, live-premium-mobile.png, live-premium-lifestyle.png and live-premium-full-page.png.
