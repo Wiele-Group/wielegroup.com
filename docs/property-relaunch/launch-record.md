@@ -34,3 +34,17 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Browser checked desktop at 1440 px and phone at 390 px. Mobile menu opens/closes and navigates; no horizontal overflow after headline correction.
 - New outlined logo inspected in forest/ivory/black. No font dependency in delivered SVG masters.
 - Actual live email delivery is not yet established by these local tests.
+
+## Production release
+- Deployed existing Worker `wielegroup-com` via the authenticated official Wrangler workflow.
+- Worker version: d90e56d7-0354-497e-91f4-a635f366e00f.
+- Production: https://wielegroup.com/
+- Original release source commit: dc923f1; release tag property-platform-v1.0.0-20261024.
+- All nine public pages, 13 referenced assets, internal links, sitemap/robots/llms resources and branding passed the live HTTP checker.
+- Fresh root check: HTTP 200, cf-ray a4fa4ac11abc81a6-MRS; former agency phrase count 0, Wiele Property count 23, new forest logo path count 3.
+- www root and /contact return 308 to the correct corresponding apex URLs. Python 3.9 verification does not automatically follow this response; redirect Location values were inspected directly.
+- DNS comparison: all 27 records unchanged. All three existing zone routes unchanged. Email routing and verification records remain as before.
+- Real browser enquiry test completed successfully; returned reference 1FC34CFF. Its durable KV record was independently read and identified as the labelled synthetic launch test. Notification inbox delivery has not been independently inspected.
+- Live browser checks at 1440 px desktop and 390 px mobile. Mobile page width 375 within 390 viewport; new logo and Malta hero image loaded.
+- Saved screenshots: live-homepage-desktop.png and live-homepage-mobile.png.
+- No real property listings supplied; collection remains explicitly empty.
