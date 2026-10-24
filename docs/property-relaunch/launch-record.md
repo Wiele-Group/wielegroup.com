@@ -48,3 +48,10 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Live browser checks at 1440 px desktop and 390 px mobile. Mobile page width 375 within 390 viewport; new logo and Malta hero image loaded.
 - Saved screenshots: live-homepage-desktop.png and live-homepage-mobile.png.
 - No real property listings supplied; collection remains explicitly empty.
+
+## Premium visual revision
+- User steered the design towards Pam Golding's photographic scale and spacious property presentation, then explicitly requested premium decorative property photography, a premium cognitive colour hierarchy and a high-end logo.
+- Replaced the heavy lowercase logo draft with a tapered W and light spaced uppercase lettering; supplied forest, ivory, champagne, charcoal and signature variants.
+- Added four original AI-generated decorative residential images. These are fictional and disclosed in the page, footer and credits; no property stock is invented.
+- Preserved the sales-only scope, existing inbox and WhatsApp number, and existing enquiry workflow.
+- Palette, usage and contrast notes: premium-direction.md. Full prompts and PNG masters: assets-source/property-photography.

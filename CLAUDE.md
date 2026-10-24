@@ -13,7 +13,7 @@ The user's 24 October 2026 instruction replaces the previous AI/marketing-agency
 ## Implementation
 Next.js 16 / React 19 / TypeScript / OpenNext on the existing Cloudflare Worker `wielegroup-com`. Retain established DNS routes. Website pages live in `src/app`; current components in `src/components/property`; brand details in `src/lib/property.ts`.
 
-Visual identity: forest #193F35, ivory #F6F3ED, sage accents, Instrument Serif + Geist. New architectural archway/W logo assets are in `public/property-identity`; editable vector sources/notes in `assets-source/property-identity`. The previous tech/chrome logo and old agency copy are retired.
+Visual identity: deep forest #17332E, warm ivory #F8F5EF, champagne #C6AD86 accents, Instrument Serif + Geist. Premium tapered W and spaced uppercase wordmark assets are in `public/property-identity/premium`; editable vector sources/notes in `assets-source/property-identity`. The previous tech/chrome logo and old agency copy are retired.
 
 Forms must validate on the server, verify Turnstile, persist to KV before success and report unavailable storage honestly. Enquiries are not marketing subscriptions. Existing secret bindings must remain secret. Never read credential stores or commit `.env.local`.
 
@@ -28,3 +28,7 @@ Forms must validate on the server, verify Turnstile, persist to KV before succes
 - Record deployment/version, checks and any unresolved issue in `docs/property-relaunch/launch-record.md`.
 
 Use the latest user instruction over historical project guidance. Old agency-specific rules in parent references do not override this rebrand.
+
+Design direction: Pam Golding inspired photographic scale, generous whitespace and collection-led navigation, with original Wiele branding, imagery and copy. No rentals or invented inventory.
+
+Premium decorative property imagery: original AI-created residence, interior, terrace and material detail concepts. Keep disclosure in footer, homepage imagery note and /credits; never reuse these as evidence of actual inventory. Sources and prompts: assets-source/property-photography. Colour hierarchy uses forest for key actions, ivory for calm reading fields and restrained champagne accents; no conversion effect is claimed without measurement.
