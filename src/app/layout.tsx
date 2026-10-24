@@ -10,9 +10,9 @@ export const metadata: Metadata = {
  title: { default: "Wiele Property | Independent Property Marketing in Malta", template: "%s | Wiele Property" },
  description: propertyBrand.description,
  alternates: { canonical: "/" },
- openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Wiele Property — A more personal way home.", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-property-premium.jpg", width: 1200, height: 630, alt: "Wiele Property — Independent property marketing in Malta" }] },
- twitter: { card: "summary_large_image", title: "Wiele Property", description: propertyBrand.description, images: ["/property/og-property-premium.jpg"] },
- icons: { icon: "/property-identity/premium/favicon.svg", apple: "/apple-touch-icon.png?v=premium" },
+ openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Wiele Property — A more personal way home.", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-property-editorial.jpg", width: 1200, height: 630, alt: "Wiele Property — Independent property marketing in Malta" }] },
+ twitter: { card: "summary_large_image", title: "Wiele Property", description: propertyBrand.description, images: ["/property/og-property-editorial.jpg"] },
+ icons: { icon: "/property-identity/editorial/favicon.svg", apple: "/apple-touch-icon.png?v=editorial" },
  other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true },
 };

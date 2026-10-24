@@ -32,3 +32,6 @@ body{background:var(--premium-ivory);color:var(--premium-charcoal)}.site-header{
 @media(max-width:640px){.cinematic-content h1{font-size:59px;line-height:1.04}.cinematic-content p{font-size:11px}.home-introduction h2,.collection-heading h2,.home-values>h2{font-size:40px}.seller-feature h2{font-size:43px}.page-intro h1{font-size:57px}.band-inner h2{font-size:42px}.split-feature h2{font-size:43px}}
 .header-contact{white-space:nowrap;flex-shrink:0}
 @media(max-width:640px){.brand img{width:138px;height:47px}.header-contact{letter-spacing:.06em}.menu-toggle{white-space:nowrap}}
+/* Approved Option 2: the editorial wordmark carries the primary identity. */
+.brand img{width:190px;height:78px}.brand-footer img{width:205px;height:84px}
+@media(max-width:640px){.brand img{width:138px;height:57px}.brand-footer img{width:180px;height:74px}}

@@ -60,3 +60,10 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Final OpenNext build passed. Lint/TypeScript and the existing ten enquiry API tests passed during the revision. Final live HTTP checker passed all nine pages, 15 assets, metadata and internal link destinations.
 - Live desktop (1440 px) and phone (390 px) visually inspected. Phone header spacing corrected, mobile navigation opens and links correctly; page width 375 px within 390 px viewport. All eight rendered image elements loaded after scrolling through the page.
 - Proof screenshots: live-premium-desktop.png, live-premium-mobile.png, live-premium-lifestyle.png and live-premium-full-page.png.
+
+## Selected logo: Option 2 Editorial
+- User explicitly selected Option 2 from three distinct logo directions.
+- Finalised serif WIELE / sans PROPERTY wordmark in outlined SVG, transparent PNG and four colours. Compact serif W receives optical reinforcement for web icons.
+- Primary website header/footer, favicon, touch icons and social previews updated. New versioned asset URLs and edge cache namespace avoid carrying the previous identity forward in caches.
+- Approved package: assets-source/property-identity/wiele-property-logo-pack.zip. Source, usage notes and original SIL font licences included.
+- Earlier concepts remain separate from approved artwork. No trademark clearance or physical production certification is claimed.
