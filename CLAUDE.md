@@ -34,3 +34,8 @@ Design direction: Pam Golding inspired photographic scale, generous whitespace a
 Premium decorative property imagery: original AI-created residence, interior, terrace and material detail concepts. Keep disclosure in footer, homepage imagery note and /credits; never reuse these as evidence of actual inventory. Sources and prompts: assets-source/property-photography. Colour hierarchy uses forest for key actions, ivory for calm reading fields and restrained champagne accents; no conversion effect is claimed without measurement.
 
 Approved identity: user selected Option 2 (Editorial). Current wordmark is type-led, without a separate geometric W symbol in the main lockup. Optical serif W used only for compact icons.
+
+## Latest wordmark revision — 24 October 2026
+- User supplied new standalone WIELE wordmarks in project sources, replacing the primary Option 2 lockup. Web derivatives live in public/property-identity/launch; preserve synced originals.
+- Use charcoal on ivory and champagne gold on dark fields. Descriptor remains Property marketing · Malta to match the confirmed service scope. Supplied full brokerage lockup and circular emblem have coloured edge artefacts and are not used. Existing compact W favicon remains.
+- Homepage now routes sellers/buyers directly to their selected enquiry interests. No-inventory and concept-imagery disclosures remain visible. Social preview uses the new gold wordmark.
