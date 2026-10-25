@@ -95,3 +95,11 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - Final live HTTP audit passed nine pages, 16 assets, 11 internal link destinations, search metadata and retired-route behaviour.
 - Live browser inspected at 1440 px and 390 px. Gold ring decoded at 320 px native width; all nine image elements loaded after scrolling. No horizontal overflow (document width 1425/375 within 1440/390 viewports).
 - Saved live-gold-ring-desktop.png, live-gold-ring-mobile.png, live-gold-ring-editorial.png and live-gold-ring-full-page.png. Browser viewport override reset after verification.
+
+## Metadata and analytics alignment — 25 October 2026
+- Source b9bfc4e; tag property-platform-v1.5.0-metadata-20261025; deployed existing Worker version 28cf8ebb-4ad6-4210-86c2-8685d0ce16b0. Recovery c822662c-225d-4d34-bdee-cf00bb1c69b4.
+- Page-specific social metadata, expanded confirmed business schema, contact information, social links and opt-in analytics published. Existing DNS/mail/routes preserved. Targeted cache purge succeeded.
+- Build/TypeScript/lint and ten enquiry tests passed; live audit nine pages/17 assets passed.
+- GSC domain linked to GA4; homepage recrawl request accepted; sitemap Success with nine pages.
+- GA4 identity changed to Wiele Property, Malta timezone, EUR and Property industry; stream canonical URL/name updated; generate_lead key event registered.
+- Live ingestion remains unresolved: existing G-8YCESQ46BH loader returns Google CDN HTTP 404, tag-management controls blank and Realtime empty. Do not claim working collection. Full report metadata-analytics-2026-10-25.md.
