@@ -2,6 +2,7 @@
 import { useCallback, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { trackPropertyEvent } from "./analytics";
 import { Arrow } from "./chrome";
 import { TurnstileWidget } from "@/components/forms/turnstile-widget";
 export function EnquiryForm() {
@@ -23,6 +24,7 @@ export function EnquiryForm() {
    const response = await fetch("/api/enquiry", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:form.get("name"),email:form.get("email"),phone:form.get("phone"),interest,message:form.get("message"),website:form.get("website"),token})});
    const data = await response.json() as { ticketId?: string; error?: string };
    if(!response.ok || !data.ticketId) throw new Error(data.error || "Your enquiry could not be saved. Please try again or contact us directly.");
+   trackPropertyEvent("generate_lead", { enquiry_type: interest });
    setTicket(data.ticketId);
   } catch(err) { setError(err instanceof Error ? err.message : "We couldn’t save your enquiry. Please try again.");setToken("");setWidgetKey(k=>k+1); }
   finally {setPending(false);}

@@ -1,6 +1,7 @@
+import { propertyMetadata } from "@/lib/property";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Arrow, PageIntro } from "@/components/property/chrome";
-export const metadata: Metadata = { title: "Property Collection in Malta", description: "Malta property sales collection from Wiele Property. No properties are currently advertised; contact us with a general property enquiry.", alternates: { canonical: "/properties" } };
+export const metadata: Metadata = propertyMetadata("Property Collection in Malta", "Malta property sales collection from Wiele Property. No properties are currently advertised; contact us with a general property enquiry.", "/properties");
 export default function Properties() {return <><PageIntro eyebrow="Malta property sales / The collection" title="Good places. Worth discovering." description="A place for real homes, accurate detail and thoughtful presentation. Our property collection is taking shape." /><section className="collection-empty wrap collection-panel"><Image className="collection-emblem" src="/property-identity/ring/wiele-gold-ring.webp" width={100} height={100} alt="" /><span className="eyebrow">No properties currently advertised</span><h2>The next chapter<br /><em>is being written.</em></h2><p>Our first properties will appear here once their details and marketing authority are confirmed. In the meantime, you’re welcome to tell us what you have in mind.</p><Link className="button" href="/contact?interest=buying">Share your buying brief <Arrow diagonal /></Link><Link className="text-link collection-owner-link" href="/contact?interest=marketing">Have a property to market? <Arrow /></Link></section></>}
