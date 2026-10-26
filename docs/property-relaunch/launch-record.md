@@ -103,3 +103,12 @@ Real property facts/photos/authority, practitioner's identity/role and agreed en
 - GSC domain linked to GA4; homepage recrawl request accepted; sitemap Success with nine pages.
 - GA4 identity changed to Wiele Property, Malta timezone, EUR and Property industry; stream canonical URL/name updated; generate_lead key event registered.
 - Live ingestion remains unresolved: existing G-8YCESQ46BH loader returns Google CDN HTTP 404, tag-management controls blank and Realtime empty. Do not claim working collection. Full report metadata-analytics-2026-10-25.md.
+
+
+## International investor positioning — 26 October 2026
+- User requested alignment of website, LinkedIn Page and Facebook Page to income-producing property for international investors and consortiums.
+- Source e62836f; tag property-platform-v1.6.0-investors-20261026; production Worker version 87db693c-7afb-46c0-85d9-7dfc433d1d2a. Recovery 28cf8ebb-4ad6-4210-86c2-8685d0ce16b0.
+- Website copy/navigation/metadata, investor/owner/opportunity journeys and consortium enquiry routing updated. Existing marketing/introductions scope, contact details, security, no-inventory and imagery disclosures retained.
+- Lint (zero errors, existing unrelated script warning), TypeScript, eleven enquiry tests, OpenNext build and nine-page live audit passed. Local desktop/mobile rendering and live homepage visually inspected.
+- LinkedIn tagline/overview/four investor specialties and cover saved; Facebook investor bio/service descriptions/cover saved and read back. No advertising spend or outreach.
+- Full record and screenshots: docs/investor-positioning-2026-10-26/status.md.

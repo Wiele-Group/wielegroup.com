@@ -27,4 +27,11 @@ User requested that the confirmed income-property/international-investor/consort
 - Saved services read back successfully. No adverts, messages or paid commitments created.
 
 ## Publication verification
-Website build prepared and locally verified; production deployment and final public screenshots recorded below after execution.
+- Production source e62836f; tag property-platform-v1.6.0-investors-20261026.
+- Deployed existing Worker successfully: version 87db693c-7afb-46c0-85d9-7dfc433d1d2a, deployment e198f9c8-f452-4f28-8ca7-0745fac53b53, serving 100% of traffic. Recovery version 28cf8ebb-4ad6-4210-86c2-8685d0ce16b0.
+- Wrangler retried transient asset-upload failures and then completed successfully. Deployment read-back confirmed the final version; no duplicate deployment was submitted.
+- Live HTTP audit passed all nine pages, 17 assets, 12 internal destinations, metadata/security headers and retired-route checks. Live browser confirmed the investor homepage and updated title/description.
+- Social profiles reloaded: LinkedIn member view shows saved tagline and overview. Facebook shows saved bio and all updated service descriptions.
+- Replaced both social covers with the matching investor slogan: Property with purpose. Income in focus. Existing brand/image sources were reused in the code-generated layout, with concept-image disclosure retained. LinkedIn confirmed Cover image updated; member view visually verified. Facebook cover save visually verified.
+- Final screenshots: website-investor-positioning.png, linkedin-investor-positioning.png, facebook-investor-positioning.png in this directory.
+- No paid campaigns or direct outreach were launched. Existing unrelated untracked files preserved.
