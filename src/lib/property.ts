@@ -15,13 +15,13 @@ export const propertyBrand = {
     instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
-  description: "Malta property sales marketing, with thoughtful presentation, direct personal contact and transaction documentation handled by licensed practitioners.",
+  description: "Malta investment property marketing and introductions for international investors and consortiums, focused on income-producing real estate.",
 } as const;
 
 export const propertyNavigation = [
-  { href: "/selling", label: "For sellers" },
-  { href: "/buying", label: "For buyers" },
-  { href: "/properties", label: "Properties" },
+  { href: "/selling", label: "For owners" },
+  { href: "/buying", label: "For investors" },
+  { href: "/properties", label: "Opportunities" },
   { href: "/about", label: "Our approach" },
 ];
 
@@ -31,7 +31,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Property · Malta property marketing" }] },
+      images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Property · Malta investment property" }] },
     twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-property-ring.jpg"] },
   };
 }

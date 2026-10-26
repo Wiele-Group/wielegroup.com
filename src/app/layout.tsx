@@ -8,11 +8,11 @@ const sans = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], variable
 const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
 export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
- title: { default: "Malta Property Marketing & Introductions | Wiele Property", template: "%s | Wiele Property" },
+ title: { default: "Malta Investment Property & Introductions | Wiele Property", template: "%s | Wiele Property" },
  description: propertyBrand.description,
  alternates: { canonical: "/" },
- openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Malta Property Marketing & Introductions | Wiele Property", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Property — Independent property marketing in Malta" }] },
- twitter: { card: "summary_large_image", title: "Malta Property Marketing & Introductions | Wiele Property", description: propertyBrand.description, images: ["/property/og-property-ring.jpg"] },
+ openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Malta Investment Property & Introductions | Wiele Property", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Property — Malta investment property marketing" }] },
+ twitter: { card: "summary_large_image", title: "Malta Investment Property & Introductions | Wiele Property", description: propertyBrand.description, images: ["/property/og-property-ring.jpg"] },
  icons: { icon: [{ url: "/property-identity/ring/icon-32.png", sizes: "32x32", type: "image/png" }, { url: "/property-identity/ring/icon-64.png", sizes: "64x64", type: "image/png" }], apple: "/property-identity/ring/icon-180.png" },
  other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true },

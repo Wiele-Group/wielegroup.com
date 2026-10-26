@@ -46,3 +46,11 @@ Approved identity: user selected Option 2 (Editorial). Current wordmark is type-
 - Refined raster master: assets-source/property-identity/ring/wiele-ring-refined-forest.png. Web mark, icons: public/property-identity/ring. Existing synced originals remain untouched. This is a raster asset, not a vector master.
 - Shared style system is now consolidated in globals.css: forest masthead, gold identity, ivory reading surfaces, Instrument Serif headings, Geist body, responsive image-led editorial layouts. Home uses estate-* components/classes.
 - Homepage photography is decorative AI-created imagery plus the credited Valletta location photo; disclosures remain immediate and in footer/credits. No advertised stock yet.
+
+
+## Confirmed investor positioning — 26 October 2026
+- Primary market: international investors and consortiums seeking income-producing Malta real estate. This supersedes general home-seeker positioning.
+- Property-marketing and introductions scope and licensing disclosures above remain in force; investment positioning does not establish intermediary or financial-services authorisation.
+- Distinguish collected income, contracted rent and projected rent. Disclose calculation bases, operating costs and risks; no guaranteed yield or capital appreciation. No numerical yield target, minimum ticket or investor source country is confirmed.
+- No real stock is supplied. Preserve honest empty opportunities and concept-image disclosures.
+- /buying remains the investor page to preserve existing links. Enquiry values buying/consortium/marketing/general are supported; no enquiry implies investment subscription or marketing consent.
