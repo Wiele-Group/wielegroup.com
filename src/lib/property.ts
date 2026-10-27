@@ -15,12 +15,12 @@ export const propertyBrand = {
     instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
-  description: "Malta investment property marketing and introductions for international investors and consortiums, focused on income-producing real estate.",
+  description: "Investment real estate in Malta for buyers, investors and property owners, based locally or abroad. Apartments, residences and property portfolios.",
 } as const;
 
 export const propertyNavigation = [
   { href: "/selling", label: "For owners" },
-  { href: "/buying", label: "For investors" },
+  { href: "/buying", label: "For buyers" },
   { href: "/properties", label: "Opportunities" },
   { href: "/about", label: "Our approach" },
 ];

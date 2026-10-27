@@ -40,3 +40,4 @@ html{scroll-padding-top:126px}.reveal-pending:focus-within{opacity:1;transform:n
 @media(max-width:850px){html{scroll-padding-top:110px}}
 .contact-layout>*,.form-grid>*,.form-field{min-width:0}.contact-detail a{max-width:100%}.verification-note{max-width:100%}.form-message{overflow-wrap:anywhere}
 @media(max-width:640px){.contact-layout,.form-grid{grid-template-columns:minmax(0,1fr)}}
+.split-feature figure figcaption{position:absolute;bottom:20px;left:20px;right:20px;padding:9px 12px;background:#171a19cc;color:#f4f0e8;font-size:10px;line-height:1.6}
