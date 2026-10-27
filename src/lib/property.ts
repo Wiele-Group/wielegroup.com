@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const propertyBrand = {
-  name: "Wiele Property",
+  name: "Wiele Properties",
   url: "https://wielegroup.com",
   email: "admin@wielegroup.com",
   phone: "+356 9932 0474",
@@ -31,7 +31,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Property · Malta investment property" }] },
+      images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Properties · Malta investment property" }] },
     twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-property-ring.jpg"] },
   };
 }

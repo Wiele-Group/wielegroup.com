@@ -15,7 +15,8 @@
     "build:cf": "opennextjs-cloudflare build",
     "preview:cf": "npm run build:cf && wrangler dev",
     "predeploy:cf": "git diff --quiet HEAD || (echo 'ABORT \u2014 working tree dirty. Commit + tag before deploy (Commit-Before-Deploy Law, v3.9.3).' && exit 1)",
-    "deploy:cf": "npm run build:cf && wrangler deploy"
+    "deploy:cf": "node scripts/deploy-property.mjs",
+    "check:seo": "python3 scripts/check-property-site.py"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

@@ -1,3 +1,6 @@
+import { StructuredData } from "@/components/property/structured-data";
+import { propertyFaqs } from "@/lib/property-faqs";
+import { propertyBrand } from "@/lib/property";
 import Link from "next/link";
 import Image from "next/image";
 import { Arrow, ContactBand } from "@/components/property/chrome";
@@ -10,6 +13,7 @@ const lifestyles = [
 
 export default function Home() {
   return <>
+    <StructuredData data={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": `${propertyBrand.url}/#webpage`, url: `${propertyBrand.url}/`, name: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, inLanguage: "en-GB", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, mainEntity: propertyFaqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
     <section className="estate-hero" aria-labelledby="home-title">
       <Image className="estate-hero-image" src="/property/premium-residence.webp" alt="AI-created concept of a Mediterranean limestone residence; not a property for sale" fill sizes="100vw" priority fetchPriority="high" />
       <div className="estate-hero-shade" />
@@ -47,6 +51,7 @@ export default function Home() {
     <section className="estate-collection wrap"><div><span className="eyebrow">Investment opportunities / Taking shape</span><h2>The first chapter<br /><em>starts with a conversation.</em></h2></div><div><p>No properties are currently advertised. We’re building the collection around verified details and agreed marketing authority.</p><p>Considering an apartment, an income-producing residence or your next portfolio purchase? Share your requirements. No return or availability is implied by an enquiry.</p><Link className="text-link" href="/properties">About the collection <Arrow /></Link></div></section>
 
     <section className="estate-principles"><div className="wrap"><div className="estate-section-heading"><div><span className="eyebrow">The Wiele approach</span><h2>Considered, from<br /><em>the first conversation.</em></h2></div><Link className="text-link" href="/about">Our perspective <Arrow /></Link></div><div className="estate-principles-grid"><article><span className="eyebrow">01 / Personal</span><h3>A direct relationship.</h3><p>Speak with Jonathan Landman, the person shaping your property’s presentation and your next steps with Wiele.</p></article><article><span className="eyebrow">02 / Purposeful</span><h3>Details with meaning.</h3><p>Clear income definitions, relevant property details and transparent assumptions. Any investment return depends on the asset, costs and circumstances; it is not guaranteed.</p></article><article><span className="eyebrow">03 / Clear</span><h3>Know the next step.</h3><p>Marketing scope and costs agreed before work begins. Transaction documentation handled by appropriately licensed practitioners.</p></article></div></div></section>
+    <section className="investment-faq wrap" aria-labelledby="investment-questions"><div><span className="eyebrow">Malta investment real estate / Your questions</span><h2 id="investment-questions">A clearer picture.<br /><em>Before your next move.</em></h2><p>Practical answers for buyers, investors and property owners in Malta and abroad.</p></div><div className="investment-faq-list">{propertyFaqs.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}<Link className="text-link" href="/contact">Discuss your property goals <Arrow /></Link></div></section>
     <ContactBand />
   </>;
 }
