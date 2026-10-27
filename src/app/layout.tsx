@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Manrope, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";
 import { propertyBrand } from "@/lib/property";
-const sans = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans", display: "swap" });
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
+const sans = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans", display: "swap" });
+const serif = Cormorant_Garamond({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
 export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
  title: { default: "Malta Investment Property & Introductions | Wiele Property", template: "%s | Wiele Property" },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
  other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true },
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#17332e" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#171a19" };
 export default function Layout({ children }: { children: React.ReactNode }) {
  const schema = { "@context": "https://schema.org", "@type": "Organization", name: propertyBrand.name, url: propertyBrand.url, email: propertyBrand.email, telephone: propertyBrand.phone, description: propertyBrand.description,
  "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/ring/icon-180.png`,

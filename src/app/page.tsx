@@ -15,10 +15,11 @@ export default function Home() {
       <div className="estate-hero-shade" />
       <div className="estate-hero-content wrap">
         <span className="eyebrow">Malta investment property · Marketing & introductions</span>
-        <h1 id="home-title">Property with purpose.<br /><em>Income in focus.</em></h1>
+        <h1 id="home-title"><span>Property with purpose.</span><br /><em>Income in focus.</em></h1>
         <p>For international investors and consortiums.<br />A considered approach to income-producing real estate in Malta.</p>
         <a className="hero-discover" href="#discover">Discover the Wiele approach <Arrow /></a>
       </div>
+      <div className="hero-edition" aria-hidden="true"><span>W</span><span>Malta / A considered perspective</span></div>
       <div className="estate-hero-caption wrap"><span>Malta. A sense of place.</span><span>AI-created architectural concept</span></div>
     </section>
 
