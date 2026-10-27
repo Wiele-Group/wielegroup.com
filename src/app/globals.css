@@ -38,3 +38,5 @@ html[data-motion-paused=true] *,html[data-motion-paused=true] *:before,html[data
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.estate-hero-image{scale:1;translate:none!important}.reveal-pending{opacity:1;transform:none}*,*:before,*:after{animation:none!important;transition:none!important}}
 html{scroll-padding-top:126px}.reveal-pending:focus-within{opacity:1;transform:none}html[data-motion-paused=true] *,html[data-motion-paused=true] *:before,html[data-motion-paused=true] *:after{animation:none!important}html[data-motion-paused=true] .estate-hero-image{scale:1.02;translate:none}
 @media(max-width:850px){html{scroll-padding-top:110px}}
+.contact-layout>*,.form-grid>*,.form-field{min-width:0}.contact-detail a{max-width:100%}.verification-note{max-width:100%}.form-message{overflow-wrap:anywhere}
+@media(max-width:640px){.contact-layout,.form-grid{grid-template-columns:minmax(0,1fr)}}

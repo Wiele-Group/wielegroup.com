@@ -17,6 +17,6 @@ Finite 22-second hero image drift, desktop scroll parallax, staggered entry, one
 
 ## Verification
 
-Production OpenNext build, TypeScript and focused ESLint passed. Existing nine-route HTTP/content/asset checker passed locally, including canonical tags, one H1 per page, search resources and security headers. Desktop 1256px and phone 390px inspected; investor route and mobile navigation checked. Contact form at 320px showed no horizontal overflow and correctly preselected investor interest. Pause control changed state correctly. Live form submission not exercised; no test enquiry sent. Reduced-motion styling reviewed in source, without OS-setting emulation.
+Production OpenNext build, TypeScript and focused ESLint passed. Existing nine-route HTTP/content/asset checker passed locally, including canonical tags, one H1 per page, search resources and security headers. Desktop 1256px and phone 390px inspected; investor route and mobile navigation checked. Contact form correctly preselected investor interest. Delayed security-widget rendering exposed a 320px overflow; constrained grid children and compact verification below 300px address this. Empty submission focuses the required name field. Pause control changed state correctly. Live form submission not exercised; no test enquiry sent. Reduced-motion styling reviewed in source, without OS-setting emulation.
 
-Cache release identifier changed to property-20261027-editorial-luxury-v8 to prevent old HTML sharing the previous release cache.
+Cache release identifier changed to property-20261027-editorial-luxury-v9 to prevent old HTML sharing the previous release cache.

@@ -101,7 +101,7 @@ export function TurnstileWidget({ onToken, onError, className }: TurnstileWidget
           "error-callback": () => onError?.(),
           "expired-callback": () => onError?.(),
           theme: "light",
-          size: "flexible",
+          size: containerRef.current.clientWidth < 300 ? "compact" : "flexible",
         });
       })
       .catch(() => onError?.());
