@@ -14,14 +14,14 @@ export const metadata: Metadata = {
  alternates: { canonical: "/" },
  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-global-ambition.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline}` }] },
  twitter: { card: "summary_large_image", title: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, images: ["/property/og-global-ambition.jpg"] },
- icons: { icon: [{ url: "/property-identity/ring/icon-32.png", sizes: "32x32", type: "image/png" }, { url: "/property-identity/ring/icon-64.png", sizes: "64x64", type: "image/png" }], apple: "/property-identity/ring/icon-180.png" },
+ icons: { icon: [{ url: "/property-identity/integrated/icon-32.png", sizes: "32x32", type: "image/png" }, { url: "/property-identity/integrated/icon-64.png", sizes: "64x64", type: "image/png" }], apple: "/property-identity/integrated/icon-180.png" },
  other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#171a19" };
 export default function Layout({ children }: { children: React.ReactNode }) {
  const schema = { "@context": "https://schema.org", "@type": "Organization", name: propertyBrand.name, slogan: propertyBrand.tagline, alternateName: "Wiele Property", url: propertyBrand.url, email: propertyBrand.email, telephone: propertyBrand.phone, description: propertyBrand.description,
- "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/ring/wiele-gold-ring-transparent.png`,
+ "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/integrated/wiele-properties-malta-primary.png`,
  foundingDate: propertyBrand.founded, founder: { "@type": "Person", name: "Jonathan Landman" },
  address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
  sameAs: Object.values(propertyBrand.social),

@@ -16,11 +16,11 @@ User authorisation: publish the Wiele report on wielegroup.com, require interest
 ## Editorial and visual work
 
 - 16-page Wiele Properties editorial report, retaining source periods, 22 linked references and disclosed original-release transaction figures.
-- Photographic Valletta cover, original transparent PNG gold-ring emblem, Cormorant Garamond and Manrope typography, ivory/charcoal/gold palette, facing-page locality features and a separate debt/tax stress-test feature. Images are licensed and labelled; the complete report has selectable text and live sources.
+- Modern Malta-inspired AI architectural cover and interior, revised integrated ring-and-wordmark identity, Cormorant Garamond and Manrope typography, ivory/charcoal/gold palette, facing-page locality features and a separate debt/tax stress-test feature. AI images are labelled; the complete report has selectable text and live sources.
 - Replaced uncalibrated numerical property-growth forecasts with a qualitative Wiele outlook and explicitly hypothetical sensitivity inputs. Published macro forecasts remain attributed separately.
 - Clarified yield denominators, explained abbreviations, tightened locality propositions and included an additional rental-downside cash-flow calculation.
 - Updated report-page metadata, canonical/social preview, Report/WebPage/BreadcrumbList data, sitemap coverage, internal links, privacy notice and terms.
-- New PNG is an optimised derivative of supplied `Luxury Gold W Monogram Emblem.png`; original source assets remain unchanged.
+- The user requested a new integrated logo. New transparent PNG and native vector masters connect the ring, WIELE name, PROPERTIES · MALTA descriptor and Cormorant Garamond Medium Italic slogan as one unit. Original source assets remain unchanged.
 
 ## Verification
 

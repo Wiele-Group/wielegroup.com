@@ -56,3 +56,9 @@ html{scroll-padding-top:126px}.reveal-pending:focus-within{opacity:1;transform:n
 @media(max-width:1100px){.brand-signature{min-width:186px}.brand-tagline{font-size:9px}}
 @media(max-width:640px){.brand-signature{min-width:156px;gap:4px}.brand-tagline{font-size:8px;letter-spacing:0}.brand-signature>img{width:103px}.brand-descriptor{font-size:6px}.header-contact{display:none}.brand-footer .brand-signature{min-width:215px}.brand-footer .brand-tagline{font-size:10.5px}.brand-footer .brand-emblem{width:56px;height:56px}}
 @media(max-width:1050px){.desktop-nav{display:none}.mobile-navigation{display:block}.header-contact{margin-left:auto}}
+
+/* Integrated identity: one outlined logo includes the aligned premium serif slogan. */
+.brand-integrated{display:block;width:242px;height:auto;max-width:none}.brand-footer .brand-integrated{width:320px}.site-header{height:122px}.brand-footer{gap:0}.report-cover-display{rotate:0deg}.report-cover-display figcaption{rotate:0deg}.home-report-cover{rotate:0deg}
+@media(max-width:850px){.brand-integrated{width:220px}.site-header{height:110px}}
+@media(max-width:640px){.brand-integrated{width:203px}.brand-footer .brand-integrated{width:290px}.site-header{height:104px}.header-inner{gap:9px}.brand{gap:0}}
+@media(max-width:360px){.brand-integrated{width:175px}.brand-footer .brand-integrated{width:260px}}

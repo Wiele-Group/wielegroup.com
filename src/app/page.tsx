@@ -7,15 +7,15 @@ import { Arrow, ContactBand } from "@/components/property/chrome";
 
 const lifestyles = [
   { image: "apartment-exterior.webp", label: "01 / Income evidence", title: "Start with the income.", caption: "Distinguish collected rent, contracted rent and projected income.", alt: "Contemporary apartment building with glass balconies; illustrative stock photograph, not a Malta property listing", interest: "buying" },
-  { image: "valletta-balconies.webp", label: "02 / Asset fundamentals", title: "Understand the property.", caption: "Assess location, condition, lease terms and future capital requirements.", alt: "Traditional Maltese balconies in Valletta; location photograph, not a property listing", interest: "buying" },
-  { image: "bright-apartment.webp", label: "03 / Investor fit", title: "Define your mandate.", caption: "Match the asset to your budget, income objectives and holding period.", alt: "Bright luxury apartment interior; illustrative stock photograph, not a Malta property listing", interest: "buying" },
+  { image: "modern-malta-interior-concept.webp", label: "02 / Asset fundamentals", title: "Understand the property.", caption: "Assess location, condition, lease terms and future capital requirements.", alt: "AI-created contemporary Malta-inspired interior; not an actual property or listing", interest: "buying" },
+  { image: "premium-detail.webp", label: "03 / Investor fit", title: "Define your mandate.", caption: "Match the asset to your budget, income objectives and holding period.", alt: "AI-created limestone and interior material study; not an actual property", interest: "buying" },
 ];
 
 export default function Home() {
   return <>
     <StructuredData data={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": `${propertyBrand.url}/#webpage`, url: `${propertyBrand.url}/`, name: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, inLanguage: "en-GB", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, mainEntity: propertyFaqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
     <section className="estate-hero" aria-labelledby="home-title">
-      <Image className="estate-hero-image" src="/property/premium-residence.webp" alt="AI-created concept of a Mediterranean limestone residence; not a property for sale" fill sizes="100vw" priority fetchPriority="high" />
+      <Image className="estate-hero-image" src="/property/modern-malta-apartments-concept.webp" alt="AI-created modern Malta apartment concept; not an actual property or listing" fill sizes="100vw" priority fetchPriority="high" />
       <div className="estate-hero-shade" />
       <div className="estate-hero-content wrap">
         <span className="eyebrow">Investment real estate · Malta</span>
