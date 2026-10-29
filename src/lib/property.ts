@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const propertyBrand = {
   name: "Wiele Properties",
+  tagline: "Malta Property. Global Ambition.",
   url: "https://wielegroup.com",
   email: "admin@wielegroup.com",
   phone: "+356 9932 0474",
@@ -15,7 +16,7 @@ export const propertyBrand = {
     instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
-  description: "Investment real estate in Malta for buyers, investors and property owners, based locally or abroad. Apartments, residences and property portfolios.",
+  description: "Malta Property. Global Ambition. Investment real estate for buyers, investors and property owners in Malta and abroad. Apartments, residences and portfolios.",
 } as const;
 
 export const propertyNavigation = [
@@ -31,7 +32,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-property-ring.jpg", width: 1200, height: 630, alt: "Wiele Properties · Malta investment property" }] },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-property-ring.jpg"] },
+      images: [{ url: "/property/og-global-ambition.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline}` }] },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-global-ambition.jpg"] },
   };
 }

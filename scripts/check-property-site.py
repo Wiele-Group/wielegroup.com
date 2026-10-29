@@ -43,6 +43,8 @@ for path in paths:
  assert p.h1s==1,(path,'heading count',p.h1s)
  assert len(p.canonicals)==1 and p.canonicals[0].rstrip('/')==('https://wielegroup.com'+('/' if path=='/' else path)).rstrip('/'),(path,p.canonicals)
  assert 'Wiele Properties' in text
+ assert text.count('Malta Property. Global Ambition.') >= 2,(path,'shared brand tagline missing')
+ assert 'Malta at heart' not in text and 'Investment in focus' not in text,(path,'retired tagline')
  assert p.title and p.title not in titles,(path,'missing or duplicate title')
  titles.add(p.title)
  description=p.meta.get('description','')
@@ -58,6 +60,7 @@ for path in paths:
  types=[e.get('@type') for e in entities]
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
+ assert org.get('slogan')=='Malta Property. Global Ambition.',(path,'organization slogan')
  assert org['name']=='Wiele Properties' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
@@ -79,7 +82,7 @@ for path in sorted(links):
 for path in ['/audit','/pricing','/labs','/api/audit','/api/contact']:
  status,_,data=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-property-ring.jpg','/property-identity/ring/icon-32.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-global-ambition.jpg','/property-identity/ring/icon-32.png']:
  status,_,_=get(path);assert status==200,(path,status)
 print('PASS search metadata and brand resources')
 

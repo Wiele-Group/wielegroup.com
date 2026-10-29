@@ -19,7 +19,7 @@ export default function Home() {
       <div className="estate-hero-shade" />
       <div className="estate-hero-content wrap">
         <span className="eyebrow">Investment real estate · Malta</span>
-        <h1 id="home-title"><span>Malta at heart.</span><br /><em>Investment in focus.</em></h1>
+        <h1 id="home-title"><span>Malta Property.</span><br /><em>Global Ambition.</em></h1>
         <p>From your first apartment to your next portfolio.<br />Investment real estate in Malta, shaped around your goals.</p>
         <a className="hero-discover" href="#discover">Discover the Wiele approach <Arrow /></a>
       </div>
