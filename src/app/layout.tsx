@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#171a19" };
 export default function Layout({ children }: { children: React.ReactNode }) {
  const schema = { "@context": "https://schema.org", "@type": "Organization", name: propertyBrand.name, slogan: propertyBrand.tagline, alternateName: "Wiele Property", url: propertyBrand.url, email: propertyBrand.email, telephone: propertyBrand.phone, description: propertyBrand.description,
- "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/ring/icon-180.png`,
+ "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/ring/wiele-gold-ring-transparent.png`,
  foundingDate: propertyBrand.founded, founder: { "@type": "Person", name: "Jonathan Landman" },
  address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
  sameAs: Object.values(propertyBrand.social),

@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     // from `.open-next/worker.js` + `server-functions/default/*` that
     // are not ours to fix. Phase 9.1 fix.
     ".open-next/**",
+    ".wrangler/**",
   ]),
 ]);
 

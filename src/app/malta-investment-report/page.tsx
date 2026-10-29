@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { PageStructuredData, StructuredData } from "@/components/property/structured-data";
+import { ReportRegistration } from "@/components/property/report-registration";
+import { propertyBrand, propertyMetadata } from "@/lib/property";
+import { investmentReport } from "@/lib/investment-report";
+
+const description = "Malta investment property: Wiele Properties reviews 2025 growth, the 2026 outlook and opportunities. Register for the complimentary report.";
+export const metadata: Metadata = {
+  ...propertyMetadata("Malta Investment Property Report 2026", description, investmentReport.path),
+  openGraph: { ...propertyMetadata("Malta Investment Property Report 2026", description, investmentReport.path).openGraph, images: [{ url: "/property/report-investment-2026-social.jpg", width: 1200, height: 630, alt: "Wiele Properties Malta Investment Property Report - 2025 review and 2026 outlook" }] },
+  twitter: { card: "summary_large_image", title: "Malta Investment Property Report | Wiele Properties", description, images: ["/property/report-investment-2026-social.jpg"] },
+};
+
+export default function InvestmentReport() {
+  return <>
+    <PageStructuredData path={investmentReport.path} title="Malta Investment Property Report 2026" description={description} />
+    <StructuredData data={{ "@context": "https://schema.org", "@type": "Report", "@id": `${propertyBrand.url}${investmentReport.path}#report`, name: investmentReport.title, headline: "Malta Investment Property Report: 2025 Review and 2026 Outlook", description, datePublished: investmentReport.published, dateModified: investmentReport.published, inLanguage: "en-GB", author: { "@id": `${propertyBrand.url}/#organization` }, publisher: { "@id": `${propertyBrand.url}/#organization` }, url: `${propertyBrand.url}${investmentReport.path}`, isAccessibleForFree: true, conditionsOfAccess: "Complimentary PDF available after registration with name and email. Optional marketing consent is separate.", about: { "@type": "Place", name: "Malta" }, image: `${propertyBrand.url}/property/report-investment-2026-social.jpg` }} />
+    <section className="report-hero wrap" aria-labelledby="report-title">
+      <div className="report-hero-copy"><span className="eyebrow">Wiele Properties / Market report / October 2026</span><h1 id="report-title">Read the market.<br /><em>Define your next move.</em></h1><p className="report-subtitle">Malta Investment Property Report</p><p>2025 in figures. The 2026 outlook. A Wiele perspective on the opportunities, costs and detail behind a property investment.</p><a href="#register" className="button">Register for your copy <span aria-hidden="true">↓</span></a><span className="report-edition-note">Complimentary PDF · Published 29 October 2026</span></div>
+      <figure className="report-cover-display"><Image src="/property/report-investment-2026-cover.jpg" width={840} height={1188} priority alt="Cover of the Wiele Properties Malta Investment Property Report, 2025 review and 2026 outlook" /><figcaption>A Wiele Properties publication. Malta Property. Global Ambition.</figcaption></figure>
+    </section>
+    <section className="report-evidence wrap" aria-label="Selected market evidence">
+      <article><strong>6.0%</strong><h2>Annual-average house-price growth</h2><p>Malta, 2025 compared with 2024. <a href="https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_a/default/table?lang=en" target="_blank" rel="noopener noreferrer">Eurostat, annual house-price data</a>.</p></article>
+      <article><strong>6.9%</strong><h2>Latest quarterly annual price growth</h2><p>Q2 2026 compared with Q2 2025. <a href="https://nso.gov.mt/residential-property-price-index-rppi-q2-2026/" target="_blank" rel="noopener noreferrer">NSO, 1 October 2026</a>.</p></article>
+      <article><strong>12,325</strong><h2>New dwellings approved in 2025</h2><p>Potential future supply, rather than completed homes. <a href="https://nso.gov.mt/economy-residential-building-permits/" target="_blank" rel="noopener noreferrer">NSO building statistics</a>.</p></article>
+    </section>
+    <section className="report-inside wrap"><div><span className="eyebrow">The Wiele perspective</span><h2>The asset.<br /><em>The income. The detail.</em></h2><p>Price growth is part of the story. Purchase costs, income evidence, lease quality and the individual property determine what that story means for a buyer.</p><p>Written for local and international buyers, first-time and experienced investors, and consortiums considering Malta property.</p></div><div><h3>Inside the report</h3><ol><li><span>01</span><div><strong>What actually grew in 2025</strong><p>Prices, transactions, population, tourism and the development pipeline, with dated sources.</p></div></li><li><span>02</span><div><strong>Where to investigate next</strong><p>Locality search priorities, apartments, residences, income-producing blocks and refurbishment.</p></div></li><li><span>03</span><div><strong>What a headline yield leaves out</strong><p>A worked example showing acquisition costs, vacancy, operating costs, borrowing and tax.</p></div></li><li><span>04</span><div><strong>Outlook, eligibility and downside</strong><p>Published economic forecasts, a separate Wiele interpretation and clearly labelled investment sensitivities.</p></div></li></ol></div></section>
+    <section id="register" className="report-registration wrap" aria-label="Get the Wiele report"><div><span className="eyebrow">A clearer starting point</span><h2>Your next chapter.<br /><em>Informed by the detail.</em></h2><p>Register to download the complete report. If you want to continue the conversation, share an investment brief with Wiele.</p><p className="fine-print">This is market commentary, not an individual valuation or legal, tax or financing advice. Historical growth is not a promise of future returns. Registration does not reserve a property or commit you to an investment.</p><a className="text-link" href={propertyBrand.social.linkedin} target="_blank" rel="noopener noreferrer">Follow Wiele Properties on LinkedIn <span aria-hidden="true">↗</span></a></div><ReportRegistration /></section>
+  </>;
+}

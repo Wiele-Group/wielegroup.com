@@ -23,6 +23,7 @@ export const propertyNavigation = [
   { href: "/selling", label: "For owners" },
   { href: "/buying", label: "For buyers" },
   { href: "/properties", label: "Opportunities" },
+  { href: "/malta-investment-report", label: "Report" },
   { href: "/about", label: "Our approach" },
 ];
 
