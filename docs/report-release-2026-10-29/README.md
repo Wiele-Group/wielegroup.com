@@ -34,3 +34,9 @@ Offline editorial master and source:
 Initial report deployment: `b1489a59-67e7-4cdd-b1c2-a188538fb796`; editorial redesign follows the user’s explicit Magazine Editorial Studio request.
 
 Pre-release Worker code version: `5eeb60b8-00a0-41e5-9702-e0c9827b5240`. Adding the signing secret creates an intervening configuration version. Capture the final deployment identifier and live checks in `LIVE-VERIFICATION.md` after release.
+
+
+## 30 October 2026 — current revision
+The user restored the original metallic gold-circle W emblem. Active website/report assets use `/property-identity/gold-circle/`; the previous open-ring identity is superseded for active production. Transparent PNG masters and current standards are in `~/Documents/Wiele Properties/Brand/2026-10-30-gold-circle-restored/`. No personal photograph.
+
+Homepage/About now introduce Jonathan Landman through text; contact and report pages explain the three-step enquiry process. Buyer paths distinguish income-focused acquisitions and residences. The report landing page provides an evidence chart, hypothetical operating-yield example and two sample page images before registration. The full 16-page PDF remains private and registration-gated. Current source commit: f838326. GA4 receipt remains unresolved; download-click instrumentation is consent-gated and is not a completed-download measure.

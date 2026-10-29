@@ -34,3 +34,9 @@ The pre-existing Analytics data-receipt issue is unverified and remains unresolv
 - Report and editable source: `/Users/jonathanlandman/Documents/Wiele Properties/Reports/2026-10-29/`
 - Integrated identity, platform assets and screenshots: `/Users/jonathanlandman/Documents/Wiele Properties/Brand/2026-10-29-integrated-logo/`
 - Downloadable brand package: `Wiele-Properties-Malta-Integrated-Brand.zip`
+
+
+## 30 October 2026 gold-circle restoration
+Source f838326. Worker 04e5446d-480c-4f53-bc60-beac42290534. All ten built/live page checks passed; 19 assets and 15 internal destinations passed. Registration/enquiry tests: 23/23. Type checking passed; lint has no errors and one unrelated pre-existing warning. Desktop/mobile website and all-page PDF contact sheet inspected. Original supplied gold-circle emblem restored; no personal photograph. Anonymous `/api/reports/download` returned HTTP 401, private/no-store headers, no PDF. Current PDF SHA256 e9f41e47e57bb21a73a6c0ac59d62f22d6f524d1f7f17f5cda58b10fbfb18c47.
+
+Facebook and Instagram gold-circle avatars saved and verified; Facebook/LinkedIn matching covers saved. LinkedIn member view confirms current service/process/report overview. Facebook public name and vanity URL now Wiele Properties /wieleproperties/. Current brand/service standards, photography brief and platform evidence: `~/Documents/Wiele Properties/Brand/2026-10-30-gold-circle-restored/`. Google Business Profile owner verification and GA4 data receipt remain unresolved. Current canonical tag URL returns HTTP 404; no conversion lift or successful analytics receipt is claimed.
