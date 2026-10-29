@@ -19,9 +19,13 @@ The modern imagery is AI-created architectural concept work, accurately labelled
 - Twelve report tests and eleven enquiry tests passed. Lint reported zero errors and one existing unused-import warning in an unrelated social script.
 - User's unrelated AGENTS.md edits were restored byte-for-byte after both deployments. Other untracked assets were preserved.
 
-## Remaining platform work
+## Social platform rollout — completed 29 October 2026
 
-Revised LinkedIn/Facebook covers and avatar plus Instagram artwork are exported. LinkedIn's upload chooser failed to open through the browser controls; native Chrome interaction could not access the window. No new social image was saved in this revision. Existing social covers/avatars remain. The website and report are live; the social package is ready to upload. No new announcement or outreach was published.
+Facebook and LinkedIn integrated covers and matching avatars are now saved and visually verified. Facebook cover description and LinkedIn overview disclose AI concept imagery. Instagram avatar and bio use the matching monogram and exact slogan; upload confirmation and public view verified. The earlier LinkedIn file chooser problem was resolved through the visible upload label. No separate promotional post or outreach was published.
+
+Google Business Profile remains unverified and not publicly visible. Its photo panel did not load; no Google logo/cover update was saved. Verification remains required before a public Google rollout can be confirmed.
+
+Platform proofs and updated status are included in the integrated brand package.
 
 The pre-existing Analytics data-receipt issue is unverified and remains unresolved.
 
