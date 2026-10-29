@@ -15,8 +15,8 @@ User authorisation: publish the Wiele report on wielegroup.com, require interest
 
 ## Editorial and visual work
 
-- 12-page Wiele Properties report, retaining source periods, 22 linked references and disclosed original-release transaction figures.
-- Premium ivory/charcoal/gold cover, transparent original PNG gold-ring emblem, publisher masthead and branded page footers.
+- 16-page Wiele Properties editorial report, retaining source periods, 22 linked references and disclosed original-release transaction figures.
+- Photographic Valletta cover, original transparent PNG gold-ring emblem, Cormorant Garamond and Manrope typography, ivory/charcoal/gold palette, facing-page locality features and a separate debt/tax stress-test feature. Images are licensed and labelled; the complete report has selectable text and live sources.
 - Replaced uncalibrated numerical property-growth forecasts with a qualitative Wiele outlook and explicitly hypothetical sensitivity inputs. Published macro forecasts remain attributed separately.
 - Clarified yield denominators, explained abbreviations, tightened locality propositions and included an additional rental-downside cash-flow calculation.
 - Updated report-page metadata, canonical/social preview, Report/WebPage/BreadcrumbList data, sitemap coverage, internal links, privacy notice and terms.
@@ -30,5 +30,7 @@ Built HTTP checks pass all ten public pages, 20 assets, canonical URLs, unique t
 
 Offline editorial master and source:
 `/Users/jonathanlandman/Documents/Wiele Properties/Reports/2026-10-29/`
+
+Initial report deployment: `b1489a59-67e7-4cdd-b1c2-a188538fb796`; editorial redesign follows the user’s explicit Magazine Editorial Studio request.
 
 Pre-release Worker code version: `5eeb60b8-00a0-41e5-9702-e0c9827b5240`. Adding the signing secret creates an intervening configuration version. Capture the final deployment identifier and live checks in `LIVE-VERIFICATION.md` after release.
