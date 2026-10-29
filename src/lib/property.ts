@@ -33,7 +33,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-integrated-malta.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline}` }] },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-integrated-malta.jpg"] },
+      images: [{ url: "/property/og-gold-circle-20261030.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline}` }] },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-gold-circle-20261030.jpg"] },
   };
 }

@@ -31,7 +31,7 @@ function setChoice(value: "accepted" | "rejected") {
   });
  }
 }
-export function trackPropertyEvent(name: "generate_lead" | "contact_click", props: Record<string,string> = {}) {
+export function trackPropertyEvent(name: "generate_lead" | "contact_click" | "report_download_click", props: Record<string,string> = {}) {
  if (choice() !== "accepted") return;
  window.gtag?.("event", name, props);
 }
