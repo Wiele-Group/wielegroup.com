@@ -23,3 +23,6 @@
 .site-footer .motion-toggle{position:static;background:transparent;border:1px solid #c7a56a55;color:var(--ivory);min-height:38px;min-width:44px;padding:6px 10px;display:inline-flex;align-items:center;gap:8px}.site-footer .motion-label{display:inline;font-size:10px}.site-header .brand{min-height:90px}
 /* Leave the report edition line clear of the sticky masthead on narrow screens. */
 @media(max-width:640px){.report-hero{padding-top:75px;scroll-margin-top:114px}}
+/* Preference controls remain readable on the ivory utility strip. */
+.analytics-settings{color:#333d36;border-color:#96846a;background:transparent;font-size:11px;min-height:42px;padding:9px 18px;margin:18px auto}
+.site-footer .motion-label{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;clip-path:none;white-space:nowrap}
