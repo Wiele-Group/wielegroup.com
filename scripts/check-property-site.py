@@ -54,6 +54,12 @@ for path in paths:
  assert p.meta.get('og:url','').rstrip('/')==('https://wielegroup.com'+path).rstrip('/'),(path,'social URL')
  assert p.meta.get('og:image','').startswith('https://wielegroup.com/'),(path,'social image')
  assert p.meta.get('twitter:card')=='summary_large_image',(path,'social card')
+ assert p.meta.get('og:description')==description and p.meta.get('twitter:description')==description,(path,'social description consistency')
+ for key in ['og:image','twitter:image']:
+  image=p.meta.get(key,'')
+  assert image.startswith('https://wielegroup.com/'),(path,key,'absolute image URL')
+  assets.add(urlparse(image).path)
+ assert p.meta.get('og:image:alt'),(path,'missing social image description')
  assert 'noindex' not in p.meta.get('robots',''),(path,'unexpected noindex')
  entities=[]
  for schema in p.schemas:entities.extend(schema.get('@graph',[schema]))
@@ -62,6 +68,11 @@ for path in paths:
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='Malta Property. Global Ambition.',(path,'organization slogan')
  assert org['name']=='Wiele Properties' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
+ if path in ['/selling','/buying']:
+  service=next(e for e in entities if e.get('@type')=='Service')
+  assert service['provider']['@id']=='https://wielegroup.com/#organization' and service['areaServed']['name']=='Malta',(path,'service identity')
+  page=next(e for e in entities if e.get('@type')=='WebPage')
+  assert page['mainEntity']['@id']==service['@id'],(path,'service page relationship')
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text

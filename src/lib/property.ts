@@ -16,7 +16,7 @@ export const propertyBrand = {
     instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
-  description: "Malta Property. Global Ambition. Investment real estate for buyers, investors and property owners in Malta and abroad. Apartments, residences and portfolios.",
+  description: "Malta property marketing and buyer introductions, based in Swieqi. Apartments, residences and portfolios for local and international buyers and owners.",
 } as const;
 
 export const propertyNavigation = [
@@ -33,7 +33,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-premium-editorial-20261030.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline}` }] },
+      images: [{ url: "/property/og-premium-editorial-20261030.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline} AI-created architecture concept; not a property listing.` }] },
     twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-premium-editorial-20261030.jpg"] },
   };
 }
