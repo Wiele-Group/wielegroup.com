@@ -82,7 +82,7 @@ for path in sorted(links):
 for path in ['/audit','/pricing','/labs','/api/audit','/api/contact']:
  status,_,data=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-gold-circle-20261030.jpg','/property-identity/gold-circle/icon-32.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-option-1-20261030.jpg','/property-identity/option-1/icon-32.png']:
  status,_,_=get(path);assert status==200,(path,status)
 print('PASS search metadata and brand resources')
 
