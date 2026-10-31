@@ -441,3 +441,42 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 640px) { .footer-social { gap: 6px 18px; } }
 
 .footer-top .footer-whatsapp { display: flex; align-items: center; gap: 20px; color: #d9d8c7; font-size: 12px; margin-top: 20px; min-height: 44px; }
+
+/* Onboarding: a considered brief, with formal checks clearly explained. */
+.onboarding-hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 9%; padding-block: 80px 60px; }
+.onboarding-hero h1 { font: 400 clamp(46px, 5.4vw, 82px)/1.02 var(--font-heading); letter-spacing: -.035em; margin: 28px 0; }
+.onboarding-hero h1 em { color: var(--bronze); }
+.onboarding-hero > div > p { max-width: 660px; font-size: 17px; line-height: 1.85; color: var(--muted); }
+.onboarding-hero .button-row { margin-top: 30px; }
+.onboarding-hero-note { border-left: 1px solid var(--line); padding: 28px 0 25px 35px; align-self: center; }
+.onboarding-hero-note > p { font: 400 34px/1.25 var(--font-heading); margin-block: 26px; }
+.onboarding-hero-note > span:last-of-type { display: block; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.onboarding-hero-note .text-link { margin-top: 20px; }
+.onboarding-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 42px; padding-block: 20px 80px; }
+.onboarding-steps article { border-top: 1px solid var(--line); padding-top: 24px; }
+.onboarding-steps h2 { font-size: 32px; margin-block: 20px 16px; }
+.onboarding-steps p, .onboarding-form-intro p, .onboarding-preparation header p, .onboarding-checks p, .onboarding-invitation p { font-size: 16px; line-height: 1.85; color: var(--muted); }
+.onboarding-start { background: var(--surface); padding-block: var(--section-space); scroll-margin-top: 110px; }
+.onboarding-layout { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.4fr); gap: 8%; align-items: start; }
+.onboarding-form-intro h2, .onboarding-preparation h2, .onboarding-invitation h2 { font: 400 clamp(38px,4vw,56px)/1.07 var(--font-heading); margin: 22px 0; }
+.onboarding-form-intro p { margin-bottom: 20px; }
+.onboarding-form-intro .onboarding-process-note { font-size: 14px; border-top: 1px solid var(--line); padding-top: 20px; }
+.onboarding-form { min-width: 0; }
+.onboarding-form fieldset { border: 0; margin: 0 0 24px; padding: 0; min-width: 0; }
+.onboarding-form legend { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 0 0 24px; color: var(--bronze); }
+.onboarding-form .form-grid { align-items: start; }
+.onboarding-form select { text-overflow: ellipsis; }
+.onboarding-form .onboarding-acknowledgement { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.75; cursor: pointer; }
+.onboarding-acknowledgement input { width: 18px; height: 18px; margin-top: 4px; flex-shrink: 0; accent-color: var(--bronze); }
+.onboarding-preparation { padding-block: var(--section-space); scroll-margin-top: 110px; }
+.onboarding-preparation header { max-width: 720px; margin-bottom: 44px; }
+.onboarding-checks { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px 6%; }
+.onboarding-checks article { border-top: 1px solid var(--line); padding-top: 26px; }
+.onboarding-checks h3 { font: 500 32px/1.15 var(--font-heading); margin: 18px 0; }
+.onboarding-handoff { font-size: 13px; line-height: 1.85; color: var(--muted); border-top: 1px solid var(--line); padding-top: 24px; margin-top: 40px; }
+.onboarding-handoff a { text-decoration: underline; text-underline-offset: 3px; }
+.onboarding-invitation { display: flex; gap: 36px; align-items: center; justify-content: space-between; padding-block: 60px 80px; border-top: 1px solid var(--line); }
+.onboarding-invitation > div { max-width: 680px; }
+.onboarding-invitation > .button { flex-shrink: 0; }
+@media (max-width: 900px) { .onboarding-hero, .onboarding-layout { grid-template-columns: minmax(0,1fr); gap: 40px; } .onboarding-hero-note { border-left: 0; border-top: 1px solid var(--line); padding: 24px 0 0; } .onboarding-steps { gap: 24px; } .onboarding-invitation { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 640px) { .onboarding-hero { padding-block: 48px 40px; } .onboarding-hero h1 { font-size: clamp(40px,9vw,56px); } .onboarding-hero > div > p { font-size: 16px; } .onboarding-steps, .onboarding-checks { grid-template-columns: minmax(0,1fr); gap: 28px; } .onboarding-steps { padding-bottom: 48px; } .onboarding-start { padding-block: 48px; } .onboarding-form .button { width: 100%; } .onboarding-invitation { padding-block: 40px 48px; } }
