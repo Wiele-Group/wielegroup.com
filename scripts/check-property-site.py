@@ -67,6 +67,7 @@ for path in paths:
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='Malta Property. Global Ambition.',(path,'organization slogan')
+ assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
  assert org['name']=='Wiele Properties' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
@@ -109,9 +110,13 @@ for path in sorted(assets):
 for path in sorted(links):
  parsed=urlparse(path)
  assert parsed.path in paths or parsed.path=='/',('unexpected internal link',path)
-for path in ['/audit','/pricing','/labs','/api/audit','/api/contact']:
- status,_,data=get(path);assert status==404,(path,status)
-print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency routes return 404')
+for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/brand-semantics-infrastructure','/services/ai-visibility-monitoring','/systems/search','/pricing/?old=1']:
+ status,headers,data=get(path);assert status==410,(path,status)
+ assert headers.get('X-Robots-Tag')=='noindex, follow',(path,'retired URL index exclusion')
+ assert b'no longer offered' in data and b'https://wielegroup.com/about' in data,(path,'retirement explanation')
+for path in ['/api/audit','/api/contact','/unknown-property-page']:
+ status,_,_=get(path);assert status==404,(path,status)
+print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
 for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-premium-editorial-20261030.jpg','/property-identity/option-1/icon-32.png']:
  status,_,_=get(path);assert status==200,(path,status)
 print('PASS search metadata and brand resources')

@@ -1,3 +1,4 @@
+import { isRetiredAgencyPath, retiredAgencyResponse } from "./src/lib/retired-agency";
 /// <reference types="@cloudflare/workers-types" />
 
 // DOM's lib.dom.d.ts declares `CacheStorage` without `.default`; Cloudflare's
@@ -155,6 +156,9 @@ const handler = {
     env: OpenNextEnv,
     ctx: ExecutionContext,
   ): Promise<Response> {
+    // Retired URLs must never be served from a previous release cache.
+    if (isRetiredAgencyPath(new URL(request.url).pathname)) return retiredAgencyResponse(request.method);
+
     if (!isCacheableRequest(request)) {
       const response = await opennextWorker.fetch(request, env, ctx);
       return stampCacheStatus(response, "BYPASS");
@@ -163,7 +167,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261031-social-icons-v24"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261031-search-identity-v25"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });
