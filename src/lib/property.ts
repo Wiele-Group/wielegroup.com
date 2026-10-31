@@ -12,7 +12,7 @@ export const propertyBrand = {
   founded: "2026",
   languages: ["English", "Afrikaans"],
   social: {
-    facebook: "https://www.facebook.com/profile.php?id=61596012142539",
+    facebook: "https://www.facebook.com/wieleproperties/",
     instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
