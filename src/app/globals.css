@@ -73,3 +73,6 @@ html{scroll-padding-top:126px}.reveal-pending:focus-within{opacity:1;transform:n
 @media(max-width:850px){.brand-integrated{width:255px}}
 @media(max-width:640px){.brand-integrated{width:235px}.brand-footer .brand-integrated{width:300px}}
 @media(max-width:360px){.brand-integrated{width:200px}}
+
+/* User-supplied profile portrait: retain the full square composition. */
+.contact-portrait{display:block;width:100%;max-width:420px;height:auto;aspect-ratio:1;object-fit:contain;margin:0 0 28px}
