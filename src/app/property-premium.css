@@ -247,3 +247,114 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .editorial-hero-media .estate-hero-image { animation: none; transform: none; translate: none; }
   .estate-lifestyle-image img { transition: none; }
 }
+
+/* Wiele Property Maintenance: a service-led extension of the editorial brand. */
+.maintenance-introduction { background: var(--forest); color: var(--ivory); padding-block: var(--section-space); }
+.maintenance-introduction-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 12%; align-items: center; }
+.maintenance-introduction .eyebrow { color: var(--gold-light); }
+.maintenance-introduction h2 { font: 400 clamp(42px, 4.4vw, 64px)/1.08 var(--font-heading); margin: 24px 0; letter-spacing: -.02em; }
+.maintenance-introduction h2 em { color: var(--gold-light); }
+.maintenance-introduction p { color: #d6dcd4; font-size: 16px; line-height: 1.8; max-width: 49ch; margin-bottom: 28px; }
+.maintenance-introduction-list > span { display: block; border-top: 1px solid #b9966166; padding-block: 21px; font-size: 12px; color: var(--gold-light); }
+.maintenance-introduction-list strong { display: block; font: 400 30px/1.3 var(--font-heading); color: var(--ivory); margin-top: 8px; }
+.maintenance-introduction .text-link { color: var(--ivory); margin-top: 12px; }
+.maintenance-introduction :focus-visible { outline-color: var(--gold-light); }
+.maintenance-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .85fr); gap: 8%; padding-block: 80px; align-items: center; }
+.maintenance-hero h1 { font: 400 clamp(54px, 5.8vw, 86px)/1.04 var(--font-heading); letter-spacing: -.025em; margin: 28px 0; }
+.maintenance-hero h1 em { color: var(--bronze); font-weight: 400; }
+.maintenance-hero > div > p { font-size: 17px; line-height: 1.8; color: var(--muted); max-width: 50ch; }
+.maintenance-hero .button-row { gap: 18px; }
+.maintenance-location { display: block; margin-top: 25px; font-size: 12px; color: var(--muted); }
+.maintenance-ledger { padding: 36px; background: var(--surface); border-top: 2px solid var(--bronze); min-width: 0; }
+.maintenance-ledger-title { font: 400 38px/1.1 var(--font-heading); margin: 23px 0 30px; }
+.maintenance-ledger-title em { color: var(--bronze); }
+.maintenance-ledger ol { list-style: none; margin: 0; padding: 0; }
+.maintenance-ledger li { display: flex; gap: 20px; padding-block: 20px; border-top: 1px solid var(--line); }
+.maintenance-ledger li > span { font-size: 11px; color: var(--bronze); padding-top: 5px; }
+.maintenance-ledger strong { font: 500 26px/1.2 var(--font-heading); }
+.maintenance-ledger li p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+.maintenance-ledger-note { font-size: 11px; color: var(--muted); display: block; padding-top: 20px; border-top: 1px solid var(--line); }
+.maintenance-audience { border-block: 1px solid var(--line); }
+.maintenance-audience > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px 30px; padding-block: 24px; font-size: 13px; color: var(--muted); }
+.maintenance-services, .maintenance-process { padding-block: var(--section-space); scroll-margin-top: 120px; }
+.maintenance-section-heading { max-width: 720px; margin-bottom: 44px; }
+.maintenance-section-heading h2, .maintenance-scope h2 { font: 400 clamp(42px, 4.3vw, 62px)/1.08 var(--font-heading); letter-spacing: -.02em; margin: 22px 0; }
+.maintenance-section-heading h2 em, .maintenance-scope h2 em { color: var(--bronze); }
+.maintenance-section-heading > p { color: var(--muted); font-size: 16px; line-height: 1.8; max-width: 60ch; }
+.maintenance-service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 8%; }
+.maintenance-service-grid article { border-top: 1px solid var(--line); padding-top: 26px; }
+.maintenance-service-grid h3 { font: 500 34px/1.15 var(--font-heading); margin: 15px 0 20px; }
+.maintenance-service-grid p { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 56ch; }
+.maintenance-service-grid .maintenance-service-detail { font-size: 13px; margin-top: 16px; }
+.maintenance-arrangements { padding-block: 76px; background: var(--forest); color: var(--ivory); }
+.maintenance-arrangements .eyebrow, .maintenance-arrangements h2 em { color: var(--gold-light); }
+.maintenance-arrangement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.maintenance-arrangement-grid article { border-top: 1px solid #b9966166; padding-top: 25px; }
+.maintenance-arrangement-grid h3 { font: 400 32px/1.2 var(--font-heading); margin: 16px 0; }
+.maintenance-arrangement-grid p { font-size: 15px; line-height: 1.8; color: #d6dcd4; }
+.maintenance-process ol { list-style: none; padding: 0; margin: 0; }
+.maintenance-process li { display: grid; grid-template-columns: 40px minmax(0, .8fr) minmax(0, 1.2fr); gap: 28px; border-top: 1px solid var(--line); padding-block: 28px; }
+.maintenance-process li > span { padding-top: 5px; }
+.maintenance-process h3 { font: 500 29px/1.2 var(--font-heading); }
+.maintenance-process p { font-size: 16px; color: var(--muted); line-height: 1.8; }
+.maintenance-scope { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 8%; padding-block: 50px 75px; border-block: 1px solid var(--line); }
+.maintenance-scope h2 { font-size: 44px; }
+.maintenance-scope p { font-size: 15px; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+.maintenance-scope p:last-child { margin-bottom: 0; }
+.maintenance-request { background: var(--surface); scroll-margin-top: 110px; }
+.maintenance-request .contact-layout { padding-block: 75px; align-items: start; }
+.maintenance-request .enquiry-form { background: var(--ivory); }
+.maintenance-request aside > p { color: var(--muted); font-size: 16px; line-height: 1.8; margin-top: 24px; }
+.maintenance-request .text-link { display: flex; width: fit-content; max-width: 100%; overflow-wrap: anywhere; margin-top: 18px; gap: 14px; }
+.maintenance-request aside > .maintenance-request-note { font-size: 13px; margin-top: 30px; }
+.maintenance-related { padding-block: 40px 60px; }
+.maintenance-related p { font-size: 16px; margin-top: 18px; }
+.maintenance-related a, .maintenance-contact-link a { color: var(--bronze); text-decoration: underline; text-underline-offset: 4px; }
+.maintenance-related svg, .maintenance-contact-link svg { margin-left: 8px; }
+.maintenance-contact-link { font-size: 15px; line-height: 1.8; color: var(--muted); margin-top: 25px; }
+@media (max-width: 1280px) and (min-width: 1181px) {
+  .desktop-nav { display: none; }
+  .mobile-navigation { display: block; }
+  .header-contact { margin-left: auto; }
+}
+@media (max-width: 850px) {
+  .maintenance-hero { gap: 5%; padding-block: 60px; }
+  .maintenance-hero h1 { font-size: 54px; }
+  .maintenance-ledger { padding: 26px; }
+  .maintenance-ledger-title { font-size: 32px; }
+  .maintenance-hero .button { font-size: 11px; }
+  .maintenance-arrangement-grid { gap: 26px; }
+  .maintenance-introduction-inner { gap: 7%; }
+}
+@media (max-width: 760px) {
+  .maintenance-hero { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .maintenance-hero h1 { font-size: clamp(48px, 9vw, 64px); }
+  .maintenance-ledger { max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .maintenance-introduction-inner, .maintenance-service-grid, .maintenance-arrangement-grid, .maintenance-scope { grid-template-columns: minmax(0, 1fr); }
+  .maintenance-introduction-inner { gap: 40px; }
+  .maintenance-introduction h2 { font-size: 44px; }
+  .maintenance-introduction .button { font-size: 11px; gap: 16px; }
+  .maintenance-hero { padding-block: 48px; }
+  .maintenance-hero > div > p { font-size: 16px; }
+  .maintenance-hero .button { font-size: 12px; }
+  .maintenance-audience > div { flex-direction: column; gap: 10px; }
+  .maintenance-section-heading h2 { font-size: 44px; }
+  .maintenance-service-grid { gap: 30px; }
+  .maintenance-service-grid h3 { font-size: 32px; }
+  .maintenance-arrangements { padding-block: 64px; }
+  .maintenance-arrangement-grid { gap: 30px; }
+  .maintenance-process li { grid-template-columns: 30px minmax(0, 1fr); gap: 12px 18px; }
+  .maintenance-process li p { grid-column: 2; }
+  .maintenance-process h3 { font-size: 28px; }
+  .maintenance-scope { gap: 25px; padding-block: 45px 55px; }
+  .maintenance-scope h2 { font-size: 40px; }
+  .maintenance-request .contact-layout { padding-block: 55px; gap: 35px; }
+  .maintenance-request .contact-layout h2 { font-size: 44px; }
+  .maintenance-request .text-link { font-size: 13px; }
+}
+@media (max-width: 360px) {
+  .maintenance-hero h1 { font-size: 43px; }
+  .maintenance-ledger { padding: 24px; }
+}

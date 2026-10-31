@@ -6,7 +6,7 @@ import sys,time,json,re
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/','/selling','/buying','/properties','/malta-investment-report','/about','/contact','/privacy','/terms','/credits']
+paths=['/','/selling','/buying','/properties','/property-maintenance','/malta-investment-report','/about','/contact','/privacy','/terms','/credits']
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
@@ -68,11 +68,19 @@ for path in paths:
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='Malta Property. Global Ambition.',(path,'organization slogan')
  assert org['name']=='Wiele Properties' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
- if path in ['/selling','/buying']:
+ if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization' and service['areaServed']['name']=='Malta',(path,'service identity')
   page=next(e for e in entities if e.get('@type')=='WebPage')
   assert page['mainEntity']['@id']==service['@id'],(path,'service page relationship')
+ if path=='/property-maintenance':
+  assert 'Wiele Property Maintenance' in text and 'Wiele-managed' in text
+  assert 'request-maintenance' in text and 'maintenance-services' in text
+  assert 'Loading the maintenance enquiry form' in text or 'Property maintenance enquiry' in text
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  visible=re.sub(r'\s+',' ',' '.join(p.visible))
+  for item in faq['mainEntity']:
+   assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('maintenance FAQ mismatch',item['name'])
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text

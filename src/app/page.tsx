@@ -1,3 +1,4 @@
+import { MaintenanceIntroduction } from "@/components/property/maintenance-introduction";
 import { PersonalIntroduction } from "@/components/property/personal-introduction";
 import { StructuredData } from "@/components/property/structured-data";
 import { propertyFaqs } from "@/lib/property-faqs";
@@ -48,6 +49,7 @@ export default function Home() {
       <div className="estate-seller-copy"><span className="eyebrow">For owners in Malta</span><h2>An income-producing asset.<br /><em>A clear investment case.</em></h2><p>We help owners present the property and the information investors need: income evidence, lease terms, operating costs, condition and material limitations. Marketing scope and any specialist involvement are agreed before work begins.</p><Link className="button button-gold" href="/selling">The seller experience <Arrow diagonal /></Link><span className="seller-small-note">Personal contact. Agreed scope. Clear next steps.</span></div>
     </section>
 
+    <MaintenanceIntroduction />
     <PersonalIntroduction />
     <section className="estate-collection wrap"><div><span className="eyebrow">Investment opportunities / Taking shape</span><h2>The first chapter<br /><em>starts with a conversation.</em></h2></div><div><p>No properties are currently advertised. We’re building the collection around verified details and agreed marketing authority.</p><p>Considering an apartment, an income-producing residence or your next portfolio purchase? Share your requirements. No return or availability is implied by an enquiry.</p><Link className="text-link" href="/properties">About the collection <Arrow /></Link></div></section>
 

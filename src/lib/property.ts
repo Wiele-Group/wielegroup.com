@@ -16,13 +16,14 @@ export const propertyBrand = {
     instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
-  description: "Malta property marketing and buyer introductions, based in Swieqi. Apartments, residences and portfolios for local and international buyers and owners.",
+  description: "Malta property marketing, buyer introductions and Wiele-managed property maintenance. Based in Swieqi, serving local and international property owners and buyers.",
 } as const;
 
 export const propertyNavigation = [
   { href: "/selling", label: "For owners" },
   { href: "/buying", label: "For buyers" },
   { href: "/properties", label: "Opportunities" },
+  { href: "/property-maintenance", label: "Maintenance" },
   { href: "/malta-investment-report", label: "Report" },
   { href: "/about", label: "Our approach" },
 ];

@@ -12,6 +12,9 @@ export function PageStructuredData({ path, title, description }: { path: string;
   } : path === "/buying" ? {
     name: "Malta property buyer introductions",
     description: "Property briefs and introductions for local and international buyers considering income-focused acquisitions or premium residences in Malta. No properties are currently advertised.",
+  } : path === "/property-maintenance" ? {
+    name: "Wiele Property Maintenance",
+    description: "Wiele-managed and operated property maintenance in Malta: repairs and fittings, painting and making-good, kitchen and bathroom upkeep, planned maintenance, property care visits and preparation for sale or occupation. Work and availability are agreed per property.",
   } : undefined;
   return <StructuredData data={{ "@context": "https://schema.org", "@graph": [
     { "@type": "WebPage", "@id": `${url}#webpage`, url, name: title, description, inLanguage: "en-GB", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, breadcrumb: { "@id": `${url}#breadcrumb` }, ...(service ? { mainEntity: { "@id": `${url}#service` } } : {}) },

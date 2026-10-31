@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { z } from "zod";
 export const runtime = "nodejs";
-const inputSchema = z.object({name:z.string().trim().min(2).max(100),email:z.string().trim().email().max(254),phone:z.string().trim().max(40).optional().default(""),interest:z.enum(["marketing","buying","consortium","general"]),message:z.string().trim().min(10).max(3000),website:z.string().max(500).optional().default(""),token:z.string().min(1).max(2048)});
+const inputSchema = z.object({name:z.string().trim().min(2).max(100),email:z.string().trim().email().max(254),phone:z.string().trim().max(40).optional().default(""),interest:z.enum(["marketing","buying","consortium","general","maintenance"]),message:z.string().trim().min(10).max(3000),website:z.string().max(500).optional().default(""),token:z.string().min(1).max(2048)});
 interface EnquiryEnvironment { AUDIT_QUEUE?: {put:(key:string,value:string,options:{expirationTtl:number})=>Promise<void>}; TURNSTILE_SECRET_KEY?:string; RESEND_API_KEY?:string; }
 function json(data:unknown,status:number) { return NextResponse.json(data,{status,headers:{"Cache-Control":"no-store"}}); }
 export async function POST(request:Request) {
