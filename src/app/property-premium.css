@@ -358,3 +358,77 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .maintenance-hero h1 { font-size: 43px; }
   .maintenance-ledger { padding: 24px; }
 }
+
+/* Malta investment legal guide: a readable editorial reference within the existing brand. */
+.compliance-hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, .7fr); align-items: center; gap: 8%; padding-block: 80px 55px; }
+.compliance-hero h1 { font: 400 clamp(48px, 5.7vw, 80px)/1.05 var(--font-heading); letter-spacing: -.025em; margin: 24px 0; }
+.compliance-hero h1 em, .compliance-brief-title em, .compliance-routes h2 em, .compliance-checks h2 em, .compliance-official h2 em, .compliance-introduction h2 em { color: var(--bronze); font-weight: 400; }
+.compliance-hero > div > p { max-width: 620px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+.compliance-hero .button-row { margin-top: 28px; }
+.compliance-reviewed { display: block; font-size: 12px; color: var(--muted); margin-top: 24px; }
+.compliance-brief { padding: 36px 0 36px 32px; border-left: 1px solid var(--line); }
+.compliance-brief-title { font: 400 clamp(38px, 3.8vw, 53px)/1.15 var(--font-heading); margin: 25px 0; }
+.compliance-brief > p:not(.compliance-brief-title) { color: var(--muted); font-size: 15px; }
+.compliance-brief .text-link { margin-top: 24px; }
+.compliance-notice { border-block: 1px solid var(--line); padding-block: 24px; }
+.compliance-notice p { max-width: 1050px; font-size: 14px; line-height: 1.8; color: var(--muted); }
+.compliance-notice strong { font-weight: 600; color: var(--ink); }
+.compliance-jump { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: 28px; gap: 26px; }
+.compliance-jump a { display: flex; gap: 14px; font-size: 13px; line-height: 1.6; min-height: 48px; align-items: center; }
+.compliance-jump a > span { color: var(--bronze); font-size: 11px; }
+.compliance-jump a svg { margin-left: auto; width: 16px; }
+.compliance-routes { padding-block: 50px var(--section-space); }
+.compliance-routes header, .compliance-checks header { max-width: 700px; margin-bottom: 44px; }
+.compliance-routes h2, .compliance-checks h2, .compliance-official h2, .compliance-introduction h2 { font: 400 clamp(40px, 4.3vw, 58px)/1.08 var(--font-heading); letter-spacing: -.02em; margin: 22px 0; }
+.compliance-routes header p, .compliance-checks header p, .compliance-official p, .compliance-introduction p { color: var(--muted); font-size: 16px; line-height: 1.8; }
+.compliance-route { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 8%; border-top: 1px solid var(--line); padding-block: 36px; scroll-margin-top: 135px; }
+.compliance-route:last-child { border-bottom: 1px solid var(--line); }
+.compliance-route h3 { font: 500 34px/1.15 var(--font-heading); margin-top: 17px; max-width: 390px; }
+.compliance-route p { color: var(--muted); font-size: 16px; line-height: 1.8; margin-bottom: 17px; }
+.compliance-source-links { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.compliance-source-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: var(--bronze); font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.compliance-source-links svg { width: 15px; height: 15px; }
+.compliance-checks { background: var(--surface); padding-block: var(--section-space); }
+.compliance-checks ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.compliance-checks li { border-top: 1px solid #c6baa5; padding-top: 24px; }
+.compliance-checks h3 { font: 500 30px/1.15 var(--font-heading); margin: 18px 0; }
+.compliance-checks li p { color: var(--muted); font-size: 15px; line-height: 1.8; }
+.compliance-documents-note { color: var(--muted); font-size: 13px; line-height: 1.8; max-width: 900px; margin-top: 35px; }
+.compliance-faq { align-items: start; }
+.compliance-faq details .compliance-source-links { margin: -10px 0 22px; }
+.compliance-faq details p { padding-right: 0; }
+.compliance-faq > div:first-child { position: sticky; top: 140px; }
+.compliance-official { border-top: 1px solid var(--line); padding-block: 55px 85px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8%; }
+.compliance-official .compliance-source-links { display: block; margin: 10px 0 0; }
+.compliance-official .compliance-source-links li { border-top: 1px solid var(--line); padding-block: 6px; }
+.compliance-introduction { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 8%; padding-block: 65px 85px; border-top: 1px solid var(--line); }
+.compliance-introduction h2 { margin-bottom: 0; }
+.compliance-introduction .text-link { margin-top: 22px; }
+@media (max-width: 1400px) and (min-width: 1281px) { .desktop-nav { display: none; } .mobile-navigation { display: block; } .header-contact { margin-left: auto; } }
+@media (max-width: 850px) {
+  .compliance-hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 55px 40px; }
+  .compliance-brief { padding: 26px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .compliance-brief-title { font-size: 38px; }
+  .compliance-jump, .compliance-checks ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compliance-route { gap: 5%; }
+  .compliance-faq > div:first-child { position: static; }
+}
+@media (max-width: 640px) {
+  .compliance-hero h1 { font-size: clamp(43px, 9vw, 56px); }
+  .compliance-hero > div > p { font-size: 16px; }
+  .compliance-hero .button-row { align-items: flex-start; }
+  .compliance-notice p { font-size: 13px; }
+  .compliance-jump { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 20px; }
+  .compliance-jump a { border-bottom: 1px solid var(--line); padding-block: 10px; }
+  .compliance-routes { padding-top: 35px; }
+  .compliance-route, .compliance-official, .compliance-introduction, .compliance-checks ol { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .compliance-route { padding-block: 28px; }
+  .compliance-route h3 { font-size: 32px; }
+  .compliance-routes h2, .compliance-checks h2, .compliance-official h2, .compliance-introduction h2 { font-size: 40px; }
+  .compliance-source-links { display: block; }
+  .compliance-source-links a { min-height: 44px; }
+  .compliance-official, .compliance-introduction { padding-block: 45px 60px; }
+  .compliance-introduction h2 { margin-top: 18px; }
+}
+
+.compliance-source-links .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

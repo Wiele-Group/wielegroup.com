@@ -1,3 +1,4 @@
+import { ComplianceIntroduction } from "@/components/property/compliance-introduction";
 import { MaintenanceIntroduction } from "@/components/property/maintenance-introduction";
 import { PersonalIntroduction } from "@/components/property/personal-introduction";
 import { StructuredData } from "@/components/property/structured-data";
@@ -56,6 +57,7 @@ export default function Home() {
     <section className="estate-principles"><div className="wrap"><div className="estate-section-heading"><div><span className="eyebrow">The Wiele approach</span><h2>Considered, from<br /><em>the first conversation.</em></h2></div><Link className="text-link" href="/about">Our perspective <Arrow /></Link></div><div className="estate-principles-grid"><article><span className="eyebrow">01 / Personal</span><h3>A direct relationship.</h3><p>Speak with Jonathan Landman, the person shaping your property’s presentation and your next steps with Wiele.</p></article><article><span className="eyebrow">02 / Purposeful</span><h3>Details with meaning.</h3><p>Clear income definitions, relevant property details and transparent assumptions. Any investment return depends on the asset, costs and circumstances; it is not guaranteed.</p></article><article><span className="eyebrow">03 / Clear</span><h3>Know the next step.</h3><p>Marketing scope and costs agreed before work begins. Transaction documentation handled by appropriately licensed practitioners.</p></article></div></div></section>
     <section className="investment-faq wrap" aria-labelledby="investment-questions"><div><span className="eyebrow">Malta investment real estate / Your questions</span><h2 id="investment-questions">A clearer picture.<br /><em>Before your next move.</em></h2><p>Practical answers for buyers, investors and property owners in Malta and abroad.</p></div><div className="investment-faq-list">{propertyFaqs.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}<Link className="text-link" href="/contact">Discuss your property goals <Arrow /></Link></div></section>
 
+    <ComplianceIntroduction />
     <ContactBand />
   </>;
 }
