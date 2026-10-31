@@ -19,7 +19,7 @@ export function LuxuryMotion() {
     let observer: IntersectionObserver | undefined;
     let frame = 0;
     const elements = Array.from(document.querySelectorAll<HTMLElement>(
-      ".estate-introduction>div, .estate-section-heading, .estate-lifestyle, .estate-seller-copy, .estate-collection>div, .estate-principles-grid article, .band-inner>*, .page-intro>*, .split-feature>*, .buyer-grid article, .process-list article"
+      ".estate-introduction>div, .home-report>div, .estate-section-heading, .estate-lifestyle, .estate-seller-copy, .estate-collection>div, .estate-principles-grid article, .band-inner>*, .page-intro>*, .split-feature>*, .buyer-grid article, .process-list article"
     ));
     const reset = () => {
       observer?.disconnect();
@@ -57,12 +57,13 @@ export function LuxuryMotion() {
     initialise(); update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    media.addEventListener("change", initialise);
+    const onMotionChange = () => { initialise(); update(); };
+    media.addEventListener("change", onMotionChange);
     return () => {
       reset(); cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      media.removeEventListener("change", initialise);
+      media.removeEventListener("change", onMotionChange);
     };
   }, [pathname, paused]);
 

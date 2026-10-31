@@ -480,3 +480,82 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .onboarding-invitation > .button { flex-shrink: 0; }
 @media (max-width: 900px) { .onboarding-hero, .onboarding-layout { grid-template-columns: minmax(0,1fr); gap: 40px; } .onboarding-hero-note { border-left: 0; border-top: 1px solid var(--line); padding: 24px 0 0; } .onboarding-steps { gap: 24px; } .onboarding-invitation { align-items: flex-start; flex-direction: column; } }
 @media (max-width: 640px) { .onboarding-hero { padding-block: 48px 40px; } .onboarding-hero h1 { font-size: clamp(40px,9vw,56px); } .onboarding-hero > div > p { font-size: 16px; } .onboarding-steps, .onboarding-checks { grid-template-columns: minmax(0,1fr); gap: 28px; } .onboarding-steps { padding-bottom: 48px; } .onboarding-start { padding-block: 48px; } .onboarding-form .button { width: 100%; } .onboarding-invitation { padding-block: 40px 48px; } }
+
+/* Architectural interaction layer — November 2026.
+   Each element has one transform owner; no continuously running animation. */
+.report-object-stage {
+  position: relative; display: grid; justify-items: center; align-content: center;
+  width: 100%; min-height: 510px; padding: 38px 30px 28px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.report-object-stage::before {
+  content: ""; position: absolute; inset: 14px; border: 1px solid #b996614d; pointer-events: none;
+}
+.report-stage-label { color: var(--bronze); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 28px; }
+.home-report-cover { position: relative; display: block; width: min(100%, 248px); max-width: 248px; perspective: 1200px; }
+.report-object {
+  position: relative; display: block; transform-style: preserve-3d;
+  transform: rotateY(-12deg) rotateX(3deg); transform-origin: center;
+  transition: transform 550ms cubic-bezier(.2,.65,.3,1);
+}
+.report-object::before, .report-object::after { content: ""; position: absolute; pointer-events: none; }
+.report-object::before { inset: 5px -7px -5px 7px; background: repeating-linear-gradient(0deg, #e9e2d5 0 1px, #fffdfa 1px 3px); border: 1px solid #c8bca8; transform: translateZ(-3px); }
+.report-object::after { inset: 0; background: linear-gradient(90deg, #171a192b, transparent 3%, #fffdfa38 4%, transparent 8%); transform: translateZ(1px); }
+.home-report-cover .report-object img { position: relative; display: block; width: 100%; height: auto; box-shadow: 14px 18px 24px #171a191c; }
+.report-object-caption { display: flex; justify-content: space-between; align-items: center; color: var(--bronze); font-size: 12px; border-top: 1px solid #b9966170; margin-top: 30px; padding-top: 12px; }
+.report-object-caption svg { width: 17px; height: 17px; transition: transform 250ms ease; }
+.home-report-cover:focus-visible .report-object { transform: rotateY(0) rotateX(0) translateY(-5px); }
+.home-report-cover:focus-visible .report-object-caption svg { transform: translate(2px,-2px); }
+/* Stable hit areas surround moving media. Keyboard focus uses the same emphasis. */
+.estate-lifestyle { position: relative; border-bottom: 1px solid var(--line); padding-bottom: 22px; }
+.estate-lifestyle::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--bronze); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease; }
+.estate-lifestyle:focus-visible::after { transform: scaleX(1); }
+.estate-lifestyle:focus-visible .lifestyle-image-arrow { background: var(--ivory); color: var(--bronze); transform: translate(2px,-2px); }
+.journey-bar > a:focus-visible { background: var(--surface); outline-offset: -6px; }
+.button:focus-visible svg, .text-link:focus-visible svg { transform: translateX(4px); }
+@media (hover: hover) and (pointer: fine) {
+  .home-report-cover:hover .report-object { transform: rotateY(0) rotateX(0) translateY(-5px); }
+  .home-report-cover:hover .report-object-caption svg { transform: translate(2px,-2px); }
+  .estate-lifestyle:hover::after { transform: scaleX(1); }
+  .estate-lifestyle:hover .lifestyle-image-arrow { background: var(--ivory); color: var(--bronze); transform: translate(2px,-2px); }
+}
+/* Native disclosure: closed links are never in the focus order, even without JS. */
+.mobile-navigation > summary { cursor: pointer; list-style: none; }
+.mobile-navigation > summary::-webkit-details-marker { display: none; }
+.mobile-navigation .menu-label-open, .mobile-navigation .menu-label-close { font-size: inherit; }
+.mobile-navigation .menu-label-close { display: none; }
+.mobile-navigation[open] .menu-label-open { display: none; }
+.mobile-navigation[open] .menu-label-close { display: inline; }
+.mobile-navigation .menu-symbol { font-size: 22px; line-height: 1; transition: transform 200ms ease; }
+.mobile-navigation[open] .menu-symbol { transform: rotate(45deg); }
+.mobile-navigation:not([open]) nav { display: none; }
+.mobile-navigation nav { padding: 22px 4vw 26px; border-top: 1px solid #b996614d; max-height: calc(100dvh - 102px); overscroll-behavior: contain; }
+.mobile-navigation[open] nav { animation: navigation-enter 260ms ease both; }
+.navigation-caption { color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; font-size: 10px; padding-block: 0 10px; }
+.mobile-navigation nav a { display: flex; align-items: center; gap: 20px; padding: 12px 8px; min-height: 48px; transition: background 180ms ease, color 180ms ease; }
+.navigation-number { color: var(--gold-light); font-size: 10px; font-variant-numeric: tabular-nums; }
+.navigation-arrow { margin-left: auto; color: var(--gold-light); font-size: 18px; }
+.mobile-navigation nav a:hover, .mobile-navigation nav a:focus-visible, .mobile-navigation nav a[aria-current="page"] { background: #dfc89e14; color: var(--gold-light); }
+.mobile-navigation nav a:focus-visible { outline-offset: -2px; }
+.mobile-navigation nav .navigation-contact { justify-content: space-between; margin-top: 14px; padding-inline: 16px; border: 1px solid #b9966170; color: var(--gold-light); }
+@keyframes navigation-enter { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 640px) {
+  .report-object-stage { min-height: 460px; padding: 30px 28px; }
+  .home-report-cover { width: min(100%, 220px); }
+  .report-stage-label { margin-bottom: 22px; }
+  .report-object { transform: none; }
+  .mobile-navigation nav { padding-inline: 20px; max-height: calc(100dvh - 92px); }
+}
+/* Preserve the final, readable composition when movement is paused or reduced. */
+html[data-motion-paused="true"] .report-object,
+html[data-motion-paused="true"] .estate-lifestyle-image img,
+html[data-motion-paused="true"] .lifestyle-image-arrow,
+html[data-motion-paused="true"] .report-object-caption svg { transform: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .report-object, .home-report-cover:hover .report-object, .home-report-cover:focus-visible .report-object,
+  .estate-lifestyle:hover img, .estate-lifestyle:focus-visible img,
+  .estate-lifestyle:hover .lifestyle-image-arrow, .estate-lifestyle:focus-visible .lifestyle-image-arrow,
+  .home-report-cover:hover .report-object-caption svg, .home-report-cover:focus-visible .report-object-caption svg,
+  .button:hover svg, .button:focus-visible svg, .text-link:hover svg, .text-link:focus-visible svg,
+  .journey-bar > a:hover .journey-arrow { transform: none; }
+}
