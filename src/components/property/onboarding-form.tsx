@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useState } from "react";
 import Link from "next/link";
+import { propertyBrand } from "@/lib/property";
 import { TurnstileWidget } from "@/components/forms/turnstile-widget";
 import { onboardingOptions, onboardingFieldLabels, type OnboardingKind } from "@/lib/property-onboarding";
 import { trackPropertyEvent } from "./analytics";
@@ -46,6 +47,6 @@ export function PropertyOnboardingForm({ kind }: { kind: OnboardingKind }) {
     <div className="honeypot" aria-hidden="true"><label htmlFor="onboard-website">Leave this empty</label><input id="onboard-website" name="website" tabIndex={-1} autoComplete="off" /></div>
     <TurnstileWidget key={widgetKey} onToken={onToken} onError={onError} className="verification-note" />
     {error && <div className="form-message error" role="alert">{error} {!token && <button type="button" onClick={() => { setError(""); setWidgetKey(key => key + 1); }}>Retry verification</button>}</div>}
-    <button className="button" type="submit" disabled={pending}>{pending ? "Saving your brief…" : `Send my ${investor ? "investor" : "seller"} brief`}<Arrow diagonal /></button><p className="form-note">Prefer a conversation? <a href="mailto:admin@wielegroup.com">Email Jonathan Landman</a> or <a href="https://wa.me/35699320474" target="_blank" rel="noopener noreferrer">use WhatsApp</a>. Keep sensitive documents out of the initial message.</p>
+    <button className="button" type="submit" disabled={pending}>{pending ? "Saving your brief…" : `Send my ${investor ? "investor" : "seller"} brief`}<Arrow diagonal /></button><p className="form-note">Prefer a conversation? <a href={`mailto:${propertyBrand.personalEmail}`}>Email Jonathan Landman</a> or <a href="https://wa.me/35699320474" target="_blank" rel="noopener noreferrer">use WhatsApp</a>. Keep sensitive documents out of the initial message.</p>
   </form>;
 }

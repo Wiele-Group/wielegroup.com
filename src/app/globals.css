@@ -76,3 +76,6 @@ html{scroll-padding-top:126px}.reveal-pending:focus-within{opacity:1;transform:n
 
 /* User-supplied profile portrait: retain the full square composition. */
 .contact-portrait{display:block;width:100%;max-width:420px;height:auto;aspect-ratio:1;object-fit:contain;margin:0 0 28px}
+
+/* Keep the direct email readable inside narrow personal-contact cards. */
+.personal-introduction>*{min-width:0}.personal-contact-card .text-link{max-width:100%;overflow-wrap:anywhere}.personal-contact-card .text-link svg{flex-shrink:0}
