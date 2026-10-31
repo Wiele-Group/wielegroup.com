@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isRetiredAgencyPath, retiredAgencyResponse } from "@/lib/retired-agency";
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   if (isRetiredAgencyPath(request.nextUrl.pathname)) return retiredAgencyResponse(request.method);
   return NextResponse.next();
 }
