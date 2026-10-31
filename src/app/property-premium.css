@@ -1,28 +1,249 @@
-/* Editorial refinement. Approved Option 1 remains the identity master. */
-:root{--muted:#5e655f;--line:#d6cdbd}
-.site-header{height:114px}.brand-integrated{width:310px}.header-inner{gap:24px}.desktop-nav{gap:22px}.desktop-nav a{font-size:10px;letter-spacing:.09em}.header-contact{font-size:11px;min-height:48px}.motion-toggle{border:0;background:transparent;min-width:40px}.site-header .brand{min-height:100px}
-.editorial-hero{display:grid;grid-template-columns:45% 55%;height:auto;min-height:680px;max-height:none;background:var(--ivory);color:var(--ink);isolation:auto;overflow:hidden}
-.editorial-hero-copy{padding:80px clamp(30px,4.3vw,84px);align-self:center;min-width:0}.editorial-hero-copy>.eyebrow{font-size:10px;line-height:1.8;letter-spacing:.14em;max-width:330px;color:#806642}.editorial-hero h1{font:400 clamp(54px,5.2vw,86px)/1.04 var(--font-heading);letter-spacing:-.025em;margin:30px 0 27px;max-width:600px;text-wrap:balance}.editorial-hero h1 em{color:#806642;font-weight:400}.editorial-hero-copy>p{font-size:14px;line-height:1.95;color:var(--muted);max-width:390px;margin:0}.editorial-hero-actions{display:flex;align-items:flex-start;flex-direction:column;gap:16px;margin-top:32px}.editorial-hero-actions .button{font-size:10px;letter-spacing:.08em;padding:17px 21px;gap:22px}.editorial-hero-actions .text-link{font-size:12px}.editorial-hero-note{display:flex;flex-direction:column;gap:4px;padding-top:32px;font-size:10px;letter-spacing:.035em;color:#686d66}
-.editorial-hero-media{position:relative;min-height:720px;overflow:hidden;background:#d8d2c4}.editorial-hero-media .estate-hero-image{object-fit:cover;object-position:63% center;z-index:0;animation:none;scale:1;translate:none!important;transform:none}.editorial-hero-media figcaption{position:absolute;bottom:22px;left:24px;right:24px;background:#f4f0e8ed;padding:12px 16px;color:#333d36;font-size:10px;line-height:1.6;letter-spacing:.02em}.editorial-hero-media figcaption span{display:block;font-size:10px;color:#5e655f}
-.journey-bar{box-shadow:none;width:100%;max-width:none;background:var(--ivory);border-bottom:1px solid var(--line)}.journey-bar>a{padding:31px clamp(30px,4.3vw,84px)}.journey-bar>a+a{border-left-color:var(--line)}.journey-bar .eyebrow{color:#806642;font-size:10px}.journey-bar strong{font-size:29px;color:var(--ink);line-height:1.2}.journey-arrow{border-radius:0;border:0;color:#806642}.journey-bar>a:hover{background:#ece5d8}.journey-bar>a:hover .journey-arrow{transform:translate(3px,-3px);background:none}
-.estate-introduction{padding-block:110px;gap:8%}.estate-introduction h2,.estate-section-heading h2{font-size:clamp(49px,4.7vw,70px)}.estate-introduction-copy>p+p{font-size:14px;line-height:1.95}.home-report{padding-block:70px 90px;gap:10%;border-bottom:1px solid var(--line);margin-bottom:95px}.home-report h2{font-size:clamp(50px,4.8vw,72px)}.home-report p{font-size:14px}.home-report-cover{max-width:265px}.home-report-cover img,.report-cover-display img{box-shadow:0 12px 28px #171a1912}
-.estate-lifestyles{padding-bottom:110px}.estate-lifestyle-grid{gap:30px}.estate-lifestyle-image,.estate-lifestyle:first-child .estate-lifestyle-image{height:420px}.estate-lifestyle:nth-child(2),.estate-lifestyle:nth-child(3){padding-top:0}.estate-lifestyle h3{font-size:31px;line-height:1.15}.estate-lifestyle>p{font-size:13px;line-height:1.9}.estate-lifestyle-image img{transition:transform .6s ease}.estate-lifestyle:hover img,.estate-lifestyle:focus-visible img{transform:scale(1.02)}.imagery-note{font-size:11px}
-.estate-seller figure{min-height:640px}.estate-seller-copy{padding-block:75px}.estate-seller h2{font-size:clamp(44px,4.2vw,63px)}.estate-seller p{font-size:14px}.personal-introduction{margin-top:90px;padding-block:60px 90px}.personal-contact-card{background:transparent;color:var(--ink);padding:0 30px 0 0;border-right:1px solid var(--line)}.personal-contact-card .eyebrow,.personal-contact-card .personal-role{color:#806642}.personal-contact-card h2{font-size:58px}.personal-contact-card p{font-size:13px}.personal-contact-copy h2{font-size:44px}.personal-contact-copy p{font-size:14px}
-.estate-collection{padding-block:65px 95px;border-top:1px solid var(--line)}.estate-collection h2{font-size:52px}.estate-principles{padding-block:85px;background:#ebe5da}.estate-principles-grid h3{font-size:31px}.investment-faq{padding-block:90px}.investment-faq summary{font-size:14px}.investment-faq details p{font-size:14px}.band-inner h2{font-size:68px}.contact-band{padding-block:75px}.button{font-size:11px;letter-spacing:.09em}.button:hover{background:#303a33}.button-light:hover{background:#ece4d5}.button-gold:hover{background:#ecd9b6}
-.report-hero{padding-block:75px}.report-hero-copy>p:not(.report-subtitle){font-size:15px}.report-cover-display figcaption{font-size:11px;line-height:1.7}.report-evidence h2{font-size:13px}.report-evidence p{font-size:12px;line-height:1.85}.report-inside>div>p,.report-registration>div>p{font-size:14px}.report-inside li strong{font-size:14px}.report-inside li p{font-size:13px}.report-price-chart,.report-worked-preview{background:transparent;border:0;border-top:1px solid var(--line);padding:28px 0}.report-price-chart figcaption{font-size:12px}.report-worked-preview table{font-size:13px}.report-worked-preview .fine-print{font-size:12px}.report-preview>header p{font-size:14px}.report-form-intro{font-size:14px}.report-form .form-note,.report-optin{font-size:12px}.report-form{background:#ebe5da}.form-field label{font-size:12px}.form-field input,.form-field select,.form-field textarea{font-size:16px}.report-edition-note{font-size:11px}.report-registration>div>.fine-print{font-size:12px}
-.analytics-consent{left:22px;right:auto;bottom:22px;transform:none;width:min(430px,calc(100vw - 44px));padding:20px;background:#f4f0e8;border:1px solid #c9bfae;box-shadow:0 8px 25px #171a1917}.analytics-consent p{font-size:12px;line-height:1.7}.analytics-consent>div{gap:10px}.analytics-consent button{font-size:12px;min-height:44px;padding:9px 12px}.analytics-settings{font-size:10px;min-height:36px}.brand-footer .brand-integrated{width:310px}.footer-top{align-items:center}.scope-note{font-size:11px;line-height:1.9}
-@media(min-width:1600px){.editorial-hero h1{font-size:86px}.editorial-hero-media{min-height:800px}}
-@media(max-width:1150px){.desktop-nav{gap:15px}.desktop-nav a{font-size:9px}.brand-integrated{width:285px}.header-inner{gap:15px}.editorial-hero-copy{padding-inline:35px}.editorial-hero h1{font-size:62px}.editorial-hero-actions .button{font-size:9px;padding-inline:16px}.editorial-hero-media{min-height:700px}}
-@media(max-width:850px){.site-header{height:104px}.site-header .brand{min-height:90px}.brand-integrated{width:275px}.editorial-hero{grid-template-columns:47% 53%;min-height:650px}.editorial-hero h1{font-size:54px}.editorial-hero-copy{padding:55px 27px}.editorial-hero-copy>p{font-size:13px}.editorial-hero-actions .button{font-size:9px;gap:12px}.editorial-hero-media{min-height:650px}.estate-introduction{gap:6%}.personal-introduction{gap:7%}.personal-contact-copy h2{font-size:40px}.report-worked-preview table{font-size:12px}}
-@media(max-width:760px){.editorial-hero{display:flex;flex-direction:column;min-height:0;max-height:none}.editorial-hero-copy{padding:55px 28px 45px;width:100%;align-self:auto}.editorial-hero h1{font-size:clamp(54px,10.5vw,72px);max-width:580px;margin-block:25px}.editorial-hero-copy>p{font-size:14px;max-width:450px}.editorial-hero-actions{gap:13px;margin-top:25px}.editorial-hero-actions .button{font-size:10px;padding:16px 20px}.editorial-hero-note{padding-top:24px;flex-direction:row;flex-wrap:wrap;gap:5px 18px}.editorial-hero-media{width:100%;min-height:0;height:460px}.editorial-hero-media .estate-hero-image{object-position:63% center}.editorial-hero-media figcaption{left:18px;right:18px;bottom:18px}.journey-bar{grid-template-columns:1fr}.journey-bar>a{padding:25px 28px}.journey-bar>a+a{border-left:0;border-top:1px solid var(--line)}.journey-bar strong{font-size:27px}.estate-section-heading{gap:25px}.personal-contact-card{padding:0 0 30px;border-right:0;border-bottom:1px solid var(--line)}}
-@media(max-width:640px){.site-header{height:100px}.site-header .brand{min-height:84px}.brand-integrated{width:260px}.header-inner{padding-inline:15px;gap:10px}.menu-toggle{min-width:44px}.motion-toggle{position:fixed;right:12px;bottom:12px;z-index:35;background:#171a19e8;border:1px solid #c7a56a66;width:36px;min-height:36px;font-size:13px}.wrap{width:calc(100% - 48px)}.estate-introduction{padding-block:70px;gap:30px}.estate-introduction h2,.estate-section-heading h2{font-size:48px}.estate-introduction .lead{font-size:27px}.home-report{padding-block:45px 65px;margin-bottom:65px;gap:30px}.home-report h2{font-size:49px}.home-report-cover{max-width:265px}.estate-lifestyles{padding-bottom:70px}.estate-lifestyle-grid{gap:38px}.estate-lifestyle-image,.estate-lifestyle:first-child .estate-lifestyle-image{height:390px}.estate-lifestyle h3{font-size:32px}.estate-seller figure{min-height:420px}.estate-seller-copy{padding:50px 24px}.estate-seller h2{font-size:46px}.personal-introduction{margin-top:60px;padding-block:35px 65px;gap:30px}.personal-contact-card h2{font-size:53px}.personal-contact-copy h2{font-size:38px}.estate-collection{padding-block:50px 65px;gap:30px}.estate-collection h2{font-size:44px}.estate-principles{padding-block:65px}.investment-faq{padding-block:65px}.investment-faq h2{font-size:45px}.investment-faq summary{font-size:13px}.band-inner h2{font-size:52px}.contact-band{padding-block:60px}.report-hero{padding-block:45px;gap:35px}.report-cover-display{max-width:280px}.report-form .button{font-size:10px}.report-worked-preview table{font-size:12px}.report-preview h3{font-size:30px}.analytics-consent{left:14px;bottom:14px;width:calc(100vw - 28px);padding:18px}.analytics-settings{left:14px;bottom:14px}.analytics-consent~.analytics-settings{display:none}.brand-footer .brand-integrated{width:285px}}
-@media(max-width:360px){.brand-integrated{width:232px}.header-inner{padding-inline:12px}.editorial-hero h1{font-size:51px}.editorial-hero-copy{padding-inline:24px}.editorial-hero-media{height:400px}}
-@media(prefers-reduced-motion:reduce){.editorial-hero-media .estate-hero-image{animation:none;transform:none;translate:none}.estate-lifestyle-image img{transition:none}}
-
-/* Keep interface controls subordinate to the property story. */
-.site-footer .motion-toggle{position:static;background:transparent;border:1px solid #c7a56a55;color:var(--ivory);min-height:38px;min-width:44px;padding:6px 10px;display:inline-flex;align-items:center;gap:8px}.site-footer .motion-label{display:inline;font-size:10px}.site-header .brand{min-height:90px}
-/* Leave the report edition line clear of the sticky masthead on narrow screens. */
-@media(max-width:640px){.report-hero{padding-top:75px;scroll-margin-top:114px}}
-/* Preference controls remain readable on the ivory utility strip. */
-.analytics-settings{color:#333d36;border-color:#96846a;background:transparent;font-size:11px;min-height:42px;padding:9px 18px;margin:18px auto}
-.site-footer .motion-label{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;clip-path:none;white-space:nowrap}
+/* Wiele editorial system — 31 October 2026.
+   Preserve the approved Option 1 identity. Gold is an accent; bronze is reading ink. */
+:root {
+  --forest: #171a19;
+  --forest-light: #303a33;
+  --ink: #242823;
+  --ivory: #f4f0e8;
+  --paper: #fffdfa;
+  --muted: #555e56;
+  --line: #d6cdbd;
+  --gold: #b99661;
+  --gold-light: #dfc89e;
+  --bronze: #75603e;
+  --surface: #ebe5da;
+  --section-space: clamp(64px, 7vw, 112px);
+}
+body { font-size: 16px; line-height: 1.75; }
+html { scroll-padding-top: 120px; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+.wrap { width: min(1280px, calc(100% - 96px)); }
+.eyebrow { font-size: 11px; letter-spacing: .12em; color: var(--bronze); }
+.site-header { height: 102px; }
+.header-inner { gap: 24px; }
+.site-header .brand { min-height: 88px; }
+.brand-integrated { width: 272px; }
+.desktop-nav { gap: 22px; }
+.desktop-nav a { font-size: 12px; letter-spacing: .045em; }
+.header-contact { font-size: 12px; letter-spacing: .06em; min-height: 48px; }
+.menu-toggle { font-size: 13px; min-width: 58px; }
+.mobile-navigation nav { max-height: calc(100dvh - 100px); overflow-y: auto; }
+.mobile-navigation nav a { font-size: 16px; min-height: 48px; }
+.button { font-size: 12px; line-height: 1.6; letter-spacing: .065em; min-height: 54px; padding: 16px 22px; }
+.button:hover { background: var(--forest-light); }
+.button-light:hover { background: #ece4d5; }
+.button-gold:hover { background: #ecd9b6; }
+.text-link { font-size: 14px; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--bronze); outline-offset: 5px;
+}
+.site-header :focus-visible, .site-footer :focus-visible, .estate-seller :focus-visible { outline-color: var(--gold-light); }
+.editorial-hero {
+  display: grid; grid-template-columns: 48% 52%; height: auto; min-height: 660px;
+  max-height: none; background: var(--ivory); color: var(--ink); isolation: auto; overflow: hidden;
+}
+.editorial-hero-copy { padding: 64px clamp(32px, 4.5vw, 86px); align-self: center; min-width: 0; }
+.editorial-hero-copy > .eyebrow { font-size: 11px; line-height: 1.8; letter-spacing: .1em; max-width: 360px; color: var(--bronze); }
+.editorial-hero h1 {
+  font: 400 clamp(54px, 5.2vw, 88px)/1.04 var(--font-heading);
+  letter-spacing: -.025em; margin: 28px 0; max-width: 640px;
+}
+.editorial-hero h1 em { color: var(--bronze); font-weight: 400; }
+.editorial-hero-copy > p { font-size: 16px; line-height: 1.8; color: var(--muted); max-width: 420px; margin: 0; }
+.editorial-hero-actions { display: flex; align-items: flex-start; flex-direction: column; gap: 14px; margin-top: 30px; }
+.editorial-hero-actions .button { font-size: 12px; gap: 24px; }
+.editorial-hero-actions .text-link { font-size: 14px; }
+.editorial-hero-note { display: flex; flex-direction: column; gap: 4px; padding-top: 28px; font-size: 12px; color: var(--muted); }
+.editorial-hero-media { position: relative; min-height: 660px; overflow: hidden; background: #d8d2c4; }
+.editorial-hero-media .estate-hero-image { object-fit: cover; object-position: 63% center; z-index: 0; animation: none; scale: 1; translate: none !important; transform: none; }
+.editorial-hero-media figcaption { position: absolute; bottom: 24px; left: 24px; right: 24px; background: #f4f0e8f5; padding: 12px 16px; color: var(--ink); font-size: 12px; line-height: 1.6; }
+.editorial-hero-media figcaption span { display: block; font-size: 11px; color: var(--muted); }
+.journey-bar { width: 100%; max-width: none; box-shadow: none; background: var(--ivory); border-bottom: 1px solid var(--line); }
+.journey-bar > a { padding: 30px clamp(32px, 4.5vw, 86px); }
+.journey-bar > a + a { border-left-color: var(--line); }
+.journey-bar .eyebrow { color: var(--bronze); font-size: 11px; }
+.journey-bar strong { color: var(--ink); font-size: 30px; font-weight: 500; line-height: 1.2; }
+.journey-arrow { border-radius: 0; border: 0; color: var(--bronze); }
+.journey-bar > a:hover { background: var(--surface); }
+.journey-bar > a:hover .journey-arrow { transform: translate(3px, -3px); background: none; }
+.estate-introduction { padding-block: var(--section-space); gap: 8%; }
+.estate-introduction h2, .estate-section-heading h2 { font-size: clamp(46px, 4.4vw, 68px); line-height: 1.08; }
+.estate-introduction .lead { font-size: 30px; line-height: 1.4; }
+.estate-introduction-copy > p + p { font-size: 16px; line-height: 1.8; }
+.estate-introduction h2 em, .estate-section-heading h2 em, .estate-collection h2 em,
+.split-feature h2 em, .contact-layout h2 em, .investment-faq h2 em,
+.report-hero h1 em, .report-inside h2 em, .report-registration h2 em, .home-report h2 em { color: var(--bronze); }
+.home-report { padding-block: 64px 80px; gap: 10%; border-bottom: 1px solid var(--line); margin-bottom: var(--section-space); }
+.home-report h2 { font-size: clamp(46px, 4.4vw, 66px); }
+.home-report p { font-size: 16px; line-height: 1.8; }
+.home-report-cover { max-width: 280px; }
+.home-report-cover img, .report-cover-display img { box-shadow: 0 12px 28px #171a1912; }
+.estate-lifestyles { padding-bottom: var(--section-space); }
+.estate-section-heading { align-items: flex-start; }
+.estate-section-heading > div { min-width: 0; flex: 1; }
+.estate-section-heading > p { font-size: 16px; line-height: 1.8; flex: 0 1 300px; padding-top: 42px; }
+.estate-lifestyle-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.estate-lifestyle-image, .estate-lifestyle:first-child .estate-lifestyle-image { height: auto; aspect-ratio: 4 / 5; }
+.estate-lifestyle:nth-child(2), .estate-lifestyle:nth-child(3) { padding-top: 0; }
+.estate-lifestyle h3 { font-size: 32px; font-weight: 500; line-height: 1.15; }
+.estate-lifestyle > p { font-size: 15px; line-height: 1.8; max-width: 36ch; }
+.lifestyle-image-label { font-size: 11px; line-height: 1.6; letter-spacing: .08em; }
+.estate-lifestyle-image img { transition: transform .6s ease; }
+.estate-lifestyle:hover img, .estate-lifestyle:focus-visible img { transform: scale(1.02); }
+.imagery-note { font-size: 12px; line-height: 1.8; }
+.estate-seller figure { min-height: 620px; }
+.estate-seller-copy { padding-block: 72px; }
+.estate-seller h2 { font-size: clamp(44px, 4vw, 62px); }
+.estate-seller p { font-size: 16px; line-height: 1.8; }
+.estate-seller figcaption, .seller-small-note { font-size: 12px; }
+.personal-introduction { margin-top: var(--section-space); padding-block: 60px 80px; }
+.personal-contact-card { background: transparent; color: var(--ink); padding: 0 30px 0 0; border-right: 1px solid var(--line); }
+.personal-contact-card .eyebrow, .personal-contact-card .personal-role { color: var(--bronze); }
+.personal-contact-card h2 { font-size: 58px; }
+.personal-contact-card p, .personal-contact-card .text-link { font-size: 14px; }
+.personal-contact-copy h2 { font-size: 44px; }
+.personal-contact-copy p { font-size: 16px; line-height: 1.8; }
+.estate-collection { padding-block: 64px 88px; border-top: 1px solid var(--line); }
+.estate-collection h2 { font-size: 48px; }
+.estate-collection p { font-size: 16px; line-height: 1.8; }
+.estate-principles { padding-block: 80px; background: var(--surface); }
+.estate-principles .estate-section-heading h2 { font-size: 52px; }
+.estate-principles-grid h3 { font-size: 31px; font-weight: 500; }
+.estate-principles-grid p { font-size: 15px; color: var(--muted); }
+.investment-faq { padding-block: var(--section-space); gap: 8%; }
+.investment-faq h2 { font-size: 50px; }
+.investment-faq > div > p, .investment-faq summary, .investment-faq details p { font-size: 16px; }
+.investment-faq details p { line-height: 1.8; }
+.contact-band { padding-block: 72px; }
+.band-inner h2 { font-size: clamp(44px, 4.4vw, 64px); }
+/* Interior pages share a reading scale; the masthead remains the largest voice. */
+.page-intro { padding-block: 80px 60px; }
+.page-intro h1 { font-size: clamp(52px, 6vw, 88px); }
+.page-intro > p { font-size: 17px; line-height: 1.8; }
+.split-feature p, .process-list p, .buyer-grid p, .collection-empty > p,
+.buyer-journeys p, .buyer-report-link p, .enquiry-steps p, .legal-copy p { font-size: 16px; line-height: 1.8; }
+.buyer-grid h2, .buyer-journeys h2, .process-list h3, .enquiry-steps h3 { font-weight: 500; }
+.contact-layout { gap: 7%; }
+.enquiry-form, .report-form { background: var(--surface); }
+.form-field label { font-size: 14px; }
+.form-field input, .form-field select, .form-field textarea { font-size: 16px; }
+.form-note, .verification-note, .fine-print { font-size: 13px; line-height: 1.8; }
+.contact-detail > span { font-size: 11px; }
+.report-hero { padding-block: 72px; }
+.report-hero-copy > p:not(.report-subtitle) { font-size: 16px; line-height: 1.8; }
+.report-cover-display figcaption { font-size: 12px; line-height: 1.7; }
+.report-evidence h2 { font-size: 15px; }
+.report-evidence p { font-size: 14px; line-height: 1.8; }
+.report-inside > div > p, .report-registration > div > p, .report-inside li strong,
+.report-preview > header p, .report-form-intro { font-size: 16px; }
+.report-inside li p { font-size: 15px; }
+.report-price-chart, .report-worked-preview { background: transparent; border: 0; border-top: 1px solid var(--line); padding: 28px 0; }
+.report-price-chart figcaption, .report-worked-preview .fine-print { font-size: 13px; }
+.report-worked-preview table { font-size: 14px; font-variant-numeric: tabular-nums; }
+.report-form .form-note, .report-optin, .report-registration > div > .fine-print { font-size: 13px; }
+.report-edition-note { font-size: 12px; }
+.analytics-consent { left: 22px; right: auto; bottom: 22px; transform: none; width: min(430px, calc(100vw - 44px)); padding: 20px; background: var(--ivory); border: 1px solid #c9bfae; box-shadow: 0 8px 25px #171a1917; }
+.analytics-consent p { font-size: 14px; line-height: 1.7; }
+.analytics-consent > div { gap: 10px; }
+.analytics-consent button { font-size: 13px; min-height: 44px; padding: 9px 12px; }
+.analytics-settings { color: #333d36; border-color: #96846a; background: transparent; font-size: 12px; min-height: 44px; padding: 9px 18px; margin: 18px auto; }
+.brand-footer .brand-integrated { width: 290px; }
+.footer-top { align-items: center; }
+.footer-bottom { align-items: center; flex-wrap: wrap; font-size: 12px; }
+.footer-bottom > div { flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+.scope-note { font-size: 12px; line-height: 1.8; }
+.site-footer .motion-toggle { position: static; background: transparent; border: 1px solid #c7a56a77; color: var(--ivory); min-height: 44px; min-width: 44px; padding: 6px 10px; display: inline-flex; align-items: center; gap: 8px; }
+.site-footer .motion-label { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; clip-path: none; white-space: nowrap; font-size: 12px; }
+@media (max-width: 1180px) {
+  .desktop-nav { display: none; }
+  .mobile-navigation { display: block; }
+  .header-contact { margin-left: auto; }
+  .editorial-hero-copy { padding-inline: 36px; }
+  .editorial-hero h1 { font-size: clamp(52px, 5.6vw, 66px); }
+  .estate-section-heading { flex-direction: column; gap: 24px; }
+  .estate-section-heading > p { flex: auto; max-width: 540px; padding-top: 0; }
+}
+@media (max-width: 850px) {
+  .wrap { width: calc(100% - 64px); }
+  .editorial-hero-copy { padding: 48px 30px; }
+  .editorial-hero h1 { font-size: 52px; }
+  .editorial-hero-actions .button { font-size: 11px; gap: 14px; }
+  .estate-lifestyle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .estate-lifestyle:last-child { padding-top: 0; }
+  .estate-lifestyle:last-child .estate-lifestyle-image { height: auto; }
+  .estate-seller figure { min-height: 480px; }
+  .personal-introduction { gap: 6%; }
+  .personal-contact-copy h2 { font-size: 40px; }
+  .investment-faq { gap: 40px; }
+  .estate-principles-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+@media (max-width: 760px) {
+  .editorial-hero { display: flex; flex-direction: column; min-height: 0; }
+  .editorial-hero-copy { padding: 48px 28px 40px; width: 100%; align-self: auto; }
+  .editorial-hero h1 { font-size: clamp(48px, 9vw, 68px); max-width: 580px; margin-block: 24px; }
+  .editorial-hero-copy > p { max-width: 470px; }
+  .editorial-hero-note { padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 5px 18px; }
+  .editorial-hero-media { width: 100%; min-height: 0; height: 460px; }
+  .editorial-hero-media figcaption { left: 18px; right: 18px; bottom: 18px; }
+  .journey-bar { grid-template-columns: 1fr; }
+  .journey-bar > a { padding: 26px 28px; }
+  .journey-bar > a + a { border-left: 0; border-top: 1px solid var(--line); }
+  .journey-bar strong { font-size: 28px; }
+}
+@media (max-width: 640px) {
+  .site-header { height: 92px; }
+  .site-header .brand { min-height: 80px; }
+  .brand-integrated { width: 238px; }
+  .header-inner { padding-inline: 20px; gap: 12px; }
+  .header-contact { display: none; }
+  .wrap { width: calc(100% - 48px); }
+  .eyebrow, .journey-bar .eyebrow { font-size: 11px; }
+  .editorial-hero-actions .button { font-size: 12px; padding: 16px 20px; }
+  .estate-introduction { gap: 30px; }
+  .estate-introduction h2, .estate-section-heading h2, .home-report h2 { font-size: 44px; }
+  .estate-introduction .lead { font-size: 28px; }
+  .home-report { padding-block: 48px 64px; gap: 30px; }
+  .home-report-cover { max-width: 265px; }
+  .estate-lifestyle-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .estate-lifestyle:last-child { display: block; grid-column: auto; }
+  .estate-lifestyle-image, .estate-lifestyle:first-child .estate-lifestyle-image,
+  .estate-lifestyle:last-child .estate-lifestyle-image { height: auto; aspect-ratio: 4 / 5; }
+  .estate-lifestyle:last-child h3 { margin-top: 23px; }
+  .estate-seller figure { min-height: 420px; }
+  .estate-seller-copy { padding: 48px 24px; }
+  .estate-seller h2 { font-size: 44px; }
+  .personal-introduction { padding-block: 40px 64px; gap: 30px; }
+  .personal-contact-card { padding: 0 0 30px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .personal-contact-card h2 { font-size: 52px; }
+  .personal-contact-copy h2 { font-size: 38px; }
+  .estate-collection { padding-block: 48px 64px; gap: 30px; }
+  .estate-collection h2, .estate-principles .estate-section-heading h2, .investment-faq h2 { font-size: 42px; }
+  .estate-principles { padding-block: 64px; }
+  .investment-faq summary { font-size: 16px; }
+  .band-inner h2 { font-size: 44px; }
+  .contact-band { padding-block: 60px; }
+  .page-intro { padding-block: 56px 44px; }
+  .page-intro h1 { font-size: 50px; }
+  .page-intro > p { font-size: 16px; }
+  .report-hero { padding-block: 56px; gap: 36px; }
+  .report-cover-display { max-width: 280px; }
+  .report-form .button { font-size: 12px; }
+  .report-worked-preview table { font-size: 13px; }
+  .analytics-consent { left: 14px; bottom: 14px; width: calc(100vw - 28px); padding: 18px; }
+  .analytics-consent ~ .analytics-settings { display: none; }
+  .brand-footer .brand-integrated { width: min(285px, 100%); }
+}
+@media (max-width: 360px) {
+  .brand-integrated { width: 208px; }
+  .header-inner { padding-inline: 16px; gap: 8px; }
+  .editorial-hero-copy { padding-inline: 24px; }
+  .editorial-hero h1 { font-size: 46px; }
+  .editorial-hero-media { height: 400px; }
+  .report-form .button { letter-spacing: .025em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .editorial-hero-media .estate-hero-image { animation: none; transform: none; translate: none; }
+  .estate-lifestyle-image img { transition: none; }
+}
