@@ -526,3 +526,24 @@ html[data-motion-paused=true] .hero-property-window-plane { transform:none; }
  .intent-choices button { width:100%; min-width:0; gap:8px; padding:16px 12px; font-size:24px; }
 }
 @media(max-width:380px) { .intent-choices button { padding-inline:10px; gap:6px; }.intent-choices button svg { display:none; } }
+
+/* Journey refinement: keep the decision close to its next action. */
+#property-journey,#intent-next-step { scroll-margin-top:125px; }
+.intent-next-link { display:none; }
+.brief-assistant-toggle>.brief-toggle-label { font-size:13px; }
+.brief-toggle-label small { display:block; margin-top:5px; font:400 10px/1.6 var(--font-sans); color:var(--muted); }
+.brief-result-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; margin-top:20px; }
+.brief-result-actions .text-link { margin-top:0; min-height:44px; }
+.brief-copy { min-height:44px; border:1px solid var(--bronze); background:transparent; color:var(--ink); font:500 11px var(--font-sans); padding:10px 16px; cursor:pointer; }
+.brief-copy:hover { background:#75603e12; }
+.brief-assistant .brief-copy-status { font-size:11px; color:var(--bronze); margin:12px 0 0; }
+.brief-copy-status:empty { display:none; }
+.brief-manual label { display:block; font-size:11px; margin-top:15px; }
+.brief-manual textarea { display:block; width:100%; min-height:220px; margin-top:8px; padding:12px; background:var(--paper); color:var(--ink); border:1px solid var(--bronze); font:400 12px/1.8 var(--font-sans); resize:vertical; }
+@media(max-width:760px) {
+ .intent-next-link { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:48px; padding:12px 16px; margin-top:20px; border:1px solid #dfc89e80; color:var(--gold-light); font-size:12px; }
+ .intent-next-link svg { width:17px; }
+ .intent-preview:has(#intent-next-step) { display:flex; flex-direction:column; border-radius:0; }
+ .intent-preview-copy { order:-1; }
+ .intent-preview figure { height:240px; margin:0; }
+}

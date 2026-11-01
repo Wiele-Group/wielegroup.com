@@ -55,7 +55,7 @@ export function ExperienceHero() {
     </div>
     <aside className="hero-property-window"><div className="hero-property-window-plane"><div className="hero-property-window-image"><Image src={`/property/${studies[(active+1)%3].image}`} alt="Supporting AI-created property concept; not a property offered for sale" fill sizes="(max-width: 1100px) 1px, 25vw" /></div><div className="hero-property-window-caption"><span>Wiele / Investment perspective</span><strong>{["The asset. The income. The detail.","A residence. A considered decision.","Every detail informs the brief."][active]}</strong><small>AI-created property concepts · not listings</small></div></div></aside>
     <div className="experience-hero-foot wrap">
-      <a className="experience-discover" href="#discover"><span className="experience-scroll-line" aria-hidden="true" />Discover Wiele</a>
+      <a className="experience-discover" href="#property-journey"><span className="experience-scroll-line" aria-hidden="true" />Find your next move</a>
       <div className="experience-study-controls" aria-label="Choose an illustrative architecture study">{studies.map((study,index) => <button type="button" key={study.name} aria-pressed={index === active} onClick={() => choose(index)}><span className="study-number">0{index+1}</span>{study.name}</button>)}</div>
       <Link className="experience-report-link" href="/malta-investment-report">The Wiele report <Arrow diagonal /></Link>
     </div>
