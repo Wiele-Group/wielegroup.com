@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import "./property-premium.css";
+import "./property-experience.css";
+import { ExperienceMotion } from "@/components/property/experience-motion";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";
 import { StructuredData } from "@/components/property/structured-data";
@@ -28,5 +30,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
  sameAs: Object.values(propertyBrand.social),
  contactPoint: { "@type": "ContactPoint", telephone: propertyBrand.phone, email: propertyBrand.email, contactType: "customer enquiries", availableLanguage: propertyBrand.languages },
  areaServed: { "@type": "Country", name: "Malta" } };
- return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><StructuredData data={{ "@context": "https://schema.org", "@graph": [schema, { "@type": "WebSite", "@id": `${propertyBrand.url}/#website`, url: `${propertyBrand.url}/`, name: propertyBrand.name, alternateName: ["Wiele Group", "WieleGroup", "Wiele Property"], description: propertyBrand.description, inLanguage: "en-GB", publisher: { "@id": `${propertyBrand.url}/#organization` } }] }} /></body></html>;
+ return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><ExperienceMotion /><StructuredData data={{ "@context": "https://schema.org", "@graph": [schema, { "@type": "WebSite", "@id": `${propertyBrand.url}/#website`, url: `${propertyBrand.url}/`, name: propertyBrand.name, alternateName: ["Wiele Group", "WieleGroup", "Wiele Property"], description: propertyBrand.description, inLanguage: "en-GB", publisher: { "@id": `${propertyBrand.url}/#organization` } }] }} /></body></html>;
 }

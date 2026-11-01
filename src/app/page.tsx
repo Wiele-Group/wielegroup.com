@@ -1,3 +1,7 @@
+import { ExperienceHero } from "@/components/property/experience-hero";
+import { PerspectiveGallery } from "@/components/property/perspective-gallery";
+import { InvestmentScenario } from "@/components/property/investment-scenario";
+import { IntentConcierge } from "@/components/property/intent-concierge";
 import { ComplianceIntroduction } from "@/components/property/compliance-introduction";
 import { MaintenanceIntroduction } from "@/components/property/maintenance-introduction";
 import { PersonalIntroduction } from "@/components/property/personal-introduction";
@@ -8,25 +12,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Arrow, ContactBand } from "@/components/property/chrome";
 
-const lifestyles = [
-  { image: "apartment-exterior.webp", label: "01 / Income evidence", title: "Start with the income.", caption: "Distinguish collected rent, contracted rent and projected income.", alt: "Contemporary apartment building with glass balconies; illustrative stock photograph, not a Malta property listing", interest: "buying" },
-  { image: "modern-malta-interior-concept.webp", label: "02 / Asset fundamentals", title: "Understand the property.", caption: "Assess location, condition, lease terms and future capital requirements.", alt: "AI-created contemporary Malta-inspired interior; not an actual property or listing", interest: "buying" },
-  { image: "premium-detail.webp", label: "03 / Investor fit", title: "Define your mandate.", caption: "Match the asset to your budget, income objectives and holding period.", alt: "AI-created limestone and interior material study; not an actual property", interest: "buying" },
-];
-
 export default function Home() {
   return <>
     <StructuredData data={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": `${propertyBrand.url}/#webpage`, url: `${propertyBrand.url}/`, name: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, inLanguage: "en-GB", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, mainEntity: propertyFaqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
-    <section className="estate-hero editorial-hero" aria-labelledby="home-title">
-      <div className="editorial-hero-copy">
-        <span className="eyebrow">Malta property marketing &amp; introductions</span>
-        <h1 id="home-title">Malta Property.<br /><em>Global Ambition.</em></h1>
-        <p>From your first apartment to your next portfolio. A personal approach to property in Malta, shaped around your goals.</p>
-        <div className="editorial-hero-actions"><Link className="button" href="/contact?interest=buying">Discuss your property brief <Arrow diagonal /></Link><Link className="text-link" href="/malta-investment-report">Read the Wiele report <Arrow /></Link></div>
-        <div className="editorial-hero-note"><span>Based in Swieqi, Malta</span><span>Local &amp; international enquiries</span></div>
-      </div>
-      <figure className="editorial-hero-media"><Image className="estate-hero-image" src="/property/modern-malta-apartments-concept.webp" alt="AI-created contemporary limestone apartment architecture; not an actual Malta property or listing" fill sizes="(max-width: 760px) 100vw, 55vw" priority fetchPriority="high" /><figcaption>Contemporary architecture study <span>AI-created concept · not a property offered for sale</span></figcaption></figure>
-    </section>
+    <ExperienceHero />
 
     <div className="journey-bar wrap" aria-label="Start your property enquiry">
       <Link href="/contact?interest=marketing"><span><span className="eyebrow">For property owners</span><strong>Present your investment property.</strong></span><span className="journey-arrow"><Arrow diagonal /></span></Link>
@@ -38,12 +27,11 @@ export default function Home() {
       <div className="estate-introduction-copy"><p className="lead">An investment property needs more than a compelling photograph. Its income, costs and risks need a clear explanation.</p><p>Wiele brings a focused perspective to investment real estate in Malta. Whether you are based on the island or looking from abroad, we connect your property ambitions with an accurate brief, documented information and clear next steps.</p><Link className="text-link" href="/about">Meet Wiele <Arrow /></Link></div>
     </section>
 
+    <IntentConcierge />
+
     <section className="home-report wrap"><div><span className="eyebrow">The Wiele Properties report / October 2026</span><h2>Malta.<br /><em>A market in motion.</em></h2><p>Malta investment property: 2025 growth, the 2026 outlook and the detail behind an income-producing asset.</p><Link className="button" href="/malta-investment-report">Explore the report <Arrow diagonal /></Link></div><div className="report-object-stage"><span className="report-stage-label" aria-hidden="true">The Wiele perspective</span><Link className="home-report-cover" href="/malta-investment-report" aria-label="Explore the Wiele Malta Investment Property Report"><span className="report-object"><Image src="/property/report-option1-approved-cover.jpg" width={420} height={594} alt="Wiele Properties Malta Investment Property Report cover" /></span><span className="report-object-caption" aria-hidden="true">Explore the report <Arrow diagonal /></span></Link></div></section>
-    <section className="estate-lifestyles wrap">
-      <div className="estate-section-heading"><div><span className="eyebrow">Apartments. Residences. Investment perspective.</span><h2>Look beyond the asking price.<br /><em>Understand the proposition.</em></h2></div><p>Income objectives. Operating costs. Lease quality.<br />The right questions come before a return claim.</p></div>
-      <div className="estate-lifestyle-grid">{lifestyles.map(item => <Link key={item.title} className="estate-lifestyle" href={`/contact?interest=${item.interest}`}><div className="estate-lifestyle-image"><Image src={`/property/${item.image}`} alt={item.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" /><span className="lifestyle-image-label">{item.label}</span><span className="lifestyle-image-arrow"><Arrow diagonal /></span></div><h3>{item.title}</h3><p>{item.caption}</p></Link>)}</div>
-      <p className="imagery-note">Apartment exterior: illustrative stock photography. Interior and material studies: AI-created concepts. These images do not show properties offered for sale.</p>
-    </section>
+    <PerspectiveGallery />
+    <InvestmentScenario />
 
     <section className="estate-seller">
       <figure><Image src="/property/premium-detail.webp" alt="AI-created concept of limestone, natural materials and curated interior details" fill sizes="(max-width: 760px) 100vw, 55vw" /><figcaption>Material study · AI-created</figcaption></figure>

@@ -1,12 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 
 /** Progressive enhancement: content remains visible if motion cannot initialise. */
 export function LuxuryMotion() {
   const pathname = usePathname();
   const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const receive = (event: Event) => setPaused((event as CustomEvent<boolean>).detail);
+    window.addEventListener("wiele-motion-request", receive);
+    return () => window.removeEventListener("wiele-motion-request", receive);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -68,4 +74,17 @@ export function LuxuryMotion() {
   }, [pathname, paused]);
 
   return <button className="motion-toggle" type="button" aria-pressed={paused} aria-label={paused ? "Resume decorative motion" : "Pause decorative motion"} onClick={() => setPaused(value => !value)}><span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span><span className="motion-label">{paused ? "Play motion" : "Pause motion"}</span></button>;
+}
+
+function subscribeMotion(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-motion-paused"] });
+  return () => observer.disconnect();
+}
+const motionSnapshot = () => document.documentElement.dataset.motionPaused === "true";
+const serverMotionSnapshot = () => false;
+
+export function ExperienceMotionControl() {
+  const paused = useSyncExternalStore(subscribeMotion, motionSnapshot, serverMotionSnapshot);
+  return <button className="experience-motion-control" type="button" aria-pressed={paused} aria-label={paused ? "Resume decorative motion" : "Pause decorative motion"} onClick={() => window.dispatchEvent(new CustomEvent("wiele-motion-request", { detail: !paused }))}><span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span>{paused ? "Motion off" : "Motion on"}</button>;
 }

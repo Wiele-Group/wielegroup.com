@@ -1,0 +1,31 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Arrow } from "./chrome";
+import { BriefAssistant } from "./brief-assistant";
+const routes = [
+  { label:"Buy", number:"01", heading:"Your next chapter.", body:"From your first apartment to a wider portfolio. Share your Malta locations, purchase budget and timing.", image:"modern-malta-interior-concept.webp", action:"Explore the buyer experience", href:"/buying", caption:"AI-created interior concept · not a property listing", options:[
+    {label:"An income-led investment",heading:"Begin with the income.",body:"Prepare your purchase budget, Malta locations and income objectives. We’ll distinguish the evidence from the assumptions.",action:"Share an income-led brief",href:"/contact?interest=buying&focus=income"},
+    {label:"A place to call home",heading:"Space for your priorities.",body:"Start with the location, layout, condition and timing that matter to you. Your own use shapes the brief.",action:"Share a residence brief",href:"/contact?interest=buying&focus=residence"},
+    {label:"A wider property portfolio",heading:"Consider the whole picture.",body:"Set out your acquisition objectives, purchasing structure and decision process. Begin with a structured investor brief.",action:"Start investor onboarding",href:"/investor-onboarding"},
+  ] },
+  { label:"Sell", number:"02", heading:"A considered presentation.", body:"Present the property and the detail behind it. Start with the asset, the income evidence and your objectives.", image:"modern-malta-apartments-concept.webp", action:"Explore the seller experience", href:"/selling", caption:"AI-created architecture concept · not a property listing", options:[
+    {label:"Present one property",heading:"Bring the detail together.",body:"Prepare the property particulars, your authority to market and any income evidence. A structured brief is the starting point.",action:"Start seller onboarding",href:"/seller-onboarding"},
+    {label:"Discuss several properties",heading:"A clear portfolio brief.",body:"Describe the assets, locations and objectives. The marketing scope and information required are agreed around the properties.",action:"Discuss a portfolio marketing brief",href:"/contact?interest=marketing"},
+    {label:"Understand the process first",heading:"Know the next step.",body:"Explore how the property, available evidence and agreed scope become a considered marketing presentation.",action:"Explore the seller process",href:"/selling"},
+  ] },
+  { label:"Care", number:"03", heading:"Attention that continues.", body:"Repairs, refreshes and practical property care in Malta. One clear brief and an agreed scope of work.", image:"premium-detail.webp", action:"Explore property maintenance", href:"/property-maintenance", caption:"AI-created material study · not completed workmanship", options:[
+    {label:"A repair or fitting",heading:"Start with the detail.",body:"Describe the issue, property locality and access arrangements. The work and any specialist involvement are confirmed before a commitment.",action:"Request a maintenance visit",href:"/property-maintenance#request-maintenance"},
+    {label:"Prepare or refresh a property",heading:"A considered refresh.",body:"Bring together the tasks, condition and intended timing. We’ll start with a clear property preparation brief.",action:"Discuss property preparation",href:"/property-maintenance#request-maintenance"},
+    {label:"Plan ongoing property care",heading:"Care, with a clear scope.",body:"Discuss the property, practical upkeep requirements and access. Visits and arrangements are agreed for the individual property.",action:"Explore planned care",href:"/property-maintenance#maintenance-services"},
+  ] },
+];
+export function IntentConcierge() {
+  const [selected,setSelected]=useState(0);
+  const [detail,setDetail]=useState<number|null>(null);
+  const item=routes[selected];
+  const choice=detail===null?null:item.options[detail];
+  return <section className="intent-concierge" aria-labelledby="intent-title"><div className="wrap intent-layout"><div className="intent-copy"><span className="eyebrow">Malta property / Your next move</span><h2 id="intent-title">Where would<br /><em>you like to begin?</em></h2><span className="intent-step-label">01 / Choose your direction</span><div className="intent-choices" aria-label="Choose your property interest">{routes.map((route,index)=><button key={route.label} type="button" aria-pressed={selected===index} aria-controls="intent-preview" onClick={()=>{setSelected(index);setDetail(null);}}><span>{route.number}</span>{route.label}<Arrow diagonal /></button>)}</div><div className="intent-focus"><span className="intent-step-label">02 / What matters to you?</span><div aria-label={`${item.label} priorities`}>{item.options.map((option,index)=><button type="button" key={option.label} aria-pressed={detail===index} aria-controls="intent-preview" onClick={()=>setDetail(index)}>{option.label}<Arrow diagonal /></button>)}</div></div><p className="intent-location">Based in Swieqi, Malta.<br />Local &amp; international enquiries.</p></div><div id="intent-preview" className="intent-preview"><figure><Image key={item.image} src={`/property/${item.image}`} fill sizes="(max-width: 760px) 100vw, 50vw" alt={item.caption} /><figcaption>{item.caption}</figcaption></figure><div className="intent-preview-copy" aria-live="polite"><span className="eyebrow">{choice ? "03 / Your suggested next step" : `${item.number} / ${item.label}`}</span><h3>{choice?.heading||item.heading}</h3><p>{choice?.body||item.body}</p><Link className="text-link" href={choice?.href||item.href}>{choice?.action||item.action}<Arrow diagonal /></Link>{choice&&<><button type="button" className="intent-reset" onClick={()=>setDetail(null)}>Reset this choice</button><BriefAssistant key={`${selected}-${detail}`} goal={selected===1?"marketing":selected===2?"maintenance":detail===0?"income":detail===1?"residence":"portfolio"} /></>}</div></div></div><noscript><style>{".intent-choices,.intent-focus,.intent-step-label{display:none}"}</style><div className="wrap intent-fallback">{routes.map(route=><Link className="text-link" href={route.href} key={route.label}>{route.action}<Arrow diagonal /></Link>)}</div></noscript></section>;
+}

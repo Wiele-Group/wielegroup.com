@@ -24,5 +24,16 @@ export function ContactBand() {
  return <section className="contact-band"><div className="wrap band-inner"><div><span className="eyebrow">A personal introduction</span><h2>Your property ambitions.<br /><em>A clear next step.</em></h2></div><Link className="button button-light" href="/contact">Start a conversation <Arrow diagonal /></Link></div></section>;
 }
 export function PageIntro({ eyebrow, title, description, path }: { eyebrow: string; title: string; description: string; path?: string }) {
- return <section className="page-intro wrap">{path && <PageStructuredData path={path} title={title} description={description} />}<span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></section>;
+ const scenes: Record<string, { image: string; label: string; ordinal: string }> = {
+  "/buying": { image: "modern-malta-interior-concept.webp", label: "Interior study · AI-created concept", ordinal: "01 / The buyer perspective" },
+  "/selling": { image: "modern-malta-apartments-concept.webp", label: "Architecture study · AI-created concept", ordinal: "02 / The owner perspective" },
+  "/about": { image: "premium-detail.webp", label: "Material study · AI-created concept", ordinal: "03 / The Wiele perspective" },
+  "/properties": { image: "premium-terrace.webp", label: "Terrace study · AI-created concept", ordinal: "04 / The collection" },
+ };
+ const scene = path ? scenes[path] : undefined;
+ return <section className={`page-intro wrap ${scene ? "page-intro-spatial" : ""}`}>
+  {path && <PageStructuredData path={path} title={title} description={description} />}
+  <div className="page-intro-copy"><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></div>
+  {scene && <figure className="page-intro-scene"><Image src={`/property/${scene.image}`} alt={`${scene.label}; not a property offered for sale`} fill sizes="(max-width: 760px) 100vw, 40vw" priority /><figcaption>{scene.label}<span>Not a property offered for sale</span></figcaption><span className="page-intro-ordinal" aria-hidden="true">{scene.ordinal}</span></figure>}
+ </section>;
 }

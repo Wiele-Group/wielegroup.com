@@ -96,3 +96,7 @@ id = "4f4aeab739c247268c6a6c7cc9d91c1f"
 # Verified pitfall 2026-05-03 Phase 8.2 — see feedback_deploy_pitfalls.md.
 # Server-runtime-only vars (read by Worker at request time) belong here:
 WIELE_AI_API_URL = "stub"
+
+# Optional, constrained property-brief question selection. No third-party model keys.
+[ai]
+binding = "AI"
