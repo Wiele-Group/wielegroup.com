@@ -47,7 +47,7 @@ export function ExperienceHero() {
     </div>
     <div className="experience-hero-shade" aria-hidden="true" />
     <div className="experience-hero-grid" aria-hidden="true"><span /><span /><span /></div>
-    <div className="experience-hero-top wrap"><span className="eyebrow">Malta property marketing &amp; introductions</span><div className="experience-hero-tools"><span className="experience-edition">An individual perspective <i aria-hidden="true" /></span><button className="experience-autopilot" type="button" aria-pressed={autopilot} onClick={()=>setAutopilot(value=>!value)}>{autopilot ? "Image sequence on" : "Image sequence off"}</button><ExperienceMotionControl /></div></div>
+    <div className="experience-hero-top wrap"><span className="eyebrow">Malta property marketing &amp; introductions</span><details className="hero-settings"><summary>Scene controls <span aria-hidden="true">+</span></summary><div className="experience-hero-tools"><span className="experience-edition">An individual perspective <i aria-hidden="true" /></span><button className="experience-autopilot" type="button" aria-pressed={autopilot} onClick={()=>setAutopilot(value=>!value)}>{autopilot ? "Image sequence on" : "Image sequence off"}</button><ExperienceMotionControl /></div></details></div>
     <div className="experience-hero-body wrap">
       <span className="experience-kicker">A perspective on investment.</span>
       <h1 id="home-title"><span>Malta Property.</span><em>Global Ambition.</em></h1>

@@ -35,3 +35,6 @@ Your Wiele contact is Jonathan Landman. Enquiry process: share the property brie
 
 ## Optional website tools
 The interactive investment scenario uses clearly labelled hypothetical inputs, with gross yield on price and operating yield on stated total cost. It excludes financing, income tax and future capital expenditure. Optional property-brief preparation organises visitor selections; AI may select questions from an approved list. It does not recommend available stock or assess acquisition eligibility.
+
+Example investment information pack: https://wielegroup.com/property/investment-information-example.html
+This is an unfilled illustrative document structure covering asset particulars, income definitions, costs, evidence status and next questions. It is not a listing, verified asset record, valuation or investment recommendation. The homepage provides an accessible chapter-by-chapter preview.

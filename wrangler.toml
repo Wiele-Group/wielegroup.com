@@ -60,6 +60,8 @@ head_sampling_rate = 1
 [assets]
 binding = "ASSETS"
 directory = ".open-next/assets"
+# Keep the downloadable example at its explicit .html URL; Next handles app routes.
+html_handling = "none"
 
 # Audit queue KV — production binding.
 [[kv_namespaces]]

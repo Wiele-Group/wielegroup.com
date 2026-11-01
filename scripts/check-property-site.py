@@ -117,7 +117,14 @@ for path in sorted(assets):
  status,_,_=get(path);assert status==200,(path,status)
 for path in sorted(links):
  parsed=urlparse(path)
- assert parsed.path in paths or parsed.path=='/',('unexpected internal link',path)
+ if parsed.path=='/property/investment-information-example.html':
+  status,headers,data=get(parsed.path)
+  assert status==200 and 'text/html' in headers.get('Content-Type',''),('example download',status)
+  example=Page();example.feed(data.decode('utf-8'))
+  assert example.meta.get('robots')=='noindex' and example.h1s==1,'example document indexing/heading'
+  assert b'Example only' in data and b'Unverified' in data and b'No return is promised' in data,'example evidence boundaries'
+ else:
+  assert parsed.path in paths or parsed.path=='/',('unexpected internal link',path)
 for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/brand-semantics-infrastructure','/services/ai-visibility-monitoring','/systems/search','/pricing/?old=1']:
  status,headers,data=get(path);assert status==410,(path,status)
  assert headers.get('X-Robots-Tag')=='noindex, follow',(path,'retired URL index exclusion')
