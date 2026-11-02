@@ -14,7 +14,7 @@ export const onboardingContent = {
   investor: {
     title: "Investor Onboarding in Malta", description: "Malta property investor onboarding: share your purchase brief, prepare acquisition and funding checks, and understand the next steps with Wiele Properties.",
     eyebrow: "Malta property investment / Investor onboarding", heading: "Your ambition.", emphasis: "A considered beginning.",
-    introduction: "Malta property investment starts with your circumstances and your goals. Share an initial brief, understand the documents to prepare, and agree the next step with Jonathan Landman.",
+    introduction: "Malta property investment starts with your circumstances and your goals. Share an initial brief, understand the documents to prepare, and agree the next step with Wiele Properties.",
     formTitle: "Share your investor brief.",
     steps: [
       ["01 / Your brief", "Define the purchase.", "Tell us the property type, localities, budget, funding route, purchasing structure and intended use. Local buyers, international investors and joint purchasers are welcome."],

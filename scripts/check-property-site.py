@@ -42,6 +42,8 @@ for path in paths:
  assert status==200,(path,status)
  assert p.h1s==1,(path,'heading count',p.h1s)
  assert len(p.canonicals)==1 and p.canonicals[0].rstrip('/')==('https://wielegroup.com'+('/' if path=='/' else path)).rstrip('/'),(path,p.canonicals)
+ assert not re.search(r'Jonathan|Landman|jonathan|9932|wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'personal identity or direct contact remains')
+ assert 'mailto:admin@wielegroup.com' in text,(path,'admin contact missing')
  assert 'Wiele Properties' in text
  assert text.count('Malta Property. Global Ambition.') >= 2,(path,'shared brand tagline missing')
  assert 'Malta at heart' not in text and 'Investment in focus' not in text,(path,'retired tagline')
@@ -134,6 +136,7 @@ for path in ['/api/audit','/api/contact','/unknown-property-page']:
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
 for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-premium-editorial-20261030.jpg','/property-identity/option-1/icon-32.png']:
  status,_,_=get(path);assert status==200,(path,status)
+assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',get('/llms.txt')[2],re.I),'personal identity in llms.txt'
 print('PASS search metadata and brand resources')
 
 status,_,data=get('/sitemap.xml')

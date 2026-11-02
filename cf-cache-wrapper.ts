@@ -157,6 +157,12 @@ const handler = {
     ctx: ExecutionContext,
   ): Promise<Response> {
     // Retired URLs must never be served from a previous release cache.
+    // Removed profile media must not be served from prior image caches.
+    const requestedUrl = new URL(request.url);
+    if (requestedUrl.pathname === "/property/jonathan-landman-profile-2026-10-31.webp" ||
+        (requestedUrl.pathname === "/_next/image" && requestedUrl.searchParams.get("url") === "/property/jonathan-landman-profile-2026-10-31.webp")) {
+      return new Response(null, { status: 410, headers: { "X-Robots-Tag": "noindex", "Cache-Control": "no-store" } });
+    }
     if (isRetiredAgencyPath(new URL(request.url).pathname)) return retiredAgencyResponse(request.method);
 
     if (!isCacheableRequest(request)) {
@@ -167,7 +173,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261101-investment-evidence-v29"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261102-email-contact-v30"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

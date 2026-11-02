@@ -18,8 +18,8 @@ export async function POST(request:Request) {
  if(!parsed.success) return json({error:"Please check your name, email, message (10–3,000 characters) and all required brief fields."},400);
  const {website,token,...submission}=parsed.data;
  if(website) return json({ticketId:crypto.randomUUID()},202);
- let env:EnquiryEnvironment;try {env=getCloudflareContext().env as unknown as EnquiryEnvironment;}catch{return json({error:"Online enquiries are temporarily unavailable. Please email admin@wielegroup.com or use WhatsApp."},503);}
- if(!env.AUDIT_QUEUE || !env.TURNSTILE_SECRET_KEY) return json({error:"Online enquiries are temporarily unavailable. Please email admin@wielegroup.com or use WhatsApp."},503);
+ let env:EnquiryEnvironment;try {env=getCloudflareContext().env as unknown as EnquiryEnvironment;}catch{return json({error:"Online enquiries are temporarily unavailable. Please email admin@wielegroup.com."},503);}
+ if(!env.AUDIT_QUEUE || !env.TURNSTILE_SECRET_KEY) return json({error:"Online enquiries are temporarily unavailable. Please email admin@wielegroup.com."},503);
  try {
   const verify=await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify",{method:"POST",body:new URLSearchParams({secret:env.TURNSTILE_SECRET_KEY,response:token}),signal:AbortSignal.timeout(10000)});
   if(!verify.ok) return json({error:"Security verification is temporarily unavailable. Please retry."},503);
@@ -30,7 +30,7 @@ export async function POST(request:Request) {
  const ticketId=crypto.randomUUID();
  const queuedAt=new Date().toISOString();
  try {await env.AUDIT_QUEUE.put(`property-enquiry:${ticketId}`,JSON.stringify({ticketId,queuedAt,submission,...(submission.onboarding ? {onboardingVersion:"2026-10-31"} : {}),notification:"pending"}),{expirationTtl:60*60*24*90});}
- catch {console.error("Property enquiry storage failed");return json({error:"Your enquiry could not be saved. Please email admin@wielegroup.com or use WhatsApp."},503);}
+ catch {console.error("Property enquiry storage failed");return json({error:"Your enquiry could not be saved. Please email admin@wielegroup.com."},503);}
  // Durable storage is the success boundary; notification failure never loses the enquiry.
  if(env.RESEND_API_KEY) {
   try {
