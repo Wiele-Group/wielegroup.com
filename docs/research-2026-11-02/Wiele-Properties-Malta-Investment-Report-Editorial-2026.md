@@ -1,0 +1,515 @@
+# Wiele Properties | Malta Investment Property Report
+
+Malta Property. Global Ambition. | 2025 review / 2026 outlook | 2 November 2026
+
+Malta Investment Property Report
+2025 review / 2026 outlook
+
+The growth. The opportunity. The cost of getting in.
+An evidence-led Wiele perspective for your next property decision.
+
+# Malta. A market in motion.
+Malta Investment Property Report. 2025 review / 2026 outlook.
+Cover: AI-created modern Malta architectural concept. Not an actual property or listing.
+
+## The Wiele view
+
+An investment market is more than a rising price index. The useful question is what an individual asset can support after costs, risk and the reality of ownership.
+
+Our perspective
+
+Malta enters this review with positive house-price growth, a larger population and expanding tourism. Alongside that demand sits a substantial pipeline of approved dwellings. The combination calls for selection, rather than a blanket view that every property will perform alike. [1,4-7]
+
+At Wiele Properties, the starting point is the asset, the income and the detail. Wiele Properties is your point of contact in Swieqi, Malta, for property marketing and introductions. A first apartment and a wider portfolio deserve the same clarity of evidence.
+
+This report brings those questions together. It separates measured results from published forecasts, and both from our own interpretation and hypothetical investment tests. There is no promised yield, assumed stock availability or claim of a verified sales track record.
+
+How to read this edition
+
+The annual review covers January-December 2025 against 2024. Newer 2026 observations are dated separately. Research cut-off: 2 November 2026. Annual transactions use the retained October NSO workbook; the release page was rechecked. Fresh workbook download was blocked. Original published prices retain their stated vintage.
+
+In this report
+
+The year in numbers
+
+Momentum and a counter-signal
+
+Follow the income
+
+A locality starts the search
+
+Beyond the single apartment
+
+The outlook
+
+The cost of getting in
+
+The return, under pressure
+
+Read the detail
+
+Your next chapter
+
+Sources and image credits
+
+
+## 2025 / The measured result
+
+Malta property: annual-average price growth eased in 2025. Revised NSO totals show deed value growing faster than deed count.
+
+House-price growth
+
+Annual average, 2025 [1]
+
+Growth in deed value
+
+October 2026 vintage [3]
+
+Growth in approvals
+
+2025 new dwellings [6,21]
+
+| Revised annual totals [3] | 2024 | 2025 | Growth |
+| --- | --- | --- | --- |
+| Final deeds | 12,598 | 13,351 | 5.98% |
+| Final-deed value | €3,530.5m | €4,034.9m | 14.29% |
+| Promises of sale | 13,579 | 14,569 | 7.29% |
+
+Value per deed rose from approximately €280,243 to €302,217 (+7.84%). The mix of property and the number of properties within a deed affect this ratio; it is not a quality-adjusted price index. [3; calculations]
+
+Revision note: annual totals replace the original January release. Calculated from monthly rows in the retained 9 October 2026 workbook; a fresh download was blocked on 2 November. September figures match the rechecked release. Deeds and promises are separate stages, not additive sales. [1-3,9]
+
+
+## 2026 / The market signal
+
+House prices continued to rise. A weaker September transaction reading adds a reason to look beyond the headline.
+
+| Latest observations | Result | Reference |
+| --- | --- | --- |
+| Residential price growth | 6.9% annual; 1.6% quarterly | Q2 2026 [8] |
+| Apartments / maisonettes | 7.4% / 4.3% annual | Q2 2026 [8] |
+| Final deeds | 974; down 11.5% annually | September 2026 [9] |
+| Promises of sale | 959; down 9.6% annually | September 2026 [9] |
+
+The Wiele reading
+
+Price strength and softer transaction volumes can coexist. One month does not establish a downturn. Review several months of registrations, achieved rents and competing completions before changing the value assigned to a particular asset.
+
+Keep the measures distinct
+
+Annual-average growth describes a whole year. Year-on-year quarterly growth compares the same quarter in successive years. Neither is an annual rental return. Q4 2025 was revised from 6.1% in the original NSO release to 6.3% in the latest quarterly series. [2,8]
+
+
+## Income / The demand story
+
+Population and tourism provide context. Collected rent establishes the property income.
+
+Demand is visible
+
+Malta's resident population reached 588,254 at end-2025, up 2.4%. Net migration was 13,906. Inbound tourist trips rose 12.9% to 4,022,310, with nights up 11.0% to 25.4 million. These are demand indicators, not proof of occupancy or income for a particular home. [4,5]
+
+Tourist spending reached €3,904.4 million, an 18.6% increase. It includes transport, food and other expenditure; it cannot be treated as accommodation revenue. [4]
+
+Rent is not one number
+
+The HICP actual-rent component rose 1.7% on an annual-average basis in 2025. The Central Bank's advertised-rent models showed 4.9%-5.3% annual growth in Q1 2026. Different periods, samples and definitions make a direct comparison misleading. [10,11]
+
+The Housing Authority received 48,385 new contract submissions in 2025. It links the roughly 13% fall partly to registration-rule changes. That administrative decline cannot be read as an equivalent fall in demand. [14]
+
+For an acquisition: reconcile signed leases, receipts, arrears and recurring costs. Keep collected, contracted and projected income separate.
+
+
+## Opportunity / Search priorities
+
+Wiele research priorities, not a league table of achieved locality returns.
+
+Birkirkara / Santa Venera / Qormi
+
+Everyday housing, tested against cost.
+
+Investigate conventional long-let apartments where an efficient layout and practical access meet occupier needs. Test the all-in entry cost against genuinely comparable harbour assets.
+
+Ask for achieved rents, owner-paid costs and competing completions. Birkirkara had 256 new dwelling approvals in Q2 2026. [7]
+
+Msida / Gżira / Pietà
+
+Compact units. Specific streets.
+
+Assess tenant demand linked to nearby work and education. A quiet street, ventilation and a usable layout can matter more to an occupier than a broad locality label.
+
+Verify street-level rent comparables, damp and neighbouring works. Msida had 164 Q2 2026 dwelling approvals. [7]
+
+St Paul’s Bay
+
+Activity helps comparison. Income makes the case.
+
+An active transaction market can help an investor find relevant comparisons. Acquire for documented income and a defensible entry price, rather than the activity headline alone.
+
+September 2026 recorded 85 final deeds; Q2 approvals covered 258 dwellings. Neither figure proves liquidity for every unit. [7,9]
+
+No comparable official 2025 locality-level capital-growth or net-yield series was verified. These propositions require property-level evidence; no current Wiele stock or superior historical performance is implied.
+
+
+## Opportunity / The individual asset
+
+A useful location is part of the proposition. The lease, condition and total cost determine the investment case.
+
+Mosta / Naxxar / Marsaskala
+
+Homes for longer tenancies.
+
+Investigate demand for longer tenancies where parking, lift access and practical room sizes meet occupier needs. Test whether the specification supports the achieved rent.
+
+Review comparable leases, service charges, competing supply and the affordability of a future buyer.
+
+Sliema / St Julian’s / eligible SDAs
+
+Read the premium. Check the route.
+
+Consider access, occupier fit and acquisition eligibility alongside the entry premium. Higher headline rent does not automatically mean a higher net return.
+
+Confirm the exact development’s SDA status, service charges and lawful income use. A locality name alone proves none of these. [15,16]
+
+Gozo / selective locations
+
+Year-round evidence comes first.
+
+Investigate residential or tourism assets with documented year-round demand. A proven operation needs its own income record, rather than an island-wide tourism assumption.
+
+Review winter income, management and access costs, licences and local comparable rents. Day trips are not overnight demand.
+
+No comparable official 2025 locality-level capital-growth or net-yield series was verified. These propositions require property-level evidence; no current Wiele stock or superior historical performance is implied.
+
+
+## Opportunity / Beyond the apartment
+
+Blocks, refurbishment and commercial property require a different set of questions.
+
+Income-producing blocks
+
+A block can diversify individual tenant turnover and simplify control of common areas. Underwrite each unit separately, including rent collection, lease expiry, arrears, deposits and deferred works. Assess the price against concentrated location exposure and the potential whole-block exit market.
+
+Refurbishment with a reason
+
+Prioritise work that improves habitability, reduces maintenance or supports an evidenced rent increase. Ventilation, waterproofing, electrical safety and practical layouts deserve consideration before decorative upgrades. Unapproved subdivision and extra floors belong in a separate planning-risk case.
+
+Commercial: start with the lease
+
+For retail, offices and warehouses, review tenant strength, permitted use, lease breaks, rent-free periods, fit-out ownership and re-letting costs. A single departure can remove all operating income. Residential growth is not a proxy for commercial performance.
+
+Gross incremental rent / works cost
+
+€25,000 works that add an assumed €150 a month generate €1,800 annual gross incremental rent. Deduct vacancy, extra costs, tax and lost rent during works.
+
+Hypothetical screening calculation; not an observed Malta return or evidence that the rent increase is achievable.
+
+Tourism is an operation
+
+Require monthly occupancy, room rates, platform statements and operating accounts. Verify current MTA requirements and the exact licence and permitted use before relying on tourist income. [18]
+
+For consortiums, establish the lead contact, ownership, capital commitments and decision rules. Group ownership does not establish authorisation to promote a pooled investment product.
+
+
+## Outlook / Reviewed 2 November 2026
+
+Malta property investment: current evidence supports careful selection, with price growth and softer recent sales activity.
+
+| Indicator / observation period | Latest verified reading |
+| --- | --- |
+| National residential prices / Q2 2026 | +6.9% year on year [8] |
+| Registered final deeds / September 2026 | 974; -11.5% year on year [9] |
+| Malta HICP inflation / September 2026 | 2.4% year on year [12] |
+| ECB deposit facility / current policy | 2.50%; unchanged on 29 October [13] |
+
+The ECB rate is a policy rate, not a Maltese mortgage quote. Borrower costs depend on the lender, product, reference rate, margin, term and fees. The 4.5% loan on page 12 remains a hypothetical assumption. [13]
+
+The European context
+
+Savills estimates European investment at about €46bn in Q3 2026, down 6% annually; this is a preliminary nowcast published 1 October. Its coverage includes non-EU markets and commercial assets. These figures do not establish a yield or price for Maltese apartments. [22]
+
+The Wiele interpretation
+
+Prioritise evidenced rent, the full acquisition cost and a liquidity reserve. One weaker month does not prove a downturn. Continued credit and tourism demand could support activity; persistent weaker registrations, arrears or nearby competing completions would weaken an individual income case. [9,12; interpretation]
+
+| Hypothetical one-year tests | Capital value | Rent |
+| --- | --- | --- |
+| No-growth case | 0% | 0% |
+| Softer market | -5% | -5% |
+| Stronger market | +5% | +3% |
+
+Scenario inputs, not forecasts, probabilities or loss limits. Also test vacancy, works overruns and a 2 percentage-point borrowing-rate increase. Current locality yields and borrower quotations remain property-specific evidence gaps.
+
+
+## Acquisition / Entry costs
+
+A €300,000 asking price is not a €300,000 investment. The denominator changes once duty, fees and works are included.
+
+| Illustrative debt-free purchase | Cash requirement |
+| --- | --- |
+| Purchase price | €300,000 |
+| Stamp duty: standard 5% assumption [17] | €15,000 |
+| Notary, searches and technical/legal review | €7,500 allowance |
+| Initial works / furnishing | €15,000 allowance |
+| Total acquisition cost + works | €337,500 |
+| Separate liquidity reserve | €10,000 |
+| Total cash committed | €347,500 |
+
+Check the acquisition route
+
+MTCA states that property acquired under an Acquisition of Immovable Property (AIP) permit cannot be rented out. Citizenship, residence history, the buyer entity and the intended use must be assessed for the actual transaction. [15]
+
+Special Designated Areas (SDAs) have an acquisition exception described by MTCA. It does not prove that every development qualifies or that every income use is permitted. Entities require separate assessment. [16]
+
+Keep tax assumptions visible
+
+Provisional duty of 1% is part of the total duty, not an extra 1%. MTCA’s example applies 5% final duty, with market value or transfer value, whichever is higher, relevant to the tax base. Relief requires confirmation. [17]
+
+Do not add 18% VAT automatically to the price or rent. Treatment depends on the transaction and activity. Allowances here are assumed final cash costs, including unrecoverable taxes; obtain written quotations. [20]
+
+
+## Returns / The headline and the reality
+
+The same hypothetical apartment produces very different figures once the income basis, costs and denominator are made explicit.
+
+Gross scheduled yield
+
+€18,000 rent / €300,000 price
+
+Net operating yield
+
+€14,100 NOI / €337,500 cost
+
+Pre-tax cash-on-cash
+
+€1,094 cash / €167,500 equity
+
+These are different return measures, not successive deductions from one percentage. All figures are hypothetical annual examples; rent is assumed at €1,500 a month, not evidenced for a current listing.
+
+| Annual operating item | Base case | Rental downside |
+| --- | --- | --- |
+| Scheduled rent | €18,000 | €16,200 (-10%) |
+| Vacancy / collection loss | €900 (5%) | €1,620 (10%) |
+| Effective operating income | €17,100 | €14,580 |
+| Owner operating costs | €3,000 | €3,600 (+20%) |
+| Net operating income (NOI) | €14,100 | €10,980 |
+| NOI / €337,500 acquisition cost + works | 4.18% | 3.25% |
+| Separate recurring capital reserve | €1,000 | €1,000 |
+| Cash before finance and income tax | €13,100 | €9,980 |
+
+NOI is before financing, income tax and capital expenditure. Operating costs assume management, insurance, maintenance and owner-paid common costs. Vacancy is deducted once; the capital reserve is treated separately. Financing assumptions follow on page 12.
+
+
+## Returns / Under pressure
+
+Borrowing can leave little room between operating income and repayments.
+
+Base annual cash flow
+
+After debt service and reserve; before tax
+
+Rental-downside cash flow
+
+Same loan; lower income and higher costs
+
+Assume a €180,000 repayment loan: 60% of the purchase price, 25 years and a hypothetical 4.5% annual rate. Annual repayments are approximately €12,006. The base debt-service coverage ratio is 1.17 times: €14,100 NOI divided by €12,006 repayments.
+
+Cash equity committed is €167,500: €120,000 price equity, €37,500 costs and works, and a €10,000 liquidity reserve. The resulting pre-tax cash-on-cash is about 0.65%. No lender offer or current market interest rate is implied.
+
+At a 6.5% borrowing rate
+
+Annual repayments rise to approximately €14,584. With the base operating income and €1,000 capital reserve, cash flow falls to about -€1,484 before income tax. The rate is an illustrative stress input.
+
+Tax can consume the remaining cash
+
+MTCA describes an optional 15% final tax on qualifying gross rental income. If the investor qualifies and elects it, 15% of the base received rent of €17,100 is €2,565. That turns the financed base cash flow into approximately -€1,471, before any other investor taxes. It is not a complete after-tax return. [19]
+
+The practical consequence: assess the property’s cash resilience, not just the gross yield. Financing fees, additional works and investor-specific taxes require their own budget.
+
+
+## Acquisition / Read the detail
+
+Public statistics can frame the market. They cannot establish a particular property’s ownership, condition, lawful use or income.
+
+| Before an unconditional commitment | Evidence to obtain |
+| --- | --- |
+| Income and tenants | Signed leases, receipts, deposits, arrears and expiry/break dates; separate collected and projected income. |
+| Title and rights | Notarial searches, burdens, ground rent, access, airspace, parking and transfer/use rights. |
+| Planning and condition | Independent architect review of approved plans, permitted use, structure, damp, waterproofing and services. |
+| Building obligations | Condominium accounts, arrears, insurance, lift liabilities and near-term major works. |
+| Finance and eligibility | Actual lender terms; acquisition route and intended income use; investor-specific tax assessment. [15-17] |
+| Exit | Comparable sales, likely buyer pool, sale costs, applicable transfer tax and an extended holding period. |
+
+Price growth is not realised profit
+
+A €300,000 property rising 5% reaches €315,000 before selling costs. That remains below the €337,500 acquisition-and-works outlay in our example, unless the works add separate value. Positive market growth can coexist with a capital loss on exit.
+
+Deduct outstanding debt, applicable transfer taxes, sale costs, required works and holding-period cash losses from the proposed exit proceeds. Use the owner’s actual tax basis and holding history.
+
+
+## Wiele Properties / Your next chapter
+
+From a first apartment to a wider portfolio, the right starting point is a clear investment brief.
+
+Tell us what matters to you
+
+Preferred property type and locations. Purchase-budget range. Income objectives. Holding period and timing. If buying as a consortium, identify the lead contact, purchasing structure and decision process.
+
+Wiele Properties provides property marketing and introductions. Transaction documentation is handled by appropriately licensed practitioners. No availability, allocation or return is implied by an enquiry. Letting, tenancy administration and fund management are not offered.
+
+Contact Wiele Properties
+
+Share your brief. Clarify the information available. Agree a suitable next step. Income-led acquisitions and premium residences start with your objectives. By appointment in Swieqi; English and Afrikaans.
+
+[admin@wielegroup.com](mailto:admin@wielegroup.com)
+
+[Follow Wiele Properties on LinkedIn](https://www.linkedin.com/company/wiele-properties/)
+
+
+## Sources / 01-11
+
+Research reviewed 2 November 2026. Each source retains its observation period and publication vintage.
+
+[1] Eurostat: annual house prices, prc_hpi_a
+
+2025 annual-average growth 6.0%; 2024 6.7%; API updated 1 Oct 2026.
+
+[Open source](https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_a?geo=MT&purchase=TOTAL&unit=RCH_A_AVG&sinceTimePeriod=2023)
+
+[2] Eurostat: quarterly house prices, prc_hpi_q
+
+Latest quarterly growth series; Q4 2025 6.3%; updated 1 Oct 2026.
+
+[Open source](https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_q?geo=MT&purchase=TOTAL&unit=RCH_A&sinceTimePeriod=2024-Q1)
+
+[3] NSO: revised annual transaction tables
+
+9 Oct 2026 workbook, tables 1a, 2a and 5a; retained copy recalculated 2 Nov. Fresh download blocked.
+
+[Open source](https://nso.gov.mt/residential-property-transactions-september-2026/)
+
+[4] NSO: Inbound Tourism, December 2025
+
+12 Feb 2026; January-December totals and annual changes.
+
+[Open source](https://nso.gov.mt/inbound-tourism-december-2025/)
+
+[5] NSO: World Population Day, July 2026
+
+9 Jul 2026; end-2025 population and migration.
+
+[Open source](https://nso.gov.mt/world-population-day-11-july-2026/)
+
+[6] NSO: Economy - Residential Building Permits
+
+Updated 10 Apr 2026; 2025 totals. 2024 comparator in Q4 release tables.
+
+[Open source](https://nso.gov.mt/economy-residential-building-permits/)
+
+[7] NSO: Residential Building Permits, Q2 2026
+
+20 Aug 2026; approved dwellings and locality counts.
+
+[Open source](https://nso.gov.mt/residential-building-permits-q2-2026/)
+
+[8] NSO: Residential Property Price Index, Q2 2026
+
+1 Oct 2026; prices, segment growth and 2025 rebasing.
+
+[Open source](https://nso.gov.mt/residential-property-price-index-rppi-q2-2026/)
+
+[9] NSO: Residential Transactions, September 2026
+
+9 Oct 2026 release; registration basis. Release rechecked 2 Nov; workbook retained from prior research.
+
+[Open source](https://nso.gov.mt/residential-property-transactions-september-2026/)
+
+[10] Eurostat: actual rentals, prc_hicp_aind
+
+CP041, annual-average rate: 2025 1.7%, 2024 8.9%.
+
+[Open source](https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?geo=MT&coicop=CP041&unit=RCH_A_AVG&sinceTimePeriod=2024)
+
+[11] Central Bank: Quarterly Review 2026:3
+
+Advertised rental price models, p.32; Q1 2026 growth 4.9%-5.3%.
+
+[Open source](https://www.centralbankmalta.org/site/Publications/QR-2026-3/QR-2026-3.pdf)
+
+
+## Sources / 12-22
+
+Research reviewed 2 November 2026. Each source retains its observation period and publication vintage.
+
+[12] Central Bank: Economic Update 10/2026
+
+29 Oct 2026; information cut-off 19 Oct. September inflation and transactions; mostly August activity.
+
+[Open source](https://www.centralbankmalta.org/site/Publications/Economic-Update/2026/Update-10-26.pdf)
+
+[13] ECB: key policy rates / October decision
+
+2.50% deposit rate effective 16 Sep; held 29 Oct. Policy rate, not a borrower quotation.
+
+[Open source](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html)
+
+[14] Housing Authority: Annual Report 2025
+
+Rent registration, p.74; contract count and administrative comparability.
+
+[Open source](https://parlament.mt/media/139343/housing-authority-annual-report-2025.pdf)
+
+[15] MTCA: Acquisition of Immovable Property FAQ
+
+Official AIP restrictions; question 7 addresses renting.
+
+[Open source](https://mtca.gov.mt/personal-tax/property-taxes/acquisition-of-immovable-property-in-malta-by-non-residents/acquisition-of-immovable-property---faq)
+
+[16] MTCA: Conditions for buying immovable property
+
+Acquisition eligibility and SDA exception; entities require separate checks.
+
+[Open source](https://cfr.gov.mt/en/property_shares_transfers/Pages/Conditions-for-buying-immovable-property.aspx)
+
+[17] MTCA: Buying Property
+
+Duty, provisional payment, tax base and transfer process.
+
+[Open source](https://mtca.gov.mt/personal-tax/property-taxes/buying-property)
+
+[18] MTA: Licenses & Applications
+
+Current accommodation routes; page flags new 2026 law.
+
+[Open source](https://mta.com.mt/licenses-applications/)
+
+[19] MTCA: Rental Income FAQ
+
+Optional 15% gross-rental tax, exclusions and eligible taxpayer types.
+
+[Open source](https://mtca.gov.mt/personal-tax/individual/faqs/faqs1/general-questions-1/rental-income)
+
+[20] MTCA: Manual on Taxation of Rental Income
+
+Official manual; long-term residential VAT exemption and exceptions. Confirm the actual supply.
+
+[Open source](https://mtca.gov.mt/docs/default-source/documents/manual-on-taxation-of-rental-income.pdf?sfvrsn=fa731b2c_1)
+
+[21] NSO: Residential Building Permits, Q4 2025
+
+19 Feb 2026; Q4 approvals and historical supply comparison.
+
+[Open source](https://nso.gov.mt/residential-building-permits-q4-2025/)
+
+[22] Savills: European Investment Nowcast, Q3 2026
+
+1 Oct 2026; preliminary estimates, wider Europe and commercial assets; not a Malta residential yield.
+
+[Open source](https://www.savills.com/research_articles/254204/394882-0/market-in-minutes--european-investment-nowcast---q3-2026-preliminary-results)
+
+Photography, fonts and publication notes
+
+Images: AI-created modern Malta architectural concepts, generated with OpenAI ImageGen on 29 October 2026. They do not show actual properties, verified locations, completed Wiele projects or advertised stock.
+
+Body fonts: Cormorant Garamond and Manrope, SIL Open Font License. Approved brand lettering uses Didot. Screen-first PDF with selectable body text and live links. Printer-specific bleed, colour profiles and PDF/X preparation are not included.
+
+[Image credits and licences](https://wielegroup.com/credits)

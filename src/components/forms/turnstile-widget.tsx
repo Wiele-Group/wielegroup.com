@@ -75,9 +75,10 @@ export type TurnstileWidgetProps = {
   onToken: (token: string) => void;
   onError?: () => void;
   className?: string;
+  size?: "normal" | "flexible" | "compact";
 };
 
-export function TurnstileWidget({ onToken, onError, className }: TurnstileWidgetProps) {
+export function TurnstileWidget({ onToken, onError, className, size }: TurnstileWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const id = useId();
@@ -101,7 +102,7 @@ export function TurnstileWidget({ onToken, onError, className }: TurnstileWidget
           "error-callback": () => onError?.(),
           "expired-callback": () => onError?.(),
           theme: "light",
-          size: containerRef.current.clientWidth < 300 ? "compact" : "flexible",
+          size: size ?? (containerRef.current.clientWidth < 300 ? "compact" : "flexible"),
         });
       })
       .catch(() => onError?.());
@@ -118,7 +119,7 @@ export function TurnstileWidget({ onToken, onError, className }: TurnstileWidget
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- onToken/onError captured intentionally on first render
-  }, [siteKey, id]);
+  }, [siteKey, id, size]);
 
   if (!siteKey) {
     return (

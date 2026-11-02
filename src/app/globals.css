@@ -79,3 +79,16 @@ html{scroll-padding-top:126px}.reveal-pending:focus-within{opacity:1;transform:n
 
 /* Keep the direct email readable inside narrow personal-contact cards. */
 .personal-introduction>*{min-width:0}.personal-contact-card .text-link{max-width:100%;overflow-wrap:anywhere}.personal-contact-card .text-link svg{flex-shrink:0}
+
+/* Dated research context follows the established editorial system. */
+.market-context{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:9%;padding-block:56px;border-block:1px solid var(--line)}
+.market-context h2{font:400 clamp(32px,3.5vw,48px)/1.12 var(--font-heading);margin:18px 0}
+.market-context p{font-size:16px;line-height:1.85;color:var(--muted);margin:0 0 18px}
+.market-context .market-reviewed{font-size:12px}.market-context a:not(.text-link),.market-research a{text-decoration:underline;text-underline-offset:3px}
+.market-context strong{font-weight:600;color:var(--ink)}
+.market-research{padding-block:56px;scroll-margin-top:110px}.market-research>header{max-width:760px;margin-bottom:32px}.market-research h2{font:400 clamp(36px,4vw,56px)/1.1 var(--font-heading);margin:18px 0}.market-research p{font-size:16px;line-height:1.8;color:var(--muted)}
+.market-indicators{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 38px;border-top:1px solid var(--line)}
+.market-indicators article{padding-block:30px;border-bottom:1px solid var(--line)}.market-indicators strong{display:block;font:400 52px/1 var(--font-heading);color:var(--bronze,#75603e)}.market-indicators h3{font-size:16px;line-height:1.5;margin:16px 0 8px}.market-indicators p{font-size:14px;margin:10px 0}.market-indicators .market-period{font-size:13px;font-weight:500;color:var(--ink)}
+.market-research-notes{max-width:850px;padding-top:28px}.market-research-notes h3{font:500 27px/1.2 var(--font-heading);margin:26px 0 12px}.market-research-notes p{margin-bottom:18px}.market-research-notes .fine-print{font-size:13px;max-width:100%}
+@media(max-width:850px){.market-context{gap:6%}.market-indicators{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}}
+@media(max-width:640px){.market-context{grid-template-columns:minmax(0,1fr);gap:14px;padding-block:40px}.market-indicators{grid-template-columns:minmax(0,1fr)}.market-research{padding-block:40px}.market-indicators article{padding-block:24px}}

@@ -1,3 +1,4 @@
+import { MarketContext } from "@/components/property/market-context";
 import { InvestmentInformation } from "@/components/property/investment-information";
 import { ExperienceHero } from "@/components/property/experience-hero";
 import { PerspectiveGallery } from "@/components/property/perspective-gallery";
@@ -32,7 +33,8 @@ export default function Home() {
     <PersonalIntroduction />
     <IntentConcierge />
 
-    <section className="home-report wrap"><div><span className="eyebrow">The Wiele Properties report / October 2026</span><h2>Malta.<br /><em>A market in motion.</em></h2><p>Malta investment property: 2025 growth, the 2026 outlook and the detail behind an income-producing asset.</p><Link className="button" href="/malta-investment-report">Explore the report <Arrow diagonal /></Link></div><div className="report-object-stage"><span className="report-stage-label" aria-hidden="true">The Wiele perspective</span><Link className="home-report-cover" href="/malta-investment-report" aria-label="Explore the Wiele Malta Investment Property Report"><span className="report-object"><Image src="/property/report-option1-approved-cover.jpg" width={420} height={594} alt="Wiele Properties Malta Investment Property Report cover" /></span><span className="report-object-caption" aria-hidden="true">Explore the report <Arrow diagonal /></span></Link></div></section>
+    <section className="home-report wrap"><div><span className="eyebrow">The Wiele Properties report / Updated November 2026</span><h2>Malta.<br /><em>A market in motion.</em></h2><p>Malta investment property: revised 2025 results, the latest 2026 evidence and the detail behind an income-producing asset.</p><Link className="button" href="/malta-investment-report">Explore the report <Arrow diagonal /></Link></div><div className="report-object-stage"><span className="report-stage-label" aria-hidden="true">The Wiele perspective</span><Link className="home-report-cover" href="/malta-investment-report" aria-label="Explore the Wiele Malta Investment Property Report"><span className="report-object"><Image src="/property/report-research-20261102-cover.jpg" width={420} height={594} alt="Wiele Properties Malta Investment Property Report cover" /></span><span className="report-object-caption" aria-hidden="true">Explore the report <Arrow diagonal /></span></Link></div></section>
+    <MarketContext />
     <PerspectiveGallery />
     <InvestmentScenario />
 

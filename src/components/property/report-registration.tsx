@@ -40,7 +40,7 @@ export function ReportRegistration() {
     <div className="honeypot" aria-hidden="true"><label htmlFor="report-website">Leave this empty</label><input id="report-website" name="website" tabIndex={-1} autoComplete="off" /></div>
     <label className="report-optin"><input type="checkbox" name="updates" value="yes" /><span>I would also like Wiele Properties market updates and information about property opportunities by email. I can withdraw this choice at any time by emailing admin@wielegroup.com. <strong>Optional; not required to download.</strong></span></label>
     <p className="form-note">We use your details to record your report request and provide download access. Future marketing emails require the separate choice above. Read our <Link href="/privacy">privacy notice</Link>.</p>
-    <TurnstileWidget key={widgetKey} onToken={onToken} onError={onError} className="verification-note" />
+    <TurnstileWidget key={widgetKey} onToken={onToken} onError={onError} className="verification-note" size="compact" />
     {error && <div className="form-message error" role="alert">{error} {!token && <button type="button" onClick={() => { setError(""); setWidgetKey(k => k + 1); }}>Retry verification</button>}</div>}
     <button className="button" type="submit" disabled={pending}>{pending ? "Saving your registration…" : "Register & unlock the report"}<Arrow diagonal /></button>
   </form>;

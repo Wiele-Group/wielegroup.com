@@ -1,0 +1,11 @@
+id,claim,classification,observations,formula,confidence
+final_deeds_growth,final_deeds: 5.98% annual growth,calculated,final_deeds_2024;final_deeds_2025,(2025 / 2024 - 1) * 100,High arithmetic confidence for retained October vintage; no claim to a fresh downloaded revision
+deed_value_growth,deed_value: 14.29% annual growth,calculated,deed_value_2024;deed_value_2025,(2025 / 2024 - 1) * 100,High arithmetic confidence for retained October vintage; no claim to a fresh downloaded revision
+promises_growth,promises: 7.29% annual growth,calculated,promises_2024;promises_2025,(2025 / 2024 - 1) * 100,High arithmetic confidence for retained October vintage; no claim to a fresh downloaded revision
+rppi,Q2 2026: 6.9 percent YoY,observed,rppi,"Source reading, no annualisation",High for dated source; individual-property inference excluded
+deeds_sep,September 2026: 974 registrations,observed,deeds_sep,"Source reading, no annualisation",High for dated source; individual-property inference excluded
+approvals,Q2 2026: 3126 dwellings approved,observed,approvals,"Source reading, no annualisation",High for dated source; individual-property inference excluded
+deposit_rate,Effective 16 September 2026; held 29 October: 2.50 percent per annum,observed,deposit_rate,"Source reading, no annualisation",High for dated source; individual-property inference excluded
+hicp,September 2026: 2.4 percent YoY,observed,hicp,"Source reading, no annualisation",High for dated source; individual-property inference excluded
+europe_q3,Q3 2026: 46 EUR billion (approximate),source_estimate,europe_q3,"Source reading, no annualisation",Preliminary European estimate
+interpretation,Use evidenced income and total cost; price growth and softer volumes coexist.,interpretation,rppi;deeds_sep;deposit_rate;approvals,Different observation windows prevent a causal claim,"Qualitative; limited without property-level rents, borrower quotations and completed supply. One weak month does not prove a downturn."

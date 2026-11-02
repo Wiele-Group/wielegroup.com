@@ -12,7 +12,7 @@ There are currently no advertised properties. Location photographs are not prope
 - Seller onboarding: https://wielegroup.com/seller-onboarding (initial structured property brief; ownership, authority, EPC and planning preparation; no marketing instruction created)
 - Investor information: https://wielegroup.com/buying
 - Investment opportunities: https://wielegroup.com/properties
-- Market report: https://wielegroup.com/malta-investment-report (2025 review and 2026 outlook; complimentary PDF requires registration; marketing consent is optional)
+- Market report: https://wielegroup.com/malta-investment-report (16-page 2025 review and 2026 outlook; research updated 2 November 2026; revised annual NSO transactions, current national price/sales evidence and ECB policy context; complimentary PDF requires registration; marketing consent is optional)
 - Property maintenance: https://wielegroup.com/property-maintenance (Wiele-managed and operated; enquiries by form or email; no 24-hour or same-day promise)
 - Legal compliance guide: https://wielegroup.com/legal-compliance (general Malta property-acquisition information and FAQs for EU, non-EU/third-country and corporate buyers; official sources; independent professional advice required; reviewed 31 October 2026)
 - Approach: https://wielegroup.com/about
@@ -36,3 +36,6 @@ The interactive investment scenario uses clearly labelled hypothetical inputs, w
 
 Example investment information pack: https://wielegroup.com/property/investment-information-example.html
 This is an unfilled illustrative document structure covering asset particulars, income definitions, costs, evidence status and next questions. It is not a listing, verified asset record, valuation or investment recommendation. The homepage provides an accessible chapter-by-chapter preview.
+
+## Dated market research
+Reviewed 2 November 2026: Malta RPPI +6.9% year on year in Q2 2026; 974 registered final deeds in September 2026 (-11.5% year on year); ECB deposit facility 2.50%, held 29 October. Each has a distinct period and definition. Sources, limitations and annual revisions appear at https://wielegroup.com/malta-investment-report#market-evidence. No national index is an individual property valuation or rental return. Policy rates are not borrower quotations.

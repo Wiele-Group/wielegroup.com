@@ -1,0 +1,134 @@
+[
+  [
+    "1",
+    "Eurostat: annual house prices, prc_hpi_a",
+    "2025 annual-average growth 6.0%; 2024 6.7%; API updated 1 Oct 2026.",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_a?geo=MT&purchase=TOTAL&unit=RCH_A_AVG&sinceTimePeriod=2023"
+  ],
+  [
+    "2",
+    "Eurostat: quarterly house prices, prc_hpi_q",
+    "Latest quarterly growth series; Q4 2025 6.3%; updated 1 Oct 2026.",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_q?geo=MT&purchase=TOTAL&unit=RCH_A&sinceTimePeriod=2024-Q1"
+  ],
+  [
+    "3",
+    "NSO: revised annual transaction tables",
+    "9 Oct 2026 workbook, tables 1a, 2a and 5a; retained copy recalculated 2 Nov. Fresh download blocked.",
+    "https://nso.gov.mt/residential-property-transactions-september-2026/"
+  ],
+  [
+    "4",
+    "NSO: Inbound Tourism, December 2025",
+    "12 Feb 2026; January-December totals and annual changes.",
+    "https://nso.gov.mt/inbound-tourism-december-2025/"
+  ],
+  [
+    "5",
+    "NSO: World Population Day, July 2026",
+    "9 Jul 2026; end-2025 population and migration.",
+    "https://nso.gov.mt/world-population-day-11-july-2026/"
+  ],
+  [
+    "6",
+    "NSO: Economy - Residential Building Permits",
+    "Updated 10 Apr 2026; 2025 totals. 2024 comparator in Q4 release tables.",
+    "https://nso.gov.mt/economy-residential-building-permits/"
+  ],
+  [
+    "7",
+    "NSO: Residential Building Permits, Q2 2026",
+    "20 Aug 2026; approved dwellings and locality counts.",
+    "https://nso.gov.mt/residential-building-permits-q2-2026/"
+  ],
+  [
+    "8",
+    "NSO: Residential Property Price Index, Q2 2026",
+    "1 Oct 2026; prices, segment growth and 2025 rebasing.",
+    "https://nso.gov.mt/residential-property-price-index-rppi-q2-2026/"
+  ],
+  [
+    "9",
+    "NSO: Residential Transactions, September 2026",
+    "9 Oct 2026 release; registration basis. Release rechecked 2 Nov; workbook retained from prior research.",
+    "https://nso.gov.mt/residential-property-transactions-september-2026/"
+  ],
+  [
+    "10",
+    "Eurostat: actual rentals, prc_hicp_aind",
+    "CP041, annual-average rate: 2025 1.7%, 2024 8.9%.",
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?geo=MT&coicop=CP041&unit=RCH_A_AVG&sinceTimePeriod=2024"
+  ],
+  [
+    "11",
+    "Central Bank: Quarterly Review 2026:3",
+    "Advertised rental price models, p.32; Q1 2026 growth 4.9%-5.3%.",
+    "https://www.centralbankmalta.org/site/Publications/QR-2026-3/QR-2026-3.pdf"
+  ],
+  [
+    "12",
+    "Central Bank: Economic Update 10/2026",
+    "29 Oct 2026; information cut-off 19 Oct. September inflation and transactions; mostly August activity.",
+    "https://www.centralbankmalta.org/site/Publications/Economic-Update/2026/Update-10-26.pdf"
+  ],
+  [
+    "13",
+    "ECB: key policy rates / October decision",
+    "2.50% deposit rate effective 16 Sep; held 29 Oct. Policy rate, not a borrower quotation.",
+    "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"
+  ],
+  [
+    "14",
+    "Housing Authority: Annual Report 2025",
+    "Rent registration, p.74; contract count and administrative comparability.",
+    "https://parlament.mt/media/139343/housing-authority-annual-report-2025.pdf"
+  ],
+  [
+    "15",
+    "MTCA: Acquisition of Immovable Property FAQ",
+    "Official AIP restrictions; question 7 addresses renting.",
+    "https://mtca.gov.mt/personal-tax/property-taxes/acquisition-of-immovable-property-in-malta-by-non-residents/acquisition-of-immovable-property---faq"
+  ],
+  [
+    "16",
+    "MTCA: Conditions for buying immovable property",
+    "Acquisition eligibility and SDA exception; entities require separate checks.",
+    "https://cfr.gov.mt/en/property_shares_transfers/Pages/Conditions-for-buying-immovable-property.aspx"
+  ],
+  [
+    "17",
+    "MTCA: Buying Property",
+    "Duty, provisional payment, tax base and transfer process.",
+    "https://mtca.gov.mt/personal-tax/property-taxes/buying-property"
+  ],
+  [
+    "18",
+    "MTA: Licenses & Applications",
+    "Current accommodation routes; page flags new 2026 law.",
+    "https://mta.com.mt/licenses-applications/"
+  ],
+  [
+    "19",
+    "MTCA: Rental Income FAQ",
+    "Optional 15% gross-rental tax, exclusions and eligible taxpayer types.",
+    "https://mtca.gov.mt/personal-tax/individual/faqs/faqs1/general-questions-1/rental-income"
+  ],
+  [
+    "20",
+    "MTCA: Manual on Taxation of Rental Income",
+    "Official manual; long-term residential VAT exemption and exceptions. Confirm the actual supply.",
+    "https://mtca.gov.mt/docs/default-source/documents/manual-on-taxation-of-rental-income.pdf?sfvrsn=fa731b2c_1"
+  ],
+  [
+    "21",
+    "NSO: Residential Building Permits, Q4 2025",
+    "19 Feb 2026; Q4 approvals and historical supply comparison.",
+    "https://nso.gov.mt/residential-building-permits-q4-2025/"
+  ],
+  [
+    "22",
+    "Savills: European Investment Nowcast, Q3 2026",
+    "1 Oct 2026; preliminary estimates, wider Europe and commercial assets; not a Malta residential yield.",
+    "https://www.savills.com/research_articles/254204/394882-0/market-in-minutes--european-investment-nowcast---q3-2026-preliminary-results"
+  ]
+]
