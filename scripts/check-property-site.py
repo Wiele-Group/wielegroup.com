@@ -121,6 +121,7 @@ for path in sorted(links):
  parsed=urlparse(path)
  if parsed.path=='/property/investment-information-example.html':
   status,headers,data=get(parsed.path)
+  assert not re.search(rb'Jonathan|Landman|9932|wa\.me',data,re.I),'personal identity in example download'
   assert status==200 and 'text/html' in headers.get('Content-Type',''),('example download',status)
   example=Page();example.feed(data.decode('utf-8'))
   assert example.meta.get('robots')=='noindex' and example.h1s==1,'example document indexing/heading'
