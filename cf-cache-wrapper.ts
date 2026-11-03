@@ -85,6 +85,7 @@ export { DOQueueHandler, DOShardedTagCache, BucketCachePurge };
 
 const NO_CACHE_PATH_PREFIXES = [
   "/api/",
+  "/articles/",
   "/onboarding",
   "/_next/data",
   "/_next/image",
@@ -123,6 +124,8 @@ function isCacheableResponse(response: Response): boolean {
   // OpenNext flags prerendered ISR pages with this header. Dynamic SSR
   // routes (Server Action results, form intake responses) don't carry it.
   if (response.headers.get("x-nextjs-prerender") !== "1") return false;
+
+  if (/private|no-store/i.test(response.headers.get("cache-control") || "")) return false;
 
   // Defense in depth — never cache anything that set a cookie
   if (response.headers.has("set-cookie")) return false;
@@ -167,13 +170,21 @@ const handler = {
 
     if (!isCacheableRequest(request)) {
       const response = await opennextWorker.fetch(request, env, ctx);
+      if (requestedUrl.pathname.startsWith("/articles/")) {
+        const headers = new Headers(response.headers);
+        headers.set("Cache-Control", "private, no-store, max-age=0");
+        headers.set("CDN-Cache-Control", "no-store");
+        headers.set("Cloudflare-CDN-Cache-Control", "no-store");
+        headers.set("Vary", [headers.get("Vary"), "Cookie"].filter(Boolean).join(", "));
+        return stampCacheStatus(new Response(response.body, { status: response.status, statusText: response.statusText, headers }), "BYPASS");
+      }
       return stampCacheStatus(response, "BYPASS");
     }
 
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261102-research-v31"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261103-articles-v32"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

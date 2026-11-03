@@ -6,7 +6,7 @@ import sys,time,json,re
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/about','/contact','/privacy','/terms','/credits']
+paths=['/','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
@@ -76,6 +76,13 @@ for path in paths:
   assert service['provider']['@id']=='https://wielegroup.com/#organization' and service['areaServed']['name']=='Malta',(path,'service identity')
   page=next(e for e in entities if e.get('@type')=='WebPage')
   assert page['mainEntity']['@id']==service['@id'],(path,'service page relationship')
+ if path.startswith('/articles/'):
+  assert 'Register &amp; read the article' in text and 'name="email"' in text, 'article registration missing'
+  assert 'An operating short-let property and an apartment awaiting conversion' not in text, 'full article leaked before registration'
+  assert '/api/articles/media/demand-growth' not in text, 'private chart leaked before registration'
+  assert 'private' in headers.get('Cache-Control','') and 'no-store' in headers.get('Cache-Control',''), 'article shared caching allowed'
+  article=next(e for e in entities if e.get('@type')=='Article')
+  assert article['isAccessibleForFree'] is False and article['hasPart']['cssSelector']=='.registered-article-body', 'registration schema'
  if path=='/property-maintenance':
   assert 'Wiele Property Maintenance' in text and 'Wiele-managed' in text
   assert 'request-maintenance' in text and 'maintenance-services' in text
@@ -150,3 +157,9 @@ for entry in root.findall('s:url',ns):
 status,_,data=get('/robots.txt')
 assert b'Sitemap: https://wielegroup.com/sitemap.xml' in data and b'Disallow: /api/' in data,'crawl rules'
 print('PASS sitemap canonical coverage, modification dates and crawl rules')
+
+for path in ['/api/articles/media/demand-growth','/api/articles/media/occupancy-sensitivity']:
+ status,headers,data=get(path)
+ assert status==401,(path,'anonymous media must be denied',status)
+ assert 'no-store' in headers.get('Cache-Control','') and not data,(path,'private chart leaked or cached')
+print('PASS anonymous article access: no protected body, no charts, private cache headers')

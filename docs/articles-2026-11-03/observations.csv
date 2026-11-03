@@ -1,0 +1,13 @@
+observation_id,metric,value,unit,geography,observation_period,source_id,filters_and_limitations
+O1,Platform guest nights YoY,25,percent,Malta,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O2,Platform guest nights YoY,8.3,percent,Greece,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O3,Platform guest nights YoY,8.1,percent,Italy,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O4,Platform guest nights YoY,6.2,percent,France,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O5,Platform guest nights YoY,5.3,percent,EU,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O6,Platform guest nights YoY,2.6,percent,Portugal,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O7,Platform guest nights YoY,1.9,percent,Spain,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O8,Platform guest nights YoY,-2.4,percent,Cyprus,Q2 2026,S1,Airbnb Booking Expedia; all guest origins; no seasonal adjustment
+O9,Platform guest nights,258.8,million,EU,Q2 2026,S1,same three-platform coverage
+O10,Inbound tourists,3599493,people,Malta,Jan–Sep 2026,S2,all tourism accommodation
+O11,Tourist expenditure,3450.5,EUR million,Malta,Jan–Sep 2026,S2,"total visitor expenditure, not rental receipts"
+O12,ECB deposit facility rate,2.5,percent,euro area,2026-10-29,S8,"policy rate, not mortgage rate"

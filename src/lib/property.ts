@@ -22,6 +22,7 @@ export const propertyNavigation = [
   { href: "/properties", label: "Opportunities" },
   { href: "/property-maintenance", label: "Maintenance" },
   { href: "/malta-investment-report", label: "Report" },
+  { href: "/articles", label: "Articles" },
   { href: "/legal-compliance", label: "Legal guide" },
   { href: "/about", label: "Our approach" },
 ];

@@ -1,0 +1,5 @@
+claim_id,claim,classification,evidence,reasoning_or_formula,counterevidence_or_assumptions,confidence
+C1,Platform demand continues to expand,observed,O1–O9,Official matching-quarter observations,Not occupancy or profitability,High for covered platform segment
+C2,Regulatory diligence matters increasingly to acquisition decisions,interpretation,S3–S7;S11,Changes affect lawful capacity and costs,Local implementation and transitions vary,Strong legal basis; investment implication is editorial judgement
+C3,Selective opportunity over next 12–24 months,interpretation,S1;S8–S12,"Demand expansion alongside housing constraints, financing and rule risks",No quantitative Europe-wide STR forecast available,Moderate; conditional outlook
+C4,Lower occupancy can reduce operating surplus disproportionately,scenario,Model assumptions,(365*ADR*occupancy)*(1-variable_cost_share)-fixed_costs,"Hypothetical EUR100 ADR,25% variable,EUR8000 fixed; excludes financing tax capex","Exact arithmetic; assumptions are illustrative, not market estimates"
