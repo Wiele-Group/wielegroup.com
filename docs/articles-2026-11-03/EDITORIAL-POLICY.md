@@ -25,3 +25,8 @@ User confirmed 3 November 2026:
 - Suggested series title: Wiele Quarterly — Malta Investment Property Update | Q[1–4] [year].
 - The November 2026 launch article remains dated 3 November; it is not retrospectively presented as a completed Q4 review. Future quarterly editions should use the latest available releases and disclose reporting lags.
 - This records an editorial cadence. No automatic research, publishing job, reminder or email distribution has been scheduled by this update.
+
+
+## Standing cross-platform search and metadata requirement
+
+User confirmed 3 November2026: apply SEO, AEO, GEO (generative engine optimisation) and metadata to all new images and posts across platforms. Use accurate Malta/property anchors, useful answers, dated/cited claims, consistent entity identity, descriptive image filenames/alt text/captions, accurate image provenance/AI disclosures, and platform-supported SEO/social metadata. Website canonicals/Open Graph/structured data must match visible content and registration restrictions. Maintain descriptive master-file metadata where supported; social platforms may strip it and control their own HTML/schema. Never claim unverified retention, indexing, ranking or AI placement. Full standard: /Users/jonathanlandman/Documents/Wiele Properties/Brand/PUBLISHING-SEARCH-AND-METADATA-POLICY.md.
