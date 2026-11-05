@@ -9,8 +9,8 @@ const description = "Malta property investment legal guide: EU and non-EU buyers
 const title = "Malta Property Investment: Legal Compliance & FAQs";
 export const metadata: Metadata = {
   ...propertyMetadata(title, description, "/legal-compliance"),
-  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: `${title} | Wiele Properties`, description, url: "/legal-compliance", images: [{ url: "/property/og-legal-compliance-20261031.jpg", width: 1200, height: 630, alt: "Wiele Properties — Malta property investment legal guide. EU, non-EU, TCN and corporate buyers. Typographic brand artwork." }] },
-  twitter: { card: "summary_large_image", title: `${title} | Wiele Properties`, description, images: ["/property/og-legal-compliance-20261031.jpg"] },
+  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: `${title} | Wiele Investments`, description, url: "/legal-compliance", images: [{ url: "/property/og-legal-compliance-20261031.jpg", width: 1200, height: 630, alt: "Wiele Investments — Malta property investment legal guide. EU, non-EU, TCN and corporate buyers. Typographic brand artwork." }] },
+  twitter: { card: "summary_large_image", title: `${title} | Wiele Investments`, description, images: ["/property/og-legal-compliance-20261031.jpg"] },
 };
 function SourceLinks({ sources }: { sources: readonly ComplianceSource[] }) {
   return <ul className="compliance-source-links" aria-label="Official sources">{sources.map(key => <li key={key}><a href={complianceSources[key].url} target="_blank" rel="noopener noreferrer">{complianceSources[key].label}<span className="sr-only"> (opens in a new tab)</span> <Arrow diagonal /></a></li>)}</ul>;

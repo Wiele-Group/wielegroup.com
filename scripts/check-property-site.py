@@ -44,7 +44,7 @@ for path in paths:
  assert len(p.canonicals)==1 and p.canonicals[0].rstrip('/')==('https://wielegroup.com'+('/' if path=='/' else path)).rstrip('/'),(path,p.canonicals)
  assert not re.search(r'Jonathan|Landman|jonathan|9932|wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'personal identity or direct contact remains')
  assert 'mailto:admin@wielegroup.com' in text,(path,'admin contact missing')
- assert 'Wiele Properties' in text
+ assert 'Wiele Investments' in text
  assert text.count('Malta Property. Global Ambition.') >= 2,(path,'shared brand tagline missing')
  assert 'Malta at heart' not in text and 'Investment in focus' not in text,(path,'retired tagline')
  assert p.title and p.title not in titles,(path,'missing or duplicate title')
@@ -70,7 +70,7 @@ for path in paths:
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='Malta Property. Global Ambition.',(path,'organization slogan')
  assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
- assert org['name']=='Wiele Properties' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
+ assert org['name']=='Wiele Investments' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization' and service['areaServed']['name']=='Malta',(path,'service identity')

@@ -12,9 +12,9 @@ export const onboardingSources = {
 export type OnboardingSource = keyof typeof onboardingSources;
 export const onboardingContent = {
   investor: {
-    title: "Investor Onboarding in Malta", description: "Malta property investor onboarding: share your purchase brief, prepare acquisition and funding checks, and understand the next steps with Wiele Properties.",
+    title: "Investor Onboarding in Malta", description: "Malta property investor onboarding: share your purchase brief, prepare acquisition and funding checks, and understand the next steps with Wiele Investments.",
     eyebrow: "Malta property investment / Investor onboarding", heading: "Your ambition.", emphasis: "A considered beginning.",
-    introduction: "Malta property investment starts with your circumstances and your goals. Share an initial brief, understand the documents to prepare, and agree the next step with Wiele Properties.",
+    introduction: "Malta property investment starts with your circumstances and your goals. Share an initial brief, understand the documents to prepare, and agree the next step with Wiele Investments.",
     formTitle: "Share your investor brief.",
     steps: [
       ["01 / Your brief", "Define the purchase.", "Tell us the property type, localities, budget, funding route, purchasing structure and intended use. Local buyers, international investors and joint purchasers are welcome."],
@@ -35,7 +35,7 @@ export const onboardingContent = {
     ],
   },
   seller: {
-    title: "Seller Onboarding in Malta", description: "Malta property seller onboarding: share your property brief and prepare ownership, authority, EPC, planning and income records before marketing with Wiele Properties.",
+    title: "Seller Onboarding in Malta", description: "Malta property seller onboarding: share your property brief and prepare ownership, authority, EPC, planning and income records before marketing with Wiele Investments.",
     eyebrow: "Malta property marketing / Seller onboarding", heading: "Your property.", emphasis: "Prepared with purpose.",
     introduction: "Malta property marketing begins with a clear brief and reliable particulars. Tell us about your property, understand what to prepare, and agree the scope before advertising starts.",
     formTitle: "Introduce your property.",

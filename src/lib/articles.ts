@@ -16,7 +16,7 @@ export const articles = [{
   imageCaption: "AI-generated editorial illustration · Imagined Mediterranean setting, not a real property or location photograph.",
 }] as const;
 export const articlesPath = "/articles";
-export const articlesDescription = "Malta investment property articles: income-producing real estate, established going concerns and properties with potential. Research and practical acquisition considerations from Wiele Properties.";
+export const articlesDescription = "Malta investment property articles: income-producing real estate, established going concerns and properties with potential. Research and practical acquisition considerations from Wiele Investments.";
 export const articleConsentVersion = "article-updates-2026-11-03";
 export function findArticle(slug: string) { return articles.find(article => article.slug === slug); }
 export function articleMetadata(article: typeof articles[number]): Metadata {

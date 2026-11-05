@@ -57,9 +57,9 @@ export async function POST(request: Request) {
   if (env.RESEND_API_KEY) {
     try {
       const sent = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json", "Idempotency-Key": `report-registration-${registrationId}` }, body: JSON.stringify({
-        from: "Wiele Properties <admin@wielegroup.com>", to: ["admin@wielegroup.com"], reply_to: submission.email,
-        subject: "Investor report registration · Wiele Properties",
-        text: `WIELE PROPERTIES\nReport: ${investmentReport.title}\nReference: ${registrationId}\nRegistered: ${registeredAt}\n\nName: ${submission.name}\nEmail: ${submission.email} (provided, not verified)\nInterest: ${submission.objective}\nOptional market/opportunity updates: ${submission.updates ? "OPTED IN" : "NOT OPTED IN"}\nConsent wording version: ${investmentReport.consentVersion}\n\nRegistration unlocks the report; it is not a property reservation or investment commitment.`,
+        from: "Wiele Investments <admin@wielegroup.com>", to: ["admin@wielegroup.com"], reply_to: submission.email,
+        subject: "Investor report registration · Wiele Investments",
+        text: `WIELE INVESTMENTS\nReport: ${investmentReport.title}\nReference: ${registrationId}\nRegistered: ${registeredAt}\n\nName: ${submission.name}\nEmail: ${submission.email} (provided, not verified)\nInterest: ${submission.objective}\nOptional market/opportunity updates: ${submission.updates ? "OPTED IN" : "NOT OPTED IN"}\nConsent wording version: ${investmentReport.consentVersion}\n\nRegistration unlocks the report; it is not a property reservation or investment commitment.`,
       }), signal: AbortSignal.timeout(10000) });
       if (!sent.ok) console.error("Report registration notification unavailable; record retained");
     } catch { console.error("Report registration notification unavailable; record retained"); }

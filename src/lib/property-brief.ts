@@ -50,7 +50,7 @@ export async function prepareBrief(input:BriefInput,env:BriefEnvironment,identit
   await Promise.all([env.AUDIT_QUEUE.put(limitKey,String(used+1),{expirationTtl:86400}),env.AUDIT_QUEUE.put(totalKey,String(total+1),{expirationTtl:86400})]);
   let timer:ReturnType<typeof setTimeout>|undefined;
   const inference=env.AI.run("@cf/meta/llama-3.1-8b-instruct-fp8",{
-   messages:[{role:"system",content:`You organise property enquiry preparation for Wiele Properties in Malta. Choose exactly three distinct relevant question IDs from the supplied approved bank. Return JSON only: {"questions":["id","id","id"]}. Never write advice, property recommendations, numbers, availability, legal conclusions or new questions. Wiele has no advertised stock. The user's selections are preferences, not verified financial facts. Approved bank: ${JSON.stringify(briefQuestions)}`},{role:"user",content:JSON.stringify(input)}],
+   messages:[{role:"system",content:`You organise property enquiry preparation for Wiele Investments in Malta. Choose exactly three distinct relevant question IDs from the supplied approved bank. Return JSON only: {"questions":["id","id","id"]}. Never write advice, property recommendations, numbers, availability, legal conclusions or new questions. Wiele has no advertised stock. The user's selections are preferences, not verified financial facts. Approved bank: ${JSON.stringify(briefQuestions)}`},{role:"user",content:JSON.stringify(input)}],
    response_format:{type:"json_object"},temperature:.1,max_tokens:100,
   });
   const response=await Promise.race([inference,new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(new Error("Preparation timed out")),12000);})]).finally(()=>clearTimeout(timer));

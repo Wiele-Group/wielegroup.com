@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const propertyBrand = {
-  name: "Wiele Properties",
+  name: "Wiele Investments",
   tagline: "Malta Property. Global Ambition.",
   url: "https://wielegroup.com",
   email: "admin@wielegroup.com",
