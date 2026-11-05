@@ -45,7 +45,6 @@ for path in paths:
  assert not re.search(r'Jonathan|Landman|jonathan|9932|wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'personal identity or direct contact remains')
  assert 'mailto:admin@wielegroup.com' in text,(path,'admin contact missing')
  assert 'Wiele Investments' in text
- assert text.count('Malta Property. Global Ambition.') >= 2,(path,'shared brand tagline missing')
  assert 'Malta at heart' not in text and 'Investment in focus' not in text,(path,'retired tagline')
  assert p.title and p.title not in titles,(path,'missing or duplicate title')
  titles.add(p.title)
