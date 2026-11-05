@@ -23,7 +23,7 @@ p { text-wrap: pretty; }
 .site-header { height: 102px; }
 .header-inner { gap: 24px; }
 .site-header .brand { min-height: 88px; }
-.brand-integrated { width: 272px; }
+.brand-integrated { width: 220px; }
 .desktop-nav { gap: 22px; }
 .desktop-nav a { font-size: 12px; letter-spacing: .045em; }
 .header-contact { font-size: 12px; letter-spacing: .06em; min-height: 48px; }
@@ -195,7 +195,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 640px) {
   .site-header { height: 92px; }
   .site-header .brand { min-height: 80px; }
-  .brand-integrated { width: 238px; }
+  .brand-integrated { width: 198px; }
   .header-inner { padding-inline: 20px; gap: 12px; }
   .header-contact { display: none; }
   .wrap { width: calc(100% - 48px); }
@@ -236,7 +236,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .brand-footer .brand-integrated { width: min(285px, 100%); }
 }
 @media (max-width: 360px) {
-  .brand-integrated { width: 208px; }
+  .brand-integrated { width: 185px; }
   .header-inner { padding-inline: 16px; gap: 8px; }
   .editorial-hero-copy { padding-inline: 24px; }
   .editorial-hero h1 { font-size: 46px; }
