@@ -16,16 +16,16 @@ export const metadata: Metadata = {
  title: { default: "Malta Investment Real Estate | Wiele Properties", template: "%s | Wiele Properties" },
  description: propertyBrand.description,
  alternates: { canonical: "/" },
- openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-premium-editorial-20261030.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline} AI-created architecture concept; not a property listing.` }] },
- twitter: { card: "summary_large_image", title: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, images: ["/property/og-premium-editorial-20261030.jpg"] },
- icons: { icon: [{ url: "/property-identity/option-1/icon-32.png", sizes: "32x32", type: "image/png" }, { url: "/property-identity/option-1/icon-64.png", sizes: "64x64", type: "image/png" }], apple: "/property-identity/option-1/icon-180.png" },
+ openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-wiele-reflective-gold.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline} Malta property marketing and introductions.` }] },
+ twitter: { card: "summary_large_image", title: "Malta Investment Real Estate | Wiele Properties", description: propertyBrand.description, images: ["/property/og-wiele-reflective-gold.jpg"] },
+ icons: { icon: [{ url: "/property-identity/reflective-gold/favicon-16.png", sizes: "16x16", type: "image/png" }, { url: "/property-identity/reflective-gold/favicon-32.png", sizes: "32x32", type: "image/png" }], apple: "/property-identity/reflective-gold/apple-touch-icon.png" },
  other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#171a19" };
 export default function Layout({ children }: { children: React.ReactNode }) {
  const schema = { "@context": "https://schema.org", "@type": "Organization", name: propertyBrand.name, slogan: propertyBrand.tagline, alternateName: ["Wiele Property", "Wiele Group", "WieleGroup"], url: propertyBrand.url, email: propertyBrand.email, description: propertyBrand.description,
- "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/option-1/wiele-premium-stacked-ivory.png`,
+ "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/reflective-gold/organisation-icon.png`,
  foundingDate: propertyBrand.founded,
  address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
  sameAs: Object.values(propertyBrand.social),

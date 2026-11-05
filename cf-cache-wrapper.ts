@@ -184,7 +184,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261103-articles-v32"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "property-20261105-reflective-gold-v33"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

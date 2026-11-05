@@ -33,7 +33,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-premium-editorial-20261030.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline} AI-created architecture concept; not a property listing.` }] },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-premium-editorial-20261030.jpg"] },
+      images: [{ url: "/property/og-wiele-reflective-gold.jpg", width: 1200, height: 630, alt: `${propertyBrand.name} — ${propertyBrand.tagline} Malta property marketing and introductions.` }] },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-wiele-reflective-gold.jpg"] },
   };
 }

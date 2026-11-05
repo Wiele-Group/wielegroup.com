@@ -142,7 +142,7 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
 for path in ['/api/audit','/api/contact','/unknown-property-page']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-premium-editorial-20261030.jpg','/property-identity/option-1/icon-32.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-reflective-gold.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/reflective-gold/masthead.png','/property-identity/reflective-gold/footer.png','/property-identity/reflective-gold/organisation-icon.png']:
  status,_,_=get(path);assert status==200,(path,status)
 assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',get('/llms.txt')[2],re.I),'personal identity in llms.txt'
 print('PASS search metadata and brand resources')
