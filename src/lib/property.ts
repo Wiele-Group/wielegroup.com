@@ -10,7 +10,6 @@ export const propertyBrand = {
   languages: ["English", "Afrikaans"],
   social: {
     facebook: "https://www.facebook.com/wieleproperties/",
-    instagram: "https://www.instagram.com/wieleproperty/",
     linkedin: "https://www.linkedin.com/company/wiele-properties/",
   },
   description: "Malta property marketing, buyer introductions and Wiele-managed property maintenance. Based in Swieqi, serving local and international property owners and buyers.",
