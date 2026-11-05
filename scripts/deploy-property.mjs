@@ -14,7 +14,7 @@ try {
   if (spawnSync('git', ['diff', '--quiet', 'HEAD']).status !== 0) throw new Error('Commit the website changes before deploying.');
   await run('npm', ['run', 'build:cf']);
   // Port 0 avoids collisions with existing developer previews.
-  preview = spawn('npx', ['wrangler', 'dev', '--port', '0'], { stdio: ['ignore', 'pipe', 'pipe'] });
+  preview = spawn('npx', ['wrangler', 'dev', '--local', '--port', '0'], { stdio: ['ignore', 'pipe', 'pipe'] });
   const ready = new Promise((resolve, reject) => {
     let output = '';
     const timer = setTimeout(() => reject(new Error('Local verification preview did not become ready.')), 45000);
