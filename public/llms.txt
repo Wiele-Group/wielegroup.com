@@ -32,7 +32,7 @@ Based in Swieqi, Malta. Established 2026. By appointment only. Client languages:
 All enquiries go to admin@wielegroup.com. Enquiry process: share the property brief, clarify the available information, then agree a suitable next step. Buyer journeys distinguish income-focused acquisitions from premium residences. The report page includes selected public chart and worked-example previews; the complete PDF requires registration.
 
 ## Optional website tools
-The interactive investment scenario uses clearly labelled hypothetical inputs, with gross yield on price and operating yield on stated total cost. It excludes financing, income tax and future capital expenditure. Optional property-brief preparation organises visitor selections; AI may select questions from an approved list. It does not recommend available stock or assess acquisition eligibility.
+The interactive investment scenario uses clearly labelled hypothetical inputs, with gross yield on price and operating yield on stated total cost. It excludes financing, income tax and future capital expenditure. It does not recommend available stock or assess acquisition eligibility.
 
 Example investment information pack: https://wielegroup.com/property/investment-information-example.html
 This is an unfilled illustrative document structure covering asset particulars, income definitions, costs, evidence status and next questions. It is not a listing, verified asset record, valuation or investment recommendation. The example is available as a separate illustrative document. It is not an advertised property.

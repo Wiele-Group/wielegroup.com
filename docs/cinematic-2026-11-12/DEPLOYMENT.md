@@ -16,4 +16,6 @@ Search and metadata preparation:
 - Swieqi/Malta business location, current brand, service scope, general email and official social links remain consistent. llms.txt updated to match homepage structure and access restrictions. No claim of guaranteed rankings, AI recommendations or rich-result eligibility.
 - Public Turnstile build configuration reused from existing approved environment; no server secrets copied or changed. Existing remote secret and storage binding names confirmed through Cloudflare settings.
 
+The edge-cache release key is wiele-cinematic-20261112-metadata-v34, preventing prior-release HTML from being reused. Existing protected-route cache exclusions remain in force.
+
 Final release result and live validation will be recorded after the authorised deployment completes.
