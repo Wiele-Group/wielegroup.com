@@ -25,7 +25,7 @@ export function LuxuryMotion() {
     let observer: IntersectionObserver | undefined;
     let frame = 0;
     const elements = Array.from(document.querySelectorAll<HTMLElement>(
-      ".estate-introduction>div, .home-report>div, .estate-section-heading, .estate-lifestyle, .estate-seller-copy, .estate-collection>div, .estate-principles-grid article, .band-inner>*, .page-intro>*, .split-feature>*, .buyer-grid article, .process-list article"
+      ".cinema-intro-grid>*, .cinema-property, .cinema-research-copy, .cinema-process-grid>*, .cinema-care>*, .estate-introduction>div, .home-report>div, .estate-section-heading, .estate-lifestyle, .estate-seller-copy, .estate-collection>div, .estate-principles-grid article, .band-inner>*, .page-intro>*, .split-feature>*, .buyer-grid article, .process-list article"
     ));
     const reset = () => {
       observer?.disconnect();

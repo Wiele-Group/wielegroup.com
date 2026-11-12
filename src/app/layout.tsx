@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "./property-premium.css";
 import "./property-experience.css";
 import "./property-articles.css";
+import "./property-cinematic.css";
 import { ExperienceMotion } from "@/components/property/experience-motion";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";
 import { StructuredData } from "@/components/property/structured-data";
 import { propertyBrand } from "@/lib/property";
-const sans = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans", display: "swap" });
-const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], variable: "--font-display", display: "swap" });
+const sans = localFont({ src: "./fonts/manrope.ttf", weight: "200 800", variable: "--font-sans", display: "swap" });
+const serif = localFont({ src: [{ path: "./fonts/cormorant.ttf", weight: "300 700", style: "normal" }, { path: "./fonts/cormorant-italic.ttf", weight: "300 700", style: "italic" }], variable: "--font-display", display: "swap" });
 export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
  title: { default: `Malta Investment Real Estate | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },
