@@ -3,6 +3,8 @@ import { useEffect, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 
 const measurementId = "G-8YCESQ46BH";
+// Load the current Google tag; keep events directed to the existing Wiele stream.
+const googleTagId = "GT-5R652DLW";
 const storageKey = "wiele-analytics-consent-v1";
 const changeEvent = "wiele-consent-change";
 let loaded = false;
@@ -33,7 +35,7 @@ function setChoice(value: "accepted" | "rejected") {
 }
 export function trackPropertyEvent(name: "generate_lead" | "contact_click" | "report_download_click", props: Record<string,string> = {}) {
  if (choice() !== "accepted") return;
- window.gtag?.("event", name, props);
+ window.gtag?.("event", name, { ...props, send_to: measurementId });
 }
 export function PropertyAnalytics() {
  const consent = useSyncExternalStore(subscribe, choice, () => null);
@@ -54,11 +56,11 @@ export function PropertyAnalytics() {
   } else window.gtag("consent", "update", { analytics_storage: "granted" });
   if (!loaded) {
    const script = document.createElement("script"); script.async = true;
-   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+   script.src = `https://www.googletagmanager.com/gtag/js?id=${googleTagId}`;
    document.head.appendChild(script); loaded = true;
   }
   if (lastPage !== pathname) {
-   window.gtag("event", "page_view", { page_location: window.location.origin + pathname, page_title: document.title, page_referrer: document.referrer ? new URL(document.referrer).origin : "" });
+   window.gtag("event", "page_view", { send_to: measurementId, page_location: window.location.origin + pathname, page_title: document.title, page_referrer: document.referrer ? new URL(document.referrer).origin : "" });
    lastPage = pathname;
   }
  },[consent,pathname]);
