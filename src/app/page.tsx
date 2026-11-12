@@ -1,3 +1,4 @@
+import { WieleAlgorithm } from "@/components/property/wiele-algorithm";
 import Link from "next/link";
 import Image from "next/image";
 import { ExperienceHero } from "@/components/property/experience-hero";
@@ -10,7 +11,7 @@ import cinematicImages from "../../public/property/cinematic-image-metadata.json
 
 const perspectives = [
   { number: "01", title: "Your next investment.", subtitle: "For buyers & investors", image: "wiele-mediterranean-interior-concept.webp", description: "A first apartment. An income-producing asset. A wider portfolio. Start with the brief that matters to you.", href: "/buying", action: "The buyer perspective", alt: "AI-created interior concept with natural materials and contemporary furniture" },
-  { number: "02", title: "Your property's potential.", subtitle: "For property owners", image: "wiele-malta-apartments-concept.webp", description: "Present your asset with a clear story, considered photography and the information a buyer needs to assess it.", href: "/selling", action: "The owner perspective", alt: "AI-created contemporary limestone apartment façade concept" },
+  { number: "02", title: "Your property's potential.", subtitle: "For property owners", image: "wiele-malta-apartments-concept.webp", description: "A strategy built around your property, likely buyers and market evidence. Discover The Wiele Algorithm.", href: "/selling", action: "The owner perspective", alt: "AI-created contemporary limestone apartment façade concept" },
 ];
 
 export default function Home() {
@@ -38,11 +39,7 @@ export default function Home() {
 
     <section id="malta" className="cinema-place"><Image src="/property/wiele-valletta-waterfront.webp" alt="Valletta waterfront and dome across the harbour in Malta, photographed by Ludovica Dri" fill sizes="100vw" /><div className="cinema-place-shade" /><div className="cinema-place-copy"><span className="cinema-eyebrow">03 / An island. A world of perspective.</span><h2>Small island.<br /><em>Wider horizons.</em></h2><p>The harbour. The limestone. The streets behind the waterfront. Place is part of every property decision.</p><Link className="cinema-button" href="/contact?interest=buying">Tell us where you see yourself <Arrow diagonal /></Link></div><span className="cinema-place-credit">Valletta, Malta · Ludovica Dri / Unsplash · location photograph</span></section>
 
-    <section className="cinema-process cinema-wrap"><div className="cinema-section-label"><span>Clarity, from the first conversation</span><span>Malta / The Wiele approach</span></div><div className="cinema-process-grid"><h2>Your ambition.<br /><em>A clear direction.</em></h2><div>{[
-      ["01", "Start with your brief.", "Your priorities, preferred locations, budget and timing give the conversation a clear direction."],
-      ["02", "Look at the evidence.", "Separate the property story from the supporting facts: income, costs, condition and material limitations."],
-      ["03", "Define the next step.", "Agree the scope, introductions and specialist involvement. Sales documentation is handled by appropriately licensed practitioners."],
-    ].map(([number, title, copy]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></div></section>
+    <WieleAlgorithm />
 
     <InvestmentScenario />
     <section className="cinema-care cinema-wrap"><figure><Image src="/property/wiele-malta-material-detail-concept.webp" alt="AI-created material study of limestone and natural interior details" fill sizes="(max-width: 760px) 100vw, 45vw" /><figcaption>Material study · AI-created concept</figcaption></figure><div><span className="cinema-eyebrow">For the property you already own</span><h2>Care for<br />what <em>comes next.</em></h2><p>From a single repair to a considered refresh. Wiele-managed property maintenance in Malta, with the work, access and charges agreed around your property.</p><Link className="cinema-text-link" href="/property-maintenance">Explore property maintenance <Arrow diagonal /></Link></div></section>
