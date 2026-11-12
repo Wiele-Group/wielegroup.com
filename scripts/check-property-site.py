@@ -67,7 +67,7 @@ for path in paths:
  types=[e.get('@type') for e in entities]
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
- assert org.get('slogan')=='Malta Property. Global Ambition.',(path,'organization slogan')
+ assert org.get('slogan')=='From South African roots to Malta shores. Thinking globally.',(path,'organization slogan')
  assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
  assert org['name']=='Wiele Investments' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-properties/'}

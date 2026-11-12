@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const propertyBrand = {
   name: "Wiele Investments",
-  tagline: "Malta Property. Global Ambition.",
+  tagline: "From South African roots to Malta shores. Thinking globally.",
   url: "https://wielegroup.com",
   email: "admin@wielegroup.com",
   location: "Swieqi, Malta",
@@ -10,7 +10,7 @@ export const propertyBrand = {
   languages: ["English", "Afrikaans"],
   social: {
     facebook: "https://www.facebook.com/wieleinvestments/",
-    linkedin: "https://www.linkedin.com/company/wiele-properties/",
+    linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
   description: "Malta property marketing, buyer introductions and Wiele-managed property maintenance. Based in Swieqi, serving local and international property owners and buyers.",
 } as const;
@@ -32,7 +32,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-wiele-investments-reflective.jpg", width: 1200, height: 630, alt: `Wiele Investments reflective gold logo for Malta investment property.` }] },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-wiele-investments-reflective.jpg"] },
+      images: [{ url: "/property/og-wiele-roots-20261112.jpg", width: 1200, height: 630, alt: `Wiele Investments reflective gold logo for Malta investment property.` }] },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-wiele-roots-20261112.jpg"] },
   };
 }

@@ -37,7 +37,7 @@ export function ExperienceHero() {
     <div className="cinema-rail" aria-hidden="true"><span>WIELE INVESTMENTS</span><i /><span>35°54′ N · 14°30′ E</span></div>
     <div className="cinema-hero-copy">
       <span className="cinema-eyebrow"><i /> Malta / Investment real estate</span>
-      <h1 id="home-title">Malta Property.<br /><em>Global Ambition.</em></h1>
+      <h1 id="home-title" className="cinema-roots-tagline"><span>From South African roots</span><span>to Malta shores.</span><em>Thinking globally.</em></h1>
       <p>From your first apartment to your next portfolio.<br />Investment real estate, shaped around your goals.</p>
       <div className="cinema-hero-actions"><Link className="cinema-button" href="/buying">Explore the Wiele perspective <Arrow diagonal /></Link><Link className="cinema-quiet-link" href="/contact">Start a conversation <Arrow /></Link></div>
     </div>
