@@ -18,4 +18,20 @@ Search and metadata preparation:
 
 The edge-cache release key is wiele-cinematic-20261112-metadata-v34, preventing prior-release HTML from being reused. Existing protected-route cache exclusions remain in force.
 
-Final release result and live validation will be recorded after the authorised deployment completes.
+## Verified production release
+
+Published source: 4c1eb0d. Production tag: wiele-cinematic-production-2026-11-12.
+Cloudflare version: b83cad64-7650-48ea-8d39-5820243acecf.
+Deployment: a1383086-3362-445c-bf1d-996255dbd5b7, 100% traffic, observed through the connected Cloudflare API.
+Live URL: https://wielegroup.com/.
+
+- Prescribed npm run deploy:cf succeeded: Next production build/TypeScript, OpenNext adapter, Cloudflare-runtime local verification and upload.
+- All 16 built and live public pages passed heading, canonical, unique metadata, social-preview, business entity and security-header checks. 34 assets and 23 internal destinations passed, as did sitemap/robots/brand resources, retired-route410/unknown404 behaviour and anonymous article protection (401 for protected charts; private/no-store).
+- Ordinary public homepage serves the new cinematic design. New release cache namespace prevents previous-release HTML reuse. HTTPS www redirects308 to https://wielegroup.com/; the canonical target serves200. Python3.9 requires explicit handling of308; browser navigation is unaffected.
+- All five live WebP files byte-match the release copies. Embedded XMP XML was downloaded, parsed and verified for descriptions and creator credits.
+- Live homepage has a linked WebPage/FAQ/Organization/WebSite/ImageObject graph with five descriptive image entities, nine FAQs, current dateModified and Swieqi/Malta location metadata.
+- Browser desktop1440 and mobile390 checked with no observed horizontal overflow or broken loaded images. Mobile menu/Escape verified. Contact verification loads without the local-preview unavailable message; no CAPTCHA was manually solved and no enquiry/registration was submitted.
+- Existing KV/AI/assets and secret binding names remain present after deployment. No DNS/SSL/account-plan changes. Analytics event receipt and live enquiry email receipt remain untested.
+- Live desktop/mobile screenshots: ../wiele-cinematic-live-desktop.jpg and ../wiele-cinematic-live-mobile.jpg relative to the source folder's parent output directory.
+- No search-engine recrawl, ranking change, AI citation or rich-result appearance is claimed. The published technical/content groundwork is verified.
+

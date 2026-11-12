@@ -35,7 +35,7 @@ html=re.sub(r'\bsrc="(/[^"]+)"',lambda m:'src="'+data(resource(m.group(1)))+'"',
 html=re.sub(r'href="(/[^"#]*)"',lambda m:'href="https://wielegroup.com'+m.group(1)+'"',html)
 html=html.replace('<head>','<head><meta name="robots" content="noindex,nofollow"/>')
 # All styling and imagery is embedded. Nothing needs to load from the internet.
-scenes=[data(root/'public/property'/name) for name in ['premium-residence.webp','modern-malta-apartments-concept.webp','premium-detail.webp']]
+scenes=[data(root/'public/property'/name) for name in ['wiele-malta-residence-concept.webp','wiele-malta-apartments-concept.webp','wiele-malta-material-detail-concept.webp']]
 script=r'''
 const sceneImages=SCENE_IMAGES;
 const sceneLabels=['Mediterranean residence','Contemporary architecture','Natural material study'];

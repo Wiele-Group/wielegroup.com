@@ -43,6 +43,6 @@ Supply existing production secrets through the established environment mechanism
 
 ## Release status
 
-NOT deployed. No DNS, Cloudflare resources, production source, live forms, social accounts or paid services changed. Original working-directory edits remain intact. Review the design before replacing production, then follow AGENTS.md and the established npm run deploy:cf workflow, including final search and live checks. Preserve rollback to f466434 / Worker a6c838d1-41a3-4a5f-b235-6665906cdb8a. Recheck the actual production version before release if other work has intervened.
+DEPLOYED on 12 November 2026 after explicit authorisation. Source 4c1eb0d; Cloudflare version b83cad64-7650-48ea-8d39-5820243acecf,100%traffic. See docs/cinematic-2026-11-12/DEPLOYMENT.md for final verification. No DNS, secret, social-account or paid-plan changes. Original working-directory edits remain intact. The authorised release used AGENTS.md and the established npm run deploy:cf workflow, including final search and live checks. Preserve rollback to f466434 / Worker a6c838d1-41a3-4a5f-b235-6665906cdb8a. Recheck the actual production version before release if other work has intervened.
 
 The known Analytics receipt issue remains unverified. Editable listing administration and populated property-detail pages were not added by this design change; the released collection remains honestly empty until authorised stock is supplied.
