@@ -70,7 +70,7 @@ for path in paths:
  assert org.get('slogan')=='From South African roots to Malta shores. Thinking globally.',(path,'organization slogan')
  assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
  assert org['name']=='Wiele Investments' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
- social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-properties/'}
+ social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
  assert set(org['sameAs'])==social_profiles,(path,'official social profiles')
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
  if path in ['/selling','/buying','/property-maintenance']:
@@ -144,7 +144,7 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
 for path in ['/api/audit','/api/contact','/unknown-property-page']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-investments-reflective.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-roots-20261112.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
  status,_,_=get(path);assert status==200,(path,status)
 assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',get('/llms.txt')[2],re.I),'personal identity in llms.txt'
 print('PASS search metadata and brand resources')
