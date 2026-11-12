@@ -23,6 +23,7 @@ function setChoice(value: "accepted" | "rejected") {
  try { localStorage.setItem(storageKey,value); } catch { /* Keep browsing available without local storage. */ }
  window.dispatchEvent(new Event(changeEvent));
  if (value === "rejected") {
+  lastPage = "";
   (window as unknown as Record<string, unknown>)[`ga-disable-${measurementId}`] = true;
   window.gtag?.("consent", "update", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
   document.cookie.split(";").forEach(cookie => {
@@ -33,7 +34,7 @@ function setChoice(value: "accepted" | "rejected") {
   });
  }
 }
-export function trackPropertyEvent(name: "generate_lead" | "contact_click" | "report_download_click", props: Record<string,string> = {}) {
+export function trackPropertyEvent(name: "generate_lead" | "contact_click" | "report_download_click" | "algorithm_action" | "algorithm_brief_open", props: Record<string,string> = {}) {
  if (choice() !== "accepted") return;
  window.gtag?.("event", name, { ...props, send_to: measurementId });
 }
@@ -70,9 +71,17 @@ export function PropertyAnalytics() {
    if (!anchor) return;
    const href = anchor.getAttribute("href") || "";
    const channel = href.startsWith("https://wa.me/") ? "whatsapp" : href.startsWith("mailto:") ? "email" : href.startsWith("tel:") ? "phone" : null;
+   const algorithmAction = anchor.getAttribute("data-algorithm-action");
+   if (algorithmAction) trackPropertyEvent("algorithm_action", { action: algorithmAction, page_path: window.location.pathname });
    if (channel) trackPropertyEvent("contact_click", { contact_channel: channel });
   };
-  document.addEventListener("click",onClick); return () => document.removeEventListener("click",onClick);
+  const onToggle = (event: Event) => {
+   const detail = event.target;
+   if (detail instanceof HTMLDetailsElement && detail.open && detail.hasAttribute("data-algorithm-brief")) trackPropertyEvent("algorithm_brief_open", { page_path: window.location.pathname });
+  };
+  document.addEventListener("click",onClick);
+  document.addEventListener("toggle",onToggle,true);
+  return () => { document.removeEventListener("click",onClick); document.removeEventListener("toggle",onToggle,true); };
  },[]);
  return <><button type="button" className="analytics-settings" onClick={() => setChoice(consent === "accepted" ? "rejected" : "accepted")}>{consent === "accepted" ? "Turn analytics off" : "Allow analytics"}</button>{consent === null && <section className="analytics-consent" aria-label="Analytics choice"><p>May we use Google Analytics to understand visits and enquiries? It is optional. <a href="/privacy">Privacy notice</a></p><div><button type="button" onClick={() => setChoice("rejected")}>Reject analytics</button><button type="button" onClick={() => setChoice("accepted")}>Accept analytics</button></div></section>}</>;
 }

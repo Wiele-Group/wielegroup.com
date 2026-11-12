@@ -8,7 +8,7 @@ export function PageStructuredData({ path, title, description }: { path: string;
   const url = `${propertyBrand.url}${path}`;
   const service = path === "/selling" ? {
     name: "Malta investment property marketing",
-    description: "Property presentation and marketing for owners in Malta, based on verified particulars, income evidence, lease terms, costs and material limitations. Scope and costs are agreed before work begins.",
+    description: "Malta property marketing shaped by The Wiele Algorithm: assess, identify, position, activate and review. Property facts, seller objectives and likely buyers shape each strategy. Scope and costs are agreed before work begins.",
   } : path === "/buying" ? {
     name: "Malta property buyer introductions",
     description: "Property briefs and introductions for local and international buyers considering income-focused acquisitions or premium residences in Malta. No properties are currently advertised.",

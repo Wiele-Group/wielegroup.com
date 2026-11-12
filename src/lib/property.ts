@@ -12,7 +12,7 @@ export const propertyBrand = {
     facebook: "https://www.facebook.com/wieleinvestments/",
     linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
-  description: "Malta property marketing, buyer introductions and Wiele-managed property maintenance. Based in Swieqi, serving local and international property owners and buyers.",
+  description: "Malta property marketing shaped by The Wiele Algorithm, buyer introductions and Wiele-managed maintenance. Based in Swieqi for local and international clients.",
 } as const;
 
 export const propertyNavigation = [
