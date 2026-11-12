@@ -16,11 +16,12 @@ export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
  title: { default: `Malta Investment Real Estate | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },
  description: propertyBrand.description,
+ applicationName: propertyBrand.name, category: "Real estate",
  alternates: { canonical: "/" },
  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Malta Investment Real Estate | Wiele Investments", description: propertyBrand.description, url: "/", images: [{ url: "/property/og-wiele-investments-reflective.jpg", width: 1200, height: 630, alt: `Wiele Investments reflective gold logo for Malta investment property.` }] },
  twitter: { card: "summary_large_image", title: "Malta Investment Real Estate | Wiele Investments", description: propertyBrand.description, images: ["/property/og-wiele-investments-reflective.jpg"] },
  icons: { icon: [{ url: "/property-identity/reflective-gold/favicon-16.png", sizes: "16x16", type: "image/png" }, { url: "/property-identity/reflective-gold/favicon-32.png", sizes: "32x32", type: "image/png" }], apple: "/property-identity/reflective-gold/apple-touch-icon.png" },
- other: { "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
+ other: { "geo.region": "MT", "geo.placename": "Swieqi, Malta", "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#171a19" };

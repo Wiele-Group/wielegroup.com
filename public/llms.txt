@@ -35,7 +35,17 @@ All enquiries go to admin@wielegroup.com. Enquiry process: share the property br
 The interactive investment scenario uses clearly labelled hypothetical inputs, with gross yield on price and operating yield on stated total cost. It excludes financing, income tax and future capital expenditure. Optional property-brief preparation organises visitor selections; AI may select questions from an approved list. It does not recommend available stock or assess acquisition eligibility.
 
 Example investment information pack: https://wielegroup.com/property/investment-information-example.html
-This is an unfilled illustrative document structure covering asset particulars, income definitions, costs, evidence status and next questions. It is not a listing, verified asset record, valuation or investment recommendation. The homepage provides an accessible chapter-by-chapter preview.
+This is an unfilled illustrative document structure covering asset particulars, income definitions, costs, evidence status and next questions. It is not a listing, verified asset record, valuation or investment recommendation. The example is available as a separate illustrative document. It is not an advertised property.
 
 ## Dated market research
 Reviewed 2 November 2026: Malta RPPI +6.9% year on year in Q2 2026; 974 registered final deeds in September 2026 (-11.5% year on year); ECB deposit facility 2.50%, held 29 October. Each has a distinct period and definition. Sources, limitations and annual revisions appear at https://wielegroup.com/malta-investment-report#market-evidence. No national index is an individual property valuation or rental return. Policy rates are not borrower quotations.
+
+## Website identity and imagery — updated 12 November 2026
+
+- Current public brand: Wiele Investments. Operator identity: Wiele Group.
+- Service base: Swieqi, Malta. Property marketing, buyer introductions and Wiele-managed physical property maintenance.
+- General enquiries: admin@wielegroup.com.
+- Availability: no properties currently advertised. An enquiry is not a promise of stock or returns.
+- The cinematic homepage includes clearly disclosed fictional architectural concepts and an actual Valletta waterfront location photograph by Ludovica Dri. Neither is a listing. Image credits: https://wielegroup.com/credits.
+- Evidence hierarchy: property-specific documents and independent professional checks take priority over illustrative tools or general market commentary.
+- Public page summaries and FAQs are readable without registration. Full registered articles, charts and report downloads retain their access restrictions.

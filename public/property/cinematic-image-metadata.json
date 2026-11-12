@@ -1,0 +1,57 @@
+[
+  {
+    "source": "premium-residence.webp",
+    "file": "wiele-malta-residence-concept.webp",
+    "title": "Mediterranean residence concept | Wiele Investments",
+    "description": "AI-created Mediterranean residence and pool concept for Wiele Investments, Malta investment real estate. Fictional architecture; not an actual property, location, completed project or property for sale.",
+    "creator": "Wiele Investments / OpenAI image generation",
+    "classification": "AI-created architectural concept",
+    "width": 1536,
+    "height": 1024,
+    "pixel_sha256": "eed799c9344b227d52f4945ca4a6f90b676c3784fae580592d315090533ef1e8"
+  },
+  {
+    "source": "modern-malta-apartments-concept.webp",
+    "file": "wiele-malta-apartments-concept.webp",
+    "title": "Contemporary apartment concept | Wiele Investments",
+    "description": "AI-created Malta-inspired limestone apartment architecture for Wiele Investments. Fictional concept; not an actual building, documented Malta location or advertised property.",
+    "creator": "Wiele Investments / OpenAI image generation",
+    "classification": "AI-created architectural concept",
+    "width": 1536,
+    "height": 1024,
+    "pixel_sha256": "08232a095d5559151a001e74290e9267d61c1974ace4e97bf0966db3dc6d533a"
+  },
+  {
+    "source": "premium-detail.webp",
+    "file": "wiele-malta-material-detail-concept.webp",
+    "title": "Natural material study | Wiele Investments",
+    "description": "AI-created limestone and natural interior material study for Wiele Investments, Malta property marketing and maintenance. Decorative fictional concept; not a completed project or property for sale.",
+    "creator": "Wiele Investments / OpenAI image generation",
+    "classification": "AI-created material concept",
+    "width": 1536,
+    "height": 1024,
+    "pixel_sha256": "6644fb8677c961b949e8810c4780937ba260cc59aeef1c45f7d6fe7c159e84b0"
+  },
+  {
+    "source": "premium-interior.webp",
+    "file": "wiele-mediterranean-interior-concept.webp",
+    "title": "Mediterranean interior concept | Wiele Investments",
+    "description": "AI-created Mediterranean interior concept for Wiele Investments, serving Malta property buyers and owners. Fictional interior and outlook; not an actual property or available listing.",
+    "creator": "Wiele Investments / OpenAI image generation",
+    "classification": "AI-created interior concept",
+    "width": 1536,
+    "height": 1024,
+    "pixel_sha256": "3dfcd2bde441e049e1625466b4e3bfa8ad8555d6488c86c11a393ba99fe55b0f"
+  },
+  {
+    "source": "malta-harbour.webp",
+    "file": "wiele-valletta-waterfront.webp",
+    "title": "Valletta waterfront, Malta | Wiele Investments",
+    "description": "Valletta waterfront and skyline across the harbour in Malta. Photograph by Ludovica Dri on Unsplash. Location photography, not a Wiele property listing.",
+    "creator": "Ludovica Dri",
+    "classification": "Location photograph / Unsplash Licence",
+    "width": 1800,
+    "height": 1800,
+    "pixel_sha256": "13407bd5474314ce69766ace82b3b86a43a1c50f36b18b6177e7247af7fe2179"
+  }
+]

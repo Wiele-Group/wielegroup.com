@@ -7,9 +7,9 @@ import { Arrow } from "./chrome";
 import { ExperienceMotionControl } from "./luxury-motion";
 
 const scenes = [
-  { name: "The residence", image: "premium-residence.webp", title: "A different perspective.", label: "Mediterranean residence · AI-created concept" },
-  { name: "The architecture", image: "modern-malta-apartments-concept.webp", title: "An individual approach.", label: "Contemporary architecture · AI-created concept" },
-  { name: "The detail", image: "premium-detail.webp", title: "A considered decision.", label: "Natural material study · AI-created concept" },
+  { name: "The residence", image: "wiele-malta-residence-concept.webp", title: "A different perspective.", label: "Mediterranean residence · AI-created concept" },
+  { name: "The architecture", image: "wiele-malta-apartments-concept.webp", title: "An individual approach.", label: "Contemporary architecture · AI-created concept" },
+  { name: "The detail", image: "wiele-malta-material-detail-concept.webp", title: "A considered decision.", label: "Natural material study · AI-created concept" },
 ];
 
 export function ExperienceHero() {
