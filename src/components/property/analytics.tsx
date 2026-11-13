@@ -34,7 +34,7 @@ function setChoice(value: "accepted" | "rejected") {
   });
  }
 }
-export function trackPropertyEvent(name: "generate_lead" | "contact_click" | "report_download_click" | "algorithm_action" | "algorithm_brief_open", props: Record<string,string> = {}) {
+export function trackPropertyEvent(name: "generate_lead" | "contact_click" | "report_download_click" | "algorithm_action" | "algorithm_brief_open" | "property_journey", props: Record<string,string> = {}) {
  if (choice() !== "accepted") return;
  window.gtag?.("event", name, { ...props, send_to: measurementId });
 }
@@ -71,6 +71,8 @@ export function PropertyAnalytics() {
    if (!anchor) return;
    const href = anchor.getAttribute("href") || "";
    const channel = href.startsWith("https://wa.me/") ? "whatsapp" : href.startsWith("mailto:") ? "email" : href.startsWith("tel:") ? "phone" : null;
+   const journey = anchor.getAttribute("data-property-journey");
+   if (journey && ["buyer", "residence", "investment", "seller"].includes(journey)) trackPropertyEvent("property_journey", { journey, page_path: window.location.pathname });
    const algorithmAction = anchor.getAttribute("data-algorithm-action");
    if (algorithmAction) trackPropertyEvent("algorithm_action", { action: algorithmAction, page_path: window.location.pathname });
    if (channel) trackPropertyEvent("contact_click", { contact_channel: channel });

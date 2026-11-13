@@ -125,7 +125,7 @@ export function TurnstileWidget({ onToken, onError, className, size }: Turnstile
     return (
       <p className={className}>
         <span className="text-body-xs font-mono text-smoke">
-          Verification is unavailable. Please contact us by email or WhatsApp.
+          Verification is unavailable. Please contact us by email.
         </span>
       </p>
     );

@@ -1,3 +1,4 @@
+import { PropertyStart } from "@/components/property/property-start";
 import { GlobalPropertyGallery } from "@/components/property/global-property-gallery";
 import { WieleAlgorithm } from "@/components/property/wiele-algorithm";
 import Link from "next/link";
@@ -25,10 +26,7 @@ export default function Home() {
     <ExperienceHero />
     <div className="cinema-index"><span>South African roots. Global perspective.</span><nav aria-label="On this page"><a href="#perspectives">Your perspective <span>01</span></a><a href="#research">The intelligence <span>02</span></a><a href="#world">A wider world <span>03</span></a></nav></div>
 
-    <section id="discover" className="cinema-intro cinema-wrap">
-      <div className="cinema-section-label"><span>01 / A considered approach</span><span>Independent. Individual. Wiele.</span></div>
-      <div className="cinema-intro-grid"><h2>Look beyond<br />the <em>address.</em></h2><div><p className="cinema-lead">A home. An investment.<br />A new part of the world.</p><p>Where you live and where you own property can be different places. Wiele brings an international outlook to property sales, connecting your ambitions with a considered property brief.</p><p>Our South African roots shape our story. Malta is our base. Global property sales is our direction — for buyers, investors and owners looking across borders.</p><Link className="cinema-text-link" href="/about">Discover our approach <Arrow diagonal /></Link></div></div>
-    </section>
+    <PropertyStart />
 
     <section id="perspectives" className="cinema-perspectives cinema-wrap">
       <div className="cinema-section-label"><span>Choose your perspective</span><span>International property / Individual ambitions</span></div>

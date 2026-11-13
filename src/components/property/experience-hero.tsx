@@ -39,7 +39,7 @@ export function ExperienceHero() {
       <span className="cinema-eyebrow"><i /> Global property sales</span>
       <h1 id="home-title" className="cinema-global-title"><span>Exceptional property.</span><em>Global perspective.</em></h1>
       <p>Luxury apartments. Architectural villas. Wine estates.<br />South African roots. Based in Malta. Looking worldwide.</p>
-      <div className="cinema-hero-actions"><Link className="cinema-button" href="/buying">Find your next property <Arrow diagonal /></Link><Link className="cinema-quiet-link" href="/contact">Start a conversation <Arrow /></Link></div>
+      <div className="cinema-hero-actions"><Link className="cinema-button" href="/contact?interest=buying" data-property-journey="buyer">Share your property brief <Arrow diagonal /></Link><Link className="cinema-quiet-link" href="/selling" data-property-journey="seller">Selling a property? <Arrow /></Link></div>
     </div>
     <div className="cinema-bottom">
       <a className="cinema-discover" href="#discover"><span aria-hidden="true">↓</span> Discover Wiele</a>
