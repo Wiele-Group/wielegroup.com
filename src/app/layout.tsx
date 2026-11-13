@@ -11,8 +11,8 @@ import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";
 import { StructuredData } from "@/components/property/structured-data";
 import { propertyBrand } from "@/lib/property";
-const sans = localFont({ src: "./fonts/manrope.ttf", weight: "200 800", variable: "--font-sans", display: "swap" });
-const serif = localFont({ src: [{ path: "./fonts/cormorant.ttf", weight: "300 700", style: "normal" }, { path: "./fonts/cormorant-italic.ttf", weight: "300 700", style: "italic" }], variable: "--font-display", display: "swap" });
+const sans = localFont({ src: "./fonts/manrope.woff2", weight: "200 800", variable: "--font-sans", display: "swap" });
+const serif = localFont({ src: [{ path: "./fonts/cormorant.woff2", weight: "300 700", style: "normal" }, { path: "./fonts/cormorant-italic.woff2", weight: "300 700", style: "italic" }], variable: "--font-display", display: "swap" });
 export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
  title: { default: `Global Asset Brokerage | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },

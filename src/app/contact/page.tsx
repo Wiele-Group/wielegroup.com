@@ -5,5 +5,20 @@ import type { Metadata } from "next";
 import { PageIntro, Arrow } from "@/components/property/chrome";
 import { propertyBrand, propertyMetadata } from "@/lib/property";
 import { EnquiryForm } from "@/components/property/enquiry-form";
-export const metadata: Metadata = propertyMetadata("Discuss Your Asset Brief", "Malta-based global asset brokerage. Contact Wiele Investments about property, aircraft, yachts, exotic cars or classic cars. Share an acquisition or sales brief.", "/contact");
-export default function Contact() { return <><PageIntro path="/contact" eyebrow="Malta-based / Global asset brokerage" title="Your ambitions. Let’s talk." description="An exceptional property. A private aircraft. A yacht. An exotic or classic car. Tell us what you want to acquire or introduce an asset for sale. The conversation starts with your ambitions." /><section className="contact-layout wrap"><aside><span className="eyebrow">Your Wiele contact</span><h2>Your asset brief.<br /><em>Our starting point.</em></h2><p className="maintenance-contact-link">Need practical property care? <Link href="/property-maintenance#request-maintenance">Request property maintenance <Arrow diagonal /></Link></p><div className="contact-detail"><span>General enquiries &amp; registrations</span><a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email} <Arrow diagonal /></a></div><div className="contact-detail"><span>Based in</span><p>{propertyBrand.location}</p></div><div className="contact-detail"><span>Appointments</span><p>By appointment only · English &amp; Afrikaans<br />Established 2026</p></div><p className="fine-print">Please don’t send identity documents, bank details or other sensitive information through this form.</p></aside><Suspense fallback={<p>Loading the enquiry form… You can also email us.</p>}><EnquiryForm /></Suspense></section><EnquirySteps /></> }
+export const metadata: Metadata = propertyMetadata("Property & Luxury Asset Enquiries", "Contact Wiele Investments in Malta about buying or selling property, yachts, aircraft, exotic or classic cars. Share your brief or email our company inbox.", "/contact");
+export default function Contact() {
+ return <div className="contact-page">
+  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Tell us what you want to buy or sell, where and when. Property is our core business, complemented by yachts, aircraft and collector cars." />
+  <p className="contact-email-alternative wrap">Prefer email? <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a></p>
+  <section className="contact-layout wrap">
+   <Suspense fallback={<p>Loading the enquiry form… Email <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a>.</p>}><EnquiryForm /></Suspense>
+   <aside><span className="eyebrow">Your Wiele contact</span><h2>A direct point<br /><em>of contact.</em></h2>
+    <div className="contact-detail"><span>Email</span><a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email} <Arrow diagonal /></a></div>
+    <div className="contact-detail"><span>Based in</span><p>{propertyBrand.location}</p></div>
+    <div className="contact-detail"><span>Appointments</span><p>By appointment only · English &amp; Afrikaans</p></div>
+    <p className="fine-print">Please don’t send identity documents, bank details or confidential ownership records through this form.</p>
+    <p className="maintenance-contact-link">For practical property care in Malta, <Link href="/property-maintenance#request-maintenance">request property maintenance <Arrow diagonal /></Link>.</p>
+   </aside>
+  </section><EnquirySteps />
+ </div>;
+}

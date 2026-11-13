@@ -7,11 +7,11 @@ export function StructuredData({ data }: { data: object }) {
 export function PageStructuredData({ path, title, description }: { path: string; title: string; description: string }) {
   const url = `${propertyBrand.url}${path}`;
   const service = path === "/selling" ? {
-    name: "Global asset sales marketing enquiries",
-    description: "Malta-based asset brokerage enquiries for property, aircraft, yachts, exotic cars and classic cars. The asset, owner objectives and available evidence shape the brief. Coverage, authority, scope, fees and specialist involvement are confirmed separately.",
+    name: "Property sales and marketing enquiries",
+    description: "Malta-based property sales and marketing enquiries. The property, owner objectives, market and available evidence shape the brief. Coverage, authority, scope, fees and specialist involvement are confirmed separately.",
   } : path === "/buying" ? {
-    name: "Global asset acquisition enquiries",
-    description: "Acquisition briefs for property, aircraft, yachts, exotic cars and classic cars. Country coverage, availability and specialist involvement are confirmed per enquiry. No assets are currently advertised.",
+    name: "Residence and investment property acquisition enquiries",
+    description: "Residence and investment property acquisition briefs for a Malta-based brokerage with an international outlook. Country coverage, availability, scope, fees and responsible practitioners are confirmed individually. No properties are currently advertised.",
   } : path === "/property-maintenance" ? {
     name: "Wiele Property Maintenance",
     description: "Wiele-managed and operated property maintenance in Malta: repairs and fittings, painting and making-good, kitchen and bathroom upkeep, planned maintenance, property care visits and preparation for sale or occupation. Work and availability are agreed per property.",

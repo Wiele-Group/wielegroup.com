@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { loadTurnstileScript } from "@/lib/turnstile-script";
 
 /**
  * Cloudflare Turnstile client widget.
  *
- * Loads challenges.js once per page, renders an invisible widget, and
+ * Shares the Turnstile script across forms, renders a verification widget, and
  * fires `onToken` with the verification token. The token is then sent
  * with the form submission and re-verified server-side
  * (mandatory — see src/lib/turnstile.ts).
@@ -35,40 +36,6 @@ declare global {
       remove: (widgetId: string) => void;
     };
   }
-}
-
-const SCRIPT_SRC =
-  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-
-let scriptLoadingPromise: Promise<void> | null = null;
-
-function loadTurnstileScript(): Promise<void> {
-  if (typeof window === "undefined") return Promise.resolve();
-  if (window.turnstile) return Promise.resolve();
-  if (scriptLoadingPromise) return scriptLoadingPromise;
-
-  scriptLoadingPromise = new Promise((resolve, reject) => {
-    const existing = document.querySelector<HTMLScriptElement>(
-      `script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]`,
-    );
-    if (existing) {
-      existing.addEventListener("load", () => resolve(), { once: true });
-      existing.addEventListener("error", () => reject(new Error("Turnstile load failed")), {
-        once: true,
-      });
-      return;
-    }
-    const script = document.createElement("script");
-    script.src = SCRIPT_SRC;
-    script.async = true;
-    script.defer = true;
-    script.addEventListener("load", () => resolve(), { once: true });
-    script.addEventListener("error", () => reject(new Error("Turnstile load failed")), {
-      once: true,
-    });
-    document.head.appendChild(script);
-  });
-  return scriptLoadingPromise;
 }
 
 export type TurnstileWidgetProps = {
@@ -105,7 +72,7 @@ export function TurnstileWidget({ onToken, onError, className, size }: Turnstile
           size: size ?? (containerRef.current.clientWidth < 300 ? "compact" : "flexible"),
         });
       })
-      .catch(() => onError?.());
+      .catch(() => { if (!cancelled) onError?.(); });
 
     return () => {
       cancelled = true;
