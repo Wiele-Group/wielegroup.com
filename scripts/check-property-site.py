@@ -6,7 +6,7 @@ import sys,time,json,re
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
+paths=['/','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
@@ -169,3 +169,11 @@ for path in ['/api/articles/media/demand-growth','/api/articles/media/occupancy-
  assert status==401,(path,'anonymous media must be denied',status)
  assert 'no-store' in headers.get('Cache-Control','') and not data,(path,'private chart leaked or cached')
 print('PASS anonymous article access: no protected body, no charts, private cache headers')
+
+for query in ['', '?report=global-luxury-2026']:
+ status,headers,data=get('/api/reports/download'+query)
+ assert status==401,('anonymous report must be denied',query,status)
+ assert 'no-store' in headers.get('Cache-Control','') and not data.startswith(b'%PDF'), 'private report leaked or cached'
+status,_,_=get('/api/reports/download?report=unknown')
+assert status==404,'unknown report must not fall back to an existing PDF'
+print('PASS report-specific access: both PDFs protected; unknown reports rejected')

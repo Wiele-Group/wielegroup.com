@@ -1,10 +1,11 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { z } from "zod";
-import { investmentReport } from "@/lib/investment-report";
-import { accessSeconds, createAccess, privateHeaders, reportCookie, type ReportEnvironment } from "@/server/report-access";
+import { getReport, investmentReport, globalLuxuryReport } from "@/lib/investment-report";
+import { accessSeconds, createAccess, privateHeaders, reportCookieName, type ReportEnvironment } from "@/server/report-access";
 
 export const runtime = "nodejs";
 const input = z.object({
+  report: z.enum([investmentReport.id, globalLuxuryReport.id]).optional().default(investmentReport.id),
   name: z.string().trim().min(2).max(100).refine(v => !/[\r\n]/.test(v)),
   email: z.string().trim().email().max(254),
   objective: z.enum(["exploring", "apartment", "residence", "portfolio", "consortium"]).optional().default("exploring"),
@@ -27,7 +28,8 @@ export async function POST(request: Request) {
   try { body = JSON.parse(raw); } catch { return json({ error: "Please check your details and try again." }, 400); }
   const parsed = input.safeParse(body);
   if (!parsed.success) return json({ error: "Please enter your name and a valid email address, then complete verification." }, 400);
-  const { website, token, ...submission } = parsed.data;
+  const { website, token, report: reportId, ...submission } = parsed.data;
+  const report = getReport(reportId)!;
   if (website) return json({ error: "Registration could not be completed. Please try again." }, 400);
   let env: ReportEnvironment;
   try { env = getCloudflareContext().env as unknown as ReportEnvironment; } catch { return json({ error: "Registration is temporarily unavailable. Please try again shortly." }, 503); }
@@ -45,11 +47,11 @@ export async function POST(request: Request) {
   const registeredAt = new Date().toISOString();
   let access: string;
   try {
-    access = await createAccess(env.REPORT_ACCESS_SECRET, registrationId);
+    access = await createAccess(env.REPORT_ACCESS_SECRET, registrationId, Date.now(), report.id);
     await env.AUDIT_QUEUE.put(`report-registration:${registrationId}`, JSON.stringify({
-      registrationId, reportId: investmentReport.id, registeredAt, source: investmentReport.path,
+      registrationId, reportId: report.id, registeredAt, source: report.path,
       submission, emailVerified: false,
-      marketingConsent: { accepted: submission.updates, version: investmentReport.consentVersion, recordedAt: registeredAt },
+      marketingConsent: { accepted: submission.updates, version: report.consentVersion, recordedAt: registeredAt },
     }), { expirationTtl: 60 * 60 * 24 * 90 });
   } catch { return json({ error: "We could not save your registration. Please try again." }, 503); }
 
@@ -59,12 +61,12 @@ export async function POST(request: Request) {
       const sent = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json", "Idempotency-Key": `report-registration-${registrationId}` }, body: JSON.stringify({
         from: "Wiele Investments <admin@wielegroup.com>", to: ["admin@wielegroup.com"], reply_to: submission.email,
         subject: "Investor report registration · Wiele Investments",
-        text: `WIELE INVESTMENTS\nReport: ${investmentReport.title}\nReference: ${registrationId}\nRegistered: ${registeredAt}\n\nName: ${submission.name}\nEmail: ${submission.email} (provided, not verified)\nInterest: ${submission.objective}\nOptional market/opportunity updates: ${submission.updates ? "OPTED IN" : "NOT OPTED IN"}\nConsent wording version: ${investmentReport.consentVersion}\n\nRegistration unlocks the report; it is not a property reservation or investment commitment.`,
+        text: `WIELE INVESTMENTS\nReport: ${report.title}\nReference: ${registrationId}\nRegistered: ${registeredAt}\n\nName: ${submission.name}\nEmail: ${submission.email} (provided, not verified)\nInterest: ${submission.objective}\nOptional market/opportunity updates: ${submission.updates ? "OPTED IN" : "NOT OPTED IN"}\nConsent wording version: ${report.consentVersion}\n\nRegistration unlocks the report; it is not a property reservation or investment commitment.`,
       }), signal: AbortSignal.timeout(10000) });
       if (!sent.ok) console.error("Report registration notification unavailable; record retained");
     } catch { console.error("Report registration notification unavailable; record retained"); }
   }
-  return json({ registered: true, downloadUrl: "/api/reports/download" }, 201, {
-    "Set-Cookie": `${reportCookie}=${access}; Max-Age=${accessSeconds}; Path=/api/reports; HttpOnly; Secure; SameSite=Strict`,
+  return json({ registered: true, downloadUrl: report.id === investmentReport.id ? "/api/reports/download" : `/api/reports/download?report=${report.id}` }, 201, {
+    "Set-Cookie": `${reportCookieName(report.id)}=${access}; Max-Age=${accessSeconds}; Path=/api/reports; HttpOnly; Secure; SameSite=Strict`,
   });
 }

@@ -27,7 +27,7 @@ function setup({ storageFails = false, notificationFails = false, verification =
   return {
     records, calls, env, access: load('@/server/report-access'),
     post: (body = valid, origin = 'https://wielegroup.com', contentType = 'application/json') => route.POST(new Request('https://wielegroup.com/api/reports/register', { method: 'POST', headers: { origin, 'Content-Type': contentType }, body: JSON.stringify(body) })),
-    get: (cookie = '') => download.GET(new Request('https://wielegroup.com/api/reports/download', { headers: cookie ? { cookie } : {} })),
+    get: (cookie = '', report = '') => download.GET(new Request('https://wielegroup.com/api/reports/download' + (report ? '?report=' + encodeURIComponent(report) : ''), { headers: cookie ? { cookie } : {} })),
   };
 }
 test('cross-origin registration does not verify, write or email', async () => { const s = setup(); assert.equal((await s.post(valid, 'https://other.invalid')).status, 403); assert.equal(s.calls.length, 0); assert.equal(s.records.length, 0); });
@@ -42,3 +42,46 @@ test('notification failure retains registration and download access', async () =
 test('anonymous download returns no PDF bytes and is not cacheable', async () => { const s = setup(); const r = await s.get(); assert.equal(r.status, 401); assert.match(r.headers.get('cache-control'), /no-store/); assert.match(r.headers.get('x-robots-tag'), /noindex/); assert.ok(!(await r.text()).startsWith('%PDF-')); });
 test('tampered, expired, future and wrong-report cookies fail verification', async () => { const s = setup(); const now = Date.now(); const id = webcrypto.randomUUID(); const good = await s.access.createAccess(s.env.REPORT_ACCESS_SECRET, id, now); assert.equal(await s.access.validAccess(s.env.REPORT_ACCESS_SECRET, good, now), true); assert.equal(await s.access.validAccess(s.env.REPORT_ACCESS_SECRET, good, now + 86400001), false); assert.equal(await s.access.validAccess(s.env.REPORT_ACCESS_SECRET, good.replace('malta-investment-2026', 'other-report'), now), false); assert.equal(await s.access.validAccess('different-key', good, now), false); const altered = good.slice(0, -5) + 'ABCDE'; assert.equal(await s.access.validAccess(s.env.REPORT_ACCESS_SECRET, altered, now), false); const future = await s.access.createAccess(s.env.REPORT_ACCESS_SECRET, id, now + 3600000); assert.equal(await s.access.validAccess(s.env.REPORT_ACCESS_SECRET, future, now), false); });
 test('private PDF is absent from public files and client imports', () => { const publicFiles = fs.readdirSync('public', { recursive: true }); assert.ok(!publicFiles.some(f => /investment.*\.pdf$/i.test(f))); for (const file of ['src/components/property/report-registration.tsx', 'src/app/malta-investment-report/page.tsx']) assert.ok(!fs.readFileSync(file, 'utf8').includes('report-pdf')); });
+
+const globalId = 'global-luxury-2026';
+test('global registration saves the selected report and returns its download URL', async () => {
+ const s = setup(); const r = await s.post({ ...valid, report: globalId });
+ assert.equal(r.status, 201); assert.equal((await r.json()).downloadUrl, '/api/reports/download?report=' + globalId);
+ assert.equal(s.records[0].value.reportId, globalId);
+ assert.equal(s.records[0].value.source, '/research/global-luxury-property-report-2026');
+ assert.equal(s.records[0].value.marketingConsent.accepted, false);
+ const cookie = r.headers.get('set-cookie'); assert.match(cookie, /^wiele_global_report_access=/);
+ const pdf = await s.get(cookie.split(';')[0], globalId); assert.equal(pdf.status, 200);
+ assert.match(pdf.headers.get('content-disposition'), /Global-Luxury/);
+ const bytes = Buffer.from(await pdf.arrayBuffer()); assert.equal(bytes.subarray(0,5).toString(), '%PDF-');
+ assert.ok(bytes.includes(Buffer.from('/Count 27')), 'must serve the 27-page illustrated edition');
+ assert.match(pdf.headers.get('cache-control'), /private, no-store/);
+});
+test('report permissions cannot unlock a different report', async () => {
+ const s = setup();
+ const malta = (await s.post()).headers.get('set-cookie').split(';')[0];
+ const global = (await s.post({ ...valid, report: globalId })).headers.get('set-cookie').split(';')[0];
+ assert.equal((await s.get(malta, globalId)).status, 401);
+ assert.equal((await s.get(global)).status, 401);
+ assert.equal((await s.get(malta + '; ' + global, globalId)).status, 200);
+ assert.equal((await s.get(malta + '; ' + global)).status, 200);
+ const forged = global.replace(/^wiele_global_report_access=/, 'wiele_report_access=');
+ assert.equal((await s.get(forged)).status, 401);
+});
+test('unknown report selectors never fall back to another document', async () => {
+ const s = setup(); assert.equal((await s.get('', 'unknown')).status, 404);
+ assert.equal((await s.post({ ...valid, report: 'unknown' })).status, 400);
+ assert.equal(s.records.length, 0); assert.equal(s.calls.length, 0);
+});
+test('anonymous and expired global access return no PDF', async () => {
+ const s = setup(); assert.equal((await s.get('', globalId)).status, 401);
+ const token = await s.access.createAccess(s.env.REPORT_ACCESS_SECRET, webcrypto.randomUUID(), Date.now() - 86401000, globalId);
+ const r = await s.get('wiele_global_report_access=' + token, globalId); assert.equal(r.status, 401);
+ assert.ok(!(await r.text()).startsWith('%PDF-'));
+});
+test('global PDF stays server-only and does not enter public assets', () => {
+ for (const file of ['src/components/property/report-registration.tsx', 'src/app/research/page.tsx', 'src/app/research/global-luxury-property-report-2026/page.tsx'])
+  assert.ok(!fs.readFileSync(file, 'utf8').includes('global-report-pdf'));
+ assert.ok(fs.readFileSync('src/server/global-report-pdf.ts','utf8').startsWith('import "server-only";'));
+ assert.ok(!fs.readdirSync('public', { recursive: true }).some(f => /global.*\.pdf$/i.test(f)));
+});
