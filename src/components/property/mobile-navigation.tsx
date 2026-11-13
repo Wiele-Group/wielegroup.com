@@ -43,7 +43,7 @@ export function MobileNavigation() {
   return <details className="mobile-navigation" ref={container} key={pathname}>
     <summary className="menu-toggle"><span className="menu-label-open">Menu</span><span className="menu-label-close">Close</span><span className="menu-symbol" aria-hidden="true">+</span></summary>
     <nav id="mobile-links" aria-label="Mobile navigation">
-      <span className="navigation-caption">Explore Wiele / Malta</span>
+      <span className="navigation-caption">Explore Wiele / Global property</span>
       {propertyNavigation.map((item, index) => <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => { if (container.current) container.current.open = false; }}><span className="navigation-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{item.label}</span><span className="navigation-arrow" aria-hidden="true">↗</span></Link>)}
       <Link className="navigation-contact" href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} onClick={() => { if (container.current) container.current.open = false; }}>Get in touch <span aria-hidden="true">↗</span></Link>
     </nav>

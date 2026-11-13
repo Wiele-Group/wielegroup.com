@@ -33,8 +33,8 @@ export const propertyOnboardingSchema = z.discriminatedUnion("kind", [
   z.object({kind: z.literal("seller"), details: sellerSchema, acknowledgement: z.literal(true)}).strict(),
 ]);
 export const onboardingFieldLabels: Record<string, string> = {
-  structure: "Purchasing structure", use: "Intended property use", budget: "Purchase budget", funding: "Funding route",
-  timing: "Preferred timing", eligibility: "Acquisition eligibility review", locality: "Malta / Gozo localities",
+  structure: "Purchasing structure", use: "Intended property use", budget: "Indicative budget in EUR", funding: "Funding route",
+  timing: "Preferred timing", eligibility: "Acquisition eligibility review", locality: "Property country and locations",
   residenceCountry: "Country of residence", authority: "Your relationship to the property", propertyType: "Property type",
   tenure: "Title / tenure", occupancy: "Occupancy", epc: "Energy performance certificate", planning: "Planning documents",
 };

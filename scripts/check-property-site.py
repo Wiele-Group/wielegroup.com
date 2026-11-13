@@ -45,7 +45,7 @@ for path in paths:
  assert not re.search(r'Jonathan|Landman|jonathan|9932|wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'personal identity or direct contact remains')
  assert 'mailto:admin@wielegroup.com' in text,(path,'admin contact missing')
  assert 'Wiele Investments' in text
- assert 'Malta at heart' not in text and 'Investment in focus' not in text,(path,'retired tagline')
+ assert all(old not in text for old in ['Malta at heart','Investment in focus','From South African roots to Malta shores. Thinking globally.']),(path,'retired tagline')
  assert p.title and p.title not in titles,(path,'missing or duplicate title')
  titles.add(p.title)
  description=p.meta.get('description','')
@@ -67,7 +67,7 @@ for path in paths:
  types=[e.get('@type') for e in entities]
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
- assert org.get('slogan')=='From South African roots to Malta shores. Thinking globally.',(path,'organization slogan')
+ assert org.get('slogan')=='South African roots. Global perspective.',(path,'organization slogan')
  assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
  assert org['name']=='Wiele Investments' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
@@ -75,7 +75,9 @@ for path in paths:
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
-  assert service['provider']['@id']=='https://wielegroup.com/#organization' and service['areaServed']['name']=='Malta',(path,'service identity')
+  assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')
+  if path=='/property-maintenance':assert service['areaServed']['name']=='Malta',(path,'maintenance locality')
+  else:assert 'areaServed' not in service,(path,'do not assert unverified worldwide service coverage')
   page=next(e for e in entities if e.get('@type')=='WebPage')
   assert page['mainEntity']['@id']==service['@id'],(path,'service page relationship')
  if path.startswith('/articles/'):
@@ -115,6 +117,8 @@ for path in paths:
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
+  assert 'Global Property Sales' in p.title and 'Exceptional property.' in text,(path,'global proposition')
+  assert all(place in text for place in ['Italy','Spain','Dubai','Cape Town','London']),(path,'international architectural direction')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
@@ -144,7 +148,7 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
 for path in ['/api/audit','/api/contact','/unknown-property-page']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-roots-20261112.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-global-20261113.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
  status,_,_=get(path);assert status==200,(path,status)
 assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',get('/llms.txt')[2],re.I),'personal identity in llms.txt'
 print('PASS search metadata and brand resources')

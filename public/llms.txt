@@ -1,54 +1,50 @@
 # Wiele Investments
 
-Malta property services at wielegroup.com: Wiele Investments is the current public brand under Wiele Group, formerly known as Wiele Properties and also searched as WieleGroup or Wiele Property. The former marketing-agency, SEO and AI-search services and prices are no longer offered on this website. Retired agency URLs return HTTP 410 Gone. Current scope is stated on the live homepage and About page; older search snippets and historic social posts may describe the former offer.
+Global property sales. South African roots. Global perspective.
 
-Wiele Investments is a Malta property-marketing and introductions platform under the Wiele Group brand. Tagline: From South African roots to Malta shores. Thinking globally. Focus: investment real estate in Malta, welcoming local and international buyers, first-time and experienced investors, consortiums and property owners. Property interests include apartments, luxury apartments, residences and portfolios. Wiele Property Maintenance is a Wiele-managed and operated service for physical property care in Malta. It includes repairs and fittings, painting and making-good, kitchen and bathroom upkeep, planned maintenance, property care visits and preparation for sale or occupation. Work, visit availability, charges and specialist involvement are confirmed per property. Letting, rent collection, tenancy administration and fund management are not offered. Rental-income analysis distinguishes actual, contracted and projected income; returns are not guaranteed. Sales documentation is handled by appropriately licensed practitioners.
+Wiele Investments is the current public property brand under Wiele Group, formerly Wiele Properties, also searched as Wiele Property or WieleGroup. Based in Swieqi, Malta, with South African roots. Its brand vision is international property sales, welcoming buyers, investors and owners looking across countries and continents. Malta is the business base, not a limit on the brand’s outlook.
 
-There are currently no advertised properties. Location photographs are not properties offered for sale. Stock photography and AI-created architectural concepts illustrate the brand; they are not listings.
+## Property direction and service scope
+Luxury apartments and penthouses, architectural villas, distinctive modern and traditional residences, wine estates and investment property. International enquiries are welcome. Country coverage, available opportunities, marketing authority, costs, responsible practitioners and service terms must be confirmed for each enquiry. The website does not establish offices, licensed operations, partners or available stock in any particular foreign country. Transaction documentation and jurisdiction-specific checks belong with appropriately licensed practitioners.
 
-- Website: https://wielegroup.com/
-- Seller marketing: https://wielegroup.com/selling
-- Investor onboarding: https://wielegroup.com/investor-onboarding (initial structured purchase brief; preparation for professional acquisition, identity and funding checks; no document upload or eligibility approval)
-- Seller onboarding: https://wielegroup.com/seller-onboarding (initial structured property brief; ownership, authority, EPC and planning preparation; no marketing instruction created)
-- Investor information: https://wielegroup.com/buying
-- Investment opportunities: https://wielegroup.com/properties
-- Articles: https://wielegroup.com/articles (Malta income-producing investment property, going concerns and properties with potential; full articles and charts require registration; public summaries remain accessible; future marketing consent is optional)
-- Market report: https://wielegroup.com/malta-investment-report (16-page 2025 review and 2026 outlook; research updated 2 November 2026; revised annual NSO transactions, current national price/sales evidence and ECB policy context; complimentary PDF requires registration; marketing consent is optional)
-- Property maintenance: https://wielegroup.com/property-maintenance (Wiele-managed and operated; enquiries by form or email; no 24-hour or same-day promise)
-- Legal compliance guide: https://wielegroup.com/legal-compliance (general Malta property-acquisition information and FAQs for EU, non-EU/third-country and corporate buyers; official sources; independent professional advice required; reviewed 31 October 2026)
-- Approach: https://wielegroup.com/about
+There are currently no advertised properties. The website’s fictional AI-created architectural images illustrate the brand direction. Italy-, Spain-, Dubai-, Cape Town- and London-inspired creative references do not establish an actual location, available listing or Wiele instruction. Image captions and credits identify conceptual imagery. Research and legal guidance remain specific to their stated country and date.
+
+Wiele Property Maintenance remains a Wiele-managed physical property-care service in Malta. Scope, access, availability, charges and specialist involvement are agreed per property. Letting, rent collection, tenancy administration and fund management are not offered. Rental-income analysis distinguishes collected, contracted and projected income. Returns are not guaranteed.
+
+## Public website
+- Home: https://wielegroup.com/
+- Property marketing for owners: https://wielegroup.com/selling
+- International buyer enquiries: https://wielegroup.com/buying
+- Property collection: https://wielegroup.com/properties
+- About and The Wiele Algorithm: https://wielegroup.com/about
 - Contact: https://wielegroup.com/contact
-- General enquiries and registrations: admin@wielegroup.com
+- Buyer brief: https://wielegroup.com/investor-onboarding
+- Seller brief: https://wielegroup.com/seller-onboarding
+- Articles: https://wielegroup.com/articles
+- Malta report: https://wielegroup.com/malta-investment-report
+- Malta legal guide: https://wielegroup.com/legal-compliance
+- Malta maintenance: https://wielegroup.com/property-maintenance
+- Image credits: https://wielegroup.com/credits
 - Privacy: https://wielegroup.com/privacy
 - Website terms: https://wielegroup.com/terms
 
-No affiliation with or accreditation by a regulator is implied. Property and transaction facts require verification for the specific case.
+The Malta investment report and Malta acquisition guidance retain their specific geographic scope. They are not global market research or global legal advice. Onboarding accepts a property country and area; its dated legal preparation notes are explicitly Malta-specific. Other jurisdictions need separate professional advice.
 
-Based in Swieqi, Malta. Established 2026. By appointment only. Client languages: English and Afrikaans.
+## The Wiele Algorithm
+Wiele’s research-led, property-specific decision process guided by professional judgement: Assess, Identify, Position, Activate, Review. Country, property facts, seller objectives, market evidence and likely buyers shape the strategy. Qualified enquiries, viewings, offers and completion are distinct outcomes. It is not predictive software and does not guarantee a buyer, sale date or return. Public explanation: https://wielegroup.com/about#wiele-algorithm.
 
+## Contact and identity
+- Based in Swieqi, Malta. Established 2026. Meetings by appointment.
+- Client languages: English and Afrikaans.
+- General enquiries and registrations: admin@wielegroup.com
 - Facebook: https://www.facebook.com/wieleinvestments/
 - LinkedIn: https://www.linkedin.com/company/wiele-investments/
 
-All enquiries go to admin@wielegroup.com. Enquiry process: share the property brief, clarify the available information, then agree a suitable next step. Buyer journeys distinguish income-focused acquisitions from premium residences. The report page includes selected public chart and worked-example previews; the complete PDF requires registration.
+The former marketing-agency, SEO and AI-search offers are no longer offered on this website. Retired agency URLs return HTTP 410 Gone. Historic search snippets and social posts may describe superseded services or Malta-led brand wording.
 
-## Optional website tools
-The interactive investment scenario uses clearly labelled hypothetical inputs, with gross yield on price and operating yield on stated total cost. It excludes financing, income tax and future capital expenditure. It does not recommend available stock or assess acquisition eligibility.
+## Website tools and access
+The investment scenario uses explicitly hypothetical euro inputs. Gross yield is scheduled annual rent divided by price; operating yield uses income after stated vacancy and operating costs divided by price, acquisition costs and initial works. Financing, income tax and future capital expenditure are excluded. It is not a listing, valuation or forecast.
 
-Example investment information pack: https://wielegroup.com/property/investment-information-example.html
-This is an unfilled illustrative document structure covering asset particulars, income definitions, costs, evidence status and next questions. It is not a listing, verified asset record, valuation or investment recommendation. The example is available as a separate illustrative document. It is not an advertised property.
+The unfilled example pack at https://wielegroup.com/property/investment-information-example.html is illustrative, not an advertised property or verified asset record. Registered articles, charts and report downloads retain access restrictions. Optional marketing consent remains separate. Public page summaries and FAQs remain readable without registration. Forms do not accept identity or financial-document uploads. No payment, property reservation, agency instruction or eligibility approval is created by an enquiry.
 
-## Dated market research
-Reviewed 2 November 2026: Malta RPPI +6.9% year on year in Q2 2026; 974 registered final deeds in September 2026 (-11.5% year on year); ECB deposit facility 2.50%, held 29 October. Each has a distinct period and definition. Sources, limitations and annual revisions appear at https://wielegroup.com/malta-investment-report#market-evidence. No national index is an individual property valuation or rental return. Policy rates are not borrower quotations.
-
-## Website identity and imagery — updated 12 November 2026
-
-- Current public brand: Wiele Investments. Operator identity: Wiele Group.
-- Service base: Swieqi, Malta. Property marketing, buyer introductions and Wiele-managed physical property maintenance.
-- General enquiries: admin@wielegroup.com.
-- Availability: no properties currently advertised. An enquiry is not a promise of stock or returns.
-- The cinematic homepage includes clearly disclosed fictional architectural concepts and an actual Valletta waterfront location photograph by Ludovica Dri. Neither is a listing. Image credits: https://wielegroup.com/credits.
-- Evidence hierarchy: property-specific documents and independent professional checks take priority over illustrative tools or general market commentary.
-- Public page summaries and FAQs are readable without registration. Full registered articles, charts and report downloads retain their access restrictions.
-
-## The Wiele Algorithm
-Malta property marketing: The Wiele Algorithm is Wiele Investments’ research-led, property-specific decision process guided by professional judgement. Stages: assess, identify, position, activate and review. Property facts, seller objectives, competing alternatives and likely buyers shape presentation and channel selection. Qualified enquiries, viewings, offers and completion are distinct outcomes. It is not a trained predictive model and does not guarantee a sale date, buyer or return. The public explanation and clearly labelled illustrative strategy brief are at https://wielegroup.com/about#wiele-algorithm. Scope, costs and professional involvement are agreed per property.
+Brand identity updated 13 November 2026. Published research retains its original evidence dates and country scope.

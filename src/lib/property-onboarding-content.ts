@@ -12,13 +12,13 @@ export const onboardingSources = {
 export type OnboardingSource = keyof typeof onboardingSources;
 export const onboardingContent = {
   investor: {
-    title: "Investor Onboarding in Malta", description: "Malta property investor onboarding: share your purchase brief, prepare acquisition and funding checks, and understand the next steps with Wiele Investments.",
-    eyebrow: "Malta property investment / Investor onboarding", heading: "Your ambition.", emphasis: "A considered beginning.",
-    introduction: "Malta property investment starts with your circumstances and your goals. Share an initial brief, understand the documents to prepare, and agree the next step with Wiele Investments.",
+    title: "International Property Buyer Brief", description: "International property buyer onboarding: share your country, purchase brief and priorities. Wiele is based in Malta; country-specific professional checks follow separately.",
+    eyebrow: "Global property sales / Buyer onboarding", heading: "Your ambition.", emphasis: "A considered beginning.",
+    introduction: "Your property search starts with your preferred country, circumstances and goals. Share an initial brief and agree the next step with Wiele. The legal preparation notes below relate specifically to Malta.",
     formTitle: "Share your investor brief.",
     steps: [
-      ["01 / Your brief", "Define the purchase.", "Tell us the property type, localities, budget, funding route, purchasing structure and intended use. Local buyers, international investors and joint purchasers are welcome."],
-      ["02 / Professional checks", "Establish the route.", "Your independent Maltese notary or advocate assesses acquisition eligibility. Relevant subject persons complete their own identity, beneficial-ownership, funding and risk checks."],
+      ["01 / Your brief", "Define the purchase.", "Tell us the property type, countries and localities, budget, funding route, purchasing structure and intended use. Local buyers, international investors and joint purchasers are welcome."],
+      ["02 / Professional checks", "Establish the route.", "The relevant independent professionals assess acquisition eligibility in the property’s country. Relevant subject persons complete their own identity, beneficial-ownership, funding and risk checks."],
       ["03 / A clear next step", "Agree how to proceed.", "Discuss a suitable search or introduction and any service terms. Before committing funds, your advisers review the specific property, contract, taxes, financing and lawful use."],
     ],
     checks: [
@@ -35,12 +35,12 @@ export const onboardingContent = {
     ],
   },
   seller: {
-    title: "Seller Onboarding in Malta", description: "Malta property seller onboarding: share your property brief and prepare ownership, authority, EPC, planning and income records before marketing with Wiele Investments.",
-    eyebrow: "Malta property marketing / Seller onboarding", heading: "Your property.", emphasis: "Prepared with purpose.",
-    introduction: "Malta property marketing begins with a clear brief and reliable particulars. Tell us about your property, understand what to prepare, and agree the scope before advertising starts.",
+    title: "International Property Seller Brief", description: "International property seller onboarding: share your country, property brief and document status. Marketing scope and local professional requirements are agreed separately.",
+    eyebrow: "Global property sales / Seller onboarding", heading: "Your property.", emphasis: "Prepared with purpose.",
+    introduction: "Property marketing begins with the country, a clear brief and reliable particulars. Tell us about your property and agree the scope before advertising starts. The legal preparation notes below relate specifically to Malta.",
     formTitle: "Introduce your property.",
     steps: [
-      ["01 / Your property", "Start with the facts.", "Share the locality, property type, tenure, occupancy, document status and timing. Flag known defects, disputes, leases and any existing agency instruction."],
+      ["01 / Your property", "Start with the facts.", "Share the country, locality, property type, tenure, occupancy, document status and timing. Flag known defects, disputes, leases and any existing agency instruction."],
       ["02 / Preparation", "Bring the evidence together.", "Confirm who can instruct the sale. Prepare ownership, authority, planning and energy-performance information, alongside supported income and cost records where relevant."],
       ["03 / Agreed instruction", "Set the terms clearly.", "Agree the marketing scope, fees, VAT where applicable, duration, exclusivity and practitioner involvement in writing. Advertising follows the required checks and authority."],
     ],

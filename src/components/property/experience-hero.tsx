@@ -7,9 +7,9 @@ import { Arrow } from "./chrome";
 import { ExperienceMotionControl } from "./luxury-motion";
 
 const scenes = [
-  { name: "The residence", image: "wiele-malta-residence-concept.webp", title: "A different perspective.", label: "Mediterranean residence · AI-created concept" },
-  { name: "The architecture", image: "wiele-malta-apartments-concept.webp", title: "An individual approach.", label: "Contemporary architecture · AI-created concept" },
-  { name: "The detail", image: "wiele-malta-material-detail-concept.webp", title: "A considered decision.", label: "Natural material study · AI-created concept" },
+  { name: "Villas", image: "wiele-global-villa-20261113.webp", label: "Architectural villa · AI-created concept" },
+  { name: "Apartments", image: "wiele-global-apartment-20261113.webp", label: "Luxury apartment · AI-created concept" },
+  { name: "Wine estates", image: "wiele-global-wine-estate-20261113.webp", label: "Private wine estate · AI-created concept" },
 ];
 
 export function ExperienceHero() {
@@ -34,12 +34,12 @@ export function ExperienceHero() {
   return <section className="cinema-hero" data-experience-hero aria-labelledby="home-title">
     <div className="cinema-scene" aria-hidden="true">{loaded.map(index => <div className={`cinema-frame ${active === index ? "is-active" : ""}`} key={index}><Image src={`/property/${scenes[index].image}`} alt="" fill sizes="100vw" priority={index === 0} fetchPriority={index === 0 ? "high" : "auto"} /></div>)}</div>
     <div className="cinema-shade" aria-hidden="true" />
-    <div className="cinema-rail" aria-hidden="true"><span>WIELE INVESTMENTS</span><i /><span>35°54′ N · 14°30′ E</span></div>
+    <div className="cinema-rail" aria-hidden="true"><span>WIELE INVESTMENTS</span><i /><span>SOUTH AFRICAN ROOTS · GLOBAL PERSPECTIVE</span></div>
     <div className="cinema-hero-copy">
-      <span className="cinema-eyebrow"><i /> Malta / Investment real estate</span>
-      <h1 id="home-title" className="cinema-roots-tagline"><span>From South African roots</span><span>to Malta shores.</span><em>Thinking globally.</em></h1>
-      <p>From your first apartment to your next portfolio.<br />Investment real estate, shaped around your goals.</p>
-      <div className="cinema-hero-actions"><Link className="cinema-button" href="/buying">Explore the Wiele perspective <Arrow diagonal /></Link><Link className="cinema-quiet-link" href="/contact">Start a conversation <Arrow /></Link></div>
+      <span className="cinema-eyebrow"><i /> Global property sales</span>
+      <h1 id="home-title" className="cinema-global-title"><span>Exceptional property.</span><em>Global perspective.</em></h1>
+      <p>Luxury apartments. Architectural villas. Wine estates.<br />South African roots. Based in Malta. Looking worldwide.</p>
+      <div className="cinema-hero-actions"><Link className="cinema-button" href="/buying">Find your next property <Arrow diagonal /></Link><Link className="cinema-quiet-link" href="/contact">Start a conversation <Arrow /></Link></div>
     </div>
     <div className="cinema-bottom">
       <a className="cinema-discover" href="#discover"><span aria-hidden="true">↓</span> Discover Wiele</a>
