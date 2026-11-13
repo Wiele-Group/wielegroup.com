@@ -1,0 +1,122 @@
+/* Wiele — property-led editorial refinement, 14 November 2026.
+   The approved identity is retained. Content, links and images need no animation. */
+:root { --editorial-paper:#fffdfa; --editorial-ink:#242823; --editorial-muted:#555e56; }
+.site-header { height:104px; }
+.site-header .brand-integrated { width:184px; }
+.header-inner { gap:22px; }
+.desktop-nav { gap:clamp(15px,1.5vw,24px); }
+.desktop-nav a { font-size:13px; letter-spacing:.035em; }
+.header-contact { font-size:12px; min-height:48px; padding:12px 18px; }
+.menu-toggle .menu-label-open,.menu-toggle .menu-label-close { font-size:14px; }
+.button,.cinema-button { font-size:13px; min-height:52px; letter-spacing:.025em; }
+.text-link,.cinema-text-link,.cinema-quiet-link { font-size:14px; min-height:46px; line-height:1.6; }
+.cinema-eyebrow,.eyebrow { font-size:11px; letter-spacing:.11em; }
+.page-intro-copy>p,.buyer-grid p,.buyer-journeys p,.split-feature p { font-size:16px; line-height:1.85; }
+.page-intro-scene figcaption,.asset-category figcaption,.asset-hero-caption,.asset-preview-card>div>span { font-size:11px; line-height:1.6; }
+.editorial-home { background:var(--editorial-paper); color:var(--ink); }
+.editorial-home .wrap { width:min(1280px,calc(100% - 112px)); }
+.editorial-home h2 { font:400 clamp(42px,4.2vw,64px)/1.08 var(--font-heading); letter-spacing:-.025em; margin:20px 0 26px; }
+.editorial-home h2 em { font-weight:400; color:var(--muted); }
+.editorial-home p { font-size:16px; line-height:1.85; color:var(--muted); }
+.editorial-home .text-link { font-size:14px; gap:24px; }
+.brokerage-hero { display:grid; grid-template-columns:46% 54%; min-height:620px; background:var(--ivory); }
+.brokerage-hero-copy { padding:70px clamp(32px,4.4vw,80px); align-self:center; min-width:0; }
+.brokerage-hero-copy>.eyebrow { color:var(--muted); letter-spacing:.09em; }
+.brokerage-hero h1 { font:400 clamp(50px,4.6vw,78px)/1.03 var(--font-heading); letter-spacing:-.032em; margin:28px 0; }
+.brokerage-hero h1>span,.brokerage-hero h1>em { display:block; }
+.brokerage-hero h1 em { font-weight:400; color:var(--ink); }
+.editorial-home p.brokerage-hero-lead { font:400 clamp(22px,2vw,29px)/1.4 var(--font-heading); color:var(--ink); margin:0 0 18px; }
+.editorial-home p.brokerage-hero-description { max-width:37ch; font-size:15px; margin:0; }
+.brokerage-hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; margin-top:28px; }
+.brokerage-signature { display:block; margin-top:40px; padding-top:22px; border-top:1px solid var(--line); font:400 21px/1.4 var(--font-heading); color:var(--muted); }
+.brokerage-hero-image { margin:0; position:relative; min-height:620px; background:#d2c8b8; }
+.brokerage-hero-image>img { object-fit:cover; object-position:61% center; }
+.brokerage-hero-image figcaption { position:absolute; bottom:24px; left:24px; right:24px; width:fit-content; max-width:calc(100% - 48px); padding:10px 14px; background:#fffdfaf0; color:var(--ink); font-size:11px; line-height:1.65; }
+.brokerage-hero-image figcaption>span { color:var(--muted); }
+.brokerage-property { padding-block:80px; }
+.brokerage-section-heading { display:grid; grid-template-columns:1.1fr 1fr; align-items:start; gap:10%; margin-bottom:34px; }
+.brokerage-availability { margin-top:8px; border-left:2px solid var(--line); padding-left:26px; }
+.brokerage-availability>strong { font-size:16px; font-weight:600; }
+.brokerage-availability p { margin:10px 0 8px; }
+.brokerage-journeys { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; }
+.brokerage-journeys article { padding-top:24px; border-top:1px solid var(--line); display:flex; flex-direction:column; align-items:start; }
+.brokerage-journeys h3 { font:400 32px/1.14 var(--font-heading); letter-spacing:-.015em; margin:18px 0 14px; }
+.brokerage-journeys p { margin:0 0 20px; }
+.brokerage-journeys a { margin-top:auto; }
+.brokerage-why { padding-block:80px; background:#eeeae2; }
+.brokerage-why-grid { display:grid; grid-template-columns:1fr 1fr; gap:10%; }
+.brokerage-why-intro { max-width:40ch; }
+.brokerage-evidence-link { margin-top:22px; }
+.brokerage-evidence-link>span { display:block; font-size:12px; line-height:1.8; color:var(--muted); margin-top:8px; }
+.brokerage-principles { list-style:none; margin:0; padding:0; }
+.brokerage-principles li { display:grid; grid-template-columns:28px 1fr; gap:20px; padding:22px 0; border-top:1px solid #c9c3b7; }
+.brokerage-principles li>span { font-size:11px; color:var(--muted); padding-top:5px; }
+.brokerage-principles h3 { font:500 30px/1.2 var(--font-heading); margin:0 0 10px; }
+.brokerage-principles p { margin:0; }
+.editorial-home .asset-preview { background:var(--editorial-paper); padding-block:80px; border-bottom:1px solid var(--line); }
+.editorial-home .asset-preview .cinema-wrap { width:min(1280px,calc(100% - 112px)); }
+.editorial-home .asset-preview-heading { grid-template-columns:1.1fr 1fr; gap:10%; align-items:start; }
+.editorial-home .asset-preview h2 { font-size:clamp(42px,4.2vw,64px); }
+.editorial-home .asset-preview-heading p { font-size:16px; margin-top:8px; }
+.editorial-home .asset-preview-card h3 { font-size:28px; }
+.editorial-home .asset-preview-grid { gap:26px; }
+.editorial-home .asset-preview-card img { object-fit:contain; }
+.editorial-home p.asset-disclosure { font-size:12px; }
+.brokerage-research { display:grid; grid-template-columns:300px 1fr; gap:9%; padding-block:72px; align-items:center; }
+.brokerage-report-cover { display:block; justify-self:center; }
+.brokerage-report-cover img { width:210px; height:auto; box-shadow:8px 12px 24px #171a1917; }
+.brokerage-research>div { max-width:650px; }
+.brokerage-research p { margin-bottom:18px; }
+.editorial-home p.brokerage-report-meta { font-size:12px; line-height:1.8; }
+.brokerage-research .button { width:fit-content; margin:4px 24px 8px 0; }
+.brokerage-contact { padding-block:72px; background:var(--ivory); border-top:1px solid var(--line); }
+.brokerage-contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:10%; }
+.brokerage-contact-grid>div:first-child>p { max-width:40ch; }
+.brokerage-contact .button { display:flex; width:fit-content; margin:24px 0 12px; }
+.editorial-home p.brokerage-contact-note { font-size:12px; }
+.brokerage-answers { padding-top:10px; }
+.brokerage-answers>.eyebrow { display:block; padding-bottom:22px; }
+.brokerage-answers details { border-top:1px solid var(--line); }
+.brokerage-answers details:last-child { border-bottom:1px solid var(--line); }
+.brokerage-answers summary { display:flex; justify-content:space-between; align-items:center; gap:20px; cursor:pointer; font-size:16px; font-weight:500; line-height:1.6; padding-block:20px; list-style:none; }
+.brokerage-answers summary::-webkit-details-marker { display:none; }
+.brokerage-answers summary>span { font-size:23px; color:var(--muted); flex-shrink:0; }
+.brokerage-answers details>p { font-size:15px; padding-bottom:20px; margin:0; }
+@media(min-width:1181px) and (max-width:1360px) { .desktop-nav { gap:13px; }.desktop-nav a { font-size:12.5px; }.site-header .brand-integrated { width:164px; }.header-inner { gap:15px; padding-inline:32px; } }
+@media(max-width:1100px) { .brokerage-hero { grid-template-columns:48% 52%; }.brokerage-hero-copy { padding-inline:32px; }.brokerage-hero h1 { font-size:clamp(48px,5vw,60px); }.brokerage-journeys { gap:26px; }.editorial-home .wrap,.editorial-home .asset-preview .cinema-wrap { width:calc(100% - 80px); } }
+@media(max-width:760px) {
+ .site-header { height:94px; }.site-header .brand-integrated { width:158px; }.site-header .brand { min-height:76px; }
+ .editorial-home .wrap,.editorial-home .asset-preview .cinema-wrap { width:calc(100% - 48px); }
+ .brokerage-hero { grid-template-columns:minmax(0,1fr); }
+ .brokerage-hero-copy { padding:42px 24px 36px; }
+ .brokerage-hero h1 { font-size:clamp(45px,10.4vw,69px); margin-block:22px; }
+ .brokerage-hero-copy>.eyebrow { font-size:10px; letter-spacing:.07em; }
+ .editorial-home p.brokerage-hero-lead { font-size:25px; }
+ .brokerage-hero-actions { gap:10px 22px; margin-top:24px; }
+ .brokerage-signature { margin-top:26px; padding-top:18px; font-size:20px; }
+ .brokerage-hero-image { min-width:0; min-height:0; width:100%; aspect-ratio:4/3; }
+ .brokerage-hero-image>img { object-position:center; }
+ .brokerage-hero-image figcaption { bottom:16px; left:16px; right:16px; font-size:10px; max-width:calc(100% - 32px); }
+ .brokerage-section-heading,.brokerage-why-grid,.brokerage-contact-grid { grid-template-columns:1fr; gap:28px; }
+ .brokerage-property,.brokerage-why,.editorial-home .asset-preview { padding-block:52px; }
+ .brokerage-availability { padding-left:20px; margin:0; }
+ .brokerage-journeys { grid-template-columns:1fr; gap:28px; }
+ .brokerage-journeys h3 { font-size:31px; margin-top:12px; }
+ .brokerage-journeys p { margin-bottom:10px; }
+ .brokerage-section-heading { margin-bottom:32px; }
+ .editorial-home .asset-preview-heading { grid-template-columns:1fr; gap:0; margin-bottom:28px; }
+ .editorial-home .asset-preview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 18px; }
+ .editorial-home .asset-preview-card>div { aspect-ratio:4/3; }
+ .editorial-home .asset-preview-card h3 { font-size:25px; gap:8px; align-items:start; }
+ .asset-preview-card h3 svg { width:16px; flex-shrink:0; margin-top:6px; }
+ .editorial-home .asset-preview-card>div>span { font-size:8px; inset:auto 4px 4px; padding:3px 5px; }
+ .brokerage-research { grid-template-columns:1fr; gap:24px; padding-block:52px; }
+ .brokerage-report-cover { justify-self:start; }
+ .brokerage-report-cover img { width:160px; }
+ .brokerage-research h2 { margin-top:16px; }
+ .brokerage-contact { padding-block:52px; }
+}
+@media(max-width:380px) { .brokerage-hero-copy { padding-inline:18px; }.editorial-home .wrap,.editorial-home .asset-preview .cinema-wrap { width:calc(100% - 36px); }.brokerage-hero h1 { font-size:43px; }.brokerage-hero-actions { flex-direction:column; align-items:start; }.editorial-home .asset-preview-grid { grid-template-columns:1fr; }.editorial-home .asset-preview-card>div { aspect-ratio:16/10; } }
+@media(prefers-reduced-motion:reduce) { .editorial-home * { scroll-behavior:auto; }.editorial-home .asset-preview-card img { transition:none; } }
+
+@media(min-width:1181px) { .desktop-nav { display:flex; }.mobile-navigation { display:none; } }

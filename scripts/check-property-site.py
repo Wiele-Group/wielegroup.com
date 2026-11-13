@@ -127,7 +127,8 @@ for path in paths:
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
   assert 'Global Asset Brokerage' in p.title and 'Exceptional property.' in text,(path,'global proposition')
-  assert all(place in text for place in ['Italy','Spain','Dubai','Cape Town','London']),(path,'international architectural direction')
+  assert all(f'id="{anchor}"' in text for anchor in ['property-brief','why-wiele','luxury-assets','research','questions']),(path,'editorial journey sections')
+  assert 'Choose a scene' not in text and 'Test 10% lower rent' not in text,(path,'keep homepage focused')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:

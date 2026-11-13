@@ -55,3 +55,6 @@ The unfilled example pack at https://wielegroup.com/property/investment-informat
 Brand identity updated 13 November 2026. Published research retains its original evidence dates and country scope.
 
 Luxury asset enquiries use the category aircraft, yachts, exotic-cars or classic-cars and the purpose acquire or offer. An enquiry does not create a reservation, purchase, brokerage instruction or payment obligation. No aircraft operations, yacht charter, vessel management or vehicle hire is offered.
+
+## Website presentation — 14 November 2026
+Property leads the homepage, followed by a property brief, the documented Wiele approach, complementary luxury asset categories, selected property research and enquiry answers. The property concept hero is a single image, not an advertised listing. The full architectural inspiration gallery remains on /properties; the illustrative investment calculator is available on /buying as a property decision tool, not market evidence.
