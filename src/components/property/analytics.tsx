@@ -72,7 +72,7 @@ export function PropertyAnalytics() {
    const href = anchor.getAttribute("href") || "";
    const channel = href.startsWith("https://wa.me/") ? "whatsapp" : href.startsWith("mailto:") ? "email" : href.startsWith("tel:") ? "phone" : null;
    const journey = anchor.getAttribute("data-property-journey");
-   if (journey && ["buyer", "residence", "investment", "seller"].includes(journey)) trackPropertyEvent("property_journey", { journey, page_path: window.location.pathname });
+   if (journey && ["buyer", "residence", "investment", "seller", "luxury-assets"].includes(journey)) trackPropertyEvent("property_journey", { journey, page_path: window.location.pathname });
    const algorithmAction = anchor.getAttribute("data-algorithm-action");
    if (algorithmAction) trackPropertyEvent("algorithm_action", { action: algorithmAction, page_path: window.location.pathname });
    if (channel) trackPropertyEvent("contact_click", { contact_channel: channel });

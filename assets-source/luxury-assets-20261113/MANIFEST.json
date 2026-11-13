@@ -1,0 +1,54 @@
+[
+  {
+    "category": "aircraft",
+    "file": "wiele-aircraft-20261113.webp",
+    "width": 1672,
+    "height": 941,
+    "description": "Wiele Investments aircraft: AI-created fictional illustrative concept. Not an asset for sale. No manufacturer, specification, provenance or location is established.",
+    "creator": "OpenAI image generation for Wiele Investments",
+    "generated": "2026-11-13",
+    "source": "assets-source/luxury-assets-20261113/wiele-aircraft-original.png",
+    "sha256": "b1ccc9e16b102ed2d07a89a99c9ca8ebff30058eb92ad0d2f3f95a3045fae571",
+    "bytes": 167064,
+    "aiGenerated": true
+  },
+  {
+    "category": "yachts",
+    "file": "wiele-yachts-20261113.webp",
+    "width": 1672,
+    "height": 941,
+    "description": "Wiele Investments yachts: AI-created fictional illustrative concept. Not an asset for sale. No manufacturer, specification, provenance or location is established.",
+    "creator": "OpenAI image generation for Wiele Investments",
+    "generated": "2026-11-13",
+    "source": "assets-source/luxury-assets-20261113/wiele-yachts-original.png",
+    "sha256": "12fa3899d2b5160705c51589e47d5c3f4c6408a52d55421e074c6234b1176710",
+    "bytes": 344766,
+    "aiGenerated": true
+  },
+  {
+    "category": "exotic-cars",
+    "file": "wiele-exotic-cars-20261113.webp",
+    "width": 1672,
+    "height": 941,
+    "description": "Wiele Investments exotic-cars: AI-created fictional illustrative concept. Not an asset for sale. No manufacturer, specification, provenance or location is established.",
+    "creator": "OpenAI image generation for Wiele Investments",
+    "generated": "2026-11-13",
+    "source": "assets-source/luxury-assets-20261113/wiele-exotic-cars-original.png",
+    "sha256": "41bb31fe69fcd34064dfed51e79c58b834f1191c25be6bd92a685302a21294fa",
+    "bytes": 363670,
+    "aiGenerated": true
+  },
+  {
+    "category": "classic-cars",
+    "file": "wiele-classic-cars-20261113.webp",
+    "width": 1672,
+    "height": 941,
+    "description": "Wiele Investments classic-cars: AI-created fictional illustrative concept. Not an asset for sale. No manufacturer, specification, provenance or location is established.",
+    "creator": "OpenAI image generation for Wiele Investments",
+    "generated": "2026-11-13",
+    "source": "assets-source/luxury-assets-20261113/wiele-classic-cars-original.png",
+    "sha256": "6c782eb6c1594906cc7c6cd636d51eaf2097b4a036d3e6832c1f5e0127df05e8",
+    "bytes": 449656,
+    "aiGenerated": true
+  }
+]

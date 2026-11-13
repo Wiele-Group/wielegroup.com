@@ -7,11 +7,11 @@ export function StructuredData({ data }: { data: object }) {
 export function PageStructuredData({ path, title, description }: { path: string; title: string; description: string }) {
   const url = `${propertyBrand.url}${path}`;
   const service = path === "/selling" ? {
-    name: "International property sales marketing",
-    description: "Property sales marketing shaped by The Wiele Algorithm: assess, identify, position, activate and review. Property facts, seller objectives and likely buyers shape each strategy. Scope and costs are agreed before work begins.",
+    name: "Global asset sales marketing enquiries",
+    description: "Malta-based asset brokerage enquiries for property, aircraft, yachts, exotic cars and classic cars. The asset, owner objectives and available evidence shape the brief. Coverage, authority, scope, fees and specialist involvement are confirmed separately.",
   } : path === "/buying" ? {
-    name: "International property buyer introductions",
-    description: "Property briefs and introductions for buyers considering residences and investments across markets. Country coverage, availability and practitioner involvement are confirmed per enquiry. No properties are currently advertised.",
+    name: "Global asset acquisition enquiries",
+    description: "Acquisition briefs for property, aircraft, yachts, exotic cars and classic cars. Country coverage, availability and specialist involvement are confirmed per enquiry. No assets are currently advertised.",
   } : path === "/property-maintenance" ? {
     name: "Wiele Property Maintenance",
     description: "Wiele-managed and operated property maintenance in Malta: repairs and fittings, painting and making-good, kitchen and bathroom upkeep, planned maintenance, property care visits and preparation for sale or occupation. Work and availability are agreed per property.",

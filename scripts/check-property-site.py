@@ -6,7 +6,7 @@ import sys,time,json,re
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
+paths=['/','/luxury-assets','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
@@ -73,6 +73,15 @@ for path in paths:
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
  assert set(org['sameAs'])==social_profiles,(path,'official social profiles')
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
+ if path=='/luxury-assets':
+  assert all(f'id="{category}"' in text for category in ['aircraft','yachts','exotic-cars','classic-cars']), 'missing asset category'
+  assert all(f'asset={category}' in text for category in ['aircraft','yachts','exotic-cars','classic-cars']), 'asset enquiry context missing'
+  assert 'No aircraft, yachts or cars are currently advertised' in text, 'availability disclosure missing'
+  assert 'Product' not in types and 'Offer' not in types, 'category imagery must not become advertised stock'
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  visible=re.sub(r'\s+',' ',' '.join(p.visible))
+  for item in faq['mainEntity']:
+   assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('asset FAQ mismatch',item['name'])
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')
@@ -117,7 +126,7 @@ for path in paths:
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
-  assert 'Global Property Sales' in p.title and 'Exceptional property.' in text,(path,'global proposition')
+  assert 'Global Asset Brokerage' in p.title and 'Exceptional property.' in text,(path,'global proposition')
   assert all(place in text for place in ['Italy','Spain','Dubai','Cape Town','London']),(path,'international architectural direction')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))

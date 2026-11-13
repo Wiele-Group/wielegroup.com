@@ -1,3 +1,4 @@
+import { LuxuryAssetsPreview } from "@/components/property/luxury-assets-preview";
 import { PropertyStart } from "@/components/property/property-start";
 import { GlobalPropertyGallery } from "@/components/property/global-property-gallery";
 import { WieleAlgorithm } from "@/components/property/wiele-algorithm";
@@ -18,9 +19,9 @@ const perspectives = [
 
 export default function Home() {
   return <div className="cinema-home">
-    <StructuredData data={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": `${propertyBrand.url}/#faq`, url: `${propertyBrand.url}/`, name: "Global Property Sales | Wiele Investments", description: propertyBrand.description, inLanguage: "en-GB", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, mainEntity: propertyFaqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
+    <StructuredData data={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": `${propertyBrand.url}/#faq`, url: `${propertyBrand.url}/`, name: "Global Asset Brokerage | Wiele Investments", description: propertyBrand.description, inLanguage: "en-GB", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, mainEntity: propertyFaqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
     <StructuredData data={{ "@context": "https://schema.org", "@graph": [
-      { "@type": "WebPage", "@id": `${propertyBrand.url}/#webpage`, url: `${propertyBrand.url}/`, name: "Global Property Sales | Wiele Investments", description: propertyBrand.description, inLanguage: "en-GB", dateModified: "2026-11-13", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, primaryImageOfPage: { "@id": `${propertyBrand.url}/property/wiele-global-villa-20261113.webp#image` }, hasPart: { "@id": `${propertyBrand.url}/#faq` } },
+      { "@type": "WebPage", "@id": `${propertyBrand.url}/#webpage`, url: `${propertyBrand.url}/`, name: "Global Asset Brokerage | Wiele Investments", description: propertyBrand.description, inLanguage: "en-GB", dateModified: "2026-11-13", isPartOf: { "@id": `${propertyBrand.url}/#website` }, about: { "@id": `${propertyBrand.url}/#organization` }, primaryImageOfPage: { "@id": `${propertyBrand.url}/property/wiele-global-villa-20261113.webp#image` }, hasPart: { "@id": `${propertyBrand.url}/#faq` } },
       ...cinematicImages.map(image => ({ "@type": "ImageObject", "@id": `${propertyBrand.url}/property/${image.file}#image`, contentUrl: `${propertyBrand.url}/property/${image.file}`, name: image.title, description: image.description, caption: image.description, creditText: image.creator, creator: { "@type": image.creator === "Ludovica Dri" ? "Person" : "Organization", name: image.creator }, width: image.width, height: image.height, isPartOf: { "@id": `${propertyBrand.url}/#webpage` } })),
     ] }} />
     <ExperienceHero />
@@ -39,10 +40,11 @@ export default function Home() {
     <section id="world" className="cinema-place"><Image src="/property/wiele-global-wine-estate-20261113.webp" alt="AI-created private wine estate with contemporary architecture, vineyards and a mountain backdrop" fill sizes="100vw" /><div className="cinema-place-shade" /><div className="cinema-place-copy"><span className="cinema-eyebrow">03 / A world of possibility</span><h2>Where do you<br /><em>see yourself?</em></h2><p>City living. A coastal retreat. A private estate among the vines. Your next chapter starts with the place you want to be.</p><Link className="cinema-button" href="/contact?interest=buying">Tell us where you see yourself <Arrow diagonal /></Link></div><span className="cinema-place-credit">Private wine estate · AI-created concept · not a property for sale</span></section>
 
     <GlobalPropertyGallery />
+    <LuxuryAssetsPreview />
     <WieleAlgorithm />
 
     <InvestmentScenario />
-    <section className="investment-faq wrap" aria-labelledby="investment-questions"><div><span className="eyebrow">Global property sales / Your questions</span><h2 id="investment-questions">A clearer picture.<br /><em>Before your next move.</em></h2><p>Practical answers about Wiele, international enquiries and the next step for your property ambitions.</p></div><div className="investment-faq-list">{propertyFaqs.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}<Link className="text-link" href="/contact">Discuss your property goals <Arrow /></Link></div></section>
+    <section className="investment-faq wrap" aria-labelledby="investment-questions"><div><span className="eyebrow">Global asset brokerage / Your questions</span><h2 id="investment-questions">A clearer picture.<br /><em>Before your next move.</em></h2><p>Practical answers about Wiele, our asset categories and the next step for your international ambitions.</p></div><div className="investment-faq-list">{propertyFaqs.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}<Link className="text-link" href="/contact">Discuss your property goals <Arrow /></Link></div></section>
     <ContactBand />
   </div>;
 }

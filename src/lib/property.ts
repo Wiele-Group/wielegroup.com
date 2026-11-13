@@ -12,13 +12,14 @@ export const propertyBrand = {
     facebook: "https://www.facebook.com/wieleinvestments/",
     linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
-  description: "Global property sales. Based in Malta, with South African roots. Luxury apartments, architectural villas and wine estates. An international perspective from Wiele Investments.",
+  description: "Malta-based global asset brokerage. Property at our core, complemented by yachts, aircraft, exotic and classic cars. South African roots. Global perspective.",
 } as const;
 
 export const propertyNavigation = [
-  { href: "/selling", label: "For owners" },
+  { href: "/properties", label: "Property" },
   { href: "/buying", label: "For buyers" },
-  { href: "/properties", label: "Opportunities" },
+  { href: "/selling", label: "For sellers" },
+  { href: "/luxury-assets", label: "Luxury assets" },
   { href: "/research", label: "Research" },
   { href: "/articles", label: "Articles" },
   { href: "/about", label: "Our approach" },
@@ -30,7 +31,7 @@ export function propertyMetadata(title: string, description: string, path: strin
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/property/og-wiele-global-20261113.jpg", width: 1200, height: 630, alt: `Wiele Investments — global property sales. South African roots. Global perspective. AI-created architectural concept.` }] },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/property/og-wiele-global-20261113.jpg"] },
+      images: [{ url: "/luxury-assets/og-wiele-global-assets-20261113.jpg", width: 1200, height: 630, alt: `Wiele Investments — global asset brokerage. South African roots. Global perspective. AI-created architectural concept.` }] },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/luxury-assets/og-wiele-global-assets-20261113.jpg"] },
   };
 }
