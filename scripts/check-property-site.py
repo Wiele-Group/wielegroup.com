@@ -19,6 +19,10 @@ class Page(HTMLParser):
   if tag=='h1':self.h1s+=1
   if tag=='a' and a.get('href','').startswith('/'):self.links.append(a['href'])
   if tag in ['img','script'] and a.get('src','').startswith('/'):self.assets.append(a['src'])
+  if tag=='source':
+   for candidate in a.get('srcset','').split(','):
+    url=candidate.strip().split(' ')[0]
+    if url.startswith('/'):self.assets.append(url)
   if tag=='link' and a.get('rel')=='canonical':self.canonicals.append(a.get('href'))
  def handle_data(self,data):
   if self.in_title:self.title+=data

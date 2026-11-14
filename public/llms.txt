@@ -63,3 +63,5 @@ Property buyer and seller pages prioritise real estate; complementary yacht, air
 
 ## Interactive asset brief
 The homepage offers visitor-controlled property, yacht, aircraft, exotic-car and classic-car perspectives, using disclosed fictional AI imagery. Its browser-based brief builder organises category, purpose, location, budget and timing, then transfers a reviewable draft to the enquiry form. It is not an inventory search, valuation, eligibility assessment or AI recommendation. No assets are currently advertised.
+
+Prepared brief text can survive a refresh in the same tab for 30 minutes after its latest edit; it clears after a successfully saved enquiry or explicit discard. Reuse expires after 30 minutes and expired copies are discarded when next accessed. Name, email and phone fields are not saved by this feature. Asset-specific priorities can be added locally before review.

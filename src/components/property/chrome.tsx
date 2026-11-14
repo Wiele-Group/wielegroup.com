@@ -9,7 +9,7 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={diagonal ? "M6 18 18 6M6 6h12v12" : "M4 12h15m-6-6 6 6-6 6"} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 export function Brand({ footer = false }: { footer?: boolean }) {
-  return <Link className={`brand ${footer ? "brand-footer" : ""}`} href="/" aria-label="Wiele Investments global asset brokerage home"><Image className="brand-integrated" src="/property-identity/wiele-investments/wordmark-reflective.png" width={1120} height={488} alt="Wiele Investments" priority={!footer} /></Link>;
+  return <Link className={`brand ${footer ? "brand-footer" : ""}`} href="/" aria-label="Wiele Investments global asset brokerage home"><Image className="brand-integrated" src="/property-identity/wiele-investments/wordmark-web.webp" width={560} height={244} alt="Wiele Investments" priority={!footer} /></Link>;
 }
 export function Header() {
   return <header className="site-header"><div className="header-inner"><Brand /><nav className="desktop-nav" aria-label="Main navigation">{propertyNavigation.map(item => <Link key={item.href} href={item.href}>{item.label}</Link>)}</nav><Link href="/contact" className="header-contact">Enquire <Arrow diagonal /></Link><MobileNavigation /></div></header>;
