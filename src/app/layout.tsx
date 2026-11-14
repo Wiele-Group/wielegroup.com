@@ -15,12 +15,12 @@ const sans = localFont({ src: "./fonts/manrope.woff2", weight: "200 800", variab
 const serif = localFont({ src: [{ path: "./fonts/cormorant.woff2", weight: "300 700", style: "normal" }, { path: "./fonts/cormorant-italic.woff2", weight: "300 700", style: "italic" }], variable: "--font-display", display: "swap" });
 export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
- title: { default: `Global Asset Brokerage | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },
+ title: { default: `Global Luxury Asset Brokerage | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },
  description: propertyBrand.description,
  applicationName: propertyBrand.name, category: "Real estate",
  alternates: { canonical: "/" },
- openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Global Asset Brokerage | Wiele Investments", description: propertyBrand.description, url: "/", images: [{ url: "/luxury-assets/og-wiele-global-assets-20261113.jpg", width: 1200, height: 630, alt: `Wiele Investments — global asset brokerage. South African roots. Global perspective. AI-created architectural concept.` }] },
- twitter: { card: "summary_large_image", title: "Global Asset Brokerage | Wiele Investments", description: propertyBrand.description, images: ["/luxury-assets/og-wiele-global-assets-20261113.jpg"] },
+ openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, url: "/", images: [{ url: "/luxury-assets/og-wiele-global-assets-20261113.jpg", width: 1200, height: 630, alt: `Wiele Investments — global asset brokerage. South African roots. Global perspective. AI-created architectural concept.` }] },
+ twitter: { card: "summary_large_image", title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, images: ["/luxury-assets/og-wiele-global-assets-20261113.jpg"] },
  icons: { icon: [{ url: "/property-identity/reflective-gold/favicon-16.png", sizes: "16x16", type: "image/png" }, { url: "/property-identity/reflective-gold/favicon-32.png", sizes: "32x32", type: "image/png" }], apple: "/property-identity/reflective-gold/apple-touch-icon.png" },
  other: { "geo.region": "MT", "geo.placename": "Swieqi, Malta", "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },

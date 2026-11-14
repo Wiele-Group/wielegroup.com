@@ -126,7 +126,8 @@ for path in paths:
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
-  assert 'Global Asset Brokerage' in p.title and 'Exceptional property.' in text,(path,'global proposition')
+  assert 'Global Luxury Asset Brokerage' in p.title and 'Exceptional assets.' in text and 'Property at our core.' in text,(path,'luxury brokerage proposition')
+  assert 'Build your asset brief' in text and 'Your choices stay in this browser' in text and 'No assets are currently advertised.' in text,(path,'honest interactive brief')
   assert all(f'id="{anchor}"' in text for anchor in ['property-brief','why-wiele','luxury-assets','research','questions']),(path,'editorial journey sections')
   assert 'Choose a scene' not in text and 'Test 10% lower rent' not in text,(path,'keep homepage focused')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')

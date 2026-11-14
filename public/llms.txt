@@ -57,6 +57,9 @@ Brand identity updated 13 November 2026. Published research retains its original
 Luxury asset enquiries use the category aircraft, yachts, exotic-cars or classic-cars and the purpose acquire or offer. An enquiry does not create a reservation, purchase, brokerage instruction or payment obligation. No aircraft operations, yacht charter, vessel management or vehicle hire is offered.
 
 ## Website presentation — 14 November 2026
-Property leads the homepage, followed by a property brief, the documented Wiele approach, complementary luxury asset categories, selected property research and enquiry answers. The property concept hero is a single image, not an advertised listing. The full architectural inspiration gallery remains on /properties; the illustrative investment calculator is available on /buying as a property decision tool, not market evidence.
+Property is the default homepage perspective. Visitors can explore disclosed property, yacht, aircraft and car concepts, then organise a browser-based asset brief. The documented Wiele approach, complementary categories, selected research and enquiry answers follow. The hero concepts are not advertised listings. The full architectural inspiration gallery remains on /properties; the illustrative investment calculator is available on /buying as a property decision tool, not market evidence.
 
 Property buyer and seller pages prioritise real estate; complementary yacht, aircraft and collector-car enquiries remain available through /luxury-assets. The contact form precedes supporting company details. The buying page offers an optional expandable illustrative income scenario; its inputs are not market data.
+
+## Interactive asset brief
+The homepage offers visitor-controlled property, yacht, aircraft, exotic-car and classic-car perspectives, using disclosed fictional AI imagery. Its browser-based brief builder organises category, purpose, location, budget and timing, then transfers a reviewable draft to the enquiry form. It is not an inventory search, valuation, eligibility assessment or AI recommendation. No assets are currently advertised.
