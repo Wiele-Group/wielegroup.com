@@ -42,7 +42,9 @@ for path in paths:
  assert status==200,(path,status)
  assert p.h1s==1,(path,'heading count',p.h1s)
  assert len(p.canonicals)==1 and p.canonicals[0].rstrip('/')==('https://wielegroup.com'+('/' if path=='/' else path)).rstrip('/'),(path,p.canonicals)
- assert not re.search(r'Jonathan|Landman|jonathan|9932|wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'personal identity or direct contact remains')
+ assert not re.search(r'Jonathan|Landman|jonathan|wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'personal identity or direct contact remains')
+ # Four-digit fragments can occur in generated hydration IDs; check the phone fragment only in rendered text.
+ assert '9932' not in ' '.join(p.visible),(path,'personal phone fragment remains in visible text')
  assert 'mailto:admin@wielegroup.com' in text,(path,'admin contact missing')
  assert 'Wiele Investments' in text
  assert all(old not in text for old in ['Malta at heart','Investment in focus','From South African roots to Malta shores. Thinking globally.']),(path,'retired tagline')
