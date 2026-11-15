@@ -7,6 +7,7 @@ import "./property-articles.css";
 import "./property-cinematic.css";
 import "./property-editorial.css";
 import "./purchase-guide.css";
+import "./valuations.css";
 import { ExperienceMotion } from "@/components/property/experience-motion";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";

@@ -22,7 +22,7 @@ export const propertyNavigation = [
   { href: "/luxury-assets", label: "Luxury assets" },
   { href: "/purchase-guide", label: "Purchase guide" },
   { href: "/research", label: "Research" },
-  { href: "/articles", label: "Articles" },
+  { href: "/valuations", label: "Valuations" },
   { href: "/about", label: "Our approach" },
 ];
 

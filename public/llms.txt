@@ -78,3 +78,7 @@ Prepared brief text can survive a refresh in the same tab for 30 minutes after i
 - [Supercar and classic-car requirements](https://wielegroup.com/purchase-guide/assets/vehicles): Import eligibility, approval, VAT and registration checkpoints.
 
 General information, not individual legal clearance. Citizenship, residence, tax status, use and funding must be assessed separately. Ownership does not confer immigration residence. No complete tax quote or automatic import exemption is supplied.
+
+## Valuation enquiries and currency
+- https://wielegroup.com/valuations — Indicative property, yacht, private jet, supercar and classic car valuation enquiries for UK, European and South African markets. Dated evidence, local-market currency, assumptions and limitations; no instant or certified appraisal. Country scope, fees and specialist involvement confirmed per enquiry.
+- https://wielegroup.com/valuations#currency-converter — Dated ECB reference rates via Frankfurter; indicative conversions, excluding dealing spreads, fees, taxes and import costs.
