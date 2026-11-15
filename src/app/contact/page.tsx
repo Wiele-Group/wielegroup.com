@@ -8,7 +8,7 @@ import { EnquiryForm } from "@/components/property/enquiry-form";
 export const metadata: Metadata = propertyMetadata("Property & Luxury Asset Enquiries", "Contact Wiele Investments in Malta about buying or selling property, yachts, aircraft, exotic or classic cars. Share your brief or email our company inbox.", "/contact");
 export default function Contact() {
  return <div className="contact-page">
-  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Tell us what you want to buy or sell, where and when. Property is our core business, complemented by yachts, aircraft and collector cars." />
+  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Malta-based property and luxury asset enquiries for buyers and sellers in the UK, Europe and South Africa. Tell us what you want to buy or sell, where and when." />
   <p className="contact-email-alternative wrap">Prefer email? <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a></p>
   <section className="contact-layout wrap">
    <Suspense fallback={<p>Loading the enquiry form… Email <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a>.</p>}><EnquiryForm /></Suspense>
