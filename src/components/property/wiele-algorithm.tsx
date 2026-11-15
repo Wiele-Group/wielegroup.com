@@ -39,6 +39,6 @@ export function WieleAlgorithm({ detailed = false }: { detailed?: boolean }) {
       <dt>Review rules</dt><dd>Exposure without qualified enquiries prompts a review of audience, proposition and price. Viewings without credible offers prompt a review of feedback and competing alternatives. Offers without completion prompt a review of terms, funding and documentation.</dd>
       <dt>Owner update</dt><dd>Record the actions taken, qualified enquiries, viewing feedback, offers, obstacles and recommended next step. Agree review checkpoints around the instruction.</dd>
       </dl><p>This example illustrates the method. The actual strategy, deliverables, costs and professional involvement are agreed for each property. No sale date or outcome is guaranteed.</p></div></details></> : <Link className="text-link" data-algorithm-action="learn_more" href="/about#wiele-algorithm">Understand The Wiele Algorithm <Arrow diagonal /></Link>}
-    <div className="button-row"><Link className="button" data-algorithm-action="discuss_property" href="/contact">Discuss your asset <Arrow diagonal /></Link></div>
+    <div className="button-row"><Link className="button" data-algorithm-action="prepare_seller_brief" href="/selling#sales-brief">Prepare a sales brief <Arrow diagonal /></Link></div>
   </section>;
 }

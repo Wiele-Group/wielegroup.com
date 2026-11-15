@@ -1,0 +1,127 @@
+{
+  "property": {
+    "name": "Property",
+    "specification": "Type, tenure, areas, condition, occupancy and any income basis",
+    "evidence": [
+      "Ownership and marketing authority",
+      "Tenure, planning and energy records",
+      "Condition, areas and accurate plans",
+      "Income and cost evidence, where relevant"
+    ],
+    "buyers": [
+      "Intended residence or investment use",
+      "Location, budget and acquisition timing",
+      "Decision-maker, funding route and adviser involvement"
+    ],
+    "channels": [
+      "Appropriate property brokers and professional introductions",
+      "Selected property marketplaces",
+      "Owned asset page and search-led discovery"
+    ],
+    "production": [
+      "Accurate property photography and floor plan",
+      "Supported location and ownership narrative",
+      "Walkthrough or architectural film where justified"
+    ]
+  },
+  "aircraft": {
+    "name": "Private jets",
+    "specification": "Make, model, year, airframe hours/cycles and maintenance status",
+    "evidence": [
+      "Ownership and marketing authority",
+      "Airframe, engine and APU records",
+      "Maintenance programmes and inspection status",
+      "Condition, damage history and independent review"
+    ],
+    "buyers": [
+      "Mission, routes, passengers and cabin requirements",
+      "Operating destination and acquisition budget",
+      "Technical adviser and purchasing decision process"
+    ],
+    "channels": [
+      "Appropriate aviation brokers and authorised flight-department introductions",
+      "Suitable aircraft marketplaces",
+      "Factual aircraft page and controlled technical overview"
+    ],
+    "production": [
+      "Exterior, cabin and detail photography",
+      "Technical specification and maintenance overview",
+      "Cabin walkthrough or 360 tour where justified"
+    ]
+  },
+  "yachts": {
+    "name": "Yachts",
+    "specification": "Builder, model, year, length, refits, use and vessel location",
+    "evidence": [
+      "Ownership, title and marketing authority",
+      "Build, refit and maintenance records",
+      "Survey, condition and known limitations",
+      "Flag and available tax/customs records"
+    ],
+    "buyers": [
+      "Cruising area, size, layout and intended use",
+      "Budget, delivery region and acquisition timing",
+      "Owner representative and survey/legal advisers"
+    ],
+    "channels": [
+      "Appropriate yacht brokers and professional introductions",
+      "Suitable yacht marketplaces",
+      "Vessel page, broker-led viewing and useful film"
+    ],
+    "production": [
+      "Exterior, accommodation and machinery photography",
+      "Deck plan, refit and survey overview",
+      "Broker-led walkthrough or 360 tour where justified"
+    ]
+  },
+  "exotic-cars": {
+    "name": "Supercars",
+    "specification": "Exact make/model, year, mileage, drive side, specification and condition",
+    "evidence": [
+      "Ownership and marketing authority",
+      "Specification and service history",
+      "Condition, damage and modification history",
+      "Inspection and available registration/import records"
+    ],
+    "buyers": [
+      "Exact model, options and intended use",
+      "Drive side, destination and budget",
+      "Condition tolerance, timing and inspection requirements"
+    ],
+    "channels": [
+      "Marque specialists and permissioned collector introductions",
+      "Suitable vehicle marketplaces",
+      "Private sale or curated auction, subject to suitability and terms"
+    ],
+    "production": [
+      "Exterior, cabin, detail and condition gallery",
+      "Supported specification and service narrative",
+      "Useful walkaround and driving film where appropriate"
+    ]
+  },
+  "classic-cars": {
+    "name": "Classic cars",
+    "specification": "Marque/model, year, originality, restoration, condition and history",
+    "evidence": [
+      "Ownership and marketing authority",
+      "Documented provenance and originality claims",
+      "Restoration and condition records",
+      "Inspection and available registration/import records"
+    ],
+    "buyers": [
+      "Marque, era, provenance and collection objective",
+      "Originality/restoration preferences and use",
+      "Budget, destination, timing and specialist advice"
+    ],
+    "channels": [
+      "Marque clubs and permissioned collector specialists",
+      "Appropriate private-sale specialists",
+      "Vetted auction or specialist marketplace, subject to acceptance"
+    ],
+    "production": [
+      "Documentary exterior, interior and condition gallery",
+      "Evidence-linked history and restoration dossier",
+      "Collector narrative or inspection film where justified"
+    ]
+  }
+}

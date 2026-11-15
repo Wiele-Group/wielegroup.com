@@ -21,7 +21,7 @@ export function AssetAtlas() {
     <p className="atlas-disclosure">Category illustrations, not available stock. No assets are currently advertised for sale. Listing examples are fictional; registration is required to view their full details.</p>
     <nav className="atlas-paths" aria-label="Choose your next step">
       <Link href="/buying"><span className="atlas-path-number">01 / Acquire</span><strong>Find your next property.</strong><span>Define the location, purpose and priorities.<Arrow diagonal/></span></Link>
-      <Link href="/selling"><span className="atlas-path-number">02 / Sell</span><strong>A strategy for your property.</strong><span>Start with the evidence and your objectives.<Arrow diagonal/></span></Link>
+      <Link href="/selling"><span className="atlas-path-number">02 / Sell</span><strong>A strategy for your asset.</strong><span>Start with the evidence and your objectives.<Arrow diagonal/></span></Link>
       <Link href="/valuations"><span className="atlas-path-number">03 / Understand value</span><strong>Put the detail in perspective.</strong><span>Prepare an indicative valuation brief.<Arrow diagonal/></span></Link>
     </nav>
   </section>;

@@ -7,8 +7,8 @@ export function StructuredData({ data }: { data: object }) {
 export function PageStructuredData({ path, title, description, citations }: { path: string; title: string; description: string; citations?: string[] }) {
   const url = `${propertyBrand.url}${path}`;
   const service = path === "/selling" ? {
-    name: "Property sales and marketing enquiries",
-    description: "Malta-based property sales and marketing enquiries using The Wiele Algorithm: mandatory intake, buyer mapping, narrative and provenance, sales channels, asset production and a phased 90-day rollout. Scope, costs and a proposed phased launch are agreed per instruction.",
+    name: "Property and luxury asset sales enquiries",
+    description: "Malta-based property and luxury asset sales enquiries using The Wiele Algorithm: mandatory intake, buyer mapping, narrative and provenance, sales channels, asset production and a phased 90-day rollout. Scope, costs and a proposed phased launch are agreed per instruction.",
   } : path === "/buying" ? {
     name: "Residence and investment property acquisition enquiries",
     description: "Residence and investment property acquisition briefs for a Malta-based brokerage with an international outlook. Country coverage, availability, scope, fees and responsible practitioners are confirmed individually. No properties are currently advertised.",
