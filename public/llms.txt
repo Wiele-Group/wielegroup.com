@@ -72,7 +72,7 @@ Prepared brief text can survive a refresh in the same tab for 30 minutes after i
 
 ## International purchase requirements
 
-- [Purchase guide](https://wielegroup.com/purchase-guide): Official-source starting points for individuals: UK four nations, all 27 EU countries, Norway, Switzerland, Monaco and South Africa. Country pages disclose scope and unresolved eligibility checks. Research edition 15 November 2026.
+- [Purchase guide](https://wielegroup.com/purchase-guide): Official-source starting points for individuals: UK four nations, all 27 EU countries, Norway, Switzerland, Monaco and South Africa. Country pages include legal sales stages, binding-commitment checkpoints, document preparation and seller checks. UK, EU, South African, EEA/Swiss and other-nationality routes are distinguished where sourced; incomplete eligibility and process verification is disclosed. Research edition 15 November 2026.
 - [Aircraft requirements](https://wielegroup.com/purchase-guide/assets/aircraft): Registration, airworthiness and import checkpoints.
 - [Yacht requirements](https://wielegroup.com/purchase-guide/assets/yachts): Flag, title and customs checkpoints.
 - [Supercar and classic-car requirements](https://wielegroup.com/purchase-guide/assets/vehicles): Import eligibility, approval, VAT and registration checkpoints.

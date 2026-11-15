@@ -1,0 +1,1636 @@
+{
+  "england": {
+    "binding": "For an ordinary private-treaty sale, exchange of contracts creates the binding commitment. Auction and reservation terms need separate review.",
+    "stages": [
+      {
+        "title": "Before exchange",
+        "text": "Ask the conveyancer to investigate title and searches and agree finance, deposit terms and completion arrangements.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Contract and completion",
+        "text": "Exchange signed contracts; complete by transferring the balance and executing the transfer documents.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Tax and registration",
+        "text": "Have the conveyancer confirm the applicable tax return and register the transfer with HM Land Registry.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Contract, transfer documents and title/search results; financing and identity evidence as requested.",
+    "seller": "Agree contents, possession and completion; disclose title and planning issues to your conveyancer.",
+    "sources": [
+      {
+        "label": "GOV.UK — conveyancing and completion",
+        "url": "https://www.gov.uk/buying-a-home/transferring-ownership"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "HMRC — non-resident SDLT",
+        "url": "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents"
+      },
+      {
+        "label": "UK government — transferring ownership",
+        "url": "https://www.gov.uk/buying-a-home/transferring-ownership"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "wales": {
+    "binding": "For an ordinary private-treaty sale, exchange of contracts creates the binding commitment. Auction and reservation terms need separate review.",
+    "stages": [
+      {
+        "title": "Before exchange",
+        "text": "Ask the conveyancer to investigate title and searches and agree finance, deposit terms and completion arrangements.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Contract and completion",
+        "text": "Exchange signed contracts; complete by transferring the balance and executing the transfer documents.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Tax and registration",
+        "text": "Have the conveyancer confirm the applicable tax return and register the transfer with HM Land Registry.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Contract, transfer documents and title/search results; financing and identity evidence as requested.",
+    "seller": "Agree contents, possession and completion; disclose title and planning issues to your conveyancer.",
+    "sources": [
+      {
+        "label": "GOV.UK — conveyancing and completion",
+        "url": "https://www.gov.uk/buying-a-home/transferring-ownership"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Welsh Government — LTT overview",
+        "url": "https://www.gov.wales/land-transaction-tax-overview"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "northern-ireland": {
+    "binding": "The Northern Ireland government identifies exchange of contracts as the binding point in an ordinary home purchase.",
+    "stages": [
+      {
+        "title": "Legal investigation",
+        "text": "The solicitor checks title, searches and the contract before exchange.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Exchange and complete",
+        "text": "Agree the deposit and completion date with the solicitor; arrange the remaining funds.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Registration",
+        "text": "Have the solicitor complete the transfer, SDLT work and the appropriate Northern Ireland registration.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Title documents, contract, searches, mortgage papers where relevant and transfer documentation.",
+    "seller": "Answer the solicitor’s enquiries and agree possession and any chain conditions.",
+    "sources": [
+      {
+        "label": "nidirect — buying a home step by step",
+        "url": "https://www.nidirect.gov.uk/articles/buying-home-step-step-guide"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "HMRC — non-resident SDLT",
+        "url": "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents"
+      },
+      {
+        "label": "UK government — transferring ownership",
+        "url": "https://www.gov.uk/buying-a-home/transferring-ownership"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "scotland": {
+    "binding": "Concluded missives form the binding contract; do not use the English exchange timetable.",
+    "stages": [
+      {
+        "title": "Agree the missives",
+        "text": "Solicitors negotiate qualifications and conditions through the missives.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Before conclusion",
+        "text": "Resolve finance and title concerns with the solicitor before authorising binding missives.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Settlement and title",
+        "text": "Ask the solicitor to arrange the disposition, settlement, LBTT return and title registration.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Offer and missives; ask the solicitor which title, disposition and identity documents are needed.",
+    "seller": "Give the solicitor accurate conditions for the qualified acceptance and an agreed settlement date.",
+    "sources": [
+      {
+        "label": "Scottish Government — missives",
+        "url": "https://www.mygov.scot/sell-home/missives"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Scottish Government — LBTT",
+        "url": "https://www.gov.scot/policies/taxes/land-and-buildings-transaction-tax/"
+      },
+      {
+        "label": "Scottish Government — missives",
+        "url": "https://www.mygov.scot/sell-home/missives"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "austria": {
+    "binding": "A signed purchase agreement alone does not confer registered ownership. Confirm contractual liability before signing.",
+    "stages": [
+      {
+        "title": "Clear the registration conditions",
+        "text": "Resolve existing mortgages, transfer-tax evidence and any required acquisition authorisation.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Prepare the instrument",
+        "text": "The registration application requires a purchase agreement with court- or notary-certified signatures.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Enter title",
+        "text": "Apply to the competent land-register court; ownership requires entry.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Certified purchase agreement, tax-clearance or self-assessment evidence, and any required authorisations.",
+    "seller": "Arrange release or agreed assumption of registered debt before registration.",
+    "sources": [
+      {
+        "label": "Austrian Government — ownership registration",
+        "url": "https://www.oesterreich.gv.at/en/themen/bauen_und_wohnen/grundstueckskauf_und_grundbuch/grundstueckskauf/Seite.200060"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Icelandic, Liechtenstein and Norwegian nationals fall within the government’s EEA grouping. Swiss treatment requires the relevant provincial/treaty assessment; do not treat Swiss citizenship as EEA membership.",
+      "other": "Other third-country nationals generally need provincial approval or evidence of an exemption/treaty route. Confirm the province and intended use."
+    },
+    "nationalitySources": [
+      {
+        "label": "Austrian Government — foreign acquisition",
+        "url": "https://www.oesterreich.gv.at/en/themen/bauen_und_wohnen/grundstueckskauf_und_grundbuch/grundstueckskauf/1/Seite.200041"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "belgium": {
+    "binding": "An offer can commit the buyer and the sales agreement is binding. Consult the notary before either stage.",
+    "stages": [
+      {
+        "title": "Offer and conditions",
+        "text": "Have the notary review the offer, financing condition and sales agreement.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Seller certificates",
+        "text": "Obtain the required regional property certificates; the Brussels guide identifies energy, electrical and planning information.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Authentic deed",
+        "text": "Proceed to the notarised deed and settle the balance, taxes and costs; confirm the applicable registration timetable.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Offer/agreement, identity and financing evidence, and regional certificates requested by the notary.",
+    "seller": "Prepare the property certificates before completion; Brussels guidance must be adapted for Flanders or Wallonia.",
+    "sources": [
+      {
+        "label": "Brussels-Capital Region — real estate buying",
+        "url": "https://be.brussels/en/housing/property-buying-and-selling/buying-and-selling-properties/real-estate-buying"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Belgian Government — buying a home",
+        "url": "https://www.belgium.be/en/housing/buying_or_selling_a_home"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "bulgaria": {
+    "binding": "Ask the notary to confirm the binding effect of any preliminary contract and the deed’s transfer effect. Registry guidance alone does not establish those points.",
+    "stages": [
+      {
+        "title": "Check the rights",
+        "text": "Inspect the property register for transactions, rights and their order of priority.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Set the deed conditions",
+        "text": "Confirm land eligibility separately from the building purchase, and agree payment and discharge conditions with the notary.",
+        "kind": "Planning check",
+        "source": 1
+      },
+      {
+        "title": "Register the deed",
+        "text": "For a notarial act, the acting notary submits the registration request with the property/owner details and fee evidence.",
+        "kind": "Sourced requirement",
+        "source": 1
+      }
+    ],
+    "documents": "Acquisition instrument, accurate property and party identifiers, supporting records and paid-fee evidence.",
+    "seller": "Resolve ownership and registered encumbrances through the notary before funds are released.",
+    "sources": [
+      {
+        "label": "EU e-Justice — Bulgarian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/bg_en"
+      },
+      {
+        "label": "Bulgarian Registry Agency — entries",
+        "url": "https://www.registryagency.bg/bg/registri/imoten-registar/vpisvaniya/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Bulgarian Parliament — Constitution, Article 22",
+        "url": "https://parliament.bg/en/const"
+      },
+      {
+        "label": "EU e-Justice — Bulgarian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/bg_en"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "croatia": {
+    "binding": "A sale contract does not itself make the buyer the owner; contractual acquisition requires land-register entry.",
+    "stages": [
+      {
+        "title": "Eligibility and title",
+        "text": "Obtain the applicable foreign-buyer consent or exemption and reconcile the parcel and registered owner.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Prepare the application",
+        "text": "Provide the acquisition instrument and citizenship evidence for the registration application.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Enter ownership",
+        "text": "Submit through the current authorised filing route to the competent land-register court. Confirm the current deadline and fees.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Original/certified acquisition instrument and proof of citizenship; permit or exemption evidence where applicable.",
+    "seller": "Ensure the seller and parcel identifiers agree with the land register.",
+    "sources": [
+      {
+        "label": "Croatian Government — ownership registration",
+        "url": "https://www.gov.hr/hr/upis-prava-vlasnistva/1306"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "The ministry distinguishes Iceland, Liechtenstein, Norway and Switzerland from the other foreign-national reciprocity categories. Confirm the applicable route and special-land exceptions.",
+      "other": "Check the exact country in the ministry’s reciprocity table, including any state/province qualifications. Reciprocity does not itself replace a required consent decision."
+    },
+    "nationalitySources": [
+      {
+        "label": "Croatian Ministry of Justice — foreign acquisition and reciprocity",
+        "url": "https://mpudt.gov.hr/glavni-izbornik-21165/citizens/acquisition-of-ownership-rights-in-real-estate-by-foreign-nationals/25361"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "cyprus": {
+    "binding": "A signed sale contract and deposited contract are distinct from the eventual transfer of title. Have counsel confirm deposit remedies and approval conditions.",
+    "stages": [
+      {
+        "title": "Permission and searches",
+        "text": "Establish non-EU permission and inspect title, charges, planning and separate-deed status before commitment.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Protect the contract",
+        "text": "For covered contracts after 12 December 2023, the seller includes the prescribed search certificate dated within five working days of the contract. Ask counsel to confirm the current contract-deposit deadline and protection route.",
+        "kind": "Sourced requirement",
+        "source": 1
+      },
+      {
+        "title": "Transfer title",
+        "text": "Confirm permission, debt releases, taxes and the District Lands Office transfer requirements before final payment.",
+        "kind": "Planning check",
+        "source": 1
+      }
+    ],
+    "documents": "Identity, sale contract, property-search certificate, title/planning records and foreign-acquisition permission where required.",
+    "seller": "Supply the statutory search evidence and resolve mortgage/transfer impediments; depositing a contract is not a clean-title certificate.",
+    "sources": [
+      {
+        "label": "Republic of Cyprus — purchasing property",
+        "url": "https://www.gov.cy/moi/en/purchasing-property/"
+      },
+      {
+        "label": "Cyprus DLS — contract of sale deposit",
+        "url": "https://portal.dls.moi.gov.cy/en/application_forms/symvasis-polisis-antiparochis-antallagis/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "The published ministry test is non-EU nationality. EEA or Swiss citizenship alone is not an EU passport; confirm any specific exemption with the District Administration.",
+      "other": "Non-EU buyers need the applicable District Administration permission unless exempt. Confirm permitted acquisitions, joint/spousal holdings and evidence required."
+    },
+    "nationalitySources": [
+      {
+        "label": "Republic of Cyprus — purchasing property",
+        "url": "https://www.gov.cy/moi/en/purchasing-property/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "czechia": {
+    "binding": "Title takes effect on registration, with effect backdated to receipt of the application. Confirm contractual obligations before signing.",
+    "stages": [
+      {
+        "title": "Agree the contract",
+        "text": "Prepare the acquisition agreement with a Czech practitioner and agree a protected payment mechanism.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Apply for entry",
+        "text": "File the prescribed form, acquisition document and any required representation/approval documents.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Await the entry decision",
+        "text": "The authority describes a minimum 20-day interval after notifying the existing owner before permitting entry when conditions are met.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Purchase agreement, standard registration form and authenticated power of attorney where required.",
+    "seller": "Check party signatures, parcel identifiers and any approvals before filing.",
+    "sources": [
+      {
+        "label": "Czech public administration — property register",
+        "url": "https://portal.gov.cz/en/informace/property-register-INF-161"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Czech public administration — property register",
+        "url": "https://portal.gov.cz/en/informace/property-register-INF-161"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "denmark": {
+    "binding": "The authority’s guide treats the transaction as final once both parties have signed and the reservations are satisfied. Ask counsel to explain withdrawal rights and conditions.",
+    "stages": [
+      {
+        "title": "Agree reservations",
+        "text": "Set adviser, finance and acquisition-permission conditions before commitment.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Register the deed",
+        "text": "Prepare and register the digital deed through tinglysning.dk.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Complete the settlement",
+        "text": "Discharge loans the buyer does not assume and prepare the adjustment statement.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Purchase agreement, digital deed, permission/declaration and settlement documents as applicable.",
+    "seller": "Arrange cancellation of seller debt and agree the handover and expense adjustments.",
+    "sources": [
+      {
+        "label": "Danish housing authority — completing the transaction",
+        "url": "https://boligejer.dk/5-berigtigelse-af-handlen-opfoelgende-fase"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Icelandic, Liechtenstein and Norwegian citizens may use a qualifying EU/EEA permanent-home route. Ask the authority to determine the Swiss treaty position separately. Holiday homes have a separate assessment.",
+      "other": "First check legal domicile and five-year Danish residence history. Otherwise establish the permission route; a residence permit alone is not the acquisition-law domicile test."
+    },
+    "nationalitySources": [
+      {
+        "label": "Danish Department of Civil Affairs — acquisition FAQ",
+        "url": "https://www.eng.civilstyrelsen.dk/acquisition-of-real-property/faq"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "estonia": {
+    "binding": "Immovable ownership requires a notarised real-right agreement and a land-register entry.",
+    "stages": [
+      {
+        "title": "Investigate the property",
+        "text": "Ask the notary to check title, charges and any nationality, special-land or security restrictions.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Execute the transfer agreement",
+        "text": "Use the required notarised real-right agreement for the transfer.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "File the application",
+        "text": "When a notarised disposition is needed, the notary prepares and submits the land-register application.",
+        "kind": "Sourced requirement",
+        "source": 1
+      }
+    ],
+    "documents": "Identity and representation evidence, acquisition/real-right agreement and documents requested by the notary.",
+    "seller": "Resolve encumbrances and authorisation to dispose before the notarised transaction.",
+    "sources": [
+      {
+        "label": "Estonian Government — ownership and property",
+        "url": "https://www.eesti.ee/en/artikkel/taxes-money-and-property/property-and-insurance/ownership-and-property"
+      },
+      {
+        "label": "Estonian register authority — immovables portal",
+        "url": "https://www.rik.ee/en/e-land-register/immovables-portal"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "EU e-Justice — Estonian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/ee_en"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "finland": {
+    "binding": "Confirm the valid execution route and contractual conditions with the practitioner; registration and the Defence-permit decision are separate steps.",
+    "stages": [
+      {
+        "title": "Classify the acquisition",
+        "text": "Distinguish direct real estate from housing-company shares and obtain a nationality/security assessment.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Prepare the acquisition evidence",
+        "text": "Use the National Land Survey’s transaction-specific instructions to establish the deed and attachments needed.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Register ownership",
+        "text": "Apply through the appropriate title-registration route; confirm the deadline, tax evidence and permit timing for the transaction.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Acquisition document and NLS-requested attachments; Defence-permit evidence if applicable.",
+    "seller": "Confirm signatory authority and supporting acquisition documents before execution.",
+    "sources": [
+      {
+        "label": "National Land Survey — ownership registration",
+        "url": "https://www.maanmittauslaitos.fi/en/real-property/how-you-can-apply-for-the-registration-of-property-ownership"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Icelandic, Liechtenstein and Norwegian citizens fall within the EEA assessment. Switzerland is outside the EU/EEA, so Swiss nationality alone does not establish the exemption.",
+      "other": "The non-EU/EEA permit route is not universal permission: the Ministry reports an operative ban affecting Russian/Belarusian acquisitions. Confirm statutory exceptions, all citizenships and security restrictions directly; Åland requires a separate territorial check."
+    },
+    "nationalitySources": [
+      {
+        "label": "Finnish Government — non-EU/EEA real-estate permits",
+        "url": "https://valtioneuvosto.fi/en/-/236553176/ministry-of-defence-opens-new-e-service-for-permits-to-buy-real-estate-by-parties-outside-eu-and-eea"
+      },
+      {
+        "label": "National Land Survey — ownership registration",
+        "url": "https://www.maanmittauslaitos.fi/en/real-property/how-you-can-apply-for-the-registration-of-property-ownership"
+      },
+      {
+        "label": "Finnish Ministry of Defence — operative ban and permit refusals, 27 October 2025",
+        "url": "https://valtioneuvosto.fi/en/-/236553176/eleven-negative-decisions-on-real-estate-transactions"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "france": {
+    "binding": "A compromis creates reciprocal commitments; a unilateral promise gives the purchaser an option. A non-professional residential purchaser has a 10-calendar-day withdrawal right after the prescribed notification; have the notary calculate it and confirm the contract conditions.",
+    "stages": [
+      {
+        "title": "Preliminary contract and withdrawal",
+        "text": "Identify the contract type and arrange the prescribed notification. Confirm deposit handling and financing conditions before the withdrawal period expires.",
+        "kind": "Planning check",
+        "source": 1
+      },
+      {
+        "title": "Notarial investigation",
+        "text": "The notary checks identity, capacity, ownership, mortgages, planning and relevant pre-emption rights.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Prepare the sale file",
+        "text": "The existing-home deed requires annexes including technical diagnostics and applicable co-ownership documents.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Authentic deed",
+        "text": "Sign the notarial deed and settle the funds; the deed specifies transfer of ownership and possession.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Identity/civil-status evidence, title, diagnostics, planning and applicable condominium documents.",
+    "seller": "Provide the diagnostic file and property records and resolve relevant pre-emption and mortgage issues.",
+    "sources": [
+      {
+        "label": "French public service — deed for an existing home",
+        "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2962?lang=en"
+      },
+      {
+        "label": "French public service — preliminary contracts and withdrawal",
+        "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2965?lang=en"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "French public service — deed for an existing home",
+        "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2962?lang=en"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "germany": {
+    "binding": "The purchase obligation requires notarisation; ownership needs the separate conveyance agreement and land-register entry.",
+    "stages": [
+      {
+        "title": "Prepare the contract",
+        "text": "Identify the parties, price and exact registered property in the contract.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Notarise the purchase",
+        "text": "Execute the notarial contract; agree conditions for payment and mortgage discharge with the notary.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Transfer ownership",
+        "text": "Complete the conveyance agreement and register ownership; signing the purchase contract alone is insufficient.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Identity and representation evidence, land-register details, notarial contract and transfer documents.",
+    "seller": "Arrange releases of existing charges and clarify possession and payment conditions.",
+    "sources": [
+      {
+        "label": "German federal service portal — acquiring property",
+        "url": "https://verwaltung.bund.de/leistungsverzeichnis/en/rechte-und-pflichten/102837925"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "German federal service portal — acquiring property",
+        "url": "https://verwaltung.bund.de/leistungsverzeichnis/en/rechte-und-pflichten/102837925"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "greece": {
+    "binding": "The digital transfer service describes contract signing before the notary submits the copy for registration. Binding preliminary terms and title effect need Greek-law confirmation.",
+    "stages": [
+      {
+        "title": "Prepare the legal file",
+        "text": "Appoint a Greek practitioner to confirm title, building legality and any border-area eligibility requirements.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Execute and file",
+        "text": "Confirm the applicable tax and document workflow with the notary; arrange the sale contract and registry submission.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Verify registration",
+        "text": "Obtain evidence of the completed registration and any outstanding conditions before treating the process as finished.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Ask the notary for the current identity/tax identifiers, property records, tax and technical certificates.",
+    "seller": "Reconcile the legal title with the actual building and supply documents requested for the transfer.",
+    "sources": [
+      {
+        "label": "Greek Government — transfer your property",
+        "url": "https://www.gov.gr/en/services/1001530/metavivasi"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The official service identifies the notary-led digital workflow, but its full page was not readable in this review. Treat this sequence as planning checks. Border-area eligibility, mandatory certificates, contract effect and current filing rules remain for Greek counsel to verify.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "EU e-Justice — Greek land registers",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/el_en"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "hungary": {
+    "binding": "Have the Hungarian practitioner identify when the contract binds and how acquisition permission and registration conditions affect it.",
+    "stages": [
+      {
+        "title": "Confirm the permit route",
+        "text": "The government-office booklet describes permission for foreign persons outside the EU/EEA or equivalent group, subject to exceptions.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Prepare the transaction",
+        "text": "Confirm land classification, contract execution, payment security and representation before signing.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Complete the registration",
+        "text": "Have the practitioner confirm the operative electronic land-registration procedure and submit the required instrument and permissions.",
+        "kind": "Confirm locally",
+        "source": 1
+      }
+    ],
+    "documents": "Identity, property identifiers and the application/contract documents specified by the government office and land practitioner.",
+    "seller": "Provide current title and charge records and documents required for the permission application.",
+    "sources": [
+      {
+        "label": "Hungarian Government Office — legal aid and property rights",
+        "url": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/szabolcs/projektek/MMIAPLUSZ/angol/0481_7.jogsegely-es-tulajdonszerzes-angol.pdf"
+      },
+      {
+        "label": "EU e-Justice — Hungarian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/hu_en"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "Permit guidance was reviewed. The older register overview does not verify the current electronic filing system, binding stage or complete document requirements; confirm these with a Hungarian property lawyer.",
+    "nationalities": {
+      "eea": "The government-office guide identifies EU/EEA and equivalent-status nationals outside its general foreign-person permit category. Confirm Swiss/equivalent status and land classification.",
+      "other": "Foreign natural persons outside the exempt categories generally need the government-office permission for the covered real estate. Agricultural/forestry land must be assessed separately."
+    },
+    "nationalitySources": [
+      {
+        "label": "Hungarian Government Office — legal aid and property rights",
+        "url": "https://kormanyhivatalok.hu/sites/default/files/dokumentumtar/szabolcs/projektek/MMIAPLUSZ/angol/0481_7.jogsegely-es-tulajdonszerzes-angol.pdf"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "ireland": {
+    "binding": "The contract stage can put the deposit at risk. Ask the solicitor to confirm when the signed transaction becomes binding and all financing conditions.",
+    "stages": [
+      {
+        "title": "Before signing",
+        "text": "Resolve title, planning, outstanding certificates and finance with the solicitor.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Closing",
+        "text": "After legal checks, the parties sign; the solicitor arranges the remaining price and closing date.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Tax and title",
+        "text": "The solicitor organises Stamp Duty and lodges title deeds with Tailte Éireann.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Contract, title and planning records, financing papers and identity/tax evidence requested by the solicitor.",
+    "seller": "Provide the title deeds and replies to outstanding legal and planning enquiries.",
+    "sources": [
+      {
+        "label": "Irish CCPC — signing and closing",
+        "url": "https://www.ccpc.ie/manage-your-money/buying-a-home/home-buyers-guides/first-time-buyer-guide/step-7-sign-the-contract"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Irish Revenue — taxes when buying",
+        "url": "https://www.revenue.ie/en/property/buying-irish-property/taxes.aspx"
+      },
+      {
+        "label": "EU e-Justice — Irish land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/ie_en"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "italy": {
+    "binding": "A preliminary contract binds the parties to a later definitive sale; it does not itself transfer ownership. Obtain advice before a proposal or deposit.",
+    "stages": [
+      {
+        "title": "Check title and eligibility",
+        "text": "Have the notary examine registered/cadastral records and the buyer’s reciprocity or exemption position.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Preliminary agreement",
+        "text": "Confirm form, registration and any transcription protection before signing a preliminary agreement.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Final deed and records",
+        "text": "Arrange the definitive deed and its tax/registry formalities through the notary.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Prepare identity, codice fiscale, civil-status and property documents; confirm the exact requirements with the notary.",
+    "seller": "Resolve cadastral/title discrepancies and disclose relevant property and marital-status records.",
+    "sources": [
+      {
+        "label": "Italian Revenue Agency — buying a home",
+        "url": "https://www1.agenziaentrate.gov.it/web_app_entrate/guida_acquisto_casa.html"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Italian Foreign Ministry — foreign nationals and reciprocity",
+        "url": "https://www.esteri.it/en/ministero/sportello_info/domandefrequenti/sezione_lavorare_allestero/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "latvia": {
+    "binding": "Confirm the contract’s binding point and ownership effect with Latvian counsel; use the current Latvian text where English translations lag.",
+    "stages": [
+      {
+        "title": "Check land eligibility",
+        "text": "Determine land category and any municipal, agricultural or nationality restrictions before contracting.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Prepare corroboration",
+        "text": "The Land Register Law identifies the acquisition document, necessary consents, fee evidence and representation documents for corroboration.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Register the rights",
+        "text": "Have the practitioner prepare the corroboration request and verify the resulting entry.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "Acquisition instrument, required consents, fee evidence and power of attorney where applicable.",
+    "seller": "Provide the underlying right and consent documents needed for the buyer’s registration.",
+    "sources": [
+      {
+        "label": "Latvian legislation — Land Register Law, Sections 56–61",
+        "url": "https://likumi.lv/ta/en/en/id/60460"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "Registration-document provisions were reviewed. The English text may lag amendments; nationality-specific land rights and the binding/title-transfer stage require current Latvian-law review.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Official legal publisher — rural-land privatisation law",
+        "url": "https://likumi.lv/ta/en/id/74241-on-land-privatisation-in-rural-areas"
+      },
+      {
+        "label": "EU e-Justice — Latvian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/lv_en"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "lithuania": {
+    "binding": "The Lithuanian Chamber of Notaries states that real-estate sale transactions require notarisation; failure to comply invalidates the transaction.",
+    "stages": [
+      {
+        "title": "Notarial checks",
+        "text": "The notary checks ownership, capacity and property seizure records.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Sale agreement",
+        "text": "Execute the notarised agreement and provide additional special-land documentation where required.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Confirm the register result",
+        "text": "Ask the notary to complete the relevant Centre of Registers formalities and confirm ownership and charge entries.",
+        "kind": "Planning check",
+        "source": 1
+      }
+    ],
+    "documents": "Identity/capacity and property documents requested by the notary; additional agricultural-land evidence where applicable.",
+    "seller": "Make title, capacity and relevant family/property information available to the notary.",
+    "sources": [
+      {
+        "label": "Lithuanian Chamber of Notaries — purchase and sale, 5 February 2026",
+        "url": "https://notarius.lt/en/news/purchase-and-sale-of-real-estate/1398"
+      },
+      {
+        "label": "EU e-Justice — Lithuanian real-property register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/lt_en"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "EU e-Justice — Lithuanian real-property register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/lt_en"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "luxembourg": {
+    "binding": "A signed compromis is final and binding, subject to its conditions. A preliminary agreement is not mandatory if parties proceed directly to the notary.",
+    "stages": [
+      {
+        "title": "Agree conditions",
+        "text": "Identify the parties, property, price and payment terms; agree any financing condition and its deadline.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Notarial investigation",
+        "text": "The notary investigates seller ownership, mortgages, easements and other charges.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Authentic instrument",
+        "text": "Formalise through the notarial instrument that can be registered for third-party enforceability.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Agreement if used, party and cadastral identifiers, financing evidence and notary-requested documents.",
+    "seller": "Provide title/charge information and specify occupancy and deed timing in the agreement.",
+    "sources": [
+      {
+        "label": "Luxembourg public service — sale agreement",
+        "url": "https://guichet.public.lu/en/citoyens/logement/acquisition/aspects-contractuels/compromis-vente.html"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Luxembourg public service — sale agreement",
+        "url": "https://guichet.public.lu/en/citoyens/logement/acquisition/aspects-contractuels/compromis-vente.html"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "malta": {
+    "binding": "The konvenju binds the vendor to the promised sale on agreed terms. Have the notary explain conditions, deposit treatment, expiry and enforcement before signing.",
+    "stages": [
+      {
+        "title": "Promise of sale",
+        "text": "Agree the konvenju, including financing, acquisition-permit and property conditions where applicable.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Notify and pay provisional duty",
+        "text": "The notary registers the promise within 21 days with provisional duty equal to 20% of the final duty payable.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Publish the final deed",
+        "text": "The notary submits the transfer information, plans, registry note and applicable buyer duty/seller tax through the portal.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Konvenju, site plans, registry evidence and residential Schedule 8 where applicable; AIP or exemption evidence if relevant.",
+    "seller": "Make title and site records available and agree how searches, debt and any ground-rent issues will be resolved.",
+    "sources": [
+      {
+        "label": "Malta Tax and Customs Administration — promise of sale",
+        "url": "https://mtca.gov.mt/personal-tax/property-taxes/promise-of-sale"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "EEA or Swiss citizenship is not EU citizenship for the published MTCA table. Have the notary determine any separate exemption; ordinary residence alone does not establish the EU-national AIP route.",
+      "other": "Non-EU nationals generally require AIP outside an applicable exemption. SDA acquisitions are exempt from AIP; eligibility to let, operate a business or reside remains a separate question."
+    },
+    "nationalitySources": [
+      {
+        "label": "Malta Tax and Customs Administration — conditions for buying",
+        "url": "https://mtca.gov.mt/personal-tax/property-taxes/acquisition-of-immovable-property-in-malta-by-non-residents/conditions-for-buying-immovable-property"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "netherlands": {
+    "binding": "A purchase contract is followed by a notarial transfer deed. Registered ownership requires the deed to be recorded at Kadaster.",
+    "stages": [
+      {
+        "title": "Before commitment",
+        "text": "Have the adviser confirm financing conditions and any statutory withdrawal right applicable to the buyer and dwelling.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Transfer deed",
+        "text": "A Dutch civil-law notary drafts and executes the transfer deed.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Record the transfer",
+        "text": "The notary sends the deed to Kadaster; obtain confirmation of registration.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Sale agreement, notarial transfer deed and identity/financing evidence requested by the notary.",
+    "seller": "Agree discharge of charges, possession and any leasehold or local-use issues before transfer.",
+    "sources": [
+      {
+        "label": "Dutch Kadaster — after the civil-law notary",
+        "url": "https://www.kadaster.nl/about-us/after-the-notary"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Dutch Government — transfer-tax rates",
+        "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/capital-transfer-tax/real-estate-transfer-tax-rates"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "poland": {
+    "binding": "Have the notary distinguish the preliminary agreement from the final conveyance and confirm the exact title-transfer effect.",
+    "stages": [
+      {
+        "title": "Eligibility first",
+        "text": "Obtain the Interior Ministry permit or establish an exemption; assess agricultural and border rules separately.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Notarial conveyance",
+        "text": "Confirm the instrument and permission evidence with the Polish notary before the transfer.",
+        "kind": "Planning check",
+        "source": 1
+      },
+      {
+        "title": "Registry application",
+        "text": "For a covered notarial transfer, the notary submits the electronic land-register application no later than the deed date.",
+        "kind": "Sourced requirement",
+        "source": 1
+      }
+    ],
+    "documents": "Identity, title/parcel evidence, permit or documented exemption and notary-requested transfer documents.",
+    "seller": "Provide registered ownership information and resolve relevant charges and consents.",
+    "sources": [
+      {
+        "label": "Polish Ministry of the Interior — foreign acquisition",
+        "url": "https://www.gov.pl/web/mswia-en/apply-for-a-permit-to-acquire-real-estate-shares-stocks-by-foreign-citizens"
+      },
+      {
+        "label": "Polish legislation — Notarial Law, Article 92(4)",
+        "url": "https://eli.gov.pl/api/acts/DU/2024/1001/text.html"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The notarial filing provision and Ministry permit guidance identify specific checkpoints. Counsel must check the current consolidated law, exemptions, special land and the transfer effect before execution.",
+    "nationalities": {
+      "eea": "EEA and Swiss nationals have a specific foreign-acquisition permit exemption. Agricultural, forestry and other independently applicable restrictions still need review.",
+      "other": "Other foreign nationals normally need the Ministry permit unless exempt. An individual residential-premises exemption may apply, but border-area and agricultural conditions can change the answer."
+    },
+    "nationalitySources": [
+      {
+        "label": "Polish Ministry of the Interior — foreign acquisition",
+        "url": "https://www.gov.pl/web/mswia-en/apply-for-a-permit-to-acquire-real-estate-shares-stocks-by-foreign-citizens"
+      },
+      {
+        "label": "Polish Parliament — Ministry explanation of EEA/Swiss exemption",
+        "url": "https://www.sejm.gov.pl/Sejm10.nsf/biuletyn.xsp?skrnr=ASW-51"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "portugal": {
+    "binding": "Confirm the effect of any contrato-promessa, deposit and default clauses before signature; the registry overview does not determine those contract remedies.",
+    "stages": [
+      {
+        "title": "Prepare the legal file",
+        "text": "Have the practitioner check title, property identifiers, tax records and any required pre-emption or use evidence.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Formalise the transfer",
+        "text": "Choose the legally appropriate conveyancing instrument and tax-payment route with the practitioner; Casa Pronta can combine procedures.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Register acquisition",
+        "text": "A property purchase must be registered. Casa Pronta also handles IMT and Stamp Duty.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Ask the practitioner for identity/tax identifiers, title and tax records, conveyancing and payment documents.",
+    "seller": "Reconcile the property records and disclose charges before agreeing completion.",
+    "sources": [
+      {
+        "label": "Portuguese Ministry of Justice — property registration",
+        "url": "https://justica.gov.pt/Registos/Predial"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Portuguese Institute of Registries — Casa Pronta FAQ",
+        "url": "https://irn.justica.gov.pt/Casa-Pronta-Perguntas-Frequentes"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "romania": {
+    "binding": "Have a Romanian notary confirm the binding effect of an antecontract, definitive deed and land-register entry for the relevant cadastral area.",
+    "stages": [
+      {
+        "title": "Separate land from buildings",
+        "text": "Establish the nationality/treaty basis for acquiring the actual land interest.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Prepare the sale file",
+        "text": "Obtain the title and cadastral records and confirm fiscal, execution and registration documents with the notary.",
+        "kind": "Confirm locally",
+        "source": 1
+      },
+      {
+        "title": "Register and confirm",
+        "text": "Have the practitioner obtain the competent ANCPI/OCPI records and verify the completed acquisition entry.",
+        "kind": "Planning check",
+        "source": 1
+      }
+    ],
+    "documents": "Title and cadastral documents, party identifiers and certificates specified by the Romanian notary.",
+    "seller": "Resolve title/cadastre discrepancies and ask the notary for the current tax-clearance requirements.",
+    "sources": [
+      {
+        "label": "Romanian legislation — Law 312/2005",
+        "url": "https://legislatie.just.ro/Public/FormaPrintabila/00000G03I2UJNAMH99K1F9FXC9S65QDV"
+      },
+      {
+        "label": "Romanian ANCPI regional office — useful registration information",
+        "url": "https://ag.ancpi.ro/informatii-utile/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The land-eligibility framework and registry guidance identify the route. Current notarial sale documents, amendments, cadastral transition and the exact contract/title-transfer stage still need confirmation.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Romanian legislation — Law 312/2005",
+        "url": "https://legislatie.just.ro/Public/FormaPrintabila/00000G03I2UJNAMH99K1F9FXC9S65QDV"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "slovakia": {
+    "binding": "The transfer contract is written; ownership effects follow the final cadastral approval decision.",
+    "stages": [
+      {
+        "title": "Written transfer",
+        "text": "Identify the parties, exact property, price and obligations in the written agreement.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Supporting evidence",
+        "text": "For an apartment, the guide requires an administrator/association declaration confirming no relevant arrears.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Cadastral approval",
+        "text": "Apply to the competent District Office cadastral department with the agreement and required attachments.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Written contract, registration application, required signature authentication and power of attorney; apartment arrears declaration where applicable.",
+    "seller": "Obtain the administrator’s arrears declaration for an applicable apartment sale.",
+    "sources": [
+      {
+        "label": "Slovak Government — transferring property",
+        "url": "https://www.slovensko.sk/en/life-situation/life-situation/_transferring-immovable-propert/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Slovak Government — transferring property",
+        "url": "https://www.slovensko.sk/en/life-situation/life-situation/_transferring-immovable-propert/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "slovenia": {
+    "binding": "Ask Slovenian counsel to confirm the binding agreement, certified land-register permission and entry needed for this transaction.",
+    "stages": [
+      {
+        "title": "Buyer category",
+        "text": "Determine whether the buyer is in an exempt nationality group, needs a reciprocity decision or cannot use an ordinary purchase route.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Contract and permissions",
+        "text": "Confirm special-land approval, tax, signature and land-register permission requirements before signing.",
+        "kind": "Confirm locally",
+        "source": 1
+      },
+      {
+        "title": "Register the acquisition",
+        "text": "Have the practitioner file the appropriate documents and verify the land-register entry.",
+        "kind": "Planning check",
+        "source": 1
+      }
+    ],
+    "documents": "Nationality/status evidence, reciprocity determination if applicable, and acquisition/registration documents specified by counsel.",
+    "seller": "Supply title records and disclose special-land classifications and existing rights.",
+    "sources": [
+      {
+        "label": "Slovenian Government — foreign ownership categories",
+        "url": "https://www.gov.si/zbirke/storitve/pridobivanje-lastninske-pravice-tujcev-na-nepremicninah/"
+      },
+      {
+        "label": "EU e-Justice — Slovenian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/si_en"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "Nationality categories were reviewed against ministry guidance. The registry overview is not a complete conveyancing code; contract execution, tax and special-land procedure require local confirmation.",
+    "nationalities": {
+      "eea": "The ministry groups EU, OECD and EFTA nationals among those not needing a reciprocity decision. Apply the correct grouping to each passport.",
+      "other": "The ministry distinguishes EU-candidate nationals needing a positive reciprocity decision from other unlisted countries that cannot use an ordinary purchase route. Confirm current membership/category and exceptional cases."
+    },
+    "nationalitySources": [
+      {
+        "label": "Slovenian Government — foreign ownership categories",
+        "url": "https://www.gov.si/zbirke/storitve/pridobivanje-lastninske-pravice-tujcev-na-nepremicninah/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "spain": {
+    "binding": "Reservation, arras and private-contract terms can expose a deposit before the public deed. Obtain independent Spanish advice before paying or signing.",
+    "stages": [
+      {
+        "title": "Before commitment",
+        "text": "Arrange NIE, title, planning and location checks; assess any restricted military-area permission.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Public deed",
+        "text": "The notary prepares the sale instrument and public deeds. Confirm conditions and tax treatment with independent counsel.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Tax and registration",
+        "text": "Have counsel confirm the regional tax filings and lodge the acquisition with the competent property registry.",
+        "kind": "Planning check",
+        "source": 0
+      }
+    ],
+    "documents": "NIE, identity, title and planning records, contract and adviser-requested tax/permission documents.",
+    "seller": "Ask counsel to confirm mortgage cancellation, community liabilities and seller tax obligations.",
+    "sources": [
+      {
+        "label": "UK Government — buying property in Spain",
+        "url": "https://www.gov.uk/guidance/how-to-buy-property-in-spain"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked UK consular guide states it is under review. Use it as a planning source; a Spanish practitioner must verify current operative rules for every nationality and property, including later changes.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "UK Government — buying property in Spain",
+        "url": "https://www.gov.uk/guidance/how-to-buy-property-in-spain"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "sweden": {
+    "binding": "Have the practitioner confirm the formal purchase document and its binding effect; land registration is a further requirement.",
+    "stages": [
+      {
+        "title": "Prepare the acquisition",
+        "text": "Distinguish direct real property/site leasehold from a housing-cooperative interest.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Identity and evidence",
+        "text": "Natural persons need the prescribed Swedish identity or coordination number for applications from 1 July 2026; provide the acquisition document.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Apply in time",
+        "text": "Apply for title or site-leasehold registration within three months of acquisition.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Acquisition instrument and registration application; identity/coordination number and requested supporting documents.",
+    "seller": "Make the instrument and any estate, marital or representation documents available to the practitioner.",
+    "sources": [
+      {
+        "label": "Swedish mapping and land-registration authority — ownership",
+        "url": "https://www.lantmateriet.se/registration-of-ownership"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Swedish mapping and land-registration authority — ownership",
+        "url": "https://www.lantmateriet.se/registration-of-ownership"
+      }
+    ],
+    "nationalityNote": "The sources here establish the specified conveyancing or tax formalities, not a full passport-by-passport eligibility audit. Do not read a common transaction process as clearance for every buyer, land category or sanctioned person."
+  },
+  "switzerland": {
+    "binding": "Formal execution and registration are governed by the canton. The Solothurn example uses public authentication followed by land-register entry after conditions are met.",
+    "stages": [
+      {
+        "title": "Lex Koller assessment",
+        "text": "Obtain the canton’s classification of residence, nationality, intended use and any permission or exemption.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Cantonal execution",
+        "text": "Agree financing and contract details; confirm the competent notarial/public-authentication office in the canton.",
+        "kind": "Planning check",
+        "source": 1
+      },
+      {
+        "title": "Register title",
+        "text": "Complete the cantonal conditions and obtain the ownership entry; Solothurn’s process is an example, not a nationwide office procedure.",
+        "kind": "Sourced requirement",
+        "source": 1
+      }
+    ],
+    "documents": "Identity, residence-permit and financing evidence; canton-specific contract and representation documents.",
+    "seller": "Arrange debt releases and supply title and relevant marital/representation information.",
+    "sources": [
+      {
+        "label": "Swiss Federal Office of Justice — foreign non-resident property acquisition",
+        "url": "https://www.bj.admin.ch/en/acquisition-of-property-by-foreign-non-residents"
+      },
+      {
+        "label": "Canton Solothurn — property purchase registration",
+        "url": "https://so.ch/services/grundstueck-kaufvertrag-oder-schenkung-anmelden/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "EU/EFTA citizens actually resident in Switzerland and C-permit holders have routes distinct from non-residents. Non-resident status still changes the assessment; consult the canton.",
+      "other": "For non-EU/EFTA residents, main-home conditions, permit status and intended use matter; non-resident foreign buyers generally require cantonal authorisation. No holiday-home approval is guaranteed."
+    },
+    "nationalitySources": [
+      {
+        "label": "Swiss Government — foreign nationals and residence categories",
+        "url": "https://www.ch.ch/en/housing/homeownership/buying-property/purchasing-property-in-switzerland-as-a-foreign-na/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "norway": {
+    "binding": "Ask the practitioner to confirm the binding effect of an offer before making it. The deed records the transfer; the deed guide does not settle all contract rules.",
+    "stages": [
+      {
+        "title": "Resolve the concession",
+        "text": "Check with the municipality whether a concession or exemption declaration is needed before sending the deed.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Prepare the deed",
+        "text": "Use a new deed with correct ownership shares, signatures, witness formalities and any necessary spousal/lessor consent.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Register the transfer",
+        "text": "Submit the deed; foreign buyers without a Norwegian identity number can request a D-number with the submission.",
+        "kind": "Sourced requirement",
+        "source": 0
+      }
+    ],
+    "documents": "Deed, concession/exemption documents and identity/D-number evidence; required consents and power of attorney if applicable.",
+    "seller": "Supply the transferor signature and required consent; agree treatment of registered charges.",
+    "sources": [
+      {
+        "label": "Norwegian Mapping Authority — deed",
+        "url": "https://www.kartverket.no/en/property/skjema/deed"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Resolve municipal concession, residence-duty and registration requirements independently of EU/EEA or Swiss nationality. Foreign buyers need the applicable identity/D-number arrangements.",
+      "other": "The deed procedure includes foreign nationals; it is not proof of eligibility for every land category. Check the municipal concession position and any residence obligation."
+    },
+    "nationalitySources": [
+      {
+        "label": "Norwegian Mapping Authority — deed",
+        "url": "https://www.kartverket.no/en/property/skjema/deed"
+      },
+      {
+        "label": "Nordic cooperation — housing in Norway",
+        "url": "https://www.norden.org/en/info-norden/housing-norway"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "monaco": {
+    "binding": "Do not assume an offer or preliminary agreement is non-binding. A Monaco notary must confirm the commitment stage and completion formalities.",
+    "stages": [
+      {
+        "title": "Classify the property",
+        "text": "Have the notary establish whether protected-sector, occupancy or state pre-emption rules apply.",
+        "kind": "Confirm locally",
+        "source": 0
+      },
+      {
+        "title": "Agree protected terms",
+        "text": "Confirm any prior declaration, authority response, deposit protection and suspensive conditions before commitment.",
+        "kind": "Confirm locally",
+        "source": 0
+      },
+      {
+        "title": "Complete the transfer",
+        "text": "Obtain the notary’s current deed, tax, registration and possession requirements before scheduling completion.",
+        "kind": "Confirm locally",
+        "source": 0
+      }
+    ],
+    "documents": "Ask the notary for identity/civil-status, title, protected-sector, declaration and transfer documents.",
+    "seller": "Disclose protected-sector and occupancy status and establish whether a prior state declaration is required.",
+    "sources": [
+      {
+        "label": "Monaco legislation — Rocher-law source (recheck unavailable)",
+        "url": "https://legimonaco.mc/tnc/loi/2026/10-16-1.598@2026.10.24/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The earlier source is a limited Rocher-law checkpoint and was inaccessible on this recheck. No complete Monaco sales process or nationality clearance was verified; all three stages here are questions for the Monaco notary, not statements of settled law.",
+    "nationalities": {
+      "eea": "Identify whether you are an Icelandic, Liechtenstein, Norwegian or Swiss citizen. These are separate nationality categories; this entry does not establish that they have identical acquisition rights. Ask the local practitioner to identify the applicable treaty or statutory route.",
+      "other": "For every other passport, record the exact citizenship and any second nationality, residence permit and protected status. The cited material does not verify every nationality. Obtain a written eligibility and sanctions assessment for the exact asset before an unconditional commitment."
+    },
+    "nationalitySources": [
+      {
+        "label": "Monaco legislation — Law 1.598, version 24 October 2026",
+        "url": "https://legimonaco.mc/tnc/loi/2026/10-16-1.598@2026.10.24/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  },
+  "south-africa": {
+    "binding": "Obtain conveyancer advice before accepting an offer to purchase: contractual conditions and transfer registration are separate.",
+    "stages": [
+      {
+        "title": "Agreement and funding",
+        "text": "Agree financing, suspensive conditions, occupation and payment terms with the conveyancer.",
+        "kind": "Planning check",
+        "source": 0
+      },
+      {
+        "title": "Prepare the transfer",
+        "text": "The attorney/conveyancer arranges the transfer documents. The Cape Town guide identifies title, rates-clearance and transfer-cost work.",
+        "kind": "Sourced requirement",
+        "source": 0
+      },
+      {
+        "title": "Tax and non-resident seller",
+        "text": "Determine Transfer Duty/VAT and any section 35A withholding before paying the full price to a non-resident seller.",
+        "kind": "Sourced requirement",
+        "source": 1
+      }
+    ],
+    "documents": "Sale agreement, title deed, identity/FICA and funding evidence, and applicable tax/rates-clearance documents.",
+    "seller": "Arrange municipal clearance and debt release with the conveyancer; confirm any required compliance certificates and non-resident withholding.",
+    "sources": [
+      {
+        "label": "City of Cape Town — buying or selling property",
+        "url": "https://www.capetown.gov.za/family-and-home/residential-property-and-houses/private-properties/buying-or-selling-your-home/"
+      },
+      {
+        "label": "SARS — non-resident sellers",
+        "url": "https://www.sars.gov.za/types-of-tax/capital-gains-tax/non-resident-sellers-of-immovable-property/"
+      }
+    ],
+    "checked": "2026-11-15",
+    "coverage": "The linked authority material supports the specific formalities identified above. Contract terms, permissions, taxes and the complete document list need confirmation for the exact transaction; this is not a complete legal clearance.",
+    "nationalities": {
+      "eea": "Use the South African conveyancing process and confirm the individual’s immigration, funding and tax positions separately from an EEA/Swiss passport.",
+      "other": "Confirm the exact asset with a conveyancer and retain incoming-funds evidence with the bank. Nationality, exchange-control residence and tax residence are separate; a non-resident seller can trigger buyer withholding."
+    },
+    "nationalitySources": [
+      {
+        "label": "SARS — Transfer Duty",
+        "url": "https://www.sars.gov.za/types-of-tax/transfer-duty/"
+      },
+      {
+        "label": "SARS — non-resident sellers",
+        "url": "https://www.sars.gov.za/types-of-tax/capital-gains-tax/non-resident-sellers-of-immovable-property/"
+      }
+    ],
+    "nationalityNote": "Read nationality categories together with residence, property classification, intended use, permissions and the unresolved checks below. Dual citizenship and protected rights require evidence; do not infer eligibility from where someone lives."
+  }
+}

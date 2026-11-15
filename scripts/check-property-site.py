@@ -10,6 +10,7 @@ ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version
 paths=['/valuations','/','/luxury-assets','/luxury-assets/aircraft','/luxury-assets/yachts','/luxury-assets/exotic-cars','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
 guide_data=Path(__file__).resolve().parent.parent/"src/data"
 jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
+sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())
 asset_guides=json.loads((guide_data/"purchase-assets.json").read_text())
 assert len(jurisdictions)==35 and sum(j["group"]=="European Union" for j in jurisdictions)==27
 paths += ["/purchase-guide"]+["/purchase-guide/"+j["slug"] for j in jurisdictions]+["/purchase-guide/assets/"+a["slug"] for a in asset_guides]
@@ -110,6 +111,16 @@ for path in paths:
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,(path,'purchase FAQ mismatch')
+  if path.startswith('/purchase-guide/') and not path.startswith('/purchase-guide/assets/'):
+   slug=path.rsplit('/',1)[1]
+   process=sales_processes[slug]
+   assert all(f'id="{anchor}"' in text for anchor in ['nationality-status','legal-sales-process','sale-documents','country-coverage']),(path,'legal guide navigation missing')
+   assert process['binding'] in visible and process['documents'] in visible,(path,'legal process or document content missing')
+   assert process['nationalities']['eea'] in visible and process['nationalities']['other'] in visible,(path,'additional nationality content missing')
+   webpage=next(e for e in entities if e.get('@type')=='WebPage')
+   assert all(source['url'] in webpage.get('citation',[]) for source in process['sources']),(path,'process source citations missing')
+   for stage in process['stages']:
+    assert stage['text'] in visible and stage['kind'] in visible,(path,'stage content missing')
   if path=='/purchase-guide':
    assert all('/purchase-guide/'+j['slug'] in text for j in jurisdictions),'destination menu incomplete'
  if path.startswith('/luxury-assets/'):

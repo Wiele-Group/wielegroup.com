@@ -387,6 +387,10 @@
       {
         "label": "National Land Survey — ownership registration",
         "url": "https://www.maanmittauslaitos.fi/en/real-property/how-you-can-apply-for-the-registration-of-property-ownership"
+      },
+      {
+        "label": "Finnish Ministry of Defence — operative ban and permit refusals, 27 October 2025",
+        "url": "https://valtioneuvosto.fi/en/-/236553176/eleven-negative-decisions-on-real-estate-transactions"
       }
     ],
     "buyers": {
@@ -683,7 +687,7 @@
     ],
     "buyers": {
       "uk": "Assess AIP or a specific exemption, including whether the exact property is within a Special Designated Area.",
-      "eu": "Provide continuous-residence history and intended use so the notary can determine the applicable EU-national exemption or AIP requirement.",
+      "eu": "EU citizens with at least five years’ continuous Malta residence have a different AIP position from shorter-term residents. Below five years, a qualifying primary home/business route differs from a secondary home, which generally needs AIP outside an exemption. Confirm intended use and residence evidence.",
       "sa": "Assess AIP or a specific exemption. Do not assume a residential permission authorises an income-producing or commercial acquisition."
     },
     "gap": "An SDA exemption does not grant immigration residence or permission to let. AIP conditions, current value thresholds, financing, use and any rental licence require separate confirmation.",
@@ -731,6 +735,10 @@
       {
         "label": "Polish Ministry of the Interior — foreign acquisition",
         "url": "https://www.gov.pl/web/mswia-en/apply-for-a-permit-to-acquire-real-estate-shares-stocks-by-foreign-citizens"
+      },
+      {
+        "label": "Polish Parliament — Ministry explanation of EEA/Swiss exemption",
+        "url": "https://www.sejm.gov.pl/Sejm10.nsf/biuletyn.xsp?skrnr=ASW-51"
       }
     ],
     "buyers": {
@@ -928,10 +936,14 @@
       {
         "label": "Swiss Federal Office of Justice — foreign non-resident property acquisition",
         "url": "https://www.bj.admin.ch/en/acquisition-of-property-by-foreign-non-residents"
+      },
+      {
+        "label": "Swiss Government — foreign nationals and residence categories",
+        "url": "https://www.ch.ch/en/housing/homeownership/buying-property/purchasing-property-in-switzerland-as-a-foreign-na/"
       }
     ],
     "buyers": {
-      "uk": "Ask the competent canton to classify your nationality, actual residence, permit status and intended use under Lex Koller.",
+      "uk": "UK nationals resident in Switzerland may have protected acquisition rights under the Acquired Citizens’ Rights Agreement. Otherwise the non-EU/EFTA residence and permit categories apply. Ask the canton to confirm your status; residence abroad changes the route.",
       "eu": "EU nationality alone does not clear a non-resident purchase. Confirm Swiss residence status, use and any authorisation requirement with the canton.",
       "sa": "Obtain a cantonal Lex Koller assessment before committing; do not assume a holiday-home or main-home route is available."
     },
@@ -975,8 +987,8 @@
     "summary": "Monaco property purchase checks: property regime, notarial review and Rocher pre-emption.",
     "rules": [
       {
-        "title": "New Rocher legislation",
-        "text": "Law 1.598 of 16 October 2026 creates a defined protected perimeter in Monaco-Ville and provides state pre-emption and prior-declaration requirements for covered disposals. Its scope is not all Monaco property.",
+        "title": "Confirm the Rocher-law checkpoint",
+        "text": "The earlier edition identified Law 1.598 as a limited Monaco-Ville protected-perimeter, declaration and pre-emption checkpoint. The source was inaccessible on this recheck; a Monaco notary must verify the operative text and scope before reliance.",
         "source": 0
       }
     ],
@@ -991,7 +1003,7 @@
       "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
       "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
     },
-    "gap": "The new Rocher law is a specific checkpoint, not a complete Monaco acquisition code. Foreign-buyer eligibility, protected-sector occupation/letting rules, other pre-emption regimes and transitional provisions require a Monaco notary’s current assessment.",
+    "gap": "The earlier Rocher-law source was inaccessible on the 15 November recheck. Its protected-perimeter scope and operative text need a Monaco notary’s confirmation. Foreign-buyer eligibility, other pre-emption regimes, protected-sector occupation/letting and the full transfer process remain unresolved.",
     "local": "Identify the exact building and property regime. Obtain written confirmation of any protected-sector, occupation, declaration or state pre-emption conditions and their satisfaction before completion."
   },
   {
