@@ -1,21 +1,21 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { Arrow } from "./chrome";
 import { saveBriefDraft } from "@/lib/brief-draft";
 import { trackPropertyEvent } from "./analytics";
 
 const categories = [
  {id:"property",name:"Property",image:"/property/wiele-global-villa-20261113.webp",alt:"AI-created coastal architectural villa; not a property offered for sale",note:"Architectural study",description:"Residences and investment property. Our core business.",href:"/buying"},
- {id:"yachts",name:"Yachts",image:"/luxury-assets/wiele-yachts-20261113.webp",alt:"AI-created motor yacht concept; not a yacht offered for sale",note:"Yachting study",description:"Start with your cruising plans and ownership priorities.",href:"/luxury-assets#yachts"},
- {id:"aircraft",name:"Aircraft",image:"/luxury-assets/wiele-aircraft-20261113.webp",alt:"AI-created private aircraft concept; not an aircraft offered for sale",note:"Aviation study",description:"Define the mission, cabin requirements and acquisition timing.",href:"/luxury-assets#aircraft"},
- {id:"exotic-cars",name:"Exotic cars",image:"/luxury-assets/wiele-exotic-cars-20261113.webp",alt:"AI-created exotic sports car concept; not a car offered for sale",note:"Automotive study",description:"Performance, specification and the experience of ownership.",href:"/luxury-assets#exotic-cars"},
- {id:"classic-cars",name:"Classic cars",image:"/luxury-assets/wiele-classic-cars-20261113.webp",alt:"AI-created classic grand touring car concept; not a car offered for sale",note:"Collector study",description:"Character, condition and provenance shape the conversation.",href:"/luxury-assets#classic-cars"},
+ {id:"yachts",name:"Yachts",image:"/luxury-assets/wiele-yachts-20261113.webp",alt:"AI-created motor yacht concept; not a yacht offered for sale",note:"Yachting study",description:"Start with your cruising plans and ownership priorities.",href:"/luxury-assets/yachts"},
+ {id:"aircraft",name:"Aircraft",image:"/luxury-assets/wiele-aircraft-20261113.webp",alt:"AI-created private aircraft concept; not an aircraft offered for sale",note:"Aviation study",description:"Define the mission, cabin requirements and acquisition timing.",href:"/luxury-assets/aircraft"},
+ {id:"exotic-cars",name:"Exotic cars",image:"/luxury-assets/wiele-exotic-cars-20261113.webp",alt:"AI-created exotic sports car concept; not a car offered for sale",note:"Automotive study",description:"Performance, specification and the experience of ownership.",href:"/luxury-assets/exotic-cars"},
+ {id:"classic-cars",name:"Classic cars",image:"/luxury-assets/wiele-classic-cars-20261113.webp",alt:"AI-created classic grand touring car concept; not a car offered for sale",note:"Collector study",description:"Character, condition and provenance shape the conversation.",href:"/luxury-assets/classic-cars"},
 ] as const;
 type Category = typeof categories[number]["id"];
 
-export function PerspectiveExperience() {
+export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) {
  const stepTitle=useRef<HTMLHeadingElement>(null);
  const initialRender=useRef(true);
  const [category,setCategory]=useState<Category>("property");
@@ -33,7 +33,6 @@ export function PerspectiveExperience() {
  const [transferError,setTransferError]=useState(false);
  const asset=categories.find(a=>a.id===category)!;
  const scene=categories.find(a=>a.id===sceneCategory)!;
- const sceneHref=sceneCategory==="property"?"/contact?interest=buying&focus=residence":`/contact?interest=luxury-assets&asset=${sceneCategory}&intent=acquire`;
  const property=category==="property";
  const specificLabel=category==="aircraft"?(intent==="offer"?"Aircraft model, year and available records":"Mission, passengers and range"):category==="yachts"?(intent==="offer"?"Yacht model, year and available records":"Cruising area, size and guests"):category==="classic-cars"?"Model, era and provenance priorities":category==="exotic-cars"?"Model, specification and condition":intent==="offer"?"Property type, condition and occupancy":purpose==="income"?"Property type and investment objectives":"Property type and essential features";
  const specificHint=category==="aircraft"?"For example, 6 passengers and regular Malta–London trips":category==="yachts"?"For example, Mediterranean cruising for 8 guests":category==="classic-cars"?"For example, 1960s grand tourer with documented history":category==="exotic-cars"?"For example, a modern coupé; preferred model and features":"For example, villa with 3 bedrooms, or an income-producing building";
@@ -54,10 +53,11 @@ export function PerspectiveExperience() {
    <figure className="perspective-scene"><picture><source type="image/webp" srcSet={`${scene.image.replace(".webp","-640.webp")} 640w, ${scene.image.replace(".webp","-1024.webp")} 1024w, ${scene.image} 1672w`} sizes="100vw"/><Image key={scene.id} src={scene.image} alt={scene.alt} fill loading="eager" fetchPriority="high" sizes="100vw"/></picture><figcaption>{scene.note} · AI-created concept<br/>Not an asset offered for sale</figcaption></figure>
    <div className="perspective-grid" aria-hidden="true"><span/><span/><span/></div>
    <div className="perspective-topline"><span>Malta-based / Global luxury asset brokerage</span><span>WIELE / PERSPECTIVE 0{categories.indexOf(scene)+1}</span></div>
-   <div className="perspective-copy"><span className="perspective-kicker">South African roots. Global perspective.</span><h1 id="home-title">Exceptional assets.<br/><em>Individual ambition.</em></h1><p>Property, yachts, private jets and collector cars. For buyers and sellers in the UK, Europe and South Africa. Based in Malta.</p><div className="perspective-actions"><a className="button" href="#property-brief" onClick={startBrief}>Build your asset brief <Arrow diagonal/></a><Link className="perspective-direct" href={sceneHref}>Enquire about {scene.name.toLowerCase()} <Arrow diagonal/></Link></div></div>
+   <div className="perspective-copy"><span className="perspective-kicker">South African roots. Global perspective.</span><h1 id="home-title">Exceptional assets.<br/><em>Individual ambition.</em></h1><p>Property, yachts, private jets and collector cars. For buyers and sellers in the UK, Europe and South Africa. Based in Malta.</p><div className="perspective-actions"><a className="button" href="#property-brief" onClick={startBrief}>Build your asset brief <Arrow diagonal/></a><a className="perspective-direct" href="#asset-atlas">Explore the asset categories <Arrow diagonal/></a></div></div>
    <p className="perspective-mobile-disclosure">{scene.note} · AI-created concept · Not an asset for sale</p>
    <div className="perspective-bottom"><div className="perspective-current" aria-live="polite"><span>0{categories.indexOf(scene)+1} / {scene.name}</span><p>{scene.description}</p><Link href={scene.href}>Explore {scene.name.toLowerCase()} <Arrow diagonal/></Link></div><nav className="perspective-selector" aria-label="Explore asset perspectives">{categories.map((a,i)=><button key={a.id} type="button" aria-pressed={sceneCategory===a.id} onClick={()=>chooseScene(a.id)}><span>0{i+1}</span>{a.name}<i aria-hidden="true"/></button>)}</nav></div>
   </section>
+  {afterHero}
   <section id="property-brief" className="perspective-builder" aria-labelledby="perspective-brief-title">
    <div className="perspective-builder-heading"><div><span className="eyebrow">Wiele / Interactive brief</span><h2 id="perspective-brief-title">Your next move.<br/><em>In focus.</em></h2></div><p>Turn your preferences into a starting brief. No account required. Your choices stay in this browser until you submit an enquiry.</p></div>
    <div className="perspective-mobile-summary" aria-label="Current brief summary"><strong>{asset.name} · {intent==="offer"?"Sale":property?purpose==="income"?"Investment":"Residence":"Acquisition"}</strong><span>{country.trim()||"Location to discuss"} · {budget.trim()?`${currency} ${budget.trim()}`:"Budget to discuss"} · {timing}</span></div>

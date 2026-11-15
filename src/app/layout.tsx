@@ -6,6 +6,7 @@ import "./property-experience.css";
 import "./property-articles.css";
 import "./property-cinematic.css";
 import "./property-editorial.css";
+import "./property-atlas.css";
 import "./purchase-guide.css";
 import "./valuations.css";
 import "./listing-examples.css";
