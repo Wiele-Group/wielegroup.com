@@ -27,6 +27,11 @@ compatibility_date = "2026-05-03"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true  # keep workers.dev URL for staging/smoke tests
 
+# Live release checks found cold requests terminated at 10 ms (exceededCpu).
+# Bound Next/OpenNext request processing explicitly; no plan change is made.
+[limits]
+cpu_ms = 100
+
 # v3.5.2 (2026-05-09) — SUPERSWEEP fix #1: enable Workers Observability.
 # Production was emitting ZERO observability events for 7 days because
 # this block was absent. With it on, $metadata.service=wielegroup-com
