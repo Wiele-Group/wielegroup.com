@@ -86,6 +86,7 @@ export { DOQueueHandler, DOShardedTagCache, BucketCachePurge };
 const NO_CACHE_PATH_PREFIXES = [
   "/api/",
   "/articles/",
+  "/listing-examples/",
   "/onboarding",
   "/_next/data",
   "/_next/image",
@@ -170,7 +171,7 @@ const handler = {
 
     if (!isCacheableRequest(request)) {
       const response = await opennextWorker.fetch(request, env, ctx);
-      if (requestedUrl.pathname.startsWith("/articles/")) {
+      if ((requestedUrl.pathname.startsWith("/articles/") || requestedUrl.pathname.startsWith("/listing-examples/"))) {
         const headers = new Headers(response.headers);
         headers.set("Cache-Control", "private, no-store, max-age=0");
         headers.set("CDN-Cache-Control", "no-store");
@@ -184,7 +185,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-valuations-20261115-v44"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-registered-listings-20261115-v45"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

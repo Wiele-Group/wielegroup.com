@@ -80,7 +80,8 @@ for path in paths:
  assert p.meta.get('og:image:alt'),(path,'missing social image description')
  if path in example_paths:
   assert 'noindex' in p.meta.get('robots',''),(path,'fictional listing must be noindex')
-  assert 'Illustrative example' in text and 'not for sale' in text and 'Fictional price' in text,(path,'example disclosures')
+  assert 'Illustrative example' in text and 'not for sale' in text and 'Register &amp; view listings' in text,(path,'example registration/disclosures')
+  assert 'private' in headers.get('Cache-Control','') and 'no-store' in headers.get('Cache-Control',''),(path,'listing shared caching allowed')
   assert 'application/ld+json' in text
  else:assert 'noindex' not in p.meta.get('robots',''),(path,'unexpected noindex')
  entities=[]
@@ -89,7 +90,9 @@ for path in paths:
  if path in example_paths:
   assert not any(t in types for t in ['Product','Offer','RealEstateListing','Vehicle']),(path,'fictional asset offered as inventory')
   example=next(e for e in example_data if path.endswith('/'+e['slug']))
-  assert example['price'] in text and 'Discuss marketing my asset' in text,(path,'price and seller action')
+  private_example=next(e for e in json.loads((guide_data.parent/'server/listing-examples.json').read_text()) if e['slug']==example['slug'])
+  assert private_example['price'] not in text and private_example['overview'] not in text,(path,'protected listing details leaked')
+  assert 'registered-listing-body' not in text and 'Discuss marketing my asset' not in text,(path,'protected listing body leaked')
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='South African roots. Global perspective.',(path,'organization slogan')

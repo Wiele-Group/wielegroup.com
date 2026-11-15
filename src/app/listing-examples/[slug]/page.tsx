@@ -1,34 +1,34 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
-import { Arrow } from "@/components/property/chrome";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { findListingExample, exampleHref, exampleDisclosure } from "@/lib/listing-examples";
+import { propertyMetadata, propertyBrand } from "@/lib/property";
+import { listingCookie, validListingAccess, type ListingEnvironment } from "@/server/listing-access";
 import { PageStructuredData, StructuredData } from "@/components/property/structured-data";
-import { exampleDisclosure, exampleHref, exampleSellerHref, listingExamples } from "@/lib/listing-examples";
-import { propertyBrand, propertyMetadata } from "@/lib/property";
-export const dynamicParams = false;
-export function generateStaticParams() { return listingExamples.map(e => ({ slug: e.slug })); }
-function find(slug: string) { const example = listingExamples.find(e => e.slug === slug); if (!example) notFound(); return example; }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
- const e = find((await params).slug);
- const description = `Malta-based ${e.categoryLabel.toLowerCase()} brokerage presentation example: ${e.title}. Fictional asset, sample figures and AI concept image; not for sale.`;
- const base = propertyMetadata(`${e.title} — Listing Example`, description, exampleHref(e.slug));
- const image = { url: e.image, alt: e.alt };
- return { ...base, robots: { index: false, follow: true, googleBot: { index: false, follow: true } }, openGraph: { ...base.openGraph, images: [image] }, twitter: { ...base.twitter, images: [e.image] } };
+import { ListingRegistration } from "@/components/property/listing-registration";
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+type Props = { params: Promise<{ slug: string }> };
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+ const e = findListingExample((await params).slug); if (!e) return {};
+ const description = `Malta-based ${e.categoryLabel.toLowerCase()} brokerage example: ${e.title}. Register to view this fictional presentation. AI-created image; not for sale.`;
+ const base = propertyMetadata(`${e.title} — Register to View`, description, exampleHref(e.slug));
+ return { ...base, robots: { index: false, follow: true, googleBot: { index: false, follow: true } }, openGraph: { ...base.openGraph, images: [{ url: e.image, alt: e.alt }] }, twitter: { ...base.twitter, images: [e.image] } };
 }
-export default async function ListingExample({ params }: { params: Promise<{ slug: string }> }) {
- const e = find((await params).slug); const path = exampleHref(e.slug);
- const related = listingExamples.filter(item => item.slug !== e.slug && (e.category === "property" ? item.category === "property" : item.category !== "property")).slice(0,3);
- return <div className="example-detail-page"><PageStructuredData path={path} title={`${e.title} — Listing Example`} description={`Malta-based ${e.categoryLabel.toLowerCase()} brokerage presentation. Fictional asset; not for sale.`}/>
- <StructuredData data={{ "@context": "https://schema.org", "@type": "ImageObject", contentUrl: `${propertyBrand.url}${e.image}`, name: `${e.title} — AI-created illustrative concept`, caption: e.alt, creditText: "AI-created concept for Wiele Investments", description: "Fictional illustration, not a real asset or evidence of the sample specifications." }}/>
- <div className="example-notice"><div className="wrap"><strong>{exampleDisclosure}</strong><span>All prices, locations and specifications are fictional. AI-created imagery.</span></div></div>
- <header className="example-heading wrap"><Link className="text-link" href={`${e.back}#listing-examples`}>← Back to {e.category === "property" ? "property" : e.categoryLabel.toLowerCase()} examples</Link><span className="eyebrow">Malta-based brokerage / {e.categoryLabel}</span><h1>{e.title}</h1><p>{e.location} <span> / Reference: EXAMPLE-{e.slug.toUpperCase()}</span></p></header>
- <figure className="example-hero wrap"><div><Image src={e.image} alt={e.alt} fill sizes="(max-width:760px) 100vw, 90vw" priority/></div><figcaption>AI-created conceptual image · Not an actual asset or location photograph · Sample specifications do not describe this image</figcaption></figure>
- <nav className="example-section-nav wrap" aria-label="Example listing sections"><a href="#overview">Overview</a><a href="#specifications">Specifications</a><a href="#records">Records & condition</a><a href="#next-step">For sellers</a></nav>
- <div className="example-layout wrap"><div className="example-main"><section id="overview"><span className="eyebrow">The presentation / Overview</span><h2>A first impression.<br/><em>With substance behind it.</em></h2><p>{e.overview}</p><ul className="example-highlights">{e.highlights.map(h => <li key={h}>{h}</li>)}</ul></section>
- <section id="specifications"><span className="eyebrow">Sample data / Not verified particulars</span><h2>The essential detail.</h2><dl className="example-specifications">{e.specifications.map(([label,value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="listing-disclaimer">Every figure above is fictional. A live listing would use dated, evidenced particulars and identify missing or unverified information.</p></section>
- <section id="records"><span className="eyebrow">Records, condition & ownership</span><h2>The evidence matters.</h2><p>A real listing would explain which records are available, their date and source, any known limitations, and what needs independent review.</p><ol className="example-records">{e.records.map((record,i) => <li key={record}><span>0{i+1}</span>{record}</li>)}</ol><details className="example-considerations"><summary>Condition, costs & important considerations <span aria-hidden="true">+</span></summary><p>{e.considerations}</p></details><p className="listing-disclaimer">No title documents, inspection reports or brochures exist for this fictional asset. For a real instruction, sensitive documents and exact identifying details would be shared through an agreed process.</p><Link className="text-link" href={e.guide}>Read the relevant purchase guide <Arrow diagonal/></Link></section></div>
- <aside className="example-enquiry" id="next-step"><span className="eyebrow">Sample asking price</span><p className="example-price">{e.price}</p><p className="listing-disclaimer">Fictional price. Not a market estimate, offer or tax-inclusive quotation. No VAT or customs status is established.</p><dl className="listing-card-facts">{e.summary.map(([label,value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><h2>Picture your asset here.</h2><p>Discuss your asset, the evidence available and the presentation it deserves. Photography, marketing scope, fees and specialist involvement are agreed before an instruction is accepted.</p><Link className="button" href={exampleSellerHref(e)}>Discuss marketing my asset <Arrow diagonal/></Link><p className="listing-disclaimer">This opens a seller enquiry. It does not enquire about, reserve or purchase this example. Do not send confidential ownership records through the initial form.</p><a className="text-link" href="mailto:admin@wielegroup.com">admin@wielegroup.com</a></aside></div>
- <section className="example-related wrap"><span className="eyebrow">Explore the presentation</span><h2>Another perspective.</h2><div>{related.map(item => <Link key={item.slug} href={exampleHref(item.slug)}><span>{item.categoryLabel}</span><strong>{item.title}</strong><Arrow diagonal/></Link>)}</div></section>
- </div>;
+export default async function ListingExample({ params }: Props) {
+ const e = findListingExample((await params).slug); if (!e) notFound();
+ const token = (await cookies()).get(listingCookie)?.value ?? "";
+ let allowed = false;
+ try { const env = getCloudflareContext().env as unknown as ListingEnvironment; allowed = !!env.REPORT_ACCESS_SECRET && await validListingAccess(env.REPORT_ACCESS_SECRET, token); } catch { /* Access fails closed. */ }
+ if (allowed) { const { RegisteredListingExample } = await import("@/components/property/registered-listing-example"); return <RegisteredListingExample slug={e.slug}/>; }
+ const path = exampleHref(e.slug);
+ return <div className="example-detail-page"><PageStructuredData path={path} title={`${e.title} — Register to View`} description={`Malta-based ${e.categoryLabel.toLowerCase()} brokerage example. Registration required; fictional asset, not for sale.`}/>
+ <StructuredData data={{ "@context": "https://schema.org", "@type": "WebPage", "@id": `${propertyBrand.url}${path}#registration`, url: `${propertyBrand.url}${path}`, name: `${e.title} — Listing access`, isAccessibleForFree: false, conditionsOfAccess: "Complimentary listing access after name and email registration. Access lasts 30 days in this browser. Optional marketing consent is separate." }}/>
+ <div className="example-notice"><div className="wrap"><strong>{exampleDisclosure}</strong><span>Registration required to view prices, specifications and full listing details.</span></div></div>
+ <header className="example-heading wrap"><Link className="text-link" href={`${e.back}#listing-examples`}>← Back to the collection</Link><span className="eyebrow">Malta-based brokerage / {e.categoryLabel}</span><h1>{e.title}</h1><p>{e.location}</p></header>
+ <figure className="example-hero wrap"><div><Image src={e.image} alt={e.alt} fill sizes="(max-width:760px) 100vw, 90vw" priority/></div><figcaption>AI-created illustrative concept · Fictional asset, not for sale</figcaption></figure>
+ <section id="register" className="article-gate listing-registration-gate wrap"><div><span className="eyebrow">Wiele listings / Registered access</span><h2>A closer look.<br/><em>Starts here.</em></h2><p>Register to view prices, specifications, full descriptions, records and condition information across the listing examples.</p><p>Complimentary access lasts 30 days in this browser. No password or payment is required. Marketing updates are optional.</p><p className="listing-disclaimer">These are fictional presentations for prospective sellers. Registration does not create a reservation, purchase, brokerage instruction or payment obligation, and does not verify your email address or buyer status.</p></div><ListingRegistration slug={e.slug}/></section></div>;
 }
