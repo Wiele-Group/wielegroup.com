@@ -12,7 +12,7 @@ export default function Contact() {
   <p className="contact-email-alternative wrap">Prefer email? <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a></p>
   <section className="contact-layout wrap">
    <Suspense fallback={<p>Loading the enquiry form… Email <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a>.</p>}><EnquiryForm /></Suspense>
-   <aside><span className="eyebrow">Your Wiele contact</span><h2>A direct point<br /><em>of contact.</em></h2>
+   <aside><span className="eyebrow">Your Wiele contact</span><h2>Jonathan<br /><em>Landman.</em></h2><p>Property and premium automotive sales experience in South Africa.</p><Link className="text-link" href="/about#jonathan-landman">Background &amp; experience <Arrow diagonal /></Link>
     <div className="contact-detail"><span>Email</span><a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email} <Arrow diagonal /></a></div>
     <div className="contact-detail"><span>Based in</span><p>{propertyBrand.location}</p></div>
     <div className="contact-detail"><span>Appointments</span><p>By appointment only · English &amp; Afrikaans</p></div>
