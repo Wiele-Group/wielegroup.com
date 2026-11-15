@@ -3,10 +3,16 @@ from urllib.error import HTTPError
 from urllib.parse import urljoin, urlparse
 from html.parser import HTMLParser
 import sys,time,json,re
+from pathlib import Path
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
 paths=['/','/luxury-assets','/luxury-assets/aircraft','/luxury-assets/yachts','/luxury-assets/exotic-cars','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
+guide_data=Path(__file__).resolve().parent.parent/"src/data"
+jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
+asset_guides=json.loads((guide_data/"purchase-assets.json").read_text())
+assert len(jurisdictions)==35 and sum(j["group"]=="European Union" for j in jurisdictions)==27
+paths += ["/purchase-guide"]+["/purchase-guide/"+j["slug"] for j in jurisdictions]+["/purchase-guide/assets/"+a["slug"] for a in asset_guides]
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
@@ -80,6 +86,17 @@ for path in paths:
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
  assert set(org['sameAs'])==social_profiles,(path,'official social profiles')
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
+ if path.startswith('/purchase-guide'):
+  assert 'FAQPage' in types and 'Service' not in types and 'LegalService' not in types,(path,'purchase guide schema')
+  assert '2026-11-15' in text,(path,'research date missing')
+  if path!='/purchase-guide':assert 'Coverage' in text,(path,'coverage limits missing')
+  else:assert '35 jurisdictions' in text,(path,'destination count missing')
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  visible=re.sub(r'\s+',' ',' '.join(p.visible))
+  for item in faq['mainEntity']:
+   assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,(path,'purchase FAQ mismatch')
+  if path=='/purchase-guide':
+   assert all('/purchase-guide/'+j['slug'] in text for j in jurisdictions),'destination menu incomplete'
  if path.startswith('/luxury-assets/'):
   assert 'FAQPage' in types and 'Product' not in types and 'Offer' not in types,(path,'guide schema')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
@@ -169,7 +186,7 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
  status,headers,data=get(path);assert status==410,(path,status)
  assert headers.get('X-Robots-Tag')=='noindex, follow',(path,'retired URL index exclusion')
  assert b'no longer offered' in data and b'https://wielegroup.com/about' in data,(path,'retirement explanation')
-for path in ['/api/audit','/api/contact','/unknown-property-page']:
+for path in ['/api/audit','/api/contact','/unknown-property-page','/purchase-guide/unknown-country','/purchase-guide/assets/unknown-asset']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
 for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-global-20261113.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:

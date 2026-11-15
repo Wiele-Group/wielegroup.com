@@ -1,0 +1,1032 @@
+[
+  {
+    "slug": "england",
+    "name": "England",
+    "group": "United Kingdom",
+    "summary": "England property purchase checks: residential SDLT, residence tests and local conveyancing.",
+    "rules": [
+      {
+        "title": "Residential purchase tax",
+        "text": "SDLT applies here. A qualifying non-resident residential transaction carries a surcharge of two percentage points; reliefs and exceptions exist. Additional-property rules require a separate assessment.",
+        "source": 0
+      },
+      {
+        "title": "Citizenship is not the SDLT residence test",
+        "text": "HMRC uses transaction-specific residence tests. A British passport, UK visa or ordinary tax-residence classification does not settle this test.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "HMRC — non-resident SDLT",
+        "url": "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents"
+      },
+      {
+        "label": "UK government — transferring ownership",
+        "url": "https://www.gov.uk/buying-a-home/transferring-ownership"
+      }
+    ],
+    "buyers": {
+      "uk": "UK nationals must still check SDLT residence status and any other homes held worldwide.",
+      "eu": "EU nationals should obtain a local conveyancing and SDLT assessment. EU citizenship does not remove the non-resident surcharge.",
+      "sa": "South African nationals should obtain a local conveyancing and SDLT assessment, plus a South African outward-funding assessment where relevant."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Use a practitioner familiar with England law. Confirm title, searches, lender requirements, the binding-contract stage and registration; do not assume the process is identical across the four UK nations."
+  },
+  {
+    "slug": "northern-ireland",
+    "name": "Northern Ireland",
+    "group": "United Kingdom",
+    "summary": "Northern Ireland property purchase checks: residential SDLT, residence tests and local conveyancing.",
+    "rules": [
+      {
+        "title": "Residential purchase tax",
+        "text": "SDLT applies here. A qualifying non-resident residential transaction carries a surcharge of two percentage points; reliefs and exceptions exist. Additional-property rules require a separate assessment.",
+        "source": 0
+      },
+      {
+        "title": "Citizenship is not the SDLT residence test",
+        "text": "HMRC uses transaction-specific residence tests. A British passport, UK visa or ordinary tax-residence classification does not settle this test.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "HMRC — non-resident SDLT",
+        "url": "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents"
+      },
+      {
+        "label": "UK government — transferring ownership",
+        "url": "https://www.gov.uk/buying-a-home/transferring-ownership"
+      }
+    ],
+    "buyers": {
+      "uk": "UK nationals must still check SDLT residence status and any other homes held worldwide.",
+      "eu": "EU nationals should obtain a local conveyancing and SDLT assessment. EU citizenship does not remove the non-resident surcharge.",
+      "sa": "South African nationals should obtain a local conveyancing and SDLT assessment, plus a South African outward-funding assessment where relevant."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Use a practitioner familiar with Northern Ireland law. Confirm title, searches, lender requirements, the binding-contract stage and registration; do not assume the process is identical across the four UK nations."
+  },
+  {
+    "slug": "scotland",
+    "name": "Scotland",
+    "group": "United Kingdom",
+    "summary": "Scotland property purchase checks: LBTT, additional dwellings and binding missives.",
+    "rules": [
+      {
+        "title": "Scotland has its own purchase tax",
+        "text": "Land and Buildings Transaction Tax (LBTT), rather than SDLT, applies. The Additional Dwelling Supplement may apply; obtain a calculation using your complete ownership position.",
+        "source": 0
+      },
+      {
+        "title": "Missives can create the binding contract",
+        "text": "The contract is concluded through missives between the parties’ solicitors. Establish when these become binding before relying on an English exchange-of-contracts timetable.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "Scottish Government — LBTT",
+        "url": "https://www.gov.scot/policies/taxes/land-and-buildings-transaction-tax/"
+      },
+      {
+        "label": "Scottish Government — missives",
+        "url": "https://www.mygov.scot/sell-home/missives"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "The English and Northern Irish SDLT surcharge is not a Scottish tax rule. This page does not determine an individual’s LBTT or supplement liability.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "wales",
+    "name": "Wales",
+    "group": "United Kingdom",
+    "summary": "Wales property purchase checks: Welsh Land Transaction Tax and local conveyancing.",
+    "rules": [
+      {
+        "title": "Welsh purchase-tax regime",
+        "text": "Land Transaction Tax (LTT), rather than SDLT, applies. Check Welsh Revenue Authority rates, reliefs and higher residential rates against the transaction and other property interests.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Welsh Government — LTT overview",
+        "url": "https://www.gov.wales/land-transaction-tax-overview"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Do not apply England’s SDLT non-resident surcharge or rate bands to a Welsh purchase. Individual eligibility and the complete Welsh conveyancing process require a local assessment.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "austria",
+    "name": "Austria",
+    "group": "European Union",
+    "summary": "Austria property purchase checks: provincial approval, nationality and second-home restrictions.",
+    "rules": [
+      {
+        "title": "Foreign-buyer approval is provincial",
+        "text": "Third-country buyers generally require approval, subject to applicable exemptions and treaties. The property’s federal province determines the responsible authority and procedure.",
+        "source": 0
+      },
+      {
+        "title": "EU/EEA status matters",
+        "text": "EU/EEA nationals are treated as Austrian nationals for the foreign-acquisition rules described by the government. This does not remove separate land-use restrictions.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Austrian Government — foreign acquisition",
+        "url": "https://www.oesterreich.gv.at/en/themen/bauen_und_wohnen/grundstueckskauf_und_grundbuch/grundstueckskauf/1/Seite.200041"
+      }
+    ],
+    "buyers": {
+      "uk": "Treat UK nationality as a third-country case unless a specific exemption or treaty route is confirmed.",
+      "eu": "Confirm EU/EEA treatment and independently check the province’s second-home and agricultural restrictions.",
+      "sa": "Obtain the province’s approval or a documented exemption before committing. South African nationality is a third-country case."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Austria has nine federal provinces. Identify the province and municipality; confirm second-home, holiday-use and agricultural rules separately."
+  },
+  {
+    "slug": "belgium",
+    "name": "Belgium",
+    "group": "European Union",
+    "summary": "Belgium property purchase checks: notarial deed, regional duties and possible VAT.",
+    "rules": [
+      {
+        "title": "Deed and purchase taxes",
+        "text": "The purchase proceeds through a notarial deed. Registration duties apply, while a qualifying new property may fall under VAT. The tax treatment depends on the transaction.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Belgian Government — buying a home",
+        "url": "https://www.belgium.be/en/housing/buying_or_selling_a_home"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Notarial and tax checkpoints reviewed. Nationality-specific eligibility and current regional tax calculations require a Belgian notary’s confirmation.",
+    "local": "Identify Flanders, Brussels-Capital or Wallonia before obtaining the tax calculation. Confirm the region’s reliefs and the municipality’s planning and use position."
+  },
+  {
+    "slug": "bulgaria",
+    "name": "Bulgaria",
+    "group": "European Union",
+    "summary": "Bulgaria property purchase checks: distinguish buildings from ownership of land.",
+    "rules": [
+      {
+        "title": "Land has a separate constitutional rule",
+        "text": "Article 22 makes foreign ownership of land conditional on the EU accession framework, a qualifying treaty or lawful succession. Buying a building is not proof of entitlement to its land.",
+        "source": 0
+      },
+      {
+        "title": "Check the registered rights",
+        "text": "Review the property register for the transaction, rights and encumbrances affecting the intended acquisition.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bulgarian Parliament — Constitution, Article 22",
+        "url": "https://parliament.bg/en/const"
+      },
+      {
+        "label": "EU e-Justice — Bulgarian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/bg_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Have counsel identify a lawful land-acquisition basis; do not assume an apartment and its associated land share have identical treatment.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Have counsel identify a lawful land-acquisition basis. A company structure is not an automatic or pre-cleared workaround."
+    },
+    "gap": "The constitutional land restriction is a starting point. Current implementing legislation, treaty eligibility and agricultural rules need transaction-specific review.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "croatia",
+    "name": "Croatia",
+    "group": "European Union",
+    "summary": "Croatia property purchase checks: reciprocity, ministerial consent and special land.",
+    "rules": [
+      {
+        "title": "Reciprocity is not consent",
+        "text": "The ministry’s table records reciprocity for the United Kingdom and South Africa. Where the non-EU consent route applies, reciprocity alone does not complete the required approval.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Croatian Ministry of Justice — foreign acquisition and reciprocity",
+        "url": "https://mpudt.gov.hr/glavni-izbornik-21165/citizens/acquisition-of-ownership-rights-in-real-estate-by-foreign-nationals/25361"
+      }
+    ],
+    "buyers": {
+      "uk": "Obtain a determination of the ministerial-consent requirement and any exemption before relying on the reciprocity listing.",
+      "eu": "Confirm the EU-national route and separately assess agricultural land, protected areas and other special property categories.",
+      "sa": "South Africa appears in the ministry’s reciprocity table. Have counsel establish whether consent is required for this property."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "cyprus",
+    "name": "Cyprus",
+    "group": "European Union",
+    "summary": "Cyprus property purchase checks: non-EU permission, acquisition limits and title.",
+    "rules": [
+      {
+        "title": "Non-EU permission",
+        "text": "Under Chapter 109, non-EU buyers apply to the relevant District Administration for permission to acquire immovable property. The government specifies acquisition limits, including rules for couples.",
+        "source": 0
+      },
+      {
+        "title": "Identify the property and documents",
+        "text": "The application requires supporting identity, property, contractual and financial documents. Check separate title deeds and planning documentation before committing.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Republic of Cyprus — purchasing property",
+        "url": "https://www.gov.cy/moi/en/purchasing-property/"
+      }
+    ],
+    "buyers": {
+      "uk": "UK nationals fall within the non-EU permission assessment. Confirm any status-specific exemption and the applicable acquisition limits.",
+      "eu": "Confirm EU-national treatment and title/registration requirements; do not assume exemption from ordinary planning and conveyancing checks.",
+      "sa": "South African nationals fall within the non-EU permission assessment; confirm the application and acquisition limits before signing."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "This entry concerns the Republic of Cyprus process. Properties in the north require a separate specialist assessment of ownership claims, enforceability and legal risk."
+  },
+  {
+    "slug": "czechia",
+    "name": "Czechia",
+    "group": "European Union",
+    "summary": "Czechia property purchase checks: cadastral registration and authenticated documents.",
+    "rules": [
+      {
+        "title": "Register the acquisition",
+        "text": "The ownership-entry application and acquisition document must meet cadastral requirements. An authorised representative may need a power of attorney with an authenticated signature.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Czech public administration — property register",
+        "url": "https://portal.gov.cz/en/informace/property-register-INF-161"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Registration formalities reviewed. Nationality-specific restrictions, special land and the precise effective date require local confirmation.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "denmark",
+    "name": "Denmark",
+    "group": "European Union",
+    "summary": "Denmark property purchase checks: domicile, five-year residence and holiday homes.",
+    "rules": [
+      {
+        "title": "Domicile and residence history",
+        "text": "Permission is generally needed unless the buyer is domiciled in Denmark under the acquisition rules or has lived there for at least five years. These are legal tests, not simply passport labels.",
+        "source": 0
+      },
+      {
+        "title": "Permanent home and holiday home differ",
+        "text": "An EU/EEA route can apply to a qualifying permanent dwelling with the relevant declaration. Holiday-home permission has stricter connection requirements.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Danish Department of Civil Affairs — acquisition FAQ",
+        "url": "https://www.eng.civilstyrelsen.dk/acquisition-of-real-property/faq"
+      }
+    ],
+    "buyers": {
+      "uk": "Check domicile, five-year residence and any preserved or other qualifying rights. A UK passport alone does not establish an exemption.",
+      "eu": "Have counsel confirm the qualifying permanent-home route and declaration; it does not generally authorise a holiday-home purchase.",
+      "sa": "Check domicile or five-year residence first. Otherwise assess permission, especially the stricter holiday-home route."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "estonia",
+    "name": "Estonia",
+    "group": "European Union",
+    "summary": "Estonia property purchase checks: title, mortgages and special-land eligibility.",
+    "rules": [
+      {
+        "title": "Read all relevant register sections",
+        "text": "The land register identifies the property, owner, restrictions and mortgages. Obtain a current extract covering the whole legal interest being purchased.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "EU e-Justice — Estonian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/ee_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Title-register scope reviewed. Current nationality-specific rules for agricultural, forest and security-sensitive land have not been fully verified here. Obtain a current Estonian-law opinion before treating any buyer as eligible.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "finland",
+    "name": "Finland",
+    "group": "European Union",
+    "summary": "Finland property purchase checks: non-EU/EEA permits and ownership registration.",
+    "rules": [
+      {
+        "title": "Real-estate acquisition permit",
+        "text": "Buyers outside the EU/EEA generally need Ministry of Defence permission to acquire real estate. EU/EEA dual nationality can change the assessment; permission is not guaranteed.",
+        "source": 0
+      },
+      {
+        "title": "Register ownership",
+        "text": "The National Land Survey explains title registration and the supporting acquisition documents. Establish whether the asset is real estate or housing-company shares before choosing the process.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "Finnish Government — non-EU/EEA real-estate permits",
+        "url": "https://valtioneuvosto.fi/en/-/236553176/ministry-of-defence-opens-new-e-service-for-permits-to-buy-real-estate-by-parties-outside-eu-and-eea"
+      },
+      {
+        "label": "National Land Survey — ownership registration",
+        "url": "https://www.maanmittauslaitos.fi/en/real-property/how-you-can-apply-for-the-registration-of-property-ownership"
+      }
+    ],
+    "buyers": {
+      "uk": "Assess the non-EU/EEA real-estate permit route, including any qualifying dual nationality.",
+      "eu": "EU/EEA nationality changes the Defence-permit assessment; ordinary title and land-use checks still apply.",
+      "sa": "Assess the non-EU/EEA real-estate permit route. Approval depends on the statutory assessment."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Åland has a separate acquisition regime. Do not apply the mainland summary to an Åland property without local confirmation."
+  },
+  {
+    "slug": "france",
+    "name": "France",
+    "group": "European Union",
+    "summary": "France property purchase checks: notarial deed, title searches and capacity.",
+    "rules": [
+      {
+        "title": "Authentic deed and notarial checks",
+        "text": "For an existing home, the final sale is formalised by a notary. The notary checks identity, legal capacity, title and relevant pre-emption rights, and arranges registration.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "French public service — deed for an existing home",
+        "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2962?lang=en"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "The cited guidance was verified by the publisher on 29 October 2026. It covers an existing-home sale, not every land, commercial, agricultural or foreign-buyer scenario.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "germany",
+    "name": "Germany",
+    "group": "European Union",
+    "summary": "Germany property purchase checks: notarised contract and land-register transfer.",
+    "rules": [
+      {
+        "title": "Contract and title transfer are distinct",
+        "text": "The acquisition contract requires notarisation. Ownership transfer also requires the conveyance agreement and entry in the land register; signing alone does not transfer title.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "German federal service portal — acquiring property",
+        "url": "https://verwaltung.bund.de/leistungsverzeichnis/en/rechte-und-pflichten/102837925"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Core conveyancing formalities reviewed. No blanket nationality clearance or all-in tax rate is supplied.",
+    "local": "Identify the federal state for transfer-tax treatment. Ask the notary to check municipal pre-emption, agricultural permissions and the precise property interest."
+  },
+  {
+    "slug": "greece",
+    "name": "Greece",
+    "group": "European Union",
+    "summary": "Greece property purchase checks: cadastral title and location-specific restrictions.",
+    "rules": [
+      {
+        "title": "Check the relevant cadastral record",
+        "text": "Establish the competent registry and obtain the title, rights and encumbrance records for the exact property. The applicable record system depends on the area.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "EU e-Justice — Greek land registers",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/el_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Registry coverage reviewed. Border-area, island, forest, archaeological and nationality-specific acquisition rules are not fully verified in this entry. Require a Greek lawyer’s eligibility determination before signing.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "hungary",
+    "name": "Hungary",
+    "group": "European Union",
+    "summary": "Hungary property purchase checks: foreign-acquisition permission and title.",
+    "rules": [
+      {
+        "title": "Non-agricultural foreign acquisitions",
+        "text": "Government Decree 251/2014 regulates the permission procedure for foreign acquisition of non-agricultural property. The relevant capital or county government office administers the procedure.",
+        "source": 0
+      },
+      {
+        "title": "Title and land classification",
+        "text": "Confirm the land-register description and whether the property is agricultural before applying the non-agricultural route.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "Hungarian legislation — Decree 251/2014",
+        "url": "https://njt.jog.gov.hu/jogszabaly/2014-251-20-22"
+      },
+      {
+        "label": "EU e-Justice — Hungarian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/hu_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Have counsel determine whether a foreign-acquisition permit or statutory exemption applies.",
+      "eu": "Confirm the EU-national statutory treatment with counsel rather than treating the foreign-permit summary as applying identically to every nationality.",
+      "sa": "Have counsel determine the permit requirement and the property’s land classification."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "ireland",
+    "name": "Ireland",
+    "group": "European Union",
+    "summary": "Ireland property purchase checks: Stamp Duty, Local Property Tax and title.",
+    "rules": [
+      {
+        "title": "Tax and property identifiers",
+        "text": "Revenue identifies Stamp Duty and Local Property Tax checks for a purchase. Check the property’s LPT identifier, valuation and compliance; a new property may also involve VAT.",
+        "source": 0
+      },
+      {
+        "title": "Registered title",
+        "text": "Review the title record, owner and burdens, and establish whether the property is registered or requires an alternative title investigation.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "Irish Revenue — taxes when buying",
+        "url": "https://www.revenue.ie/en/property/buying-irish-property/taxes.aspx"
+      },
+      {
+        "label": "EU e-Justice — Irish land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/ie_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Tax and title checkpoints reviewed. Residence rights, nationality-specific eligibility and tax-reference arrangements require separate confirmation.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "italy",
+    "name": "Italy",
+    "group": "European Union",
+    "summary": "Italy property purchase checks: reciprocity, residence exemptions and notarial review.",
+    "rules": [
+      {
+        "title": "Reciprocity and status",
+        "text": "EU/EEA nationals enjoy the civil-rights treatment described by the Foreign Ministry. For other nationals, qualifying Italian residence status, treaties or reciprocity may determine capacity to acquire.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Italian Foreign Ministry — foreign nationals and reciprocity",
+        "url": "https://www.esteri.it/en/ministero/sportello_info/domandefrequenti/sezione_lavorare_allestero/"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask the notary to document the applicable reciprocity, treaty or qualifying-residence basis; do not infer it solely from past EU membership.",
+      "eu": "Confirm EU/EEA treatment and complete the ordinary notarial, cadastral, tax and planning checks.",
+      "sa": "Ask the notary to document the applicable reciprocity, treaty or qualifying-residence basis for a South African individual."
+    },
+    "gap": "This is a framework, not a finding that reciprocity exists for every UK or South African transaction. Confirm the specific nationality, property right and current ministry position.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "latvia",
+    "name": "Latvia",
+    "group": "European Union",
+    "summary": "Latvia property purchase checks: land eligibility and current Latvian legislation.",
+    "rules": [
+      {
+        "title": "Use current law for land eligibility",
+        "text": "The official English translation of the rural-land legislation reviewed here does not include the 26 March 2026 amendments. Do not use that translation as current purchase clearance.",
+        "source": 0
+      },
+      {
+        "title": "Separate title from cadastral information",
+        "text": "Obtain the appropriate land-register and cadastral information for the property; neither a marketing description nor a cadastral reference alone settles eligibility.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "Official legal publisher — rural-land privatisation law",
+        "url": "https://likumi.lv/ta/en/id/74241-on-land-privatisation-in-rural-areas"
+      },
+      {
+        "label": "EU e-Justice — Latvian land register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/lv_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Current-language review required: nationality-specific land rights, agricultural conditions and the 2026 amendments remain unresolved in this entry. Obtain advice using the current Latvian text.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "lithuania",
+    "name": "Lithuania",
+    "group": "European Union",
+    "summary": "Lithuania property purchase checks: registered rights and separate land eligibility.",
+    "rules": [
+      {
+        "title": "Check the whole property interest",
+        "text": "The real-property register covers land, buildings and separate premises, together with registered rights and encumbrances. Verify what is included in the purchase.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "EU e-Justice — Lithuanian real-property register",
+        "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries/lt_en"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Registry scope reviewed. The constitutional and implementing rules for foreign acquisition of land, forest and inland waters are not fully determined here. UK, EU and South African purchasers need a property-specific eligibility check.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "luxembourg",
+    "name": "Luxembourg",
+    "group": "European Union",
+    "summary": "Luxembourg property purchase checks: binding sale agreement and notarial deed.",
+    "rules": [
+      {
+        "title": "A preliminary agreement can bind",
+        "text": "A signed compromis de vente can commit the parties. Agree appropriate suspensive conditions, including finance where needed, before signing; the notary then completes the authentic deed.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Luxembourg public service — sale agreement",
+        "url": "https://guichet.public.lu/en/citoyens/logement/acquisition/aspects-contractuels/compromis-vente.html"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Contractual checkpoints reviewed. Nationality-specific and special-property eligibility, tax reliefs and financing terms require individual confirmation.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "malta",
+    "name": "Malta",
+    "group": "European Union",
+    "summary": "Malta property purchase checks: AIP permission, EU residence and designated areas.",
+    "rules": [
+      {
+        "title": "EU nationality and residence history",
+        "text": "EU nationals with at least five years’ continuous residence in Malta before acquisition fall within the exemption described by MTCA. Below that threshold, primary-residence and business exemptions differ from second-home treatment.",
+        "source": 0
+      },
+      {
+        "title": "Third-country buyers and designated areas",
+        "text": "Non-EU individuals generally require Acquisition of Immovable Property permission unless an applicable exemption, such as acquisition in a Special Designated Area, applies. Permission and permitted use must be established separately.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Malta Tax and Customs Administration — conditions for buying",
+        "url": "https://mtca.gov.mt/personal-tax/property-taxes/acquisition-of-immovable-property-in-malta-by-non-residents/conditions-for-buying-immovable-property"
+      }
+    ],
+    "buyers": {
+      "uk": "Assess AIP or a specific exemption, including whether the exact property is within a Special Designated Area.",
+      "eu": "Provide continuous-residence history and intended use so the notary can determine the applicable EU-national exemption or AIP requirement.",
+      "sa": "Assess AIP or a specific exemption. Do not assume a residential permission authorises an income-producing or commercial acquisition."
+    },
+    "gap": "An SDA exemption does not grant immigration residence or permission to let. AIP conditions, current value thresholds, financing, use and any rental licence require separate confirmation.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "netherlands",
+    "name": "Netherlands",
+    "group": "European Union",
+    "summary": "Netherlands property purchase checks: transfer tax and main-residence declarations.",
+    "rules": [
+      {
+        "title": "Use determines transfer-tax treatment",
+        "text": "The Dutch government distinguishes qualifying main-residence treatment from other acquisitions. The buyer’s intended occupation and the required declaration matter; obtain the current rate for the transaction date.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Dutch Government — transfer-tax rates",
+        "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/capital-transfer-tax/real-estate-transfer-tax-rates"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Transfer-tax framework reviewed. This page does not establish nationality-specific eligibility or a universal tax rate.",
+    "local": "Ask the notary to check municipal purchase protection, letting restrictions, leasehold terms and the intended occupation or investment use."
+  },
+  {
+    "slug": "poland",
+    "name": "Poland",
+    "group": "European Union",
+    "summary": "Poland property purchase checks: foreign-buyer permit and exemption assessment.",
+    "rules": [
+      {
+        "title": "Determine the permit or exemption",
+        "text": "The Ministry of the Interior administers foreign-acquisition permissions. Have counsel establish the buyer’s applicable statutory route and whether an exemption covers the exact property.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Polish Ministry of the Interior — foreign acquisition",
+        "url": "https://www.gov.pl/web/mswia-en/apply-for-a-permit-to-acquire-real-estate-shares-stocks-by-foreign-citizens"
+      }
+    ],
+    "buyers": {
+      "uk": "Obtain a written permit-or-exemption assessment for the precise dwelling, land share and location before committing.",
+      "eu": "Have counsel confirm the applicable EU/EEA exemption and any independent agricultural or special-land requirements.",
+      "sa": "Obtain a written permit-or-exemption assessment. Do not assume that buying an apartment clears every land or border-area issue."
+    },
+    "gap": "The permission route is identified. This entry does not confirm that an individual exemption applies, or provide an exhaustive account of agricultural and border-area rules.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "portugal",
+    "name": "Portugal",
+    "group": "European Union",
+    "summary": "Portugal property purchase checks: identification, tax numbers and registration.",
+    "rules": [
+      {
+        "title": "Casa Pronta completion documents",
+        "text": "The official service lists identification, tax numbers, the energy certificate and condominium-debt documentation where applicable. The service can handle the transaction, relevant purchase taxes and registration.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Portuguese Institute of Registries — Casa Pronta FAQ",
+        "url": "https://irn.justica.gov.pt/Casa-Pronta-Perguntas-Frequentes"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "The cited FAQ was updated on 28 July 2026. Transaction formalities are covered; this is not an immigration assessment or a complete foreign-buyer and special-land eligibility determination.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "romania",
+    "name": "Romania",
+    "group": "European Union",
+    "summary": "Romania property purchase checks: nationality rules for land versus buildings.",
+    "rules": [
+      {
+        "title": "Land rules depend on nationality",
+        "text": "Law 312/2005 provides an EU/EEA acquisition framework. Third-country nationals’ acquisition of land depends on qualifying international treaties and reciprocity, subject to the law’s conditions.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Romanian legislation — Law 312/2005",
+        "url": "https://legislatie.just.ro/Public/FormaPrintabila/00000G03I2UJNAMH99K1F9FXC9S65QDV"
+      }
+    ],
+    "buyers": {
+      "uk": "Have a Romanian lawyer establish a lawful land-acquisition basis. A right to a building does not automatically settle ownership of the associated land.",
+      "eu": "Confirm EU/EEA treatment and separately check any agricultural-land restrictions and pre-emption procedures.",
+      "sa": "Have a Romanian lawyer establish a qualifying treaty and reciprocity basis before assuming direct land ownership is available."
+    },
+    "gap": "The nationality framework is not a finding that a qualifying UK or South African treaty exists. Agricultural land and the precise land interest require further review.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "slovakia",
+    "name": "Slovakia",
+    "group": "European Union",
+    "summary": "Slovakia property purchase checks: written acquisition documents and cadastral entry.",
+    "rules": [
+      {
+        "title": "Complete cadastral registration",
+        "text": "The official guidance describes the application, acquisition contract and supporting documents for transferring immovable property. Confirm the cadastral decision and title position rather than treating signing alone as completion.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Slovak Government — transferring property",
+        "url": "https://www.slovensko.sk/en/life-situation/life-situation/_transferring-immovable-propert/"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Registration formalities reviewed. Current nationality-specific and special-land restrictions and the effective date of ownership need local confirmation.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "slovenia",
+    "name": "Slovenia",
+    "group": "European Union",
+    "summary": "Slovenia property purchase checks: nationality can prevent a direct acquisition.",
+    "rules": [
+      {
+        "title": "Nationality groups are decisive",
+        "text": "The ministry lists EU, OECD and EFTA nationals among buyers who do not need a reciprocity decision. Other groups have different rights; people outside the listed qualifying groups generally cannot purchase directly.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Slovenian Government — foreign ownership categories",
+        "url": "https://www.gov.si/zbirke/storitve/pridobivanje-lastninske-pravice-tujcev-na-nepremicninah/"
+      }
+    ],
+    "buyers": {
+      "uk": "The UK is an OECD member, so the ministry’s nationality grouping does not require a reciprocity decision for a UK national. Other property restrictions still need checking.",
+      "eu": "EU nationals are listed in the group that does not need a reciprocity decision. Complete the ordinary property and special-land checks.",
+      "sa": "A solely South African national is outside the EU/OECD/EFTA and EU-candidate groups listed by the ministry and generally cannot directly purchase under this framework. Check any qualifying additional nationality or other statutory status with Slovenian counsel."
+    },
+    "gap": "The South African comparison is an application of the ministry’s published nationality groups, not a transaction approval. Inheritance and exceptional statutory situations are separate.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "spain",
+    "name": "Spain",
+    "group": "European Union",
+    "summary": "Spain property purchase checks: NIE, independent title checks and military zones.",
+    "rules": [
+      {
+        "title": "Buyer identification and independent checks",
+        "text": "The UK government’s Spain guide explains the NIE requirement and recommends independent legal checks on title, planning and the acquisition documents.",
+        "source": 0
+      },
+      {
+        "title": "Restricted military areas",
+        "text": "The guidance identifies military-permission requirements affecting UK nationals in restricted areas. Determine the property’s exact location and applicable non-EU rules before committing.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "UK Government — buying property in Spain",
+        "url": "https://www.gov.uk/guidance/how-to-buy-property-in-spain"
+      }
+    ],
+    "buyers": {
+      "uk": "Check the restricted-military-area permission rule even if you hold Withdrawal Agreement residence rights.",
+      "eu": "Confirm the EU-national position and complete NIE, title, planning and tax checks.",
+      "sa": "Ask Spanish counsel to determine the applicable non-EU military-zone permission requirement for the exact parcel."
+    },
+    "gap": "The principal source is official UK consular guidance. A Spanish practitioner must confirm its application to South African and EU nationals, local taxes and any subsequent Spanish legal changes.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "sweden",
+    "name": "Sweden",
+    "group": "European Union",
+    "summary": "Sweden property purchase checks: identity numbers and land-title applications.",
+    "rules": [
+      {
+        "title": "Identity number required from July 2026",
+        "text": "Lantmäteriet states that from 1 July 2026, natural persons applying for land registration must have a Swedish personal identity number or coordination number.",
+        "source": 0
+      },
+      {
+        "title": "Apply for registration",
+        "text": "The authority says to apply for registration within three months of acquisition. Establish whether the transaction is real property or a housing-cooperative interest, which follows a different process.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Swedish mapping and land-registration authority — ownership",
+        "url": "https://www.lantmateriet.se/registration-of-ownership"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "Identity and real-property registration requirements reviewed. Agricultural acquisition permissions, cooperative membership and nationality-specific eligibility require separate assessment.",
+    "local": "Ask the appointed local practitioner to check the exact municipality, parcel, permitted use, tenancy position and any agricultural, coastal, heritage or security restrictions."
+  },
+  {
+    "slug": "switzerland",
+    "name": "Switzerland",
+    "group": "Other Europe",
+    "summary": "Switzerland property purchase checks: Lex Koller and cantonal approval.",
+    "rules": [
+      {
+        "title": "Foreign non-resident acquisitions",
+        "text": "Lex Koller restricts acquisition by persons abroad. The canton determines whether authorisation is needed and whether a statutory ground permits it; an application is not a guarantee of approval.",
+        "source": 0
+      },
+      {
+        "title": "Ownership does not confer residence",
+        "text": "The Federal Office of Justice expressly separates buying property from the right to reside in Switzerland.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Swiss Federal Office of Justice — foreign non-resident property acquisition",
+        "url": "https://www.bj.admin.ch/en/acquisition-of-property-by-foreign-non-residents"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask the competent canton to classify your nationality, actual residence, permit status and intended use under Lex Koller.",
+      "eu": "EU nationality alone does not clear a non-resident purchase. Confirm Swiss residence status, use and any authorisation requirement with the canton.",
+      "sa": "Obtain a cantonal Lex Koller assessment before committing; do not assume a holiday-home or main-home route is available."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Identify the canton and municipality. Holiday-home quotas, residence/use conditions and local second-home rules need individual checks."
+  },
+  {
+    "slug": "norway",
+    "name": "Norway",
+    "group": "Other Europe",
+    "summary": "Norway property purchase checks: deed registration and municipal concession rules.",
+    "rules": [
+      {
+        "title": "Deed and concession position",
+        "text": "Kartverket’s deed guidance requires the concession position to be resolved with the municipality, through permission or the relevant declaration of exemption where applicable, before registration.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Norwegian Mapping Authority — deed",
+        "url": "https://www.kartverket.no/en/property/skjema/deed"
+      },
+      {
+        "label": "Nordic cooperation — housing in Norway",
+        "url": "https://www.norden.org/en/info-norden/housing-norway"
+      }
+    ],
+    "buyers": {
+      "uk": "Nationality alone does not settle concession, residence-duty or registration requirements. Obtain a municipality-specific assessment.",
+      "eu": "EU/EEA status does not remove the need to resolve concession and land-use requirements.",
+      "sa": "Confirm the municipal concession position and identity/registration arrangements before transferring the price."
+    },
+    "gap": "This entry covers the sourced checkpoints below, not a complete title, planning, tax or nationality-specific legal opinion.",
+    "local": "Check concession, agricultural land, residence duty and holiday-home use with the exact municipality. Cooperative interests require their own documents."
+  },
+  {
+    "slug": "monaco",
+    "name": "Monaco",
+    "group": "Other Europe",
+    "summary": "Monaco property purchase checks: property regime, notarial review and Rocher pre-emption.",
+    "rules": [
+      {
+        "title": "New Rocher legislation",
+        "text": "Law 1.598 of 16 October 2026 creates a defined protected perimeter in Monaco-Ville and provides state pre-emption and prior-declaration requirements for covered disposals. Its scope is not all Monaco property.",
+        "source": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "Monaco legislation — Law 1.598, version 24 October 2026",
+        "url": "https://legimonaco.mc/tnc/loi/2026/10-16-1.598@2026.10.24/"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask local counsel to determine UK-national eligibility for this property and ownership structure. The formalities below do not establish an exemption from foreign-buyer rules.",
+      "eu": "Identify the specific EU nationality and residence position. Confirm any special-land, local-use or permit conditions before committing.",
+      "sa": "Ask local counsel to determine South African-national eligibility. Separately confirm the outward-funding route if you are resident in South Africa for exchange-control purposes."
+    },
+    "gap": "The new Rocher law is a specific checkpoint, not a complete Monaco acquisition code. Foreign-buyer eligibility, protected-sector occupation/letting rules, other pre-emption regimes and transitional provisions require a Monaco notary’s current assessment.",
+    "local": "Identify the exact building and property regime. Obtain written confirmation of any protected-sector, occupation, declaration or state pre-emption conditions and their satisfaction before completion."
+  },
+  {
+    "slug": "south-africa",
+    "name": "South Africa",
+    "group": "South Africa",
+    "summary": "South Africa property purchase checks: tax treatment, conveyancing and cross-border funds.",
+    "rules": [
+      {
+        "title": "Transfer Duty or VAT",
+        "text": "SARS explains Transfer Duty on property acquisitions and its administration through the conveyancing process. Determine whether the transaction is subject to VAT instead and obtain a current calculation.",
+        "source": 0
+      },
+      {
+        "title": "Non-resident seller withholding",
+        "text": "A buyer can have a withholding obligation when purchasing South African immovable property from a non-resident seller for more than R2 million. Obtain conveyancer advice before paying the full price.",
+        "source": 1
+      }
+    ],
+    "sources": [
+      {
+        "label": "SARS — Transfer Duty",
+        "url": "https://www.sars.gov.za/types-of-tax/transfer-duty/"
+      },
+      {
+        "label": "SARS — non-resident sellers",
+        "url": "https://www.sars.gov.za/types-of-tax/capital-gains-tax/non-resident-sellers-of-immovable-property/"
+      }
+    ],
+    "buyers": {
+      "uk": "Ask a South African conveyancer to confirm eligibility for the exact asset, tax registration where applicable, incoming-funds evidence and any lending conditions.",
+      "eu": "Ask a South African conveyancer to confirm eligibility, purchase-tax treatment and incoming-funds documentation. A property purchase does not grant immigration residence.",
+      "sa": "Confirm ordinary conveyancing and tax requirements. If funds or ownership cross a border, establish your exchange-control residence and the correct banking route."
+    },
+    "gap": "Tax checkpoints reviewed. This entry does not certify that every foreign individual may acquire every land category, or establish a universal non-resident mortgage limit.",
+    "local": "Identify the province and municipality. The nine provinces are Eastern Cape, Free State, Gauteng, KwaZulu-Natal, Limpopo, Mpumalanga, North West, Northern Cape and Western Cape. Check municipal zoning, building approvals, land use, sectional-title/community obligations and any special-land restrictions."
+  }
+]

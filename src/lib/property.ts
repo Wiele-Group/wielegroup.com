@@ -20,6 +20,7 @@ export const propertyNavigation = [
   { href: "/buying", label: "For buyers" },
   { href: "/selling", label: "For sellers" },
   { href: "/luxury-assets", label: "Luxury assets" },
+  { href: "/purchase-guide", label: "Purchase guide" },
   { href: "/research", label: "Research" },
   { href: "/articles", label: "Articles" },
   { href: "/about", label: "Our approach" },

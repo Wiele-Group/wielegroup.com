@@ -69,3 +69,12 @@ Property buyer and seller pages prioritise real estate; complementary yacht, air
 The homepage offers visitor-controlled property, yacht, aircraft, exotic-car and classic-car perspectives, using disclosed fictional AI imagery. Its browser-based brief builder organises category, purpose, location, budget and timing, then transfers a reviewable draft to the enquiry form. It is not an inventory search, valuation, eligibility assessment or AI recommendation. No assets are currently advertised.
 
 Prepared brief text can survive a refresh in the same tab for 30 minutes after its latest edit; it clears after a successfully saved enquiry or explicit discard. Reuse expires after 30 minutes and expired copies are discarded when next accessed. Name, email and phone fields are not saved by this feature. Asset-specific priorities can be added locally before review.
+
+## International purchase requirements
+
+- [Purchase guide](https://wielegroup.com/purchase-guide): Official-source starting points for individuals: UK four nations, all 27 EU countries, Norway, Switzerland, Monaco and South Africa. Country pages disclose scope and unresolved eligibility checks. Research edition 15 November 2026.
+- [Aircraft requirements](https://wielegroup.com/purchase-guide/assets/aircraft): Registration, airworthiness and import checkpoints.
+- [Yacht requirements](https://wielegroup.com/purchase-guide/assets/yachts): Flag, title and customs checkpoints.
+- [Supercar and classic-car requirements](https://wielegroup.com/purchase-guide/assets/vehicles): Import eligibility, approval, VAT and registration checkpoints.
+
+General information, not individual legal clearance. Citizenship, residence, tax status, use and funding must be assessed separately. Ownership does not confer immigration residence. No complete tax quote or automatic import exemption is supplied.
