@@ -12,7 +12,7 @@ export const assetGuides = {
     "seller": [
       "Aircraft identity, ownership position and authority to market",
       "Airframe hours, cycles, maintenance history and programme status",
-      "Available technical records and arrangements for independent inspection"
+      "Available technical records, asking price and currency, sale urgency, privacy and independent inspection arrangements"
     ],
     "specialist": "Technical assessment, title, contracts, tax and registration require appropriately qualified independent specialists. Wiele confirms its role and the available specialist route before an engagement."
   },
@@ -29,7 +29,7 @@ export const assetGuides = {
     "seller": [
       "Builder, model, build year, refit history and vessel particulars",
       "Ownership position, authority to sell and available maintenance records",
-      "Independent survey requirements and the proposed transaction route"
+      "Asking price and currency, sale urgency, privacy, survey requirements and the proposed transaction route"
     ],
     "specialist": "Survey, condition, title, flag, tax and transaction documentation need vessel-specific specialist review. Scope and professional involvement are agreed before Wiele accepts an engagement."
   },
@@ -46,7 +46,7 @@ export const assetGuides = {
     "seller": [
       "Vehicle identity, ownership position and authority to market",
       "Service history, condition records, modifications and available inspection evidence",
-      "Asking price and currency, collection or delivery arrangements and timing"
+      "Asking price and currency, sale urgency, privacy, collection or delivery arrangements and timing"
     ],
     "specialist": "Vehicle inspection, title, transport, import and registration requirements depend on the car and destination. Relevant specialists and Wiele’s role are confirmed for each engagement."
   },
@@ -63,7 +63,7 @@ export const assetGuides = {
     "seller": [
       "Documented provenance, ownership position and authority to sell",
       "Restoration history, originality claims and available supporting records",
-      "Condition assessment, independent inspection and transaction priorities"
+      "Asking price and currency, condition assessment, sale urgency, privacy and independent inspection"
     ],
     "specialist": "Provenance and condition claims need documentary support and, where appropriate, independent assessment. Scope, specialist involvement and costs are agreed individually. Future value is not assured."
   }

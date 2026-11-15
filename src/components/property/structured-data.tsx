@@ -8,7 +8,7 @@ export function PageStructuredData({ path, title, description, citations }: { pa
   const url = `${propertyBrand.url}${path}`;
   const service = path === "/selling" ? {
     name: "Property sales and marketing enquiries",
-    description: "Malta-based property sales and marketing enquiries. The property, owner objectives, market and available evidence shape the brief. Coverage, authority, scope, fees and specialist involvement are confirmed separately.",
+    description: "Malta-based property sales and marketing enquiries using The Wiele Algorithm: evidence and authority, buyer fit, supported positioning, selected channels and review checkpoints. Scope, costs and a proposed phased launch are agreed per instruction.",
   } : path === "/buying" ? {
     name: "Residence and investment property acquisition enquiries",
     description: "Residence and investment property acquisition briefs for a Malta-based brokerage with an international outlook. Country coverage, availability, scope, fees and responsible practitioners are confirmed individually. No properties are currently advertised.",
