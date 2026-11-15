@@ -97,6 +97,9 @@ const NO_CACHE_QUERY_PARAMS = ["_rsc", "rsc"] as const;
 
 function isCacheableRequest(request: Request): boolean {
   if (request.method !== "GET") return false;
+  // App Router navigation is a different representation even without _rsc.
+  // Never let an HTML cache hit replace a component/segment response.
+  if (request.headers.has("rsc") || request.headers.has("next-router-segment-prefetch")) return false;
 
   const url = new URL(request.url);
 
@@ -185,7 +188,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-registered-listings-20261115-v45"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-free-static-cache-20261115-v46"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

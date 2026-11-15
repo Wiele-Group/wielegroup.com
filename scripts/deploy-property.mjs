@@ -13,6 +13,8 @@ let preview;
 try {
   if (spawnSync('git', ['diff', '--quiet', 'HEAD']).status !== 0) throw new Error('Commit the website changes before deploying.');
   await run('npm', ['run', 'build:cf']);
+  // Verify the same read-only prerender cache that the deployment will upload.
+  await run('npx', ['opennextjs-cloudflare', 'populateCache', 'local']);
   // Port 0 avoids collisions with existing developer previews.
   preview = spawn('npx', ['wrangler', 'dev', '--local', '--port', '0'], { stdio: ['ignore', 'pipe', 'pipe'] });
   const ready = new Promise((resolve, reject) => {

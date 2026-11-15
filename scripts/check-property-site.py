@@ -45,8 +45,8 @@ class Page(HTMLParser):
    if self.in_json:self.schemas.append(json.loads(self.json_buffer))
    self.in_json=False;self.in_script=False
 
-def get(path):
- req=Request(urljoin(base,path),headers={'User-Agent':ua})
+def get(path,extra_headers=None):
+ req=Request(urljoin(base,path),headers={'User-Agent':ua,**(extra_headers or {})})
  try:
   with urlopen(req,timeout=30) as r:return r.status,r.headers,r.read()
  except HTTPError as e:return e.code,e.headers,e.read()
@@ -246,3 +246,15 @@ for query in ['', '?report=global-luxury-2026']:
 status,_,_=get('/api/reports/download?report=unknown')
 assert status==404,'unknown report must not fall back to an existing PDF'
 print('PASS report-specific access: both PDFs protected; unknown reports rejected')
+
+# The edge cache must distinguish full pages from App Router navigation.
+# Request the SAME URL and warm HTML first to catch cross-representation reuse.
+for path in ['/selling','/luxury-assets/yachts']:
+ status,headers,data=get(path)
+ assert status==200 and b'<!DOCTYPE html>' in data,(path,'HTML navigation')
+ status,headers,data=get(path,{'RSC':'1'})
+ assert status==200 and 'text/x-component' in headers.get('Content-Type',''),(path,'RSC response replaced by HTML cache')
+ assert b'<!DOCTYPE html>' not in data and 'RSC' in headers.get('Vary',''),(path,'RSC representation and Vary')
+ status,headers,data=get(path)
+ assert status==200 and 'text/html' in headers.get('Content-Type','') and b'<!DOCTYPE html>' in data,(path,'RSC must not poison HTML cache')
+print('PASS HTML / App Router representation isolation')
