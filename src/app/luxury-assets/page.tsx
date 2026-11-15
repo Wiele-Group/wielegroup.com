@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ListingExamples } from "@/components/property/listing-examples";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Arrow, ContactBand } from "@/components/property/chrome";
@@ -6,7 +7,7 @@ import { PageStructuredData, StructuredData } from "@/components/property/struct
 import { propertyBrand, propertyMetadata } from "@/lib/property";
 import { luxuryAssets, luxuryAssetFaqs, luxuryAssetHref } from "@/lib/luxury-assets";
 const title="Luxury Assets | Aircraft, Yachts & Collector Cars";
-const description="Malta-based global asset brokerage. Explore aircraft, yachts, exotic and classic car enquiries with Wiele Investments. Share an acquisition or sales brief.";
+const description="Malta-based global asset brokerage. Explore aircraft, yachts, exotic and classic car enquiries with Wiele Investments. View fictional listing examples or share an acquisition or sales brief.";
 const share={url:"/luxury-assets/og-wiele-assets-20261113.jpg",width:1200,height:630,alt:"Wiele Investments global asset brokerage; AI-created private aircraft concept, not an asset for sale"};
 const base=propertyMetadata(title,description,"/luxury-assets");
 export const metadata:Metadata={...base,openGraph:{...base.openGraph,images:[share]},twitter:{...base.twitter,images:[share.url]}};
@@ -18,6 +19,7 @@ export default function LuxuryAssets(){return <div className="luxury-assets-page
  <nav className="asset-category-nav wrap" aria-label="Luxury asset categories">{luxuryAssets.map((a,i)=><a key={a.id} href={`#${a.id}`}><span>0{i+1}</span>{a.name}<Arrow diagonal/></a>)}</nav>
  <section className="asset-introduction wrap"><div><span className="eyebrow">A considered approach / International enquiries</span><h2>What matters to you.<br /><em>Shapes the brief.</em></h2></div><div><p>Alongside our core property business, Wiele brings a global brokerage perspective to yachts, aircraft and collector cars. Whether you are considering an acquisition or introducing an asset for sale, the starting point is your objective, the asset and the evidence behind it.</p><p>Country coverage, availability, marketing authority, fees and the appropriate specialist involvement are confirmed for each engagement.</p><p className="asset-disclosure">No aircraft, yachts or cars are currently advertised. The images on this page are fictional AI-created concepts.</p></div></section>
  <div id="asset-categories" className="asset-categories wrap">{luxuryAssets.map((asset,i)=><section className="asset-category" key={asset.id} id={asset.id} aria-labelledby={`${asset.id}-title`}><figure><Image src={`/luxury-assets/${asset.image}`} alt={asset.alt} fill sizes="(max-width:900px) 100vw, 60vw"/><figcaption>AI-created concept · Not an asset for sale</figcaption></figure><div className="asset-category-copy"><span className="eyebrow">0{i+1} / {asset.name}</span><h2 id={`${asset.id}-title`}>{asset.subtitle}</h2><p>{asset.description}</p><Link className="text-link" href={`/luxury-assets/${asset.id}`}>Explore {asset.name.toLowerCase()} <Arrow diagonal/></Link><details><summary>What shapes your brief <span aria-hidden="true">+</span></summary><p>{asset.details}</p></details><Link className="button" href={luxuryAssetHref(asset.id)}>Discuss an acquisition <Arrow diagonal/></Link><Link className="text-link" href={luxuryAssetHref(asset.id,"offer")}>Introduce an asset for sale <Arrow diagonal/></Link></div></section>)}</div>
+ <ListingExamples/>
  <section className="asset-next wrap"><span className="eyebrow">International assets / Your next step</span><h2>Start with a conversation.</h2><ol><li><span>01</span><h3>Define the asset.</h3><p>Category, location, intended use, specification and timing.</p></li><li><span>02</span><h3>Establish the detail.</h3><p>Available records, ownership position, condition and the scope of the enquiry.</p></li><li><span>03</span><h3>Agree the route.</h3><p>Confirm availability, terms and the independent specialists needed for the asset and jurisdiction.</p></li></ol></section>
  <section className="investment-faq wrap" aria-labelledby="asset-questions"><div><span className="eyebrow">Luxury asset enquiries / Answers</span><h2 id="asset-questions">A clearer picture.<br/><em>Before your next move.</em></h2></div><div className="investment-faq-list">{luxuryAssetFaqs.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></section><ContactBand/>
  </div>}

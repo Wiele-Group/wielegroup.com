@@ -13,6 +13,10 @@ jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 asset_guides=json.loads((guide_data/"purchase-assets.json").read_text())
 assert len(jurisdictions)==35 and sum(j["group"]=="European Union" for j in jurisdictions)==27
 paths += ["/purchase-guide"]+["/purchase-guide/"+j["slug"] for j in jurisdictions]+["/purchase-guide/assets/"+a["slug"] for a in asset_guides]
+example_data=json.loads((guide_data/"listing-examples.json").read_text())
+example_paths=["/listing-examples/"+e["slug"] for e in example_data]
+indexable_paths=paths.copy()
+paths += example_paths
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
@@ -74,10 +78,18 @@ for path in paths:
   assert image.startswith('https://wielegroup.com/'),(path,key,'absolute image URL')
   assets.add(urlparse(image).path)
  assert p.meta.get('og:image:alt'),(path,'missing social image description')
- assert 'noindex' not in p.meta.get('robots',''),(path,'unexpected noindex')
+ if path in example_paths:
+  assert 'noindex' in p.meta.get('robots',''),(path,'fictional listing must be noindex')
+  assert 'Illustrative example' in text and 'not for sale' in text and 'Fictional price' in text,(path,'example disclosures')
+  assert 'application/ld+json' in text
+ else:assert 'noindex' not in p.meta.get('robots',''),(path,'unexpected noindex')
  entities=[]
  for schema in p.schemas:entities.extend(schema.get('@graph',[schema]))
  types=[e.get('@type') for e in entities]
+ if path in example_paths:
+  assert not any(t in types for t in ['Product','Offer','RealEstateListing','Vehicle']),(path,'fictional asset offered as inventory')
+  example=next(e for e in example_data if path.endswith('/'+e['slug']))
+  assert example['price'] in text and 'Discuss marketing my asset' in text,(path,'price and seller action')
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='South African roots. Global perspective.',(path,'organization slogan')
@@ -186,7 +198,7 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
  status,headers,data=get(path);assert status==410,(path,status)
  assert headers.get('X-Robots-Tag')=='noindex, follow',(path,'retired URL index exclusion')
  assert b'no longer offered' in data and b'https://wielegroup.com/about' in data,(path,'retirement explanation')
-for path in ['/api/audit','/api/contact','/unknown-property-page','/purchase-guide/unknown-country','/purchase-guide/assets/unknown-asset']:
+for path in ['/api/audit','/api/contact','/unknown-property-page','/listing-examples/unknown-example','/purchase-guide/unknown-country','/purchase-guide/assets/unknown-asset']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
 for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-global-20261113.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
@@ -198,7 +210,8 @@ status,_,data=get('/sitemap.xml')
 root=ET.fromstring(data)
 ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
 locations=[e.text.rstrip('/') for e in root.findall('s:url/s:loc',ns)]
-assert set(locations)=={'https://wielegroup.com'+('' if p=='/' else p) for p in paths},'sitemap canonical coverage'
+assert len(locations)==len(set(locations)),'duplicate sitemap URLs'
+assert set(locations)=={'https://wielegroup.com'+('' if p=='/' else p) for p in indexable_paths},'sitemap canonical coverage'
 for entry in root.findall('s:url',ns):
  assert entry.find('s:lastmod',ns) is not None,'missing sitemap modification date'
 status,_,data=get('/robots.txt')
