@@ -225,7 +225,7 @@ html[data-motion-paused=true] .cinema-scene { transform:none!important; }
 .asset-preview-heading { display:grid; grid-template-columns:1.25fr 1fr; align-items:end; gap:9%; margin-bottom:42px; }
 .cinema-home .asset-preview h2 { font-size:clamp(48px,5.2vw,80px); margin-top:20px; }
 .cinema-home .asset-preview p { font-size:16px; color:var(--muted); }
-.asset-preview-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; }
+.asset-preview-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
 .asset-preview-card { min-width:0; }
 .asset-preview-card>div { position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--forest); }
 .asset-preview-card img { object-fit:cover; transition:transform .5s ease; }

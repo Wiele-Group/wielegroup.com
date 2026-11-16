@@ -184,7 +184,7 @@
 .perspective-current>span { color:#e5d4b4; text-transform:uppercase; font-size:11px; letter-spacing:.1em; }
 .editorial-home .perspective-current>p { font-size:13px; line-height:1.65; color:#d9ddd6; margin:10px 0; max-width:29ch; }
 .perspective-current>a { display:inline-flex; align-items:center; gap:15px; min-height:40px; font-size:12px; }
-.perspective-selector { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); align-items:stretch; gap:0; }
+.perspective-selector { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; gap:0; }
 .perspective-selector button { position:relative; display:flex; flex-direction:column; align-items:start; gap:12px; text-align:left; color:#ddd; font:500 14px/1.3 var(--font-sans); border:0; border-top:1px solid #fff5; padding:18px 14px 22px; background:#111b1870; cursor:pointer; transition:background .25s,color .25s; }
 .perspective-selector button>span { color:#d9c6a2; font-size:10px; }
 .perspective-selector button[aria-pressed=true] { color:#fff; background:#e5d4b426; border-color:#e5d4b4; }

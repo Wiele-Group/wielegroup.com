@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/valuations','/','/luxury-assets','/luxury-assets/aircraft','/luxury-assets/yachts','/luxury-assets/exotic-cars','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
+paths=['/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
 guide_data=Path(__file__).resolve().parent.parent/"src/data"
 jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())
@@ -130,9 +130,9 @@ for path in paths:
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,(path,'FAQ mismatch')
  if path=='/luxury-assets':
-  assert all(f'id="{category}"' in text for category in ['aircraft','yachts','exotic-cars','classic-cars']), 'missing asset category'
-  assert all(f'asset={category}' in text for category in ['aircraft','yachts','exotic-cars','classic-cars']), 'asset enquiry context missing'
-  assert 'No aircraft, yachts or cars are currently advertised' in text, 'availability disclosure missing'
+  assert all(f'id="{category}"' in text for category in ['yachts','classic-cars']), 'missing asset category'
+  assert all(f'asset={category}' in text for category in ['yachts','classic-cars']), 'asset enquiry context missing'
+  assert 'No yachts or classic cars are currently advertised' in text, 'availability disclosure missing'
   assert 'Product' not in types and 'Offer' not in types, 'category imagery must not become advertised stock'
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))

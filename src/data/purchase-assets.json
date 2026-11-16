@@ -1,38 +1,138 @@
 [
   {
-    "slug": "aircraft", "name": "Aircraft", "title": "Private aircraft purchase requirements", "summary": "UK, European and South African aircraft purchase checks: ownership eligibility, registration, airworthiness and import.",
-    "intro": "An aircraft sale agreement, registration eligibility, airworthiness and the right to operate are separate questions. Establish the intended state of registry and base before selecting the acquisition structure.",
-    "sections": [
-      {"title": "United Kingdom", "text": "The CAA’s registration process requires an eligible ownership basis, application and supporting evidence. Registration does not by itself establish airworthiness: confirm the applicable certificate of airworthiness or permit-to-fly route. Ask the CAA and aviation counsel to determine eligibility for the particular UK, EU or South African individual.", "sources": [{"label": "UK CAA — how to register an aircraft", "url": "https://www.caa.co.uk/aircraft-register/registration-information/how-to-register-an-aircraft/"}]},
-      {"title": "European Union, Norway and Switzerland", "text": "Choose the national registry first. EASA’s member-state list identifies national aviation authorities; there is no single EU aircraft ownership register. Norway and Switzerland participate in the EASA system, but their customs and ownership rules need separate assessment. Verify ownership eligibility, import airworthiness and continuing-airworthiness responsibilities with the intended national authority.", "sources": [{"label": "EASA — member states and national authorities", "url": "https://www.easa.europa.eu/en/light/topics/easa-member-states"}]},
-      {"title": "South Africa", "text": "Obtain a SACAA determination of registration eligibility and the airworthiness route for the aircraft. Before shipment, have aviation and customs specialists confirm import documentation, tax treatment, deregistration from the previous registry and the evidence needed for the South African application. The complete nationality-specific eligibility rules are not determined by this guide.", "sources": [{"label": "SACAA — airworthiness authority and processes", "url": "https://www.caa.co.za/industry-information/airworthiness/"}]},
-      {"title": "Monaco and other cross-border structures", "text": "Do not infer aircraft-registry eligibility from owning a Monaco property or holding a European passport. The selected registry, operating base and customs territory must be assessed individually. This entry does not determine a Monaco registration route.", "sources": []}
-    ],
-    "checks": ["Ask aviation counsel to verify title, seller authority, liens and any applicable international security interests; obtain releases before completion.", "Commission an independent pre-purchase inspection and review maintenance records, life-limited components and damage history.", "Agree the delivery location, deregistration/export documents, tax treatment, insurance and risk-transfer point in the contract.", "Confirm whether the intended use is private or commercial; registration alone does not authorise commercial operations."],
-    "gap": "This is a purchase-planning checklist. It does not verify every registry’s eligible-nationality categories, a particular aircraft’s airworthiness, customs relief or operator permissions. Obtain a written transaction-specific aviation and tax assessment."
-  },
-  {
-    "slug": "yachts", "name": "Yachts", "title": "Yacht purchase and import requirements", "summary": "UK, European and South African yacht purchase checks: title, flag eligibility, customs status and intended use.",
+    "slug": "yachts",
+    "name": "Yachts",
+    "title": "Yacht purchase and import requirements",
+    "summary": "UK, European and South African yacht purchase checks: title, flag eligibility, customs status and intended use.",
     "intro": "Choose where the yacht will be registered, based and used. Ownership, flag registration, VAT/customs status and permission for commercial use require separate checks.",
     "sections": [
-      {"title": "United Kingdom", "text": "The UK Ship Register has different registers and eligibility conditions. Part I and the Small Ships Register serve different purposes; ask the registry which route fits the owner and vessel. Cross-border voyages also require the relevant pleasure-craft reporting and customs procedures. A UK flag does not establish that VAT has been paid.", "sources": [{"label": "UK Government — ship registers", "url": "https://www.gov.uk/register-a-boat/the-uk-ship-register"}, {"label": "UK Government — pleasure-craft customs rules", "url": "https://www.gov.uk/government/collections/custom-rules-for-sailing-your-pleasure-craft-to-from-and-within-uk-waters"}]},
-      {"title": "European Union", "text": "Check both the national flag rules and the yacht’s Union/customs status. Retain documentary evidence of import and VAT treatment. Temporary-admission relief has conditions tied to the owner/user, residence, use and movement of the vessel; a foreign flag or non-EU passport is not sufficient evidence of exemption.", "sources": [{"label": "Dutch Customs — pleasure boats and EU customs treatment", "url": "https://www.douane.nl/en/themes/travel-and-holiday/restricted-prohibited-to-import-or-export/pleasure-boats/"}]},
-      {"title": "South Africa", "text": "Ask SAMSA to determine the applicable registry and safety requirements for the yacht and intended voyages. Confirm owner eligibility, existing registration, import documentation and any commercial-use authorisations with maritime counsel and the responsible authorities. These detailed eligibility rules have not been fully determined in this guide.", "sources": [{"label": "SAMSA — registry services", "url": "https://www.samsa.org.za/services?section=registry-overview"}]},
-      {"title": "Norway, Switzerland and Monaco", "text": "Norway and Switzerland have customs regimes distinct from the EU. Norwegian Customs provides a specific recreational-boat import process. Swiss customs guidance covers imported watercraft. Monaco flag, use and customs arrangements need a separate maritime assessment; do not apply a neighbouring country’s rules automatically.", "sources": [{"label": "Norwegian Customs — recreational-boat imports", "url": "https://www.toll.no/en/goods/boat/import-of-recreational-boats"}, {"label": "Swiss customs — importing vehicles and watercraft", "url": "https://www.bazg.admin.ch/en/vehicle-import-switzerland-customs-taxes"}]}
+      {
+        "title": "United Kingdom",
+        "text": "The UK Ship Register has different registers and eligibility conditions. Part I and the Small Ships Register serve different purposes; ask the registry which route fits the owner and vessel. Cross-border voyages also require the relevant pleasure-craft reporting and customs procedures. A UK flag does not establish that VAT has been paid.",
+        "sources": [
+          {
+            "label": "UK Government — ship registers",
+            "url": "https://www.gov.uk/register-a-boat/the-uk-ship-register"
+          },
+          {
+            "label": "UK Government — pleasure-craft customs rules",
+            "url": "https://www.gov.uk/government/collections/custom-rules-for-sailing-your-pleasure-craft-to-from-and-within-uk-waters"
+          }
+        ]
+      },
+      {
+        "title": "European Union",
+        "text": "Check both the national flag rules and the yacht’s Union/customs status. Retain documentary evidence of import and VAT treatment. Temporary-admission relief has conditions tied to the owner/user, residence, use and movement of the vessel; a foreign flag or non-EU passport is not sufficient evidence of exemption.",
+        "sources": [
+          {
+            "label": "Dutch Customs — pleasure boats and EU customs treatment",
+            "url": "https://www.douane.nl/en/themes/travel-and-holiday/restricted-prohibited-to-import-or-export/pleasure-boats/"
+          }
+        ]
+      },
+      {
+        "title": "South Africa",
+        "text": "Ask SAMSA to determine the applicable registry and safety requirements for the yacht and intended voyages. Confirm owner eligibility, existing registration, import documentation and any commercial-use authorisations with maritime counsel and the responsible authorities. These detailed eligibility rules have not been fully determined in this guide.",
+        "sources": [
+          {
+            "label": "SAMSA — registry services",
+            "url": "https://www.samsa.org.za/services?section=registry-overview"
+          }
+        ]
+      },
+      {
+        "title": "Norway, Switzerland and Monaco",
+        "text": "Norway and Switzerland have customs regimes distinct from the EU. Norwegian Customs provides a specific recreational-boat import process. Swiss customs guidance covers imported watercraft. Monaco flag, use and customs arrangements need a separate maritime assessment; do not apply a neighbouring country’s rules automatically.",
+        "sources": [
+          {
+            "label": "Norwegian Customs — recreational-boat imports",
+            "url": "https://www.toll.no/en/goods/boat/import-of-recreational-boats"
+          },
+          {
+            "label": "Swiss customs — importing vehicles and watercraft",
+            "url": "https://www.bazg.admin.ch/en/vehicle-import-switzerland-customs-taxes"
+          }
+        ]
+      }
     ],
-    "checks": ["Commission a maritime title and lien search, including mortgage releases and seller authority; a bill of sale alone may not establish clean title.", "Arrange an independent condition survey and sea trial, with an agreed procedure for defects and rejected findings.", "Require the chain of bills of sale, registration/deletion documents and original customs/VAT evidence relevant to the yacht.", "Agree deposit handling, completion, delivery, insurance and risk transfer. Confirm private versus charter use, safety compliance and any berth obligations."],
+    "checks": [
+      "Commission a maritime title and lien search, including mortgage releases and seller authority; a bill of sale alone may not establish clean title.",
+      "Arrange an independent condition survey and sea trial, with an agreed procedure for defects and rejected findings.",
+      "Require the chain of bills of sale, registration/deletion documents and original customs/VAT evidence relevant to the yacht.",
+      "Agree deposit handling, completion, delivery, insurance and risk transfer. Confirm private versus charter use, safety compliance and any berth obligations."
+    ],
     "gap": "Flag eligibility, VAT status and temporary admission are fact-specific. No statement here certifies a yacht as VAT-paid, import-exempt, eligible for a particular flag or authorised for charter."
   },
   {
-    "slug": "vehicles", "name": "Supercars & classic cars", "title": "Supercar and classic-car purchase requirements", "summary": "UK, European and South African vehicle purchase checks: import permits, VAT, approval, registration and classic cars.",
+    "slug": "vehicles",
+    "name": "Classic cars",
+    "title": "Classic-car purchase requirements",
+    "summary": "UK, European and South African vehicle purchase checks: import permits, VAT, approval, registration and classic cars.",
     "intro": "Select the destination country and confirm import eligibility before paying a deposit or booking transport. A vehicle’s age, specification, origin and registration history can change the outcome.",
     "sections": [
-      {"title": "United Kingdom", "text": "The government’s permanent-import route includes notifying HMRC within 14 days, paying any applicable tax, vehicle approval and DVLA registration. Confirm whether Great Britain or Northern Ireland rules apply to the movement. Do not assume the customs treatment is identical for every route.", "sources": [{"label": "UK Government — vehicle-import overview", "url": "https://www.gov.uk/importing-vehicles-into-the-uk/overview"}]},
-      {"title": "European Union", "text": "For intra-EU VAT purposes, a car is new if supplied within six months of first use OR with no more than 6,000 km travelled. A qualifying new car is normally taxed in the destination country. Used vehicles have different dealer/private-sale and margin-scheme treatment. Registration may require original ownership, registration, technical, insurance and tax documents.", "sources": [{"label": "European Commission — buying and selling cars", "url": "https://taxation-customs.ec.europa.eu/buying-and-selling-cars_en"}, {"label": "Your Europe — vehicle-registration formalities", "url": "https://europa.eu/youreurope/citizens/vehicles/registration/formalities/index_en.htm"}]},
-      {"title": "South Africa", "text": "Used-vehicle import eligibility must be confirmed before shipping. The published import process requires the applicable ITAC import permit and NRCS Letter of Authority, alongside customs documentation. A classic or collectible description does not itself authorise import. Check left-hand-drive restrictions and any qualifying exception directly with NRCS; this guide does not establish an exception for your vehicle.", "sources": [{"label": "SARS — second-hand vehicle imports", "url": "https://www.sars.gov.za/media-release/importation-of-a-second-hand-vehicle/"}, {"label": "South African Government — Letter of Authority", "url": "https://www.gov.za/services/register-motor-vehicle/letter-authority-respect-motor-vehicle"}, {"label": "NRCS — vehicle imports", "url": "https://www.nrcs.org.za/automotive/importing-vehicles/"}]},
-      {"title": "Norway, Switzerland and Monaco", "text": "Norway and Switzerland publish separate customs, approval and registration processes. Do not apply intra-EU car-VAT rules automatically to imports there. Monaco registration, owner residence and technical requirements need a separate local determination before purchase.", "sources": [{"label": "Norwegian Customs — importing vehicles", "url": "https://www.toll.no/en/goods/motor-vehicles/importing-cars-and-other-vehicles/"}, {"label": "Swiss customs — permanent vehicle import", "url": "https://www.bazg.admin.ch/en/vehicle-import-switzerland-customs-taxes"}]}
+      {
+        "title": "United Kingdom",
+        "text": "The government’s permanent-import route includes notifying HMRC within 14 days, paying any applicable tax, vehicle approval and DVLA registration. Confirm whether Great Britain or Northern Ireland rules apply to the movement. Do not assume the customs treatment is identical for every route.",
+        "sources": [
+          {
+            "label": "UK Government — vehicle-import overview",
+            "url": "https://www.gov.uk/importing-vehicles-into-the-uk/overview"
+          }
+        ]
+      },
+      {
+        "title": "European Union",
+        "text": "For intra-EU VAT purposes, a car is new if supplied within six months of first use OR with no more than 6,000 km travelled. A qualifying new car is normally taxed in the destination country. Used vehicles have different dealer/private-sale and margin-scheme treatment. Registration may require original ownership, registration, technical, insurance and tax documents.",
+        "sources": [
+          {
+            "label": "European Commission — buying and selling cars",
+            "url": "https://taxation-customs.ec.europa.eu/buying-and-selling-cars_en"
+          },
+          {
+            "label": "Your Europe — vehicle-registration formalities",
+            "url": "https://europa.eu/youreurope/citizens/vehicles/registration/formalities/index_en.htm"
+          }
+        ]
+      },
+      {
+        "title": "South Africa",
+        "text": "Used-vehicle import eligibility must be confirmed before shipping. The published import process requires the applicable ITAC import permit and NRCS Letter of Authority, alongside customs documentation. A classic or collectible description does not itself authorise import. Check left-hand-drive restrictions and any qualifying exception directly with NRCS; this guide does not establish an exception for your vehicle.",
+        "sources": [
+          {
+            "label": "SARS — second-hand vehicle imports",
+            "url": "https://www.sars.gov.za/media-release/importation-of-a-second-hand-vehicle/"
+          },
+          {
+            "label": "South African Government — Letter of Authority",
+            "url": "https://www.gov.za/services/register-motor-vehicle/letter-authority-respect-motor-vehicle"
+          },
+          {
+            "label": "NRCS — vehicle imports",
+            "url": "https://www.nrcs.org.za/automotive/importing-vehicles/"
+          }
+        ]
+      },
+      {
+        "title": "Norway, Switzerland and Monaco",
+        "text": "Norway and Switzerland publish separate customs, approval and registration processes. Do not apply intra-EU car-VAT rules automatically to imports there. Monaco registration, owner residence and technical requirements need a separate local determination before purchase.",
+        "sources": [
+          {
+            "label": "Norwegian Customs — importing vehicles",
+            "url": "https://www.toll.no/en/goods/motor-vehicles/importing-cars-and-other-vehicles/"
+          },
+          {
+            "label": "Swiss customs — permanent vehicle import",
+            "url": "https://www.bazg.admin.ch/en/vehicle-import-switzerland-customs-taxes"
+          }
+        ]
+      }
     ],
-    "checks": ["Verify VIN/chassis identity, seller authority, finance liens, theft status, ownership history and the original registration documents.", "Commission an independent inspection; for classics, investigate provenance, authenticity, restorations and material modifications.", "Ask the destination authority to confirm type approval, historic-vehicle classification, emissions/roadworthiness and any modification requirements.", "Obtain a written landed-cost estimate covering taxes, transport, insurance, approval and registration. Historic or collector status does not automatically remove tax or registration obligations."],
+    "checks": [
+      "Verify VIN/chassis identity, seller authority, finance liens, theft status, ownership history and the original registration documents.",
+      "Commission an independent inspection; for classics, investigate provenance, authenticity, restorations and material modifications.",
+      "Ask the destination authority to confirm type approval, historic-vehicle classification, emissions/roadworthiness and any modification requirements.",
+      "Obtain a written landed-cost estimate covering taxes, transport, insurance, approval and registration. Historic or collector status does not automatically remove tax or registration obligations."
+    ],
     "gap": "This guide does not pre-clear a vehicle for import, establish a universal collector-car tax exemption or determine all national registration requirements. Obtain destination approval before making an irreversible transport commitment."
   }
 ]

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { PageIntro, Arrow } from "@/components/property/chrome";
 import { propertyBrand, propertyMetadata } from "@/lib/property";
 import { EnquiryForm } from "@/components/property/enquiry-form";
-export const metadata: Metadata = propertyMetadata("Property & Luxury Asset Enquiries", "Contact Wiele Investments in Malta about buying or selling property, yachts, aircraft, exotic or classic cars. Share your brief or email our company inbox.", "/contact");
+export const metadata: Metadata = propertyMetadata("Property & Luxury Asset Enquiries", "Contact Wiele Investments in Malta about buying or selling property, yachts or classic cars. Share your brief or email our company inbox.", "/contact");
 export default function Contact() {
  return <div className="contact-page">
   <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Malta-based property and luxury asset enquiries for buyers and sellers in the UK, Europe and South Africa. Tell us what you want to buy or sell, where and when." />

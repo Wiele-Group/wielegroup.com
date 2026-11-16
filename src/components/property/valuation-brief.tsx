@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { saveBriefDraft } from "@/lib/brief-draft";
-const categories = [{id:"property",name:"Property"},{id:"yachts",name:"Yachts"},{id:"aircraft",name:"Private jets"},{id:"exotic-cars",name:"Supercars"},{id:"classic-cars",name:"Classic cars"}];
-const hints: Record<string,string> = { property:"Property type, locality, tenure, internal / land area, condition and occupancy.", yachts:"Builder, model, year, length, location, engine hours, refit / survey history and known VAT status.", aircraft:"Make, model, year, airframe hours / cycles, engine / APU status, maintenance programmes and logbook availability.", "exotic-cars":"Make, exact model / trim, year, mileage, RHD / LHD, location, condition and service / accident history.", "classic-cars":"Make, model, year, RHD / LHD, location, condition, originality, restoration and documented provenance." };
+const categories = [{id:"property",name:"Property"},{id:"yachts",name:"Yachts"},{id:"classic-cars",name:"Classic cars"}];
+const hints: Record<string,string> = { property:"Property type, locality, tenure, internal / land area, condition and occupancy.", yachts:"Builder, model, year, length, location, engine hours, refit / survey history and known VAT status.", "classic-cars":"Make, model, year, RHD / LHD, location, condition, originality, restoration and documented provenance." };
 export function ValuationBrief() {
  const [category,setCategory] = useState("property"); const [location,setLocation] = useState(""); const [details,setDetails] = useState(""); const [purpose,setPurpose] = useState("Potential sale"); const [error,setError] = useState("");
  const href = "/contact?brief=prepared&interest=general";

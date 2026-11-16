@@ -24,31 +24,6 @@
       "Walkthrough or architectural film where justified"
     ]
   },
-  "aircraft": {
-    "name": "Private jets",
-    "specification": "Make, model, year, airframe hours/cycles and maintenance status",
-    "evidence": [
-      "Ownership and marketing authority",
-      "Airframe, engine and APU records",
-      "Maintenance programmes and inspection status",
-      "Condition, damage history and independent review"
-    ],
-    "buyers": [
-      "Mission, routes, passengers and cabin requirements",
-      "Operating destination and acquisition budget",
-      "Technical adviser and purchasing decision process"
-    ],
-    "channels": [
-      "Appropriate aviation brokers and authorised flight-department introductions",
-      "Suitable aircraft marketplaces",
-      "Factual aircraft page and controlled technical overview"
-    ],
-    "production": [
-      "Exterior, cabin and detail photography",
-      "Technical specification and maintenance overview",
-      "Cabin walkthrough or 360 tour where justified"
-    ]
-  },
   "yachts": {
     "name": "Yachts",
     "specification": "Builder, model, year, length, refits, use and vessel location",
@@ -72,31 +47,6 @@
       "Exterior, accommodation and machinery photography",
       "Deck plan, refit and survey overview",
       "Broker-led walkthrough or 360 tour where justified"
-    ]
-  },
-  "exotic-cars": {
-    "name": "Supercars",
-    "specification": "Exact make/model, year, mileage, drive side, specification and condition",
-    "evidence": [
-      "Ownership and marketing authority",
-      "Specification and service history",
-      "Condition, damage and modification history",
-      "Inspection and available registration/import records"
-    ],
-    "buyers": [
-      "Exact model, options and intended use",
-      "Drive side, destination and budget",
-      "Condition tolerance, timing and inspection requirements"
-    ],
-    "channels": [
-      "Marque specialists and permissioned collector introductions",
-      "Suitable vehicle marketplaces",
-      "Private sale or curated auction, subject to suitability and terms"
-    ],
-    "production": [
-      "Exterior, cabin, detail and condition gallery",
-      "Supported specification and service narrative",
-      "Useful walkaround and driving film where appropriate"
     ]
   },
   "classic-cars": {

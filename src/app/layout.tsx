@@ -37,6 +37,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
  address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
  sameAs: Object.values(propertyBrand.social),
  contactPoint: { "@type": "ContactPoint", email: propertyBrand.email, contactType: "customer enquiries", availableLanguage: propertyBrand.languages },
- knowsAbout: ["International property marketing", "Luxury residences", "Investment property", "Property buyer introductions", "Aircraft acquisition enquiries", "Yacht acquisition enquiries", "Exotic and classic cars"] };
+ knowsAbout: ["International property marketing", "Luxury residences", "Investment property", "Property buyer introductions", "Yacht acquisition enquiries", "Classic cars"] };
  return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><ExperienceMotion /><StructuredData data={{ "@context": "https://schema.org", "@graph": [schema, { "@type": "WebSite", "@id": `${propertyBrand.url}/#website`, url: `${propertyBrand.url}/`, name: propertyBrand.name, alternateName: ["Wiele Properties", "wielegroup.com"], description: propertyBrand.description, inLanguage: "en-GB", publisher: { "@id": `${propertyBrand.url}/#organization` } }] }} /></body></html>;
 }

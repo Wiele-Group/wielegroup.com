@@ -66,28 +66,6 @@
     "seller": "/contact?interest=luxury-assets&asset=yachts&intent=offer"
   },
   {
-    "slug": "business-jet",
-    "category": "aircraft",
-    "categoryLabel": "Private aircraft",
-    "title": "The executive cabin",
-    "location": "Europe · Illustrative location",
-    "image": "/luxury-assets/wiele-aircraft-20261113.webp",
-    "alt": "AI-created private aircraft concept; fictional asset, not an actual asset for sale",
-    "back": "/luxury-assets/aircraft",
-    "seller": "/contact?interest=luxury-assets&asset=aircraft&intent=offer"
-  },
-  {
-    "slug": "exotic-grand-tourer",
-    "category": "exotic-cars",
-    "categoryLabel": "Exotic car",
-    "title": "The contemporary GT",
-    "location": "United Kingdom · Illustrative location",
-    "image": "/luxury-assets/wiele-exotic-cars-20261113.webp",
-    "alt": "AI-created exotic car concept; fictional asset, not an actual asset for sale",
-    "back": "/luxury-assets/exotic-cars",
-    "seller": "/contact?interest=luxury-assets&asset=exotic-cars&intent=offer"
-  },
-  {
     "slug": "classic-grand-tourer",
     "category": "classic-cars",
     "categoryLabel": "Classic car",

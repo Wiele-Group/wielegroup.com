@@ -12,7 +12,7 @@ export const propertyBrand = {
     facebook: "https://www.facebook.com/wieleinvestments/",
     linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
-  description: "Malta-based property and luxury asset brokerage for UK, European and South African buyers and sellers. Yachts, private jets, supercars and classic cars. Coverage confirmed per enquiry.",
+  description: "Malta-based property and luxury asset brokerage for UK, European and South African buyers and sellers. Yachts and classic cars. Coverage confirmed per enquiry.",
 } as const;
 
 export const propertyNavigation = [
