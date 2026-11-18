@@ -7,21 +7,6 @@
       "Tenure, planning and energy records",
       "Condition, areas and accurate plans",
       "Income and cost evidence, where relevant"
-    ],
-    "buyers": [
-      "Intended residence or investment use",
-      "Location, budget and acquisition timing",
-      "Decision-maker, funding route and adviser involvement"
-    ],
-    "channels": [
-      "Appropriate property brokers and professional introductions",
-      "Selected property marketplaces",
-      "Owned asset page and search-led discovery"
-    ],
-    "production": [
-      "Accurate property photography and floor plan",
-      "Supported location and ownership narrative",
-      "Walkthrough or architectural film where justified"
     ]
   },
   "yachts": {
@@ -32,21 +17,6 @@
       "Build, refit and maintenance records",
       "Survey, condition and known limitations",
       "Flag and available tax/customs records"
-    ],
-    "buyers": [
-      "Cruising area, size, layout and intended use",
-      "Budget, delivery region and acquisition timing",
-      "Owner representative and survey/legal advisers"
-    ],
-    "channels": [
-      "Appropriate yacht brokers and professional introductions",
-      "Suitable yacht marketplaces",
-      "Vessel page, broker-led viewing and useful film"
-    ],
-    "production": [
-      "Exterior, accommodation and machinery photography",
-      "Deck plan, refit and survey overview",
-      "Broker-led walkthrough or 360 tour where justified"
     ]
   },
   "classic-cars": {
@@ -57,21 +27,6 @@
       "Documented provenance and originality claims",
       "Restoration and condition records",
       "Inspection and available registration/import records"
-    ],
-    "buyers": [
-      "Marque, era, provenance and collection objective",
-      "Originality/restoration preferences and use",
-      "Budget, destination, timing and specialist advice"
-    ],
-    "channels": [
-      "Marque clubs and permissioned collector specialists",
-      "Appropriate private-sale specialists",
-      "Vetted auction or specialist marketplace, subject to acceptance"
-    ],
-    "production": [
-      "Documentary exterior, interior and condition gallery",
-      "Evidence-linked history and restoration dossier",
-      "Collector narrative or inspection film where justified"
     ]
   }
 }

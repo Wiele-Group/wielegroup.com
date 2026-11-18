@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./algorithm.css";
 import "./property-premium.css";
 import "./property-experience.css";
 import "./property-articles.css";

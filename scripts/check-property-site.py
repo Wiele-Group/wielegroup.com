@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
+paths=['/wiele-algorithm','/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
 guide_data=Path(__file__).resolve().parent.parent/"src/data"
 jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())

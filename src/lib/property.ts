@@ -12,7 +12,7 @@ export const propertyBrand = {
     facebook: "https://www.facebook.com/wieleinvestments/",
     linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
-  description: "Malta-based property and luxury asset brokerage for UK, European and South African buyers and sellers. Yachts and classic cars. Coverage confirmed per enquiry.",
+  description: "Malta-based asset brokerage. Discover The Wiele Algorithm for property, yachts and classic cars: a considered approach to your next sale or purchase.",
 } as const;
 
 export const propertyNavigation = [
@@ -23,7 +23,7 @@ export const propertyNavigation = [
   { href: "/purchase-guide", label: "Purchase guide" },
   { href: "/research", label: "Research" },
   { href: "/valuations", label: "Valuations" },
-  { href: "/about", label: "Our approach" },
+  { href: "/wiele-algorithm", label: "The Algorithm" },
 ];
 
 export function propertyMetadata(title: string, description: string, path: string): Metadata {
