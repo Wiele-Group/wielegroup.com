@@ -7,7 +7,7 @@ import { saveBriefDraft } from "@/lib/brief-draft";
 import { trackPropertyEvent } from "./analytics";
 
 const categories = [
- {id:"property",name:"Property",image:"/property/wiele-global-villa-20261113.webp",alt:"AI-created coastal architectural villa; not a property offered for sale",note:"Architectural study",description:"Residences and investment property. Our core business.",href:"/buying"},
+ {id:"property",name:"Property",image:"/property/wiele-global-villa-20261113.webp",alt:"AI-created coastal architectural villa; not a property offered for sale",note:"Architectural study",description:"Residences and investment property. Our core business.",href:"/properties"},
  {id:"yachts",name:"Yachts",image:"/luxury-assets/wiele-yachts-20261113.webp",alt:"AI-created motor yacht concept; not a yacht offered for sale",note:"Yachting study",description:"Start with your cruising plans and ownership priorities.",href:"/luxury-assets/yachts"},
  {id:"classic-cars",name:"Classic cars",image:"/luxury-assets/wiele-classic-cars-20261113.webp",alt:"AI-created classic grand touring car concept; not a car offered for sale",note:"Collector study",description:"Character, condition and provenance shape the conversation.",href:"/luxury-assets/classic-cars"},
 ] as const;

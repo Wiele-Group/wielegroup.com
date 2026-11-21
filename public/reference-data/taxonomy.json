@@ -1,0 +1,1272 @@
+{
+  "version": "2026-11-21",
+  "language": "en-GB",
+  "clientMarkets": [
+    "United Kingdom",
+    "Europe",
+    "South Africa"
+  ],
+  "dimensions": [
+    {
+      "asset": "all",
+      "key": "region",
+      "label": "Market",
+      "kind": "geography",
+      "help": "Select the asset location. Store buyer market and home currency independently.",
+      "options": [
+        {
+          "value": "uk",
+          "label": "United Kingdom",
+          "scope": "GB"
+        },
+        {
+          "value": "eu",
+          "label": "European Union",
+          "scope": "EU27"
+        },
+        {
+          "value": "za",
+          "label": "South Africa",
+          "scope": "ZA"
+        },
+        {
+          "value": "other-europe",
+          "label": "Other European market",
+          "scope": "non-EU Europe"
+        },
+        {
+          "value": "elsewhere",
+          "label": "Other location",
+          "scope": "Global"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "property",
+      "key": "use",
+      "label": "Property use",
+      "kind": "use",
+      "help": "Select current and consented use individually. For a farm or hotel, confirm whether the operating business transfers.",
+      "options": [
+        {
+          "value": "residential",
+          "label": "Residence",
+          "scope": "All"
+        },
+        {
+          "value": "investment",
+          "label": "Income property",
+          "scope": "All"
+        },
+        {
+          "value": "commercial",
+          "label": "Commercial",
+          "scope": "All"
+        },
+        {
+          "value": "industrial",
+          "label": "Industrial",
+          "scope": "All"
+        },
+        {
+          "value": "development",
+          "label": "Development land",
+          "scope": "All"
+        },
+        {
+          "value": "agricultural",
+          "label": "Agricultural holding",
+          "scope": "All"
+        },
+        {
+          "value": "mixed",
+          "label": "Mixed use",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "property",
+      "key": "tenure",
+      "label": "Ownership interest",
+      "kind": "deeded_interest",
+      "help": "Show the documented local term, term remaining and rights attached. Capture restrictions separately.",
+      "options": [
+        {
+          "value": "freehold",
+          "label": "Freehold",
+          "scope": "England/Wales, Northern Ireland"
+        },
+        {
+          "value": "leasehold",
+          "label": "Leasehold",
+          "scope": "England/Wales, Northern Ireland",
+          "note": "Record unexpired term and ground rent."
+        },
+        {
+          "value": "share-freehold",
+          "label": "Leasehold with share of freehold",
+          "scope": "England/Wales",
+          "note": "Show the lease term and freehold share independently."
+        },
+        {
+          "value": "commonhold",
+          "label": "Commonhold",
+          "scope": "England/Wales"
+        },
+        {
+          "value": "ownership-scotland",
+          "label": "Ownership of heritable property",
+          "scope": "Scotland"
+        },
+        {
+          "value": "full-ownership",
+          "label": "Full ownership · pleine propriété / Eigentum",
+          "scope": "Country-specific EU",
+          "note": "Use local deed terminology. Include co-ownership shares where relevant."
+        },
+        {
+          "value": "bare-ownership",
+          "label": "Bare ownership · nue-propriété",
+          "scope": "Where recognised"
+        },
+        {
+          "value": "usufruct",
+          "label": "Usufruct · usufruit / Nießbrauch",
+          "scope": "Where recognised",
+          "note": "Give beneficiary, duration and underlying owner."
+        },
+        {
+          "value": "emphyteusis",
+          "label": "Emphyteusis · emphytéose / emphyteuta",
+          "scope": "Where recognised",
+          "note": "Record term, ground rent and redemption conditions in the deed."
+        },
+        {
+          "value": "common-units",
+          "label": "Apartment ownership with common parts",
+          "scope": "Country-specific EU",
+          "note": "Record local form e.g. copropriété or Wohnungseigentum."
+        },
+        {
+          "value": "full-title",
+          "label": "Full title · freehold",
+          "scope": "South Africa"
+        },
+        {
+          "value": "sectional",
+          "label": "Sectional title",
+          "scope": "South Africa",
+          "note": "Record section, scheme, participation quota, levies and body corporate."
+        },
+        {
+          "value": "share-block",
+          "label": "Share block",
+          "scope": "South Africa",
+          "note": "Record shares, company and corresponding right of use."
+        },
+        {
+          "value": "life-right",
+          "label": "Life right",
+          "scope": "South Africa",
+          "note": "Record occupancy agreement and transfer/termination provisions."
+        },
+        {
+          "value": "other",
+          "label": "Other documented interest",
+          "scope": "All"
+        },
+        {
+          "value": "unknown",
+          "label": "Interest to confirm",
+          "scope": "All"
+        }
+      ],
+      "sources": [
+        "UK-title",
+        "UK-shared",
+        "FR-usufruct",
+        "DE-usufruct",
+        "MT-title",
+        "ZA-title",
+        "ZA-transfer",
+        "ZA-retired",
+        "EU-register"
+      ]
+    },
+    {
+      "asset": "property",
+      "key": "style",
+      "label": "Property form or regional style",
+      "kind": "editorial",
+      "help": "Search labels describe form and setting. Put legal protection, permitted use and title in their own fields.",
+      "options": [
+        {
+          "value": "detached",
+          "label": "Detached",
+          "scope": "UK"
+        },
+        {
+          "value": "semi",
+          "label": "Semi-detached",
+          "scope": "UK"
+        },
+        {
+          "value": "terraced",
+          "label": "Terraced house",
+          "scope": "UK"
+        },
+        {
+          "value": "mews",
+          "label": "Mews house",
+          "scope": "UK"
+        },
+        {
+          "value": "flat",
+          "label": "Flat / apartment",
+          "scope": "Global"
+        },
+        {
+          "value": "maisonette",
+          "label": "Maisonette",
+          "scope": "UK, Malta and other markets"
+        },
+        {
+          "value": "villa",
+          "label": "Villa",
+          "scope": "Global"
+        },
+        {
+          "value": "penthouse",
+          "label": "Penthouse",
+          "scope": "Global"
+        },
+        {
+          "value": "townhouse",
+          "label": "Townhouse",
+          "scope": "Global"
+        },
+        {
+          "value": "bastide",
+          "label": "Bastide",
+          "scope": "France"
+        },
+        {
+          "value": "mas",
+          "label": "Mas",
+          "scope": "France"
+        },
+        {
+          "value": "finca",
+          "label": "Finca",
+          "scope": "Spain"
+        },
+        {
+          "value": "cortijo",
+          "label": "Cortijo",
+          "scope": "Spain"
+        },
+        {
+          "value": "masseria",
+          "label": "Masseria",
+          "scope": "Italy"
+        },
+        {
+          "value": "altbau",
+          "label": "Altbau apartment / building",
+          "scope": "German-speaking markets"
+        },
+        {
+          "value": "cluster",
+          "label": "Cluster / estate home",
+          "scope": "South Africa"
+        },
+        {
+          "value": "smallholding",
+          "label": "Smallholding",
+          "scope": "South Africa, UK"
+        },
+        {
+          "value": "wine",
+          "label": "Wine farm / vineyard estate",
+          "scope": "South Africa, Europe"
+        },
+        {
+          "value": "game",
+          "label": "Game farm",
+          "scope": "South Africa"
+        },
+        {
+          "value": "coastal",
+          "label": "Coastal residence",
+          "scope": "Global"
+        },
+        {
+          "value": "office",
+          "label": "Office / commercial building",
+          "scope": "Global"
+        },
+        {
+          "value": "warehouse",
+          "label": "Industrial / warehouse",
+          "scope": "Global"
+        },
+        {
+          "value": "land",
+          "label": "Land / development site",
+          "scope": "Global"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "property",
+      "key": "heritage",
+      "label": "Heritage protection",
+      "kind": "designation",
+      "help": "Select the applicable national register and designation with source and listing reference. Styles alone do not establish protection.",
+      "options": [
+        {
+          "value": "grade-i",
+          "label": "Grade I",
+          "scope": "England/Wales"
+        },
+        {
+          "value": "grade-ii-star",
+          "label": "Grade II*",
+          "scope": "England/Wales"
+        },
+        {
+          "value": "grade-ii",
+          "label": "Grade II",
+          "scope": "England/Wales"
+        },
+        {
+          "value": "sc-a",
+          "label": "Category A",
+          "scope": "Scotland"
+        },
+        {
+          "value": "sc-b",
+          "label": "Category B",
+          "scope": "Scotland"
+        },
+        {
+          "value": "sc-c",
+          "label": "Category C",
+          "scope": "Scotland"
+        },
+        {
+          "value": "ni",
+          "label": "Northern Ireland listing · record official grade",
+          "scope": "Northern Ireland"
+        },
+        {
+          "value": "local",
+          "label": "National or local designation · record exact label",
+          "scope": "EU/ZA"
+        },
+        {
+          "value": "none-confirmed",
+          "label": "No designation found in named register at check date",
+          "scope": "All"
+        },
+        {
+          "value": "unknown",
+          "label": "Status to confirm",
+          "scope": "All"
+        }
+      ],
+      "sources": [
+        "UK-heritage"
+      ]
+    },
+    {
+      "asset": "property",
+      "key": "transaction-term",
+      "label": "Deed, tax and transaction terminology",
+      "kind": "jurisdictional_term",
+      "help": "These labels route to the relevant guide. Determine tax, exemptions, effective dates and professional roles for the particular transaction.",
+      "options": [
+        {
+          "value": "sdlt",
+          "label": "Stamp Duty Land Tax (SDLT)",
+          "scope": "England and Northern Ireland"
+        },
+        {
+          "value": "ltt",
+          "label": "Land Transaction Tax (LTT)",
+          "scope": "Wales"
+        },
+        {
+          "value": "lbtt",
+          "label": "Land and Buildings Transaction Tax (LBTT)",
+          "scope": "Scotland"
+        },
+        {
+          "value": "deed",
+          "label": "Title deed / deeds registry",
+          "scope": "Jurisdiction-specific"
+        },
+        {
+          "value": "cadastre",
+          "label": "Cadastre / cadastral extract",
+          "scope": "Country-specific EU",
+          "note": "An extract may establish parcel identity only."
+        },
+        {
+          "value": "notary",
+          "label": "Notaire / Notar / notarial deed",
+          "scope": "Country-specific EU"
+        },
+        {
+          "value": "transfer-duty",
+          "label": "Transfer Duty",
+          "scope": "South Africa"
+        },
+        {
+          "value": "levies",
+          "label": "Scheme levies / special levies",
+          "scope": "South Africa"
+        },
+        {
+          "value": "bond",
+          "label": "Mortgage bond / bond origination",
+          "scope": "South Africa"
+        },
+        {
+          "value": "epc",
+          "label": "Energy Performance Certificate / local equivalent",
+          "scope": "Jurisdiction-specific"
+        }
+      ],
+      "sources": [
+        "UK-duty",
+        "Wales-duty",
+        "Scotland-duty",
+        "EU-register",
+        "ZA-transfer"
+      ]
+    },
+    {
+      "asset": "yacht",
+      "key": "propulsion",
+      "label": "Propulsion",
+      "kind": "technical",
+      "help": "Show engine details and auxiliary propulsion in specifications.",
+      "options": [
+        {
+          "value": "motor",
+          "label": "Motor yacht",
+          "scope": "All"
+        },
+        {
+          "value": "sail",
+          "label": "Sailing yacht",
+          "scope": "All"
+        },
+        {
+          "value": "motorsailer",
+          "label": "Motorsailer",
+          "scope": "All"
+        },
+        {
+          "value": "hybrid",
+          "label": "Hybrid propulsion",
+          "scope": "All"
+        },
+        {
+          "value": "electric",
+          "label": "Electric propulsion",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "hull-form",
+      "label": "Hull form",
+      "kind": "technical",
+      "help": "Record the designer’s hull form. A multihull can also be displacement or planing.",
+      "options": [
+        {
+          "value": "displacement",
+          "label": "Displacement",
+          "scope": "All"
+        },
+        {
+          "value": "semi-displacement",
+          "label": "Semi-displacement",
+          "scope": "All"
+        },
+        {
+          "value": "planing",
+          "label": "Planing",
+          "scope": "All"
+        },
+        {
+          "value": "other",
+          "label": "Other or transitional",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "hull-count",
+      "label": "Hull arrangement",
+      "kind": "technical",
+      "help": "Choose the physical hull configuration.",
+      "options": [
+        {
+          "value": "monohull",
+          "label": "Monohull",
+          "scope": "All"
+        },
+        {
+          "value": "catamaran",
+          "label": "Catamaran",
+          "scope": "All"
+        },
+        {
+          "value": "trimaran",
+          "label": "Trimaran",
+          "scope": "All"
+        },
+        {
+          "value": "other",
+          "label": "Other multihull",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "construction",
+      "label": "Hull material",
+      "kind": "technical",
+      "help": "Separate hull from superstructure and note refit and inspection dates.",
+      "options": [
+        {
+          "value": "steel",
+          "label": "Steel",
+          "scope": "All"
+        },
+        {
+          "value": "aluminium",
+          "label": "Aluminium",
+          "scope": "All"
+        },
+        {
+          "value": "grp",
+          "label": "GRP / fibreglass",
+          "scope": "All"
+        },
+        {
+          "value": "composite",
+          "label": "Advanced composite",
+          "scope": "All"
+        },
+        {
+          "value": "wood",
+          "label": "Timber",
+          "scope": "All"
+        },
+        {
+          "value": "other",
+          "label": "Other / mixed",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "rig",
+      "label": "Sail plan",
+      "kind": "technical",
+      "help": "Rig describes a sailing arrangement independently of hull count.",
+      "options": [
+        {
+          "value": "sloop",
+          "label": "Sloop",
+          "scope": "All"
+        },
+        {
+          "value": "ketch",
+          "label": "Ketch",
+          "scope": "All"
+        },
+        {
+          "value": "cutter",
+          "label": "Cutter",
+          "scope": "All"
+        },
+        {
+          "value": "schooner",
+          "label": "Schooner",
+          "scope": "All"
+        },
+        {
+          "value": "yawl",
+          "label": "Yawl",
+          "scope": "All"
+        },
+        {
+          "value": "other",
+          "label": "Other sail plan",
+          "scope": "All"
+        },
+        {
+          "value": "na",
+          "label": "No sailing rig",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "profile",
+      "label": "Cruising profile",
+      "kind": "editorial",
+      "help": "Support advertised range with load, speed and fuel assumptions.",
+      "options": [
+        {
+          "value": "expedition",
+          "label": "Explorer / expedition yacht",
+          "scope": "All"
+        },
+        {
+          "value": "bluewater",
+          "label": "Blue-water cruiser",
+          "scope": "All"
+        },
+        {
+          "value": "coastal",
+          "label": "Coastal cruiser",
+          "scope": "All"
+        },
+        {
+          "value": "performance",
+          "label": "Performance cruiser",
+          "scope": "All"
+        },
+        {
+          "value": "racing",
+          "label": "Racing yacht",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "operation",
+      "label": "Registered use",
+      "kind": "regulatory_status",
+      "help": "Verify flag, use, area, passenger limits, certificate and any permissions before describing charter potential.",
+      "options": [
+        {
+          "value": "pleasure",
+          "label": "Private pleasure",
+          "scope": "All"
+        },
+        {
+          "value": "commercial",
+          "label": "Commercial / charter",
+          "scope": "All"
+        },
+        {
+          "value": "dual",
+          "label": "Dual-use or limited charter arrangement",
+          "scope": "Flag-specific"
+        },
+        {
+          "value": "unknown",
+          "label": "Use to confirm",
+          "scope": "All"
+        }
+      ],
+      "sources": [
+        "REG",
+        "boating"
+      ]
+    },
+    {
+      "asset": "yacht",
+      "key": "coding",
+      "label": "Statutory code or legacy certificate",
+      "kind": "regulatory_evidence",
+      "help": "Record applicable version and scope, certificate expiry and surveyor. Class society notation, charter permission and registry are independent.",
+      "options": [
+        {
+          "value": "reg-a",
+          "label": "REG Yacht Code Part A",
+          "scope": "Applicable flag/code scope",
+          "note": "Check load-line length, build date, passenger count, carriage and use. LOA by itself is insufficient."
+        },
+        {
+          "value": "reg-b",
+          "label": "REG Yacht Code Part B",
+          "scope": "Applicable REG passenger yachts"
+        },
+        {
+          "value": "ly3",
+          "label": "Legacy LY3 certificate",
+          "scope": "Applicable transitional cases"
+        },
+        {
+          "value": "local",
+          "label": "Other flag or national code",
+          "scope": "Applicable registry"
+        },
+        {
+          "value": "unknown",
+          "label": "Code or certification to confirm",
+          "scope": "All"
+        }
+      ],
+      "sources": [
+        "REG"
+      ]
+    },
+    {
+      "asset": "yacht",
+      "key": "registry",
+      "label": "Flag administration",
+      "kind": "registry",
+      "help": "Record actual certificate, registration number, title/mortgage search where available and expiry. The Red Ensign Group includes distinct administrations.",
+      "options": [
+        {
+          "value": "gb",
+          "label": "United Kingdom · UK Ship Register",
+          "scope": "UK"
+        },
+        {
+          "value": "mt",
+          "label": "Malta · Merchant Shipping Directorate",
+          "scope": "Malta"
+        },
+        {
+          "value": "ky",
+          "label": "Cayman Islands · Cayman Islands Shipping Registry",
+          "scope": "Cayman Islands"
+        },
+        {
+          "value": "mh",
+          "label": "Republic of the Marshall Islands · Maritime Administrator",
+          "scope": "Marshall Islands"
+        },
+        {
+          "value": "za",
+          "label": "South Africa · SAMSA",
+          "scope": "South Africa"
+        },
+        {
+          "value": "other",
+          "label": "Other named flag administration",
+          "scope": "All"
+        },
+        {
+          "value": "unknown",
+          "label": "Flag to confirm",
+          "scope": "All"
+        }
+      ],
+      "sources": [
+        "UK-flag",
+        "MT-flag",
+        "KY-flag",
+        "MH-flag",
+        "ZA-flag"
+      ]
+    },
+    {
+      "asset": "yacht",
+      "key": "customs",
+      "label": "Customs and VAT evidence",
+      "kind": "document_status",
+      "help": "Show territory, relevant date, supporting records and review owner. An EU berth or flag alone proves neither customs status nor VAT treatment.",
+      "options": [
+        {
+          "value": "documented",
+          "label": "VAT/customs documents reviewed for named territory",
+          "scope": "UK/EU/ZA"
+        },
+        {
+          "value": "seller-claim",
+          "label": "Seller states VAT paid · evidence pending",
+          "scope": "All"
+        },
+        {
+          "value": "temporary",
+          "label": "Temporary admission or other special procedure asserted",
+          "scope": "Applicable territory"
+        },
+        {
+          "value": "import",
+          "label": "Import clearance needed",
+          "scope": "Applicable territory"
+        },
+        {
+          "value": "unknown",
+          "label": "Status to confirm",
+          "scope": "All"
+        }
+      ],
+      "sources": [
+        "boating"
+      ]
+    },
+    {
+      "asset": "classic-car",
+      "key": "era",
+      "label": "Collector era",
+      "kind": "editorial",
+      "help": "Display manufacture year alongside era. Golden Era and modern classic are editorial descriptors. FIVA categories depend on the named event framework.",
+      "options": [
+        {
+          "value": "prewar",
+          "label": "Pre-war",
+          "scope": "Global",
+          "note": "Show exact year and applicable historical framing."
+        },
+        {
+          "value": "postwar",
+          "label": "Post-war",
+          "scope": "Global"
+        },
+        {
+          "value": "golden",
+          "label": "Golden Era",
+          "scope": "Editorial"
+        },
+        {
+          "value": "modern",
+          "label": "Modern classic",
+          "scope": "Editorial"
+        },
+        {
+          "value": "youngtimer",
+          "label": "Youngtimer",
+          "scope": "FIVA event classification",
+          "note": "FIVA event category covers ages 20–29. Verify applicable definition and date."
+        }
+      ],
+      "sources": [
+        "FIVA",
+        "UK-historic"
+      ]
+    },
+    {
+      "asset": "classic-car",
+      "key": "construction-type",
+      "label": "Collector attributes",
+      "kind": "technical_and_editorial",
+      "help": "Allow multiple attributes. Evidence the homologation model, coachbuilder, or competition specification in the dossier.",
+      "options": [
+        {
+          "value": "homologation",
+          "label": "Homologation special",
+          "scope": "Global"
+        },
+        {
+          "value": "coachbuilt",
+          "label": "Coachbuilt",
+          "scope": "Global"
+        },
+        {
+          "value": "production",
+          "label": "Series production",
+          "scope": "Global"
+        },
+        {
+          "value": "competition",
+          "label": "Competition specification",
+          "scope": "Global"
+        },
+        {
+          "value": "restomod",
+          "label": "Restomod / modified",
+          "scope": "Global"
+        },
+        {
+          "value": "recreation",
+          "label": "Recreation / replica",
+          "scope": "Global"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "classic-car",
+      "key": "identity",
+      "label": "Component identity",
+      "kind": "document_status",
+      "help": "Record chassis, engine, gearbox, axle and body separately. Link factory documentation and an inspection. An engine of the correct type can be a replacement.",
+      "options": [
+        {
+          "value": "documented-original",
+          "label": "Factory number match corroborated",
+          "scope": "Per component"
+        },
+        {
+          "value": "correct-type",
+          "label": "Correct type documented",
+          "scope": "Per component"
+        },
+        {
+          "value": "replacement",
+          "label": "Documented replacement",
+          "scope": "Per component"
+        },
+        {
+          "value": "unexamined",
+          "label": "Unexamined",
+          "scope": "Per component"
+        },
+        {
+          "value": "conflict",
+          "label": "Conflicting evidence",
+          "scope": "Per component"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "classic-car",
+      "key": "record-type",
+      "label": "Provenance and competition records",
+      "kind": "document_type",
+      "help": "Display issuer, reference, scope, inspection date and limitations for each record. Records can coexist without a universal ranking.",
+      "options": [
+        {
+          "value": "classiche",
+          "label": "Ferrari Classiche certification",
+          "scope": "Eligible Ferrari",
+          "note": "Read the certificate and identified components."
+        },
+        {
+          "value": "heritage",
+          "label": "Heritage / factory build certificate",
+          "scope": "Issuer-specific",
+          "note": "A production-record extract documents original build particulars."
+        },
+        {
+          "value": "fia-htp",
+          "label": "FIA Historic Technical Passport",
+          "scope": "Competition",
+          "note": "Sporting technical eligibility document. Originality and race history require separate records."
+        },
+        {
+          "value": "concours",
+          "label": "Concours d’élégance entry / result",
+          "scope": "Named event",
+          "note": "Record class, date, entrant and published result."
+        },
+        {
+          "value": "homologation",
+          "label": "Homologation form",
+          "scope": "Named organising body",
+          "note": "Connect form to model and actual vehicle specification."
+        },
+        {
+          "value": "restoration",
+          "label": "Restoration file and invoices",
+          "scope": "Global"
+        },
+        {
+          "value": "chain",
+          "label": "Ownership chain",
+          "scope": "Global"
+        },
+        {
+          "value": "service",
+          "label": "Dated maintenance and inspection records",
+          "scope": "Global"
+        },
+        {
+          "value": "history",
+          "label": "Contemporary race history",
+          "scope": "Named vehicle and event"
+        }
+      ],
+      "sources": [
+        "FIA",
+        "FIVA",
+        "archive",
+        "Classiche"
+      ]
+    },
+    {
+      "asset": "classic-car",
+      "key": "steering",
+      "label": "Steering configuration",
+      "kind": "technical",
+      "help": "Disclose current steering, original delivery side and conversion history. Road registration, import permits and usability need destination-specific checks.",
+      "options": [
+        {
+          "value": "rhd",
+          "label": "Right-hand drive",
+          "scope": "Global"
+        },
+        {
+          "value": "lhd",
+          "label": "Left-hand drive",
+          "scope": "Global"
+        },
+        {
+          "value": "centre",
+          "label": "Centre steering",
+          "scope": "Specialist"
+        },
+        {
+          "value": "converted",
+          "label": "Converted · specify original and current side",
+          "scope": "Global"
+        },
+        {
+          "value": "unknown",
+          "label": "To confirm",
+          "scope": "Global"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "all",
+      "key": "evidence",
+      "label": "Evidence status",
+      "kind": "editorial_control",
+      "help": "Show source, date and scope next to material facts. Illustrative examples retain their sample label everywhere.",
+      "options": [
+        {
+          "value": "verified",
+          "label": "Document reviewed",
+          "scope": "All"
+        },
+        {
+          "value": "declared",
+          "label": "Seller stated",
+          "scope": "All"
+        },
+        {
+          "value": "estimate",
+          "label": "Modelled estimate",
+          "scope": "All"
+        },
+        {
+          "value": "pending",
+          "label": "Evidence pending",
+          "scope": "All"
+        },
+        {
+          "value": "conflict",
+          "label": "Records conflict",
+          "scope": "All"
+        },
+        {
+          "value": "illustrative",
+          "label": "Fictional sample",
+          "scope": "All"
+        }
+      ],
+      "sources": []
+    }
+  ],
+  "specificationFields": {
+    "property": [
+      "jurisdiction",
+      "locality",
+      "ownership_share",
+      "land_area_m2",
+      "internal_area_m2",
+      "external_area_m2",
+      "area_definition",
+      "bedrooms",
+      "bathrooms",
+      "lease_end",
+      "ground_rent",
+      "service_charge",
+      "levies",
+      "epc_reference",
+      "planning_use",
+      "listed_reference",
+      "tenancy_status",
+      "actual_net_operating_income",
+      "NOI_period",
+      "yield_denominator",
+      "inspection_date"
+    ],
+    "yacht": [
+      "builder",
+      "model",
+      "year_built",
+      "refit_date",
+      "loa_m",
+      "load_line_length_m",
+      "beam_m",
+      "draft_m",
+      "air_draft_m",
+      "gt",
+      "cruise_kn",
+      "range_nm",
+      "range_at_kn",
+      "fuel_l",
+      "engines",
+      "hours",
+      "cabins",
+      "guests",
+      "crew",
+      "berth_limit_m",
+      "class_society",
+      "notation",
+      "survey_type",
+      "survey_date",
+      "survey_limitations",
+      "class_status",
+      "registry_ref",
+      "certificate_expiry",
+      "charter_net_income",
+      "charter_period",
+      "ownership_cost_basis"
+    ],
+    "classic-car": [
+      "make",
+      "model",
+      "variant",
+      "build_year",
+      "registration_year",
+      "body_style",
+      "chassis_reference",
+      "engine_reference",
+      "gearbox_reference",
+      "odometer_value",
+      "odometer_unit",
+      "odometer_warranted",
+      "original_steering",
+      "current_steering",
+      "restoration_date",
+      "service_date",
+      "certificate_issuer",
+      "certificate_date",
+      "event_class",
+      "event_result",
+      "condition_basis",
+      "comparable_sale_basis",
+      "price_index_window"
+    ]
+  },
+  "sources": {
+    "UK-title": {
+      "title": "HM Land Registry · commonhold",
+      "url": "https://www.gov.uk/guidance/commonhold-property"
+    },
+    "UK-shared": {
+      "title": "UK government · share of freehold glossary (bill context)",
+      "url": "https://www.gov.uk/government/publications/guide-to-the-commonhold-and-leasehold-reform-bill/guide-to-the-commonhold-and-leasehold-reform-bill"
+    },
+    "UK-heritage": {
+      "title": "Historic England · listed buildings",
+      "url": "https://historicengland.org.uk/listing/what-is-designation/listed-buildings/"
+    },
+    "FR-usufruct": {
+      "title": "French Civil Code · usufruct",
+      "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006117905/"
+    },
+    "DE-usufruct": {
+      "title": "German Civil Code §1030",
+      "url": "https://www.gesetze-im-internet.de/bgb/__1030.html"
+    },
+    "MT-title": {
+      "title": "Malta Civil Code",
+      "url": "https://legislation.mt/eli/cap/16/eng"
+    },
+    "EU-register": {
+      "title": "European e-Justice · national land registers",
+      "url": "https://e-justice.europa.eu/topics/registers-business-insolvency-land/land-registers-eu-countries_en"
+    },
+    "ZA-title": {
+      "title": "South African Government · Sectional Titles Act",
+      "url": "https://www.gov.za/documents/sectional-titles-act-17-sep-1986-0000"
+    },
+    "ZA-transfer": {
+      "title": "SARS · transfer duty including share blocks",
+      "url": "https://www.sars.gov.za/wp-content/uploads/Ops/Guides/Legal-Pub-Guide-TD01-Transfer-Duty-Guide.pdf"
+    },
+    "ZA-retired": {
+      "title": "South African Government · retirement housing schemes",
+      "url": "https://www.gov.za/sites/default/files/gcis_document/201505/act-65-1988_0.pdf"
+    },
+    "REG": {
+      "title": "MCA · REG Yacht Code and legacy LY3",
+      "url": "https://www.gov.uk/government/publications/msn-1895-m-the-red-ensign-group-reg-yacht-code-part-a/msn-1895-m-the-red-ensign-group-reg-yacht-code-part-a"
+    },
+    "UK-flag": {
+      "title": "UK Ship Register",
+      "url": "https://www.gov.uk/register-a-boat/the-uk-ship-register"
+    },
+    "MT-flag": {
+      "title": "Transport Malta · yacht registration",
+      "url": "https://www.transport.gov.mt/maritime/ship-and-yacht-registry/superyacht-registration/registration-procedure-148"
+    },
+    "KY-flag": {
+      "title": "Cayman Islands Shipping Registry · vessel qualification",
+      "url": "https://www.cishipping.com/services/yacht/qualification-vessel-and-vessel-name-availability"
+    },
+    "MH-flag": {
+      "title": "Republic of the Marshall Islands Registry · yacht registry",
+      "url": "https://www.register-iri.com/yacht/yacht-contacts/"
+    },
+    "ZA-flag": {
+      "title": "SAMSA · ship registration/renewal",
+      "url": "https://www.samsa.org.za/api/api/File/view/r3UuAxWueQcd7jYoOcocug%3D%3D"
+    },
+    "FIVA": {
+      "title": "FIVA · event categories",
+      "url": "https://www.fiva.org/en/commissions/events-commission/vehicle-categories"
+    },
+    "FIA": {
+      "title": "FIA · Historic Technical Passport detailed guidance",
+      "url": "https://api.fia.com/sites/default/files/public_-_gbr_-_htp_detailed_guidelines.pdf"
+    },
+    "archive": {
+      "title": "British Motor Museum · archive certificates",
+      "url": "https://www.britishmotormuseum.co.uk/archive/heritage-certificates"
+    },
+    "Classiche": {
+      "title": "Ferrari · annual report describing Classiche inspection and certification",
+      "url": "https://cdn.ferrari.com/cms/network/media/pdf/Ferrari%20NV%20Annual%20Report%202023%20%28SEC%20Filing%29.pdf"
+    },
+    "UK-historic": {
+      "title": "UK Government · historic vehicle tax/MOT eligibility",
+      "url": "https://www.gov.uk/historic-vehicles/eligibility"
+    },
+    "units": {
+      "title": "NIST · international foot, statute mile and nautical mile",
+      "url": "https://www.nist.gov/system/files/documents/2024/04/09/NIST%20HB44%202024%20Appendix%20C.pdf"
+    },
+    "UK-duty": {
+      "title": "HMRC · SDLT",
+      "url": "https://www.gov.uk/stamp-duty-land-tax"
+    },
+    "Wales-duty": {
+      "title": "Welsh Revenue Authority · LTT",
+      "url": "https://www.gov.wales/land-transaction-tax"
+    },
+    "Scotland-duty": {
+      "title": "Revenue Scotland · LBTT",
+      "url": "https://revenue.scot/taxes/land-buildings-transaction-tax"
+    },
+    "boating": {
+      "title": "RYA · boat purchase documentation and VAT checks",
+      "url": "https://www.rya.org.uk/members-legal-advice/buying-owning/boat-buying-made-easy/"
+    }
+  }
+}

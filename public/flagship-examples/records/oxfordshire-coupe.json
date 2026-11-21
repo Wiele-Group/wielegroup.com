@@ -1,0 +1,201 @@
+{
+  "slug": "oxfordshire-coupe",
+  "category": "Classic cars",
+  "img": "car",
+  "title": "The Oxfordshire Coupé",
+  "location": "Oxfordshire · United Kingdom",
+  "summary": "Early Series 1 details define this example of the Jaguar E-type 4.2. The two-seat roofline and covered headlamps identify the specification a collector would seek. Its example file shows how to reconcile numbers, restoration work and competition claims before discussing value.",
+  "alt": "AI-generated British racing green 1967 Jaguar E-type fixed-head coupé on a gravel court outside a stone motor house.",
+  "currency": "GBP",
+  "price": 82000,
+  "stats": [
+    [
+      "1967",
+      "Model year"
+    ],
+    [
+      "4.2 L",
+      "Straight-six"
+    ],
+    [
+      "RHD",
+      "Steering"
+    ]
+  ],
+  "sections": [
+    {
+      "title": "Model and identity",
+      "body": "The early-1967 Series 1 4.2 fixed-head two-seater is distinct from the longer 2+2, later transitional cars and open two-seater. Model history comes from the Jaguar Daimler Heritage Trust. The individual car and its file are fictional.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Make, model and layout",
+          "Jaguar E-type Series 1, 4.2-litre fixed-head coupé. Front-engine, rear-wheel drive. UK-market right-hand drive in this example. Two seats."
+        ],
+        [
+          "Engine and transmission",
+          "4,235 cc XK straight-six, twin overhead camshafts, triple SU carburettors and four-speed synchromesh manual gearbox."
+        ],
+        [
+          "Finish and equipment",
+          "Deep green body, black leather trim, wire wheels, period-style tyres and glass-covered headlamps. Original paint colour and trim codes require a build-record check."
+        ],
+        [
+          "Odometer",
+          "48,200 miles indicated, about 77,570 km. Total mileage unknown. Restoration and instrument replacement can interrupt the chronology."
+        ],
+        [
+          "Chassis and engine",
+          "Public specimen identifiers DEMO-CHASSIS-A and DEMO-ENGINE-A are placeholders. A fictional archive worksheet and engine-block rub correspond in the scenario. Head and gearbox numbers await independent examination."
+        ],
+        [
+          "Ownership",
+          "Simulated UK private sale with continuous recent custody from 2014. Earlier ownership is incomplete. Obtain the seller’s authority, bill of sale and finance/theft search before transfer."
+        ]
+      ],
+      "references": [
+        "Jaguar model history",
+        "Factory number locations"
+      ]
+    },
+    {
+      "title": "Provenance and inspection",
+      "body": "A factory archive extract explains how the car left the works. A specialist must also inspect today’s physical stampings, material and assembly. “Matching numbers” should specify exactly which components were compared.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Record 01 · Factory identity",
+          "Compare chassis, body, engine block, cylinder head and gearbox against the factory archive. Inspect the stamped surfaces and rivets, retain dated photographs and document replacement components. No genuine certificate has been issued for this example."
+        ],
+        [
+          "Record 02 · Restoration",
+          "Mock 2014–2016 restoration ledger covers sill repairs, bare-shell repaint and replacement upholstery. The example lacks photographs of the inner floor seams before closure. Request an endoscope inspection."
+        ],
+        [
+          "Record 03 · Service history",
+          "Example 2021 entry covers cooling hoses and brake hydraulics. Example 2024 entry covers carburettor balancing and differential seals. Check dates and mileages against original invoices and the supplier, with permission."
+        ],
+        [
+          "Record 04 · Condition",
+          "Example issues: minor oil seep at rear of engine and ageing rear tyres. Commission a cold start, compression/leak-down test, chassis and sill inspection, brake test and check the age codes on all tyres."
+        ],
+        [
+          "Record 05 · FIA and concours",
+          "Scenario has no FIA Historic Technical Passport, contemporary competition entry, judged concours result or class award. Ask for event entry lists, period photos and result sheets before using any such claim."
+        ],
+        [
+          "Before release",
+          "Check V5C identity against chassis details and separate ownership evidence, search for outstanding finance, agree transport and collection insurance, then exchange cleared funds and signed sale receipt."
+        ]
+      ],
+      "references": [
+        "Jaguar archive certificates",
+        "FIA passport scope"
+      ]
+    },
+    {
+      "title": "Observed sale and illustrative value",
+      "body": "Iconic Auctioneers published a £74,250 result on 14 November 2026 for Lot 134, a UK-market 1966 Series I 4.2 coupé. It is a separate car. Review condition, auction premium basis and restoration invoices before reconciling with a private asking price.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Example asking price",
+          "£82,000, about 10.4% above the £74,250 published result. This spread is the difference between an illustrative ask and one historical sale."
+        ],
+        [
+          "Comparator exclusions",
+          "Different body, market or scope materially changes the comparison. Exclude 2+2 cars, roadsters and unfinished projects unless a defensible adjustment is documented. A single sale cannot establish historical market growth."
+        ],
+        [
+          "Five-year gross scenarios",
+          "Compounding £82,000 at −3%, 0% and +4% annually gives exit prices of £70,416, £82,000 and £99,766. Rates are assumptions for testing retention value. There is no asserted historical appreciation curve."
+        ],
+        [
+          "Ownership cost",
+          "Annual storage £1,800 + insurance £900 + maintenance reserve £2,800 = £5,500. Add illustrative pre-purchase inspection £750 and enclosed UK transport £650. Major restoration, overseas freight, finance and taxes excluded."
+        ],
+        [
+          "Net result after five years",
+          "At +4% annual appreciation, £99,766 less 5% assumed selling costs, £27,500 running costs, £1,400 entry costs and £82,000 acquisition = approximately −£16,123. Nominal break-even requires about £116,737 before selling costs, equivalent to 7.32% annual price growth."
+        ],
+        [
+          "Additional market evidence",
+          "Assemble at least several recent comparable sales with known currency, premium, specification, steering, body and condition. Calculate any observed repeat-sale CAGR only from a matched vehicle with dated prices and documented intervening restoration."
+        ]
+      ],
+      "references": [
+        "Iconic Auctioneers · Lot 134"
+      ]
+    },
+    {
+      "title": "UK retention, EU delivery and South African import",
+      "body": "Road registration, taxation, historic competition eligibility and originality each require their own evidence. The example is located in Great Britain.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "UK buyer",
+          "Use a signed sale receipt for ownership, notify DVLA of the keeper change, and arrange tax, roadworthy condition and insurance before driving. Confirm historic-vehicle tax/MOT eligibility, including relevant substantial modifications."
+        ],
+        [
+          "Buyer importing into an EU member state",
+          "Record permanent export from Great Britain, customs value, transport and origin evidence. Obtain the destination authority’s customs classification and VAT treatment. Verify local technical inspection, RHD registration and lighting adjustments before shipment."
+        ],
+        [
+          "South African buyer",
+          "Obtain an ITAC permit and an applicable NRCS letter of authority or documented authority decision before shipping. Collector status, age and RHD configuration alone do not confer import or road-registration approval. Confirm SARS charges, clearance, registration and transport insurance."
+        ],
+        [
+          "Car returning to Great Britain",
+          "Check import VAT/duty treatment and the exact heading with HMRC before using a relief estimate. Originality, historical condition, age and whether the type is still produced matter to a heading 9705 assessment. A UK return may have a different relief route."
+        ],
+        [
+          "Seller and handover",
+          "Separate title, V5C keeper record, chassis verification, export notification and destination import. Inventory history papers, keys, tools and spares. Agree who bears freight, customs storage and insurance risk at each handover."
+        ]
+      ],
+      "references": [
+        "UK historic-vehicle guidance",
+        "UK customs classification",
+        "European Commission vehicle imports",
+        "South African import permits"
+      ]
+    }
+  ],
+  "sources": {
+    "Jaguar model history": "https://www.jaguarheritage.com/e-type-evolution-exhibition/",
+    "Factory number locations": "https://www.jaguarheritage.com/jdht/wp-content/uploads/RG002-Vehicle-numbers-locator-Guide-v.6-10-02-2023.pdf",
+    "Jaguar archive certificates": "https://www.jaguarheritage.com/archive-services/certificates/",
+    "FIA passport scope": "https://historicdb.fia.com/sites/default/files/regulations/1580729539/2020_gbr_htp_detailed_guidelines_light.pdf",
+    "Iconic Auctioneers · Lot 134": "https://www.iconicauctioneers.com/1966-jaguar-e-type-series-1-4-2-litre-coup-rec17524-1-nec-1126",
+    "UK historic-vehicle guidance": "https://www.gov.uk/historic-vehicles",
+    "UK customs classification": "https://www.gov.uk/guidance/classifying-vehicles",
+    "European Commission vehicle imports": "https://taxation-customs.ec.europa.eu/buying-and-selling-cars_en",
+    "South African import permits": "https://www.gov.za/services/services-organisations/import/importing-second-hand-or-used-vehicle"
+  },
+  "example_status": "Fictional asset. Prices, specifications, operating assumptions and inspection notes are illustrative. AI-generated editorial imagery. No asset is being offered for sale.",
+  "authored": "2026-11-21",
+  "fx": {
+    "as_of": "2026-11-20",
+    "base": "EUR",
+    "per_euro": {
+      "GBP": "0.83735",
+      "EUR": "1",
+      "ZAR": "19.1987",
+      "USD": "1.0990",
+      "CHF": "0.9223"
+    },
+    "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+  }
+}

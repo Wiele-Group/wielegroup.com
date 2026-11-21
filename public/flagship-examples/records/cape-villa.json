@@ -1,0 +1,208 @@
+{
+  "slug": "cape-villa",
+  "category": "Real estate",
+  "img": "property",
+  "title": "Granite Coast House",
+  "location": "Cape Peninsula · South Africa",
+  "summary": "A sheltered terrace runs the length of the living rooms. The lower floor opens towards fynbos and granite, while the upper bedrooms face the Atlantic. A separate study and level entry on the arrival floor suit extended stays. Coastal exposure sets the maintenance budget.",
+  "alt": "AI-generated Cape Peninsula villa with limestone walls, timber screens and a pool overlooking the Atlantic.",
+  "currency": "ZAR",
+  "price": 32000000,
+  "stats": [
+    [
+      "5",
+      "Bedrooms"
+    ],
+    [
+      "480 m²",
+      "Internal floor area"
+    ],
+    [
+      "1,600 m²",
+      "Erf area"
+    ]
+  ],
+  "sections": [
+    {
+      "title": "Architecture and title",
+      "body": "The model assumes a single full-title residential erf in the City of Cape Town. The surface areas are stated separately so terraces and garages cannot inflate the internal price per square metre.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Tenure and proposed use",
+          "Full title. Owner occupation or one long residential lease. Confirm deed, servitudes, zoning and any consent with the conveyancer and municipality."
+        ],
+        [
+          "Areas",
+          "480 m² internal (5,167 sq ft), 84 m² terraces (904 sq ft), 54 m² garage (581 sq ft). Site 1,600 m² (17,222 sq ft). Garage and terraces excluded from 480 m²."
+        ],
+        [
+          "Accommodation",
+          "Five bedrooms, four en suites, family bathroom, guest WC, separate study, utility, double garage and two off-street spaces."
+        ],
+        [
+          "Structure and services",
+          "Reinforced concrete frame, masonry infill, stone cladding, low-slope membrane roof, municipal utilities and battery-backed essential circuits. Step-free entrance on the arrival floor. Stair access between levels."
+        ],
+        [
+          "Orientation and exposures",
+          "Sea-facing living terrace with a wind-screened court behind. Marine corrosion, waterproofing, slope drainage and access after storms require inspection."
+        ],
+        [
+          "Scope of sale",
+          "Land, improvements and specified fixed fittings. Furniture, movable art and business goodwill excluded. Vacant possession assumed. No booking or letting history accompanies the example."
+        ]
+      ],
+      "references": []
+    },
+    {
+      "title": "What the inspection would test",
+      "body": "This mock inspection summary shows how an exception changes the buyer’s budget. Only a coordinated structural inspection and approved drawings could establish the actual condition and areas.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Title and drawings",
+          "Illustrative deed schedule identifies one erf. Survey diagram, servitudes and municipal plan reconciliation remain open. Compare the pool and terrace footprint against stamped plans."
+        ],
+        [
+          "Building fabric",
+          "Example visual finding: moisture staining at one terrace threshold. Trace the water path, open a test area with consent and obtain two scoped repair quotations."
+        ],
+        [
+          "Coastal maintenance",
+          "Example visual finding: surface corrosion on exposed fixings. Obtain a façade specialist’s schedule. Request roof membrane, joinery and pool-service records."
+        ],
+        [
+          "Pre-completion professional work",
+          "Engineer to inspect retaining walls and drainage. Conveyancer to obtain clearances and confirm the occupation, compliance certificate and disclosure documents applicable to this transfer."
+        ],
+        [
+          "Allowance",
+          "R220,000 placeholder for waterproofing, drainage and corroded hardware. Update after a measured survey."
+        ]
+      ],
+      "references": []
+    },
+    {
+      "title": "Rental underwriting",
+      "body": "A long-lease scenario uses monthly rent of R160,000 and 10% economic vacancy. There is no executed lease or collected income. Operating expenses exclude finance, income tax, capital expenditure and acquisition costs.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Potential gross rent",
+          "R160,000 × 12 = R1,920,000 / year. Gross scheduled yield 6.00% of the R32m price."
+        ],
+        [
+          "Vacancy and effective income",
+          "R192,000 vacancy allowance. Effective gross income R1,728,000."
+        ],
+        [
+          "Annual operating costs",
+          "Rates R204,000 + insurance R72,000 + repairs R156,000 + garden and pool R108,000 + management R96,000 = R636,000."
+        ],
+        [
+          "Net operating income",
+          "R1,728,000 − R636,000 = R1,092,000. Scenario cap rate 3.41% on price."
+        ],
+        [
+          "Vacancy sensitivity",
+          "At 5%, 10% and 20% vacancy, fixed-cost NOI equals R1,188,000, R1,092,000 and R900,000. Yield on price is 3.71%, 3.41% and 2.81%."
+        ],
+        [
+          "Price sensitivity",
+          "Capitalising R1,092,000 at assumed 3.0%, 3.5% and 4.0% implies R36.40m, R31.20m and R27.30m. These scenarios require local achieved sales and signed lease evidence before pricing a real instruction."
+        ]
+      ],
+      "references": []
+    },
+    {
+      "title": "Acquisition cost",
+      "body": "This cash-purchase scenario assumes the South African transfer-duty route at R32m and the tariff effective 1 April 2026. Ask the conveyancer to establish whether the transaction instead attracts VAT and whether the stated price includes it.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Transfer duty",
+          "R1,241,456 + 13% × (R32,000,000 − R13,310,000) = R3,671,156."
+        ],
+        [
+          "Other allowances",
+          "R180,000 conveyancing, registration and disbursements + R60,000 due diligence + R220,000 initial works. These gross cash allowances require current quotations."
+        ],
+        [
+          "Illustrative cost basis",
+          "R36,131,156. NOI of R1,092,000 gives 3.02% on all-in cash cost before financing or income tax. A deposit paid towards the price is credited once."
+        ]
+      ],
+      "references": [
+        "Transfer-duty bands",
+        "Transfer-duty or VAT treatment"
+      ]
+    },
+    {
+      "title": "Buyer and seller routes",
+      "body": "The property remains in South Africa. The purchaser’s residence, funding route and legal identity determine additional checks.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "South African resident buyer",
+          "Confirm identity and source of funds through the conveyancer, inspect title and plans, agree finance and inspection conditions, obtain a duty assessment, sign transfer documents, then confirm Deeds Office registration."
+        ],
+        [
+          "UK or EU resident buyer",
+          "Arrange the inward transfer with a South African authorised dealer, retain inward-remittance evidence and obtain written borrowing capacity. Test the relevant exchange-control funding ratio against the buyer and purpose. Have the bank confirm timing and eventual remittance evidence."
+        ],
+        [
+          "South African resident seller",
+          "Provide title, bond cancellation details, approved plans, disclosure and certificates. Agree responsibility for rates, inspection exceptions and occupation. Reconcile tax, costs and net proceeds on the conveyancer’s completion statement."
+        ],
+        [
+          "Non-resident seller",
+          "Where section 35A applies above R2m, statutory withholding on the full price is 7.5% for an individual, 10% for a company and 15% for a trust, subject to a SARS directive. On R32m, the individual example is R2.4m advance withholding. The final tax follows assessment."
+        ],
+        [
+          "Handover",
+          "Release keys at the agreed contractual milestone. Record meter readings, fittings inventory and evidence of cleared settlement. Obtain local written advice before relying on the lease scenario."
+        ]
+      ],
+      "references": [
+        "Exchange-control guidance",
+        "Non-resident seller withholding"
+      ]
+    }
+  ],
+  "sources": {
+    "Transfer-duty bands": "https://www.sars.gov.za/tax-rates/transfer-duty/",
+    "Transfer-duty or VAT treatment": "https://www.sars.gov.za/types-of-tax/transfer-duty/",
+    "Exchange-control guidance": "https://www.resbank.co.za/en/home/what-we-do/financial-surveillance/FinSurvFAQ",
+    "Non-resident seller withholding": "https://www.sars.gov.za/guide-to-amounts-to-be-withheld-when-a-non-resident-sells-immovable-property-in-south-africa-sa/"
+  },
+  "example_status": "Fictional asset. Prices, specifications, operating assumptions and inspection notes are illustrative. AI-generated editorial imagery. No asset is being offered for sale.",
+  "authored": "2026-11-21",
+  "fx": {
+    "as_of": "2026-11-20",
+    "base": "EUR",
+    "per_euro": {
+      "GBP": "0.83735",
+      "EUR": "1",
+      "ZAR": "19.1987",
+      "USD": "1.0990",
+      "CHF": "0.9223"
+    },
+    "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+  }
+}

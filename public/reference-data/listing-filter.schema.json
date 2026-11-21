@@ -1,0 +1,4391 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Wiele public asset filter record",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "assetClass": {
+          "const": "property"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "illustrative": {
+          "type": "boolean"
+        },
+        "assetCountry": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalCurrency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "region": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "uk",
+                  "eu",
+                  "za",
+                  "other-europe",
+                  "elsewhere"
+                ]
+              }
+            },
+            "use": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "residential",
+                  "investment",
+                  "commercial",
+                  "industrial",
+                  "development",
+                  "agricultural",
+                  "mixed"
+                ]
+              }
+            },
+            "tenure": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "freehold",
+                  "leasehold",
+                  "share-freehold",
+                  "commonhold",
+                  "ownership-scotland",
+                  "full-ownership",
+                  "bare-ownership",
+                  "usufruct",
+                  "emphyteusis",
+                  "common-units",
+                  "full-title",
+                  "sectional",
+                  "share-block",
+                  "life-right",
+                  "other",
+                  "unknown"
+                ]
+              }
+            },
+            "style": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "detached",
+                  "semi",
+                  "terraced",
+                  "mews",
+                  "flat",
+                  "maisonette",
+                  "villa",
+                  "penthouse",
+                  "townhouse",
+                  "bastide",
+                  "mas",
+                  "finca",
+                  "cortijo",
+                  "masseria",
+                  "altbau",
+                  "cluster",
+                  "smallholding",
+                  "wine",
+                  "game",
+                  "coastal",
+                  "office",
+                  "warehouse",
+                  "land"
+                ]
+              }
+            },
+            "heritage": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "grade-i",
+                  "grade-ii-star",
+                  "grade-ii",
+                  "sc-a",
+                  "sc-b",
+                  "sc-c",
+                  "ni",
+                  "local",
+                  "none-confirmed",
+                  "unknown"
+                ]
+              }
+            },
+            "transaction-term": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "sdlt",
+                  "ltt",
+                  "lbtt",
+                  "deed",
+                  "cadastre",
+                  "notary",
+                  "transfer-duty",
+                  "levies",
+                  "bond",
+                  "epc"
+                ]
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "verified",
+                  "declared",
+                  "estimate",
+                  "pending",
+                  "conflict",
+                  "illustrative"
+                ]
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "specifications": {
+          "type": "object",
+          "properties": {
+            "jurisdiction": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "locality": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "ownership_share": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "land_area_m2": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "internal_area_m2": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "external_area_m2": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "area_definition": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "bedrooms": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "bathrooms": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "lease_end": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "ground_rent": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "service_charge": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "levies": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "epc_reference": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "planning_use": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "listed_reference": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "tenancy_status": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "actual_net_operating_income": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "NOI_period": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "yield_denominator": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "inspection_date": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "assetClass",
+        "assetCountry",
+        "jurisdiction",
+        "originalCurrency",
+        "illustrative",
+        "filters",
+        "specifications"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "assetClass": {
+          "const": "yacht"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "illustrative": {
+          "type": "boolean"
+        },
+        "assetCountry": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalCurrency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "region": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "uk",
+                  "eu",
+                  "za",
+                  "other-europe",
+                  "elsewhere"
+                ]
+              }
+            },
+            "propulsion": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "motor",
+                  "sail",
+                  "motorsailer",
+                  "hybrid",
+                  "electric"
+                ]
+              }
+            },
+            "hull-form": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "displacement",
+                  "semi-displacement",
+                  "planing",
+                  "other"
+                ]
+              }
+            },
+            "hull-count": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "monohull",
+                  "catamaran",
+                  "trimaran",
+                  "other"
+                ]
+              }
+            },
+            "construction": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "steel",
+                  "aluminium",
+                  "grp",
+                  "composite",
+                  "wood",
+                  "other"
+                ]
+              }
+            },
+            "rig": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "sloop",
+                  "ketch",
+                  "cutter",
+                  "schooner",
+                  "yawl",
+                  "other",
+                  "na"
+                ]
+              }
+            },
+            "profile": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "expedition",
+                  "bluewater",
+                  "coastal",
+                  "performance",
+                  "racing"
+                ]
+              }
+            },
+            "operation": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "pleasure",
+                  "commercial",
+                  "dual",
+                  "unknown"
+                ]
+              }
+            },
+            "coding": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "reg-a",
+                  "reg-b",
+                  "ly3",
+                  "local",
+                  "unknown"
+                ]
+              }
+            },
+            "registry": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "gb",
+                  "mt",
+                  "ky",
+                  "mh",
+                  "za",
+                  "other",
+                  "unknown"
+                ]
+              }
+            },
+            "customs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "documented",
+                  "seller-claim",
+                  "temporary",
+                  "import",
+                  "unknown"
+                ]
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "verified",
+                  "declared",
+                  "estimate",
+                  "pending",
+                  "conflict",
+                  "illustrative"
+                ]
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "specifications": {
+          "type": "object",
+          "properties": {
+            "builder": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "model": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "year_built": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "refit_date": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "loa_m": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "load_line_length_m": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "beam_m": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "draft_m": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "air_draft_m": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "gt": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "cruise_kn": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "range_nm": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "range_at_kn": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "fuel_l": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "engines": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "hours": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "cabins": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "guests": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "crew": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "berth_limit_m": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "class_society": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "notation": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "survey_type": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "survey_date": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "survey_limitations": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "class_status": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "registry_ref": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "certificate_expiry": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "charter_net_income": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "charter_period": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "ownership_cost_basis": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "assetClass",
+        "assetCountry",
+        "jurisdiction",
+        "originalCurrency",
+        "illustrative",
+        "filters",
+        "specifications"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "assetClass": {
+          "const": "classic-car"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "illustrative": {
+          "type": "boolean"
+        },
+        "assetCountry": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalCurrency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "region": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "uk",
+                  "eu",
+                  "za",
+                  "other-europe",
+                  "elsewhere"
+                ]
+              }
+            },
+            "era": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "prewar",
+                  "postwar",
+                  "golden",
+                  "modern",
+                  "youngtimer"
+                ]
+              }
+            },
+            "construction-type": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "homologation",
+                  "coachbuilt",
+                  "production",
+                  "competition",
+                  "restomod",
+                  "recreation"
+                ]
+              }
+            },
+            "identity": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "documented-original",
+                  "correct-type",
+                  "replacement",
+                  "unexamined",
+                  "conflict"
+                ]
+              }
+            },
+            "record-type": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "classiche",
+                  "heritage",
+                  "fia-htp",
+                  "concours",
+                  "homologation",
+                  "restoration",
+                  "chain",
+                  "service",
+                  "history"
+                ]
+              }
+            },
+            "steering": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "rhd",
+                  "lhd",
+                  "centre",
+                  "converted",
+                  "unknown"
+                ]
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "verified",
+                  "declared",
+                  "estimate",
+                  "pending",
+                  "conflict",
+                  "illustrative"
+                ]
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "specifications": {
+          "type": "object",
+          "properties": {
+            "make": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "model": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "variant": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "build_year": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "registration_year": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "body_style": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "chassis_reference": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "engine_reference": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "gearbox_reference": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "odometer_value": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "odometer_unit": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "odometer_warranted": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "original_steering": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "current_steering": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "restoration_date": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "service_date": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "certificate_issuer": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "certificate_date": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "event_class": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "event_result": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "condition_basis": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "comparable_sale_basis": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            },
+            "price_index_window": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence": {
+                  "enum": [
+                    "verified",
+                    "declared",
+                    "estimate",
+                    "pending",
+                    "conflict",
+                    "illustrative"
+                  ]
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asOf": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "evidence",
+                "basis"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "assetClass",
+        "assetCountry",
+        "jurisdiction",
+        "originalCurrency",
+        "illustrative",
+        "filters",
+        "specifications"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

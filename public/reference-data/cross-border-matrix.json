@@ -1,0 +1,371 @@
+[
+  {
+    "market": "UK",
+    "asset": "Property",
+    "party_profile": "Domestic",
+    "sequence": "Agree instruction and terms → instruct conveyancer → verify title, tenure, authority, funding and AML → apply the local contract/missives process → complete, file tax and register.",
+    "buyer": "Apply local tax and nation-specific purchase/transfer route. Record actual SDLT residence where applicable. Check SDLT for England and NI, LBTT in Scotland and LTT in Wales. Check non-resident residential SDLT surcharge of 2 percentage points in England/NI under the SDLT-specific test. Check overseas entity registration and title restrictions for applicable corporate transactions.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Confirm charge redemption and CGT obligations. Non-resident disposals require HMRC reporting where applicable, including a nil gain. Check applicable reporting deadline. Verify entity registration and filings where required.",
+    "sources": [
+      "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents",
+      "https://www.gov.uk/guidance/register-an-overseas-entity",
+      "https://www.gov.uk/guidance/capital-gains-tax-for-non-residents-uk-residential-property"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Property",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Agree instruction and terms → instruct conveyancer → verify title, tenure, authority, funding and AML → apply the local contract/missives process → complete, file tax and register.",
+    "buyer": "EU/EEA passport does not decide SDLT residence. Check entity status and whether foreign income/proceeds need reporting. Check SDLT for England and NI, LBTT in Scotland and LTT in Wales. Check non-resident residential SDLT surcharge of 2 percentage points in England/NI under the SDLT-specific test. Check overseas entity registration and title restrictions for applicable corporate transactions.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Confirm charge redemption and CGT obligations. Non-resident disposals require HMRC reporting where applicable, including a nil gain. Check applicable reporting deadline. Verify entity registration and filings where required.",
+    "sources": [
+      "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents",
+      "https://www.gov.uk/guidance/register-an-overseas-entity",
+      "https://www.gov.uk/guidance/capital-gains-tax-for-non-residents-uk-residential-property"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Property",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Agree instruction and terms → instruct conveyancer → verify title, tenure, authority, funding and AML → apply the local contract/missives process → complete, file tax and register.",
+    "buyer": "Test SDLT residence, AML and financing. For an overseas entity verify ROE. Check non-resident seller report separately. Check SDLT for England and NI, LBTT in Scotland and LTT in Wales. Check non-resident residential SDLT surcharge of 2 percentage points in England/NI under the SDLT-specific test. Check overseas entity registration and title restrictions for applicable corporate transactions.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Confirm charge redemption and CGT obligations. Non-resident disposals require HMRC reporting where applicable, including a nil gain. Check applicable reporting deadline. Verify entity registration and filings where required.",
+    "sources": [
+      "https://www.gov.uk/guidance/rates-of-stamp-duty-land-tax-for-non-uk-residents",
+      "https://www.gov.uk/guidance/register-an-overseas-entity",
+      "https://www.gov.uk/guidance/capital-gains-tax-for-non-residents-uk-residential-property"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Yachts",
+    "party_profile": "Domestic",
+    "sequence": "Verify title and register → agree survey, sea trial, deposit and acceptance clauses → check encumbrances → execute bill of sale and discharge mortgage → complete registry and delivery.",
+    "buyer": "Confirm registry part, owner qualification, intended use and documented customs status. Check eligibility for the specific UK Ship Register part and actual pleasure/commercial use. Establish customs status, GB or NI landing route, C384 where applicable, declaration, import VAT and any relief. Obtain confirmation for coding, crew qualifications and commercial operation before charter.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Deliver title chain, bill of sale, VAT/export proof and lender release. Check change-of-owner and export/deregistration steps. UK Returned Goods Relief for import VAT generally requires same exporter and re-importer as well as other conditions.",
+    "sources": [
+      "https://www.gov.uk/register-a-boat/the-uk-ship-register",
+      "https://www.gov.uk/government/publications/owner-eligibility-to-register-merchant-or-pleasure-vessel-msf-4727",
+      "https://www.gov.uk/guidance/sailing-a-pleasure-craft-that-is-arriving-in-the-uk"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Yachts",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Verify title and register → agree survey, sea trial, deposit and acceptance clauses → check encumbrances → execute bill of sale and discharge mortgage → complete registry and delivery.",
+    "buyer": "Verify registry eligibility and connection requirements. EU customs/VAT records do not settle UK import VAT. Check eligibility for the specific UK Ship Register part and actual pleasure/commercial use. Establish customs status, GB or NI landing route, C384 where applicable, declaration, import VAT and any relief. Obtain confirmation for coding, crew qualifications and commercial operation before charter.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Deliver title chain, bill of sale, VAT/export proof and lender release. Check change-of-owner and export/deregistration steps. UK Returned Goods Relief for import VAT generally requires same exporter and re-importer as well as other conditions.",
+    "sources": [
+      "https://www.gov.uk/register-a-boat/the-uk-ship-register",
+      "https://www.gov.uk/government/publications/owner-eligibility-to-register-merchant-or-pleasure-vessel-msf-4727",
+      "https://www.gov.uk/guidance/sailing-a-pleasure-craft-that-is-arriving-in-the-uk"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Yachts",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Verify title and register → agree survey, sea trial, deposit and acceptance clauses → check encumbrances → execute bill of sale and discharge mortgage → complete registry and delivery.",
+    "buyer": "Confirm eligible ship register, legal representative where needed, customs/temporary route and practical delivery. Check eligibility for the specific UK Ship Register part and actual pleasure/commercial use. Establish customs status, GB or NI landing route, C384 where applicable, declaration, import VAT and any relief. Obtain confirmation for coding, crew qualifications and commercial operation before charter.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Deliver title chain, bill of sale, VAT/export proof and lender release. Check change-of-owner and export/deregistration steps. UK Returned Goods Relief for import VAT generally requires same exporter and re-importer as well as other conditions.",
+    "sources": [
+      "https://www.gov.uk/register-a-boat/the-uk-ship-register",
+      "https://www.gov.uk/government/publications/owner-eligibility-to-register-merchant-or-pleasure-vessel-msf-4727",
+      "https://www.gov.uk/guidance/sailing-a-pleasure-craft-that-is-arriving-in-the-uk"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Classic Cars",
+    "party_profile": "Domestic",
+    "sequence": "Verify chassis/engine, title and finance release → inspect/document condition → price including fees and transport → contract and clear payment → resolve customs and register at destination.",
+    "buyer": "Check use, V5C/registration route and customs if car comes from abroad. For imports confirm GB or NI route, tariff ruling if applicable, VAT/duty, NOVA and DVLA evidence/approval. Qualifying heading 9705 collector vehicles normally attract the UK 5% import VAT treatment, subject to tariff classification. Thirty years alone does not establish eligibility.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Prepare purchase and modification records, registration documents and export declaration where needed. Notify DVLA for permanent export as applicable. Arrange insured carriage and obtain evidence of delivered/exported status.",
+    "sources": [
+      "https://www.gov.uk/guidance/classifying-vehicles",
+      "https://www.gov.uk/importing-vehicles-into-the-uk",
+      "https://www.gov.uk/taking-vehicles-out-of-uk"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Classic Cars",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Verify chassis/engine, title and finance release → inspect/document condition → price including fees and transport → contract and clear payment → resolve customs and register at destination.",
+    "buyer": "Apply actual EU-to-GB or NI route and proof of origin. Residence does not decide 9705 eligibility. For imports confirm GB or NI route, tariff ruling if applicable, VAT/duty, NOVA and DVLA evidence/approval. Qualifying heading 9705 collector vehicles normally attract the UK 5% import VAT treatment, subject to tariff classification. Thirty years alone does not establish eligibility.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Prepare purchase and modification records, registration documents and export declaration where needed. Notify DVLA for permanent export as applicable. Arrange insured carriage and obtain evidence of delivered/exported status.",
+    "sources": [
+      "https://www.gov.uk/guidance/classifying-vehicles",
+      "https://www.gov.uk/importing-vehicles-into-the-uk",
+      "https://www.gov.uk/taking-vehicles-out-of-uk"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "UK",
+    "asset": "Classic Cars",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Verify chassis/engine, title and finance release → inspect/document condition → price including fees and transport → contract and clear payment → resolve customs and register at destination.",
+    "buyer": "Check who is importer, permanent versus temporary use and registration eligibility. Obtain tariff classification before import. For imports confirm GB or NI route, tariff ruling if applicable, VAT/duty, NOVA and DVLA evidence/approval. Qualifying heading 9705 collector vehicles normally attract the UK 5% import VAT treatment, subject to tariff classification. Thirty years alone does not establish eligibility.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Prepare purchase and modification records, registration documents and export declaration where needed. Notify DVLA for permanent export as applicable. Arrange insured carriage and obtain evidence of delivered/exported status.",
+    "sources": [
+      "https://www.gov.uk/guidance/classifying-vehicles",
+      "https://www.gov.uk/importing-vehicles-into-the-uk",
+      "https://www.gov.uk/taking-vehicles-out-of-uk"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Property",
+    "party_profile": "Domestic",
+    "sequence": "Identify country and parcel/use → appoint local conveyancing professional → verify title/cadastre, planning, ownership and funding → clear permissions before binding stage → execute transfer and register.",
+    "buyer": "Verify domestic eligibility and local controls for actual parcel and use. Verify national/regional residency, reciprocity, land, agricultural, protected/military and second-home rules where applicable. Cost local transfer tax or VAT, registry, notary and recurring charges. Check financing, AML and intended lawful occupation or rental.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Resolve marital, inheritance or corporate authority and liens. Obtain country-specific seller CGT, withholding, declarations and certificates. Require the local professional to confirm pre-contract obligations and settlement.",
+    "sources": [
+      "https://europa.eu/youreurope/citizens/residence/buying-selling-property/index_en.htm"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Property",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Identify country and parcel/use → appoint local conveyancing professional → verify title/cadastre, planning, ownership and funding → clear permissions before binding stage → execute transfer and register.",
+    "buyer": "Confirm applicable EU/EEA rights, local exceptions and residence/tax status. Verify EEA treatment with national adviser. Verify national/regional residency, reciprocity, land, agricultural, protected/military and second-home rules where applicable. Cost local transfer tax or VAT, registry, notary and recurring charges. Check financing, AML and intended lawful occupation or rental.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Resolve marital, inheritance or corporate authority and liens. Obtain country-specific seller CGT, withholding, declarations and certificates. Require the local professional to confirm pre-contract obligations and settlement.",
+    "sources": [
+      "https://europa.eu/youreurope/citizens/residence/buying-selling-property/index_en.htm"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Property",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Identify country and parcel/use → appoint local conveyancing professional → verify title/cadastre, planning, ownership and funding → clear permissions before binding stage → execute transfer and register.",
+    "buyer": "Obtain written eligibility and any permit decision before binding commitment. Check refund terms and acquisition structure. Verify national/regional residency, reciprocity, land, agricultural, protected/military and second-home rules where applicable. Cost local transfer tax or VAT, registry, notary and recurring charges. Check financing, AML and intended lawful occupation or rental.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Resolve marital, inheritance or corporate authority and liens. Obtain country-specific seller CGT, withholding, declarations and certificates. Require the local professional to confirm pre-contract obligations and settlement.",
+    "sources": [
+      "https://europa.eu/youreurope/citizens/residence/buying-selling-property/index_en.htm"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Yachts",
+    "party_profile": "Domestic",
+    "sequence": "Check location, flag, title and customs history → agree inspection/sea trial → settle with bill of sale, mortgage release and acceptance → update flag and evidence customs clearance/delivery.",
+    "buyer": "Verify flag qualifications and Union customs evidence. Check intended commercial use. EU free circulation/VAT evidence and flag eligibility are separate. Temporary admission for eligible private use normally allows up to 18 months, subject to establishment, registration/ownership, use and discharge conditions. Clear commercial use, crew, local charter and cabotage rules separately.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Supply chain of title, import/free circulation proof, registry extract and mortgage release. Obtain export or temporary-admission discharge evidence and deregistration where necessary. Check whether sale changes the customs treatment before handover.",
+    "sources": [
+      "https://taxation-customs.ec.europa.eu/document/download/fa095d6b-45dd-4c7a-94c7-bad21d0473a9_en?filename=rules_for_private_boats-faq_en.pdf",
+      "https://www.transport.gov.mt/Maritime/Ship-and-Yacht-registry/Ship-Registration/Guidelines-Transfer-of-Ownership-2235"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Yachts",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Check location, flag, title and customs history → agree inspection/sea trial → settle with bill of sale, mortgage release and acceptance → update flag and evidence customs clearance/delivery.",
+    "buyer": "Check member-state flag rules even within EEA. Establishment and actual Union customs status still matter. EU free circulation/VAT evidence and flag eligibility are separate. Temporary admission for eligible private use normally allows up to 18 months, subject to establishment, registration/ownership, use and discharge conditions. Clear commercial use, crew, local charter and cabotage rules separately.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Supply chain of title, import/free circulation proof, registry extract and mortgage release. Obtain export or temporary-admission discharge evidence and deregistration where necessary. Check whether sale changes the customs treatment before handover.",
+    "sources": [
+      "https://taxation-customs.ec.europa.eu/document/download/fa095d6b-45dd-4c7a-94c7-bad21d0473a9_en?filename=rules_for_private_boats-faq_en.pdf",
+      "https://www.transport.gov.mt/Maritime/Ship-and-Yacht-registry/Ship-Registration/Guidelines-Transfer-of-Ownership-2235"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Yachts",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Check location, flag, title and customs history → agree inspection/sea trial → settle with bill of sale, mortgage release and acceptance → update flag and evidence customs clearance/delivery.",
+    "buyer": "Confirm establishment, flag, use and discharge for any temporary admission before entry or taking possession. EU free circulation/VAT evidence and flag eligibility are separate. Temporary admission for eligible private use normally allows up to 18 months, subject to establishment, registration/ownership, use and discharge conditions. Clear commercial use, crew, local charter and cabotage rules separately.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Supply chain of title, import/free circulation proof, registry extract and mortgage release. Obtain export or temporary-admission discharge evidence and deregistration where necessary. Check whether sale changes the customs treatment before handover.",
+    "sources": [
+      "https://taxation-customs.ec.europa.eu/document/download/fa095d6b-45dd-4c7a-94c7-bad21d0473a9_en?filename=rules_for_private_boats-faq_en.pdf",
+      "https://www.transport.gov.mt/Maritime/Ship-and-Yacht-registry/Ship-Registration/Guidelines-Transfer-of-Ownership-2235"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Classic Cars",
+    "party_profile": "Domestic",
+    "sequence": "Check title and chassis → inspect → agree price/fee basis → determine origin and destination customs → move with evidence → meet national registration and insurance requirements.",
+    "buyer": "Apply national registration rules, local VAT treatment and import rules if sourced abroad. Within the EU confirm VAT treatment, including new means of transport rules and dealer/private status. From outside EU obtain customs classification, origin and import VAT treatment before buying. Confirm collector heading eligibility and national road approval, steering, technical inspection and duties.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Provide original registration and acquisition documents, history and finance release. Resolve VAT invoice or private sale treatment, deregistration/export paperwork and proof of delivery. Agree who bears transport and import costs.",
+    "sources": [
+      "https://europa.eu/youreurope/citizens/vehicles/cars/vat-buying-selling-cars/index_en.htm",
+      "https://europa.eu/youreurope/citizens/vehicles/registration/registration-abroad/index_en.htm",
+      "https://taxation-customs.ec.europa.eu/customs/customs-procedures-import-and-export/importation_en"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Classic Cars",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Check title and chassis → inspect → agree price/fee basis → determine origin and destination customs → move with evidence → meet national registration and insurance requirements.",
+    "buyer": "Identify whether vehicle is moving within EU customs territory. EEA and EU customs scopes differ. Within the EU confirm VAT treatment, including new means of transport rules and dealer/private status. From outside EU obtain customs classification, origin and import VAT treatment before buying. Confirm collector heading eligibility and national road approval, steering, technical inspection and duties.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Provide original registration and acquisition documents, history and finance release. Resolve VAT invoice or private sale treatment, deregistration/export paperwork and proof of delivery. Agree who bears transport and import costs.",
+    "sources": [
+      "https://europa.eu/youreurope/citizens/vehicles/cars/vat-buying-selling-cars/index_en.htm",
+      "https://europa.eu/youreurope/citizens/vehicles/registration/registration-abroad/index_en.htm",
+      "https://taxation-customs.ec.europa.eu/customs/customs-procedures-import-and-export/importation_en"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "Europe (EU)",
+    "asset": "Classic Cars",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Check title and chassis → inspect → agree price/fee basis → determine origin and destination customs → move with evidence → meet national registration and insurance requirements.",
+    "buyer": "Appoint importer, establish temporary versus permanent status and secure national customs/registration decisions. Within the EU confirm VAT treatment, including new means of transport rules and dealer/private status. From outside EU obtain customs classification, origin and import VAT treatment before buying. Confirm collector heading eligibility and national road approval, steering, technical inspection and duties.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Provide original registration and acquisition documents, history and finance release. Resolve VAT invoice or private sale treatment, deregistration/export paperwork and proof of delivery. Agree who bears transport and import costs.",
+    "sources": [
+      "https://europa.eu/youreurope/citizens/vehicles/cars/vat-buying-selling-cars/index_en.htm",
+      "https://europa.eu/youreurope/citizens/vehicles/registration/registration-abroad/index_en.htm",
+      "https://taxation-customs.ec.europa.eu/customs/customs-procedures-import-and-export/importation_en"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Property",
+    "party_profile": "Domestic",
+    "sequence": "Sign subject to finance and required conditions → conveyancer verifies title, authority and FICA → acquire SARS tax receipt/clearances and settle bond → lodge with Deeds Office, register and reconcile proceeds.",
+    "buyer": "Verify title/tenure and transfer duty/VAT. Treat residence and locally raised funds factually. Confirm transfer duty or VAT route, local financing and proof of funds. For a relevant non-resident deal obtain Authorised Dealer confirmation, preserve inward funds proof and verify the applicable 1:1 rule and exceptions. This is conditional, not a universal lender LTV cap.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Confirm authority and certificate/clearance needs, discharge bond and coordinate funds. Check section 35A withholding on qualifying non-resident disposals and any SARS directive. Keep bank evidence for repatriation.",
+    "sources": [
+      "https://www.sars.gov.za/guide-for-transfer-duty-via-efiling/",
+      "https://theppra.org.za/licensing-and-registrations/",
+      "https://www.sarb.co.za/content/dam/sarb/what-we-do/financial-surveillance/financial-surveillance-documents/2026/Currency%20and%20Exchanges%20Manual%20for%20Authorised%20Dealers.pdf"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Property",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Sign subject to finance and required conditions → conveyancer verifies title, authority and FICA → acquire SARS tax receipt/clearances and settle bond → lodge with Deeds Office, register and reconcile proceeds.",
+    "buyer": "EU/EEA nationality conveys no special SA purchasing or banking treatment. Confirm adviser and dealer route. Confirm transfer duty or VAT route, local financing and proof of funds. For a relevant non-resident deal obtain Authorised Dealer confirmation, preserve inward funds proof and verify the applicable 1:1 rule and exceptions. This is conditional, not a universal lender LTV cap.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Confirm authority and certificate/clearance needs, discharge bond and coordinate funds. Check section 35A withholding on qualifying non-resident disposals and any SARS directive. Keep bank evidence for repatriation.",
+    "sources": [
+      "https://www.sars.gov.za/guide-for-transfer-duty-via-efiling/",
+      "https://theppra.org.za/licensing-and-registrations/",
+      "https://www.sarb.co.za/content/dam/sarb/what-we-do/financial-surveillance/financial-surveillance-documents/2026/Currency%20and%20Exchanges%20Manual%20for%20Authorised%20Dealers.pdf"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Property",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Sign subject to finance and required conditions → conveyancer verifies title, authority and FICA → acquire SARS tax receipt/clearances and settle bond → lodge with Deeds Office, register and reconcile proceeds.",
+    "buyer": "Obtain dealer/lender decision and preserve proof of funds. Verify applicable finance limits and seller withholding independently. Confirm transfer duty or VAT route, local financing and proof of funds. For a relevant non-resident deal obtain Authorised Dealer confirmation, preserve inward funds proof and verify the applicable 1:1 rule and exceptions. This is conditional, not a universal lender LTV cap.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Confirm authority and certificate/clearance needs, discharge bond and coordinate funds. Check section 35A withholding on qualifying non-resident disposals and any SARS directive. Keep bank evidence for repatriation.",
+    "sources": [
+      "https://www.sars.gov.za/guide-for-transfer-duty-via-efiling/",
+      "https://theppra.org.za/licensing-and-registrations/",
+      "https://www.sarb.co.za/content/dam/sarb/what-we-do/financial-surveillance/financial-surveillance-documents/2026/Currency%20and%20Exchanges%20Manual%20for%20Authorised%20Dealers.pdf"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Yachts",
+    "party_profile": "Domestic",
+    "sequence": "Verify title, registry/licence and survey → agree inspection/acceptance and deposit → settle liens → arrange SAMSA or applicable licensing transfer, customs and documented delivery.",
+    "buyer": "Verify actual SAMSA registry or small-vessel licensing route and intended use. Confirm appropriate vessel category, owner eligibility and survey/safety requirements with SAMSA. Obtain SARS customs treatment and duties/VAT for imports plus harbour approvals where necessary. Commercial operation requires separate safety, crew and operating confirmations.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Deliver bill of sale, ownership and finance clearance, safety/survey records, registry/licence details and customs evidence. Arrange change of owner or closure/export and retain delivery proof.",
+    "sources": [
+      "https://www.samsa.org.za/",
+      "https://www.sars.gov.za/customs-and-excise/"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Yachts",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Verify title, registry/licence and survey → agree inspection/acceptance and deposit → settle liens → arrange SAMSA or applicable licensing transfer, customs and documented delivery.",
+    "buyer": "Confirm legal owner eligibility, flag and SARS status. EU paperwork alone does not prove SA clearance. Confirm appropriate vessel category, owner eligibility and survey/safety requirements with SAMSA. Obtain SARS customs treatment and duties/VAT for imports plus harbour approvals where necessary. Commercial operation requires separate safety, crew and operating confirmations.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Deliver bill of sale, ownership and finance clearance, safety/survey records, registry/licence details and customs evidence. Arrange change of owner or closure/export and retain delivery proof.",
+    "sources": [
+      "https://www.samsa.org.za/",
+      "https://www.sars.gov.za/customs-and-excise/"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Yachts",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Verify title, registry/licence and survey → agree inspection/acceptance and deposit → settle liens → arrange SAMSA or applicable licensing transfer, customs and documented delivery.",
+    "buyer": "Arrange flag/ownership review, customs representation and crew/operating permissions before deployment. Confirm appropriate vessel category, owner eligibility and survey/safety requirements with SAMSA. Obtain SARS customs treatment and duties/VAT for imports plus harbour approvals where necessary. Commercial operation requires separate safety, crew and operating confirmations.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Deliver bill of sale, ownership and finance clearance, safety/survey records, registry/licence details and customs evidence. Arrange change of owner or closure/export and retain delivery proof.",
+    "sources": [
+      "https://www.samsa.org.za/",
+      "https://www.sars.gov.za/customs-and-excise/"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Classic Cars",
+    "party_profile": "Domestic",
+    "sequence": "Verify title/chassis and trace finance → inspect → obtain permit/conformity decision before shipment → contract insured transport and clear SARS → register with eNaTIS where eligible.",
+    "buyer": "Local purchase requires ownership/registration checks. Imports still require applicable approvals. For a used import confirm ITAC permit, NRCS Letter of Authority, SARS customs documents and relevant police/Interpol clearance. Obtain a written ruling on steering or vintage eligibility before transport. No blanket LHD or vintage exemption is assumed.",
+    "seller": "Verify local identity or entity authority, beneficial owners where relevant, encumbrances, tax residence and seller obligations for the actual transfer. Deliver title/licensing history, original VIN/chassis records and lien release. For export confirm clearance, deregistration and transport route before handover. Do not substitute a collector certificate for title.",
+    "sources": [
+      "https://www.gov.za/services/import/import-permit-general-goods",
+      "https://www.nrcs.org.za/automotive/importing-vehicles/",
+      "https://www.sars.gov.za/media-release/importation-of-a-second-hand-vehicle/",
+      "https://www.gov.za/services/services-residents/driving/register-motor-vehicle/register-imported-vehicle"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Classic Cars",
+    "party_profile": "EU/EEA cross-border",
+    "sequence": "Verify title/chassis and trace finance → inspect → obtain permit/conformity decision before shipment → contract insured transport and clear SARS → register with eNaTIS where eligible.",
+    "buyer": "Nationality does not create an import waiver. Verify permit and registration eligibility before shipment. For a used import confirm ITAC permit, NRCS Letter of Authority, SARS customs documents and relevant police/Interpol clearance. Obtain a written ruling on steering or vintage eligibility before transport. No blanket LHD or vintage exemption is assumed.",
+    "seller": "Verify authority and actual tax residence/establishment. Preserve home-market registration, funds and export records when relevant. Apply destination-specific seller obligations. Deliver title/licensing history, original VIN/chassis records and lien release. For export confirm clearance, deregistration and transport route before handover. Do not substitute a collector certificate for title.",
+    "sources": [
+      "https://www.gov.za/services/import/import-permit-general-goods",
+      "https://www.nrcs.org.za/automotive/importing-vehicles/",
+      "https://www.sars.gov.za/media-release/importation-of-a-second-hand-vehicle/",
+      "https://www.gov.za/services/services-residents/driving/register-motor-vehicle/register-imported-vehicle"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  },
+  {
+    "market": "South Africa",
+    "asset": "Classic Cars",
+    "party_profile": "Other foreign / non-resident",
+    "sequence": "Verify title/chassis and trace finance → inspect → obtain permit/conformity decision before shipment → contract insured transport and clear SARS → register with eNaTIS where eligible.",
+    "buyer": "Confirm lawful importer, residency or special-route evidence, traffic register details and permit/approval conditions. For a used import confirm ITAC permit, NRCS Letter of Authority, SARS customs documents and relevant police/Interpol clearance. Obtain a written ruling on steering or vintage eligibility before transport. No blanket LHD or vintage exemption is assumed.",
+    "seller": "Verify offshore authority, applicable document formalities, beneficial ownership and residence. Confirm source/receipt of funds, seller reporting or withholding, customs/export and repatriation where applicable. Deliver title/licensing history, original VIN/chassis records and lien release. For export confirm clearance, deregistration and transport route before handover. Do not substitute a collector certificate for title.",
+    "sources": [
+      "https://www.gov.za/services/import/import-permit-general-goods",
+      "https://www.nrcs.org.za/automotive/importing-vehicles/",
+      "https://www.sars.gov.za/media-release/importation-of-a-second-hand-vehicle/",
+      "https://www.gov.za/services/services-residents/driving/register-motor-vehicle/register-imported-vehicle"
+    ],
+    "status": "official-source routing; case eligibility pending"
+  }
+]

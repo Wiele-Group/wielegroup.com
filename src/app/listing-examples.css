@@ -7,3 +7,10 @@
 .example-enquiry .example-price{font-size:clamp(34px,3.3vw,48px);line-height:1.2}
 
 .listing-card-access{font-size:13px;line-height:1.7;margin:22px 0;padding-block:18px;border-block:1px solid #d9d3c8}.listing-card-access span{display:block;font-size:11px;color:#61665e;margin-top:4px}.listing-registration-gate{padding-block:64px}.listing-registration-gate .report-form{min-width:0}.listing-registration-gate>div{min-width:0}@media(max-width:760px){.listing-registration-gate{padding-block:40px;display:grid;grid-template-columns:1fr;gap:24px}}
+
+/* Keep small labels legible and long reference numbers inside mobile columns. */
+.listing-example-badge,.listing-card-copy>.eyebrow,.listing-card-facts dt,
+.example-heading p span,.example-hero figcaption,.example-enquiry>p.listing-disclaimer{font-size:12px}
+.example-specifications dd,.listing-card-facts dd{overflow-wrap:anywhere}
+.example-section-nav a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:420px){.listing-card-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}

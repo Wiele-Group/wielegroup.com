@@ -13,6 +13,7 @@ jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())
 asset_guides=json.loads((guide_data/"purchase-assets.json").read_text())
 assert len(jurisdictions)==35 and sum(j["group"]=="European Union" for j in jurisdictions)==27
+paths += ['/legal-compliance/cross-border','/asset-taxonomy']
 paths += ["/purchase-guide"]+["/purchase-guide/"+j["slug"] for j in jurisdictions]+["/purchase-guide/assets/"+a["slug"] for a in asset_guides]
 example_data=json.loads((guide_data/"listing-examples.json").read_text())
 example_paths=["/listing-examples/"+e["slug"] for e in example_data]
@@ -81,7 +82,7 @@ for path in paths:
  assert p.meta.get('og:image:alt'),(path,'missing social image description')
  if path in example_paths:
   assert 'noindex' in p.meta.get('robots',''),(path,'fictional listing must be noindex')
-  assert 'Illustrative example' in text and 'not for sale' in text and 'Register &amp; view listings' in text,(path,'example registration/disclosures')
+  assert 'Illustrative example' in text and 'not for sale' in text and 'Registered access' not in text,(path,'example registration/disclosures')
   assert 'private' in headers.get('Cache-Control','') and 'no-store' in headers.get('Cache-Control',''),(path,'listing shared caching allowed')
   assert 'application/ld+json' in text
  else:assert 'noindex' not in p.meta.get('robots',''),(path,'unexpected noindex')
@@ -92,8 +93,8 @@ for path in paths:
   assert not any(t in types for t in ['Product','Offer','RealEstateListing','Vehicle']),(path,'fictional asset offered as inventory')
   example=next(e for e in example_data if path.endswith('/'+e['slug']))
   private_example=next(e for e in json.loads((guide_data.parent/'server/listing-examples.json').read_text()) if e['slug']==example['slug'])
-  assert private_example['price'] not in text and private_example['overview'] not in text,(path,'protected listing details leaked')
-  assert 'registered-listing-body' not in text and 'Discuss marketing my asset' not in text,(path,'protected listing body leaked')
+  assert private_example['price'] in text and private_example['overview'] in ' '.join(p.visible),(path,'public sample details missing')
+  assert 'registered-listing-body' in text and 'Discuss marketing my asset' in text and 'name="email"' not in text,(path,'public sample content or registration mismatch')
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='South African roots. Global perspective.',(path,'organization slogan')
@@ -206,6 +207,12 @@ for path in sorted(links):
   example=Page();example.feed(data.decode('utf-8'))
   assert example.meta.get('robots')=='noindex' and example.h1s==1,'example document indexing/heading'
   assert b'Example only' in data and b'Unverified' in data and b'No return is promised' in data,'example evidence boundaries'
+ elif parsed.path.startswith(('/flagship-examples/', '/reference-data/')):
+  status,headers,data=get(parsed.path);assert status==200,(parsed.path,status)
+  if parsed.path.endswith('.html'):
+   example=Page();example.feed(data.decode('utf-8'))
+   assert example.h1s==1 and b'<form' not in data and b'noindex' in data,(parsed.path,'sample access or metadata')
+  if parsed.path.endswith('.json'):json.loads(data)
  else:
   assert parsed.path in paths or parsed.path=='/',('unexpected internal link',path)
 for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/brand-semantics-infrastructure','/services/ai-visibility-monitoring','/systems/search','/pricing/?old=1']:

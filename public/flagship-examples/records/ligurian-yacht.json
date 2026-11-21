@@ -1,0 +1,200 @@
+{
+  "slug": "ligurian-yacht",
+  "category": "Yachts",
+  "img": "yacht",
+  "title": "Meridian 32",
+  "location": "Ligurian coast · Italy",
+  "summary": "A steel displacement hull and sheltered side decks shape this concept for long passages. The main-deck owner’s cabin keeps guest circulation clear of the working deck. A prospective owner’s first practical decisions are where she can berth and how she will be used.",
+  "alt": "AI-generated aerial three-quarter view of an ivory and grey displacement motor yacht under way off a Ligurian-style coastline.",
+  "currency": "EUR",
+  "price": 7200000,
+  "stats": [
+    [
+      "32.40 m",
+      "Length overall"
+    ],
+    [
+      "7.30 m",
+      "Beam"
+    ],
+    [
+      "4",
+      "Guest cabins"
+    ]
+  ],
+  "sections": [
+    {
+      "title": "Naval and accommodation particulars",
+      "body": "The vessel, builder and particulars are fictional. The model assumes a privately operated, Malta-flagged yacht lying in Italy. Flag, place of use and customs status each require separate evidence.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Builder and build",
+          "Fictional Cantieri Cala Grigia yard, 2017 delivery and assumed 2023 interior refit. Welded steel displacement hull, aluminium superstructure and teak-lined guest deck."
+        ],
+        [
+          "Principal dimensions",
+          "LOA 32.40 m (106.3 ft), beam 7.30 m (24.0 ft), maximum loaded draft 2.35 m (7.7 ft). Assumed 215 GT (enclosed volume measure), displacement 178 t at design loading."
+        ],
+        [
+          "Performance",
+          "Twin 650 kW marine diesels on shafts. Design cruise 10 kn, maximum 13 kn. Assumed economical range 2,700 nautical miles at 8 kn (5,000 km). Weather, loading, reserve and engine condition affect range."
+        ],
+        [
+          "Tankage and utilities",
+          "36,000 L fuel, 6,500 L water, twin generators and stabiliser fins. All-in model consumption 96 L/h at 8 kn uses 32,400 L for 337.5 h and leaves 10% reserve. Sea trial to verify."
+        ],
+        [
+          "Guest and crew layout",
+          "Eight guests in four cabins, including a main-deck double and convertible twins. Three crew cabins for up to six, subject to actual certification and safe-manning requirements."
+        ],
+        [
+          "Berth brief",
+          "Request a confirmed berth for at least 32.4 m × 7.3 m with required fender clearance, manoeuvring room and verified low-water under-keel clearance. Air draft, shore-power rating, local limits and berth transferability unresolved."
+        ],
+        [
+          "Operating status",
+          "Private use assumed. No class notation, commercial endorsement, charter licence, booked berth or transferable berth is represented."
+        ]
+      ],
+      "references": []
+    },
+    {
+      "title": "Survey, refit and title",
+      "body": "The simulated pre-purchase inspection describes exceptions to carry into a sale contract. The example has no real class or survey certificate.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Haul-out and engineering",
+          "Example visual finding: local coating breakdown at the aft waterline. Commission ultrasonic plate measurements, shaft alignment, oil analysis and engine-load readings under agreed sea-trial conditions."
+        ],
+        [
+          "Survey scope",
+          "Obtain machinery logs, tank and bilge inspection results, stabiliser service reports, bridge equipment checks and safety-equipment expiry dates. A dry walk-through cannot establish hull plate thickness."
+        ],
+        [
+          "Title and registry",
+          "Request a current registry transcript, continuous bills of sale, owner authority, mortgages and discharge undertakings. Specify registry cancellation or continued flag procedure as appropriate."
+        ],
+        [
+          "Customs and insurance",
+          "No original import declaration or VAT invoice exists for this example. Ask a customs specialist to establish the Union goods position, movement history, historic supply and delivery place. Obtain insurer approval for navigation limits and use."
+        ],
+        [
+          "Acceptance and repair",
+          "Allocate yard findings, price adjustment and reinspection responsibility in the contract. Confirm rejection, deposit refund and acceptance deadlines with the appointed lawyer."
+        ]
+      ],
+      "references": []
+    },
+    {
+      "title": "Ownership and charter economics",
+      "body": "The private-use base case has zero charter income. For comparison, a commercial scenario assumes completed certification, local permissions, adequate crew and insurance. Gross charter receipts are separated from annual ownership cost.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "Guest-week assumption",
+          "€65,000 base charter fee per sold week. A 20% assumed distribution commission leaves €52,000. Allow €12,000 incremental owner cost per charter week, giving €40,000 contribution. Guest advances, gratuities and local VAT are excluded."
+        ],
+        [
+          "Fixed annual operating budget",
+          "Crew €360,000 + berth €90,000 + insurance €55,000 + maintenance and surveys €175,000 + administration €40,000 = €720,000."
+        ],
+        [
+          "8 weeks",
+          "€520,000 gross (7.22% of price). €320,000 contribution less €720,000 fixed cost = −€400,000, or −5.56% on price."
+        ],
+        [
+          "12 weeks",
+          "€780,000 gross (10.83%). Operating result −€240,000, or −3.33%."
+        ],
+        [
+          "18 weeks",
+          "€1,170,000 gross (16.25%). Operating result €0. Operating break-even is 18 sold weeks at these assumptions, before finance, capital refit, tax and depreciation."
+        ],
+        [
+          "First-year private cash",
+          "€7.20m price + €85,000 survey, legal and haul-out allowance + €250,000 refit reserve + €720,000 operating expenses = €8.255m, before delivery, customs, VAT and finance. Actual outstanding taxes can materially increase this."
+        ],
+        [
+          "Pricing basis",
+          "€7.20m is an illustrative asking level. Obtain achieved sales for similar steel yachts, adjusting for survey cycle, machinery hours, class, VAT basis and refit quality. No realised charter or yacht resale evidence is claimed."
+        ]
+      ],
+      "references": []
+    },
+    {
+      "title": "European, UK and South African routes",
+      "body": "Confirm where delivery occurs, where the yacht will operate, who owns and uses her, and whether anyone pays to board. These facts govern the checks below.",
+      "columns": [
+        "Item",
+        "Detail"
+      ],
+      "rows": [
+        [
+          "EU resident operating in Italy",
+          "Seek evidence of Union status and import/supply tax treatment. Verify ownership eligibility with the flag register, Italian navigation requirements and intended private use. Agree the documentary closing route before deposit release."
+        ],
+        [
+          "UK or South African resident cruising in the EU",
+          "Private temporary admission can allow up to 18 months when customs conditions are met. EU establishment, registration, actual user and use matter. Request a written route from customs before purchase or itinerary planning. A Maltese flag and the owner’s passport alone do not establish eligibility."
+        ],
+        [
+          "UK delivery or return",
+          "Appoint a UK customs adviser to determine import treatment or Returned Goods Relief. Trace original export, ownership, identity, timing, condition and reporting. A purchase abroad complicates any relief claim."
+        ],
+        [
+          "South African destination",
+          "Ask SARS for the applicable temporary or permanent import declaration, valuation, duties and VAT. Confirm eligibility and safety certification with SAMSA before changing flag or use. Budget delivery, passage insurance and local surveys."
+        ],
+        [
+          "Owner considering charter",
+          "Malta’s 2025 Commercial Yacht Code covers qualifying commercial yachts of load-line length ≥24 m carrying up to 12 passengers. Obtain measured load-line length, commercial survey, safe manning, insurance and local charter permissions before accepting bookings."
+        ],
+        [
+          "Seller and closing",
+          "Provide title, mortgage-release terms, export or movement documents, survey attendance and technical inventory. Verify escrow details with the appointed professional. Exchange bill of sale, cleared settlement, possession and registry application in the contractual sequence."
+        ]
+      ],
+      "references": [
+        "EU pleasure craft customs guidance",
+        "UK Returned Goods Relief",
+        "Malta registration",
+        "Malta Commercial Yacht Code",
+        "SAMSA registry",
+        "SARS import duties"
+      ]
+    }
+  ],
+  "sources": {
+    "EU pleasure craft customs guidance": "https://taxation-customs.ec.europa.eu/document/download/8c62e3be-807f-4607-bb1e-9ff46db7d97e_en?filename=Guidance_pleasure_craft.pdf",
+    "UK Returned Goods Relief": "https://www.gov.uk/guidance/pay-less-import-duty-and-vat-when-re-importing-goods-to-the-uk-and-eu",
+    "Malta registration": "https://www.transport.gov.mt/maritime/ship-and-yacht-registry/superyacht-registration-146",
+    "Malta Commercial Yacht Code": "https://www.transport.gov.mt/news/the-malta-ship-registry-launches-the-new-commercial-yacht-code-2025-7357",
+    "SAMSA registry": "https://www.samsa.org.za/services?section=registry-overview",
+    "SARS import duties": "https://www.sars.gov.za/customs-and-excise/duties-and-taxes/duties-and-taxes-for-importers/"
+  },
+  "example_status": "Fictional asset. Prices, specifications, operating assumptions and inspection notes are illustrative. AI-generated editorial imagery. No asset is being offered for sale.",
+  "authored": "2026-11-21",
+  "fx": {
+    "as_of": "2026-11-20",
+    "base": "EUR",
+    "per_euro": {
+      "GBP": "0.83735",
+      "EUR": "1",
+      "ZAR": "19.1987",
+      "USD": "1.0990",
+      "CHF": "0.9223"
+    },
+    "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+  }
+}

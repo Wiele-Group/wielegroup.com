@@ -16,7 +16,7 @@ export function AssetAtlas() {
       <div className="atlas-entry-heading"><div><span className="atlas-detail">{asset.detail}</span><h3>{asset.name}</h3></div><span className="atlas-arrow"><Arrow diagonal/></span></div>
       <p className="atlas-subtitle">{asset.subtitle}</p><span className="atlas-focus">{asset.focus}</span>
     </Link>)}</div>
-    <p className="atlas-disclosure">Category illustrations, not available stock. No assets are currently advertised for sale. Listing examples are fictional; registration is required to view their full details.</p>
+    <p className="atlas-disclosure">Category illustrations, not available stock. No assets are currently advertised for sale. Every fictional sample opens directly with its specifications and condition notes.</p>
     <nav className="atlas-paths" aria-label="Choose your next step">
       <Link href="/buying"><span className="atlas-path-number">01 / Acquire</span><strong>Find your next property.</strong><span>Define the location, purpose and priorities.<Arrow diagonal/></span></Link>
       <Link href="/selling"><span className="atlas-path-number">02 / Sell</span><strong>A strategy for your asset.</strong><span>Start with the evidence and your objectives.<Arrow diagonal/></span></Link>
