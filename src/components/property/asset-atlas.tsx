@@ -12,7 +12,7 @@ export function AssetAtlas() {
   return <section id="asset-atlas" className="asset-atlas wrap" aria-labelledby="asset-atlas-title">
     <div className="atlas-heading">
       <div><span className="eyebrow">Malta-based brokerage / Property · Yachts · Classic cars</span><h2 id="asset-atlas-title">Open flagship <em>dossiers.</em></h2></div>
-      <div><p>Explore the full illustrative prices, specifications, and condition and legal notes. No registration required.</p></div>
+      <div><p>Wiele operates on a private, mandate-led basis. Explore the fictional examples in full, including prices, specifications, condition and legal notes. No registration required.</p></div>
     </div>
     <div id="luxury-assets" className="atlas-grid">
       {dossiers.map(dossier => <article className="atlas-entry" key={dossier.file}>
