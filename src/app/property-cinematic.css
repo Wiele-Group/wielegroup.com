@@ -1,10 +1,10 @@
 /* Wiele Investments — cinematic editorial design, November 2026.
    Original implementation. Existing identity and truthful imagery retained. */
-:root { --cinema-ease:cubic-bezier(.22,.68,.25,1); --cinema-dark:#171a19; --cinema-paper:#f4f0e8; }
+:root { --cinema-ease:cubic-bezier(.22,.68,.25,1); --cinema-dark:var(--wiele-obsidian); --cinema-paper:var(--wiele-canvas-primary); }
 body { background:var(--cinema-paper); }
 .cinema-wrap { width:min(1320px,calc(100% - 112px)); margin-inline:auto; }
 .cinema-home { overflow:clip; }
-.site-header { height:110px; background:#171a19; border-bottom:1px solid #dfc89e25; }
+.site-header { height:110px; background:var(--wiele-obsidian); border-bottom:1px solid #dfc89e25; }
 .header-inner { padding-inline:clamp(24px,4vw,68px); max-width:1600px; margin-inline:auto; }
 .site-header .brand { min-height:90px; }
 .site-header .brand-integrated { width:192px; height:auto; }
@@ -78,7 +78,7 @@ body:has(.cinema-home) .site-header::after { display:none; }
 .cinema-property-image:hover img { transform:scale(1.045); }
 .cinema-image-number { position:absolute; z-index:1; top:24px; left:26px; color:var(--ivory); font:400 24px var(--font-heading); text-shadow:0 1px 8px #000; }
 .cinema-image-arrow { position:absolute; z-index:1; right:22px; top:22px; display:grid; place-items:center; width:45px; height:45px; border:1px solid #f4f0e890; color:var(--ivory); }
-.cinema-image-caption { position:absolute; z-index:1; bottom:20px; left:26px; right:20px; color:#f4f0e8; font-size:9px; }
+.cinema-image-caption { position:absolute; z-index:1; bottom:20px; left:26px; right:20px; color:var(--wiele-canvas-primary); font-size:9px; }
 .cinema-property-copy { padding:30px 0 0; }
 .cinema-property h3 { font:400 clamp(32px,3.5vw,52px)/1.1 var(--font-heading); margin:12px 0 18px; letter-spacing:-.02em; }
 .cinema-property p { color:var(--muted); max-width:440px; margin-bottom:20px; }
@@ -110,7 +110,7 @@ body:has(.cinema-home) .site-header::after { display:none; }
 .cinema-place h2 { margin-block:32px; font-size:clamp(70px,7.8vw,115px); }
 .cinema-place h2 em { color:var(--gold-light); }
 .cinema-place p { max-width:370px; margin-bottom:30px; color:#ece7dc; }
-.cinema-place-credit { position:absolute; bottom:24px; right:56px; left:56px; text-align:right; font-size:9px; color:#f4f0e8; }
+.cinema-place-credit { position:absolute; bottom:24px; right:56px; left:56px; text-align:right; font-size:9px; color:var(--wiele-canvas-primary); }
 .cinema-process { padding-block:95px; }
 .cinema-process-grid { display:grid; grid-template-columns:1fr 1fr; gap:10%; margin-top:55px; }
 .cinema-process h2 { font-size:clamp(50px,5.5vw,82px); }
@@ -132,7 +132,7 @@ body:has(.cinema-home) .site-header::after { display:none; }
 .cinema-home .contact-band { background:#d6c8af; border-top:1px solid #baa17a; padding-block:85px; }
 .cinema-home .band-inner h2 { font-size:clamp(52px,5.8vw,90px); }
 .cinema-home .contact-band .button { background:var(--forest); color:var(--ivory); border:1px solid var(--forest); }
-.cinema-home .contact-band .button:hover { background:#303a33; }
+.cinema-home .contact-band .button:hover { background:var(--wiele-obsidian); }
 .site-footer { padding-top:65px; }
 .brand-footer .brand-integrated { width:245px; }
 .page-intro-spatial { padding-top:70px; }
@@ -192,7 +192,7 @@ html[data-motion-paused=true] .cinema-scene { transform:none!important; }
 .property-start-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--line); }
 .property-start-card { display:flex; flex-direction:column; padding:30px; color:var(--ink); background:var(--ivory); transition:background .2s ease; min-width:0; }
 .property-start-card + .property-start-card { border-left:1px solid var(--line); }
-.property-start-card:hover { background:#ebe5da; }
+.property-start-card:hover { background:var(--wiele-canvas-recessed); }
 .property-start-card:focus-visible { outline:3px solid var(--bronze); outline-offset:-4px; }
 .property-start-label { display:flex; gap:16px; align-items:center; justify-content:space-between; font:600 11px/1.7 var(--font-sans); color:var(--bronze); text-transform:uppercase; letter-spacing:.07em; }
 .property-start-label svg,.property-start-action svg { flex-shrink:0; }

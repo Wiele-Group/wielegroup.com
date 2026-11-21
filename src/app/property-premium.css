@@ -1,17 +1,17 @@
 /* Wiele editorial system — 31 October 2026.
    Preserve the approved Option 1 identity. Gold is an accent; bronze is reading ink. */
 :root {
-  --forest: #171a19;
-  --forest-light: #303a33;
-  --ink: #242823;
-  --ivory: #f4f0e8;
-  --paper: #fffdfa;
-  --muted: #555e56;
-  --line: #d6cdbd;
-  --gold: #b99661;
-  --gold-light: #dfc89e;
-  --bronze: #75603e;
-  --surface: #ebe5da;
+  --forest: var(--wiele-obsidian);
+  --forest-light: var(--wiele-obsidian);
+  --ink: var(--wiele-obsidian);
+  --ivory: var(--wiele-canvas-primary);
+  --paper: var(--wiele-canvas-elevated);
+  --muted: var(--wiele-muted-slate);
+  --line: var(--wiele-hairline);
+  --gold: var(--wiele-bronze-ink);
+  --gold-light: var(--wiele-canvas-recessed);
+  --bronze: var(--wiele-bronze-ink);
+  --surface: var(--wiele-canvas-recessed);
   --section-space: clamp(64px, 7vw, 112px);
 }
 body { font-size: 16px; line-height: 1.75; }
@@ -32,7 +32,7 @@ p { text-wrap: pretty; }
 .mobile-navigation nav a { font-size: 16px; min-height: 48px; }
 .button { font-size: 12px; line-height: 1.6; letter-spacing: .065em; min-height: 54px; padding: 16px 22px; }
 .button:hover { background: var(--forest-light); }
-.button-light:hover { background: #ece4d5; }
+.button-light:hover { background: var(--wiele-canvas-recessed); }
 .button-gold:hover { background: #ecd9b6; }
 .text-link { font-size: 14px; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible {
@@ -254,7 +254,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .maintenance-introduction .eyebrow { color: var(--gold-light); }
 .maintenance-introduction h2 { font: 400 clamp(42px, 4.4vw, 64px)/1.08 var(--font-heading); margin: 24px 0; letter-spacing: -.02em; }
 .maintenance-introduction h2 em { color: var(--gold-light); }
-.maintenance-introduction p { color: #d6dcd4; font-size: 16px; line-height: 1.8; max-width: 49ch; margin-bottom: 28px; }
+.maintenance-introduction p { color: var(--wiele-canvas-recessed); font-size: 16px; line-height: 1.8; max-width: 49ch; margin-bottom: 28px; }
 .maintenance-introduction-list > span { display: block; border-top: 1px solid #b9966166; padding-block: 21px; font-size: 12px; color: var(--gold-light); }
 .maintenance-introduction-list strong { display: block; font: 400 30px/1.3 var(--font-heading); color: var(--ivory); margin-top: 8px; }
 .maintenance-introduction .text-link { color: var(--ivory); margin-top: 12px; }
@@ -291,7 +291,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .maintenance-arrangement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
 .maintenance-arrangement-grid article { border-top: 1px solid #b9966166; padding-top: 25px; }
 .maintenance-arrangement-grid h3 { font: 400 32px/1.2 var(--font-heading); margin: 16px 0; }
-.maintenance-arrangement-grid p { font-size: 15px; line-height: 1.8; color: #d6dcd4; }
+.maintenance-arrangement-grid p { font-size: 15px; line-height: 1.8; color: var(--wiele-canvas-recessed); }
 .maintenance-process ol { list-style: none; padding: 0; margin: 0; }
 .maintenance-process li { display: grid; grid-template-columns: 40px minmax(0, .8fr) minmax(0, 1.2fr); gap: 28px; border-top: 1px solid var(--line); padding-block: 28px; }
 .maintenance-process li > span { padding-top: 5px; }
@@ -499,7 +499,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: transform 550ms cubic-bezier(.2,.65,.3,1);
 }
 .report-object::before, .report-object::after { content: ""; position: absolute; pointer-events: none; }
-.report-object::before { inset: 5px -7px -5px 7px; background: repeating-linear-gradient(0deg, #e9e2d5 0 1px, #fffdfa 1px 3px); border: 1px solid #c8bca8; transform: translateZ(-3px); }
+.report-object::before { inset: 5px -7px -5px 7px; background: repeating-linear-gradient(0deg, var(--wiele-canvas-recessed) 0 1px, var(--wiele-canvas-elevated) 1px 3px); border: 1px solid #c8bca8; transform: translateZ(-3px); }
 .report-object::after { inset: 0; background: linear-gradient(90deg, #171a192b, transparent 3%, #fffdfa38 4%, transparent 8%); transform: translateZ(1px); }
 .home-report-cover .report-object img { position: relative; display: block; width: 100%; height: auto; box-shadow: 14px 18px 24px #171a191c; }
 .report-object-caption { display: flex; justify-content: space-between; align-items: center; color: var(--bronze); font-size: 12px; border-top: 1px solid #b9966170; margin-top: 30px; padding-top: 12px; }

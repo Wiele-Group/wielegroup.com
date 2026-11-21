@@ -1,6 +1,6 @@
 /* Wiele / Malta, in perspective.
    One architectural language: horizon, aperture, material, human scale. */
-:root { --experience-ease: cubic-bezier(.2,.65,.3,1); --experience-navy: #111a1c; }
+:root { --experience-ease: cubic-bezier(.2,.65,.3,1); --experience-navy: var(--wiele-obsidian); }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 .site-header { border-bottom-color:#dfc89e2b; }
 .site-header::after { height:1px; }
@@ -50,7 +50,7 @@
 .journey-bar .eyebrow { color:var(--gold-light); }
 .journey-bar strong { color:var(--ivory); font-size:31px; }
 .journey-bar .journey-arrow { color:var(--gold-light); }
-.journey-bar>a:hover,.journey-bar>a:focus-visible { background:#242d2b; }
+.journey-bar>a:hover,.journey-bar>a:focus-visible { background:var(--wiele-obsidian); }
 .journey-bar>a:focus-visible { outline-color:var(--gold-light); }
 .estate-introduction { position:relative; padding-block:clamp(90px,10vw,155px); }
 .estate-introduction::before { content:"01 / Perspective"; font-size:10px; letter-spacing:.13em; color:var(--bronze); position:absolute; top:34px; right:0; }
@@ -63,11 +63,11 @@
 .home-report .eyebrow { color:var(--gold-light); }
 .home-report h2 { font-size:clamp(58px,6vw,88px); line-height:1; letter-spacing:-.035em; }
 .home-report h2 em { color:var(--gold-light); }
-.home-report p { color:#d7ded8; max-width:420px; }
+.home-report p { color:var(--wiele-canvas-recessed); max-width:420px; }
 .home-report .button { background:var(--ivory); color:var(--forest); border-color:var(--ivory); margin-top:10px; }
 .home-report .button:hover { background:var(--gold-light); }
 .home-report :focus-visible { outline-color:var(--gold-light); }
-.report-object-stage { min-height:570px; background:linear-gradient(135deg,#263332,#172121); border-color:#dfc89e33; padding:42px 32px 32px; }
+.report-object-stage { min-height:570px; background:linear-gradient(135deg,var(--wiele-obsidian),var(--wiele-obsidian)); border-color:#dfc89e33; padding:42px 32px 32px; }
 .report-object-stage::before { border-color:#dfc89e24; inset:17px; }
 .report-stage-label,.report-object-caption { color:var(--gold-light); }
 .home-report-cover { max-width:292px; width:min(100%,292px); }
@@ -164,7 +164,7 @@
 .intent-choices button[aria-pressed=true]>span { color:var(--bronze); }
 .intent-location { font-size:12px; line-height:1.85; color:#bdcbc5; margin-top:30px; }
 .intent-preview { min-width:0; background:var(--ivory); color:var(--ink); }
-.intent-preview figure { height:340px; position:relative; overflow:hidden; background:#d6cdbd; }
+.intent-preview figure { height:340px; position:relative; overflow:hidden; background:var(--wiele-hairline); }
 .intent-preview figure img { object-fit:cover; animation:perspective-enter 450ms ease; }
 .intent-preview figcaption { position:absolute; inset:auto 18px 18px; font-size:10px; line-height:1.7; color:var(--ivory); padding:8px 10px; background:#17201de0; }
 .intent-preview-copy { min-height:284px; padding:28px 32px 32px; }
@@ -402,7 +402,7 @@ html[data-motion-paused=true] .perspective-panel figure img,html[data-motion-pau
 .hero-investment-lens>span { display:block; color:var(--gold-light); text-transform:uppercase; letter-spacing:.1em; font-size:9px; margin-bottom:10px; }
 .hero-investment-lens strong { display:block; font:400 30px/1.12 var(--font-heading); }
 .hero-investment-lens>i { display:block; width:36px; height:1px; margin-top:16px; background:var(--gold-light); }
-.investment-scenario { padding-block:100px; background:#ebe5da; color:var(--ink); }
+.investment-scenario { padding-block:100px; background:var(--wiele-canvas-recessed); color:var(--ink); }
 .scenario-heading { display:grid; grid-template-columns:1.1fr .9fr; gap:22px 10%; align-items:end; margin-bottom:45px; }
 .scenario-heading>.eyebrow { grid-column:1/-1; }
 .scenario-heading h2 { font:400 clamp(52px,5.5vw,84px)/1.02 var(--font-heading); letter-spacing:-.035em; margin:0; }

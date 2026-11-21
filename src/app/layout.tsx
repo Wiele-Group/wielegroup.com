@@ -12,13 +12,15 @@ import "./purchase-guide.css";
 import "./valuations.css";
 import "./listing-examples.css";
 import "./design-system.css";
+import "./wiele-architectural-system.css";
 import { ExperienceMotion } from "@/components/property/experience-motion";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";
 import { StructuredData } from "@/components/property/structured-data";
 import { propertyBrand } from "@/lib/property";
-const sans = localFont({ src: "./fonts/manrope.woff2", weight: "200 800", variable: "--font-sans", display: "swap" });
+const sans = localFont({ src: "./fonts/inter.woff2", weight: "100 900", variable: "--font-inter", display: "swap" });
 const serif = localFont({ src: [{ path: "./fonts/cormorant.woff2", weight: "300 700", style: "normal" }, { path: "./fonts/cormorant-italic.woff2", weight: "300 700", style: "italic" }], variable: "--font-display", display: "swap" });
+const mono = localFont({ src: "./fonts/jetbrains-mono.woff2", weight: "100 800", variable: "--font-jetbrains", display: "swap" });
 export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
  title: { default: `Global Luxury Asset Brokerage | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },
@@ -40,5 +42,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
  sameAs: Object.values(propertyBrand.social),
  contactPoint: { "@type": "ContactPoint", email: propertyBrand.email, contactType: "customer enquiries", availableLanguage: propertyBrand.languages },
  knowsAbout: ["International property marketing", "Luxury residences", "Investment property", "Property buyer introductions", "Yacht acquisition enquiries", "Classic cars"] };
- return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><ExperienceMotion /><StructuredData data={{ "@context": "https://schema.org", "@graph": [schema, { "@type": "WebSite", "@id": `${propertyBrand.url}/#website`, url: `${propertyBrand.url}/`, name: propertyBrand.name, alternateName: ["Wiele Properties", "wielegroup.com"], description: propertyBrand.description, inLanguage: "en-GB", publisher: { "@id": `${propertyBrand.url}/#organization` } }] }} /></body></html>;
+ return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable} ${mono.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><ExperienceMotion /><StructuredData data={{ "@context": "https://schema.org", "@graph": [schema, { "@type": "WebSite", "@id": `${propertyBrand.url}/#website`, url: `${propertyBrand.url}/`, name: propertyBrand.name, alternateName: ["Wiele Properties", "wielegroup.com"], description: propertyBrand.description, inLanguage: "en-GB", publisher: { "@id": `${propertyBrand.url}/#organization` } }] }} /></body></html>;
 }

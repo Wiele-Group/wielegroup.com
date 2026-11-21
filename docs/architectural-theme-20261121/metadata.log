@@ -1,0 +1,76 @@
+PASS /wiele-algorithm HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /valuations HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS / HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /luxury-assets HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /luxury-assets/yachts HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /luxury-assets/classic-cars HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /research HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /research/global-luxury-property-report-2026 HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /selling HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /buying HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /investor-onboarding HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /seller-onboarding HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /properties HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /property-maintenance HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /legal-compliance HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /malta-investment-report HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /articles HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /articles/malta-short-let-investment-2026 HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /about HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /contact HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /privacy HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /terms HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /credits HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /legal-compliance/cross-border HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /asset-taxonomy HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/england HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/northern-ireland HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/scotland HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/wales HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/austria HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/belgium HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/bulgaria HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/croatia HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/cyprus HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/czechia HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/denmark HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/estonia HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/finland HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/france HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/germany HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/greece HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/hungary HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/ireland HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/italy HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/latvia HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/lithuania HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/luxembourg HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/malta HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/netherlands HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/poland HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/portugal HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/romania HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/slovakia HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/slovenia HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/spain HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/sweden HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/switzerland HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/norway HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/monaco HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/south-africa HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/assets/yachts HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /purchase-guide/assets/vehicles HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/city-penthouse HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/mediterranean-villa HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/wine-estate HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/coastal-residence HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/london-townhouse HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/motor-yacht HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS /listing-examples/classic-grand-tourer HTTP 200 headings, canonical, unique metadata, social previews, entity schema and security header
+PASS 51 assets; 110 internal link destinations; retired agency pages return 410, unknown routes return 404
+PASS search metadata and brand resources
+PASS sitemap canonical coverage, modification dates and crawl rules
+PASS anonymous article access: no protected body, no charts, private cache headers
+PASS report-specific access: both PDFs protected; unknown reports rejected
+PASS HTML / App Router representation isolation

@@ -98,5 +98,5 @@ export function TurnstileWidget({ onToken, onError, className, size }: Turnstile
     );
   }
 
-  return <div ref={containerRef} className={className} aria-label="Verification" />;
+  return <div ref={containerRef} className={className} role="group" aria-label="Verification" />;
 }

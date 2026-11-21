@@ -1,0 +1,5 @@
+PASS 320px: private four-step intake, all categories, metric/imperial conversions, readiness and responsive widths
+PASS 390px: private four-step intake, all categories, metric/imperial conversions, readiness and responsive widths
+PASS 1440px: private four-step intake, all categories, metric/imperial conversions, readiness and responsive widths
+PASS local-only handoff retains category, location, reported records and short draft
+PASS all public dossiers render the five updated checks without JavaScript or registration

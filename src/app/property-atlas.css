@@ -11,8 +11,8 @@
 .atlas-entry-primary .atlas-image{aspect-ratio:3/4}
 .atlas-image img{object-fit:cover;transition:transform .5s ease}
 .atlas-entry:hover .atlas-image img{transform:scale(1.025)}
-.atlas-image-note{position:absolute;bottom:10px;left:10px;right:10px;width:fit-content;max-width:calc(100% - 20px);background:#171a19ed;color:#fffdfa;padding:5px 8px;font-size:10px;line-height:1.6}
-.atlas-image-index{position:absolute;top:12px;left:14px;color:#fffdfa;background:#171a19d9;padding:5px 8px;font-size:11px;letter-spacing:.1em}
+.atlas-image-note{position:absolute;bottom:10px;left:10px;right:10px;width:fit-content;max-width:calc(100% - 20px);background:#171a19ed;color:var(--wiele-canvas-elevated);padding:5px 8px;font-size:10px;line-height:1.6}
+.atlas-image-index{position:absolute;top:12px;left:14px;color:var(--wiele-canvas-elevated);background:#171a19d9;padding:5px 8px;font-size:11px;letter-spacing:.1em}
 .atlas-entry-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
 .atlas-detail{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:1.6}
 .atlas-entry h3{font:400 34px/1.15 var(--font-heading);margin:6px 0 0;letter-spacing:-.015em}
