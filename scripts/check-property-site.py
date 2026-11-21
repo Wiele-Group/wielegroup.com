@@ -184,7 +184,8 @@ for path in paths:
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
   assert 'Global Luxury Asset Brokerage' in p.title and 'Exceptional assets.' in text and 'Property at our core.' in text,(path,'luxury brokerage proposition')
-  assert 'Build your asset brief' in text and 'Your choices stay in this browser' in text and 'No assets are currently advertised.' in text,(path,'honest interactive brief')
+  assert 'Build your asset brief' in text and 'Your choices stay in this browser' in text and 'Wiele operates on a private, mandate-led basis' in text,(path,'honest interactive brief')
+  assert text.index('id="asset-atlas"') < text.index('id="property-brief"') < text.index('id="why-wiele"'),(path,'homepage section order')
   assert all(f'id="{anchor}"' in text for anchor in ['property-brief','why-wiele','luxury-assets','research','questions']),(path,'editorial journey sections')
   assert 'Choose a scene' not in text and 'Test 10% lower rent' not in text,(path,'keep homepage focused')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
@@ -207,6 +208,9 @@ for path in sorted(links):
   example=Page();example.feed(data.decode('utf-8'))
   assert example.meta.get('robots')=='noindex' and example.h1s==1,'example document indexing/heading'
   assert b'Example only' in data and b'Unverified' in data and b'No return is promised' in data,'example evidence boundaries'
+ elif parsed.path=='/legal-guide':
+  status,headers,_=get(parsed.path)
+  assert status==308 and urlparse(headers.get('Location','')).path=='/legal-compliance/cross-border',(parsed.path,'direct matrix alias')
  elif parsed.path.startswith(('/flagship-examples/', '/reference-data/')):
   status,headers,data=get(parsed.path);assert status==200,(parsed.path,status)
   if parsed.path.endswith('.html'):

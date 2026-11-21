@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   { source: "/:path+", has: [{ type: "host", value: "www.wielegroup.com" }], destination: "https://wielegroup.com/:path+", permanent: true },
   { source: "/property", destination: "/properties", permanent: true },
   { source: "/the-algorithm", destination: "/wiele-algorithm", permanent: true },
-  { source: "/legal-guide", destination: "/legal-compliance", permanent: true },
+  { source: "/legal-guide", destination: "/legal-compliance/cross-border", permanent: true },
   { source: "/for-buyers", destination: "/investor-onboarding", permanent: true },
   { source: "/for-sellers", destination: "/seller-onboarding", permanent: true },
   { source: "/malta-maintenance", destination: "/property-maintenance", permanent: true },
