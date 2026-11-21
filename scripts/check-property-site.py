@@ -139,6 +139,12 @@ for path in paths:
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('asset FAQ mismatch',item['name'])
+ if path=='/properties':
+  assert len(re.findall(r'<article class="property-study(?: property-study-flagship)?">',text))==6,(path,'six visible server-rendered studies')
+  assert len(re.findall(r'<time datetime="2026-11-20">',text,re.I))==6 and text.count('aria-valuetext="0 of 5 checks supported by verified records"')==6,(path,'dated FX and verified evidence')
+  assert all(route in p.links for route in ['/flagship-examples/cape-villa.html','/legal-guide','/valuations#landed-cost-estimator','/malta-maintenance']),(path,'dossier and reference links')
+  assert 'Illustrative concept · Not an asset offered for sale.' in text and 'AI-created concept' in text,(path,'fictional asset and imagery disclosures')
+  assert not any(t in types for t in ['RealEstateListing','Offer','Product']),(path,'collection must not imply live inventory')
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')
@@ -215,8 +221,8 @@ for path in sorted(links):
   example=Page();example.feed(data.decode('utf-8'))
   assert example.meta.get('robots')=='noindex' and example.h1s==1,'example document indexing/heading'
   assert b'Example only' in data and b'Unverified' in data and b'No return is promised' in data,'example evidence boundaries'
- elif parsed.path in {'/legal-guide', '/imagery-credits'}:
-  destination={'/legal-guide':'/legal-compliance/cross-border','/imagery-credits':'/credits'}[parsed.path]
+ elif parsed.path in {'/legal-guide', '/imagery-credits', '/malta-maintenance'}:
+  destination={'/legal-guide':'/legal-compliance/cross-border','/imagery-credits':'/credits','/malta-maintenance':'/property-maintenance'}[parsed.path]
   status,headers,_=get(parsed.path)
   assert status==308 and urlparse(headers.get('Location','')).path==destination,(parsed.path,'canonical route alias')
  elif parsed.path.startswith(('/flagship-examples/', '/reference-data/')):

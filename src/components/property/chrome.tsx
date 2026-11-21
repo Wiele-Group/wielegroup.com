@@ -28,7 +28,7 @@ export function PageIntro({ eyebrow, title, description, path, actions }: { eyeb
   "/buying": { image: "wiele-global-apartment-20261113.webp", label: "Interior study · AI-created concept", ordinal: "01 / The buyer perspective" },
   "/selling": { image: "wiele-global-residences-20261113.webp", label: "Architecture study · AI-created concept", ordinal: "02 / The owner perspective" },
   "/about": { image: "wiele-global-villa-20261113.webp", label: "Architectural villa · AI-created concept", ordinal: "03 / Our global perspective" },
-  "/properties": { image: "wiele-global-wine-estate-20261113.webp", label: "Wine estate · AI-created concept", ordinal: "04 / The collection" },
+  "/properties": { image: "wiele-global-wine-estate-20261113.webp", label: "Wine estate · AI-created concept", ordinal: "01 / Property" },
  };
  const scene = path ? scenes[path] : undefined;
  return <section className={`page-intro wrap ${scene ? "page-intro-spatial" : ""}`}>
