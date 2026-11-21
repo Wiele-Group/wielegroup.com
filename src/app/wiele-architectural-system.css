@@ -467,3 +467,40 @@ h1,h2,.editorial-heading { color:inherit; }
 @media (max-width: 760px) {
  .seller-consultation { grid-template-columns: minmax(0,1fr); }
 }
+
+/* Yacht and classic-car dossiers. */
+.luxury-editorial-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); background: var(--wiele-obsidian); color: var(--wiele-canvas-elevated); }
+.luxury-hero-copy { padding: clamp(30px, 6vw, 96px); align-self: center; }
+.luxury-hero-copy .eyebrow { color: #e5d4b4; }
+.luxury-hero-copy h1 { margin: 20px 0; font: 500 clamp(43px, 5.7vw, 90px)/.98 var(--font-editorial); color: inherit; }
+.luxury-hero-copy h1 em { color: #e5d4b4; }
+.luxury-hero-copy p { max-width: 39ch; margin: 0 0 22px; line-height: 1.7; color: inherit; }
+.luxury-hero-copy .cinema-button { max-width: 100%; }
+.luxury-editorial-hero figure { margin: 0; min-height: clamp(410px, 46vw, 630px); position: relative; }
+.luxury-editorial-hero img { object-fit: cover; object-position: center 58%; }
+.luxury-editorial-hero figcaption { position: absolute; bottom: 14px; left: 14px; padding: 6px 10px; background: var(--wiele-obsidian); color: var(--wiele-canvas-elevated); font-size: .73rem; }
+.luxury-category-nav { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.luxury-collection,.luxury-collection #listing-examples,.luxury-dossier-section { scroll-margin-top: 116px; }
+.luxury-dossier-section { border-top: 1px solid var(--line); padding-block: clamp(26px,5vw,64px); }
+.luxury-dossier-heading { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(12px,4vw,60px); align-items: start; margin-bottom: 24px; }
+.luxury-dossier-heading h2,.luxury-cross-border h2 { font: 500 clamp(35px,4.4vw,60px)/1.08 var(--font-editorial); margin: 12px 0 0; }
+.luxury-dossier-heading p { line-height: 1.7; margin: 0 0 12px; }
+.luxury-dossier-heading .button,.luxury-reference-actions .button { white-space: normal; }
+.luxury-dossier-section .atlas-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.luxury-dossier-section .atlas-readiness p { display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:.75rem; margin:0 0 8px; }
+.atlas-record-note { display: block; margin-top: 5px; color: var(--muted); }
+.luxury-cross-border { background: var(--surface); padding-block: var(--space-section); border-block: 1px solid var(--line); }
+.luxury-cross-border-grid { display:grid; grid-template-columns: minmax(0,.75fr) minmax(0,1.25fr); gap: clamp(14px,2.5vw,32px); margin-top: 26px; }
+.luxury-cross-border-grid article { padding: clamp(16px,2.4vw,32px); background: var(--wiele-canvas-elevated); border: 1px solid var(--line); overflow-wrap: anywhere; }
+.luxury-cross-border-grid h3 { margin: 0; font: 500 clamp(26px,3vw,36px)/1.12 var(--font-editorial); }
+.luxury-cross-border-grid p,.luxury-cross-border-grid dd { font-size: .88rem; line-height: 1.7; }
+.luxury-cross-border-grid dl > div { display: grid; grid-template-columns: minmax(65px,.22fr) minmax(0,1fr); gap: 12px; border-top: 1px solid var(--line); padding-block: 10px; }
+.luxury-cross-border-grid dt { font: 600 .74rem/1.65 var(--font-mono); color: var(--wiele-bronze-ink); }
+.luxury-cross-border-grid dd { margin: 0; }
+.luxury-source-links { display:flex; flex-wrap:wrap; gap: 0 16px; }
+.luxury-source-links .text-link { font-size: .77rem; }
+.luxury-reference-actions { margin-top: 16px; }
+@media (max-width: 760px) {
+ .luxury-editorial-hero,.luxury-dossier-heading,.luxury-dossier-section .atlas-grid,.luxury-cross-border-grid { grid-template-columns: minmax(0,1fr); }
+ .luxury-editorial-hero figure { min-height: 0; aspect-ratio: 4 / 3; }
+}

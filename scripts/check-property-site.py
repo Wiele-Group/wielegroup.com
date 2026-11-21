@@ -133,7 +133,9 @@ for path in paths:
  if path=='/luxury-assets':
   assert all(f'id="{category}"' in text for category in ['yachts','classic-cars']), 'missing asset category'
   assert all(f'asset={category}' in text for category in ['yachts','classic-cars']), 'asset enquiry context missing'
-  assert 'No yachts or classic cars are currently advertised' in text, 'availability disclosure missing'
+  assert 'Wiele works through private mandates.' in text and 'Illustrative concept · Not an asset offered for sale.' in text,(path,'mandate and fictional asset disclosures')
+  assert text.count('aria-valuetext="0 of 5 checks supported by verified records"')==4,(path,'four readiness meters')
+  assert all(route in p.links for route in ['/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html','/listing-examples/motor-yacht','/listing-examples/classic-grand-tourer','/legal-guide','/valuations#landed-cost-estimator']),(path,'dossiers and cross-border routes')
   assert 'Product' not in types and 'Offer' not in types, 'category imagery must not become advertised stock'
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))

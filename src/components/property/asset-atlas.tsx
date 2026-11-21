@@ -2,27 +2,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { Arrow } from "./chrome";
 
-const dossiers = [
-  { index: "01 / Property", title: "Cape Peninsula Villa", file: "cape-villa", image: "property", alt: "AI-created concept of a coastal villa overlooking the Atlantic", specs: "5 bedrooms · 480 m² / 5,167 sq ft" },
-  { index: "02 / Yachts", title: "Ligurian Motor Yacht", file: "ligurian-yacht", image: "yacht", alt: "AI-created concept of a motor yacht under way off a Ligurian-style coast", specs: "32.40 m / 106.3 ft LOA · 4 guest cabins" },
-  { index: "03 / Classic cars", title: "Oxfordshire Coupé", file: "oxfordshire-coupe", image: "car", alt: "AI-created concept of a green classic coupé outside a stone motor house", specs: "1967 · 48,200 mi / 77,570 km indicated" },
+export const flagshipDossiers = [
+  { index: "01 / Property", title: "Cape Peninsula Villa", href: "/flagship-examples/cape-villa.html", image: "/flagship-examples/media/property-small.webp", alt: "AI-created concept of a coastal villa overlooking the Atlantic", specs: "5 bedrooms · 480 m² / 5,167 sq ft" },
+  { index: "02 / Yachts", title: "Ligurian Motor Yacht", href: "/flagship-examples/ligurian-yacht.html", image: "/flagship-examples/media/yacht-small.webp", alt: "AI-created concept of a motor yacht under way off a Ligurian-style coast", specs: "32.40 m / 106.3 ft LOA · 4 guest cabins" },
+  { index: "03 / Classic cars", title: "Oxfordshire Coupé", href: "/flagship-examples/oxfordshire-coupe.html", image: "/flagship-examples/media/car-small.webp", alt: "AI-created concept of a green classic coupé outside a stone motor house", specs: "1967 · 48,200 mi / 77,570 km indicated" },
 ] as const;
 
-function AtlasDossierCard({ dossier, sizes = "(max-width: 760px) 100vw, 33vw" }: { dossier: typeof dossiers[number]; sizes?: string }) {
+export type AtlasDossier = {
+ index: string; title: string; href: string; image: string; alt: string; specs: string; recordNote?: string;
+};
+
+export function AtlasDossierCard({ dossier, sizes = "(max-width: 760px) 100vw, 33vw", showDisclosure = true }: {
+ dossier: AtlasDossier; sizes?: string; showDisclosure?: boolean;
+}) {
   return <article className="atlas-entry">
-        <a className="atlas-dossier-link" href={`/flagship-examples/${dossier.file}.html`}>
+        <a className="atlas-dossier-link" href={dossier.href}>
           <div className="atlas-image">
-            <Image src={`/flagship-examples/media/${dossier.image}-small.webp`} alt={dossier.alt} sizes={sizes} fill/>
+            <Image src={dossier.image} alt={dossier.alt} sizes={sizes} fill/>
             <span className="atlas-image-note">Illustrative Dossier Study</span>
           </div>
           <div className="atlas-entry-copy">
             <span className="atlas-detail">{dossier.index}</span>
             <h3>{dossier.title}</h3>
-            <p className="atlas-example-note">Illustrative concept · Not an asset offered for sale</p>
-            <p className="atlas-example-note">AI-created concept</p>
+            {showDisclosure && <><p className="atlas-example-note">Illustrative concept · Not an asset offered for sale</p><p className="atlas-example-note">AI-created concept</p></>}
             <span className="atlas-dossier-action">View dossier <Arrow diagonal/></span>
           </div>
-          <div className="atlas-specs">{dossier.specs}</div>
+          <div className="atlas-specs">{dossier.specs}{dossier.recordNote && <span className="atlas-record-note">{dossier.recordNote}</span>}</div>
         </a>
         <div className="atlas-readiness">
           <p>Due-Diligence Readiness <strong>0 / 5</strong></p>
@@ -40,7 +45,7 @@ export function BuyerAssetDossiers() {
       <div><p>Explore two open dossiers with illustrative prices, specifications and condition records.</p><Link className="text-link" href="/luxury-assets">Explore luxury assets <Arrow diagonal/></Link></div>
     </div>
     <div className="atlas-grid">
-      {dossiers.slice(1).map(dossier => <AtlasDossierCard key={dossier.file} dossier={dossier} sizes="(max-width: 760px) 100vw, 50vw"/>)}
+      {flagshipDossiers.slice(1).map(dossier => <AtlasDossierCard key={dossier.href} dossier={dossier} sizes="(max-width: 760px) 100vw, 50vw"/>)}
     </div>
   </section>;
 }
@@ -52,7 +57,7 @@ export function AssetAtlas() {
       <div><p>Wiele operates on a private, mandate-led basis. Explore the fictional examples in full, including prices, specifications, condition and legal notes. No registration required.</p></div>
     </div>
     <div id="luxury-assets" className="atlas-grid">
-      {dossiers.map(dossier => <AtlasDossierCard key={dossier.file} dossier={dossier}/>)}
+      {flagshipDossiers.map(dossier => <AtlasDossierCard key={dossier.href} dossier={dossier}/>)}
     </div>
   </section>;
 }

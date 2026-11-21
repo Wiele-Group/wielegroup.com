@@ -1,25 +1,109 @@
 import Image from "next/image";
-import { ListingExamples } from "@/components/property/listing-examples";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Arrow, ContactBand } from "@/components/property/chrome";
+import { LuxuryDossierCollection } from "@/components/property/luxury-dossier-collection";
 import { PageStructuredData, StructuredData } from "@/components/property/structured-data";
 import { propertyBrand, propertyMetadata } from "@/lib/property";
-import { luxuryAssets, luxuryAssetFaqs, luxuryAssetHref } from "@/lib/luxury-assets";
-const title="Luxury Assets | Yachts & Classic Cars";
-const description="Malta-based global asset brokerage. Explore yacht and classic-car enquiries with Wiele Investments. View fictional listing examples or share an acquisition or sales brief.";
-const share={url:"/luxury-assets/wiele-yachts-20261113.webp",width:1672,height:941,alt:"Wiele Investments global asset brokerage; AI-created yacht concept, not an asset for sale"};
-const base=propertyMetadata(title,description,"/luxury-assets");
-export const metadata:Metadata={...base,openGraph:{...base.openGraph,images:[share]},twitter:{...base.twitter,images:[share.url]}};
-export default function LuxuryAssets(){return <div className="luxury-assets-page">
- <PageStructuredData path="/luxury-assets" title={title} description={description}/>
- <StructuredData data={{"@context":"https://schema.org","@type":"FAQPage","@id":`${propertyBrand.url}/luxury-assets#faq`,mainEntity:luxuryAssetFaqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))}}/>
- <StructuredData data={{"@context":"https://schema.org","@graph":luxuryAssets.map(a=>({"@type":"ImageObject","@id":`${propertyBrand.url}/luxury-assets/${a.image}#image`,contentUrl:`${propertyBrand.url}/luxury-assets/${a.image}`,name:`${a.name} — Wiele illustrative concept`,description:a.alt,caption:"AI-created illustrative concept. Not an asset offered for sale.",creditText:"Created with OpenAI image generation for Wiele Investments",creator:{"@type":"Organization",name:"Wiele Investments"},width:1672,height:941}))}}/>
- <section className="asset-hero" aria-labelledby="asset-title"><Image src="/luxury-assets/wiele-yachts-20261113.webp" alt={luxuryAssets[0].alt} fill sizes="100vw" priority/><div className="asset-hero-shade"/><div className="asset-hero-copy wrap"><span className="eyebrow">Malta-based / Global asset brokerage</span><h1 id="asset-title">Extraordinary assets.<br /><em>Individual ambitions.</em></h1><p>Yachts. Classic cars.<br/>For the journeys you choose and the things you value.</p><a className="cinema-button" href="#asset-categories">Explore the categories <Arrow diagonal/></a></div><p className="asset-hero-caption">AI-created yacht concept · Not an asset offered for sale</p></section>
- <nav className="asset-category-nav wrap" aria-label="Luxury asset categories">{luxuryAssets.map((a,i)=><a key={a.id} href={`#${a.id}`}><span>0{i+1}</span>{a.name}<Arrow diagonal/></a>)}</nav>
- <section className="asset-introduction wrap"><div><span className="eyebrow">A considered approach / International enquiries</span><h2>What matters to you.<br /><em>Shapes the brief.</em></h2></div><div><p>Alongside our core property business, Wiele brings a global brokerage perspective to yachts and classic cars. Whether you are considering an acquisition or introducing an asset for sale, the starting point is your objective, the asset and the evidence behind it.</p><p>For buyers and sellers, The Wiele Algorithm connects the asset with the purpose behind the next move. Clear information, considered presentation and a direct conversation bring focus to the enquiry. <Link className="text-link" href="/wiele-algorithm">Discover The Wiele Algorithm <Arrow diagonal/></Link></p><p>Country coverage, availability, marketing authority, fees and the appropriate specialist involvement are confirmed for each engagement.</p><p className="asset-disclosure">No yachts or classic cars are currently advertised. The images on this page are fictional AI-created concepts.</p></div></section>
- <div id="asset-categories" className="asset-categories wrap">{luxuryAssets.map((asset,i)=><section className="asset-category" key={asset.id} id={asset.id} aria-labelledby={`${asset.id}-title`}><figure><Image src={`/luxury-assets/${asset.image}`} alt={asset.alt} fill sizes="(max-width:900px) 100vw, 60vw"/><figcaption>AI-created concept · Not an asset for sale</figcaption></figure><div className="asset-category-copy"><span className="eyebrow">0{i+1} / {asset.name}</span><h2 id={`${asset.id}-title`}>{asset.subtitle}</h2><p>{asset.description}</p><Link className="text-link" href={`/luxury-assets/${asset.id}`}>Explore {asset.name.toLowerCase()} <Arrow diagonal/></Link><details><summary>What shapes your brief <span aria-hidden="true">+</span></summary><p>{asset.details}</p></details><Link className="button" href={luxuryAssetHref(asset.id)}>Discuss an acquisition <Arrow diagonal/></Link><Link className="text-link" href={luxuryAssetHref(asset.id,"offer")}>Introduce an asset for sale <Arrow diagonal/></Link></div></section>)}</div>
- <aside className="wrap"><Link className="purchase-inline-link" href="/selling#sales-brief">Selling an asset? Prepare the evidence and your sales brief ↗</Link></aside><ListingExamples/>
- <section className="asset-next wrap"><span className="eyebrow">International assets / Your next step</span><h2>Start with a conversation.</h2><ol><li><span>01</span><h3>Define the asset.</h3><p>Category, location, intended use, specification and timing.</p></li><li><span>02</span><h3>Establish the detail.</h3><p>Available records, ownership position, condition and the scope of the enquiry.</p></li><li><span>03</span><h3>Agree the route.</h3><p>Confirm availability, terms and the independent specialists needed for the asset and jurisdiction.</p></li></ol></section>
- <section className="investment-faq wrap" aria-labelledby="asset-questions"><div><span className="eyebrow">Luxury asset enquiries / Answers</span><h2 id="asset-questions">A clearer picture.<br/><em>Before your next move.</em></h2></div><div className="investment-faq-list">{luxuryAssetFaqs.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></section><ContactBand/>
- </div>}
+import { luxuryAssets, luxuryAssetFaqs } from "@/lib/luxury-assets";
+
+const path = "/luxury-assets";
+const title = "Yachts & Classic Cars | Private Brokerage";
+const description = "Wiele Investments coordinates private yacht and classic-car mandates from Malta. Explore four open fictional dossiers and cross-border flag, customs and VAT considerations.";
+const share = { url: "/property/malta-harbour.webp", width: 1800, height: 1800, alt: "Valletta’s limestone waterfront across the harbour in Malta" };
+const base = propertyMetadata(title, description, path);
+export const metadata: Metadata = {...base, openGraph: {...base.openGraph, images: [share]}, twitter: {...base.twitter, images: [share.url]}};
+
+const sources = {
+ flag: "https://www.transport.gov.mt/landing_registration.asp?pageid=2011",
+ boats: "https://taxation-customs.ec.europa.eu/document/download/8c62e3be-807f-4607-bb1e-9ff46db7d97e_en?filename=Guidance_pleasure_craft.pdf",
+ ukTariff: "https://www.gov.uk/guidance/classifying-vehicles#collectors-vehicles",
+ ukVat: "https://www.gov.uk/guidance/how-to-value-goods-for-import-vat",
+ euTariff: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A61997CJ0259",
+ euVat: "https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en",
+ itac: "https://itac.org.za/wp-content/uploads/amended-guidelines-for-importation-of-used-or-second-hand-vehicles_.pdf",
+ sars: "https://www.sars.gov.za/customs-and-excise/duties-and-taxes/duties-and-taxes-for-importers/",
+};
+
+export default function LuxuryAssets() {
+ return <div className="luxury-assets-page">
+  <PageStructuredData path={path} title={title} description={description} citations={Object.values(sources)}/>
+  <StructuredData data={{"@context":"https://schema.org","@type":"FAQPage","@id":`${propertyBrand.url}${path}#faq`,
+   mainEntity: luxuryAssetFaqs.map(f => ({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))}}/>
+
+  <section className="luxury-editorial-hero" aria-labelledby="asset-title">
+   <div className="luxury-hero-copy">
+    <span className="eyebrow">Malta / Private asset brokerage</span>
+    <h1 id="asset-title">Yachts and <em>classic cars.</em></h1>
+    <p>Private acquisition and sales enquiries across the UK, Europe and South Africa.</p>
+    <a className="cinema-button" href="#asset-categories">Explore open dossiers <Arrow diagonal/></a>
+   </div>
+   <figure>
+    <Image src={share.url} alt={share.alt} fill sizes="(max-width: 760px) 100vw, 55vw" priority/>
+    <figcaption>Valletta waterfront, Malta</figcaption>
+   </figure>
+  </section>
+
+  <nav className="asset-category-nav luxury-category-nav wrap" aria-label="Luxury asset categories">
+   {luxuryAssets.map((asset, i) => <a key={asset.id} href={`#${asset.id}`}><span>0{i + 1}</span>{asset.name}<Arrow diagonal/></a>)}
+  </nav>
+
+  <section className="asset-introduction wrap" aria-labelledby="private-mandates-title">
+   <div><span className="eyebrow">Private mandates / Yacht and collector enquiries</span><h2 id="private-mandates-title">Start with <em>the brief.</em></h2></div>
+   <div>
+    <p>Wiele works through private mandates. We start with the asset, the evidence and your objectives. Geographic coverage, availability, marketing authority, scope, fees and responsible practitioners are confirmed individually. Appropriately licensed practitioners in the relevant jurisdiction execute transaction documentation.</p>
+    <p className="asset-disclosure"><strong>Illustrative concept · Not an asset offered for sale.</strong> The four open dossiers use fictional specifications, prices and AI-created concept images. Read the full details and condition notes without registration.</p>
+    <Link className="text-link" href="/wiele-algorithm">Discover The Wiele Algorithm <Arrow diagonal/></Link>
+   </div>
+  </section>
+
+  <LuxuryDossierCollection/>
+
+  <section className="luxury-cross-border" aria-labelledby="luxury-cross-border-title">
+   <div className="wrap">
+    <span className="eyebrow">Malta · UK · EU · South Africa</span>
+    <h2 id="luxury-cross-border-title">Cross-border <em>ownership checks.</em></h2>
+    <div className="luxury-cross-border-grid">
+     <article>
+      <h3>Malta flag and yacht VAT</h3>
+      <p>Malta registers private and commercial superyachts. Flag registration and EU VAT or Union goods status are separate checks. Review the VAT invoice, import records, movement history and intended use with a marine customs adviser. Temporary Admission is time-limited and subject to eligibility and re-export conditions.</p>
+      <div className="luxury-source-links"><a className="text-link" href={sources.flag}>Transport Malta registry <Arrow diagonal/></a><a className="text-link" href={sources.boats}>EU pleasure craft guidance <Arrow diagonal/></a></div>
+     </article>
+     <article>
+      <h3>Cars aged 30 years or more</h3>
+      <dl>
+       <div><dt>UK</dt><dd>Confirm heading 9705 with HMRC. Age and historically correct condition are part of classification. Qualifying collector’s items can receive reduced import VAT treatment.</dd></div>
+       <div><dt>EU</dt><dd>Heading 9705 considers age, original condition, whether the model is still produced and its historical interest. Confirm classification and the applicable import VAT treatment in the member state of import.</dd></div>
+       <div><dt>South Africa</dt><dd>Used imports require an ITAC permit. Its vintage route generally starts at 40 years, with a separate route for internationally recognised collector vehicles. Confirm any duty rebate and import VAT with SARS.</dd></div>
+      </dl>
+      <div className="luxury-source-links">
+       <a className="text-link" href={sources.ukTariff}>HMRC classification <Arrow diagonal/></a>
+       <a className="text-link" href={sources.ukVat}>UK import VAT <Arrow diagonal/></a>
+       <a className="text-link" href={sources.euTariff}>EU collector classification <Arrow diagonal/></a>
+       <a className="text-link" href={sources.euVat}>EU VAT framework <Arrow diagonal/></a>
+       <a className="text-link" href={sources.itac}>ITAC permit guidance <Arrow diagonal/></a>
+       <a className="text-link" href={sources.sars}>SARS duties and VAT <Arrow diagonal/></a>
+      </div>
+     </article>
+    </div>
+    <p className="fine-print">Sources reviewed <time dateTime="2026-11-21">21 November 2026</time>. Ask the relevant practitioners to confirm classification, relief, eligibility and costs before committing.</p>
+    <div className="button-row luxury-reference-actions">
+     <Link className="button" href="/legal-guide">Cross-border legal guide <Arrow diagonal/></Link>
+     <Link className="text-link" href="/valuations#landed-cost-estimator">Open the Landed Cost Estimator <Arrow diagonal/></Link>
+    </div>
+   </div>
+  </section>
+
+  <section className="investment-faq wrap" id="faq" aria-labelledby="asset-questions">
+   <div><span className="eyebrow">Luxury asset enquiries / Answers</span><h2 id="asset-questions">Before your <em>next move.</em></h2></div>
+   <div className="investment-faq-list">
+    {luxuryAssetFaqs.map(f => <details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}
+    <nav className="luxury-source-links" aria-label="Detailed asset guides">
+     <Link className="text-link" href="/luxury-assets/yachts">Yacht acquisition and sales guide <Arrow diagonal/></Link>
+     <Link className="text-link" href="/luxury-assets/classic-cars">Classic car acquisition and sales guide <Arrow diagonal/></Link>
+    </nav>
+   </div>
+  </section>
+  <ContactBand/>
+ </div>;
+}
