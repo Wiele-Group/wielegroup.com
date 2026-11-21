@@ -29,3 +29,19 @@ Prior production Worker version: `9af73cee-d054-4483-9af4-2f5712646667`.
 Rollback: `npx wrangler rollback 9af73cee-d054-4483-9af4-2f5712646667` from this website directory.
 
 Production activation and final public-URL verification are recorded after deployment below.
+
+## Production verified
+
+Activated 21 November 2026 at 11:36 CET, 100% traffic.
+
+- URL: https://wielegroup.com
+- Worker version: `5a81566b-14b3-4400-9d66-902e7ee973d5`
+- Deployment ID: `23ad9b3a-e1b8-4923-9a01-487c751c44ec`
+- Deployed source commit: `afa71279aa736bfaa302b2b0f3162ae3a18ab2a4`
+- Public-domain verification: 25 pages at both 390 and 1440px, 50 rendered checks and 50 axe scans; zero reported violations, overflow, small visible controls or client errors.
+- Live navigation, menu contrast, Escape and reduced motion passed at all seven widths.
+- Live seller forms, unit conversions, current reference-rate conversions, readiness meters, local handoff, JavaScript-disabled seller fallback and all three public dossiers passed. No live enquiry was submitted.
+- Public HTTP verification passed for 51 assets and 110 internal link destinations, metadata/schema/crawl consistency, correct 404/410 responses, protected reports and articles, and representation isolation.
+- Production desktop and mobile screenshots are saved beside this report and visually reviewed.
+
+The previous production version remains available through the rollback command above.
