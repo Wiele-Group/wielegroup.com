@@ -6,6 +6,7 @@ import { StructuredData } from "@/components/property/structured-data";
 import { Arrow } from "@/components/property/chrome";
 import { propertyBrand } from "@/lib/property";
 import { MarketPerspective } from "@/components/property/market-perspective";
+import { LandedCostPreview } from "@/components/property/landed-cost-preview";
 import { propertyFaqs } from "@/lib/property-faqs";
 
 const homeFaqs = propertyFaqs.filter(f => ["What is Wiele?", "Is Wiele focused only on Malta?", "How do I start an enquiry?"].includes(f.question));
@@ -15,10 +16,10 @@ const principles = [
  {number:"03",title:"A connected next step.",copy:"A direct point of contact keeps your objectives and next steps in view. Scope, fees and specialist involvement are agreed for your engagement."},
 ];
 
-const flagshipDossiers = [
- { name: "Cape Peninsula Villa", category: "Property", href: "/flagship-examples/cape-villa.html" },
- { name: "Ligurian Motor Yacht", category: "Yachts", href: "/flagship-examples/ligurian-yacht.html" },
- { name: "Oxfordshire Coupé", category: "Classic Cars", href: "/flagship-examples/oxfordshire-coupe.html" },
+const consultationZones = [
+ { zone: "CET / CEST", market: "Malta and Central Europe" },
+ { zone: "GMT / BST", market: "United Kingdom" },
+ { zone: "SAST", market: "South Africa" },
 ];
 
 export default function Home(){return <div className="editorial-home">
@@ -28,22 +29,21 @@ export default function Home(){return <div className="editorial-home">
 
  <AssetPaths/>
  <section id="why-wiele" className="brokerage-why" aria-labelledby="why-wiele-title"><div className="wrap brokerage-why-grid"><div><span className="eyebrow">Why Wiele / The Wiele Algorithm</span><h2 id="why-wiele-title">A listing is only<br/><em>the beginning.</em></h2><p className="brokerage-why-intro">Property at our core. Malta-based Wiele Investments connects the asset, the buyer’s purpose and the seller’s priorities. The Wiele Algorithm brings a considered approach to presentation, relevant conversations and the decisions behind your next move.</p><Link className="text-link" href="/wiele-algorithm">Discover The Wiele Algorithm <Arrow diagonal/></Link><Link className="text-link" href="/about#jonathan-landman">Meet Jonathan Landman <Arrow diagonal/></Link></div><ol className="brokerage-principles">{principles.map(p=><li key={p.number}><span>{p.number}</span><div><h3>{p.title}</h3><p>{p.copy}</p></div></li>)}</ol></div>
-  <div className="wrap brokerage-dossiers">
-   <h3 id="flagship-dossiers-title">Open-Access Illustrative Dossiers (No Registration Required)</h3>
-   <nav className="atlas-paths" aria-labelledby="flagship-dossiers-title">
-    {flagshipDossiers.map(dossier => (
-     <a href={dossier.href} key={dossier.href}>
-      <span className="atlas-path-number">{dossier.category}</span>
-      <strong>{dossier.name}</strong>
-      <span>View dossier <Arrow diagonal/></span>
-     </a>
-    ))}
-   </nav>
-  </div>
  </section>
 
  <MarketPerspective/>
- <section className="valuation-home wrap" aria-labelledby="valuation-home-title"><div><span className="eyebrow">UK · Europe · South Africa / Valuation enquiries</span><h2 id="valuation-home-title">A clearer view<br/><em>of value.</em></h2></div><div><p>Property, yachts and classic cars. Prepare a valuation brief, explore the evidence needed for an indicative estimate and compare budgets with dated currency reference rates.</p><Link href="/valuations" className="text-link">Explore valuations <Arrow diagonal/></Link><Link href="/valuations#currency-converter" className="text-link">Convert currencies <Arrow diagonal/></Link></div></section>
- <section id="research" className="brokerage-research wrap" aria-labelledby="research-title"><Link href="/research/global-luxury-property-report-2026" className="brokerage-report-cover" aria-label="Explore the Global Luxury Property Market Report"><Image src="/property/global-report-cover-20261113.jpg" width={621} height={877} sizes="(max-width:760px) 180px, 230px" alt="Global Luxury Property Market Report cover with a fictional coastal villa"/><span className="brokerage-report-illustration">Illustrative study · AI concept</span></Link><div><span className="eyebrow">Selected research / International property</span><h2 id="research-title">A wider view<br/><em>of the market.</em></h2><p>Explore the evidence behind global luxury property, from Cape Town and Europe to Dubai, London and Malta. Our illustrated report distinguishes dated observations, attributed forecasts and a conditional outlook.</p><p className="brokerage-report-meta">Research cutoff: 13 November 2026 · 27-page PDF · Registration required</p><Link className="button" href="/research/global-luxury-property-report-2026">Explore the property report <Arrow diagonal/></Link><Link className="text-link" href="/research">Browse the research library <Arrow diagonal/></Link></div></section>
- <section id="questions" className="brokerage-contact" aria-labelledby="brokerage-contact-title"><div className="wrap brokerage-contact-grid"><div><span className="eyebrow">Malta-based / An international conversation</span><h2 id="brokerage-contact-title">Tell us what<br/><em>comes next.</em></h2><p>A property purchase, a sale or a complementary asset enquiry. Start with your objectives and the information available.</p><Link className="button" href="/contact">Start a conversation <Arrow diagonal/></Link><a className="text-link" href={`mailto:${propertyBrand.email}`}>{propertyBrand.email} <Arrow diagonal/></a><p className="brokerage-contact-note">Based in Malta · Working across UK, Europe &amp; South Africa · English &amp; Afrikaans by appointment</p></div><div className="brokerage-answers"><span className="eyebrow">Before you enquire</span>{homeFaqs.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></div></section>
+ <section className="valuation-home wrap" aria-labelledby="valuation-home-title">
+  <div><span className="eyebrow">UK · Europe · South Africa / Valuation enquiries</span><h2 id="valuation-home-title">A clearer view<br/><em>of value.</em></h2>
+   <p>Compare acquisition costs for property, yachts and classic cars, or prepare a valuation brief with the evidence available.</p>
+   <Link href="/valuations#currency-converter" className="text-link">Convert currencies <Arrow diagonal/></Link>
+  </div>
+  <LandedCostPreview/>
+ </section>
+ <section id="research" className="brokerage-research wrap" aria-labelledby="research-title"><Link href="/research/global-luxury-property-report-2026" className="brokerage-report-cover" aria-label="Explore the Global Luxury Property Market Report"><Image src="/property/global-report-cover-20261113.jpg" width={621} height={877} sizes="(max-width:760px) 180px, 230px" alt="Global Luxury Property Market Report cover with an AI-created concept of a fictional coastal villa"/><span className="brokerage-report-illustration">Illustrative Dossier Study</span></Link><div><span className="eyebrow">Selected research / International property</span><h2 id="research-title">A wider view<br/><em>of the market.</em></h2><p>Explore the evidence behind global luxury property, from Cape Town and Europe to Dubai, London and Malta. Our illustrated report distinguishes dated observations, attributed forecasts and a conditional outlook.</p><p className="brokerage-report-meta">Research cutoff: 13 November 2026 · 27-page PDF · Registration required · AI-created cover concept</p><Link className="button" href="/research/global-luxury-property-report-2026">Explore the property report <Arrow diagonal/></Link><Link className="text-link" href="/research">Browse the research library <Arrow diagonal/></Link></div></section>
+ <section id="questions" className="brokerage-contact" aria-labelledby="brokerage-contact-title"><div className="wrap brokerage-contact-grid"><div><span className="eyebrow">Malta-based / An international conversation</span><h2 id="brokerage-contact-title">Tell us what<br/><em>comes next.</em></h2><p>A property purchase, a sale or a complementary asset enquiry. Start with your objectives and the information available.</p><Link className="button" href="/contact">Start a conversation <Arrow diagonal/></Link><a className="text-link" href={`mailto:${propertyBrand.email}`}>{propertyBrand.email} <Arrow diagonal/></a><div className="consultation-options">
+  <h3>Request a consultation</h3>
+  <p>Email your preferred date and local time. English and Afrikaans by appointment.</p>
+  <ul>{consultationZones.map(({zone, market}) => <li key={zone}><a href={`mailto:${propertyBrand.email}?subject=${encodeURIComponent(`Wiele consultation · ${market} (${zone})`)}`}><strong>{zone}</strong><span>{market}</span><Arrow diagonal/></a></li>)}</ul>
+  <p className="fine-print">Keep bank details and identity documents out of your initial enquiry.</p>
+ </div></div><div className="brokerage-answers"><span className="eyebrow">Before you enquire</span>{homeFaqs.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></div></section>
  </div>}

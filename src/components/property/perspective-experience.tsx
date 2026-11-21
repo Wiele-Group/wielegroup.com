@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { Arrow } from "./chrome";
+import { propertyBrand } from "@/lib/property";
 import { saveBriefDraft } from "@/lib/brief-draft";
 import { trackPropertyEvent } from "./analytics";
 
 const categories = [
- {id:"property",name:"Property",image:"/property/wiele-global-villa-20261113.webp",alt:"AI-created coastal architectural villa",description:"Residences and investment property. Our core business.",href:"/properties"},
- {id:"yachts",name:"Yachts",image:"/luxury-assets/wiele-yachts-20261113.webp",alt:"AI-created motor yacht concept",description:"Start with your cruising plans and ownership priorities.",href:"/luxury-assets/yachts"},
- {id:"classic-cars",name:"Classic cars",image:"/luxury-assets/wiele-classic-cars-20261113.webp",alt:"AI-created classic grand touring car concept",description:"Character, condition and provenance shape the conversation.",href:"/luxury-assets/classic-cars"},
+ {id:"property",name:"Property",image:"/property/wiele-global-villa-20261113.webp",alt:"AI-created coastal architectural villa"},
+ {id:"yachts",name:"Yachts",image:"/luxury-assets/wiele-yachts-20261113.webp",alt:"AI-created motor yacht concept"},
+ {id:"classic-cars",name:"Classic cars",image:"/luxury-assets/wiele-classic-cars-20261113.webp",alt:"AI-created classic grand touring car concept"},
 ] as const;
 type Category = typeof categories[number]["id"];
 
@@ -17,8 +18,8 @@ export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) 
  const stepTitle=useRef<HTMLHeadingElement>(null);
  const initialRender=useRef(true);
  const [category,setCategory]=useState<Category>("property");
- const [sceneCategory,setSceneCategory]=useState<Category>("property");
  const [briefStarted,setBriefStarted]=useState(false);
+ const [objectiveOutlined,setObjectiveOutlined]=useState(false);
  const [specifics,setSpecifics]=useState<Record<string,string>>({});
  const [step,setStep]=useState(0);
  useEffect(()=>{if(initialRender.current){initialRender.current=false;return;}stepTitle.current?.focus();},[step]);
@@ -30,14 +31,16 @@ export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) 
  const [timing,setTiming]=useState("Exploring options");
  const [transferError,setTransferError]=useState(false);
  const asset=categories.find(a=>a.id===category)!;
- const scene=categories.find(a=>a.id===sceneCategory)!;
+ const scene=categories[0];
+ const stage=step+1;
+ const readiness=Number(briefStarted)+Number(objectiveOutlined || !!country.trim())+
+  Number(!!budget.trim() || timing!=="Exploring options" || !!specifics[category]?.trim());
  const property=category==="property";
  const specificLabel=category==="yachts"?(intent==="offer"?"Yacht model, year and available records":"Cruising area, size and guests"):category==="classic-cars"?"Model, era and provenance priorities":intent==="offer"?"Property type, condition and occupancy":purpose==="income"?"Property type and investment objectives":"Property type and essential features";
  const specificHint=category==="yachts"?"For example, Mediterranean cruising for 8 guests":category==="classic-cars"?"For example, 1960s grand tourer with documented history":"For example, villa with 3 bedrooms, or an income-producing building";
  function startBrief(){if(!briefStarted)trackPropertyEvent("brief_start",{asset_category:category});setBriefStarted(true);}
- function changeStep(next:number){startBrief();setStep(next);trackPropertyEvent("brief_step",{step:String(next+1),asset_category:category,intent});}
- function chooseScene(id:Category){setSceneCategory(id);if(!briefStarted)setCategory(id);trackPropertyEvent("asset_perspective",{asset_category:id});}
- function chooseBrief(id:Category){setCategory(id);setSceneCategory(id);setTransferError(false);if(!briefStarted)trackPropertyEvent("brief_start",{asset_category:id});setBriefStarted(true);}
+ function changeStep(next:number){startBrief();if(next===2)setObjectiveOutlined(true);setStep(next);trackPropertyEvent("brief_step",{step:String(next+1),asset_category:category,intent});}
+ function chooseBrief(id:Category){setCategory(id);setTransferError(false);if(!briefStarted)trackPropertyEvent("brief_start",{asset_category:id});setBriefStarted(true);}
  const interest=property?(intent==="offer"?"marketing":"buying"):"luxury-assets";
  const query=new URLSearchParams({interest,...(property?intent==="acquire"?{focus:purpose}:{}:{asset:category,intent})});
  const directHref=`/contact?${query.toString()}`;
@@ -47,17 +50,16 @@ export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) 
   catch { event.preventDefault();setTransferError(true);trackPropertyEvent("brief_storage_error",{asset_category:category}); }
  }
  return <>
-  <section className="perspective-hero" data-experience-hero aria-labelledby="home-title">
-   <figure className="perspective-scene"><picture><source type="image/webp" srcSet={`${scene.image.replace(".webp","-640.webp")} 640w, ${scene.image.replace(".webp","-1024.webp")} 1024w, ${scene.image} 1672w`} sizes="100vw"/><Image key={scene.id} src={scene.image} alt={scene.alt} fill loading="eager" fetchPriority="high" sizes="100vw"/></picture><figcaption>Illustrative study · AI concept</figcaption></figure>
+  <section className="perspective-hero mandate-hero" data-experience-hero aria-labelledby="home-title">
+   <figure className="perspective-scene"><picture><source type="image/webp" srcSet={`${scene.image.replace(".webp","-640.webp")} 640w, ${scene.image.replace(".webp","-1024.webp")} 1024w, ${scene.image} 1672w`} sizes="100vw"/><Image key={scene.id} src={scene.image} alt={scene.alt} fill loading="eager" fetchPriority="high" sizes="100vw"/></picture><figcaption>AI-created concept · Illustrative scene</figcaption></figure>
    <div className="perspective-grid" aria-hidden="true"><span/><span/><span/></div>
-   <div className="perspective-topline"><span>Malta-based / Global luxury asset brokerage</span><span>WIELE / PERSPECTIVE 0{categories.indexOf(scene)+1}</span></div>
-   <div className="perspective-copy"><span className="perspective-kicker">South African roots. Global perspective.</span><h1 id="home-title">Exceptional assets.<br/><em>Individual ambition.</em></h1><p>Property, yachts and classic cars. For buyers and sellers in the UK, Europe and South Africa. Based in Malta.</p><div className="perspective-actions"><a className="button" href="#property-brief" onClick={startBrief}>Build your asset brief <Arrow diagonal/></a><a className="perspective-direct" href="#asset-atlas">Explore the asset categories <Arrow diagonal/></a></div></div>
-   <div className="perspective-bottom"><div className="perspective-current" aria-live="polite"><span>0{categories.indexOf(scene)+1} / {scene.name}</span><p>{scene.description}</p><Link href={scene.href}>Explore {scene.name.toLowerCase()} <Arrow diagonal/></Link></div><nav className="perspective-selector" aria-label="Explore asset perspectives">{categories.map((a,i)=><button key={a.id} type="button" aria-pressed={sceneCategory===a.id} onClick={()=>chooseScene(a.id)}><span>0{i+1}</span>{a.name}<i aria-hidden="true"/></button>)}</nav></div>
+   <div className="perspective-topline"><span>Malta-based / Global luxury asset brokerage</span><span>WIELE / PERSPECTIVE 01</span></div>
+   <div className="perspective-copy"><span className="perspective-kicker">South African roots. Global perspective.</span><h1 id="home-title">Exceptional assets.<br/><em>Individual ambition.</em></h1><p>Property, yachts and classic cars. For buyers and sellers in the UK, Europe and South Africa. Based in Malta.</p><div className="perspective-actions"><a className="button" href="#property-brief" onClick={startBrief}>Build your asset brief <Arrow diagonal/></a><a className="perspective-direct" href="#asset-atlas">Explore open dossiers <Arrow diagonal/></a></div></div>
   </section>
   {afterHero}
   <section id="property-brief" className="perspective-builder" aria-labelledby="perspective-brief-title">
    <div className="perspective-builder-heading"><div><span className="eyebrow">Wiele / Interactive brief</span><h2 id="perspective-brief-title">Your next move.<br/><em>In focus.</em></h2></div><p>Turn your preferences into a starting brief. No account required. Your choices stay in this browser until you submit an enquiry.</p></div>
-   <div className="perspective-mobile-summary" aria-label="Current brief summary"><strong>{asset.name} · {intent==="offer"?"Sale":property?purpose==="income"?"Investment":"Residence":"Acquisition"}</strong><span>{country.trim()||"Location to discuss"} · {budget.trim()?`${currency} ${budget.trim()}`:"Budget to discuss"} · {timing}</span></div>
+   <div className="perspective-mobile-summary" aria-label="Current brief summary"><strong>{asset.name} · {intent==="offer"?"Sale":property?purpose==="income"?"Investment":"Residence":"Acquisition"}</strong><span>{country.trim()||"Location to discuss"} · {budget.trim()?`${currency} ${budget.trim()}`:"Budget to discuss"} · {timing}</span><span>Wiele Algorithm readiness · {readiness} of 3 brief areas</span></div>
    <div className="perspective-workspace">
     <div className="perspective-controls"><ol className="perspective-steps" aria-label="Brief preparation steps">{["Asset","Objective","Priorities"].map((s,i)=><li key={s}><button type="button" disabled={i>step} aria-current={i===step?"step":undefined} onClick={()=>{changeStep(i);setTransferError(false);}}><span>0{i+1}</span>{s}</button></li>)}</ol>
      <div className="perspective-step-panel" key={step}>
@@ -67,11 +69,21 @@ export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) 
      </div>
      <div className="perspective-step-actions">{step>0&&<button className="perspective-back" type="button" onClick={()=>changeStep(step-1)}>← Back</button>}{step<2?<button className="button" type="button" onClick={()=>changeStep(step+1)}>Continue <Arrow/></button>:<Link className="button" href={`${directHref}&brief=prepared`} onClick={carry}>Review in the enquiry form <Arrow diagonal/></Link>}</div>
     </div>
-    <aside className="perspective-preview" aria-label="Your brief preview"><div className="perspective-preview-top"><span>YOUR PERSPECTIVE</span><span>0{step+1} / 03</span></div><div className="perspective-preview-image"><picture><source type="image/webp" srcSet={`${asset.image.replace(".webp","-640.webp")} 640w, ${asset.image.replace(".webp","-1024.webp")} 1024w, ${asset.image} 1672w`} sizes="(max-width:760px) 100vw, 40vw"/><Image src={asset.image} alt={asset.alt} fill sizes="(max-width:760px) 100vw, 40vw"/></picture><span>Illustrative study · AI concept</span></div><div className="perspective-preview-copy"><span className="eyebrow">{intent==="offer"?"For sale / Your brief":"Acquisition / Your brief"}</span><h3>{asset.name}.<br/><em>{country.trim()||"Your location."}</em></h3><dl><div><dt>Objective</dt><dd>{intent==="offer"?"Introduce for sale":property?purpose==="income"?"Investment property":"Residence":"Acquisition"}</dd></div><div><dt>{intent==="offer"?"Asking price":"Budget"}</dt><dd>{budget.trim()?`${currency} ${budget.trim()}`:"To discuss"}</dd></div><div><dt>Timing</dt><dd>{timing}</dd></div></dl>{specifics[category]?.trim()&&<p className="perspective-specific-summary"><strong>{specificLabel}</strong><br/>{specifics[category]}</p>}<p>Coverage, availability, scope, fees and responsible practitioners are confirmed individually.</p></div></aside>
+    <aside className="perspective-preview" aria-labelledby="mandate-preview-title">
+     <div className="perspective-preview-top"><h3 id="mandate-preview-title">Editorial Mandate Dossier Preview</h3><span>0{stage} / 03</span></div><div className="perspective-preview-image"><picture><source type="image/webp" srcSet={`${asset.image.replace(".webp","-640.webp")} 640w, ${asset.image.replace(".webp","-1024.webp")} 1024w, ${asset.image} 1672w`} sizes="(max-width:760px) 100vw, 40vw"/><Image src={asset.image} alt={asset.alt} fill sizes="(max-width:760px) 100vw, 40vw"/></picture><span>Illustrative Dossier Study</span></div><div className="perspective-preview-copy"><span className="eyebrow">{intent==="offer"?"For sale / Your brief":"Acquisition / Your brief"}</span><h4>{asset.name}.<br/><em>{country.trim()||"Your location."}</em></h4>
+     <p className="mandate-image-disclosure">AI-created concept · Illustrative concept · Not an asset offered for sale</p>
+     <div className="preview-readiness">
+      <p>Wiele Algorithm readiness <strong aria-live="polite">{readiness} / 3</strong></p>
+      <progress max={3} value={readiness} aria-label="Wiele Algorithm brief areas outlined"/>
+      <p>Asset, objective and priorities outlined. Verification takes place separately.</p>
+     </div><dl><div><dt>Objective</dt><dd>{intent==="offer"?"Introduce for sale":property?purpose==="income"?"Investment property":"Residence":"Acquisition"}</dd></div><div><dt>{intent==="offer"?"Asking price":"Budget"}</dt><dd>{budget.trim()?`${currency} ${budget.trim()}`:"To discuss"}</dd></div><div><dt>Timing</dt><dd>{timing}</dd></div></dl>{specifics[category]?.trim()&&<p className="perspective-specific-summary"><strong>{specificLabel}</strong><br/>{specifics[category]}</p>}<p>Coverage, availability, scope, fees and responsible practitioners are confirmed individually.</p></div></aside>
    </div>
    {transferError&&<div className="perspective-transfer" role="alert"><p>Your browser could not transfer the brief. Copy it below, then open the enquiry form.</p><label>Your prepared brief<textarea readOnly value={draft}/></label><Link className="text-link" href={directHref}>Open the enquiry form <Arrow/></Link></div>}
    <div className="perspective-builder-footer">{intent === "offer" && <Link className="text-link" href={`/seller-onboarding?asset=${category}&brief=prepared#start-onboarding`} onClick={carry}>Open the detailed seller brief <Arrow diagonal/></Link>}<p>Prefer a conversation? <Link href="/contact">Enquire directly <Arrow diagonal/></Link></p><Link href="/privacy">How your information is handled</Link></div>
-   <noscript><p>Use the <Link href="/contact">enquiry form</Link> to share your property or luxury asset requirements. The interactive builder requires JavaScript.</p></noscript>
+   <noscript>
+    <style>{".perspective-workspace, .perspective-mobile-summary, .perspective-builder-footer { display: none }"}</style>
+    <p>The interactive builder requires JavaScript. <a href={`mailto:${propertyBrand.email}`}>Email Wiele Investments</a> with an outline. Keep identity documents and banking details out of your message.</p>
+   </noscript>
   </section>
  </>;
 }

@@ -2,21 +2,42 @@ import Image from "next/image";
 import Link from "next/link";
 import { Arrow } from "./chrome";
 
-const categories = [
-  { number: "01", name: "Property", subtitle: "A place. A purpose. A perspective.", detail: "Residences & investment property", image: "/property/wiele-global-wine-estate-20261113.webp", alt: "AI-created wine estate architectural concept", href: "/properties", focus: "Location · Tenure · Income evidence" },
-  { number: "02", name: "Yachts", subtitle: "The freedom to go further.", detail: "Motor & sailing yachts", image: "/luxury-assets/wiele-yachts-20261113.webp", alt: "AI-created motor yacht concept", href: "/luxury-assets/yachts", focus: "Builder · Dimensions · Survey records" },
-  { number: "03", name: "Classic cars", subtitle: "The story is in the detail.", detail: "Classic & collector cars", image: "/luxury-assets/wiele-classic-cars-20261113.webp", alt: "AI-created classic grand touring car concept", href: "/luxury-assets/classic-cars", focus: "Provenance · Originality · Condition" },
+const dossiers = [
+  { index: "01 / Property", title: "Cape Peninsula Villa", file: "cape-villa", image: "property", alt: "AI-created concept of a coastal villa overlooking the Atlantic", specs: "5 bedrooms · 480 m² / 5,167 sq ft" },
+  { index: "02 / Yachts", title: "Ligurian Motor Yacht", file: "ligurian-yacht", image: "yacht", alt: "AI-created concept of a motor yacht under way off a Ligurian-style coast", specs: "32.40 m / 106.3 ft LOA · 4 guest cabins" },
+  { index: "03 / Classic cars", title: "Oxfordshire Coupé", file: "oxfordshire-coupe", image: "car", alt: "AI-created concept of a green classic coupé outside a stone motor house", specs: "1967 · 48,200 mi / 77,570 km indicated" },
 ] as const;
 
 export function AssetAtlas() {
   return <section id="asset-atlas" className="asset-atlas wrap" aria-labelledby="asset-atlas-title">
-    <div className="atlas-heading"><div><span className="eyebrow">Malta-based brokerage / Explore the categories</span><h2 id="asset-atlas-title">Different assets.<br/><em>One considered approach.</em></h2></div><div><p>Property at our core. A wider perspective on yachts and classic cars. Each category starts with its own questions, records and ownership priorities.</p><a className="text-link" href="#property-brief">Build your asset brief <Arrow diagonal/></a></div></div>
-    <div id="luxury-assets" className="atlas-grid" style={{ scrollMarginTop: 120 }}>{categories.map((asset, i) => <Link className={`atlas-entry${i === 0 ? " atlas-entry-primary" : ""}`} key={asset.number} href={asset.href}>
-      <div className="atlas-image"><picture><source type="image/webp" srcSet={`${asset.image.replace(".webp", "-640.webp")} 640w, ${asset.image.replace(".webp", "-1024.webp")} 1024w, ${asset.image} 1672w`} sizes={i === 0 ? "(max-width:760px) 100vw, 45vw" : "(max-width:600px) 100vw, 25vw"}/><Image src={asset.image} alt={asset.alt} fill sizes={i === 0 ? "(max-width:760px) 100vw, 45vw" : "(max-width:600px) 100vw, 25vw"}/></picture><span className="atlas-image-note">Illustrative study · AI concept</span><span className="atlas-image-index" aria-hidden="true">{asset.number}</span></div>
-      <div className="atlas-entry-heading"><div><span className="atlas-detail">{asset.detail}</span><h3>{asset.name}</h3></div><span className="atlas-arrow"><Arrow diagonal/></span></div>
-      <p className="atlas-subtitle">{asset.subtitle}</p><span className="atlas-focus">{asset.focus}</span>
-    </Link>)}</div>
-    <p className="atlas-disclosure">Wiele operates on a private, mandate-led basis rather than an open listing portal. Explore our open-access illustrative dossiers below to see how we document, verify, and present assets.</p>
+    <div className="atlas-heading">
+      <div><span className="eyebrow">Malta-based brokerage / Property · Yachts · Classic cars</span><h2 id="asset-atlas-title">Open flagship <em>dossiers.</em></h2></div>
+      <div><p>Explore the full illustrative prices, specifications, and condition and legal notes. No registration required.</p></div>
+    </div>
+    <div id="luxury-assets" className="atlas-grid">
+      {dossiers.map(dossier => <article className="atlas-entry" key={dossier.file}>
+        <a className="atlas-dossier-link" href={`/flagship-examples/${dossier.file}.html`}>
+          <div className="atlas-image">
+            <Image src={`/flagship-examples/media/${dossier.image}-small.webp`} alt={dossier.alt} sizes="(max-width: 760px) 100vw, 33vw" fill/>
+            <span className="atlas-image-note">Illustrative Dossier Study</span>
+          </div>
+          <div className="atlas-entry-copy">
+            <span className="atlas-detail">{dossier.index}</span>
+            <h3>{dossier.title}</h3>
+            <p className="atlas-example-note">Illustrative concept · Not an asset offered for sale</p>
+            <p className="atlas-example-note">AI-created concept</p>
+            <span className="atlas-dossier-action">View dossier <Arrow diagonal/></span>
+          </div>
+          <div className="atlas-specs">{dossier.specs}</div>
+        </a>
+        <div className="atlas-readiness">
+          <p>Due-Diligence Readiness <strong>0 / 5</strong></p>
+          <div className="dossier-segments" role="meter" aria-label={`${dossier.title} verified due-diligence checks`} aria-valuemin={0} aria-valuemax={5} aria-valuenow={0} aria-valuetext="0 of 5 checks supported by verified records">
+            <span/><span/><span/><span/><span/>
+          </div>
+        </div>
+      </article>)}
+    </div>
   </section>;
 }
 

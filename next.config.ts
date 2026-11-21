@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   { source: "/for-buyers", destination: "/investor-onboarding", permanent: true },
   { source: "/for-sellers", destination: "/seller-onboarding", permanent: true },
   { source: "/malta-maintenance", destination: "/property-maintenance", permanent: true },
+  { source: "/imagery-credits", destination: "/credits", permanent: true },
   { source: "/imprint", destination: "/terms", permanent: true },
  ]; },
  async headers() { return [{ source: "/:path*", headers: [
