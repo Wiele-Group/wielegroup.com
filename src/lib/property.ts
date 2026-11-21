@@ -12,7 +12,7 @@ export const propertyBrand = {
     facebook: "https://www.facebook.com/wieleinvestments/",
     linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
-  description: "Malta-based asset brokerage. Discover The Wiele Algorithm for property, yachts and classic cars: a considered approach to your next sale or purchase.",
+  description: "Malta-based brokerage for property, yachts and classic cars. Explore fictional examples, purchase guides and buyer or seller enquiries for the UK, Europe and South Africa.",
 } as const;
 
 export const propertyNavigation = [

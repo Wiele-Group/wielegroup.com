@@ -11,6 +11,7 @@ import "./property-atlas.css";
 import "./purchase-guide.css";
 import "./valuations.css";
 import "./listing-examples.css";
+import "./design-system.css";
 import { ExperienceMotion } from "@/components/property/experience-motion";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";

@@ -5,11 +5,10 @@ import type { Metadata } from "next";
 import { PageIntro, Arrow } from "@/components/property/chrome";
 import { propertyBrand, propertyMetadata } from "@/lib/property";
 import { EnquiryForm } from "@/components/property/enquiry-form";
-export const metadata: Metadata = propertyMetadata("Property & Luxury Asset Enquiries", "Contact Wiele Investments in Malta about buying or selling property, yachts or classic cars. Share your brief or email our company inbox.", "/contact");
+export const metadata: Metadata = propertyMetadata("Property & Luxury Asset Enquiries", "Share a property, yacht or classic car enquiry with Wiele Investments. Based in Malta, with client markets in the UK, Europe and South Africa.", "/contact");
 export default function Contact() {
  return <div className="contact-page">
-  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Malta-based property and luxury asset enquiries for buyers and sellers in the UK, Europe and South Africa. Tell us what you want to buy or sell, where and when." />
-  <p className="contact-email-alternative wrap">Prefer email? <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a></p>
+  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Tell us what you want to buy or sell in the UK, Europe or South Africa." />
   <section className="contact-layout wrap">
    <Suspense fallback={<p>Loading the enquiry form… Email <a href={`mailto:${propertyBrand.email}`}>{propertyBrand.email}</a>.</p>}><EnquiryForm /></Suspense>
    <aside><span className="eyebrow">Your Wiele contact</span><h2>Jonathan<br /><em>Landman.</em></h2><p>Property and premium automotive sales experience in South Africa.</p><Link className="text-link" href="/about#jonathan-landman">Background &amp; experience <Arrow diagonal /></Link>

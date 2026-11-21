@@ -10,6 +10,7 @@ const changeEvent = "wiele-consent-change";
 let loaded = false;
 let configured = false;
 let lastPage = "";
+const siteActions = new Set(["buyer_brief", "seller_brief", "valuation_brief", "currency_converter", "property_examples", "reference_jump"]);
 
 declare global {
  interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; }
@@ -34,7 +35,7 @@ function setChoice(value: "accepted" | "rejected") {
   });
  }
 }
-export function trackPropertyEvent(name: "seller_preparation" | "brief_start" | "brief_step" | "brief_transfer" | "brief_storage_error" | "asset_perspective" | "generate_lead" | "contact_click" | "report_download_click" | "algorithm_action" | "algorithm_brief_open" | "property_journey", props: Record<string,string> = {}) {
+export function trackPropertyEvent(name: "seller_preparation" | "brief_start" | "brief_step" | "brief_transfer" | "brief_storage_error" | "asset_perspective" | "generate_lead" | "contact_click" | "report_download_click" | "algorithm_action" | "algorithm_brief_open" | "property_journey" | "site_action", props: Record<string,string> = {}) {
  if (choice() !== "accepted") return;
  window.gtag?.("event", name, { ...props, send_to: measurementId });
 }
@@ -58,6 +59,7 @@ export function PropertyAnalytics() {
   if (!loaded) {
    const script = document.createElement("script"); script.async = true;
    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleTagId}`;
+   script.addEventListener("error", () => { loaded = false; script.remove(); }, { once: true });
    document.head.appendChild(script); loaded = true;
   }
   if (lastPage !== pathname) {
@@ -75,6 +77,8 @@ export function PropertyAnalytics() {
    if (journey && ["buyer", "residence", "investment", "seller", "luxury-assets"].includes(journey)) trackPropertyEvent("property_journey", { journey, page_path: window.location.pathname });
    const algorithmAction = anchor.getAttribute("data-algorithm-action");
    if (algorithmAction) trackPropertyEvent("algorithm_action", { action: algorithmAction, page_path: window.location.pathname });
+   const siteAction = anchor.getAttribute("data-site-action");
+   if (siteAction && siteActions.has(siteAction)) trackPropertyEvent("site_action", { action: siteAction, page_path: window.location.pathname });
    if (channel) trackPropertyEvent("contact_click", { contact_channel: channel });
   };
   const onToggle = (event: Event) => {

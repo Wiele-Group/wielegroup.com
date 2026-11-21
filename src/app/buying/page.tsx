@@ -12,9 +12,9 @@ const steps = [
 ];
 export default function Buying() {
  return <>
-  <PageIntro path="/buying" eyebrow="Malta-based / International property enquiries" title="Your next purchase deserves a clearer perspective." description="Malta-based property brokerage with an international outlook. A home to live in or an asset to invest in: The Wiele Algorithm starts with the purpose behind your purchase, so the conversation stays relevant to you." />
+  <PageIntro path="/buying" eyebrow="Malta-based / International property enquiries" title="Your next purchase deserves a clearer perspective." description="Malta-based property brokerage with an international outlook. A home to live in or an asset to invest in: The Wiele Algorithm starts with the purpose behind your purchase, so the conversation stays relevant to you." actions={<><a className="button" href="#buyer-briefs" data-site-action="buyer_brief">Choose your buyer brief</a><Link className="text-link" href="/purchase-guide">Explore purchase routes</Link></>} />
   <aside className="wrap"><Link className="purchase-inline-link" href="/purchase-guide">UK, European and South African property sales process, nationality and document requirements ↗</Link></aside>
-  <section className="buyer-journeys wrap" aria-label="Choose your property brief">
+  <section id="buyer-briefs" className="buyer-journeys wrap" aria-label="Choose your property brief">
    <article><span className="eyebrow">Your residence</span><h2>A home for<br /><em>the way you live.</em></h2><p>Tell us where you want to live, your budget and the features that matter: space, layout, outdoor areas, access and surroundings.</p><Link className="button" href="/contact?interest=buying&focus=residence">Discuss a residence <Arrow diagonal /></Link></article>
    <article><span className="eyebrow">Your investment</span><h2>A property.<br /><em>A clear rationale.</em></h2><p>Set out your preferred market, property type, income objectives and holding period. Assess the evidence, operating costs and downside assumptions.</p><Link className="button" href="/contact?interest=buying&focus=income">Discuss an investment <Arrow diagonal /></Link><Link className="text-link" href="/investor-onboarding">Prepare a detailed property brief <Arrow /></Link></article>
   </section>
