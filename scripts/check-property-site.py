@@ -161,6 +161,11 @@ for path in paths:
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('maintenance FAQ mismatch',item['name'])
+ if path=='/valuations':
+  assert 'id="landed-cost-estimator"' in text and 'Total landed cost' in text,(path,'transaction estimator')
+  assert 'appropriately licensed practitioners in the relevant jurisdiction' in text,(path,'estimate limits')
+ if path=='/seller-onboarding':
+  assert 'id="acquisition-mandates"' in text and 'They represent no current buyers' in text,(path,'illustrative mandates')
  if path in ['/investor-onboarding','/seller-onboarding']:
   assert 'id="start-onboarding"' in text and 'id="prepare-documents"' in text
   assert 'onboarding enquiry' in text and 'name="acknowledgement"' in text
@@ -216,6 +221,9 @@ for path in sorted(links):
   if parsed.path.endswith('.html'):
    example=Page();example.feed(data.decode('utf-8'))
    assert example.h1s==1 and b'<form' not in data and b'noindex' in data,(parsed.path,'sample access or metadata')
+   if parsed.path in ['/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html']:
+    assert b'id="readiness"' in data and b'0 of 5 checks supported by verified records' in data,(parsed.path,'fictional due-diligence record')
+
   if parsed.path.endswith('.json'):json.loads(data)
  else:
   assert parsed.path in paths or parsed.path=='/',('unexpected internal link',path)
