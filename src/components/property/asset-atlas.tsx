@@ -8,17 +8,11 @@ const dossiers = [
   { index: "03 / Classic cars", title: "Oxfordshire Coupé", file: "oxfordshire-coupe", image: "car", alt: "AI-created concept of a green classic coupé outside a stone motor house", specs: "1967 · 48,200 mi / 77,570 km indicated" },
 ] as const;
 
-export function AssetAtlas() {
-  return <section id="asset-atlas" className="asset-atlas wrap" aria-labelledby="asset-atlas-title">
-    <div className="atlas-heading">
-      <div><span className="eyebrow">Malta-based brokerage / Property · Yachts · Classic cars</span><h2 id="asset-atlas-title">Open flagship <em>dossiers.</em></h2></div>
-      <div><p>Wiele operates on a private, mandate-led basis. Explore the fictional examples in full, including prices, specifications, condition and legal notes. No registration required.</p></div>
-    </div>
-    <div id="luxury-assets" className="atlas-grid">
-      {dossiers.map(dossier => <article className="atlas-entry" key={dossier.file}>
+function AtlasDossierCard({ dossier, sizes = "(max-width: 760px) 100vw, 33vw" }: { dossier: typeof dossiers[number]; sizes?: string }) {
+  return <article className="atlas-entry">
         <a className="atlas-dossier-link" href={`/flagship-examples/${dossier.file}.html`}>
           <div className="atlas-image">
-            <Image src={`/flagship-examples/media/${dossier.image}-small.webp`} alt={dossier.alt} sizes="(max-width: 760px) 100vw, 33vw" fill/>
+            <Image src={`/flagship-examples/media/${dossier.image}-small.webp`} alt={dossier.alt} sizes={sizes} fill/>
             <span className="atlas-image-note">Illustrative Dossier Study</span>
           </div>
           <div className="atlas-entry-copy">
@@ -36,7 +30,29 @@ export function AssetAtlas() {
             <span/><span/><span/><span/><span/>
           </div>
         </div>
-      </article>)}
+      </article>;
+}
+
+export function BuyerAssetDossiers() {
+  return <section className="asset-atlas buyer-asset-dossiers wrap" aria-labelledby="buyer-asset-dossiers-title">
+    <div className="atlas-heading">
+      <div><span className="eyebrow">Beyond property</span><h2 id="buyer-asset-dossiers-title">Yachts <em>and classic cars.</em></h2></div>
+      <div><p>Explore two open dossiers with illustrative prices, specifications and condition records.</p><Link className="text-link" href="/luxury-assets">Explore luxury assets <Arrow diagonal/></Link></div>
+    </div>
+    <div className="atlas-grid">
+      {dossiers.slice(1).map(dossier => <AtlasDossierCard key={dossier.file} dossier={dossier} sizes="(max-width: 760px) 100vw, 50vw"/>)}
+    </div>
+  </section>;
+}
+
+export function AssetAtlas() {
+  return <section id="asset-atlas" className="asset-atlas wrap" aria-labelledby="asset-atlas-title">
+    <div className="atlas-heading">
+      <div><span className="eyebrow">Malta-based brokerage / Property · Yachts · Classic cars</span><h2 id="asset-atlas-title">Open flagship <em>dossiers.</em></h2></div>
+      <div><p>Wiele operates on a private, mandate-led basis. Explore the fictional examples in full, including prices, specifications, condition and legal notes. No registration required.</p></div>
+    </div>
+    <div id="luxury-assets" className="atlas-grid">
+      {dossiers.map(dossier => <AtlasDossierCard key={dossier.file} dossier={dossier}/>)}
     </div>
   </section>;
 }

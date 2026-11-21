@@ -145,6 +145,11 @@ for path in paths:
   assert all(route in p.links for route in ['/flagship-examples/cape-villa.html','/legal-guide','/valuations#landed-cost-estimator','/malta-maintenance']),(path,'dossier and reference links')
   assert 'Illustrative concept · Not an asset offered for sale.' in text and 'AI-created concept' in text,(path,'fictional asset and imagery disclosures')
   assert not any(t in types for t in ['RealEstateListing','Offer','Product']),(path,'collection must not imply live inventory')
+ if path=='/buying':
+  assert 'Private acquisition mandates' in text and 'Appropriately licensed practitioners' in text,(path,'mandate scope')
+  assert all(route in p.links for route in ['/properties','/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html','/valuations#landed-cost-estimator']),(path,'open dossiers and acquisition tools')
+  assert '<figcaption class="page-intro-study-badge">Illustrative Dossier Study</figcaption>' in text,(path,'single hero badge')
+  assert 'id="buyer-briefs"' in text and '/contact?interest=buying&amp;brief=prepared' in text,(path,'local quick-start handoff')
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')

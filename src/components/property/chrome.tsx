@@ -24,8 +24,8 @@ export function ContactBand() {
  return <section className="contact-band"><div className="wrap band-inner"><div><span className="eyebrow">Global assets. Individual ambitions.</span><h2>Your next chapter.<br /><em>Whatever you have in mind.</em></h2></div><Link className="button button-light" href="/contact">Start a conversation <Arrow diagonal /></Link></div></section>;
 }
 export function PageIntro({ eyebrow, title, description, path, actions }: { eyebrow: string; title: string; description: string; path?: string; actions?: React.ReactNode }) {
- const scenes: Record<string, { image: string; label: string; ordinal: string }> = {
-  "/buying": { image: "wiele-global-apartment-20261113.webp", label: "Interior study · AI-created concept", ordinal: "01 / The buyer perspective" },
+ const scenes: Record<string, { image: string; label: string; ordinal: string; badge?: string }> = {
+  "/buying": { image: "wiele-global-apartment-20261113.webp", label: "AI-created concept of a fictional residence interior", badge: "Illustrative Dossier Study", ordinal: "01 / The buyer perspective" },
   "/selling": { image: "wiele-global-residences-20261113.webp", label: "Architecture study · AI-created concept", ordinal: "02 / The owner perspective" },
   "/about": { image: "wiele-global-villa-20261113.webp", label: "Architectural villa · AI-created concept", ordinal: "03 / Our global perspective" },
   "/properties": { image: "wiele-global-wine-estate-20261113.webp", label: "Wine estate · AI-created concept", ordinal: "01 / Property" },
@@ -34,6 +34,6 @@ export function PageIntro({ eyebrow, title, description, path, actions }: { eyeb
  return <section className={`page-intro wrap ${scene ? "page-intro-spatial" : ""}`}>
   {path && <PageStructuredData path={path} title={title} description={description} />}
   <div className="page-intro-copy"><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p>{actions && <div className="button-row page-intro-actions">{actions}</div>}</div>
-  {scene && <figure className="page-intro-scene"><Image src={`/property/${scene.image}`} alt={`${scene.label}; not a property offered for sale`} fill sizes="(max-width: 760px) 100vw, 40vw" priority /><figcaption>{scene.label}<span>{"Not a property offered for sale"}</span></figcaption><span className="page-intro-ordinal" aria-hidden="true">{scene.ordinal}</span></figure>}
+  {scene && <figure className="page-intro-scene"><Image src={`/property/${scene.image}`} alt={`${scene.label}; not a property offered for sale`} fill sizes="(max-width: 760px) 100vw, 40vw" priority /><figcaption className={scene.badge ? "page-intro-study-badge" : undefined}>{scene.badge ?? <>{scene.label}<span>Not a property offered for sale</span></>}</figcaption><span className="page-intro-ordinal" aria-hidden="true">{scene.ordinal}</span></figure>}
  </section>;
 }
