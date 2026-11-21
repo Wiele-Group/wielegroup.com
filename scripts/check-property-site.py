@@ -144,6 +144,10 @@ for path in paths:
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('asset FAQ mismatch',item['name'])
+ if path=='/research':
+  assert text.count('<section class="research-observations"')==2 and text.count('<span class="atlas-image-note">Illustrative Dossier Study</span>')==2,(path,'two observations previews and cover badges')
+  assert all(route in p.links for route in ['/research/global-luxury-property-report-2026#register','/malta-investment-report#register','/articles','/luxury-assets','/legal-guide','/valuations#landed-cost-estimator']),(path,'report registration, research and tools links')
+  assert all(phrase in text.replace('<!-- -->','') for phrase in ['2026-11-13','2026-11-02','27-page PDF','16-page PDF']),(path,'cutoffs and page counts')
  if path=='/properties':
   assert len(re.findall(r'<article class="property-study(?: property-study-flagship)?">',text))==6,(path,'six visible server-rendered studies')
   assert len(re.findall(r'<time datetime="2026-11-20">',text,re.I))==6 and text.count('aria-valuetext="0 of 5 checks supported by verified records"')==6,(path,'dated FX and verified evidence')
