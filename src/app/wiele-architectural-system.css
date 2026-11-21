@@ -504,3 +504,45 @@ h1,h2,.editorial-heading { color:inherit; }
  .luxury-editorial-hero,.luxury-dossier-heading,.luxury-dossier-section .atlas-grid,.luxury-cross-border-grid { grid-template-columns: minmax(0,1fr); }
  .luxury-editorial-hero figure { min-height: 0; aspect-ratio: 4 / 3; }
 }
+
+/* Purchase guide directory and transaction checkpoints. */
+.jurisdiction-directory { margin-top: 26px; border: 1px solid var(--line); background: var(--wiele-canvas-elevated); }
+.jurisdiction-controls { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 14px 24px; padding: clamp(14px,2.5vw,26px); background: var(--surface); }
+.jurisdiction-controls label,.jurisdiction-controls legend { display: block; margin-bottom: 7px; font: 600 .75rem/1.5 var(--font-mono); }
+.jurisdiction-controls fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.jurisdiction-search input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid var(--wiele-hairline-strong); background: var(--wiele-canvas-elevated); color: var(--ink); font: inherit; }
+.jurisdiction-feedback { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; grid-column: 1 / -1; gap: 4px 16px; border-top: 1px solid var(--line); }
+.jurisdiction-feedback p { margin: 8px 0; font: 500 .76rem/1.6 var(--font-mono); color: var(--muted); }
+.jurisdiction-feedback button { padding-inline: 0; background: none; cursor: pointer; font: inherit; font-size: .8rem; }
+.jurisdiction-feedback button:disabled { visibility: hidden; }
+.jurisdiction-results { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr) minmax(0,1fr) minmax(0,1fr); gap: clamp(12px,2vw,24px); padding: clamp(14px,2.5vw,26px); }
+.jurisdiction-results[data-filtered="true"] { grid-template-columns: repeat(auto-fit,minmax(min(100%,230px),1fr)); }
+.jurisdiction-results:empty { display: none; }
+.jurisdiction-group { min-width: 0; overflow-wrap: anywhere; }
+.jurisdiction-group h3 { min-height: 44px; margin: 0; padding-bottom: 8px; color: var(--wiele-bronze-ink); font: 600 .76rem/1.6 var(--font-mono); }
+.corridor-tag { display: block; width: fit-content; max-width: 100%; margin: 3px 0 0; padding: 2px 5px; color: var(--wiele-bronze-ink); background: var(--wiele-bronze-subtle); font: 500 .67rem/1.4 var(--font-mono); }
+.jurisdiction-group ul { margin: 0; padding: 0; list-style: none; }
+.jurisdiction-group[data-region="EU"] ul { columns: 2; column-gap: 14px; }
+.jurisdiction-group li { break-inside: avoid; }
+.jurisdiction-group a { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; min-height: 44px; padding: 4px 0; font-size: .84rem; }
+.purchase-transaction-tools { margin-top: 24px; padding: clamp(16px,3vw,36px); border: 1px solid var(--line); background: var(--surface); }
+.purchase-tool-links { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.purchase-tool-links a { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 7px 16px; padding: clamp(14px,2vw,24px); min-width: 0; border: 1px solid var(--line); background: var(--wiele-canvas-elevated); }
+.purchase-tool-links strong { font: 500 clamp(23px,2.6vw,35px)/1.1 var(--font-editorial); }
+.purchase-tool-copy { display: grid; min-width: 0; gap: 7px; }
+.purchase-tool-copy > span { font-size: .82rem; line-height: 1.6; color: var(--muted); }
+.purchase-tool-links svg { flex-shrink: 0; }
+.seller-disposal .purchase-card { background: var(--wiele-canvas-elevated); }
+.seller-disposal .purchase-source { display: inline-flex; align-items: center; min-height: 44px; gap: 8px; color: var(--wiele-bronze-ink); }
+.seller-disposal .purchase-source svg { flex-shrink: 0; width: 14px; }
+.disposal-source-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.purchase-asset-links { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.purchase-asset-links .text-link { display: flex; width: fit-content; min-height: 44px; }
+@media (max-width: 900px) {
+ .jurisdiction-results { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .jurisdiction-controls { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 600px) {
+ .jurisdiction-results,.jurisdiction-results[data-filtered="true"],.purchase-tool-links,.purchase-asset-links { grid-template-columns: minmax(0,1fr); }
+ .jurisdiction-feedback button { padding-left: 0; }
+}

@@ -105,7 +105,7 @@ for path in paths:
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
  if path.startswith('/purchase-guide'):
   assert 'FAQPage' in types and 'Service' not in types and 'LegalService' not in types,(path,'purchase guide schema')
-  assert '2026-11-15' in text,(path,'research date missing')
+  assert ('2026-11-21' if path=='/purchase-guide' else '2026-11-15') in text,(path,'research date missing')
   if path!='/purchase-guide':assert 'Coverage' in text,(path,'coverage limits missing')
   else:assert '35 jurisdictions' in text,(path,'destination count missing')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
@@ -123,7 +123,10 @@ for path in paths:
    for stage in process['stages']:
     assert stage['text'] in visible and stage['kind'] in visible,(path,'stage content missing')
   if path=='/purchase-guide':
-   assert all('/purchase-guide/'+j['slug'] in text for j in jurisdictions),'destination menu incomplete'
+   assert all('/purchase-guide/'+j['slug'] in p.links for j in jurisdictions),'destination menu incomplete'
+   assert 'id="country-search"' in text and text.count('<span class="corridor-tag">Primary Corridor</span>')==7,(path,'search and primary corridors')
+   assert all(route in p.links for route in ['/legal-guide','/valuations#landed-cost-estimator','/selling','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html']),(path,'transaction tools and dossiers')
+   assert text.index('class="purchase-steps"')<text.index('id="transaction-tools"')<text.index('id="selling-across-borders"'),(path,'transaction guidance order')
  if path.startswith('/luxury-assets/'):
   assert 'FAQPage' in types and 'Product' not in types and 'Offer' not in types,(path,'guide schema')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
