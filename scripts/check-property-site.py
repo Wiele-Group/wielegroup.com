@@ -215,9 +215,10 @@ for path in sorted(links):
   example=Page();example.feed(data.decode('utf-8'))
   assert example.meta.get('robots')=='noindex' and example.h1s==1,'example document indexing/heading'
   assert b'Example only' in data and b'Unverified' in data and b'No return is promised' in data,'example evidence boundaries'
- elif parsed.path=='/legal-guide':
+ elif parsed.path in {'/legal-guide', '/imagery-credits'}:
+  destination={'/legal-guide':'/legal-compliance/cross-border','/imagery-credits':'/credits'}[parsed.path]
   status,headers,_=get(parsed.path)
-  assert status==308 and urlparse(headers.get('Location','')).path=='/legal-compliance/cross-border',(parsed.path,'direct matrix alias')
+  assert status==308 and urlparse(headers.get('Location','')).path==destination,(parsed.path,'canonical route alias')
  elif parsed.path.startswith(('/flagship-examples/', '/reference-data/')):
   status,headers,data=get(parsed.path);assert status==200,(parsed.path,status)
   if parsed.path.endswith('.html'):
