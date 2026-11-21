@@ -10,13 +10,16 @@ const onboardingSource=fs.readFileSync('src/lib/property-onboarding.ts','utf8');
 const onboardingCompiled=ts.transpileModule(onboardingSource,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const onboardingExports={};
 vm.runInNewContext(onboardingCompiled,{exports:onboardingExports,require:(name)=>{if(name==='zod')return zod;throw new Error(name);}});
+const mandateCompiled=ts.transpileModule(fs.readFileSync('src/schemas/assetMandateIntake.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const mandateExports={};
+vm.runInNewContext(mandateCompiled,{exports:mandateExports,require:(name)=>{if(name==='zod')return zod;throw new Error(name);}});
 const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const valid={name:'Website QA',email:'qa@example.invalid',phone:'',interest:'general',message:'Synthetic test of the enquiry workflow.',website:'',token:'synthetic-test-token'};
 function setup({storageFails=false,verification=true,notificationFails=false,configured=true}={}){
  const records=[];const calls=[];
  const env=configured?{AUDIT_QUEUE:{async put(key,value,opts){if(storageFails)throw new Error('unavailable');records.push({key,value:JSON.parse(value),opts});}},TURNSTILE_SECRET_KEY:'synthetic-secret',RESEND_API_KEY:'synthetic-secret'}:{};
  const exports={};
- vm.runInNewContext(compiled,{exports,require:(name)=>{if(name==='next/server')return{NextResponse:{json:(data,opts)=>new Response(JSON.stringify(data),{...opts,headers:{'Content-Type':'application/json',...opts.headers}})}};if(name==='@opennextjs/cloudflare')return{getCloudflareContext:()=>({env})};if(name==='zod')return zod;if(name==='@/lib/property-onboarding')return onboardingExports;throw new Error('Unexpected import '+name);},Request,Response,URL,URLSearchParams,AbortSignal,crypto:webcrypto,console:{error:()=>{}},fetch:async(url,opts)=>{calls.push({url,opts});return url.includes('siteverify')?new Response(JSON.stringify({success:verification,hostname:'wielegroup.com'}),{status:200}):new Response(JSON.stringify(notificationFails?{error:'unavailable'}:{id:'synthetic-id'}),{status:notificationFails?503:200});}});
+ vm.runInNewContext(compiled,{exports,require:(name)=>{if(name==='next/server')return{NextResponse:{json:(data,opts)=>new Response(JSON.stringify(data),{...opts,headers:{'Content-Type':'application/json',...opts.headers}})}};if(name==='@opennextjs/cloudflare')return{getCloudflareContext:()=>({env})};if(name==='zod')return zod;if(name==='@/lib/property-onboarding')return onboardingExports;if(name==='@/schemas/assetMandateIntake')return mandateExports;throw new Error('Unexpected import '+name);},Request,Response,URL,URLSearchParams,AbortSignal,crypto:webcrypto,console:{error:()=>{}},fetch:async(url,opts)=>{calls.push({url,opts});return url.includes('siteverify')?new Response(JSON.stringify({success:verification,hostname:'wielegroup.com'}),{status:200}):new Response(JSON.stringify(notificationFails?{error:'unavailable'}:{id:'synthetic-id'}),{status:notificationFails?503:200});}});
  const post=(body=valid,origin='https://wielegroup.com',contentType='application/json')=>exports.POST(new Request('https://wielegroup.com/api/enquiry',{method:'POST',headers:{Origin:origin,'Content-Type':contentType},body:JSON.stringify(body)}));
  return{post,records,calls};
 }
@@ -44,3 +47,61 @@ test('onboarding never reports success after storage failure and survives notifi
 
 test('luxury asset categories and acquisition or sale purpose persist and route to the existing inbox',async()=>{for(const assetCategory of ['yachts','classic-cars'])for(const assetIntent of ['acquire','offer']){const s=setup();const r=await s.post({...valid,interest:'luxury-assets',assetCategory,assetIntent});assert.equal(r.status,202);const record=s.records[0].value.submission;assert.equal(record.assetCategory,assetCategory);assert.equal(record.assetIntent,assetIntent);const sent=JSON.parse(s.calls[1].opts.body);assert.equal(sent.subject,`Luxury asset enquiry · ${assetCategory} · ${assetIntent}`);assert.ok(sent.text.includes(`Asset category: ${assetCategory}`));assert.ok(sent.text.includes(`Asset enquiry: ${assetIntent}`));assert.deepEqual(sent.to,['admin@wielegroup.com']);}});
 test('invalid or misrouted luxury asset classifications are rejected before verification or storage',async()=>{for(const extra of [{interest:'luxury-assets'},{interest:'luxury-assets',assetCategory:'aircraft'},{interest:'luxury-assets',assetCategory:'unknown',assetIntent:'acquire'},{interest:'luxury-assets',assetCategory:'yachts',assetIntent:'charter'},{interest:'buying',assetCategory:'aircraft',assetIntent:'acquire'},{interest:'luxury-assets',assetCategory:'aircraft',assetIntent:'offer',onboarding:investorOnboarding}]){const s=setup();assert.equal((await s.post({...valid,...extra})).status,400);assert.equal(s.calls.length,0);assert.equal(s.records.length,0);}});
+
+const mandate = category => ({
+ details: {
+  assetCategory:category, jurisdiction:'UK', currency:'GBP', priceDisplayMode:'POA', saleTiming:'3–6 months', assetLocation:'United Kingdom',
+  recordsOnFile:Object.fromEntries(Object.keys(mandateExports.mandateRecords[category]).map((key,index)=>[key,index===0])),
+ },
+ acknowledgement:true,
+});
+
+test('all three structured mandates route, save normalised details and notify with declared evidence',async()=>{
+ for (const category of ['PROPERTY','YACHT','CLASSIC_CAR']) {
+  const s=setup();
+  const payload=mandate(category);
+  const route=mandateExports.mandateEnquiryRoute(category);
+  const response=await s.post({...valid,...route,mandate:payload});
+  assert.equal(response.status,202);
+  assert.equal(s.records.length,1);
+  assert.deepEqual(s.records[0].value.submission.mandate,payload);
+  const mail=JSON.parse(s.calls[1].opts.body);
+  assert.match(mail.subject,/Seller mandate intake/);
+  assert.match(mail.text,/Seller-reported records held \(1\/5\)/);
+  assert.match(mail.text,/Independently verified records: none at intake/);
+ }
+});
+
+test('invalid price mode, foreign record keys, cross-asset fields, and mixed routes fail before verification',async()=>{
+ const payload=mandate('YACHT');
+ const variants=[
+  {mandate:{...payload,details:{...payload.details,priceDisplayMode:'GUIDE_RANGE',askingPrice:120,guidePriceUpper:100}}},
+  {mandate:{...payload,details:{...payload.details,recordsOnFile:{...payload.details.recordsOnFile,identityDocument:true}}}},
+  {mandate:{...payload,details:{...payload.details,bedrooms:7}}},
+  {mandate:{...payload,details:{...payload.details,berthLeaseExpiryYear:2038}}},
+  {mandate:payload,assetCategory:'classic-cars'},
+ ];
+ for(const variant of variants){
+  const s=setup();
+  assert.equal((await s.post({...valid,...mandateExports.mandateEnquiryRoute('YACHT'),...variant})).status,400);
+  assert.equal(s.calls.length,0);
+ }
+});
+
+test('metric canonical intake, dated FX, and readiness stay distinct from verification',()=>{
+ const form = new FormData();
+ const seed = mandate('CLASSIC_CAR').details;
+ form.set('mandateCategory','CLASSIC_CAR');
+ for (const [key,value] of Object.entries(seed)) if (typeof value === 'string' && key !== 'assetCategory') form.set('mandate-'+key,value);
+ form.set('mandate-odometerReading','10000');
+ form.set('unit-distance','alternate');
+ form.set('mandate-referenceRateDate','2026-11-20');
+ form.set('record-registrationTitleDocument','on');
+ const result=mandateExports.readMandateForm(form);
+ assert.equal(result.success,true);
+ assert.equal(result.data.odometerReading,16093.44);
+ assert.equal(result.data.odometerUnit,'KM');
+ const readiness=mandateExports.recordsReadiness('CLASSIC_CAR',result.data.recordsOnFile);
+ assert.equal(readiness.availablePercent,20);
+ assert.equal(readiness.verifiedPercent,0);
+});

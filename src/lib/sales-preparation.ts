@@ -3,14 +3,15 @@ export { assetClasses };
 export type SalesCategory = keyof typeof assetClasses;
 export const salesCategories = Object.keys(assetClasses) as SalesCategory[];
 export type SalesIntake = { category: SalesCategory; location: string; specification: string; price: string; currency: string; authority: string; liquidity: string; timing: string; privacy: string; evidence: string[] };
-export function prepareSalesBrief(input: SalesIntake) {
+export function prepareSalesBrief(input: SalesIntake, recordLabels?: readonly string[]) {
  const asset=assetClasses[input.category];
  if(!asset)throw new Error("Choose a supported asset category.");
  const text=(value:string,max:number)=>value.trim().slice(0,max);
  const location=text(input.location,120),specification=text(input.specification,500),rawPrice=text(input.price,60);
  const price=/[1-9]/.test(rawPrice)?rawPrice:"";
- const available=asset.evidence.filter(value=>input.evidence.includes(value));
- const missing=asset.evidence.filter(value=>!available.includes(value));
+ const evidence = recordLabels ?? asset.evidence;
+ const available=evidence.filter(value=>input.evidence.includes(value));
+ const missing=evidence.filter(value=>!available.includes(value));
  const questions:string[]=[];
  if(!location)questions.push("Where is the asset located, and which jurisdiction will govern the sale?");
  if(!specification)questions.push(`What are the exact ${asset.name.toLowerCase()} specifications, condition and key value drivers?`);

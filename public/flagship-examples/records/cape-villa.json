@@ -204,5 +204,14 @@
       "CHF": "0.9223"
     },
     "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+  },
+  "readiness": {
+    "verifiedRecords": {
+      "titleDeedOrLandRegistryExtract": false,
+      "approvedArchitecturalPlans": false,
+      "epcAndComplianceCertificates": false,
+      "bodyCorporateOrHOAFinancials": false,
+      "verifiedRentalAndExpenseLedger": false
+    }
   }
 }

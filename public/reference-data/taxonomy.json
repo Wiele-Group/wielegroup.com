@@ -1078,6 +1078,336 @@
         }
       ],
       "sources": []
+    },
+    {
+      "asset": "all",
+      "key": "price-display-mode",
+      "label": "Price display mode",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "EXACT",
+          "label": "Exact asking price",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "GUIDE_RANGE",
+          "label": "Guide range",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "POA",
+          "label": "Price on application",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "property",
+      "key": "occupancy",
+      "label": "Occupancy",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "OWNER_OCCUPIED",
+          "label": "Owner occupied",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "VACANT_POSSESSION",
+          "label": "Vacant possession",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "TENANTED_LEASED",
+          "label": "Tenanted leased",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "property",
+      "key": "epc-rating",
+      "label": "Energy performance rating",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "A",
+          "label": "A",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "E",
+          "label": "E",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "F",
+          "label": "F",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "G",
+          "label": "G",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "EXEMPT",
+          "label": "Exempt",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "yacht-type",
+      "label": "Yacht type",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "MOTOR_YACHT",
+          "label": "Motor yacht",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "SAILING_YACHT",
+          "label": "Sailing yacht",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "EXPLORER_EXPEDITION",
+          "label": "Explorer expedition",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "CATAMARAN",
+          "label": "Catamaran",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "CLASSIC_GENTLEMANS_YACHT",
+          "label": "Classic gentlemans yacht",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "classification-society",
+      "label": "Classification society",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "LLOYDS",
+          "label": "Lloyds",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "RINA",
+          "label": "RINA",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "ABS",
+          "label": "ABS",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "DNV",
+          "label": "DNV",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "BUREAU_VERITAS",
+          "label": "Bureau veritas",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "NONE_CE_RCD",
+          "label": "No class society / CE RCD",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "yacht",
+      "key": "vat-status",
+      "label": "Reported VAT or customs status",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "EU_VAT_PAID",
+          "label": "EU VAT-paid",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "UK_VAT_PAID",
+          "label": "UK VAT-paid",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "VAT_NOT_PAID_EX_VAT",
+          "label": "VAT not paid / ex VAT",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "EU_TEMPORARY_ADMISSION",
+          "label": "EU Temporary Admission",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "classic-car",
+      "key": "transmission",
+      "label": "Transmission",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "MANUAL",
+          "label": "Manual",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "AUTOMATED_MANUAL_F1",
+          "label": "Automated manual / F1",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "AUTOMATIC",
+          "label": "Automatic",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "classic-car",
+      "key": "condition-grade",
+      "label": "Condition grade",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "CONCOURS_1",
+          "label": "Concours 1",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "EXCELLENT_2",
+          "label": "Excellent 2",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "DRIVER_3",
+          "label": "Driver 3",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "PRESERVATION_UNRESTORED",
+          "label": "Preservation unrestored",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "RESTORATION_PROJECT",
+          "label": "Restoration project",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "classic-car",
+      "key": "factory-certification",
+      "label": "Factory or historic certification",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "FERRARI_CLASSICHE_RED_BOOK",
+          "label": "Ferrari Classiche Red Book",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "PORSCHE_COA_CLASSIC_TECHNICAL",
+          "label": "Porsche coa classic technical",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "ASTON_MARTIN_HERITAGE",
+          "label": "Aston martin heritage",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "MERCEDES_CLASSIC_EXPERTISE",
+          "label": "Mercedes classic expertise",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "FIA_HISTORIC_TECHNICAL_PASSPORT",
+          "label": "FIA Historic Technical Passport",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "NONE",
+          "label": "NONE",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "asset": "classic-car",
+      "key": "matching-engine",
+      "label": "Matching-numbers engine status",
+      "kind": "filter",
+      "help": "Use the evidence status and scope supplied with the public listing record. An intake selection is a seller declaration.",
+      "options": [
+        {
+          "value": "VERIFIED_MATCHING",
+          "label": "Verified matching",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "PERIOD_CORRECT_REPLACEMENT",
+          "label": "Period correct replacement",
+          "scope": "UK, EU and South Africa"
+        },
+        {
+          "value": "UNVERIFIED",
+          "label": "Unverified",
+          "scope": "UK, EU and South Africa"
+        }
+      ],
+      "sources": []
     }
   ],
   "specificationFields": {

@@ -37,3 +37,18 @@
 .mandate-score strong { color:var(--ink); font-variant-numeric:tabular-nums; }
 .acquisition-mandates > .text-link { min-height:44px; }
 @media(max-width:850px) { .acquisition-mandates-grid { grid-template-columns:minmax(0,1fr); } }
+
+.mandate-fields { min-width:0; }
+.mandate-category,.mandate-unit { display:grid; gap:6px; }
+.mandate-step { border-top:1px solid var(--line); }
+.mandate-step:last-of-type { border-bottom:1px solid var(--line); }
+.mandate-step > summary { min-height:48px; padding:12px 0; cursor:pointer; font-weight:650; overflow-wrap:anywhere; }
+.mandate-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 16px; }
+.mandate-grid .form-field,.mandate-fields select,.mandate-grid input,.mandate-grid textarea { min-width:0; }
+.mandate-fields select,.mandate-grid input,.mandate-grid textarea { width:100%; min-height:44px; }
+.mandate-records .onboarding-acknowledgement { min-height:44px; padding-block:8px; }
+.mandate-records input[type="checkbox"] { accent-color:var(--forest); }
+.mandate-readiness { margin:14px 0 20px; padding:12px 14px; background:var(--editorial-paper,#eeeae2); color:var(--ink); }
+.mandate-readiness meter { display:block; width:100%; height:16px; accent-color:var(--forest); }
+.mandate-readiness p { margin:6px 0; }
+@media (max-width:650px) { .mandate-grid { grid-template-columns:minmax(0,1fr); } }

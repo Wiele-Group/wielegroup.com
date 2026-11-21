@@ -35,13 +35,13 @@ export const onboardingContent = {
     ],
   },
   seller: {
-    title: "International Property Seller Brief", description: "International property seller onboarding: share your country, property brief and document status. Marketing scope and local professional requirements are agreed separately.",
-    eyebrow: "Global property sales / Seller onboarding", heading: "Your property.", emphasis: "Prepared with purpose.",
-    introduction: "Property marketing begins with the country, a clear brief and reliable particulars. Tell us about your property and agree the scope before advertising starts. The legal preparation notes below relate specifically to Malta.",
-    formTitle: "Introduce your property.",
+    title: "Property, Yacht & Classic Car Seller Intake", description: "Prepare a private asset brief with specifications, pricing and a record checklist for the UK, Europe and South Africa.",
+    eyebrow: "UK · Europe · South Africa / Seller onboarding", heading: "Your asset.", emphasis: "Prepared with purpose.",
+    introduction: "Introduce a property, yacht or classic car. Begin with its location, key particulars and the evidence you can provide for separate review. The Malta property preparation notes below apply to that market.",
+    formTitle: "Introduce your asset.",
     steps: [
-      ["01 / Your property", "Start with the facts.", "Share the country, locality, property type, tenure, occupancy, document status and timing. Flag known defects, disputes, leases and any existing agency instruction."],
-      ["02 / Preparation", "Bring the evidence together.", "Confirm who can instruct the sale. Prepare ownership, authority, planning and energy-performance information, alongside supported income and cost records where relevant."],
+      ["01 / Your asset", "Start with the facts.", "Share the country, category, key specifications and proposed timing. Flag known issues and existing instructions for discussion."],
+      ["02 / Preparation", "Bring the evidence together.", "Confirm who can instruct the sale. Prepare title and condition evidence for property, registry and survey records for yachts, or registration and provenance for collector cars."],
       ["03 / Agreed instruction", "Set the terms clearly.", "Agree the marketing scope, fees, VAT where applicable, duration, exclusivity and practitioner involvement in writing. Advertising follows the required checks and authority."],
     ],
     checks: [
@@ -51,10 +51,10 @@ export const onboardingContent = {
       { title: "Identity, terms and completion", body: "Relevant subject persons complete their own customer, representative, beneficial-owner and risk checks. Your notary or advocate should review title, contract conditions, tax treatment and filing obligations. Agree agency or marketing fees and any applicable VAT separately; an enquiry creates no commission obligation or sale contract.", sources: ["aml", "procedures", "contract"] },
     ],
     faqs: [
-      { question: "Does the seller form appoint Wiele to sell my property?", answer: "No. It is an initial enquiry. Authority, service scope, fees, any applicable VAT, duration, exclusivity and practitioner involvement must be agreed separately in writing before the relevant work begins." },
+      { question: "Does the seller form appoint Wiele to sell my asset?", answer: "No. It is an initial enquiry. Authority, service scope, fees, any applicable VAT, duration, exclusivity and practitioner involvement must be agreed separately in writing before the relevant work begins." },
       { question: "Do I need an EPC before advertising my Malta property?", answer: "Where no valid EPC exists, BCA guidance requires one to be commissioned before the building is put on the market. The energy rating must appear in commercial advertising where available, following the applicable BCA requirements. Have an accredited assessor confirm any exemption for your property." },
       { question: "Can I submit a property with tenants or missing paperwork?", answer: "Yes, you can make an initial enquiry and identify what remains unresolved. Disclose occupancy, leases, missing documents and known issues. Marketing readiness and the transaction route depend on the evidence and professional review; submission does not establish clear title or planning conformity." },
-      { question: "Which documents should I send with my seller brief?", answer: "Do not send documents through this public form. Start with the locality and a summary. Ownership, authority, EPC, planning and income records can be requested separately through an agreed process. Redact tenant personal information from initial working copies." },
+      { question: "Which documents should I send with my seller brief?", answer: "Do not send documents through this public form. Start with the asset location and mark which records you hold. Wiele will agree a separate secure process for checking ownership, authority, condition and other evidence." },
     ],
   },
 } as const;

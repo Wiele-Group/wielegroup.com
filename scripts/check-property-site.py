@@ -166,6 +166,8 @@ for path in paths:
   assert 'appropriately licensed practitioners in the relevant jurisdiction' in text,(path,'estimate limits')
  if path=='/seller-onboarding':
   assert 'id="acquisition-mandates"' in text and 'They represent no current buyers' in text,(path,'illustrative mandates')
+  assert all(phrase in text for phrase in ['01 Core Identity','Technical &amp; Structural Specs','Legal, Tax &amp; Provenance','Financial &amp; Commercial Terms','seller-reported record coverage']),(path,'structured seller intake')
+  assert 'type="file"' not in text and 'passport and identity documents' in text,(path,'private document guardrails')
  if path in ['/investor-onboarding','/seller-onboarding']:
   assert 'id="start-onboarding"' in text and 'id="prepare-documents"' in text
   assert 'onboarding enquiry' in text and 'name="acknowledgement"' in text

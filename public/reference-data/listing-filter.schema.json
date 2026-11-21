@@ -166,6 +166,44 @@
                   "illustrative"
                 ]
               }
+            },
+            "occupancy": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "OWNER_OCCUPIED",
+                  "VACANT_POSSESSION",
+                  "TENANTED_LEASED"
+                ]
+              }
+            },
+            "epc-rating": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "E",
+                  "F",
+                  "G",
+                  "EXEMPT"
+                ]
+              }
+            },
+            "price-display-mode": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "EXACT",
+                  "GUIDE_RANGE",
+                  "POA"
+                ]
+              }
             }
           },
           "required": [],
@@ -1244,9 +1282,414 @@
                 "basis"
               ],
               "additionalProperties": false
+            },
+            "propertyStyle": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "COASTAL_VILLA",
+                    "PENTHOUSE_APARTMENT",
+                    "TOWNHOUSE_MEWS",
+                    "COUNTRY_ESTATE",
+                    "WINE_OR_GAME_FARM",
+                    "COMMERCIAL_OFFICE",
+                    "INDUSTRIAL_LOGISTICS",
+                    "DEVELOPMENT_LAND",
+                    null
+                  ]
+                }
+              }
+            },
+            "country": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "regionOrCity": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "isSpecialDesignatedAreaMalta": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "tenureType": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "FREEHOLD_FULL_TITLE",
+                    "LEASEHOLD",
+                    "SHARE_OF_FREEHOLD",
+                    "COMMONHOLD",
+                    "SECTIONAL_TITLE",
+                    "SHARE_BLOCK",
+                    "LIFE_RIGHTS",
+                    "USUFRUCT",
+                    "EMPHYTEUSIS",
+                    null
+                  ]
+                }
+              }
+            },
+            "unexpiredLeaseYears": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 9999
+                }
+              }
+            },
+            "annualGroundRent": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "annualServiceChargeOrLevies": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "annualMunicipalRatesTax": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "heritageOrListedStatus": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "NONE",
+                    "UK_GRADE_I",
+                    "UK_GRADE_II",
+                    "HERITAGE_PROTECTED",
+                    null
+                  ]
+                }
+              }
+            },
+            "receptionRooms": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              }
+            },
+            "garagingOrParkingSpaces": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              }
+            },
+            "yearBuilt": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 2300
+                }
+              }
+            },
+            "lastMajorRenovationYear": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1700,
+                  "maximum": 2300
+                }
+              }
+            },
+            "epcEnergyRating": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "EXEMPT",
+                    null
+                  ]
+                }
+              }
+            },
+            "occupancyStatus": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "OWNER_OCCUPIED",
+                    "VACANT_POSSESSION",
+                    "TENANTED_LEASED",
+                    null
+                  ]
+                }
+              }
+            },
+            "grossAnnualRentalIncome": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "netOperatingIncomeNOI": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": -100000000000,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "netInitialYieldPercent": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": -100000,
+                  "maximum": 100000
+                }
+              }
+            },
+            "priceDisplayMode": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "EXACT",
+                    "GUIDE_RANGE",
+                    "POA",
+                    null
+                  ]
+                }
+              }
+            },
+            "askingPrice": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "guidePriceUpper": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
             }
           },
           "required": [],
+          "additionalProperties": false
+        },
+        "readiness": {
+          "description": "Independently reviewed evidence only. Seller-reported documents are private intake data.",
+          "type": "object",
+          "properties": {
+            "verifiedRecords": {
+              "type": "object",
+              "properties": {
+                "titleDeedOrLandRegistryExtract": {
+                  "type": "boolean",
+                  "description": "Title deed or land registry extract"
+                },
+                "approvedArchitecturalPlans": {
+                  "type": "boolean",
+                  "description": "Approved architectural plans"
+                },
+                "epcAndComplianceCertificates": {
+                  "type": "boolean",
+                  "description": "Energy and compliance certificates"
+                },
+                "bodyCorporateOrHOAFinancials": {
+                  "type": "boolean",
+                  "description": "Body corporate or HOA financials"
+                },
+                "verifiedRentalAndExpenseLedger": {
+                  "type": "boolean",
+                  "description": "Rental and expense ledger"
+                }
+              },
+              "required": [
+                "titleDeedOrLandRegistryExtract",
+                "approvedArchitecturalPlans",
+                "epcAndComplianceCertificates",
+                "bodyCorporateOrHOAFinancials",
+                "verifiedRentalAndExpenseLedger"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "verifiedRecords"
+          ],
           "additionalProperties": false
         }
       },
@@ -1451,6 +1894,56 @@
                   "pending",
                   "conflict",
                   "illustrative"
+                ]
+              }
+            },
+            "yacht-type": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "MOTOR_YACHT",
+                  "SAILING_YACHT",
+                  "EXPLORER_EXPEDITION",
+                  "CATAMARAN",
+                  "CLASSIC_GENTLEMANS_YACHT"
+                ]
+              }
+            },
+            "classification-society": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "LLOYDS",
+                  "RINA",
+                  "ABS",
+                  "DNV",
+                  "BUREAU_VERITAS",
+                  "NONE_CE_RCD"
+                ]
+              }
+            },
+            "vat-status": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "EU_VAT_PAID",
+                  "UK_VAT_PAID",
+                  "VAT_NOT_PAID_EX_VAT",
+                  "EU_TEMPORARY_ADMISSION"
+                ]
+              }
+            },
+            "price-display-mode": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "EXACT",
+                  "GUIDE_RANGE",
+                  "POA"
                 ]
               }
             }
@@ -3041,9 +3534,562 @@
                 "basis"
               ],
               "additionalProperties": false
+            },
+            "yachtType": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "MOTOR_YACHT",
+                    "SAILING_YACHT",
+                    "EXPLORER_EXPEDITION",
+                    "CATAMARAN",
+                    "CLASSIC_GENTLEMANS_YACHT",
+                    null
+                  ]
+                }
+              }
+            },
+            "builderShipyard": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "modelOrSeries": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "navalArchitect": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "interiorDesigner": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "buildYear": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1700,
+                  "maximum": 2300
+                }
+              }
+            },
+            "lastRefitYear": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1700,
+                  "maximum": 2300
+                }
+              }
+            },
+            "refitScopeSummary": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 550
+                }
+              }
+            },
+            "grossTonnageGT": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "hullMaterial": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "GRP_COMPOSITE",
+                    "STEEL",
+                    "ALUMINIUM",
+                    "CARBON_FIBRE",
+                    "WOOD_COLD_MOLDED",
+                    null
+                  ]
+                }
+              }
+            },
+            "superstructureMaterial": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "hullConfiguration": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "DISPLACEMENT",
+                    "SEMI_DISPLACEMENT",
+                    "PLANING",
+                    "MULTIHULL",
+                    null
+                  ]
+                }
+              }
+            },
+            "enginesMakeAndModel": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "engineHoursPort": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "engineHoursStarboard": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "cruisingSpeedKnots": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "maxSpeedKnots": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "rangeNauticalMiles": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "fuelCapacityLitres": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "freshWaterCapacityLitres": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                }
+              }
+            },
+            "stabilizers": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "ZERO_SPEED_FIN",
+                    "GYRO",
+                    "UNDERWAY_ONLY",
+                    "NONE",
+                    null
+                  ]
+                }
+              }
+            },
+            "guestCabins": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              }
+            },
+            "guestBerths": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              }
+            },
+            "crewCabins": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              }
+            },
+            "crewBerths": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              }
+            },
+            "tenderAndToysIncluded": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string",
+                    "maxLength": 120
+                  },
+                  "maxItems": 12
+                }
+              }
+            },
+            "flagState": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "classificationSociety": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "LLOYDS",
+                    "RINA",
+                    "ABS",
+                    "DNV",
+                    "BUREAU_VERITAS",
+                    "NONE_CE_RCD",
+                    null
+                  ]
+                }
+              }
+            },
+            "codingStatus": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "PRIVATE_PLEASURE",
+                    "COMMERCIAL_MCA_LY3_REG",
+                    "DUAL_USE",
+                    null
+                  ]
+                }
+              }
+            },
+            "vatStatus": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "EU_VAT_PAID",
+                    "UK_VAT_PAID",
+                    "VAT_NOT_PAID_EX_VAT",
+                    "EU_TEMPORARY_ADMISSION",
+                    null
+                  ]
+                }
+              }
+            },
+            "currentLyingPortAndCountry": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "berthIncludedOrTransferable": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "berthLeaseExpiryYear": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1700,
+                  "maximum": 2300
+                }
+              }
+            },
+            "annualCharterRevenueGross": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "priceDisplayMode": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "EXACT",
+                    "GUIDE_RANGE",
+                    "POA",
+                    null
+                  ]
+                }
+              }
+            },
+            "askingPrice": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "guidePriceUpper": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
             }
           },
           "required": [],
+          "additionalProperties": false
+        },
+        "readiness": {
+          "description": "Independently reviewed evidence only. Seller-reported documents are private intake data.",
+          "type": "object",
+          "properties": {
+            "verifiedRecords": {
+              "type": "object",
+              "properties": {
+                "certificateOfRegistryAndBuilderCert": {
+                  "type": "boolean",
+                  "description": "Certificate of registry and builder certificate"
+                },
+                "vatPaidInvoiceOrCustomsProof": {
+                  "type": "boolean",
+                  "description": "VAT invoice or customs evidence"
+                },
+                "recentOutOfWaterHullAndEngineSurvey": {
+                  "type": "boolean",
+                  "description": "Out-of-water hull and engine survey within 12 months"
+                },
+                "classCertificatesAndMaintenanceLogs": {
+                  "type": "boolean",
+                  "description": "Class certificates and maintenance logs"
+                },
+                "transcriptOfRegisterNoLiens": {
+                  "type": "boolean",
+                  "description": "Register transcript and lien evidence"
+                }
+              },
+              "required": [
+                "certificateOfRegistryAndBuilderCert",
+                "vatPaidInvoiceOrCustomsProof",
+                "recentOutOfWaterHullAndEngineSurvey",
+                "classCertificatesAndMaintenanceLogs",
+                "transcriptOfRegisterNoLiens"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "verifiedRecords"
+          ],
           "additionalProperties": false
         }
       },
@@ -3186,6 +4232,66 @@
                   "pending",
                   "conflict",
                   "illustrative"
+                ]
+              }
+            },
+            "transmission": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "MANUAL",
+                  "AUTOMATED_MANUAL_F1",
+                  "AUTOMATIC"
+                ]
+              }
+            },
+            "condition-grade": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "CONCOURS_1",
+                  "EXCELLENT_2",
+                  "DRIVER_3",
+                  "PRESERVATION_UNRESTORED",
+                  "RESTORATION_PROJECT"
+                ]
+              }
+            },
+            "factory-certification": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "FERRARI_CLASSICHE_RED_BOOK",
+                  "PORSCHE_COA_CLASSIC_TECHNICAL",
+                  "ASTON_MARTIN_HERITAGE",
+                  "MERCEDES_CLASSIC_EXPERTISE",
+                  "FIA_HISTORIC_TECHNICAL_PASSPORT",
+                  "NONE"
+                ]
+              }
+            },
+            "matching-engine": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "VERIFIED_MATCHING",
+                  "PERIOD_CORRECT_REPLACEMENT",
+                  "UNVERIFIED"
+                ]
+              }
+            },
+            "price-display-mode": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "EXACT",
+                  "GUIDE_RANGE",
+                  "POA"
                 ]
               }
             }
@@ -4368,9 +5474,419 @@
                 "basis"
               ],
               "additionalProperties": false
+            },
+            "marque": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "modelAndVariant": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "coachbuilder": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "modelYear": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1700,
+                  "maximum": 2300
+                }
+              }
+            },
+            "productionNumberOfTotal": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "collectorEra": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "PRE_WAR",
+                    "POST_WAR_1945_1969",
+                    "GOLDEN_ERA_1970_1989",
+                    "YOUNGTIMER_1990_2005",
+                    "HOMOLOGATION_SPECIAL",
+                    null
+                  ]
+                }
+              }
+            },
+            "steeringConfiguration": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "LHD",
+                    "RHD",
+                    null
+                  ]
+                }
+              }
+            },
+            "exteriorColorFactoryCode": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "interiorTrimMaterialAndCode": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "engineDisplacementCC": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 30000
+                }
+              }
+            },
+            "transmissionType": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "MANUAL",
+                    "AUTOMATED_MANUAL_F1",
+                    "AUTOMATIC",
+                    null
+                  ]
+                }
+              }
+            },
+            "odometer_km": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000
+                },
+                "unit": {
+                  "enum": [
+                    "km",
+                    null
+                  ]
+                }
+              }
+            },
+            "odometerVerified": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "matchingNumbersEngine": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "VERIFIED_MATCHING",
+                    "PERIOD_CORRECT_REPLACEMENT",
+                    "UNVERIFIED",
+                    null
+                  ]
+                }
+              }
+            },
+            "matchingNumbersGearbox": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "VERIFIED_MATCHING",
+                    "PERIOD_CORRECT_REPLACEMENT",
+                    "UNVERIFIED",
+                    null
+                  ]
+                }
+              }
+            },
+            "matchingColorsSpec": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "factoryCertification": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "FERRARI_CLASSICHE_RED_BOOK",
+                    "PORSCHE_COA_CLASSIC_TECHNICAL",
+                    "ASTON_MARTIN_HERITAGE",
+                    "MERCEDES_CLASSIC_EXPERTISE",
+                    "FIA_HISTORIC_TECHNICAL_PASSPORT",
+                    "NONE",
+                    null
+                  ]
+                }
+              }
+            },
+            "concoursOrRaceHistory": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 550
+                }
+              }
+            },
+            "conditionGrade": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "CONCOURS_1",
+                    "EXCELLENT_2",
+                    "DRIVER_3",
+                    "PRESERVATION_UNRESTORED",
+                    "RESTORATION_PROJECT",
+                    null
+                  ]
+                }
+              }
+            },
+            "restorationSummaryAndSpecialist": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 550
+                }
+              }
+            },
+            "currentRegistrationCountry": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 140
+                }
+              }
+            },
+            "importTaxesPaidInCurrentJurisdiction": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "qualifiesForOver30YrHistoricTaxRelief": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "includedAccessories": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string",
+                    "maxLength": 120
+                  },
+                  "maxItems": 12
+                }
+              }
+            },
+            "priceDisplayMode": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "EXACT",
+                    "GUIDE_RANGE",
+                    "POA",
+                    null
+                  ]
+                }
+              }
+            },
+            "askingPrice": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
+            },
+            "guidePriceUpper": {
+              "$ref": "#/$defs/specificationEvidence",
+              "properties": {
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100000000000
+                },
+                "unit": {
+                  "enum": [
+                    "GBP",
+                    "EUR",
+                    "ZAR",
+                    "USD",
+                    null
+                  ]
+                }
+              }
             }
           },
           "required": [],
+          "additionalProperties": false
+        },
+        "readiness": {
+          "description": "Independently reviewed evidence only. Seller-reported documents are private intake data.",
+          "type": "object",
+          "properties": {
+            "verifiedRecords": {
+              "type": "object",
+              "properties": {
+                "registrationTitleDocument": {
+                  "type": "boolean",
+                  "description": "Registration or title document"
+                },
+                "chassisAndEngineNumberVerification": {
+                  "type": "boolean",
+                  "description": "Chassis and engine number verification record"
+                },
+                "factoryHeritageOrBuildSheetCertificate": {
+                  "type": "boolean",
+                  "description": "Factory heritage certificate or build sheet"
+                },
+                "chronologicalServiceAndRestorationInvoices": {
+                  "type": "boolean",
+                  "description": "Chronological service and restoration invoices"
+                },
+                "hpiClearanceAndCustomsDutyProof": {
+                  "type": "boolean",
+                  "description": "Lien clearance and customs duty proof"
+                }
+              },
+              "required": [
+                "registrationTitleDocument",
+                "chassisAndEngineNumberVerification",
+                "factoryHeritageOrBuildSheetCertificate",
+                "chronologicalServiceAndRestorationInvoices",
+                "hpiClearanceAndCustomsDutyProof"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "verifiedRecords"
+          ],
           "additionalProperties": false
         }
       },
@@ -4387,5 +5903,65 @@
       ],
       "additionalProperties": false
     }
-  ]
+  ],
+  "description": "Evidence-qualified public filter records for UK, European and South African property, yachts and collector cars. Supplemental mandate specifications are optional.",
+  "$defs": {
+    "specificationEvidence": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "maxItems": 12
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "enum": [
+            "verified",
+            "declared",
+            "estimate",
+            "pending",
+            "conflict",
+            "illustrative"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "asOf": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "basis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "basis"
+      ],
+      "additionalProperties": false
+    }
+  }
 }
