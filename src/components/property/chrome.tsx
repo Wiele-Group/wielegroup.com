@@ -26,7 +26,7 @@ export function ContactBand() {
 export function PageIntro({ eyebrow, title, description, path, actions }: { eyebrow: string; title: string; description: string; path?: string; actions?: React.ReactNode }) {
  const scenes: Record<string, { image: string; label: string; ordinal: string; badge?: string }> = {
   "/buying": { image: "wiele-global-apartment-20261113.webp", label: "AI-created concept of a fictional residence interior", badge: "Illustrative Dossier Study", ordinal: "01 / The buyer perspective" },
-  "/selling": { image: "wiele-global-residences-20261113.webp", label: "Architecture study · AI-created concept", ordinal: "02 / The owner perspective" },
+  "/selling": { image: "wiele-global-residences-20261113.webp", label: "AI-created concept of a fictional contemporary residence", badge: "Illustrative Dossier Study", ordinal: "02 / The owner perspective" },
   "/about": { image: "wiele-global-villa-20261113.webp", label: "Architectural villa · AI-created concept", ordinal: "03 / Our global perspective" },
   "/properties": { image: "wiele-global-wine-estate-20261113.webp", label: "Wine estate · AI-created concept", ordinal: "01 / Property" },
  };

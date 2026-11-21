@@ -1,9 +1,57 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { propertyMetadata } from "@/lib/property";
+import { propertyBrand, propertyMetadata } from "@/lib/property";
 import { Arrow, PageIntro } from "@/components/property/chrome";
-import { SalesPreparation } from "@/components/property/sales-preparation";
+import { SalesPreparation, SellerAssetLinks } from "@/components/property/sales-preparation";
+import { AcquisitionMandates } from "@/components/property/acquisition-mandates";
 import { WieleAlgorithm } from "@/components/property/wiele-algorithm";
-export const metadata:Metadata=propertyMetadata("Property & Luxury Asset Sales","Malta-based asset sales with The Wiele Algorithm. Give your property, yacht or classic car a considered presentation and a clear next step with Wiele.","/selling");
-export default function Selling(){return <><PageIntro path="/selling" eyebrow="Malta-based / Property & luxury asset sales" title="Your asset deserves more than a listing." description="Malta-based asset brokerage with an international outlook. The Wiele Algorithm connects the story of your asset with relevant buyer conversations, considered exposure and a direct relationship. Property is our core, complemented by yachts and classic cars." actions={<><a className="button" href="#sales-brief" data-site-action="seller_brief">Prepare your sales brief</a><Link className="text-link" href="/contact?interest=marketing">Discuss selling</Link></>}/><SalesPreparation/><section className="split-feature wrap"><figure><Image src="/property/wiele-global-villa-20261113.webp" alt="AI-created coastal villa concept; not an actual property or property offered for sale" fill sizes="(max-width:760px) 100vw,45vw" style={{objectFit:"cover"}}/><figcaption>AI-created concept · Not a property for sale</figcaption></figure><div><span className="eyebrow">Property sales / A supported presentation</span><h2>Make the presentation count.<br/><em>Keep the purpose clear.</em></h2><p>A useful property presentation brings together location, tenure, condition, occupancy, available planning and energy documentation, costs and material limitations. Income-producing property also needs clear separation of collected income, contracted rent and projections.</p><p>Marketing authority, country coverage, scope, fees and any specialist involvement are agreed before an instruction is accepted. An initial enquiry creates no sales mandate or payment obligation.</p><div className="button-row"><Link className="button" href="/contact?interest=marketing">Introduce a property <Arrow diagonal/></Link><Link className="text-link" href="/properties#listing-examples">See property listing examples <Arrow diagonal/></Link><Link className="text-link" href="/luxury-assets#listing-examples">Sell a yacht or classic car <Arrow diagonal/></Link></div></div></section><aside className="wrap"><Link className="purchase-inline-link" href="/purchase-guide">Property sales by country — legal stages, seller documents and buyer nationality checks ↗</Link></aside><WieleAlgorithm detailed/><section className="onboarding-invitation wrap"><div><span className="eyebrow">Property owners / Documentation</span><h2>A stronger brief.<br/><em>From the beginning.</em></h2><p>For property sales, use the dedicated onboarding to set out authority, occupancy, tenure, available documentation and timing.</p></div><Link className="button" href="/seller-onboarding">Property seller onboarding <Arrow diagonal/></Link></section></>}
+
+const path = "/selling";
+export const metadata: Metadata = propertyMetadata(
+ "Property, Yacht & Classic Car Sales",
+ "Malta-based Wiele Investments helps sellers in the UK, Europe and South Africa prepare a sales brief, review records and explore illustrative buyer demand.",
+ path,
+);
+
+export default function Selling() {
+ return <>
+  <PageIntro path={path} eyebrow="Malta-based / Property & luxury asset sales" title="Your asset deserves more than a listing."
+   description="Malta-based asset brokerage with an international outlook. Prepare the details for a property, yacht or classic car sale and discuss how Wiele presents an asset to relevant buyers."
+   actions={<><a className="button" href="#sales-brief-planner" data-site-action="seller_brief">Prepare your sales brief</a><Link className="text-link" href="/contact?interest=marketing">Discuss selling</Link></>}/>
+  <SalesPreparation/>
+  <AcquisitionMandates/>
+  <section className="split-feature seller-presentation wrap">
+   <figure>
+    <Image src="/property/wiele-global-villa-20261113.webp" alt="AI-created concept of a fictional coastal villa" fill sizes="(max-width:760px) 100vw,45vw" style={{objectFit:"cover"}}/>
+    <figcaption>Illustrative Dossier Study</figcaption>
+   </figure>
+   <div>
+    <span className="eyebrow">Property sales / A supported presentation</span>
+    <h2>Make the presentation count.<br/><em>Keep the purpose clear.</em></h2>
+    <p>A property presentation brings together location, tenure, condition, occupancy, planning and energy documentation, costs and material limitations. For income-producing property, distinguish collected income, contracted rent and projections.</p>
+    <p>Wiele confirms marketing authority, geographic coverage, scope, fees and responsible practitioners for each engagement. Appropriately licensed practitioners in the relevant jurisdiction execute transaction documentation.</p>
+    <p className="listing-disclaimer">Illustrative concept · Not an asset offered for sale. The residence imagery on this page is AI-created.</p>
+    <div className="button-row">
+     <Link className="button" href="/contact?interest=marketing">Introduce a property <Arrow diagonal/></Link>
+     <Link className="text-link" href="/properties#listing-examples">See property listing examples <Arrow diagonal/></Link>
+    </div>
+    <SellerAssetLinks/>
+   </div>
+  </section>
+  <aside className="wrap"><Link className="purchase-inline-link" href="/purchase-guide">Property sales by country — legal stages, seller documents and buyer nationality checks ↗</Link></aside>
+  <WieleAlgorithm detailed/>
+  <section className="seller-consultation wrap" aria-labelledby="seller-consultation-title">
+   <div>
+    <span className="eyebrow">Malta / Seller consultations</span>
+    <h2 id="seller-consultation-title">Discuss the sale <em>in confidence.</em></h2>
+    <p>Consultations from Malta are available in English and Afrikaans by appointment. Share your asset category, location and preferred time. An initial enquiry creates no instruction or payment obligation.</p>
+   </div>
+   <div className="seller-consultation-actions">
+    <Link className="button" href="/contact?interest=marketing">Request a consultation <Arrow diagonal/></Link>
+    <a className="text-link" href={`mailto:${propertyBrand.email}?subject=Wiele%20seller%20consultation`}>{propertyBrand.email} <Arrow diagonal/></a>
+    <Link className="text-link" href="/seller-onboarding">Open detailed seller onboarding <Arrow diagonal/></Link>
+   </div>
+  </section>
+ </>;
+}

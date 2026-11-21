@@ -14,11 +14,11 @@ const defaults: Record<string, string> = { priceDisplayMode:"POA", preferredLang
 const marketLabels = ["Within 3 months", "3–6 months", "6–12 months", "Exploring options"];
 const measureFor: Record<MandateCategory, Measure> = { PROPERTY:"area", YACHT:"length", CLASSIC_CAR:"distance" };
 
-export function RecordReadiness({ category, records }: { category: MandateCategory; records: Record<string, boolean> }) {
+export function RecordReadiness({ category, records, points = false }: { category: MandateCategory; records: Record<string, boolean>; points?: boolean }) {
  const count = recordsReadiness(category, records);
  return <div className="mandate-readiness" aria-live="polite">
-  <p><strong>{count.availablePercent}%</strong> seller-reported record coverage · {count.available} of {count.total} groups held</p>
-  <meter min={0} max={100} value={count.availablePercent} aria-label="Seller-reported record coverage">{count.availablePercent}%</meter>
+  <p><strong>{points ? `${count.available} / ${count.total}` : `${count.availablePercent}%`}</strong> seller-reported record coverage{!points && ` · ${count.available} of ${count.total} groups held`}</p>
+  <meter min={0} max={points ? count.total : 100} value={points ? count.available : count.availablePercent} aria-label="Seller-reported record coverage" aria-valuetext={`${count.available} of ${count.total} groups held`}>{count.availablePercent}%</meter>
   <p className="form-note">{count.verifiedPercent}% independently verified at intake. Wiele confirms documentary evidence separately with the appropriate practitioners.</p>
  </div>;
 }

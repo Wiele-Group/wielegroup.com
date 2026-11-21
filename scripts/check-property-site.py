@@ -150,6 +150,11 @@ for path in paths:
   assert all(route in p.links for route in ['/properties','/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html','/valuations#landed-cost-estimator']),(path,'open dossiers and acquisition tools')
   assert '<figcaption class="page-intro-study-badge">Illustrative Dossier Study</figcaption>' in text,(path,'single hero badge')
   assert 'id="buyer-briefs"' in text and '/contact?interest=buying&amp;brief=prepared' in text,(path,'local quick-start handoff')
+ if path=='/selling':
+  assert text.index('id="sales-brief-planner"')<text.index('id="acquisition-mandates"'),(path,'planner before illustrative demand')
+  assert all(score in text.replace('<!-- -->','') for score in ['94/100','91/100','88/100']) and 'They represent no current buyers' in text,(path,'illustrative mandates')
+  assert '/valuations#landed-cost-estimator' in p.links and all(f'id="sales-brief-{slug}"' in text for slug in ['yachts','classic-cars']),(path,'seller planning links')
+  assert '<figcaption class="page-intro-study-badge">Illustrative Dossier Study</figcaption>' in text and '<figcaption>Illustrative Dossier Study</figcaption>' in text,(path,'single image badges')
  if path in ['/selling','/buying','/property-maintenance']:
   service=next(e for e in entities if e.get('@type')=='Service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')
