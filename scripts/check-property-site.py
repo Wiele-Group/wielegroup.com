@@ -189,6 +189,9 @@ for path in paths:
  if path=='/valuations':
   assert 'id="landed-cost-estimator"' in text and 'Total landed cost' in text,(path,'transaction estimator')
   assert 'appropriately licensed practitioners in the relevant jurisdiction' in text,(path,'estimate limits')
+  assert all(amount in text for amount in ['1,500,000.00','93,750.00','1,599,500.00']) and 'Illustrative worked example.' in text,(path,'server-rendered worked example')
+  assert 'Carry scenario into valuation brief' in text and 'id="valuation-budget"' in text and 'id="valuation-currency"' in text,(path,'local valuation handoff')
+  assert all(route in p.links for route in ['/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html']),(path,'evidence dossiers')
  if path=='/seller-onboarding':
   assert 'id="acquisition-mandates"' in text and 'They represent no current buyers' in text,(path,'illustrative mandates')
   assert all(phrase in text for phrase in ['01 Core Identity','Technical &amp; Structural Specs','Legal, Tax &amp; Provenance','Financial &amp; Commercial Terms','seller-reported record coverage']),(path,'structured seller intake')

@@ -580,3 +580,17 @@ h1,h2,.editorial-heading { color:inherit; }
  .research-open-library .research-publication,.research-asset-grid,.research-consultation { grid-template-columns: minmax(0,1fr); }
  .research-cover-frame .research-publication-image { width: min(67vw,255px); }
 }
+
+/* Worked transaction example and local valuation handoff. */
+.transaction-output h3,.valuation-enquiry-section h2 { scroll-margin-top: 116px; }
+.transaction-example-note,.valuation-carried-note { padding: 12px 14px; background: var(--wiele-canvas-elevated); border-inline-start: 2px solid var(--wiele-bronze-accent); font-size: .82rem; line-height: 1.65; }
+.transaction-lines dd,.transaction-output .valuation-result strong { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.transaction-lines dd { white-space: normal; }
+.transaction-output .valuation-result strong { font-size: clamp(19px,3vw,38px); overflow-wrap: anywhere; }
+.transaction-carry .button { margin-top: 14px; white-space: normal; }
+.transaction-output noscript a,.valuation-brief .fine-print a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; }
+.valuation-form-grid input[type="number"] { font-family: var(--font-mono); }
+@media(max-width: 450px) {
+ .transaction-lines > div { grid-template-columns: minmax(0,1fr) minmax(0,.8fr); gap: 8px; }
+ .transaction-lines dd { font-size: .75rem; }
+}

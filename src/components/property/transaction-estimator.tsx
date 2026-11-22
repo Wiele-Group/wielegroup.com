@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { convertCurrency, type ReferenceRates } from "@/lib/currency";
 import {
  estimateAssets, estimateCurrencies, estimateMarkets, estimateProfiles, estimateSources, estimateTransaction,
  type Estimate, type EstimateAsset, type EstimateCurrency, type EstimateInput, type EstimateMarket, type EstimateProfile,
 } from "@/lib/transaction-estimate";
 
-type MatrixRoute = {
+export type MatrixRoute = {
  market: EstimateMarket; asset: EstimateAsset; party_profile: EstimateProfile;
  buyer: string; seller: string; anchor: string;
 };
@@ -20,13 +20,30 @@ const moneyFormatter = (currency: EstimateCurrency) => new Intl.NumberFormat("en
  style:"currency", currency, currencyDisplay:"code", minimumFractionDigits:2, maximumFractionDigits:2,
 });
 
-function Amount({ name, label, currency, required = false }: { name: string; label: string; currency: EstimateCurrency; required?: boolean }) {
+export type ValuationScenario = Pick<EstimateInput, "asset" | "currency" | "market" | "location" | "value" | "role"> & { illustrative: boolean };
+type PresentedEstimate = Estimate & { scenario: ValuationScenario };
+
+const workedInput: EstimateInput = {
+ role: "Buyer", asset: "Property", market: "UK", currency: "GBP", value: 1_500_000,
+ location: "England / Northern Ireland", propertyBasis: "standard", sdltResidence: "resident",
+ fees: 3_000, survey: 2_000, delivery: 0, other: 750,
+ route: "pending", sellerTax: "quote", quotedTax: null, duty: null, customsValue: null,
+ incidentalVatBase: null, vatRate: null, collector: "unknown", sacu: "unknown", temporaryFacts: false, months: null,
+};
+
+function briefScenario({asset, currency, market, location, value, role}: EstimateInput, illustrative: boolean): ValuationScenario {
+ return {asset, currency, market, location, value, role, illustrative};
+}
+
+function Amount({ name, label, currency, required = false, initial }: { name: string; label: string; currency: EstimateCurrency; required?: boolean; initial?: number }) {
  return <label className="form-field">{label} ({currency})
-  <input name={name} type="number" min={required ? ".01" : "0"} max={maxAmount} step=".01" inputMode="decimal" required={required}/>
+  <input name={name} defaultValue={initial} type="number" min={required ? ".01" : "0"} max={maxAmount} step=".01" inputMode="decimal" required={required}/>
  </label>;
 }
 
-export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
+export function TransactionEstimator({ matrix, onCarry }: { matrix: MatrixRoute[]; onCarry: (scenario: ValuationScenario) => void }) {
+ const breakdownHeading = useRef<HTMLHeadingElement>(null);
+ const [showWorkedInputs, setShowWorkedInputs] = useState(true);
  const [role, setRole] = useState<EstimateInput["role"]>("Buyer");
  const [asset, setAsset] = useState<EstimateAsset>("Property");
  const [market, setMarket] = useState<EstimateMarket>("UK");
@@ -37,7 +54,9 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
  const [propertyBasis, setPropertyBasis] = useState<EstimateInput["propertyBasis"]>("standard");
  const [sellerTax, setSellerTax] = useState<EstimateInput["sellerTax"]>("quote");
  const [fx, setFx] = useState<ReferenceRates | null>(null);
- const [result, setResult] = useState<Estimate | null>(null);
+ const [result, setResult] = useState<PresentedEstimate | null>(() => ({
+  ...estimateTransaction(workedInput, null), scenario: briefScenario(workedInput, true),
+ }));
  const [resultError, setResultError] = useState("");
 
  const property = asset === "Property";
@@ -65,7 +84,12 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
   return () => controller.abort();
  }, []);
 
+ function clearWorkedInputs() {
+  if (result?.scenario.illustrative) setShowWorkedInputs(false);
+ }
+
  function changeMarket(next: EstimateMarket, nextAsset = asset) {
+  clearWorkedInputs();
   setMarket(next);
   setLocation(next === "UK" ? nextAsset === "Property" ? "England / Northern Ireland" : "Great Britain" : next === "Europe (EU)" ? "Malta" : "South Africa");
   setPropertyBasis("standard");
@@ -87,7 +111,7 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
   }
   const useAllowance = form.has("allowance");
   try {
-   const estimate = estimateTransaction({
+   const input: EstimateInput = {
     role, asset, market, currency, value:price, location, propertyBasis, sellerTax, route,
     sdltResidence:(form.get("sdltResidence") ?? "unknown") as EstimateInput["sdltResidence"],
     fees:read("fees") ?? (useAllowance ? allowance?.[0] ?? null : null),
@@ -97,9 +121,15 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
     collector:(form.get("collector") ?? "unknown") as EstimateInput["collector"],
     sacu:(form.get("sacu") ?? "unknown") as EstimateInput["sacu"],
     temporaryFacts:form.has("temporaryFacts"), months:read("months"),
-   }, fx);
+   };
+   const estimate = estimateTransaction(input, fx);
    const allowanceUsed = useAllowance && allowance && (read("fees") === null || read("survey") === null);
-   setResult({ ...estimate, fxDate:estimate.fxDate ?? (allowanceUsed && currency !== "EUR" ? fx?.date : undefined) });
+   setResult({
+    ...estimate,
+    fxDate:estimate.fxDate ?? (allowanceUsed && currency !== "EUR" ? fx?.date : undefined),
+    scenario: briefScenario(input, result?.scenario.illustrative === true),
+   });
+   requestAnimationFrame(() => breakdownHeading.current?.focus());
    setResultError("");
   } catch {
    setResult(null);
@@ -112,9 +142,41 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
   <h2 id="transaction-estimator-title">Total landed cost <em>&amp; net proceeds.</em></h2>
   <p>Compare the costs of buying or the cash proceeds of selling property, a yacht or a classic car. Your entries stay in this browser. No account is required.</p>
   <div className="transaction-workspace">
+   <div className="transaction-output valuation-converter-panel">
+    <div aria-live="polite">
+     <h3 ref={breakdownHeading} tabIndex={-1}>Indicative breakdown</h3>
+     {result ? <>
+      {result.scenario.illustrative && <p className="transaction-example-note"><strong>Illustrative worked example.</strong> A standard residential purchase in England or Northern Ireland, assuming UK residence under the SDLT test. Fees and disbursements are sample allowances. Delivery costs are assumed to be zero.</p>}
+      <dl className="transaction-lines">{result.lines.map(line => <div key={line.label}>
+       <dt>{line.label}{line.note && <small>{line.note}</small>}</dt>
+       <dd>{line.amount === null ? "To confirm" : format.format(line.amount)}</dd>
+      </div>)}</dl>
+      <div className="valuation-result">
+       <span>{result.partial ? "Subtotal using priced items only" : buyer ? "Estimated total landed cost" : "Estimated net seller proceeds"}</span>
+       <strong>{format.format(result.total)}</strong>
+       {result.partial && <p>Unpriced items are excluded. The final amount may change once those costs are confirmed.</p>}
+       {result.fxDate && <span>ECB reference FX · {result.fxDate}. Bank pricing and FX spreads may differ.</span>}
+      </div>
+      {result.notes.map(note => <p className="fine-print" key={note}>{note}</p>)}
+      {!!result.sources.length && <ul className="transaction-sources" aria-label="Official calculation sources">{result.sources.map(key => {
+       const [label, href] = estimateSources[key];
+       return <li key={key}><a href={href}>{label}</a></li>;
+      })}</ul>}
+     </> : <p>Enter your scenario to see which costs can be priced and which require a local quote.</p>}
+    </div>
+    {result && <div className="transaction-carry">
+     <button className="button" type="button" onClick={() => onCarry(result.scenario)}>Carry scenario into valuation brief ↓</button>
+    </div>}
+    {row && <details className="transaction-route"><summary>Legal checks for this scenario</summary>
+     <p>{buyer ? row.buyer : row.seller}</p>
+     <a className="text-link" href={`/legal-compliance/cross-border#${row.anchor}`}>Read the cross-border matrix ↗</a>
+    </details>}
+    <p className="fine-print">Indicative planning estimates only. Tax, customs, relief, fees and eligibility require formal verification by appropriately licensed practitioners in the relevant jurisdiction. Rules reviewed 21 November 2026.</p>
+    <noscript><style>{".transaction-form, .transaction-carry { display: none } .transaction-workspace { grid-template-columns: minmax(0,1fr) }"}</style><p>The worked example is available above. Enable JavaScript to edit the scenario. <a href="/legal-compliance/cross-border">Read the public compliance matrix</a> or <a href="/contact">discuss a transaction brief</a>.</p></noscript>
+   </div>
    <form className="transaction-form" onSubmit={calculate} onChange={() => { setResult(null); setResultError(""); }}>
     <div className="transaction-fields">
-     <label className="form-field">Role<select value={role} onChange={e => { setRole(e.target.value as EstimateInput["role"]); setSellerTax("quote"); }}><option>Buyer</option><option>Seller</option></select></label>
+     <label className="form-field">Role<select value={role} onChange={e => { clearWorkedInputs(); setRole(e.target.value as EstimateInput["role"]); setSellerTax("quote"); }}><option>Buyer</option><option>Seller</option></select></label>
      <label className="form-field">Asset category<select value={asset} onChange={e => { const next = e.target.value as EstimateAsset; setAsset(next); changeMarket(market, next); }}>{
       estimateAssets.map(value => <option key={value}>{value}</option>)
      }</select></label>
@@ -124,17 +186,17 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
      <label className="form-field">Residency / nationality profile<select value={profile} onChange={e => setProfile(e.target.value as EstimateProfile)}>{
       estimateProfiles.map(value => <option key={value} value={value}>{profileLabels[value]}</option>)
      }</select></label>
-     {market !== "South Africa" && <label className="form-field">Applicable territory<select value={location} onChange={e => { setLocation(e.target.value); setSellerTax("quote"); }}>{
+     {market !== "South Africa" && <label className="form-field">Applicable territory<select value={location} onChange={e => { clearWorkedInputs(); setLocation(e.target.value); setSellerTax("quote"); }}>{
       (eu ? ["Malta","Other EU country"] : property ? ["England / Northern Ireland","Scotland","Wales"] : ["Great Britain","Northern Ireland"]).map(value => <option key={value}>{value}</option>)
      }</select></label>}
-     <label className="form-field">Price and costs currency<select value={currency} onChange={e => setCurrency(e.target.value as EstimateCurrency)}>{
+     <label className="form-field">Price and costs currency<select value={currency} onChange={e => { setShowWorkedInputs(false); setCurrency(e.target.value as EstimateCurrency); }}>{
       estimateCurrencies.map(value => <option key={value}>{value}</option>)
      }</select></label>
     </div>
-    <p className="fine-print">The profile selects legal guidance. Tax residence, VAT status and customs eligibility require separate checks. Changing currency clears amounts so they can be re-entered in the new currency.</p>
+    <p className="fine-print">The profile selects legal guidance. Tax residence, VAT status and customs eligibility require separate checks. The starting price and fees are illustrative. Replace them for your own calculation. Changing currency clears amounts.</p>
 
-    <div className="transaction-fields" key={`amounts-${currency}`}>
-     <Amount name="value" label="Asset value" currency={currency} required/>
+    <div className="transaction-fields" key={`amounts-${currency}-${showWorkedInputs}`}>
+     <Amount name="value" label="Asset value" currency={currency} initial={showWorkedInputs ? workedInput.value : undefined} required/>
      {buyer && property && !otherEu && <label className="form-field">Acquisition tax basis
       <select value={propertyBasis} onChange={e => setPropertyBasis(e.target.value as EstimateInput["propertyBasis"])}>
        <option value="standard">{sa ? "Transfer duty (sale not subject to VAT)" : eu ? "Standard stamp duty" : "Standard residential purchase"}</option>
@@ -143,7 +205,7 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
       </select>
      </label>}
      {buyer && property && uk && location === "England / Northern Ireland" && propertyBasis !== "quote" && <label className="form-field">Residence under the SDLT test
-      <select name="sdltResidence"><option value="unknown">To confirm</option><option value="resident">UK-resident under SDLT rules</option><option value="nonresident">Non-resident surcharge applies</option></select>
+      <select name="sdltResidence" defaultValue={showWorkedInputs ? workedInput.sdltResidence : "unknown"}><option value="unknown">To confirm</option><option value="resident">UK-resident under SDLT rules</option><option value="nonresident">Non-resident surcharge applies</option></select>
      </label>}
      {buyer && !property && <label className="form-field">Customs treatment<select value={route} onChange={e => setRoute(e.target.value as EstimateInput["route"])}>
       <option value="pending">To confirm</option><option value="local">Already in local free circulation</option><option value="import">Permanent import</option>
@@ -172,45 +234,16 @@ export function TransactionEstimator({ matrix }: { matrix: MatrixRoute[] }) {
       <label className="form-field">Planned stay in months<input name="months" type="number" min=".01" max="120" step=".01" inputMode="decimal"/></label>
       <label className="transaction-check"><input name="temporaryFacts" type="checkbox"/>The yacht is registered outside the relevant customs territory, the holder and principal user are established outside it, and the yacht will be used privately and re-exported.</label>
      </>}
-     <Amount name="fees" label="Practitioner / legal fees" currency={currency}/>
-     <Amount name="survey" label="Survey / inspection" currency={currency}/>
-     <Amount name="delivery" label="Transport / delivery / insurance" currency={currency}/>
-     <Amount name="other" label={buyer ? "Other costs" : "Commission, debt payoff and other deductions"} currency={currency}/>
+     <Amount name="fees" label="Practitioner / legal fees" currency={currency} initial={showWorkedInputs ? workedInput.fees ?? undefined : undefined}/>
+     <Amount name="survey" label="Survey / inspection" currency={currency} initial={showWorkedInputs ? workedInput.survey ?? undefined : undefined}/>
+     <Amount name="delivery" label="Transport / delivery / insurance" currency={currency} initial={showWorkedInputs ? workedInput.delivery ?? undefined : undefined}/>
+     <Amount name="other" label={buyer ? "Other costs" : "Commission, debt payoff and other deductions"} currency={currency} initial={showWorkedInputs ? workedInput.other ?? undefined : undefined}/>
     </div>
     {allowance && <label className="transaction-check" key={`allowance-${currency}`}><input name="allowance" type="checkbox"/>Use example allowances for blank practitioner and inspection fields ({format.format(allowance[0])} and {format.format(allowance[1])}). These are planning inputs, not market fee quotes.</label>}
     <p className="fine-print">Enter 0 where a cost is confirmed inapplicable. Blank cost fields remain unpriced. Use {localCurrency} for local tax bands if reference FX is unavailable.</p>
     <button className="button" type="submit">Calculate estimate</button>
     {resultError && <p role="alert">{resultError}</p>}
    </form>
-
-   <div className="transaction-output valuation-converter-panel">
-    <div aria-live="polite">
-     <h3>Indicative breakdown</h3>
-     {result ? <>
-      <dl className="transaction-lines">{result.lines.map(line => <div key={line.label}>
-       <dt>{line.label}{line.note && <small>{line.note}</small>}</dt>
-       <dd>{line.amount === null ? "To confirm" : format.format(line.amount)}</dd>
-      </div>)}</dl>
-      <div className="valuation-result">
-       <span>{result.partial ? "Subtotal using priced items only" : buyer ? "Estimated total landed cost" : "Estimated net seller proceeds"}</span>
-       <strong>{format.format(result.total)}</strong>
-       {result.partial && <p>Unpriced items are excluded. The final amount may change once those costs are confirmed.</p>}
-       {result.fxDate && <span>ECB reference FX · {result.fxDate}. Bank pricing and FX spreads may differ.</span>}
-      </div>
-      {result.notes.map(note => <p className="fine-print" key={note}>{note}</p>)}
-      {!!result.sources.length && <ul className="transaction-sources" aria-label="Official calculation sources">{result.sources.map(key => {
-       const [label, href] = estimateSources[key];
-       return <li key={key}><a href={href}>{label}</a></li>;
-      })}</ul>}
-     </> : <p>Enter your scenario to see which costs can be priced and which require a local quote.</p>}
-    </div>
-    {row && <details className="transaction-route"><summary>Legal checks for this scenario</summary>
-     <p>{buyer ? row.buyer : row.seller}</p>
-     <a className="text-link" href={`/legal-compliance/cross-border#${row.anchor}`}>Read the cross-border matrix ↗</a>
-    </details>}
-    <p className="fine-print">Indicative planning estimates only. Tax, customs, relief, fees and eligibility require formal verification by appropriately licensed practitioners in the relevant jurisdiction. Rules reviewed 21 November 2026.</p>
-    <noscript><p>The interactive estimate requires JavaScript. <a href="/legal-compliance/cross-border">Read the public compliance matrix</a> or <a href="/contact">discuss a transaction brief</a>.</p></noscript>
-   </div>
   </div>
  </section>;
 }
