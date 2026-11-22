@@ -219,8 +219,7 @@ body { background:var(--wiele-canvas-primary); color:var(--wiele-obsidian); font
 html { scroll-padding-top:128px; }
 :where(main [id]) { scroll-margin-top:128px; }
 h1, h2, .editorial-heading { font-family:var(--font-editorial); font-weight:400; letter-spacing:-.02em; line-height:1.08; }
-.editorial-home h2 em, .brokerage-hero h1 em, .algorithm-statement h2 em,
-.algorithm-difference h2 em { color:var(--wiele-bronze-accent); }
+.editorial-home h2 em, .brokerage-hero h1 em, .algorithm-statement h2 em { color:var(--wiele-bronze-accent); }
 .eyebrow, .cinema-eyebrow, .eyebrow-index {
   font-family:var(--font-mono); color:var(--wiele-muted-slate); letter-spacing:.14em;
 }
@@ -593,4 +592,143 @@ h1,h2,.editorial-heading { color:inherit; }
 @media(max-width: 450px) {
  .transaction-lines > div { grid-template-columns: minmax(0,1fr) minmax(0,.8fr); gap: 8px; }
  .transaction-lines dd { font-size: .75rem; }
+}
+
+/* Wiele Algorithm / Public mandate overview */
+.algorithm-editorial {
+  border-top: 1px solid var(--wiele-hairline);
+  padding-block: var(--space-block);
+}
+
+.algorithm-editorial h2 {
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  margin: .5rem 0 1rem;
+}
+
+.algorithm-editorial p {
+  max-width: 68ch;
+  color: var(--wiele-obsidian-soft);
+  line-height: 1.65;
+}
+
+.algorithm-editorial h3 {
+  font: 500 clamp(1.45rem, 2.3vw, 1.9rem)/1.15 var(--font-editorial);
+  margin: 0 0 .75rem;
+}
+
+.algorithm-dimension-grid,
+.algorithm-resource-list {
+  list-style: none;
+  padding: 0;
+}
+
+.algorithm-dimension-grid,
+.algorithm-placement-grid,
+.algorithm-resource-grid {
+  display: grid;
+  gap: clamp(.75rem, 2vw, 1.5rem);
+  margin: 1.75rem 0 0;
+}
+
+.algorithm-dimension-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.algorithm-placement-grid,
+.algorithm-resource-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.algorithm-dimension-grid > li,
+.algorithm-placement-grid > article,
+.algorithm-resource-grid > div {
+  padding: clamp(1rem, 2.6vw, 2rem);
+  border: 1px solid var(--wiele-hairline);
+  border-radius: var(--radius-card);
+  background: var(--wiele-canvas-elevated);
+}
+
+.algorithm-dimension-grid > li {
+  border-top-color: var(--wiele-bronze-accent);
+}
+
+.algorithm-dimension-grid h3 {
+  margin-top: .75rem;
+}
+
+.algorithm-resource-list {
+  margin: .75rem 0 0;
+}
+
+.algorithm-resource-list > li {
+  border-top: 1px solid var(--wiele-hairline);
+}
+
+.algorithm-resource-list .text-link {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .35rem .65rem;
+  min-height: 44px;
+  margin: 0;
+}
+
+.algorithm-resource-list .eyebrow-index {
+  flex-basis: 100%;
+  padding-top: .5rem;
+}
+
+.algorithm-resource-list p {
+  margin: 0 0 .75rem;
+}
+
+.algorithm-language-note {
+  margin-top: 1.5rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--wiele-hairline);
+  background: var(--wiele-canvas-recessed);
+}
+
+.algorithm-language-note summary {
+  min-height: 44px;
+  padding: .7rem 0;
+  cursor: pointer;
+}
+
+.algorithm-language-note summary .eyebrow-index {
+  margin-inline-end: .5rem;
+}
+
+.algorithm-showcase .algorithm-image {
+  margin-bottom: var(--space-block);
+}
+
+.algorithm-showcase .algorithm-image figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem .75rem;
+  font-size: .75rem;
+}
+
+.algorithm-study-badge {
+  padding: .35rem .55rem;
+  border: 1px solid var(--wiele-hairline);
+  border-radius: var(--radius-card);
+  background: var(--wiele-canvas-elevated);
+  color: var(--wiele-obsidian-soft);
+}
+
+@media (max-width: 1023px) {
+  .algorithm-dimension-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .algorithm-dimension-grid,
+  .algorithm-placement-grid,
+  .algorithm-resource-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
