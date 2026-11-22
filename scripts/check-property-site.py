@@ -186,6 +186,14 @@ for path in paths:
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('maintenance FAQ mismatch',item['name'])
+ if path=='/contact':
+  assert '<form' in text and 'name="message"' in text and 'method="post"' in text,(path,'missing initial HTML form')
+  assert 'Loading the enquiry form' not in text,(path,'blank loading state')
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  assert len(faq['mainEntity'])==3,(path,'enquiry FAQ count')
+  display=' '.join(p.visible)
+  for item in faq['mainEntity']:
+   assert item['name'] in display and item['acceptedAnswer']['text'] in display,(path,item['name'],'FAQ answer differs')
  if path=='/valuations':
   assert 'id="landed-cost-estimator"' in text and 'Total landed cost' in text,(path,'transaction estimator')
   assert 'appropriately licensed practitioners in the relevant jurisdiction' in text,(path,'estimate limits')

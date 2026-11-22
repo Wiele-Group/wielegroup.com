@@ -732,3 +732,72 @@ h1,h2,.editorial-heading { color:inherit; }
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Enquiry handoff and Malta consultation details */
+.enquiry-attached-brief {
+  padding: 1rem 1.15rem;
+  margin: 1.25rem 0;
+  border: 1px solid var(--wiele-hairline);
+  border-inline-start: 3px solid var(--wiele-bronze-accent);
+  background: var(--wiele-canvas-recessed);
+}
+
+.enquiry-attached-brief p {
+  margin: 0;
+}
+
+.enquiry-attached-brief dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: .65rem 1rem;
+  margin: .75rem 0 0;
+}
+
+.enquiry-attached-brief dt,
+.contact-time-zones dt {
+  color: var(--wiele-muted-slate);
+  font: 500 .75rem/1.5 var(--font-mono);
+}
+
+.enquiry-attached-brief dd,
+.contact-time-zones dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-time-zones {
+  margin: .5rem 0 0;
+}
+
+.contact-time-zones div {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, max-content) 1fr;
+  gap: .25rem .75rem;
+  padding-block: .3rem;
+}
+
+.contact-detail p[lang="af"] {
+  margin-top: .5rem;
+}
+
+.contact-faq {
+  padding-block: var(--space-block);
+  border-top: 1px solid var(--wiele-hairline);
+}
+
+.contact-faq h2 {
+  margin: 0;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+}
+
+.contact-faq summary,
+.enquiry-form noscript a,
+.enquiry-form .retained-brief-note button,
+.enquiry-form .form-message button {
+  min-height: 44px;
+}
+
+.enquiry-form noscript a {
+  display: inline-flex;
+  align-items: center;
+}
