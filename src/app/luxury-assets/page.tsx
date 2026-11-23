@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ScrollImage } from "@/components/property/experience-motion";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Arrow, ContactBand } from "@/components/property/chrome";
@@ -39,7 +40,7 @@ export default function LuxuryAssets() {
     <a className="cinema-button" href="#asset-categories">Explore open dossiers <Arrow diagonal/></a>
    </div>
    <figure>
-    <Image src={share.url} alt={share.alt} fill sizes="(max-width: 760px) 100vw, 55vw" priority/>
+    <ScrollImage><Image src={share.url} alt={share.alt} fill sizes="(max-width: 760px) 100vw, 55vw" priority/></ScrollImage>
     <figcaption>Valletta waterfront, Malta</figcaption>
    </figure>
   </section>

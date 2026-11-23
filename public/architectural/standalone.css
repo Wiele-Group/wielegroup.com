@@ -3,19 +3,21 @@
 @font-face { font-family:'JetBrains Mono'; src:url(jetbrains-mono.woff2) format('woff2'); font-weight:100 800; font-display:swap; }
 @font-face { font-family:Cormorant; src:url(/flagship-examples/media/cormorant.woff2) format('woff2'); font-weight:300 700; font-display:swap; }
 :root {
- --wiele-canvas-primary:#F7F5F0; --wiele-canvas-elevated:#FDFCFA; --wiele-canvas-recessed:#EFECE4;
- --wiele-obsidian:#121417; --wiele-obsidian-soft:#2A2E35; --wiele-muted-slate:#5E646E;
- --wiele-bronze-accent:#8C6D46; --wiele-bronze-ink:#795c39;
- --wiele-hairline:rgba(18,20,23,.12); --wiele-hairline-strong:rgba(18,20,23,.24);
- --paper:var(--wiele-canvas-primary); --ink:var(--wiele-obsidian); --soft:var(--wiele-muted-slate);
- --line:var(--wiele-hairline); --gold:var(--wiele-bronze-ink); --night:var(--wiele-obsidian); --light:var(--wiele-canvas-recessed);
+ --wiele-canvas-primary:#07080A; --wiele-canvas-elevated:#0B0D11; --wiele-canvas-recessed:#11151C;
+ --wiele-ivory:#F4F1EA; --wiele-muted-slate:#A4AAB6; --wiele-analysis:#6D8EB8;
+ --wiele-bronze-accent:#C6A667;
+ --wiele-hairline:rgb(209 221 238 / 16%); --wiele-hairline-strong:rgb(209 221 238 / 32%);
+ --wiele-grid:rgb(171 189 213 / 5%);
+ color-scheme:dark;
+ --paper:var(--wiele-canvas-primary); --ink:var(--wiele-ivory); --soft:var(--wiele-muted-slate);
+ --line:var(--wiele-hairline); --gold:var(--wiele-bronze-accent); --night:var(--wiele-canvas-elevated); --light:var(--wiele-ivory);
  --ease-architectural:cubic-bezier(.22,1,.36,1);
 }
 body { background:var(--paper); color:var(--ink); font-family:Inter,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
 h1,h2,.price,.stats dd,.currency strong { font-family:Cormorant,Georgia,serif; font-weight:400; letter-spacing:-.02em; line-height:1.08; }
 .region,.label,.under { font-family:'JetBrains Mono',monospace; color:var(--soft); }
 .price,.stats dd,.currency strong,table,dd { font-variant-numeric:tabular-nums; font-feature-settings:'tnum' 1; }
-body>header { position:sticky; top:0; z-index:50; background:rgba(247,245,240,.94); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+body>header { position:sticky; top:0; z-index:50; background:rgb(7 8 10 / 94%); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
 html { scroll-padding-top:110px; }
 article section { scroll-margin-top:110px; }
 .bar a { color:var(--ink); }
@@ -23,22 +25,63 @@ article section { scroll-margin-top:110px; }
 a { display:inline-flex; align-items:center; }
 .bar { flex-wrap:wrap; }
 .bar nav { flex-wrap:wrap; }
-.card { display:block; background:var(--wiele-canvas-elevated); border:1px solid var(--line); border-radius:2px; transition:border-color 520ms var(--ease-architectural),transform 520ms var(--ease-architectural); }
+.card { display:block; background:var(--wiele-canvas-elevated); border:1px solid var(--line); border-radius:2px; transition:border-color 180ms ease-out; }
 .card>div { padding:20px; }
-.card:hover { border-color:var(--wiele-bronze-accent); transform:translateY(-2px); }
-.card img { transition:transform 900ms var(--ease-architectural); }
-.card:hover img { transform:scale(1.025); }
+.card:hover { border-color:var(--wiele-bronze-accent); }
 .button { border-radius:2px; background:var(--ink); color:var(--wiele-canvas-primary); border:1px solid var(--ink); transition:background 240ms var(--ease-architectural); }
 .button:hover { background:var(--wiele-bronze-accent); color:var(--wiele-canvas-elevated); }
 .button.quiet { border-color:var(--wiele-hairline-strong); color:var(--ink); background:transparent; }
 .button.quiet:hover { background:var(--wiele-canvas-recessed); }
 .cta,.status,.dossier-readiness { background:var(--wiele-canvas-recessed); border-color:var(--line); }
-meter { accent-color:var(--wiele-bronze-accent); }
+meter { accent-color:var(--wiele-analysis); }
 meter::-webkit-meter-bar { background:var(--line); border:0; border-radius:0; }
-meter::-webkit-meter-optimum-value { background:var(--wiele-bronze-accent); }
+meter::-webkit-meter-optimum-value { background:var(--wiele-analysis); }
+meter::-moz-meter-bar { background:var(--wiele-analysis); }
 body>main:not([id]) { background:var(--wiele-canvas-elevated); border-color:var(--wiele-bronze-accent); }
 a:focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
 footer a:focus-visible { outline-color:var(--light); }
 @media(max-width:840px) { .card { display:grid; } }
 @media(max-width:520px) { .card { display:block; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }.card:hover,.card:hover img { transform:none; } }
+
+@media screen {
+ body {
+  background-image:linear-gradient(to right,var(--wiele-grid) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--wiele-grid) 1px,transparent 1px);
+  background-size:clamp(28px,4.1667vw,72px) clamp(28px,4.1667vw,72px);
+  background-position:center top;
+ }
+ header,footer,.band { color:var(--ink); }
+ .band,figcaption { border-block:1px solid var(--line); }
+ .skip { background:var(--night); }
+ .price,.stats dd,.currency strong,.dossier-readiness .readiness-score strong,.ledger dd {
+  font-family:'JetBrains Mono',monospace;
+  font-variant-numeric:lining-nums tabular-nums;
+  overflow-wrap:anywhere;
+ }
+ .stats dd { font-size:clamp(1rem,2.2vw,2rem); }
+ .currency > div { padding-block:8px; border-top:1px solid var(--line); }
+ .dossier-readiness .readiness-score strong { color:var(--wiele-analysis); }
+ .dossier-photo { display:block; overflow:hidden; }
+}
+
+@supports (animation-timeline: view()) {
+ @media screen and (prefers-reduced-motion: no-preference) {
+  html[data-motion-paused="false"] .dossier-photo {
+   view-timeline-name:--dossier-photo;
+  }
+  html[data-motion-paused="false"] .dossier-photo img {
+   animation:dossier-photo-depth linear both;
+   animation-timeline:--dossier-photo;
+  }
+ }
+}
+@keyframes dossier-photo-depth {
+ from { transform:translateY(-5px) scale(1.035); }
+ to { transform:translateY(5px) scale(1.035); }
+}
+html[data-motion-paused="true"] { scroll-behavior:auto; }
+@media print {
+ :root { color-scheme:light; --ink:#000; --paper:#fff; --night:#fff; --soft:#333; --gold:#333; }
+ body { background:#fff; color:#000; }
+}

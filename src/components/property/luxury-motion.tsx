@@ -1,27 +1,69 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
+
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
+const pauseKey = "wiele-motion-paused";
+const serverMotionSnapshot = () => false;
+const motionSnapshot = () => document.documentElement.dataset.motionPaused === "true";
+
+function subscribeMotion(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-motion-paused"] });
+  return () => observer.disconnect();
+}
+
+function subscribeDecorativeMotion(callback: () => void) {
+  const query = window.matchMedia(reducedMotionQuery);
+  const unsubscribe = subscribeMotion(callback);
+  query.addEventListener("change", callback);
+  return () => {
+    unsubscribe();
+    query.removeEventListener("change", callback);
+  };
+}
+
+function decorativeMotionDisabled() {
+  return document.documentElement.dataset.motionPaused !== "false" || window.matchMedia(reducedMotionQuery).matches;
+}
+
+export function useDecorativeMotionDisabled() {
+  return useSyncExternalStore(subscribeDecorativeMotion, decorativeMotionDisabled, () => true);
+}
+
+function setMotionPaused(paused: boolean) {
+  const value = String(paused);
+  document.documentElement.dataset.motionPaused = value;
+  try {
+    sessionStorage.setItem(pauseKey, value);
+  } catch {
+    // The page-level control works when storage is unavailable.
+  }
+}
 
 /** Progressive enhancement: content remains visible if motion cannot initialise. */
 export function LuxuryMotion() {
   const pathname = usePathname();
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    const receive = (event: Event) => setPaused((event as CustomEvent<boolean>).detail);
-    window.addEventListener("wiele-motion-request", receive);
-    return () => window.removeEventListener("wiele-motion-request", receive);
-  }, []);
+  const paused = useSyncExternalStore(subscribeMotion, motionSnapshot, serverMotionSnapshot);
 
   useEffect(() => {
     const root = document.documentElement;
-    root.dataset.motionPaused = String(paused);
-    return () => { delete root.dataset.motionPaused; };
-  }, [paused]);
+    try {
+      root.dataset.motionPaused = String(sessionStorage.getItem(pauseKey) === "true");
+    } catch {
+      root.dataset.motionPaused = "false";
+    }
+    const receive = (event: Event) => setMotionPaused((event as CustomEvent<boolean>).detail);
+    window.addEventListener("wiele-motion-request", receive);
+    return () => {
+      window.removeEventListener("wiele-motion-request", receive);
+      delete root.dataset.motionPaused;
+    };
+  }, []);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const media = window.matchMedia(reducedMotionQuery);
     let observer: IntersectionObserver | undefined;
     let frame = 0;
     const elements = Array.from(document.querySelectorAll<HTMLElement>(
@@ -54,10 +96,6 @@ export function LuxuryMotion() {
       frame = 0;
       const height = document.documentElement.scrollHeight - window.innerHeight;
       document.documentElement.style.setProperty("--reading-progress", String(height > 0 ? window.scrollY / height : 0));
-      const hero = document.querySelector<HTMLElement>(".estate-hero");
-      if (hero && !media.matches && !paused && window.innerWidth > 850 && window.scrollY < hero.offsetHeight) {
-        hero.style.setProperty("--hero-drift", `${Math.min(window.scrollY * 0.12, 85)}px`);
-      } else hero?.style.setProperty("--hero-drift", "0px");
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
     initialise(); update();
@@ -73,16 +111,8 @@ export function LuxuryMotion() {
     };
   }, [pathname, paused]);
 
-  return <button className="motion-toggle" type="button" aria-pressed={paused} aria-label={paused ? "Resume decorative motion" : "Pause decorative motion"} onClick={() => setPaused(value => !value)}><span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span><span className="motion-label">{paused ? "Play motion" : "Pause motion"}</span></button>;
+  return <button className="motion-toggle" type="button" aria-pressed={paused} aria-label={paused ? "Resume decorative motion" : "Pause decorative motion"} onClick={() => setMotionPaused(!motionSnapshot())}><span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span><span className="motion-label">{paused ? "Play motion" : "Pause motion"}</span></button>;
 }
-
-function subscribeMotion(callback: () => void) {
-  const observer = new MutationObserver(callback);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-motion-paused"] });
-  return () => observer.disconnect();
-}
-const motionSnapshot = () => document.documentElement.dataset.motionPaused === "true";
-const serverMotionSnapshot = () => false;
 
 export function ExperienceMotionControl() {
   const paused = useSyncExternalStore(subscribeMotion, motionSnapshot, serverMotionSnapshot);

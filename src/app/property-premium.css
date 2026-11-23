@@ -41,7 +41,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-header :focus-visible, .site-footer :focus-visible, .estate-seller :focus-visible { outline-color: var(--gold-light); }
 .editorial-hero {
   display: grid; grid-template-columns: 48% 52%; height: auto; min-height: 660px;
-  max-height: none; background: var(--ivory); color: var(--ink); isolation: auto; overflow: hidden;
+  max-height: none; background: var(--paper); color: var(--ink); isolation: auto; overflow: hidden;
 }
 .editorial-hero-copy { padding: 64px clamp(32px, 4.5vw, 86px); align-self: center; min-width: 0; }
 .editorial-hero-copy > .eyebrow { font-size: 11px; line-height: 1.8; letter-spacing: .1em; max-width: 360px; color: var(--bronze); }
@@ -55,11 +55,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .editorial-hero-actions .button { font-size: 12px; gap: 24px; }
 .editorial-hero-actions .text-link { font-size: 14px; }
 .editorial-hero-note { display: flex; flex-direction: column; gap: 4px; padding-top: 28px; font-size: 12px; color: var(--muted); }
-.editorial-hero-media { position: relative; min-height: 660px; overflow: hidden; background: #d8d2c4; }
+.editorial-hero-media { position: relative; min-height: 660px; overflow: hidden; background: var(--surface); }
 .editorial-hero-media .estate-hero-image { object-fit: cover; object-position: 63% center; z-index: 0; animation: none; scale: 1; translate: none !important; transform: none; }
-.editorial-hero-media figcaption { position: absolute; bottom: 24px; left: 24px; right: 24px; background: #f4f0e8f5; padding: 12px 16px; color: var(--ink); font-size: 12px; line-height: 1.6; }
+.editorial-hero-media figcaption { position: absolute; bottom: 24px; left: 24px; right: 24px; background: rgb(11 13 17 / 96%); padding: 12px 16px; color: var(--ink); font-size: 12px; line-height: 1.6; }
 .editorial-hero-media figcaption span { display: block; font-size: 11px; color: var(--muted); }
-.journey-bar { width: 100%; max-width: none; box-shadow: none; background: var(--ivory); border-bottom: 1px solid var(--line); }
+.journey-bar { width: 100%; max-width: none; box-shadow: none; background: var(--paper); border-bottom: 1px solid var(--line); }
 .journey-bar > a { padding: 30px clamp(32px, 4.5vw, 86px); }
 .journey-bar > a + a { border-left-color: var(--line); }
 .journey-bar .eyebrow { color: var(--bronze); font-size: 11px; }
@@ -143,11 +143,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .report-worked-preview table { font-size: 14px; font-variant-numeric: tabular-nums; }
 .report-form .form-note, .report-optin, .report-registration > div > .fine-print { font-size: 13px; }
 .report-edition-note { font-size: 12px; }
-.analytics-consent { left: 22px; right: auto; bottom: 22px; transform: none; width: min(430px, calc(100vw - 44px)); padding: 20px; background: var(--ivory); border: 1px solid #c9bfae; box-shadow: 0 8px 25px #171a1917; }
+.analytics-consent { left: 22px; right: auto; bottom: 22px; transform: none; width: min(430px, calc(100vw - 44px)); padding: 20px; background: var(--paper); border: 1px solid #c9bfae; box-shadow: 0 8px 25px #171a1917; }
 .analytics-consent p { font-size: 14px; line-height: 1.7; }
 .analytics-consent > div { gap: 10px; }
 .analytics-consent button { font-size: 13px; min-height: 44px; padding: 9px 12px; }
-.analytics-settings { color: #333d36; border-color: #96846a; background: transparent; font-size: 12px; min-height: 44px; padding: 9px 18px; margin: 18px auto; }
+.analytics-settings { color: var(--ink); border-color: #96846a; background: transparent; font-size: 12px; min-height: 44px; padding: 9px 18px; margin: 18px auto; }
 .brand-footer .brand-integrated { width: 290px; }
 .footer-top { align-items: center; }
 .footer-bottom { align-items: center; flex-wrap: wrap; font-size: 12px; }
@@ -254,7 +254,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .maintenance-introduction .eyebrow { color: var(--gold-light); }
 .maintenance-introduction h2 { font: 400 clamp(42px, 4.4vw, 64px)/1.08 var(--font-heading); margin: 24px 0; letter-spacing: -.02em; }
 .maintenance-introduction h2 em { color: var(--gold-light); }
-.maintenance-introduction p { color: var(--wiele-canvas-recessed); font-size: 16px; line-height: 1.8; max-width: 49ch; margin-bottom: 28px; }
+.maintenance-introduction p { color: var(--wiele-obsidian-soft); font-size: 16px; line-height: 1.8; max-width: 49ch; margin-bottom: 28px; }
 .maintenance-introduction-list > span { display: block; border-top: 1px solid #b9966166; padding-block: 21px; font-size: 12px; color: var(--gold-light); }
 .maintenance-introduction-list strong { display: block; font: 400 30px/1.3 var(--font-heading); color: var(--ivory); margin-top: 8px; }
 .maintenance-introduction .text-link { color: var(--ivory); margin-top: 12px; }
@@ -291,7 +291,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .maintenance-arrangement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
 .maintenance-arrangement-grid article { border-top: 1px solid #b9966166; padding-top: 25px; }
 .maintenance-arrangement-grid h3 { font: 400 32px/1.2 var(--font-heading); margin: 16px 0; }
-.maintenance-arrangement-grid p { font-size: 15px; line-height: 1.8; color: var(--wiele-canvas-recessed); }
+.maintenance-arrangement-grid p { font-size: 15px; line-height: 1.8; color: var(--wiele-obsidian-soft); }
 .maintenance-process ol { list-style: none; padding: 0; margin: 0; }
 .maintenance-process li { display: grid; grid-template-columns: 40px minmax(0, .8fr) minmax(0, 1.2fr); gap: 28px; border-top: 1px solid var(--line); padding-block: 28px; }
 .maintenance-process li > span { padding-top: 5px; }
@@ -303,7 +303,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .maintenance-scope p:last-child { margin-bottom: 0; }
 .maintenance-request { background: var(--surface); scroll-margin-top: 110px; }
 .maintenance-request .contact-layout { padding-block: 75px; align-items: start; }
-.maintenance-request .enquiry-form { background: var(--ivory); }
+.maintenance-request .enquiry-form { background: var(--paper); }
 .maintenance-request aside > p { color: var(--muted); font-size: 16px; line-height: 1.8; margin-top: 24px; }
 .maintenance-request .text-link { display: flex; width: fit-content; max-width: 100%; overflow-wrap: anywhere; margin-top: 18px; gap: 14px; }
 .maintenance-request aside > .maintenance-request-note { font-size: 13px; margin-top: 30px; }
@@ -510,14 +510,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .estate-lifestyle { position: relative; border-bottom: 1px solid var(--line); padding-bottom: 22px; }
 .estate-lifestyle::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--bronze); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease; }
 .estate-lifestyle:focus-visible::after { transform: scaleX(1); }
-.estate-lifestyle:focus-visible .lifestyle-image-arrow { background: var(--ivory); color: var(--bronze); transform: translate(2px,-2px); }
+.estate-lifestyle:focus-visible .lifestyle-image-arrow { background: var(--paper); color: var(--bronze); transform: translate(2px,-2px); }
 .journey-bar > a:focus-visible { background: var(--surface); outline-offset: -6px; }
 .button:focus-visible svg, .text-link:focus-visible svg { transform: translateX(4px); }
 @media (hover: hover) and (pointer: fine) {
   .home-report-cover:hover .report-object { transform: rotateY(0) rotateX(0) translateY(-5px); }
   .home-report-cover:hover .report-object-caption svg { transform: translate(2px,-2px); }
   .estate-lifestyle:hover::after { transform: scaleX(1); }
-  .estate-lifestyle:hover .lifestyle-image-arrow { background: var(--ivory); color: var(--bronze); transform: translate(2px,-2px); }
+  .estate-lifestyle:hover .lifestyle-image-arrow { background: var(--paper); color: var(--bronze); transform: translate(2px,-2px); }
 }
 /* Native disclosure: closed links are never in the focus order, even without JS. */
 .mobile-navigation > summary { cursor: pointer; list-style: none; }
@@ -529,7 +529,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .mobile-navigation .menu-symbol { font-size: 22px; line-height: 1; transition: transform 200ms ease; }
 .mobile-navigation[open] .menu-symbol { transform: rotate(45deg); }
 .mobile-navigation:not([open]) nav { display: none; }
-.mobile-navigation nav { padding: 22px 4vw 26px; border-top: 1px solid #b996614d; max-height: calc(100dvh - 102px); overscroll-behavior: contain; }
+.mobile-navigation nav { padding: 22px 4vw 26px; border-top: 1px solid #b996614d; max-height: calc(100dvh - var(--drawer-top, 102px) - var(--analytics-clearance, env(safe-area-inset-bottom)) - 8px); overscroll-behavior: contain; }
 .mobile-navigation[open] nav { animation: navigation-enter 260ms ease both; }
 .navigation-caption { color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; font-size: 10px; padding-block: 0 10px; }
 .mobile-navigation nav a { display: flex; align-items: center; gap: 20px; padding: 12px 8px; min-height: 48px; transition: background 180ms ease, color 180ms ease; }
@@ -544,7 +544,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .home-report-cover { width: min(100%, 220px); }
   .report-stage-label { margin-bottom: 22px; }
   .report-object { transform: none; }
-  .mobile-navigation nav { padding-inline: 20px; max-height: calc(100dvh - 92px); }
+  .mobile-navigation nav { padding-inline: 20px; --drawer-top: 94px; }
 }
 /* Preserve the final, readable composition when movement is paused or reduced. */
 html[data-motion-paused="true"] .report-object,

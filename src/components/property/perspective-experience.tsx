@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { ScrollImage } from "./experience-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { Arrow } from "./chrome";
@@ -16,13 +17,28 @@ type Category = typeof categories[number]["id"];
 
 export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) {
  const stepTitle=useRef<HTMLHeadingElement>(null);
- const initialRender=useRef(true);
  const [category,setCategory]=useState<Category>("property");
  const [briefStarted,setBriefStarted]=useState(false);
  const [objectiveOutlined,setObjectiveOutlined]=useState(false);
  const [specifics,setSpecifics]=useState<Record<string,string>>({});
  const [step,setStep]=useState(0);
- useEffect(()=>{if(initialRender.current){initialRender.current=false;return;}stepTitle.current?.focus();},[step]);
+ const previousStep = useRef(step);
+ useEffect(() => {
+  if (previousStep.current === step) return;
+  previousStep.current = step;
+  const heading = stepTitle.current;
+  if (!heading) return;
+
+  heading.focus({ preventScroll: true });
+  const { top, bottom } = heading.getBoundingClientRect();
+  const headerEdge = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
+  const bannerEdge = document.querySelector(".analytics-consent")?.getBoundingClientRect().top ?? window.innerHeight;
+  // Reserve the six pixels occupied by the outline and its offset.
+  const topInset = Math.max(0, headerEdge) + 6;
+  const bottomEdge = bannerEdge - 6;
+  const offset = top < topInset ? top - topInset : Math.max(0, bottom - bottomEdge);
+  if (offset) window.scrollBy({ top: offset, behavior: "auto" });
+ }, [step]);
  const [intent,setIntent]=useState("acquire");
  const [purpose,setPurpose]=useState("residence");
  const [country,setCountry]=useState("");
@@ -50,8 +66,8 @@ export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) 
   catch { event.preventDefault();setTransferError(true);trackPropertyEvent("brief_storage_error",{asset_category:category}); }
  }
  return <>
-  <section className="perspective-hero mandate-hero" data-experience-hero aria-labelledby="home-title">
-   <figure className="perspective-scene"><picture><source type="image/webp" srcSet={`${scene.image.replace(".webp","-640.webp")} 640w, ${scene.image.replace(".webp","-1024.webp")} 1024w, ${scene.image} 1672w`} sizes="100vw"/><Image key={scene.id} src={scene.image} alt={scene.alt} fill loading="eager" fetchPriority="high" sizes="100vw"/></picture><figcaption>AI-created concept · Illustrative scene</figcaption></figure>
+  <section className="perspective-hero mandate-hero" aria-labelledby="home-title">
+   <figure className="perspective-scene"><ScrollImage><source type="image/webp" srcSet={`${scene.image.replace(".webp","-640.webp")} 640w, ${scene.image.replace(".webp","-1024.webp")} 1024w, ${scene.image} 1672w`} sizes="100vw"/><Image key={scene.id} src={scene.image} alt={scene.alt} fill loading="eager" fetchPriority="high" sizes="100vw"/></ScrollImage><figcaption>AI-created concept · Illustrative scene</figcaption></figure>
    <div className="perspective-grid" aria-hidden="true"><span/><span/><span/></div>
    <div className="perspective-topline"><span>Malta-based / Global luxury asset brokerage</span><span>WIELE / PERSPECTIVE 01</span></div>
    <div className="perspective-copy"><span className="perspective-kicker">South African roots. Global perspective.</span><h1 id="home-title">Exceptional assets.<br/><em>Individual ambition.</em></h1><p>Property, yachts and classic cars. For buyers and sellers in the UK, Europe and South Africa. Based in Malta.</p><div className="perspective-actions"><a className="button" href="#property-brief" onClick={startBrief}>Build your asset brief <Arrow diagonal/></a><a className="perspective-direct" href="#asset-atlas">Explore open dossiers <Arrow diagonal/></a></div></div>
@@ -70,7 +86,7 @@ export function PerspectiveExperience({ afterHero }: { afterHero?: ReactNode }) 
      <div className="perspective-step-actions">{step>0&&<button className="perspective-back" type="button" onClick={()=>changeStep(step-1)}>← Back</button>}{step<2?<button className="button" type="button" onClick={()=>changeStep(step+1)}>Continue <Arrow/></button>:<Link className="button" href={`${directHref}&brief=prepared`} onClick={carry}>Review in the enquiry form <Arrow diagonal/></Link>}</div>
     </div>
     <aside className="perspective-preview" aria-labelledby="mandate-preview-title">
-     <div className="perspective-preview-top"><h3 id="mandate-preview-title">Editorial Mandate Dossier Preview</h3><span>0{stage} / 03</span></div><div className="perspective-preview-image"><picture><source type="image/webp" srcSet={`${asset.image.replace(".webp","-640.webp")} 640w, ${asset.image.replace(".webp","-1024.webp")} 1024w, ${asset.image} 1672w`} sizes="(max-width:760px) 100vw, 40vw"/><Image src={asset.image} alt={asset.alt} fill sizes="(max-width:760px) 100vw, 40vw"/></picture><span>Illustrative Dossier Study</span></div><div className="perspective-preview-copy"><span className="eyebrow">{intent==="offer"?"For sale / Your brief":"Acquisition / Your brief"}</span><h4>{asset.name}.<br/><em>{country.trim()||"Your location."}</em></h4>
+     <div className="perspective-preview-top"><h3 id="mandate-preview-title">Editorial Mandate Dossier Preview</h3><span>0{stage} / 03</span></div><div className="perspective-preview-image"><ScrollImage><source type="image/webp" srcSet={`${asset.image.replace(".webp","-640.webp")} 640w, ${asset.image.replace(".webp","-1024.webp")} 1024w, ${asset.image} 1672w`} sizes="(max-width:760px) 100vw, 40vw"/><Image src={asset.image} alt={asset.alt} fill sizes="(max-width:760px) 100vw, 40vw"/></ScrollImage><span>Illustrative Dossier Study</span></div><div className="perspective-preview-copy"><span className="eyebrow">{intent==="offer"?"For sale / Your brief":"Acquisition / Your brief"}</span><h4>{asset.name}.<br/><em>{country.trim()||"Your location."}</em></h4>
      <p className="mandate-image-disclosure">AI-created concept · Illustrative concept · Not an asset offered for sale</p>
      <div className="preview-readiness">
       <p>Wiele Algorithm readiness <strong aria-live="polite">{readiness} / 3</strong></p>

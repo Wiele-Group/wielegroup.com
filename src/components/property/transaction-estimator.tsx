@@ -145,24 +145,26 @@ export function TransactionEstimator({ matrix, onCarry }: { matrix: MatrixRoute[
    <div className="transaction-output valuation-converter-panel">
     <div aria-live="polite">
      <h3 ref={breakdownHeading} tabIndex={-1}>Indicative breakdown</h3>
-     {result ? <>
+     <div className="valuation-result">
+      {result ? <>
+       <span>{result.partial ? "Subtotal using priced items only" : buyer ? "Estimated total landed cost" : "Estimated net seller proceeds"}</span>
+       <strong>{format.format(result.total)}</strong>
+       {result.partial && <p>Unpriced items are excluded. The final amount may change once those costs are confirmed.</p>}
+       {result.fxDate && <span>ECB reference FX · {result.fxDate}. Bank pricing and FX spreads may differ.</span>}
+      </> : <p>Enter your scenario to see which costs can be priced and which require a local quote.</p>}
+     </div>
+     {result && <>
       {result.scenario.illustrative && <p className="transaction-example-note"><strong>Illustrative worked example.</strong> A standard residential purchase in England or Northern Ireland, assuming UK residence under the SDLT test. Fees and disbursements are sample allowances. Delivery costs are assumed to be zero.</p>}
       <dl className="transaction-lines">{result.lines.map(line => <div key={line.label}>
        <dt>{line.label}{line.note && <small>{line.note}</small>}</dt>
        <dd>{line.amount === null ? "To confirm" : format.format(line.amount)}</dd>
       </div>)}</dl>
-      <div className="valuation-result">
-       <span>{result.partial ? "Subtotal using priced items only" : buyer ? "Estimated total landed cost" : "Estimated net seller proceeds"}</span>
-       <strong>{format.format(result.total)}</strong>
-       {result.partial && <p>Unpriced items are excluded. The final amount may change once those costs are confirmed.</p>}
-       {result.fxDate && <span>ECB reference FX · {result.fxDate}. Bank pricing and FX spreads may differ.</span>}
-      </div>
       {result.notes.map(note => <p className="fine-print" key={note}>{note}</p>)}
       {!!result.sources.length && <ul className="transaction-sources" aria-label="Official calculation sources">{result.sources.map(key => {
        const [label, href] = estimateSources[key];
        return <li key={key}><a href={href}>{label}</a></li>;
       })}</ul>}
-     </> : <p>Enter your scenario to see which costs can be priced and which require a local quote.</p>}
+     </>}
     </div>
     {result && <div className="transaction-carry">
      <button className="button" type="button" onClick={() => onCarry(result.scenario)}>Carry scenario into valuation brief ↓</button>

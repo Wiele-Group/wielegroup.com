@@ -1,5 +1,6 @@
 import "server-only";
 import Image from "next/image";
+import { ScrollImage } from "./experience-motion";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "./chrome";
@@ -14,7 +15,7 @@ export function RegisteredListingExample({ slug }: { slug: string }) {
  <StructuredData data={{ "@context": "https://schema.org", "@type": "ImageObject", contentUrl: `${propertyBrand.url}${e.image}`, name: `${e.title} — AI-created illustrative concept`, caption: e.alt, creditText: "AI-created concept for Wiele Investments", description: "Fictional illustration, not a real asset or evidence of the sample specifications." }}/>
  <div className="example-notice"><div className="wrap"><strong>{exampleDisclosure}</strong><span>All prices, locations and specifications are fictional. AI-created imagery.</span></div></div>
  <header className="example-heading wrap"><Link className="text-link" href={`${e.back}#listing-examples`}>← Back to {e.category === "property" ? "property" : e.categoryLabel.toLowerCase()} examples</Link><span className="eyebrow">{e.categoryLabel} / Public sample</span><h1>{e.title}</h1><p>{e.location} <span> / Reference: EXAMPLE-{e.slug.toUpperCase()}</span></p><div className="example-hero-price"><strong>{e.price}</strong><small>Illustrative asking price</small></div></header>
- <figure className="example-hero wrap"><div><Image src={e.image} alt={e.alt} fill sizes="(max-width:760px) 100vw, 90vw" priority/></div><figcaption>AI-created conceptual image · Not an actual asset or location photograph · Sample specifications do not describe this image</figcaption></figure>
+ <figure className="example-hero wrap"><div><ScrollImage><Image src={e.image} alt={e.alt} fill sizes="(max-width:760px) 100vw, 90vw" priority/></ScrollImage></div><figcaption>AI-created conceptual image · Not an actual asset or location photograph · Sample specifications do not describe this image</figcaption></figure>
  <nav className="example-section-nav wrap" aria-label="Example listing sections"><a href="#overview">Overview</a><a href="#specifications">Specifications</a><a href="#records">Records & condition</a><a href="#next-step">For sellers</a></nav>
  <div className="example-layout wrap"><div className="example-main"><section id="overview"><span className="eyebrow">The presentation / Overview</span><h2>Asset overview</h2><p>{e.overview}</p><ul className="example-highlights">{e.highlights.map(h => <li key={h}>{h}</li>)}</ul></section>
  <section id="specifications"><span className="eyebrow">Sample data / Not verified particulars</span><h2>Specifications</h2><dl className="example-specifications">{e.specifications.map(([label,value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="listing-disclaimer">Every figure above is fictional. A live listing would use dated, evidenced particulars and identify missing or unverified information.</p></section>

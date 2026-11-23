@@ -39,6 +39,23 @@ export function trackPropertyEvent(name: "seller_preparation" | "brief_start" | 
  if (choice() !== "accepted") return;
  window.gtag?.("event", name, { ...props, send_to: measurementId });
 }
+function measureConsentBanner(banner: HTMLElement | null) {
+ if (!banner) return;
+ const root = document.documentElement;
+ const update = () => {
+  const clearance = Math.max(0, Math.ceil(window.innerHeight - banner.getBoundingClientRect().top));
+  root.style.setProperty("--analytics-clearance", `${clearance}px`);
+ };
+ const observer = new ResizeObserver(update);
+ observer.observe(banner);
+ window.addEventListener("resize", update);
+ update();
+ return () => {
+  observer.disconnect();
+  window.removeEventListener("resize", update);
+  root.style.removeProperty("--analytics-clearance");
+ };
+}
 export function PropertyAnalytics() {
  const consent = useSyncExternalStore(subscribe, choice, () => null);
  const pathname = usePathname();
@@ -89,5 +106,5 @@ export function PropertyAnalytics() {
   document.addEventListener("toggle",onToggle,true);
   return () => { document.removeEventListener("click",onClick); document.removeEventListener("toggle",onToggle,true); };
  },[]);
- return <><button type="button" className="analytics-settings" onClick={() => setChoice(consent === "accepted" ? "rejected" : "accepted")}>{consent === "accepted" ? "Turn analytics off" : "Allow analytics"}</button>{consent === null && <section className="analytics-consent" aria-label="Analytics choice"><p>May we use Google Analytics to understand visits and enquiries? It is optional. <a href="/privacy">Privacy notice</a></p><div><button type="button" onClick={() => setChoice("rejected")}>Reject analytics</button><button type="button" onClick={() => setChoice("accepted")}>Accept analytics</button></div></section>}</>;
+ return <><button type="button" className="analytics-settings" onClick={() => setChoice(consent === "accepted" ? "rejected" : "accepted")}>{consent === "accepted" ? "Turn analytics off" : "Allow analytics"}</button>{consent === null && <section ref={measureConsentBanner} className="analytics-consent" aria-label="Analytics choice"><p>May we use Google Analytics to understand visits and enquiries? It is optional. <a href="/privacy">Privacy notice</a></p><div><button type="button" onClick={() => setChoice("rejected")}>Reject analytics</button><button type="button" onClick={() => setChoice("accepted")}>Accept analytics</button></div></section>}</>;
 }

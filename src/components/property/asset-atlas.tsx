@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ScrollImage } from "./experience-motion";
 import Link from "next/link";
 import { Arrow } from "./chrome";
 
@@ -18,7 +19,7 @@ export function AtlasDossierCard({ dossier, sizes = "(max-width: 760px) 100vw, 3
   return <article className="atlas-entry">
         <a className="atlas-dossier-link" href={dossier.href}>
           <div className="atlas-image">
-            <Image src={dossier.image} alt={dossier.alt} sizes={sizes} fill/>
+            <ScrollImage><Image src={dossier.image} alt={dossier.alt} sizes={sizes} fill/></ScrollImage>
             <span className="atlas-image-note">Illustrative Dossier Study</span>
           </div>
           <div className="atlas-entry-copy">
@@ -27,7 +28,9 @@ export function AtlasDossierCard({ dossier, sizes = "(max-width: 760px) 100vw, 3
             {showDisclosure && <><p className="atlas-example-note">Illustrative concept · Not an asset offered for sale</p><p className="atlas-example-note">AI-created concept</p></>}
             <span className="atlas-dossier-action">View dossier <Arrow diagonal/></span>
           </div>
-          <div className="atlas-specs">{dossier.specs}{dossier.recordNote && <span className="atlas-record-note">{dossier.recordNote}</span>}</div>
+          <div className="atlas-specs">{dossier.specs.split(" · ").map((specification, index) =>
+            <span className="atlas-spec-line" key={specification}>{index > 0 && " · "}{specification}</span>
+          )}{dossier.recordNote && <span className="atlas-record-note">{dossier.recordNote}</span>}</div>
         </a>
         <div className="atlas-readiness">
           <p>Due-Diligence Readiness <strong>0 / 5</strong></p>

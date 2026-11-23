@@ -3,6 +3,7 @@ import Image from "next/image";
 import { propertyBrand, propertyNavigation } from "@/lib/property";
 import { PageStructuredData } from "./structured-data";
 import { LuxuryMotion } from "./luxury-motion";
+import { ScrollImage } from "./experience-motion";
 import { MobileNavigation } from "./mobile-navigation";
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -34,6 +35,6 @@ export function PageIntro({ eyebrow, title, description, path, actions }: { eyeb
  return <section className={`page-intro wrap ${scene ? "page-intro-spatial" : ""}`}>
   {path && <PageStructuredData path={path} title={title} description={description} />}
   <div className="page-intro-copy"><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p>{actions && <div className="button-row page-intro-actions">{actions}</div>}</div>
-  {scene && <figure className="page-intro-scene"><Image src={`/property/${scene.image}`} alt={`${scene.label}; not a property offered for sale`} fill sizes="(max-width: 760px) 100vw, 40vw" priority /><figcaption className={scene.badge ? "page-intro-study-badge" : undefined}>{scene.badge ?? <>{scene.label}<span>Not a property offered for sale</span></>}</figcaption><span className="page-intro-ordinal" aria-hidden="true">{scene.ordinal}</span></figure>}
+  {scene && <figure className="page-intro-scene"><ScrollImage><Image src={`/property/${scene.image}`} alt={`${scene.label}; not a property offered for sale`} fill sizes="(max-width: 760px) 100vw, 40vw" priority /></ScrollImage><figcaption className={scene.badge ? "page-intro-study-badge" : undefined}>{scene.badge ?? <>{scene.label}<span>Not a property offered for sale</span></>}</figcaption><span className="page-intro-ordinal" aria-hidden="true">{scene.ordinal}</span></figure>}
  </section>;
 }

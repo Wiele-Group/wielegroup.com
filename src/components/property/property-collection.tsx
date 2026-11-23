@@ -2,6 +2,7 @@ import "server-only";
 import Image from "next/image";
 import Link from "next/link";
 import { Arrow } from "./chrome";
+import { ScrollImage } from "./experience-motion";
 import { PropertyCollectionFilter, type PropertyRegion } from "./property-collection-filter";
 import { exampleHref } from "@/lib/listing-examples";
 import { registeredListingExamples } from "@/server/listing-examples";
@@ -56,7 +57,7 @@ function StudyCard({ study }: { study: Study }) {
 
  return <>
   <div className="property-study-image">
-   <Image src={image} alt={alt} fill sizes={flagship ? "(max-width: 820px) 100vw, 55vw" : "(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 33vw"} />
+   <ScrollImage><Image src={image} alt={alt} fill sizes={flagship ? "(max-width: 820px) 100vw, 55vw" : "(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 33vw"} /></ScrollImage>
    <span className="listing-example-badge">Illustrative Dossier Study</span>
   </div>
   <div className="property-study-content">

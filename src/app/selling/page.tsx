@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ScrollImage } from "@/components/property/experience-motion";
 import Link from "next/link";
 import { propertyBrand, propertyMetadata } from "@/lib/property";
 import { Arrow, PageIntro } from "@/components/property/chrome";
@@ -23,7 +24,7 @@ export default function Selling() {
   <AcquisitionMandates/>
   <section className="split-feature seller-presentation wrap">
    <figure>
-    <Image src="/property/wiele-global-villa-20261113.webp" alt="AI-created concept of a fictional coastal villa" fill sizes="(max-width:760px) 100vw,45vw" style={{objectFit:"cover"}}/>
+    <ScrollImage><Image src="/property/wiele-global-villa-20261113.webp" alt="AI-created concept of a fictional coastal villa" fill sizes="(max-width:760px) 100vw,45vw" style={{objectFit:"cover"}}/></ScrollImage>
     <figcaption>Illustrative Dossier Study</figcaption>
    </figure>
    <div>

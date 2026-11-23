@@ -154,6 +154,7 @@ function stampCacheStatus(response: Response, status: "HIT" | "MISS" | "BYPASS")
 }
 
 interface OpenNextEnv {
+  ASSETS: Fetcher;
   [key: string]: unknown;
 }
 
@@ -163,14 +164,27 @@ const handler = {
     env: OpenNextEnv,
     ctx: ExecutionContext,
   ): Promise<Response> {
+    const requestedUrl = new URL(request.url);
+    if (requestedUrl.hostname === "www.wielegroup.com") {
+      requestedUrl.protocol = "https:";
+      requestedUrl.hostname = "wielegroup.com";
+      requestedUrl.port = "";
+      return Response.redirect(requestedUrl, 308);
+    }
+
     // Retired URLs must never be served from a previous release cache.
     // Removed profile media must not be served from prior image caches.
-    const requestedUrl = new URL(request.url);
     if (requestedUrl.pathname === "/property/jonathan-landman-profile-2026-10-31.webp" ||
         (requestedUrl.pathname === "/_next/image" && requestedUrl.searchParams.get("url") === "/property/jonathan-landman-profile-2026-10-31.webp")) {
       return new Response(null, { status: 410, headers: { "X-Robots-Tag": "noindex", "Cache-Control": "no-store" } });
     }
-    if (isRetiredAgencyPath(new URL(request.url).pathname)) return retiredAgencyResponse(request.method);
+    if (isRetiredAgencyPath(requestedUrl.pathname)) return retiredAgencyResponse(request.method);
+
+    if (request.method === "GET" || request.method === "HEAD") {
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 404) return asset;
+      await asset.body?.cancel();
+    }
 
     if (!isCacheableRequest(request)) {
       const response = await opennextWorker.fetch(request, env, ctx);
@@ -188,7 +202,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-contact-20261122"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-architectural-20261123"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

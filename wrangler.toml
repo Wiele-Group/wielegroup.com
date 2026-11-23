@@ -60,6 +60,8 @@ head_sampling_rate = 1
 [assets]
 binding = "ASSETS"
 directory = ".open-next/assets"
+# Canonical-host redirects must run before matching public assets are served.
+run_worker_first = true
 # Keep the downloadable example at its explicit .html URL; Next handles app routes.
 html_handling = "none"
 

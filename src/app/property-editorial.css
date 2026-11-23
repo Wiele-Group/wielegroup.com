@@ -19,7 +19,7 @@
 .editorial-home h2 em { font-weight:400; color:var(--muted); }
 .editorial-home p { font-size:16px; line-height:1.85; color:var(--muted); }
 .editorial-home .text-link { font-size:14px; gap:24px; }
-.brokerage-hero { display:grid; grid-template-columns:46% 54%; min-height:620px; background:var(--ivory); }
+.brokerage-hero { display:grid; grid-template-columns:46% 54%; min-height:620px; background:var(--wiele-canvas-primary); }
 .brokerage-hero-copy { padding:70px clamp(32px,4.4vw,80px); align-self:center; min-width:0; }
 .brokerage-hero-copy>.eyebrow { color:var(--muted); letter-spacing:.09em; }
 .brokerage-hero h1 { font:400 clamp(50px,4.6vw,78px)/1.03 var(--font-heading); letter-spacing:-.032em; margin:28px 0; }
@@ -29,9 +29,9 @@
 .editorial-home p.brokerage-hero-description { max-width:37ch; font-size:15px; margin:0; }
 .brokerage-hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; margin-top:28px; }
 .brokerage-signature { display:block; margin-top:40px; padding-top:22px; border-top:1px solid var(--line); font:400 21px/1.4 var(--font-heading); color:var(--muted); }
-.brokerage-hero-image { margin:0; position:relative; min-height:620px; background:#d2c8b8; }
+.brokerage-hero-image { margin:0; position:relative; min-height:620px; background:var(--surface); }
 .brokerage-hero-image>img { object-fit:cover; object-position:61% center; }
-.brokerage-hero-image figcaption { position:absolute; bottom:24px; left:24px; right:24px; width:fit-content; max-width:calc(100% - 48px); padding:10px 14px; background:#fffdfaf0; color:var(--ink); font-size:11px; line-height:1.65; }
+.brokerage-hero-image figcaption { position:absolute; bottom:24px; left:24px; right:24px; width:fit-content; max-width:calc(100% - 48px); padding:10px 14px; background:rgb(11 13 17 / 94%); color:var(--ink); font-size:11px; line-height:1.65; }
 .brokerage-hero-image figcaption>span { color:var(--muted); }
 .brokerage-property { padding-block:80px; }
 .brokerage-section-heading { display:grid; grid-template-columns:1.1fr 1fr; align-items:start; gap:10%; margin-bottom:34px; }
@@ -70,7 +70,7 @@
 .brokerage-research p { margin-bottom:18px; }
 .editorial-home p.brokerage-report-meta { font-size:12px; line-height:1.8; }
 .brokerage-research .button { width:fit-content; margin:4px 24px 8px 0; }
-.brokerage-contact { padding-block:72px; background:var(--ivory); border-top:1px solid var(--line); }
+.brokerage-contact { padding-block:72px; background:var(--wiele-canvas-primary); border-top:1px solid var(--line); }
 .brokerage-contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:10%; }
 .brokerage-contact-grid>div:first-child>p { max-width:40ch; }
 .brokerage-contact .button { display:flex; width:fit-content; margin:24px 0 12px; }
@@ -139,7 +139,7 @@
 .buyer-availability h2,.complementary-enquiries h2 { font:400 clamp(36px,4vw,54px)/1.12 var(--font-heading); margin:18px 0; }
 .buyer-availability>p,.complementary-enquiries p { max-width:65ch; font-size:16px; line-height:1.8; color:var(--muted); }
 .buyer-availability .text-link { margin:18px 26px 0 0; }
-.buyer-tools { background:var(--ivory); border-block:1px solid var(--line); }
+.buyer-tools { background:var(--wiele-canvas-primary); border-block:1px solid var(--line); }
 .buyer-tools summary { display:flex; justify-content:space-between; gap:24px; align-items:center; cursor:pointer; font-size:17px; line-height:1.6; padding-block:28px; list-style:none; }
 .buyer-tools summary::-webkit-details-marker { display:none; }
 .buyer-tools summary>span { font-size:25px; }
@@ -162,37 +162,37 @@
 }
 
 /* Wiele Perspective: one spatial scene, user-led categories and a useful brief. */
-.perspective-hero { position:relative; isolation:isolate; overflow:hidden; min-height:820px; display:flex; flex-direction:column; padding:30px 56px 32px; color:var(--wiele-canvas-elevated); background:var(--wiele-obsidian); }
+.perspective-hero { position:relative; isolation:isolate; overflow:hidden; min-height:820px; display:flex; flex-direction:column; padding:30px 56px 32px; color:var(--ink); background:var(--paper); }
 .perspective-scene { position:absolute; inset:0; margin:0; z-index:-3; }
-.perspective-scene img { object-fit:cover; object-position:65% center; transform:translate3d(var(--scene-x,0px),var(--scene-y,0px),0) scale(1.045); transition:transform .8s cubic-bezier(.2,.7,.2,1); }
+.perspective-scene img { object-fit:cover; object-position:65% center;  }
 .perspective-hero:before { content:""; position:absolute; inset:0; z-index:-2; pointer-events:none; background:linear-gradient(90deg,#121417e8 0%,#121417b0 34%,#12141722 73%),linear-gradient(0deg,#121417f5 0%,#12141700 46%,#12141744 100%); }
 .perspective-scene figcaption { position:absolute; right:32px; top:34%; max-width:200px; padding:12px 15px; color:#fff; border-left:1px solid var(--wiele-canvas-recessed); background:#121417b8; font-size:11px; line-height:1.7; }
 .perspective-grid { position:absolute; inset:0 56px; display:grid; grid-template-columns:repeat(3,1fr); z-index:-1; opacity:.32; pointer-events:none; }
 .perspective-grid>span { border-right:1px solid #ffffff24; }.perspective-grid>span:first-child { border-left:1px solid #ffffff24; }
 .perspective-topline { display:flex; justify-content:space-between; gap:24px; font-size:10px; line-height:1.7; text-transform:uppercase; letter-spacing:.13em; color:#dfddd3; }
-.perspective-topline>span:last-child { color:var(--wiele-canvas-recessed); }
+.perspective-topline>span:last-child { color:var(--bronze); }
 .perspective-copy { position:relative; max-width:870px; padding-block:68px 76px; }
-.perspective-kicker { display:block; font-size:12px; color:var(--wiele-canvas-recessed); letter-spacing:.035em; }
+.perspective-kicker { display:block; font-size:12px; color:var(--bronze); letter-spacing:.035em; }
 .perspective-copy h1 { font:400 clamp(65px,6.5vw,104px)/1.02 var(--font-heading); margin:26px 0; letter-spacing:-.035em; text-wrap:balance; }
 .perspective-copy h1 em { font-weight:400; color:#e8d7b8; }
 .editorial-home .perspective-copy>p { font-size:16px; line-height:1.85; color:#e4e4dc; max-width:46ch; margin:0; }
 .perspective-actions { display:flex; align-items:center; flex-wrap:wrap; gap:20px 30px; margin-top:30px; }
-.perspective-actions .button { background:var(--wiele-canvas-recessed); border-color:var(--wiele-canvas-recessed); color:var(--wiele-obsidian); }
-.perspective-actions .button:hover { background:var(--wiele-canvas-elevated); border-color:var(--wiele-canvas-elevated); }
+.perspective-actions .button { background:var(--wiele-canvas-recessed); border-color:var(--bronze); color:var(--wiele-obsidian); }
+.perspective-actions .button:hover { background:var(--wiele-canvas-elevated); border-color:var(--ink); }
 .perspective-direct { display:inline-flex; align-items:center; gap:18px; font-size:14px; min-height:48px; border-bottom:1px solid #fff7; }
 .perspective-mobile-summary { display:none; }
 .perspective-bottom { display:grid; grid-template-columns:1fr 2.5fr; gap:6%; align-items:end; margin-top:auto; }
-.perspective-current>span { color:var(--wiele-canvas-recessed); text-transform:uppercase; font-size:11px; letter-spacing:.1em; }
+.perspective-current>span { color:var(--bronze); text-transform:uppercase; font-size:11px; letter-spacing:.1em; }
 .editorial-home .perspective-current>p { font-size:13px; line-height:1.65; color:#d9ddd6; margin:10px 0; max-width:29ch; }
 .perspective-current>a { display:inline-flex; align-items:center; gap:15px; min-height:40px; font-size:12px; }
 .perspective-selector { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; gap:0; }
 .perspective-selector button { position:relative; display:flex; flex-direction:column; align-items:start; gap:12px; text-align:left; color:#ddd; font:500 14px/1.3 var(--font-sans); border:0; border-top:1px solid #fff5; padding:18px 14px 22px; background:#12141770; cursor:pointer; transition:background .25s,color .25s; }
 .perspective-selector button>span { color:#d9c6a2; font-size:10px; }
-.perspective-selector button[aria-pressed=true] { color:#fff; background:#e5d4b426; border-color:var(--wiele-canvas-recessed); }
+.perspective-selector button[aria-pressed=true] { color:#fff; background:#e5d4b426; border-color:var(--bronze); }
 .perspective-selector button>i { position:absolute; top:-3px; left:0; height:5px; width:5px; background:var(--wiele-canvas-recessed); opacity:0; }
 .perspective-selector button[aria-pressed=true]>i { opacity:1; }
 .perspective-selector button:hover { background:#e5d4b430; }
-.perspective-builder { padding:82px 56px 42px; background:#f4f1e9; scroll-margin-top:104px; }
+.perspective-builder { padding:82px 56px 42px; background:var(--paper); scroll-margin-top:104px; }
 .perspective-builder-heading { max-width:1280px; margin:0 auto 34px; display:grid; grid-template-columns:1fr 1fr; gap:12%; align-items:center; }
 .editorial-home .perspective-builder-heading h2 { margin-bottom:0; }
 .editorial-home .perspective-builder-heading>p { max-width:42ch; font-size:16px; }
@@ -203,7 +203,7 @@
 .perspective-steps button>span { margin-right:10px; font-size:10px; }
 .perspective-steps button[aria-current=step] { color:var(--wiele-obsidian); border-color:#947644; }
 .perspective-steps button:disabled { opacity:.6; cursor:default; }
-.perspective-step-panel { min-height:340px; animation:perspective-arrive .25s ease-out; }
+.perspective-step-panel { min-height:340px; animation:panel-appear 200ms ease-out; }
 .perspective-step-panel h3 { font:400 35px/1.12 var(--font-heading); letter-spacing:-.02em; margin:17px 0 24px; }
 .perspective-asset-choices { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 .perspective-asset-choices button:first-child { grid-column:1/-1; }
@@ -219,7 +219,7 @@
 .perspective-step-actions { display:flex; align-items:center; gap:24px; justify-content:space-between; margin-top:auto; padding-top:24px; }
 .perspective-step-actions .button { margin-left:auto; }
 .perspective-back { font-size:14px; background:none; border:0; min-height:48px; cursor:pointer; color:var(--wiele-obsidian); padding:8px 0; }
-.perspective-preview { background:var(--wiele-obsidian); color:var(--wiele-canvas-elevated); min-width:0; }
+.perspective-preview { background:var(--paper); color:var(--ink); min-width:0; }
 .perspective-preview-top { display:flex; justify-content:space-between; gap:20px; padding:22px 28px; font-size:10px; letter-spacing:.12em; color:#d3c29f; }
 .perspective-preview-image { position:relative; height:240px; overflow:hidden; }
 .perspective-preview-image img { object-fit:cover; }
@@ -239,7 +239,6 @@
 .perspective-transfer { max-width:1280px; margin:24px auto; padding:24px; border:1px solid #a77e4b; }
 .perspective-transfer label { display:block; font-size:14px; }
 .perspective-transfer textarea { display:block; width:100%; min-height:170px; font:14px/1.7 var(--font-sans); padding:16px; margin:12px 0; }
-@keyframes perspective-arrive { from { opacity:.3; transform:translateY(8px); } to { opacity:1; transform:none; } }
 @media(min-width:1700px) { .perspective-hero { padding-inline:max(56px,calc((100vw - 1580px)/2)); }.perspective-builder { padding-inline:max(56px,calc((100vw - 1580px)/2)); } }
 @media(max-width:1100px) { .perspective-bottom { grid-template-columns:1fr; gap:20px; }.perspective-current { display:none; }.perspective-copy { padding-block:60px; }.perspective-controls { padding:28px; }.perspective-builder { padding-inline:40px; } }
 @media(max-width:760px) {
@@ -299,12 +298,12 @@ html[data-motion-paused=true] .perspective-step-panel { animation:none; }
  .perspective-selector button { padding-block:12px; }
 }
 @media(max-width:760px) {
- .perspective-mobile-summary { display:flex; flex-direction:column; gap:5px; position:sticky; top:94px; z-index:5; padding:13px 16px; background:var(--wiele-obsidian); color:var(--wiele-canvas-elevated); border:1px solid var(--wiele-obsidian); font-size:12px; line-height:1.6; max-height:140px; overflow:auto; overflow-wrap:anywhere; }
+ .perspective-mobile-summary { display:flex; flex-direction:column; gap:5px; position:sticky; top:94px; z-index:5; padding:13px 16px; background:var(--paper); color:var(--ink); border:1px solid var(--wiele-obsidian); font-size:12px; line-height:1.6; max-height:140px; overflow:auto; overflow-wrap:anywhere; }
  .perspective-mobile-summary>span { color:#d8e0d4; font-size:11px; }
 }
 
 /* International market and specialist briefing sections. */
-.market-perspective{padding-top:90px;padding-bottom:90px}.market-intro{max-width:760px;margin:26px 0 42px;font-size:1.15rem;line-height:1.7}.market-columns,.asset-guide-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}.market-columns article{border-top:1px solid #8d8064;padding-top:24px}.market-columns article>span{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}.market-columns h3{font-size:1.7rem;margin:20px 0}.market-columns p,.asset-guide-body p,.asset-guide-body li{line-height:1.8}.market-perspective>.fine-print{margin:32px 0 24px;max-width:900px}.asset-guide-body{padding-top:80px;padding-bottom:30px}.asset-guide-heading{max-width:800px;margin-bottom:48px}.asset-guide-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:50px}.asset-guide-columns article{border-top:1px solid #8d8064;padding-top:28px}.asset-guide-columns h3{font-size:2rem;margin:18px 0}.asset-guide-columns ul{padding-left:20px;margin:20px 0 28px}.asset-guide-columns li{padding:6px 0}.asset-specialist{background:#eee7d8;color:#252a25;margin-top:56px;padding:40px;max-width:1050px}.asset-specialist h3{font-size:2rem;margin:18px 0}.asset-guide-page .asset-hero-copy h1{max-width:900px;font-size:clamp(2.5rem,5.5vw,5.5rem)}.asset-guide-page .asset-hero-copy p{max-width:710px}.asset-guide-page .button-row{display:flex;gap:24px;flex-wrap:wrap}.asset-guide-page .asset-category-nav{padding-bottom:60px}.asset-category-nav a[aria-current=page]{border-bottom:2px solid #cab68e}@media(max-width:760px){.market-perspective{padding-top:55px;padding-bottom:55px}.market-columns,.asset-guide-columns{grid-template-columns:1fr;gap:28px}.asset-guide-body{padding-top:48px}.asset-specialist{padding:24px}.asset-guide-page .asset-hero-copy{padding-top:60px;padding-bottom:70px}.asset-guide-page .asset-hero{min-height:650px;height:auto}.asset-guide-page .asset-hero-copy h1{font-size:clamp(2.3rem,9vw,4rem)}}
+.market-perspective{padding-top:90px;padding-bottom:90px}.market-intro{max-width:760px;margin:26px 0 42px;font-size:1.15rem;line-height:1.7}.market-columns,.asset-guide-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}.market-columns article{border-top:1px solid #8d8064;padding-top:24px}.market-columns article>span{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}.market-columns h3{font-size:1.7rem;margin:20px 0}.market-columns p,.asset-guide-body p,.asset-guide-body li{line-height:1.8}.market-perspective>.fine-print{margin:32px 0 24px;max-width:900px}.asset-guide-body{padding-top:80px;padding-bottom:30px}.asset-guide-heading{max-width:800px;margin-bottom:48px}.asset-guide-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:50px}.asset-guide-columns article{border-top:1px solid #8d8064;padding-top:28px}.asset-guide-columns h3{font-size:2rem;margin:18px 0}.asset-guide-columns ul{padding-left:20px;margin:20px 0 28px}.asset-guide-columns li{padding:6px 0}.asset-specialist{background:var(--paper);color:var(--ink);margin-top:56px;padding:40px;max-width:1050px}.asset-specialist h3{font-size:2rem;margin:18px 0}.asset-guide-page .asset-hero-copy h1{max-width:900px;font-size:clamp(2.5rem,5.5vw,5.5rem)}.asset-guide-page .asset-hero-copy p{max-width:710px}.asset-guide-page .button-row{display:flex;gap:24px;flex-wrap:wrap}.asset-guide-page .asset-category-nav{padding-bottom:60px}.asset-category-nav a[aria-current=page]{border-bottom:2px solid #cab68e}@media(max-width:760px){.market-perspective{padding-top:55px;padding-bottom:55px}.market-columns,.asset-guide-columns{grid-template-columns:1fr;gap:28px}.asset-guide-body{padding-top:48px}.asset-specialist{padding:24px}.asset-guide-page .asset-hero-copy{padding-top:60px;padding-bottom:70px}.asset-guide-page .asset-hero{min-height:650px;height:auto}.asset-guide-page .asset-hero-copy h1{font-size:clamp(2.3rem,9vw,4rem)}}
 
 .broker-profile{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:70px;padding-top:70px;padding-bottom:70px;scroll-margin-top:120px}.broker-profile h2{font-size:clamp(2.3rem,4vw,4.3rem);line-height:1.08}.broker-profile p{line-height:1.85;margin:20px 0}.broker-profile-lead{font-size:1.2rem}.broker-timeline{margin:32px 0}.broker-timeline>div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-top:1px solid #b8b0a0}.broker-timeline dt{font-size:.85rem}.broker-timeline dd{margin:0;line-height:1.6}.broker-profile h3{font-size:1.8rem}.broker-profile .fine-print{font-size:.85rem}@media(max-width:760px){.broker-profile{grid-template-columns:1fr;gap:24px;padding-top:45px;padding-bottom:45px}.broker-timeline>div{grid-template-columns:1fr;gap:6px}}
 
