@@ -1,22 +1,14 @@
-import type { Metadata } from "next";
+import { JsonLdGraph } from "@/components/JsonLdGraph";
+import { buildBreadcrumbSchema } from "@/lib/schema-graph";
+import { PAGE_METADATA } from "@/lib/seo-metadata";
 import { mandateSummary } from "@/lib/mandateAgreement";
-import { propertyMetadata } from "@/lib/property";
 import { MandateClauses } from "@/components/seller/MandateAgreement";
 import { SellerOnboarding } from "@/components/seller/SellerOnboarding";
 import "./onboarding.css";
 
-const path = "/list-asset";
 const stripeTestSubscriptionUrl = "https://buy.stripe.com/test_14A28r85t4BA8JOh2abo408";
 const earlyLaunchRequest = "I request Wiele to begin algorithmic campaign deployment immediately (within the 14-day statutory cooling-off period) and acknowledge proportionate payment for campaign services rendered prior to any valid consumer withdrawal.";
-export const metadata: Metadata = {
-  ...propertyMetadata(
-    "Seller Onboarding & Marketing Retainer",
-    "Malta-based Wiele Investments seller onboarding for property, yachts and classic cars. Review the asset marketing mandate, monthly retainer and buyer-introduction commission.",
-    path,
-  ),
-  robots: { index: false, follow: false },
-  referrer: "no-referrer",
-};
+export const metadata = PAGE_METADATA.listAsset;
 
 type OnboardingParams = { asset?: string | string[]; lead?: string | string[] };
 
@@ -26,7 +18,8 @@ export default async function ListAssetPage({ searchParams }: { searchParams: Pr
   const lead = typeof query.lead === "string" && /^lead_[A-Za-z0-9]+$/.test(query.lead) ? query.lead : "";
 
   return (
-    <main className="retainer-onboarding">
+    <div className="retainer-onboarding">
+      <JsonLdGraph includeCore={false} nodes={[buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Seller onboarding and marketing retainer", path: "/list-asset" }])]} />
       <div className="wrap retainer-onboarding-inner">
         <p className="retainer-onboarding-kicker">Malta · Asset marketing and intelligence</p>
         <h1>Seller onboarding</h1>
@@ -55,6 +48,6 @@ export default async function ListAssetPage({ searchParams }: { searchParams: Pr
           <MandateClauses heading="h3" />
         </SellerOnboarding>
       </div>
-    </main>
+    </div>
   );
 }

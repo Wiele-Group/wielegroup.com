@@ -15,8 +15,8 @@ import "./design-system.css";
 import "./wiele-architectural-system.css";
 import { Header, Footer } from "@/components/property/chrome";
 import { PropertyAnalytics } from "@/components/property/analytics";
-import { StructuredData } from "@/components/property/structured-data";
-import { propertyBrand } from "@/lib/property";
+import { JsonLdGraph } from "@/components/JsonLdGraph";
+import { defaultOpenGraphImage, propertyBrand } from "@/lib/property";
 const sans = localFont({ src: "./fonts/inter.woff2", weight: "100 900", variable: "--font-inter", display: "swap" });
 const serif = localFont({ src: [{ path: "./fonts/cormorant.woff2", weight: "300 700", style: "normal" }, { path: "./fonts/cormorant-italic.woff2", weight: "300 700", style: "italic" }], variable: "--font-display", display: "swap" });
 const mono = localFont({ src: "./fonts/jetbrains-mono.woff2", weight: "100 800", variable: "--font-jetbrains", display: "swap" });
@@ -26,20 +26,13 @@ export const metadata: Metadata = {
  description: propertyBrand.description,
  applicationName: propertyBrand.name, category: "Real estate",
  alternates: { canonical: "/" },
- openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, url: "/", images: [{ url: "/luxury-assets/og-wiele-global-assets-20261113.jpg", width: 1200, height: 630, alt: `Wiele Investments — global asset brokerage. South African roots. Global perspective. AI-created architectural concept.` }] },
- twitter: { card: "summary_large_image", title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, images: ["/luxury-assets/og-wiele-global-assets-20261113.jpg"] },
+ openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, url: "/", images: [defaultOpenGraphImage] },
+ twitter: { card: "summary_large_image", title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, images: [{ url: defaultOpenGraphImage.url, alt: defaultOpenGraphImage.alt }] },
  icons: { icon: [{ url: "/property-identity/reflective-gold/favicon-16.png", sizes: "16x16", type: "image/png" }, { url: "/property-identity/reflective-gold/favicon-32.png", sizes: "32x32", type: "image/png" }], apple: "/property-identity/reflective-gold/apple-touch-icon.png" },
  other: { "geo.region": "MT", "geo.placename": "Swieqi, Malta", "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#171a19" };
 export default function Layout({ children }: { children: React.ReactNode }) {
- const schema = { "@context": "https://schema.org", "@type": "Organization", name: propertyBrand.name, slogan: propertyBrand.tagline, alternateName: ["Wiele Properties", "Wiele Property", "Wiele Group", "WieleGroup"], url: propertyBrand.url, email: propertyBrand.email, description: propertyBrand.description,
- "@id": `${propertyBrand.url}/#organization`, logo: `${propertyBrand.url}/property-identity/reflective-gold/organisation-icon.png`,
- foundingDate: propertyBrand.founded,
- address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
- sameAs: Object.values(propertyBrand.social),
- contactPoint: { "@type": "ContactPoint", email: propertyBrand.email, contactType: "customer enquiries", availableLanguage: propertyBrand.languages },
- knowsAbout: ["International property marketing", "Luxury residences", "Investment property", "Property buyer introductions", "Yacht acquisition enquiries", "Classic cars"] };
- return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable} ${mono.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><StructuredData data={{ "@context": "https://schema.org", "@graph": [schema, { "@type": "WebSite", "@id": `${propertyBrand.url}/#website`, url: `${propertyBrand.url}/`, name: propertyBrand.name, alternateName: ["Wiele Properties", "wielegroup.com"], description: propertyBrand.description, inLanguage: "en-GB", publisher: { "@id": `${propertyBrand.url}/#organization` } }] }} /></body></html>;
+ return <html lang="en-GB" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable} ${mono.variable}`}><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main">{children}</main><Footer /><PropertyAnalytics /><JsonLdGraph includeCore={true} /></body></html>;
 }

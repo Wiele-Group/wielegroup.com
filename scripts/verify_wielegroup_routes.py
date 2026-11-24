@@ -83,11 +83,12 @@ def main():
     ] + [(base + path, 200, None) for path in (*PAGES, "/api/fx-rates")]
     if base == "https://wielegroup.com":
         checks += [
-            (f"{scheme}://www.wielegroup.com{path}{query}", 308, base + target + query)
+            (f"{scheme}://www.wielegroup.com{path}{query}", 308, base + (path if scheme == "http" else target) + query)
             for scheme in ("http", "https")
             for path, target in (("/", "/"), ("/valuations", "/valuations"), ("/enquire/", "/contact"))
         ]
     opener = urllib.request.build_opener(NoRedirect)
+    opener.addheaders = [("User-Agent", "WieleRouteSmoke/1.0")]
     failures = 0
     for url, status, target in checks:
         try:

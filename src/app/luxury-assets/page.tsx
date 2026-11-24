@@ -1,19 +1,15 @@
+import { PAGE_METADATA, luxuryAssetsTitle as title, luxuryAssetsDescription as description } from "@/lib/seo-metadata";
 import Image from "next/image";
 import { ScrollImage } from "@/components/property/experience-motion";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { Arrow, ContactBand } from "@/components/property/chrome";
 import { LuxuryDossierCollection } from "@/components/property/luxury-dossier-collection";
 import { PageStructuredData, StructuredData } from "@/components/property/structured-data";
-import { propertyBrand, propertyMetadata } from "@/lib/property";
+import { propertyBrand } from "@/lib/property";
 import { luxuryAssets, luxuryAssetFaqs } from "@/lib/luxury-assets";
 
 const path = "/luxury-assets";
-const title = "Yachts & Classic Cars | Private Brokerage";
-const description = "Wiele Investments coordinates private yacht and classic-car mandates from Malta. Explore four open fictional dossiers and cross-border flag, customs and VAT considerations.";
-const share = { url: "/property/malta-harbour.webp", width: 1800, height: 1800, alt: "Valletta’s limestone waterfront across the harbour in Malta" };
-const base = propertyMetadata(title, description, path);
-export const metadata: Metadata = {...base, openGraph: {...base.openGraph, images: [share]}, twitter: {...base.twitter, images: [share.url]}};
+export const metadata = PAGE_METADATA.luxuryAssets;
 
 const sources = {
  flag: "https://www.transport.gov.mt/landing_registration.asp?pageid=2011",
@@ -40,7 +36,7 @@ export default function LuxuryAssets() {
     <a className="cinema-button" href="#asset-categories">Explore open dossiers <Arrow diagonal/></a>
    </div>
    <figure>
-    <ScrollImage><Image src={share.url} alt={share.alt} fill sizes="(max-width: 760px) 100vw, 55vw" priority/></ScrollImage>
+    <ScrollImage><Image src="/property/malta-harbour.webp" alt="Valletta’s limestone waterfront across the harbour in Malta" fill sizes="(max-width: 760px) 100vw, 55vw" priority/></ScrollImage>
     <figcaption>Valletta waterfront, Malta</figcaption>
    </figure>
   </section>

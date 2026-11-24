@@ -1,15 +1,14 @@
+import { PAGE_METADATA, researchDescription as description } from "@/lib/seo-metadata";
 import Link from "next/link";
 import Image from "next/image";
-import type { Metadata } from "next";
 import { PageIntro, Arrow } from "@/components/property/chrome";
 import { StructuredData } from "@/components/property/structured-data";
-import { propertyBrand, propertyMetadata } from "@/lib/property";
+import { propertyBrand } from "@/lib/property";
 import { globalLuxuryReport, investmentReport } from "@/lib/investment-report";
 import { propertyMarket } from "@/lib/property-market";
 
 const path = "/research";
-const description = "Malta-based Wiele Investments research on property, yachts and classic cars. Read dated observations and register for the global luxury and Malta property reports.";
-export const metadata: Metadata = propertyMetadata("Market Research & Property Reports", description, path);
+export const metadata = PAGE_METADATA.research;
 
 const publications = [
  {
@@ -61,7 +60,7 @@ const tools = [
 
 export default function Research() {
  return <>
-  <PageIntro path={path} eyebrow="Wiele intelligence / The research library" title="A wider view. A clearer perspective." description={description}/>
+  <PageIntro path={path} eyebrow="Wiele intelligence / The research library" title="Market research and property reports" description={description}/>
   <StructuredData data={{
    "@context": "https://schema.org", "@type": "CollectionPage", name: "Wiele market research", url: propertyBrand.url + path,
    dateModified: "2026-11-21",

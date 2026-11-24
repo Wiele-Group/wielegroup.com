@@ -1,15 +1,10 @@
-import type { Metadata } from "next";
+import { PAGE_METADATA } from "@/lib/seo-metadata";
 import Link from "next/link";
 import { Arrow, PageIntro } from "@/components/property/chrome";
 import { MandateClauses, MandateScheduleA } from "@/components/seller/MandateAgreement";
 import { mandateSummary } from "@/lib/mandateAgreement";
-import { propertyMetadata } from "@/lib/property";
 
-export const metadata: Metadata = propertyMetadata(
-  mandateSummary.title,
-  "Wiele Investments’ Malta asset marketing and brokerage mandate. Read all nine clauses, including the per-asset retainer, commission, cancellation and Schedule A.",
-  mandateSummary.publicPath,
-);
+export const metadata = PAGE_METADATA.sellerRetainerTerms;
 
 export default function SellerRetainerTerms() {
   return (

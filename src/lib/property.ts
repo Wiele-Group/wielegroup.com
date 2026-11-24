@@ -26,13 +26,19 @@ export const propertyNavigation = [
   { href: "/wiele-algorithm", label: "The Algorithm" },
 ];
 
+export const DEFAULT_OG_IMAGE = "/og/wiele-architectural-briefing.png";
+export const defaultOpenGraphImage = {
+  url: DEFAULT_OG_IMAGE, width: 1200, height: 630,
+  alt: "Wiele Investments architectural briefing featuring an AI-created architectural concept",
+};
+
 export function propertyMetadata(title: string, description: string, path: string): Metadata {
   const fullTitle = `${title} | ${propertyBrand.name}`;
   return {
     title, description, alternates: { canonical: path },
     openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name,
       title: fullTitle, description, url: path,
-      images: [{ url: "/luxury-assets/og-wiele-global-assets-20261113.jpg", width: 1200, height: 630, alt: `Wiele Investments — global asset brokerage. South African roots. Global perspective. AI-created architectural concept.` }] },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: ["/luxury-assets/og-wiele-global-assets-20261113.jpg"] },
+      images: [defaultOpenGraphImage] },
+    twitter: { card: "summary_large_image", title: fullTitle, description, images: [{ url: DEFAULT_OG_IMAGE, alt: defaultOpenGraphImage.alt }] },
   };
 }

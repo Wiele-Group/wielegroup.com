@@ -29,6 +29,7 @@ class Page(HTMLParser):
    self.in_script=True
    if a.get('type')=='application/ld+json':self.in_json=True;self.json_buffer=''
   if tag=='h1':self.h1s+=1
+  if tag=='img':assert 'alt' in a,('image missing alternative text',a.get('src'))
   if tag=='a' and a.get('href','').startswith('/'):self.links.append(a['href'])
   if tag in ['img','script'] and a.get('src','').startswith('/'):self.assets.append(a['src'])
   if tag=='source':
@@ -89,6 +90,13 @@ for path in paths:
  entities=[]
  for schema in p.schemas:entities.extend(schema.get('@graph',[schema]))
  types=[e.get('@type') for e in entities]
+ ids=[e['@id'] for e in entities if '@id' in e]
+ assert len(ids)==len(set(ids)),(path,'duplicate schema node identifiers')
+ if path in {'/about','/luxury-assets','/luxury-assets/classic-cars','/valuations','/research','/malta-investment-report','/terms/seller-retainer','/contact','/privacy'}:
+  trail=next(e for e in entities if e.get('@type')=='BreadcrumbList')['itemListElement']
+  assert [i['position'] for i in trail]==list(range(1,len(trail)+1)),(path,'breadcrumb order')
+  assert trail[0]['item']=='https://wielegroup.com/' and trail[-1]['item']=='https://wielegroup.com'+path,(path,'breadcrumb destination')
+
  if path in example_paths:
   assert not any(t in types for t in ['Product','Offer','RealEstateListing','Vehicle']),(path,'fictional asset offered as inventory')
   example=next(e for e in example_data if path.endswith('/'+e['slug']))
@@ -104,7 +112,7 @@ for path in paths:
  assert set(org['sameAs'])==social_profiles,(path,'official social profiles')
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
  if path.startswith('/purchase-guide'):
-  assert 'FAQPage' in types and 'Service' not in types and 'LegalService' not in types,(path,'purchase guide schema')
+  assert 'FAQPage' in types and not any(e.get('@type') in ('Service','LegalService') and e.get('@id')!='https://wielegroup.com/#brokerage-service' for e in entities),(path,'purchase guide schema')
   assert ('2026-11-21' if path=='/purchase-guide' else '2026-11-15') in text,(path,'research date missing')
   if path!='/purchase-guide':assert 'Coverage' in text,(path,'coverage limits missing')
   else:assert '35 jurisdictions' in text,(path,'destination count missing')
@@ -165,7 +173,7 @@ for path in paths:
   assert '/valuations#landed-cost-estimator' in p.links and all(f'id="sales-brief-{slug}"' in text for slug in ['yachts','classic-cars']),(path,'seller planning links')
   assert '<figcaption class="page-intro-study-badge">Illustrative Dossier Study</figcaption>' in text and '<figcaption>Illustrative Dossier Study</figcaption>' in text,(path,'single image badges')
  if path in ['/selling','/buying','/property-maintenance']:
-  service=next(e for e in entities if e.get('@type')=='Service')
+  service=next(e for e in entities if e.get('@id')=='https://wielegroup.com'+path+'#service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')
   if path=='/property-maintenance':assert service['areaServed']['name']=='Malta',(path,'maintenance locality')
   else:assert 'areaServed' not in service,(path,'do not assert unverified worldwide service coverage')
@@ -194,6 +202,9 @@ for path in paths:
   display=' '.join(p.visible)
   for item in faq['mainEntity']:
    assert item['name'] in display and item['acceptedAnswer']['text'] in display,(path,item['name'],'FAQ answer differs')
+ if path=='/malta-investment-report':
+  report=next(e for e in entities if e.get('@type')=='Report')
+  assert report['datePublished']=='2026-10-29' and report['dateModified']=='2026-11-02' and 'registration' in report['conditionsOfAccess'],(path,'report dates or access')
  if path=='/valuations':
   assert 'id="landed-cost-estimator"' in text and 'Total landed cost' in text,(path,'transaction estimator')
   assert 'appropriately licensed practitioners in the relevant jurisdiction' in text,(path,'estimate limits')
@@ -216,7 +227,7 @@ for path in paths:
   assert '2026-10-31' in text and 'General information for your purchase brief.' in text
   for anchor in ['eu-investors','non-eu-investors','third-country-nationals','corporate-investors','purchase-checks','compliance-questions']:
    assert f'id="{anchor}"' in text,('compliance anchor',anchor)
-  assert 'Service' not in types, 'Legal guide must not imply legal services are offered'
+  assert not any(e.get('@type') in ('Service','LegalService') and e.get('@id')!='https://wielegroup.com/#brokerage-service' for e in entities), 'Legal guide must not imply legal services are offered'
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   assert len(faq['mainEntity']) >= 12
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
@@ -226,7 +237,7 @@ for path in paths:
  if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
   assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
-  assert 'Global Luxury Asset Brokerage' in p.title and 'Exceptional assets.' in text and 'Property at our core.' in text,(path,'luxury brokerage proposition')
+  assert 'Global Luxury Asset Brokerage' in p.title and 'Property, yachts' in text and 'and classic cars.' in text and 'Property at our core.' in text,(path,'luxury brokerage proposition')
   assert 'Build your asset brief' in text and 'Your choices stay in this browser' in text and 'Wiele operates on a private, mandate-led basis' in text,(path,'honest interactive brief')
   assert text.index('id="asset-atlas"') < text.index('id="property-brief"') < text.index('id="why-wiele"'),(path,'homepage section order')
   assert all(f'id="{anchor}"' in text for anchor in ['property-brief','why-wiele','luxury-assets','research','questions']),(path,'editorial journey sections')
@@ -278,9 +289,14 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
 for path in ['/api/audit','/api/contact','/unknown-property-page','/listing-examples/unknown-example','/purchase-guide/unknown-country','/purchase-guide/assets/unknown-asset']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/property/og-wiele-global-20261113.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/llms-full.txt','/og/wiele-architectural-briefing.png','/property/og-wiele-global-20261113.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
  status,_,_=get(path);assert status==200,(path,status)
-assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',get('/llms.txt')[2],re.I),'personal identity in llms.txt'
+for path in ['/llms.txt','/llms-full.txt']:
+ status,headers,data=get(path)
+ assert status==200 and 'text/plain' in headers.get('Content-Type','') and data.decode('utf-8').startswith('# Wiele Investments'),(path,'machine-readable text')
+ assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',data,re.I),(path,'personal identity')
+png=get('/og/wiele-architectural-briefing.png')[2]
+assert png[:8]==b'\x89PNG\r\n\x1a\n' and tuple(int.from_bytes(png[n:n+4],'big') for n in (16,20))==(1200,630),'fallback OG PNG dimensions'
 print('PASS search metadata and brand resources')
 
 status,_,data=get('/sitemap.xml')

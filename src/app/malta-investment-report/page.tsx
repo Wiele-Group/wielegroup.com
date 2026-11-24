@@ -1,24 +1,24 @@
+import { PAGE_METADATA, maltaReportDescription as description } from "@/lib/seo-metadata";
 import { propertyMarket } from "@/lib/property-market";
-import type { Metadata } from "next";
 import Image from "next/image";
-import { PageStructuredData, StructuredData } from "@/components/property/structured-data";
+import { PageStructuredData } from "@/components/property/structured-data";
 import { ReportRegistration } from "@/components/property/report-registration";
-import { propertyBrand, propertyMetadata } from "@/lib/property";
+import { JsonLdGraph } from "@/components/JsonLdGraph";
+import { buildMaltaReportSchema, buildBreadcrumbSchema } from "@/lib/schema-graph";
+import { propertyBrand } from "@/lib/property";
 import { investmentReport } from "@/lib/investment-report";
 
-const description = "Malta investment property: revised 2025 results, 2026 prices, sales and financing context. Wiele research updated 2 November 2026; register for the report.";
-export const metadata: Metadata = {
-  ...propertyMetadata("Malta Investment Property Report 2026", description, investmentReport.path),
-  openGraph: { ...propertyMetadata("Malta Investment Property Report 2026", description, investmentReport.path).openGraph, images: [{ url: "/property/report-research-20261102-social.jpg", width: 1200, height: 630, alt: "Wiele Investments Malta Investment Property Report - 2025 review and 2026 outlook" }] },
-  twitter: { card: "summary_large_image", title: "Malta Investment Property Report | Wiele Investments", description, images: ["/property/report-research-20261102-social.jpg"] },
-};
+export const metadata = PAGE_METADATA.maltaReport;
 
 export default function InvestmentReport() {
   return <>
-    <PageStructuredData path={investmentReport.path} title="Malta Investment Property Report 2026" description={description} />
-    <StructuredData data={{ "@context": "https://schema.org", "@type": "Report", "@id": `${propertyBrand.url}${investmentReport.path}#report`, name: investmentReport.title, headline: "Malta Investment Property Report: 2025 Review and 2026 Outlook", description, datePublished: investmentReport.published, dateModified: investmentReport.updated, inLanguage: "en-GB", author: { "@id": `${propertyBrand.url}/#organization` }, publisher: { "@id": `${propertyBrand.url}/#organization` }, url: `${propertyBrand.url}${investmentReport.path}`, isAccessibleForFree: true, conditionsOfAccess: "Complimentary PDF available after registration with name and email. Optional marketing consent is separate.", about: { "@type": "Place", name: "Malta" }, image: `${propertyBrand.url}/property/report-research-20261102-social.jpg` }} />
+    <PageStructuredData path={investmentReport.path} title="Malta Investment Property Report 2026" description={description} includeBreadcrumb={false} />
+    <JsonLdGraph includeCore={false} nodes={[
+      buildMaltaReportSchema(),
+      buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Research", path: "/research" }, { name: "Malta Investment Property Report 2026", path: investmentReport.path }]),
+    ]} />
     <section className="report-hero wrap" aria-labelledby="report-title">
-      <div className="report-hero-copy"><span className="eyebrow">Malta investment property / The Wiele report</span><h1 id="report-title">Malta.<br /><em>A market in motion.</em></h1><p className="report-subtitle">Malta Investment Property Report</p><p>A 16-page Wiele editorial report on revised 2025 results, current 2026 market evidence and the costs and detail behind a property investment.</p><a href="#register" className="button">Register for your copy <span aria-hidden="true">↓</span></a><span className="report-edition-note">Complimentary 16-page PDF · Updated 2 November 2026 · First published 29 October 2026</span></div>
+      <div className="report-hero-copy"><span className="eyebrow">Malta investment property / The Wiele report</span><h1 id="report-title">Malta Investment<br /><em>Property Report</em></h1><p className="report-subtitle">A market in motion.</p><p>A 16-page Wiele editorial report on revised 2025 results, current 2026 market evidence and the costs and detail behind a property investment.</p><a href="#register" className="button">Register for your copy <span aria-hidden="true">↓</span></a><span className="report-edition-note">Complimentary 16-page PDF · Updated 2 November 2026 · First published 29 October 2026</span></div>
       <figure className="report-cover-display"><Image src="/property/report-research-20261102-cover.jpg" width={840} height={1188} priority alt="Wiele Investments Malta investment report cover featuring an AI-created modern apartment concept" /><figcaption>A Wiele Investments publication. AI-created modern architectural concepts; not properties offered for sale.</figcaption></figure>
     </section>
     <section id="market-evidence" className="market-research wrap" aria-labelledby="market-evidence-title">

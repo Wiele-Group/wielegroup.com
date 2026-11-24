@@ -1,3 +1,4 @@
+import { PAGE_METADATA } from "@/lib/seo-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { PerspectiveExperience } from "@/components/property/perspective-experience";
@@ -7,11 +8,13 @@ import { Arrow } from "@/components/property/chrome";
 import { propertyBrand } from "@/lib/property";
 import { MarketPerspective } from "@/components/property/market-perspective";
 import { LandedCostPreview } from "@/components/property/landed-cost-preview";
-import { propertyFaqs } from "@/lib/property-faqs";
+import { JsonLdGraph } from "@/components/JsonLdGraph";
+import { buildFaqSchema, HOME_AEO_FAQS } from "@/lib/schema-graph";
 import { MandateClauses, MandateScheduleA } from "@/components/seller/MandateAgreement";
 import { mandateSummary } from "@/lib/mandateAgreement";
 
-const homeFaqs = propertyFaqs.filter(f => ["What is Wiele?", "Is Wiele focused only on Malta?", "How do I start an enquiry?"].includes(f.question));
+export const metadata = PAGE_METADATA.home;
+
 const principles = [
  {number:"01",title:"An individual approach.",copy:"A home, an investment, a yacht or a classic car. The ambition behind it deserves a conversation shaped around you."},
  {number:"02",title:"Confidence in the detail.",copy:"A compelling presentation works best with clear asset information. Understand what is documented, what matters and what needs an independent check."},
@@ -25,8 +28,8 @@ const consultationZones = [
 ];
 
 export default function Home(){return <div className="editorial-home">
- <StructuredData data={{"@context":"https://schema.org","@type":"WebPage","@id":`${propertyBrand.url}/#webpage`,url:`${propertyBrand.url}/`,name:"Global Luxury Asset Brokerage | Wiele Investments",description:propertyBrand.description,inLanguage:"en-GB",dateModified:"2026-11-21",isPartOf:{"@id":`${propertyBrand.url}/#website`},about:{"@id":`${propertyBrand.url}/#organization`},primaryImageOfPage:{"@type":"ImageObject",contentUrl:`${propertyBrand.url}/property/wiele-global-villa-20261113.webp`,description:"AI-created fictional coastal architectural villa. Not a property for sale.",creditText:"Created with OpenAI image generation for Wiele Investments",width:1672,height:941},hasPart:{"@id":`${propertyBrand.url}/#faq`}}}/>
- <StructuredData data={{"@context":"https://schema.org","@type":"FAQPage","@id":`${propertyBrand.url}/#faq`,url:`${propertyBrand.url}/#questions`,name:"Wiele property and asset enquiries",mainEntity:homeFaqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))}}/>
+ <StructuredData data={{"@context":"https://schema.org","@type":"WebPage","@id":`${propertyBrand.url}/#webpage`,url:`${propertyBrand.url}/`,name:"Global Luxury Asset Brokerage | Wiele Investments",description:propertyBrand.description,inLanguage:"en-GB",dateModified:"2026-11-25",isPartOf:{"@id":`${propertyBrand.url}/#website`},about:{"@id":`${propertyBrand.url}/#organization`},primaryImageOfPage:{"@type":"ImageObject",contentUrl:`${propertyBrand.url}/property/wiele-global-villa-20261113.webp`,description:"AI-created fictional coastal architectural villa. Not a property for sale.",creditText:"Created with OpenAI image generation for Wiele Investments",width:1672,height:941},hasPart:{"@id":`${propertyBrand.url}/#faq`}}}/>
+ <JsonLdGraph includeCore={false} nodes={[{ ...buildFaqSchema(HOME_AEO_FAQS), "@id": `${propertyBrand.url}/#faq`, url: `${propertyBrand.url}/#questions` }]} />
  <PerspectiveExperience afterHero={<AssetAtlas/>}/>
 
  <AssetPaths/>
@@ -47,7 +50,7 @@ export default function Home(){return <div className="editorial-home">
   <p>Email your preferred date and local time. English and Afrikaans by appointment.</p>
   <ul>{consultationZones.map(({zone, market}) => <li key={zone}><a href={`mailto:${propertyBrand.email}?subject=${encodeURIComponent(`Wiele consultation · ${market} (${zone})`)}`}><strong>{zone}</strong><span>{market}</span><Arrow diagonal/></a></li>)}</ul>
   <p className="fine-print">Keep bank details and identity documents out of your initial enquiry.</p>
- </div></div><div className="brokerage-answers"><span className="eyebrow">Before you enquire</span>{homeFaqs.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></div></section>
+ </div></div><div className="brokerage-answers"><span className="eyebrow">Before you enquire</span>{HOME_AEO_FAQS.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></div></section>
  <section className="legal-copy wrap" aria-labelledby="home-seller-mandate">
   <h2 id="home-seller-mandate">Seller mandate</h2>
   <p><Link href={mandateSummary.publicPath}>Read the {mandateSummary.contractingParty} seller mandate on its own page</Link></p>

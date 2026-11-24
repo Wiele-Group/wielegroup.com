@@ -1,16 +1,12 @@
+import { PAGE_METADATA } from "@/lib/seo-metadata";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { EnquirySteps } from "@/components/property/personal-introduction";
 import { PageIntro, Arrow } from "@/components/property/chrome";
 import { EnquiryForm, type EnquiryQuery } from "@/components/property/enquiry-form";
 import { StructuredData } from "@/components/property/structured-data";
-import { propertyBrand, propertyMetadata } from "@/lib/property";
+import { propertyBrand } from "@/lib/property";
 
-export const metadata: Metadata = propertyMetadata(
- "Property & Luxury Asset Enquiries",
- "Contact Jonathan Landman in Swieqi, Malta, about property, yachts or classic cars in the UK, Europe and South Africa. English and Afrikaans by appointment.",
- "/contact",
-);
+export const metadata = PAGE_METADATA.contact;
 
 const consultationZones = [
  { zone: "CET / CEST", market: "Malta & Central Europe" },
@@ -28,7 +24,7 @@ export default async function Contact({ searchParams }: { searchParams: Promise<
  const { brief, example, interest, focus, market, asset, intent } = await searchParams;
  const query = { brief, example, interest, focus, market, asset, intent };
  return <div className="contact-page">
-  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Discuss your brief." description="Tell us what you want to buy or sell in the UK, Europe or South Africa." />
+  <PageIntro path="/contact" eyebrow="Malta-based / Property & luxury asset enquiries" title="Property and luxury asset enquiries" description="Tell us what you want to buy or sell in the UK, Europe or South Africa." />
   <section className="contact-layout wrap" aria-label="Enquiry and contact details">
    <EnquiryForm key={JSON.stringify(query)} query={query} />
    <aside>
