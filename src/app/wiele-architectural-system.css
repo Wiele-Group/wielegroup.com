@@ -1012,8 +1012,8 @@ html[data-motion-paused="true"] .scroll-image > img {
     .algorithm-dimension-grid > li, .algorithm-placement-grid > article, .algorithm-resource-grid > div) {
   background-color: var(--glass-surface);
   border: 1px solid var(--border-glass);
-  backdrop-filter: var(--glass-filter);
   -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
   box-shadow: var(--glass-highlight), var(--glass-shadow);
   transition:
     background-color var(--transition-weighted),
