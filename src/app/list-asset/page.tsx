@@ -33,10 +33,6 @@ export default async function ListAssetPage({ searchParams }: { searchParams: Pr
         <p className="retainer-onboarding-intro">
           Enter your asset details and review all nine clauses and your Schedule A details before continuing to Stripe Checkout.
         </p>
-        <SellerOnboarding asset={asset} lead={lead} earlyLaunchRequest={earlyLaunchRequest}>
-          <MandateClauses heading="h3" />
-        </SellerOnboarding>
-
         <section className="retainer-subscription" aria-labelledby="retainer-subscription-heading">
           <h2 id="retainer-subscription-heading">Marketing retainer subscription</h2>
           <p className="retainer-subscription-price">
@@ -46,18 +42,18 @@ export default async function ListAssetPage({ searchParams }: { searchParams: Pr
             The seller mandate covers one asset with a {mandateSummary.minimumTermMonths}-month minimum commitment.
           </p>
           <p>
-            This Stripe link is for sandbox testing. It does not charge a real payment, submit your mandate
-            or activate a live retainer. Use Stripe test payment details.
+            Complete the form and accept the mandate to continue to Stripe’s test payment page. Use test
+            details. No live payment is taken and no retainer is activated.
           </p>
-          <a
-            className="retainer-subscription-link"
-            href={stripeTestSubscriptionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open Stripe test subscription (opens in a new tab)
-          </a>
         </section>
+        <SellerOnboarding
+          asset={asset}
+          lead={lead}
+          earlyLaunchRequest={earlyLaunchRequest}
+          testSubscriptionUrl={stripeTestSubscriptionUrl}
+        >
+          <MandateClauses heading="h3" />
+        </SellerOnboarding>
       </div>
     </main>
   );

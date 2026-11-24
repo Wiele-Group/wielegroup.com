@@ -19,11 +19,12 @@ function slug(title: string) {
 }
 
 export function SellerOnboarding({
-  asset, lead, earlyLaunchRequest, children,
+  asset, lead, earlyLaunchRequest, testSubscriptionUrl, children,
 }: {
   asset: string;
   lead: string;
   earlyLaunchRequest: string;
+  testSubscriptionUrl?: string;
   children: ReactNode;
 }) {
   const [title, setTitle] = useState("");
@@ -48,6 +49,11 @@ export function SellerOnboarding({
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!accepted || !valid || pending || !event.currentTarget.reportValidity()) return;
+    if (testSubscriptionUrl) {
+      window.location.assign(testSubscriptionUrl);
+      return;
+    }
+
     const immediateLaunchRequested = new FormData(event.currentTarget).has("immediate_launch_requested");
     setPending(true);
     setError("");
@@ -172,7 +178,9 @@ export function SellerOnboarding({
 
       {error && <p className="retainer-onboarding-error" role="alert">{error}</p>}
       <button className="retainer-onboarding-submit" type="submit" disabled={!valid || !accepted || pending}>
-        {pending ? "Opening Stripe Checkout…" : "Execute Mandate & Proceed to Stripe Checkout"}
+        {testSubscriptionUrl
+          ? "Continue to Stripe test payment"
+          : (pending ? "Opening Stripe Checkout…" : "Execute Mandate & Proceed to Stripe Checkout")}
       </button>
     </form>
   );
