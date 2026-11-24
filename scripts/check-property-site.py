@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/wiele-algorithm','/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/credits']
+paths=['/wiele-algorithm','/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/terms/seller-retainer','/credits']
 guide_data=Path(__file__).resolve().parent.parent/"src/data"
 jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())
@@ -255,6 +255,11 @@ for path in sorted(links):
   destination={'/legal-guide':'/legal-compliance/cross-border','/imagery-credits':'/credits','/malta-maintenance':'/property-maintenance'}[parsed.path]
   status,headers,_=get(parsed.path)
   assert status==308 and urlparse(headers.get('Location','')).path==destination,(parsed.path,'canonical route alias')
+ elif parsed.path=='/list-asset':
+  status,headers,data=get(parsed.path);assert status==200,(parsed.path,status)
+  onboarding=Page();onboarding.feed(data.decode())
+  assert onboarding.h1s==1 and 'noindex' in onboarding.meta.get('robots',''),(parsed.path,'transaction page indexing or heading')
+  assert '/terms/seller-retainer' in onboarding.links,(parsed.path,'retainer terms link missing')
  elif parsed.path.startswith(('/flagship-examples/', '/reference-data/')):
   status,headers,data=get(parsed.path);assert status==200,(parsed.path,status)
   if parsed.path.endswith('.html'):

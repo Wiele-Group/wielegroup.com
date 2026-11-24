@@ -1,0 +1,39 @@
+@import "tailwindcss/theme.css" layer(retainer-theme);
+@import "tailwindcss/utilities.css" layer(retainer-utilities) source(none);
+@source "../../../components/seller/RetainerLedgerCard.tsx";
+
+.retainer-portal {
+  padding-block: clamp(32px, 7vw, 96px);
+  background: #090A0D;
+  color: #F3EFE6;
+}
+
+.retainer-portal h1 {
+  margin: 0 0 24px;
+  font-size: clamp(32px, 5vw, 64px);
+}
+
+.retainer-portal-inner > section,
+.retainer-portal-message {
+  background: #111318;
+  border: 1px solid rgb(243 239 230 / 16%);
+  color: #F3EFE6;
+}
+
+.retainer-portal :is(section, button, a) {
+  font-variant-numeric: tabular-nums;
+}
+
+.retainer-portal :is(button, a) {
+  min-height: 44px;
+}
+
+.retainer-portal :focus-visible {
+  outline: 2px solid #C5A467;
+  outline-offset: 2px;
+}
+
+.retainer-portal-message {
+  margin: 0;
+  padding: clamp(16px, 3vw, 28px);
+}

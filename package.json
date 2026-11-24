@@ -14,7 +14,7 @@
     "verify": "npm run lint && npm run typecheck && npm run build",
     "build:cf": "opennextjs-cloudflare build",
     "preview:cf": "npm run build:cf && wrangler dev",
-    "predeploy:cf": "git diff --quiet HEAD || (echo 'ABORT \u2014 working tree dirty. Commit + tag before deploy (Commit-Before-Deploy Law, v3.9.3).' && exit 1)",
+    "predeploy:cf": "git diff --quiet HEAD || (echo 'ABORT — working tree dirty. Commit + tag before deploy (Commit-Before-Deploy Law, v3.9.3).' && exit 1)",
     "deploy:cf": "node scripts/deploy-property.mjs",
     "check:seo": "python3 scripts/check-property-site.py"
   },
@@ -35,6 +35,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "resend": "^4.8.0",
+    "stripe": "^23.1.0",
     "tailwind-merge": "^3.5.0",
     "zod": "^3.25.76"
   },

@@ -8,6 +8,8 @@ import { propertyBrand } from "@/lib/property";
 import { MarketPerspective } from "@/components/property/market-perspective";
 import { LandedCostPreview } from "@/components/property/landed-cost-preview";
 import { propertyFaqs } from "@/lib/property-faqs";
+import { MandateClauses, MandateScheduleA } from "@/components/seller/MandateAgreement";
+import { mandateSummary } from "@/lib/mandateAgreement";
 
 const homeFaqs = propertyFaqs.filter(f => ["What is Wiele?", "Is Wiele focused only on Malta?", "How do I start an enquiry?"].includes(f.question));
 const principles = [
@@ -46,4 +48,13 @@ export default function Home(){return <div className="editorial-home">
   <ul>{consultationZones.map(({zone, market}) => <li key={zone}><a href={`mailto:${propertyBrand.email}?subject=${encodeURIComponent(`Wiele consultation · ${market} (${zone})`)}`}><strong>{zone}</strong><span>{market}</span><Arrow diagonal/></a></li>)}</ul>
   <p className="fine-print">Keep bank details and identity documents out of your initial enquiry.</p>
  </div></div><div className="brokerage-answers"><span className="eyebrow">Before you enquire</span>{homeFaqs.map(f=><details key={f.question}><summary>{f.question}<span aria-hidden="true">+</span></summary><p>{f.answer}</p></details>)}</div></div></section>
+ <section className="legal-copy wrap" aria-labelledby="home-seller-mandate">
+  <h2 id="home-seller-mandate">Seller mandate</h2>
+  <p><Link href={mandateSummary.publicPath}>Read the {mandateSummary.contractingParty} seller mandate on its own page</Link></p>
+  <details>
+   <summary>{mandateSummary.title} · {mandateSummary.version}</summary>
+   <MandateClauses heading="h3" />
+   <MandateScheduleA heading="h3" />
+  </details>
+ </section>
  </div>}
