@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { mandateSummary } from "@/lib/mandateAgreement";
 import { propertyMetadata } from "@/lib/property";
 import { MandateClauses } from "@/components/seller/MandateAgreement";
 import { SellerOnboarding } from "@/components/seller/SellerOnboarding";
 import "./onboarding.css";
 
 const path = "/list-asset";
+const stripeTestSubscriptionUrl = "https://buy.stripe.com/test_14A28r85t4BA8JOh2abo408";
 const earlyLaunchRequest = "I request Wiele to begin algorithmic campaign deployment immediately (within the 14-day statutory cooling-off period) and acknowledge proportionate payment for campaign services rendered prior to any valid consumer withdrawal.";
 export const metadata: Metadata = {
   ...propertyMetadata(
@@ -34,6 +36,28 @@ export default async function ListAssetPage({ searchParams }: { searchParams: Pr
         <SellerOnboarding asset={asset} lead={lead} earlyLaunchRequest={earlyLaunchRequest}>
           <MandateClauses heading="h3" />
         </SellerOnboarding>
+
+        <section className="retainer-subscription" aria-labelledby="retainer-subscription-heading">
+          <h2 id="retainer-subscription-heading">Marketing retainer subscription</h2>
+          <p className="retainer-subscription-price">
+            €{mandateSummary.monthlyRetainerEur.toFixed(2)} per month plus applicable VAT
+          </p>
+          <p>
+            The seller mandate covers one asset with a {mandateSummary.minimumTermMonths}-month minimum commitment.
+          </p>
+          <p>
+            This Stripe link is for sandbox testing. It does not charge a real payment, submit your mandate
+            or activate a live retainer. Use Stripe test payment details.
+          </p>
+          <a
+            className="retainer-subscription-link"
+            href={stripeTestSubscriptionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Stripe test subscription (opens in a new tab)
+          </a>
+        </section>
       </div>
     </main>
   );
