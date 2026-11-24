@@ -1,6 +1,6 @@
 /* Wiele Investments — cinematic editorial design, November 2026.
    Original implementation. Existing identity and truthful imagery retained. */
-:root { --cinema-ease:cubic-bezier(.22,.68,.25,1); --cinema-dark:var(--wiele-obsidian); --cinema-paper:var(--wiele-canvas-primary); }
+:root { --cinema-ease:cubic-bezier(.22,.68,.25,1); --cinema-dark:var(--text-primary); --cinema-paper:var(--bg-canvas); }
 body { background:var(--cinema-paper); }
 .cinema-wrap { width:min(1320px,calc(100% - 112px)); margin-inline:auto; }
 .cinema-home { overflow:clip; }
@@ -55,7 +55,6 @@ body:has(.cinema-home) .site-header::after { display:none; }
 .cinema-caption summary { cursor:pointer; min-height:32px; padding:6px; }
 .cinema-caption details>div { position:absolute; right:0; bottom:42px; padding:12px; min-width:180px; background:#171a19f5; border:1px solid #dfc89e60; z-index:3; }
 .cinema-caption button { background:none; border:0; color:var(--ivory); cursor:pointer; font:400 11px var(--font-sans); min-height:44px; padding:10px; }
-.cinema-home .cinema-hero :focus-visible { outline-color:var(--gold-light); }
 .cinema-index { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:25px 56px; background:var(--forest); color:var(--gold-light); border-bottom:1px solid #dfc89e30; }
 .cinema-index>span { font:400 21px var(--font-heading); }
 .cinema-index nav { display:flex; gap:36px; }
@@ -192,8 +191,7 @@ html[data-motion-paused=true] .cinema-scene { transform:none!important; }
 .property-start-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--line); }
 .property-start-card { display:flex; flex-direction:column; padding:30px; color:var(--ink); background:var(--paper); transition:background .2s ease; min-width:0; }
 .property-start-card + .property-start-card { border-left:1px solid var(--line); }
-.property-start-card:hover { background:var(--wiele-canvas-recessed); }
-.property-start-card:focus-visible { outline:3px solid var(--bronze); outline-offset:-4px; }
+.property-start-card:hover { background:var(--bg-glass-solid); }
 .property-start-label { display:flex; gap:16px; align-items:center; justify-content:space-between; font:600 11px/1.7 var(--font-sans); color:var(--bronze); text-transform:uppercase; letter-spacing:.07em; }
 .property-start-label svg,.property-start-action svg { flex-shrink:0; }
 .property-start-card h3 { font:400 36px/1.12 var(--font-heading); letter-spacing:-.02em; margin:32px 0 18px; }
@@ -232,7 +230,6 @@ html[data-motion-paused=true] .cinema-scene { transform:none!important; }
 .asset-preview-card:hover img { transform:scale(1.035); }
 .asset-preview-card>div>span { position:absolute; inset:auto 8px 8px; font-size:9px; color:#fff; padding:5px 8px; background:#171a19d9; width:fit-content; }
 .asset-preview-card h3 { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-block:18px 0; font:400 30px/1.2 var(--font-heading); }
-.asset-preview-card:focus-visible { outline:2px solid var(--bronze); outline-offset:6px; }
 .cinema-home p.asset-disclosure,.asset-disclosure { font:400 12px/1.8 var(--font-sans); color:var(--muted); margin-top:24px; }
 .asset-hero { position:relative; isolation:isolate; min-height:640px; display:flex; align-items:center; background:var(--forest); color:var(--ivory); }
 .asset-hero>img { z-index:-3; object-fit:cover; object-position:center 52%; }

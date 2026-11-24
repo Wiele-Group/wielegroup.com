@@ -1,0 +1,59 @@
+:root {
+  --bg-canvas: #090C15;
+  --bg-canvas-elevated: #0E1320;
+  --bg-glass: rgba(17, 23, 38, 0.68);
+  --bg-glass-hover: rgba(24, 32, 52, 0.78);
+  --bg-glass-solid: #111726;
+  --glass-surface: var(--bg-glass);
+  --glass-surface-hover: var(--bg-glass-hover);
+  --bg-glass-hover-solid: #181F31;
+
+  --text-primary: #F3EFE6;
+  --text-secondary: #B2AC9E;
+  --text-muted: #847F74;
+  --border-hairline: rgba(243, 239, 230, 0.12);
+  --border-control: rgba(243, 239, 230, 0.36);
+  /* Blend up to opaque Bone so the boundary stays visible on raised surfaces. */
+  --border-control-strong: rgba(243, 239, 230, 0.58);
+  --border-glass: rgba(243, 239, 230, 0.16);
+
+  --accent-amber: #D98A2B;
+  --accent-amber-bright: #E89F3C;
+  --accent-amber-soft: rgba(217, 138, 43, 0.14);
+  --border-amber-glow: rgba(217, 138, 43, 0.38);
+
+  --glass-filter: blur(18px) saturate(135%);
+  --glass-highlight: inset 0 1px 0 0 rgba(243, 239, 230, 0.18);
+  --glass-shadow: 0 20px 44px -16px rgba(3, 5, 10, 0.78);
+  --glass-hover-shadow: 0 16px 42px -14px rgba(217, 138, 43, 0.20);
+  --ambient-indigo: radial-gradient(ellipse at 18% 14%, rgba(112, 120, 235, 0.07), transparent 66%);
+  --ambient-amber: radial-gradient(ellipse at 82% 56%, rgba(217, 138, 43, 0.05), transparent 62%);
+}
+
+@supports (color: color-mix(in srgb, black, white)) {
+  :root { --border-control-strong: color-mix(in srgb, var(--border-control) 66%, var(--text-primary) 34%); }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  :root {
+    --glass-surface: var(--bg-glass-solid);
+    --glass-surface-hover: var(--bg-glass-hover-solid);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-amber-bright);
+  outline-offset: 2px;
+}
+
+@media screen {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.022;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+  }
+}
