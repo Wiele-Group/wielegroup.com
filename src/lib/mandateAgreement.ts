@@ -1,4 +1,4 @@
-export const MANDATE_VERSION = "v1.3-2026-11";
+export const MANDATE_VERSION = "v1.4-2026-11";
 export const MANDATE_EFFECTIVE_DATE = "2026-11-24";
 
 export const mandateSummary = {
@@ -32,7 +32,7 @@ export const mandateScheduleACommercialTerms = [
   { label: "Appointment", value: "Non-exclusive, for one designated asset" },
   { label: "Monthly retainer", value: "€599.00 EUR plus applicable VAT" },
   { label: "Minimum term", value: "Three monthly billing cycles" },
-  { label: "Success commission", value: "5.0% of Gross Transaction Price unless otherwise agreed in writing" },
+  { label: "Success commission", value: "5.0% of Gross Transaction Price unless otherwise agreed in writing, subject to clause 6.4 and applicable law" },
   { label: "Retainer credit", value: "100% of net retainer fees paid for the designated asset" },
   { label: "Post-termination tail", value: "12 months for Wiele-introduced buyers" },
   { label: "Cancellation", value: "Email admin@wielegroup.com. Five Malta business days’ notice before the next billing date." },
@@ -42,7 +42,7 @@ export const mandateAgreement = [
   {
     title: "1. Non-exclusive appointment and single-asset scope",
     paragraphs: [
-      "The seller enters this Agreement with Wiele Group (referred to as Wiele), which operates from Malta via wielegroup.com. Send notices to admin@wielegroup.com, subject to any statutory notice rights. The seller appoints Wiele on a non-exclusive basis to market the one designated property, yacht or classic car identified in Schedule A and introduce prospective buyers. The seller may market the asset independently or appoint other providers. Wiele has no authority to bind the seller, accept an offer or receive sale proceeds on the seller’s behalf.",
+      "The seller enters this Agreement with Wiele Group (referred to as Wiele), which operates from Malta via wielegroup.com. Send notices to admin@wielegroup.com, subject to any statutory notice rights. Wiele is a bespoke international luxury asset brokerage operating online as a marketing and buyer-introduction intermediary. The seller appoints Wiele on a non-exclusive basis to provide online marketing, targeted advertising and, where lawful, qualified buyer introductions for the single asset identified in Schedule A. The seller may market the asset independently or appoint other providers. Wiele has no authority to negotiate or accept offers for the seller, bind the seller to a sale, or conduct the closing. Clause 6.4 applies to Maltese immovable property.",
       "Each €599.00 monthly subscription, plus applicable VAT, covers one designated asset only. The retainer never bundles assets from the same seller, family office or corporate group. Wiele calibrates its marketing and advertising plans for each asset. A separate asset requires its own mandate and subscription.",
       "Wiele works within the agreed scope and where legally permitted. An appropriately authorised practitioner handles any regulated activity, transaction documentation or formal advice that requires a licence in the relevant jurisdiction.",
     ],
@@ -64,7 +64,7 @@ export const mandateAgreement = [
   {
     title: "4. Success commission and net retainer credit",
     paragraphs: [
-      "If the sale completes with a buyer introduced by Wiele under this mandate, the seller owes a gross success commission of 5.0% of the Gross Transaction Price, unless otherwise agreed in writing. Gross Transaction Price means the total consideration agreed for the designated asset at completion, before deduction of transaction costs, fees, commissions or the retainer credit. Any VAT applicable to the commission is calculated separately. Wiele must be able to document the introduction. An independent sale to a buyer Wiele did not introduce does not trigger this commission.",
+      "Subject to clause 6.4 and applicable law, if the sale completes with a buyer introduced by Wiele under this mandate, the seller owes a gross success commission of 5.0% of the Gross Transaction Price, unless otherwise agreed in writing. Gross Transaction Price means the total consideration agreed for the designated asset at completion, before deduction of transaction costs, fees, commissions or the retainer credit. Any VAT applicable to the commission is calculated separately. Wiele must be able to document the introduction. An independent sale to a buyer Wiele did not introduce does not trigger this commission.",
       "At closing, Wiele credits 100% of the cumulative net retainer fees actually paid for that specific asset, excluding VAT, euro for euro against the gross success commission. Net commission payable equals the gross success commission less that credit, with a minimum of zero. The credit cannot be transferred to another asset or redeemed for cash.",
     ],
   },
@@ -81,12 +81,13 @@ export const mandateAgreement = [
       "6.1 Best efforts. Wiele provides marketing and advertising on a best-efforts basis.",
       "6.2 Transaction outcomes. Wiele gives no guarantee or warranty of sale, valuation, sale price, enquiry volume or quality, or closing timeframe.",
       "6.3 Advertising outcomes. Wiele gives no guarantee or warranty of advertising-platform approval, delivery or performance.",
-      "6.4 Regulatory Licensing Notice. Any mandate involving immovable property situated in Malta is executed strictly through an intermediary licensed by Malta’s Property Market Agency under the Property Market Agency Act (Chapter 644 of the Laws of Malta). Marine, automotive and non-Maltese asset mandates are governed directly by this Agreement, subject to mandatory law and any licensing requirements in the relevant jurisdiction.",
+      "6.4 Regulatory Licensing Notice. Any mandate involving immovable property situated in Malta proceeds only through an intermediary licensed by Malta’s Property Market Agency under the Property Market Agency Act (Chapter 644 of the Laws of Malta). Before the engagement begins, the seller must receive the intermediary’s name and licence number and agree the scope, fees and any permitted fee recipients in writing. The licensed intermediary conducts all regulated intermediation. Wiele may provide only supporting services that it may lawfully perform. Clauses 4 and 5 do not create a right for Wiele to a Maltese property success commission or referral share. Any such fee requires a separate written arrangement that is lawful and meets applicable approval, advance fee disclosure and transaction declaration requirements. Marine, automotive and non-Maltese asset mandates are governed by this Agreement subject to mandatory law and any licensing requirements in the relevant jurisdiction.",
     ],
   },
   {
     title: "7. Seller warranties, due diligence and consumer withdrawal",
     paragraphs: [
+      "7.1 Transaction execution and seller warranties. The seller and buyer conduct the sale through their respective appointed attorneys and bankers, with notaries or other authorised professionals involved where required. The parties’ attorneys and any required notaries handle the preparation and conclusion of sale agreements, transaction documents and the legal aspects of closing. The parties’ bankers or authorised settlement professionals handle the movement of funds and financial settlement. Wiele’s role is limited to the marketing and buyer-introduction services described in clause 1, subject to clause 6.4. Wiele does not draft, approve, sign or administer transaction documents on the seller’s behalf and does not receive, hold, transfer or disburse client funds, deposits, escrow funds or sale proceeds. Wiele invoices its own agreed service fees separately.",
       "The seller warrants that they own the asset or are authorised to instruct Wiele, that the particulars supplied are accurate to the best of their knowledge, and that they hold the rights or permissions needed for Wiele to use the photographs, descriptions and other materials provided. The seller grants Wiele non-exclusive permission to use those materials for the agreed marketing and reporting and must promptly disclose material changes, competing instructions, restrictions or encumbrances.",
       "The seller will cooperate with checks required under applicable Maltese and EU know-your-customer, anti-money-laundering, sanctions and ultimate-beneficial-ownership rules. Wiele or the responsible practitioner may need to verify identity, authority and ultimate beneficial ownership before acting. Provide identity and ownership records through an agreed secure channel.",
       "Consumers who conclude this service contract online generally have 14 days from contract conclusion to withdraw where the law gives them that right. They may send a clear withdrawal statement to admin@wielegroup.com or use the online withdrawal function where applicable. Acceptance of this mandate alone does not request early performance. If a consumer separately requests early performance, they may owe a proportionate amount for services already provided before withdrawal where the law permits. The right is lost for a paid service only after full performance and where the consumer previously gave the required express consent and acknowledgement.",
