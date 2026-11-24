@@ -51,7 +51,7 @@ export default function Selling() {
    <div className="seller-consultation-actions">
     <Link className="button" href="/contact?interest=marketing">Request a consultation <Arrow diagonal/></Link>
     <a className="text-link" href={`mailto:${propertyBrand.email}?subject=Wiele%20seller%20consultation`}>{propertyBrand.email} <Arrow diagonal/></a>
-    <Link className="text-link" href="/seller-onboarding">Open detailed seller onboarding <Arrow diagonal/></Link>
+    <Link className="text-link" href="/seller-enquiry">Open detailed seller onboarding <Arrow diagonal/></Link>
    </div>
   </section>
  </>;

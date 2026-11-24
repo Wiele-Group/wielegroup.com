@@ -61,7 +61,7 @@ export function SalesPreparation(){
  const checks = Object.entries(mandateRecords[category]);
  const records = Object.fromEntries(checks.map(([key,label]) => [key, input.evidence.includes(label)]));
  const asset=assetClasses[input.category],plan=prepareSalesBrief(input, checks.map(([, label]) => label));
- const detailedHref = `/seller-onboarding?asset=${input.category}&brief=prepared#start-onboarding`;
+ const detailedHref = `/seller-enquiry?asset=${input.category}&brief=prepared#start-onboarding`;
  function transferDetailed(event: React.MouseEvent<HTMLAnchorElement>) {
   try { saveBriefDraft(sessionStorage, plan.draft, undefined, { asset:input.category, location:input.location, currency:input.currency, available:Object.keys(records).filter(key => records[key]) }); trackPropertyEvent("seller_preparation",{action:"transfer"}); }
   catch { event.preventDefault(); setError("Your browser could not transfer the brief. Copy your draft, then open the detailed seller form."); }

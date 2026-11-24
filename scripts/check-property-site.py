@@ -7,7 +7,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/wiele-algorithm','/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-onboarding','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/terms/seller-retainer','/credits']
+paths=['/wiele-algorithm','/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-enquiry','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/terms/seller-retainer','/credits']
 guide_data=Path(__file__).resolve().parent.parent/"src/data"
 jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())
@@ -200,11 +200,11 @@ for path in paths:
   assert all(amount in text for amount in ['1,500,000.00','93,750.00','1,599,500.00']) and 'Illustrative worked example.' in text,(path,'server-rendered worked example')
   assert 'Carry scenario into valuation brief' in text and 'id="valuation-budget"' in text and 'id="valuation-currency"' in text,(path,'local valuation handoff')
   assert all(route in p.links for route in ['/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html']),(path,'evidence dossiers')
- if path=='/seller-onboarding':
+ if path=='/seller-enquiry':
   assert 'id="acquisition-mandates"' in text and 'They represent no current buyers' in text,(path,'illustrative mandates')
   assert all(phrase in text for phrase in ['01 Core Identity','Technical &amp; Structural Specs','Legal, Tax &amp; Provenance','Financial &amp; Commercial Terms','seller-reported record coverage']),(path,'structured seller intake')
   assert 'type="file"' not in text and 'passport and identity documents' in text,(path,'private document guardrails')
- if path in ['/investor-onboarding','/seller-onboarding']:
+ if path in ['/investor-onboarding','/seller-enquiry']:
   assert 'id="start-onboarding"' in text and 'id="prepare-documents"' in text
   assert 'onboarding enquiry' in text and 'name="acknowledgement"' in text
   assert 'type="file"' not in text

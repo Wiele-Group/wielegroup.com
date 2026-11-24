@@ -1,4 +1,6 @@
 import { isRetiredAgencyPath, retiredAgencyResponse } from "./src/lib/retired-agency";
+import { fxRatesResponse, loadFxRates } from "./src/lib/fx-rates";
+import { legacyRoutes } from "./src/lib/site-redirects";
 /// <reference types="@cloudflare/workers-types" />
 
 // DOM's lib.dom.d.ts declares `CacheStorage` without `.default`; Cloudflare's
@@ -165,11 +167,26 @@ const handler = {
     ctx: ExecutionContext,
   ): Promise<Response> {
     const requestedUrl = new URL(request.url);
-    if (requestedUrl.hostname === "www.wielegroup.com") {
-      requestedUrl.protocol = "https:";
-      requestedUrl.hostname = "wielegroup.com";
-      requestedUrl.port = "";
+    const normalizedPath = requestedUrl.pathname.replace(/\/+$/, "");
+    const destination = Object.hasOwn(legacyRoutes, normalizedPath)
+      ? legacyRoutes[normalizedPath as keyof typeof legacyRoutes]
+      : undefined;
+    if (requestedUrl.hostname === "www.wielegroup.com" || destination) {
+      if (requestedUrl.hostname === "www.wielegroup.com") {
+        requestedUrl.protocol = "https:";
+        requestedUrl.hostname = "wielegroup.com";
+        requestedUrl.port = "";
+      }
+      if (destination) requestedUrl.pathname = destination;
       return Response.redirect(requestedUrl, 308);
+    }
+
+    if (requestedUrl.pathname === "/api/fx-rates" && ["GET", "HEAD"].includes(request.method)) {
+      const cacheKey = new URL("/api/fx-rates", requestedUrl).toString();
+      const cached = await caches.default.match(cacheKey).catch(() => undefined);
+      const response = cached ?? fxRatesResponse(await loadFxRates());
+      if (!cached) ctx.waitUntil(caches.default.put(cacheKey, response.clone()).catch(() => undefined));
+      return request.method === "HEAD" ? new Response(null, { headers: response.headers }) : response;
     }
 
     // Retired URLs must never be served from a previous release cache.
@@ -202,7 +219,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", ["/", "/terms/seller-retainer"].includes(key.pathname) ? "wiele-mandate-20261124-v1.4" : "wiele-architectural-20261123"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-route-fx-20261125"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

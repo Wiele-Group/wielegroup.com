@@ -32,6 +32,7 @@ try {
   });
   const url = await ready;
   await run('python3', ['scripts/check-property-site.py', url]);
+  await run('python3', ['scripts/verify_wielegroup_routes.py', url]);
   preview.kill('SIGTERM');
   await wait(250);
   await run('npx', ['wrangler', 'deploy']);

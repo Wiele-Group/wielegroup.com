@@ -12,7 +12,7 @@ const routes = [
     {label:"A wider property portfolio",heading:"Consider the whole picture.",body:"Set out your acquisition objectives, purchasing structure and decision process. Begin with a structured investor brief.",action:"Start investor onboarding",href:"/investor-onboarding"},
   ] },
   { label:"Sell", number:"02", heading:"A considered presentation.", body:"Present the property and the detail behind it. Start with the asset, the income evidence and your objectives.", image:"modern-malta-apartments-concept.webp", action:"Explore the seller experience", href:"/selling", caption:"AI-created architecture concept · not a property listing", options:[
-    {label:"Present one property",heading:"Bring the detail together.",body:"Prepare the property particulars, your authority to market and any income evidence. A structured brief is the starting point.",action:"Start seller onboarding",href:"/seller-onboarding"},
+    {label:"Present one property",heading:"Bring the detail together.",body:"Prepare the property particulars, your authority to market and any income evidence. A structured brief is the starting point.",action:"Start seller onboarding",href:"/seller-enquiry"},
     {label:"Discuss several properties",heading:"A clear portfolio brief.",body:"Describe the assets, locations and objectives. The marketing scope and information required are agreed around the properties.",action:"Discuss a portfolio marketing brief",href:"/contact?interest=marketing"},
     {label:"Understand the process first",heading:"Know the next step.",body:"Explore how the property, available evidence and agreed scope become a considered marketing presentation.",action:"Explore the seller process",href:"/selling"},
   ] },

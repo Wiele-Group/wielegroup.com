@@ -1,12 +1,12 @@
 import type { NextConfig } from "next";
+import { legacyRoutes } from "./src/lib/site-redirects";
 const nextConfig: NextConfig = {
  poweredByHeader: false,
  images: { unoptimized: true },
  async redirects() { return [
   { source: "/", has: [{ type: "host", value: "www.wielegroup.com" }], destination: "https://wielegroup.com/", permanent: true },
   { source: "/:path+", has: [{ type: "host", value: "www.wielegroup.com" }], destination: "https://wielegroup.com/:path+", permanent: true },
-  { source: "/property", destination: "/properties", permanent: true },
-  { source: "/the-algorithm", destination: "/wiele-algorithm", permanent: true },
+  ...Object.entries(legacyRoutes).map(([source, destination]) => ({ source, destination, permanent: true })),
   { source: "/legal-guide", destination: "/legal-compliance/cross-border", permanent: true },
   { source: "/for-buyers", destination: "/investor-onboarding", permanent: true },
   { source: "/for-sellers", destination: "/seller-onboarding", permanent: true },
