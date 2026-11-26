@@ -1,4 +1,7 @@
 import { spawn, spawnSync } from 'node:child_process';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { setTimeout as wait } from 'node:timers/promises';
 
 // Verify the actual built HTTP output before any production mutation.
@@ -10,11 +13,16 @@ function run(command, args) {
   });
 }
 let preview;
+let cacheConfigDir;
 try {
   if (spawnSync('git', ['diff', '--quiet', 'HEAD']).status !== 0) throw new Error('Commit the website changes before deploying.');
   await run('npm', ['run', 'build:cf']);
-  // Verify the same read-only prerender cache that the deployment will upload.
-  await run('npx', ['opennextjs-cloudflare', 'populateCache', 'local']);
+  // Populate the static cache without starting Wrangler's remote binding proxy.
+  // The preview and deployment still use the project's full Wrangler config.
+  cacheConfigDir = await mkdtemp(join(tmpdir(), 'wiele-static-cache-'));
+  const cacheConfig = join(cacheConfigDir, 'wrangler.toml');
+  await writeFile(cacheConfig, 'name = "wiele-static-cache"\n');
+  await run('npx', ['opennextjs-cloudflare', 'populateCache', 'local', '--config', cacheConfig]);
   // Port 0 avoids collisions with existing developer previews.
   preview = spawn('npx', ['wrangler', 'dev', '--local', '--port', '0'], { stdio: ['ignore', 'pipe', 'pipe'] });
   const ready = new Promise((resolve, reject) => {
@@ -41,4 +49,5 @@ try {
   process.exitCode = 1;
 } finally {
   preview?.kill('SIGTERM');
+  if (cacheConfigDir) await rm(cacheConfigDir, { recursive: true, force: true });
 }
