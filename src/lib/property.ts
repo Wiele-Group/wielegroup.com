@@ -26,10 +26,17 @@ export const propertyNavigation = [
   { href: "/wiele-algorithm", label: "The Algorithm" },
 ];
 
-export const DEFAULT_OG_IMAGE = "/og/wiele-architectural-briefing.png";
+export const propertyLogo = {
+  src: "/property-identity/gold-rings/wiele.webp",
+  width: 656,
+  height: 496,
+  organization: "/property-identity/gold-rings/organisation-logo.png",
+} as const;
+
+export const DEFAULT_OG_IMAGE = "/og/wiele-gold-rings-20261126.png";
 export const defaultOpenGraphImage = {
   url: DEFAULT_OG_IMAGE, width: 1200, height: 630,
-  alt: "Wiele Investments architectural briefing featuring an AI-created architectural concept",
+  alt: "Gold-ring WIELE logo over an AI-created villa concept for Wiele Investments",
 };
 
 export function propertyMetadata(title: string, description: string, path: string): Metadata {

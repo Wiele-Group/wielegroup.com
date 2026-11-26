@@ -9,8 +9,8 @@ import { maintenanceFaqs, maintenanceServices } from "@/lib/property-maintenance
 const description = "Malta property maintenance managed and operated by Wiele. Repairs, painting, planned upkeep, property care visits and preparation for sale or occupation.";
 export const metadata: Metadata = {
   ...propertyMetadata("Wiele Property Maintenance in Malta", description, "/property-maintenance"),
-  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Wiele Property Maintenance in Malta | Wiele Investments", description, url: "/property-maintenance", images: [{ url: "/property/og-property-maintenance-20261031.jpg", width: 1200, height: 630, alt: "Wiele Property Maintenance in Malta. Managed and operated by Wiele. Typographic brand artwork." }] },
-  twitter: { card: "summary_large_image", title: "Wiele Property Maintenance in Malta | Wiele Investments", description, images: ["/property/og-property-maintenance-20261031.jpg"] },
+  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Wiele Property Maintenance in Malta | Wiele Investments", description, url: "/property-maintenance", images: [{ url: "/property/og-property-maintenance-20261126.jpg", width: 1200, height: 630, alt: "Wiele Property Maintenance in Malta. Managed and operated by Wiele. Typographic brand artwork." }] },
+  twitter: { card: "summary_large_image", title: "Wiele Property Maintenance in Malta | Wiele Investments", description, images: ["/property/og-property-maintenance-20261126.jpg"] },
 };
 const process = [
   ["01", "Tell us what needs attention.", "Share the locality, property type, job list and preferred timing. Useful photos can be sent by email."],

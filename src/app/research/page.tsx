@@ -32,7 +32,7 @@ const publications = [
   title: "The Malta",
   emphasis: "investment report.",
   intro: "Revised 2025 results, dated 2026 observations and worked examples of the costs behind a Malta property acquisition.",
-  cover: "/property/report-research-20261102-cover.jpg", width: 1012, height: 1432,
+  cover: "/property/malta-report-web-cover-20261126.jpg", width: 1012, height: 1432,
   alt: "Malta Investment Property Report cover with an AI-created modern apartment concept",
   pages: 16,
   observations: [

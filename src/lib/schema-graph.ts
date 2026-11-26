@@ -1,5 +1,5 @@
 import { investmentReport } from "./investment-report";
-import { propertyBrand } from "./property";
+import { propertyBrand, propertyLogo } from "./property";
 import { propertyFaqs } from "./property-faqs";
 import { propertyMarket } from "./property-market";
 import { maltaReportDescription, SITE_URL } from "./seo-metadata";
@@ -18,7 +18,7 @@ export function buildCoreEntityGraph() {
       url: SITE_URL,
       email: propertyBrand.email,
       description: propertyBrand.description,
-      logo: `${SITE_URL}/property-identity/reflective-gold/organisation-icon.png`,
+      logo: `${SITE_URL}${propertyLogo.organization}`,
       foundingDate: propertyBrand.founded,
       address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
       sameAs: Object.values(propertyBrand.social),
@@ -115,6 +115,6 @@ export function buildMaltaReportSchema() {
     citation: [propertyMarket.sources.prices, propertyMarket.sources.transactions, propertyMarket.sources.octoberDecision],
     isAccessibleForFree: true,
     conditionsOfAccess: "Complimentary PDF after name and email registration. Marketing consent is optional.",
-    image: `${SITE_URL}/property/report-research-20261102-social.jpg`,
+    image: `${SITE_URL}/property/malta-report-social-20261126.jpg`,
   };
 }

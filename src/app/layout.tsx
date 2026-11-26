@@ -24,11 +24,11 @@ export const metadata: Metadata = {
  metadataBase: new URL(propertyBrand.url),
  title: { default: `Global Luxury Asset Brokerage | ${propertyBrand.name}`, template: `%s | ${propertyBrand.name}` },
  description: propertyBrand.description,
- applicationName: propertyBrand.name, category: "Real estate",
+ applicationName: propertyBrand.name, category: "Real estate", manifest: "/site.webmanifest",
  alternates: { canonical: "/" },
  openGraph: { type: "website", locale: "en_GB", siteName: propertyBrand.name, title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, url: "/", images: [defaultOpenGraphImage] },
  twitter: { card: "summary_large_image", title: "Global Luxury Asset Brokerage | Wiele Investments", description: propertyBrand.description, images: [{ url: defaultOpenGraphImage.url, alt: defaultOpenGraphImage.alt }] },
- icons: { icon: [{ url: "/property-identity/reflective-gold/favicon-16.png", sizes: "16x16", type: "image/png" }, { url: "/property-identity/reflective-gold/favicon-32.png", sizes: "32x32", type: "image/png" }], apple: "/property-identity/reflective-gold/apple-touch-icon.png" },
+ icons: { icon: [{ url: "/property-identity/gold-rings/favicon-16.png", sizes: "16x16", type: "image/png" }, { url: "/property-identity/gold-rings/favicon-32.png", sizes: "32x32", type: "image/png" }], apple: "/property-identity/gold-rings/apple-touch-icon.png" },
  other: { "geo.region": "MT", "geo.placename": "Swieqi, Malta", "msvalidate.01": "6392E5D05679A01E548B4F101B23B188" },
  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };

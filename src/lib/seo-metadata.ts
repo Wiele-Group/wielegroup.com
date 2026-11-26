@@ -12,7 +12,7 @@ export const luxuryAssetsTitle = "Yachts & Classic Cars";
 export const luxuryAssetsDescription = "Wiele Investments coordinates private yacht and classic-car mandates from Malta. Explore open fictional dossiers and cross-border flag, customs and VAT considerations.";
 
 const reportPage = propertyMetadata("Malta Investment Property Report 2026", maltaReportDescription, investmentReport.path);
-const reportImage = { url: "/property/report-research-20261102-social.jpg", width: 1200, height: 630, alt: "Wiele Investments Malta Investment Property Report, 2025 review and 2026 outlook" };
+const reportImage = { url: "/property/malta-report-social-20261126.jpg", width: 1200, height: 630, alt: "Wiele Investments Malta Investment Property Report, 2025 review and 2026 outlook" };
 
 export const PAGE_METADATA = {
   home: propertyMetadata("Global Luxury Asset Brokerage", propertyBrand.description, "/"),

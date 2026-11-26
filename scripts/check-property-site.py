@@ -52,11 +52,13 @@ def get(path,extra_headers=None):
  try:
   with urlopen(req,timeout=30) as r:return r.status,r.headers,r.read()
  except HTTPError as e:return e.code,e.headers,e.read()
+brand_logo='/property-identity/gold-rings/wiele.webp'
 assets=set();links=set();titles=set();descriptions=set()
 for path in paths:
  status,headers,data=get(path+'?_cb='+str(int(time.time())))
  text=data.decode();p=Page();p.feed(text)
  assert status==200,(path,status)
+ assert p.assets.count(brand_logo)==2,(path,'header and footer logo')
  assert p.h1s==1,(path,'heading count',p.h1s)
  assert len(p.canonicals)==1 and p.canonicals[0].rstrip('/')==('https://wielegroup.com'+('/' if path=='/' else path)).rstrip('/'),(path,p.canonicals)
  assert not re.search(r'wa\.me|tel:|linkedin\.com/in/',text,re.I),(path,'private direct contact remains')
@@ -106,6 +108,7 @@ for path in paths:
  assert 'Organization' in types and 'WebSite' in types,(path,'missing business identity schema')
  org=next(e for e in entities if e.get('@type')=='Organization')
  assert org.get('slogan')=='South African roots. Global perspective.',(path,'organization slogan')
+ assert org['logo']=='https://wielegroup.com/property-identity/gold-rings/organisation-logo.png',(path,'organization logo')
  assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
  assert org['name']=='Wiele Investments' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
@@ -276,6 +279,7 @@ for path in sorted(links):
   if parsed.path.endswith('.html'):
    example=Page();example.feed(data.decode('utf-8'))
    assert example.h1s==1 and b'<form' not in data and b'noindex' in data,(parsed.path,'sample access or metadata')
+   assert brand_logo in example.assets,(parsed.path,'standalone dossier logo')
    if parsed.path in ['/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html']:
     assert b'id="readiness"' in data and b'0 of 5 checks supported by verified records' in data,(parsed.path,'fictional due-diligence record')
 
@@ -289,13 +293,13 @@ for path in ['/audit','/pricing','/labs','/citation-score','/citation-brief/bran
 for path in ['/api/audit','/api/contact','/unknown-property-page','/listing-examples/unknown-example','/purchase-guide/unknown-country','/purchase-guide/assets/unknown-asset']:
  status,_,_=get(path);assert status==404,(path,status)
 print('PASS',len(assets),'assets;',len(links),'internal link destinations; retired agency pages return 410, unknown routes return 404')
-for path in ['/robots.txt','/sitemap.xml','/llms.txt','/llms-full.txt','/og/wiele-architectural-briefing.png','/property/og-wiele-global-20261113.jpg','/property-identity/reflective-gold/favicon-32.png','/property-identity/wiele-investments/wordmark-reflective.png','/property-identity/reflective-gold/organisation-icon.png']:
+for path in ['/robots.txt','/sitemap.xml','/llms.txt','/llms-full.txt','/og/wiele-gold-rings-20261126.png','/property/og-property-maintenance-20261126.jpg','/property/og-legal-compliance-20261126.jpg','/property-identity/gold-rings/favicon-32.png','/property-identity/gold-rings/wiele.webp','/property-identity/gold-rings/organisation-logo.png','/site.webmanifest']:
  status,_,_=get(path);assert status==200,(path,status)
 for path in ['/llms.txt','/llms-full.txt']:
  status,headers,data=get(path)
  assert status==200 and 'text/plain' in headers.get('Content-Type','') and data.decode('utf-8').startswith('# Wiele Investments'),(path,'machine-readable text')
  assert not re.search(rb'Jonathan|Landman|jonathan|9932|wa\.me',data,re.I),(path,'personal identity')
-png=get('/og/wiele-architectural-briefing.png')[2]
+png=get('/og/wiele-gold-rings-20261126.png')[2]
 assert png[:8]==b'\x89PNG\r\n\x1a\n' and tuple(int.from_bytes(png[n:n+4],'big') for n in (16,20))==(1200,630),'fallback OG PNG dimensions'
 print('PASS search metadata and brand resources')
 

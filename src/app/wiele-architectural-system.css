@@ -1059,3 +1059,14 @@ main :is(button[aria-current="step"], button[aria-selected="true"]) {
   color: var(--accent-amber-bright);
 }
 :is(.perspective-kicker, .eyebrow-index) { color: var(--text-secondary); }
+
+.site-header .brand-integrated {
+  width: auto;
+  height: 82px;
+}
+
+@media (max-width: 640px) {
+  .site-header .brand-integrated {
+    height: 72px;
+  }
+}
