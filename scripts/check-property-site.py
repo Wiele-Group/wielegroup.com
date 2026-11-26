@@ -131,7 +131,7 @@ for path in paths:
  assert org.get('slogan')=='South African roots. Global perspective.',(path,'organization slogan')
  assert org['logo']=='https://wielegroup.com/property-identity/gold-rings/organisation-logo.png',(path,'organization logo')
  assert set(['Wiele Group','WieleGroup','Wiele Property']).issubset(org['alternateName']),(path,'brand aliases')
- assert org['name']=='Wiele Investments' and org['address']['addressLocality']=='Swieqi',(path,'business identity')
+ assert org['name']=='Wiele Investments' and org['address']['addressCountry']=='MT' and 'addressLocality' not in org['address'],(path,'business identity')
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
  assert set(org['sameAs'])==social_profiles,(path,'official social profiles')
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')

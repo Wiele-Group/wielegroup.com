@@ -20,7 +20,7 @@ export function buildCoreEntityGraph() {
       description: propertyBrand.description,
       logo: `${SITE_URL}${propertyLogo.organization}`,
       foundingDate: propertyBrand.founded,
-      address: { "@type": "PostalAddress", addressLocality: "Swieqi", addressCountry: "MT" },
+      address: { "@type": "PostalAddress", addressCountry: "MT" },
       sameAs: Object.values(propertyBrand.social),
       contactPoint: { "@type": "ContactPoint", email: propertyBrand.email, contactType: "customer enquiries", availableLanguage: propertyBrand.languages },
     },

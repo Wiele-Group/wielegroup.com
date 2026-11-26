@@ -5,14 +5,14 @@ export const propertyBrand = {
   tagline: "South African roots. Global perspective.",
   url: "https://wielegroup.com",
   email: "admin@wielegroup.com",
-  location: "Swieqi, Malta",
+  location: "Malta",
   founded: "2026",
   languages: ["English", "Afrikaans"],
   social: {
     facebook: "https://www.facebook.com/wieleinvestments/",
     linkedin: "https://www.linkedin.com/company/wiele-investments/",
   },
-  description: "Malta-based brokerage for property, yachts and classic cars. Explore fictional examples, purchase guides and buyer or seller enquiries for the UK, Europe and South Africa.",
+  description: "Malta-based hybrid online brokerage for prime real estate, superyachts and collector automobiles, focused on bespoke marketing and private-treaty origination.",
 } as const;
 
 export const propertyLogo = {

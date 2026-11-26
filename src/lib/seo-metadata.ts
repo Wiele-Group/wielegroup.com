@@ -11,7 +11,7 @@ const reportPage = propertyMetadata("Malta Investment Property Report 2026", mal
 const reportImage = { url: "/property/malta-report-social-20261126.jpg", width: 1200, height: 630, alt: "Wiele Investments Malta Investment Property Report, 2025 review and 2026 outlook" };
 
 export const PAGE_METADATA = {
-  about: propertyMetadata("Our Global Asset Brokerage", "Meet Wiele Investments, a Malta-based brokerage for prime real estate, yachts and collector automobiles across the UK, Europe and Southern Africa.", "/about"),
+  about: propertyMetadata("About Our Hybrid Online Brokerage", "Wiele Investments is a Malta-based hybrid online brokerage for prime real estate, superyachts and collector automobiles, focused on bespoke marketing and strategy.", "/about"),
   classicCars: propertyMetadata(assetGuides["classic-cars"].title, assetGuides["classic-cars"].intro, "/luxury-assets/classic-cars"),
   maltaReport: {
     ...reportPage,
