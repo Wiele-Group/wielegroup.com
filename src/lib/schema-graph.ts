@@ -1,6 +1,6 @@
+import { homeLanguages } from "./home-locales/routing";
 import { investmentReport } from "./investment-report";
 import { propertyBrand, propertyLogo } from "./property";
-import { propertyFaqs } from "./property-faqs";
 import { propertyMarket } from "./property-market";
 import { maltaReportDescription, SITE_URL } from "./seo-metadata";
 
@@ -38,7 +38,7 @@ export function buildCoreEntityGraph() {
       name: propertyBrand.name,
       alternateName: ["Wiele Properties", "wielegroup.com"],
       description: propertyBrand.description,
-      inLanguage: "en-GB",
+      inLanguage: Object.values(homeLanguages).map(({ tag }) => tag),
       publisher: organization,
     },
     {
@@ -67,24 +67,6 @@ export function buildBreadcrumbSchema(items: readonly { name: string; path: stri
     })),
   };
 }
-
-export const HOME_AEO_FAQS = [
-  ...propertyFaqs.filter(faq =>
-    ["What is Wiele?", "Is Wiele focused only on Malta?", "How do I start an enquiry?"].includes(faq.question)
-  ),
-  {
-    question: "Can I buy the assets shown in the example dossiers?",
-    answer: "The open dossiers show fictional property, yacht and classic-car examples with AI-created visuals. Contact Wiele to discuss a brief for an actual asset.",
-  },
-  {
-    question: "How does the seller marketing mandate work?",
-    answer: "The published terms describe a per-asset marketing retainer, a minimum commitment and a credit for net retainers paid against commission on qualifying completions. Malta property engagements require a licensed local intermediary and separately agreed lawful fee arrangements.",
-  },
-  {
-    question: "Who handles formal transaction documentation?",
-    answer: "Appropriately licensed practitioners in the relevant jurisdiction handle formal transaction documents and other regulated work. Wiele coordinates the asset brief, marketing preparation and introductions within the agreed scope.",
-  },
-];
 
 export function buildFaqSchema(faqs: readonly { question: string; answer: string }[]) {
   return {

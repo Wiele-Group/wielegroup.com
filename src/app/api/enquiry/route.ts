@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { z } from "zod";
+import { correspondenceAssets, correspondenceCorridors, correspondenceDesks, correspondenceRoles } from "@/lib/contact-locales/correspondence";
 import { propertyOnboardingSchema, onboardingFieldLabels } from "@/lib/property-onboarding";
 import { assetMandateSubmissionSchema, mandateEnquiryRoute, mandateNames, mandateNotification } from "@/schemas/assetMandateIntake";
 export const runtime = "nodejs";
-const inputSchema = z.object({name:z.string().trim().min(2).max(100),email:z.string().trim().email().max(254),phone:z.string().trim().max(40).optional().default(""),interest:z.enum(["marketing","buying","consortium","general","maintenance","luxury-assets"]),assetCategory:z.enum(["yachts","classic-cars"]).optional(),assetIntent:z.enum(["acquire","offer"]).optional(),message:z.string().trim().min(10).max(3000),website:z.string().max(500).optional().default(""),token:z.string().min(1).max(2048),onboarding:propertyOnboardingSchema.optional(),mandate:assetMandateSubmissionSchema.optional()}).superRefine((data,ctx)=>{if(data.interest === "luxury-assets" ? !data.assetCategory || !data.assetIntent : data.assetCategory !== undefined || data.assetIntent !== undefined) ctx.addIssue({code:z.ZodIssueCode.custom,message:"Select an asset category and enquiry purpose for a luxury asset enquiry.",path:["assetCategory"]});if(data.onboarding && data.interest !== (data.onboarding.kind === "investor" ? "buying" : "marketing")) ctx.addIssue({code:z.ZodIssueCode.custom,message:"Invalid onboarding route",path:["interest"]});
+const correspondenceSchema = z.object({
+ desk: z.enum(correspondenceDesks),
+ role: z.enum(correspondenceRoles),
+ corridor: z.enum(correspondenceCorridors),
+ asset: z.enum(correspondenceAssets),
+});
+const inputSchema = z.object({name:z.string().trim().min(2).max(100),email:z.string().trim().email().max(254),phone:z.string().trim().max(40).optional().default(""),interest:z.enum(["marketing","buying","consortium","general","maintenance","luxury-assets"]),assetCategory:z.enum(["yachts","classic-cars"]).optional(),assetIntent:z.enum(["acquire","offer"]).optional(),message:z.string().trim().min(10).max(3000),website:z.string().max(500).optional().default(""),token:z.string().min(1).max(2048),correspondence:correspondenceSchema.optional(),onboarding:propertyOnboardingSchema.optional(),mandate:assetMandateSubmissionSchema.optional()}).superRefine((data,ctx)=>{if(data.interest === "luxury-assets" ? !data.assetCategory || !data.assetIntent : data.assetCategory !== undefined || data.assetIntent !== undefined) ctx.addIssue({code:z.ZodIssueCode.custom,message:"Select an asset category and enquiry purpose for a luxury asset enquiry.",path:["assetCategory"]});if(data.onboarding && data.interest !== (data.onboarding.kind === "investor" ? "buying" : "marketing")) ctx.addIssue({code:z.ZodIssueCode.custom,message:"Invalid onboarding route",path:["interest"]});
  if (data.mandate) {
   const expected = mandateEnquiryRoute(data.mandate.details.assetCategory);
   if (data.onboarding || data.interest !== expected.interest || data.assetCategory !== expected.assetCategory || data.assetIntent !== expected.assetIntent)
@@ -40,6 +47,9 @@ export async function POST(request:Request) {
 SELLER MANDATE INTAKE
 ${mandateNotification(submission.mandate.details)}
 Process acknowledgement: accepted (initial enquiry only; version 2026-11-21)` : "";
+ const correspondence = submission.correspondence
+  ? `\n\nPRIVATE CORRESPONDENCE\nDesk: ${submission.correspondence.desk}\nRole: ${submission.correspondence.role}\nCorridor: ${submission.correspondence.corridor}\nAsset: ${submission.correspondence.asset}`
+  : "";
  const ticketId=crypto.randomUUID();
  const queuedAt=new Date().toISOString();
  try {await env.AUDIT_QUEUE.put(`property-enquiry:${ticketId}`,JSON.stringify({ticketId,queuedAt,submission,...(submission.onboarding ? {onboardingVersion:"2026-10-31"} : {}),...(submission.mandate ? {mandateVersion:"2026-11-21"} : {}),notification:"pending"}),{expirationTtl:60*60*24*90});}
@@ -47,7 +57,7 @@ Process acknowledgement: accepted (initial enquiry only; version 2026-11-21)` : 
  // Durable storage is the success boundary; notification failure never loses the enquiry.
  if(env.RESEND_API_KEY) {
   try {
-   const sent=await fetch("https://api.resend.com/emails",{method:"POST",headers:{Authorization:`Bearer ${env.RESEND_API_KEY}`,"Content-Type":"application/json","Idempotency-Key":`property-enquiry-${ticketId}`},body:JSON.stringify({from:"Wiele Investments <admin@wielegroup.com>",to:["admin@wielegroup.com"],reply_to:submission.email,subject:submission.mandate ? `Seller mandate intake · ${mandateNames[submission.mandate.details.assetCategory]}` : submission.interest === "luxury-assets" ? `Luxury asset enquiry · ${submission.assetCategory} · ${submission.assetIntent}` : submission.onboarding ? `Property onboarding · ${submission.onboarding.kind}` : `Property enquiry · ${submission.interest}`,text:`WIELE INVESTMENTS\nReference: ${ticketId}\nReceived: ${queuedAt}\n\nName: ${submission.name}\nEmail: ${submission.email}\nPhone: ${submission.phone || "Not supplied"}\nInterest: ${submission.interest}${submission.assetCategory ? `\nAsset category: ${submission.assetCategory}\nAsset enquiry: ${submission.assetIntent}` : ""}\n\n${submission.message}${onboardingSummary}${mandateSummary}`}),signal:AbortSignal.timeout(10000)});
+   const sent=await fetch("https://api.resend.com/emails",{method:"POST",headers:{Authorization:`Bearer ${env.RESEND_API_KEY}`,"Content-Type":"application/json","Idempotency-Key":`property-enquiry-${ticketId}`},body:JSON.stringify({from:"Wiele Investments <admin@wielegroup.com>",to:["admin@wielegroup.com"],reply_to:submission.email,subject:submission.mandate ? `Seller mandate intake · ${mandateNames[submission.mandate.details.assetCategory]}` : submission.interest === "luxury-assets" ? `Luxury asset enquiry · ${submission.assetCategory} · ${submission.assetIntent}` : submission.onboarding ? `Property onboarding · ${submission.onboarding.kind}` : `Property enquiry · ${submission.interest}`,text:`WIELE INVESTMENTS\nReference: ${ticketId}\nReceived: ${queuedAt}\n\nName: ${submission.name}\nEmail: ${submission.email}\nPhone: ${submission.phone || "Not supplied"}\nInterest: ${submission.interest}${submission.assetCategory ? `\nAsset category: ${submission.assetCategory}\nAsset enquiry: ${submission.assetIntent}` : ""}\n\n${submission.message}${correspondence}${onboardingSummary}${mandateSummary}`}),signal:AbortSignal.timeout(10000)});
    if(!sent.ok) console.error("Property enquiry notification rejected",sent.status);
   }catch{console.error("Property enquiry notification unavailable; enquiry retained in storage");}
  }

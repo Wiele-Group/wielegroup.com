@@ -1,0 +1,40 @@
+import type { HomeMediaKey } from "@/lib/homeMedia";
+
+export type HomeCopy = {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  mandate: string;
+  viewing: string;
+  language: string;
+  ledger: string;
+  ledgerLabels: [string, string, string, string];
+  counsel: string;
+  commission: string;
+  ledgerTerms: string;
+  termsLink: string;
+  desksTitle: string;
+  desksIntro: string;
+  desks: [Desk, Desk, Desk];
+  corridorsTitle: string;
+  corridorsIntro: string;
+  corridorLabel: string;
+  corridorFields: [string, string, string];
+  corridors: [Corridor, Corridor, Corridor, Corridor];
+  viewingTitle: string;
+  viewingIntro: string;
+  reference: string;
+  dossiers: [Dossier, Dossier, Dossier];
+  faqTitle: string;
+  faqs: { question: string; answer: string }[];
+  contact: string;
+  artwork: string;
+  alt: Record<HomeMediaKey, string>;
+  socialAlt: string;
+};
+
+type Desk = { title: string; description: string };
+type Corridor = { name: string; liquidity: string; assets: string; timing: string };
+type Dossier = { category: string; location: string; description: string; action: string };

@@ -1,0 +1,124 @@
+.settlement-page {
+  .settlement-hero::after { content: none; }
+  .settlement-hero .settlement-image { position: absolute; z-index: -1; inset: 0; }
+  .settlement-hero .settlement-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #090c15f2, #090c15ad 46%, #090c1515),
+                linear-gradient(0deg, #090c15e0, transparent 60%);
+  }
+  .settlement-hero h1 { max-width: 21ch; overflow-wrap: anywhere; }
+  .acq-hero-inner { padding-bottom: clamp(88px, 13vw, 160px); }
+  .settlement-image { position: relative; overflow: hidden; background: #161c2c; }
+  .settlement-image img { object-fit: cover; }
+  .settlement-image .acq-image-credit { z-index: 1; top: auto; bottom: 12px; }
+  .settlement-hero .acq-image-credit { right: max(18px, calc((100% - 1320px) / 2)); }
+  .settlement-actions { display: flex; align-items: start; flex-wrap: wrap; gap: 12px; }
+  #settlement-matrix, #buyer-status, #cross-border-funding { scroll-margin-top: 96px; }
+
+  .settlement-matrix {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px 26px;
+    background: linear-gradient(125deg, #3c4b6940, #151b2c62), #131827ba;
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--acq-rule);
+    padding: clamp(16px, 3vw, 40px);
+  }
+  .settlement-matrix fieldset { margin: 0; min-width: 0; padding: 0; border: 0; }
+  .settlement-matrix legend, .settlement-result dt {
+    color: #e7b981;
+    font-size: .76rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    font-weight: 650;
+    margin-bottom: 10px;
+  }
+  .settlement-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--acq-rule); }
+  .settlement-options label { position: relative; display: flex; align-items: stretch; margin: 0; cursor: pointer; }
+  .settlement-options label + label { border-inline-start: 1px solid var(--acq-rule); }
+  .settlement-options input { position: absolute; opacity: 0; }
+  .settlement-options span {
+    display: grid;
+    place-content: center;
+    flex: 1;
+    min-height: 52px;
+    padding: 8px;
+    text-align: center;
+    font-size: .82rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  .settlement-options input:checked + span {
+    background: #d98a2b24;
+    box-shadow: inset 0 -2px var(--acq-amber);
+    color: #ffcf96;
+  }
+  .settlement-options input:focus-visible + span { outline: 2px solid var(--acq-amber); outline-offset: -4px; }
+
+  .settlement-result { display: none; grid-column: 1 / -1; padding-top: 12px; }
+  .settlement-result h3 span { color: var(--acq-amber); font-size: .7em; }
+  .settlement-matrix:has([value="estate"]:checked) [data-asset="estate"],
+  .settlement-matrix:has([value="yacht"]:checked) [data-asset="yacht"],
+  .settlement-matrix:has([value="automobile"]:checked) [data-asset="automobile"] {
+    --asset-match: block;
+  }
+  .settlement-matrix:has([value="uk"]:checked) [data-corridor="uk"],
+  .settlement-matrix:has([value="europe"]:checked) [data-corridor="europe"],
+  .settlement-matrix:has([value="southern-africa"]:checked) [data-corridor="southern-africa"] {
+    display: var(--asset-match, none);
+  }
+  .settlement-result dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 23px; }
+  .settlement-result dl > div { border-top: 1px solid var(--acq-rule); padding: 17px 17px 0 0; }
+  .settlement-result dl > div + div { padding-inline-start: 17px; border-inline-start: 1px solid var(--acq-rule); }
+  .settlement-result dd, .settlement-answers p { color: var(--acq-muted); font-size: .95rem; }
+  .settlement-result dd p + p { margin-top: 9px; }
+
+  .settlement-plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+  .settlement-plates .settlement-image { aspect-ratio: 3 / 2; border: 1px solid var(--acq-rule); }
+  .settlement-plates [data-media="coastal"] .acq-linework { --light: #655045; }
+  .settlement-checklist { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 30px; margin-bottom: 30px; }
+  .settlement-checklist ol, .settlement-reference-links { padding: 0; margin: 0; list-style: none; }
+  .settlement-checklist li { border-top: 1px solid var(--acq-rule); }
+  .settlement-checklist li:last-child { border-bottom: 1px solid var(--acq-rule); }
+  .settlement-checklist summary {
+    display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) 1rem; align-items: center; gap: 12px;
+    padding: 16px 8px; cursor: pointer; font-weight: 600; list-style: none;
+  }
+  .settlement-checklist summary::-webkit-details-marker { display: none; }
+  .settlement-checklist summary::after { content: "+"; color: var(--acq-amber); }
+  .settlement-checklist [open] summary::after { content: "−"; }
+  .settlement-checklist p { padding: 0 8px 18px 3.5rem; color: var(--acq-muted); }
+  .settlement-index { color: var(--acq-amber); font-variant-numeric: tabular-nums; font-size: .84rem; }
+
+  .settlement-answers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 26px; margin-bottom: 18px; }
+  .settlement-answers article { border-top: 1px solid var(--acq-rule); padding-top: 16px; }
+  .settlement-answers h3 { font-size: clamp(1.55rem, 2.4vw, 2.3rem); margin-bottom: 10px; }
+  .settlement-reference-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 24px; }
+  .settlement-references .jurisdiction-directory { color: var(--ink, #171510); }
+  .settlement-references .jurisdiction-directory h3 { color: #171510; }
+  .settlement-legacy { background: var(--acq-bone); color: #171510; }
+  .settlement-legacy :is(h2, h3) { color: #171510; }
+
+  @media (max-width: 840px) {
+    .settlement-matrix, .settlement-checklist { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .settlement-result dl, .settlement-answers, .settlement-plates { grid-template-columns: minmax(0, 1fr); }
+    .settlement-result dl > div, .settlement-result dl > div + div { padding: 15px 0; border-inline-start: 0; }
+    .settlement-hero .settlement-image::after { background: linear-gradient(90deg, #090c15e0, #090c158a), linear-gradient(0deg, #090c15df, transparent); }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.settlement-page) { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.settlement-page) { scroll-behavior: auto; }
+  .settlement-page, .settlement-page *, .settlement-page *::before, .settlement-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

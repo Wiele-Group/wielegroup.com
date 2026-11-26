@@ -1,0 +1,33 @@
+import type { SellingCopy } from "./types";
+
+export const it: SellingCopy = {
+  title:"Collocamento internazionale riservato per beni di pregio.",
+  intro:"Mandati di vendita per immobili di pregio, yacht dalla storia documentata e automobili da collezione. Wiele abbina dossier su misura a contatti mirati con acquirenti in Europa, nel Regno Unito e nell’Africa australe.",
+  description:"Mandati di vendita da Malta per immobili di pregio, yacht e automobili da collezione. Compensi, collocamento internazionale e regolamento.",
+  eyebrow:"Mandati di vendita privati e collocamento transfrontaliero",home:"Home",language:"Lingua della pagina venditori",
+  artwork:"Immagini illustrative",socialAlt:"Mandati di vendita privati di Wiele Group con disegno architettonico",
+  alt:{hero:"Illustrazione di un salone riservato al crepuscolo",craft:"Illustrazione di un dossier editoriale",corridor:"Illustrazione di un porto turistico al crepuscolo con yacht, lanterne e bastioni in pietra calcarea"},
+  list:"Presenta un mandato privato",terms:"Consulta le condizioni del mandato",agreement:"Leggi il contratto di mandato",
+  protocolTitle:"Le fasi del mandato",protocolIntro:"Dall’approvazione del mandato alla chiusura con i legali, ogni fase ha un risultato e una decisione da prendere.",
+  stageControl:"Seleziona una fase del mandato",stageFields:["Risultato","Responsabilità","Tempistiche"],
+  stages:[
+    ["Mandato e quadro giuridico","Confermare i poteri del venditore, il bene e l’ambito dell’incarico.","Ambito scritto, riferimento, autorizzazioni e compensi.","Dichiarare i conflitti, identificare l’intermediario autorizzato quando necessario e verificare i poteri.","Prima della pubblicazione o dei contatti. Il minimo decorre dalla fatturazione."],
+    ["Dossier editoriale e presentazione visiva","Riunire fotografie, dati comprovati e limitazioni rilevanti.","Dossier approvato dal venditore, crediti delle immagini e informazioni da divulgare.","Verificare i diritti delle immagini, distinguere prove e dichiarazioni e far approvare la diffusione.","Dopo la ricezione dei materiali e prima del collocamento."],
+    ["Origination transfrontaliera degli acquirenti","Individuare gli acquirenti per bene, area e criteri di acquisto.","Piano di contatto, presentazioni documentate e relazione per ogni ciclo completato.","Rispettare i limiti di divulgazione e documentare le presentazioni.","Dopo l’approvazione del dossier. Rivedere i risultati dopo ogni ciclo completato."],
+    ["Chiusura condotta dai legali","Mettere i documenti e le informazioni sui contatti a disposizione dei professionisti incaricati.","Presentazione documentata e consegna per i controlli di chiusura.","Legali e notai curano gli atti. Banche o professionisti autorizzati gestiscono fondi e regolamento.","Dopo i controlli e l’adempimento delle condizioni. I legali confermano le date."],
+  ],
+  craft:["Presentazione editoriale basata su documenti","Titolo, perizie, stato, restauri e provenienza hanno un peso diverso secondo il bene. La pubblicazione segue l’approvazione dei materiali."],
+  corridor:["Mappatura mirata di acquirenti internazionali","Definire canali, criteri e limiti di divulgazione per ogni area. Esaminare i riscontri prima del collocamento successivo."],
+  dossiers:"Consulta i dossier illustrativi",termsTitle:"Compenso e provvigione",
+  termsIntro:"Il compenso mensile non esclusivo copre promozione e spazi pubblicitari online per un solo bene. Il servizio è prestato con il massimo impegno, senza garanzia di vendita.",
+  termLabels:["Compenso mensile per bene, IVA esclusa","Cicli mensili minimi di fatturazione","Provvigione ordinaria di successo, ove applicabile","Credito per compensi netti pagati per lo stesso bene"],
+  cancellation:"Dopo il periodo minimo, la fatturazione si rinnova mensilmente. Inviare il riferimento via e-mail almeno cinque giorni lavorativi maltesi prima della fatturazione successiva. Il preavviso può essere anticipato per cessare alla scadenza minima. Un avviso tardivo ha effetto alla fine del ciclo seguente. Gli importi fatturati non sono rimborsabili, fatti salvi i diritti inderogabili di legge.",
+  trigger:"La provvigione ordinaria riguarda una vendita idonea conclusa con un acquirente presentato da Wiele con riscontro documentato, salvo diverso accordo scritto e nel rispetto della legge. Per un acquirente presentato può valere un periodo di dodici mesi dopo la cessazione.",
+  qualifiedCredit:"Il credito riguarda compensi netti effettivamente versati per lo stesso bene e riduce la provvigione fino a zero.",
+  scope:"Wiele opera online nella promozione, nella pubblicità e nelle presentazioni consentite. I legali nominati dal venditore e i notai necessari curano gli atti. Le banche delle parti o i professionisti autorizzati gestiscono il regolamento e i fondi.",
+  maltaTitle:"Immobili situati a Malta",
+  malta:"Il capitolo 644 e la clausola 6.4 richiedono un intermediario autorizzato dalla Property Market Agency. Nome, numero di licenza, ambito e compensi si concordano per iscritto prima dell’incarico. Wiele fornisce supporto lecito. Una provvigione di successo o una quota di segnalazione a Wiele richiede un accordo scritto distinto e conforme alla legge.",
+  statute:"Leggi il capitolo 644",
+  calculator:{title:"Calcolo illustrativo per il venditore",note:"Il calcolo presume il pagamento di tutti i cicli e una vendita idonea al prezzo lordo indicato.",value:"Prezzo lordo di vendita indicativo (EUR)",duration:"Durata del mandato",months:"mesi",mandateType:"Tipo di mandato",eligible:"Collocamento ordinario idoneo",malta:"Immobile situato a Malta",maltaNotice:"Provvigione, credito e compensi dipendono dall’accordo separato previsto dalla clausola 6.4. Consulta le condizioni dell’intermediario autorizzato.",invalid:"Inserisci un valore di vendita tra 1 € e 1 miliardo di euro.",excluded:"Importi illustrativi IVA esclusa",retainer:"Compenso cumulato",gross:"Provvigione lorda di successo",credit:"Credito per compensi netti",closing:"Provvigione esemplificativa al rogito",total:"Totale compensi e provvigione"},
+  faqTitle:"Prima di presentare un mandato",faq:["Il compenso garantisce una vendita?","Il compenso finanzia la promozione e la pubblicità concordate per un bene. Wiele presta il servizio con il massimo impegno e senza garanzia di vendita."],
+};

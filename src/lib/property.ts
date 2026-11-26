@@ -15,17 +15,6 @@ export const propertyBrand = {
   description: "Malta-based brokerage for property, yachts and classic cars. Explore fictional examples, purchase guides and buyer or seller enquiries for the UK, Europe and South Africa.",
 } as const;
 
-export const propertyNavigation = [
-  { href: "/properties", label: "Property" },
-  { href: "/buying", label: "For buyers" },
-  { href: "/selling", label: "For sellers" },
-  { href: "/luxury-assets", label: "Luxury assets" },
-  { href: "/purchase-guide", label: "Purchase guide" },
-  { href: "/research", label: "Research" },
-  { href: "/valuations", label: "Valuations" },
-  { href: "/wiele-algorithm", label: "The Algorithm" },
-];
-
 export const propertyLogo = {
   src: "/property-identity/gold-rings/wiele.webp",
   width: 656,

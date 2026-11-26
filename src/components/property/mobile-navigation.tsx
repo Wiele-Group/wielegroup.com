@@ -3,11 +3,14 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { propertyNavigation } from "@/lib/property";
+import { homeLanguages } from "@/lib/home-locales/routing";
+import { navigationFor, siteLocale } from "@/lib/site-navigation";
 
 /** Native disclosure keeps navigation usable before hydration or without JS. */
 export function MobileNavigation() {
   const pathname = usePathname();
+  const locale = siteLocale(pathname) ?? "en";
+  const nav = navigationFor(locale);
   const container = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
@@ -40,12 +43,15 @@ export function MobileNavigation() {
     };
   }, [pathname]);
 
-  return <details className="mobile-navigation" ref={container} key={pathname}>
-    <summary className="menu-toggle"><span className="menu-label-open">Menu</span><span className="menu-label-close">Close</span><span className="menu-symbol" aria-hidden="true">+</span></summary>
-    <nav id="mobile-links" aria-label="Mobile navigation">
-      <span className="navigation-caption">Explore Wiele / Global assets</span>
-      {propertyNavigation.map((item, index) => <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => { if (container.current) container.current.open = false; }}><span className="navigation-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{item.label}</span><span className="navigation-arrow" aria-hidden="true">↗</span></Link>)}
-      <Link className="navigation-contact" href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} onClick={() => { if (container.current) container.current.open = false; }}>Get in touch <span aria-hidden="true">↗</span></Link>
+  return <details className="mobile-navigation" lang={homeLanguages[locale].tag} ref={container} key={pathname}>
+    <summary className="menu-toggle"><span className="menu-label-open">{nav.open}</span><span className="menu-label-close">{nav.close}</span><span className="menu-symbol" aria-hidden="true">+</span></summary>
+    <nav id="mobile-links" lang={homeLanguages[locale].tag} aria-label={nav.label}>
+      {nav.items.map(item => (
+        <Link key={item.key} href={item.href} aria-current={pathname === item.href ? "page" : undefined}
+          onClick={() => { if (container.current) container.current.open = false; }}>
+          <span>{item.label}</span><span className="navigation-arrow" aria-hidden="true">↗</span>
+        </Link>
+      ))}
     </nav>
   </details>;
 }

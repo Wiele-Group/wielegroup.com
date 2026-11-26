@@ -2,11 +2,13 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { contactPath } from "@/lib/contact-locales/routing";
+import type { HomeLocale } from "@/lib/home-locales/routing";
+import type { ValuationCopy } from "@/lib/valuation-locales/types";
 import { TransactionEstimator, type MatrixRoute, type ValuationScenario } from "./transaction-estimator";
-import { CurrencyConverter } from "./currency-converter";
 import { ValuationBrief, type BriefFields } from "./valuation-brief";
 
-export function ValuationWorkspace({ matrix }: { matrix: MatrixRoute[] }) {
+export function ValuationWorkspace({ matrix, copy, locale }: { matrix: MatrixRoute[]; copy: ValuationCopy; locale: HomeLocale }) {
  const heading = useRef<HTMLHeadingElement>(null);
  const [fields, setFields] = useState<BriefFields>({
   category: "Property", location: "", currency: "EUR", budget: "", purpose: "Potential sale",
@@ -24,16 +26,20 @@ export function ValuationWorkspace({ matrix }: { matrix: MatrixRoute[] }) {
  }
 
  return <>
-  <TransactionEstimator matrix={matrix} onCarry={carry}/>
-  <CurrencyConverter/>
-  <section className="valuation-enquiry-section" id="valuation-enquiry" aria-labelledby="valuation-brief-title">
-   <div>
-    <span className="eyebrow">Your starting point / A short brief</span>
-    <h2 id="valuation-brief-title" tabIndex={-1} ref={heading}>Tell us about<br/><em>the asset.</em></h2>
-    <p>Prepare the essentials, then add your contact details and send the enquiry on the next page. Jonathan Landman is your initial Wiele contact. Specialist responsibilities are agreed separately.</p>
-    <Link className="text-link" href="/about#jonathan-landman">Background &amp; experience ↗</Link>
+  <section className="acq-section appraisal-enquiry" id="appraisal-desk" aria-labelledby="valuation-brief-title">
+   <div id="valuation-enquiry">
+    <h2 id="valuation-brief-title" tabIndex={-1} ref={heading}>{copy.intakeTitle}</h2>
+    <p>{copy.intakeIntro}</p>
+    <div className="appraisal-actions">
+     <Link className="acq-link" href="/about#jonathan-landman">{copy.contact} <span aria-hidden="true">↗</span></Link>
+     <a className="acq-link" href="#landed-cost-estimator">{copy.openEstimator} <span aria-hidden="true">↓</span></a>
+    </div>
    </div>
-   <ValuationBrief fields={fields} setFields={setFields} carried={carried}/>
+   <ValuationBrief fields={fields} setFields={setFields} carried={carried} copy={copy.form} desks={copy.desks} contact={contactPath(locale)}/>
   </section>
+  <div className="appraisal-estimator">
+   {locale !== "en" && <p className="appraisal-footnote">{copy.estimatorNote}</p>}
+   <div lang="en-GB"><TransactionEstimator matrix={matrix} onCarry={carry}/></div>
+  </div>
  </>;
 }

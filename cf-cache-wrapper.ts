@@ -1,6 +1,6 @@
 import { isRetiredAgencyPath, retiredAgencyResponse } from "./src/lib/retired-agency";
 import { fxRatesResponse, loadFxRates } from "./src/lib/fx-rates";
-import { legacyRoutes } from "./src/lib/site-redirects";
+import { legacyRoutes, originationRedirects } from "./src/lib/site-redirects";
 /// <reference types="@cloudflare/workers-types" />
 
 // DOM's lib.dom.d.ts declares `CacheStorage` without `.default`; Cloudflare's
@@ -168,9 +168,12 @@ const handler = {
   ): Promise<Response> {
     const requestedUrl = new URL(request.url);
     const normalizedPath = requestedUrl.pathname.replace(/\/+$/, "");
-    const destination = Object.hasOwn(legacyRoutes, normalizedPath)
-      ? legacyRoutes[normalizedPath as keyof typeof legacyRoutes]
+    const origination = Object.hasOwn(originationRedirects, normalizedPath)
+      ? originationRedirects[normalizedPath as keyof typeof originationRedirects]
       : undefined;
+    const destination = origination ?? (Object.hasOwn(legacyRoutes, normalizedPath)
+      ? legacyRoutes[normalizedPath as keyof typeof legacyRoutes]
+      : undefined);
     if (requestedUrl.hostname === "www.wielegroup.com" || destination) {
       if (requestedUrl.hostname === "www.wielegroup.com") {
         requestedUrl.protocol = "https:";
@@ -178,7 +181,7 @@ const handler = {
         requestedUrl.port = "";
       }
       if (destination) requestedUrl.pathname = destination;
-      return Response.redirect(requestedUrl, 308);
+      return Response.redirect(requestedUrl, origination ? 301 : 308);
     }
 
     if (requestedUrl.pathname === "/api/fx-rates" && ["GET", "HEAD"].includes(request.method)) {
@@ -219,7 +222,7 @@ const handler = {
     const cache = caches.default;
     // Cache key: canonicalise to the URL only (no headers, no cookies — we
     // already filtered cookie-bearing requests upstream)
-    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-gold-rings-20261126"); return key.toString(); })(), {
+    const cacheKey = new Request((() => { const key = new URL(request.url); key.searchParams.set("__release", "wiele-origination-contact-20261126"); return key.toString(); })(), {
       method: "GET",
       headers: new Headers({ accept: "text/html" }),
     });

@@ -1,18 +1,17 @@
 import type { NextConfig } from "next";
-import { legacyRoutes } from "./src/lib/site-redirects";
+import { legacyRoutes, originationRedirects } from "./src/lib/site-redirects";
 const nextConfig: NextConfig = {
  poweredByHeader: false,
  images: { unoptimized: true },
  async redirects() { return [
+  ...Object.entries(originationRedirects).map(([source, destination]) => ({
+   source, destination: `https://wielegroup.com${destination}`, statusCode: 301,
+   has: [{ type: "host" as const, value: "www.wielegroup.com" }],
+  })),
+  ...Object.entries(originationRedirects).map(([source, destination]) => ({ source, destination, statusCode: 301 })),
   { source: "/", has: [{ type: "host", value: "www.wielegroup.com" }], destination: "https://wielegroup.com/", permanent: true },
   { source: "/:path+", has: [{ type: "host", value: "www.wielegroup.com" }], destination: "https://wielegroup.com/:path+", permanent: true },
   ...Object.entries(legacyRoutes).map(([source, destination]) => ({ source, destination, permanent: true })),
-  { source: "/legal-guide", destination: "/legal-compliance/cross-border", permanent: true },
-  { source: "/for-buyers", destination: "/investor-onboarding", permanent: true },
-  { source: "/for-sellers", destination: "/seller-onboarding", permanent: true },
-  { source: "/malta-maintenance", destination: "/property-maintenance", permanent: true },
-  { source: "/imagery-credits", destination: "/credits", permanent: true },
-  { source: "/imprint", destination: "/terms", permanent: true },
  ]; },
  async headers() { return [{ source: "/:path*", headers: [
   { key: "X-Content-Type-Options", value: "nosniff" },

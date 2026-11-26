@@ -26,3 +26,24 @@ test('valuation handoff summarises structured fields without pulling in free-tex
  assert.deepEqual(summary,{Asset:'Yachts',Location:'Malta',Purpose:'Potential sale','Indicative amount':'EUR 1,200,500.5',Basis:'Illustrative estimator example'});
  assert.equal(summariseBriefDraft('A plain legacy draft').length,0);
 });
+
+test('acquisition handoff presents the five criteria on the enquiry review', () => {
+ const draft = [
+  'Private acquisition brief',
+  'Representation: Family office',
+  'Asset: Yacht',
+  'Target corridor: Malta & Central Mediterranean',
+  'Capital allocation: €5M–under €10M',
+  'Timing: 3–6 months',
+  '',
+  'Private notes: appended on the enquiry form',
+ ].join('\n');
+ const summary = Object.fromEntries(summariseBriefDraft(draft).map(({ label, value }) => [label, value]));
+ assert.deepEqual(summary, {
+  Representation: 'Family office',
+  Asset: 'Yacht',
+  'Target corridor': 'Malta & Central Mediterranean',
+  'Capital allocation': '€5M–under €10M',
+  Timing: '3–6 months',
+ });
+});

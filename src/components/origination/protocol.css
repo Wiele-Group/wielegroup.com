@@ -1,0 +1,28 @@
+.origination-page {
+ .protocol-switcher, .protocol-ledger, .protocol-actions .desk-editorial-actions { margin-top: 25px; }
+ .protocol-switcher fieldset { margin: 0; padding: 14px 18px 0; border: 0; min-width: 0; }
+ .protocol-switcher legend { color: #edbe86; font-size: .78rem; font-weight: 650; }
+ .desk-choice { grid-template-columns: repeat(4,minmax(0,1fr)); }
+ .protocol-phase { padding: clamp(18px,4vw,44px); display: none; gap: 28px; }
+ .protocol-switcher:has([value="1"]:checked) #origination-phase-1,
+ .protocol-switcher:has([value="2"]:checked) #origination-phase-2,
+ .protocol-switcher:has([value="3"]:checked) #origination-phase-3,
+ .protocol-switcher:has([value="4"]:checked) #origination-phase-4 { display: grid; }
+ .protocol-phase:has(.desk-editorial-image) { grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); align-items: center; }
+ .protocol-phase dl { margin-top: 16px; }
+ .protocol-phase dl > div { display: grid; grid-template-columns: minmax(0,.4fr) minmax(0,1fr); gap: 6px 16px; padding-block: 11px; border-top: 1px solid var(--acq-rule); }
+ .protocol-phase dt { color: #edbe86; font-size: .82rem; font-weight: 650; }
+ .protocol-phase dd, .protocol-terms p { color: var(--acq-muted); font-size: .91rem; }
+ .protocol-ledger { width: 100%; table-layout: fixed; border-collapse: collapse; border: 1px solid var(--acq-rule); font-variant-numeric: tabular-nums; }
+ .protocol-ledger :is(th,td) { vertical-align: top; text-align: start; overflow-wrap: anywhere; padding: clamp(9px,2vw,23px); }
+ .protocol-ledger th[scope="col"] { color: var(--acq-bone); background: #182034; font-weight: 600; }
+ .protocol-ledger th[scope="rowgroup"] { color: #edbe86; border-top: 1px solid var(--acq-rule); background: #121725; padding-block: 7px; font-size: .8rem; }
+ .protocol-ledger td { color: var(--acq-muted); font-size: .88rem; }
+ .protocol-ledger :is(th,td):nth-child(2) { border-inline-start: 1px solid var(--acq-rule); color: var(--acq-bone); }
+ .protocol-terms { max-width: 85ch; margin-top: 15px; }
+ .protocol-terms p + p, .protocol-terms .desk-editorial-actions { margin-top: 10px; }
+ @media(max-width:740px) {
+  .desk-choice { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .protocol-phase:has(.desk-editorial-image), .protocol-phase dl > div { grid-template-columns: minmax(0,1fr); }
+ }
+}

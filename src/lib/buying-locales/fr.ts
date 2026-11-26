@@ -1,0 +1,48 @@
+import type { BuyingCopy } from "./types";
+
+export const fr: BuyingCopy = {
+  title: "Origination discrète pour acquéreurs et family offices.",
+  intro: "Nous recherchons hors marché des biens immobiliers, des yachts à l’historique documenté et des automobiles de collection en Europe, au Royaume-Uni et en Afrique australe. Nous coordonnons l’inspection technique, la vérification de provenance et le séquestre indépendant du mandat à la réalisation.",
+  description: "Depuis Malte, Wiele accompagne les acquéreurs et family offices dans la recherche hors marché de biens immobiliers, yachts et automobiles de collection.",
+  eyebrow: "Acquisition hors marché et mandats d’achat", start: "Commencer un dossier confidentiel",
+  scope: "Le périmètre de recherche est convenu pour chaque mandat. Des spécialistes indépendants mènent les vérifications. Les conseils mandatés supervisent le règlement et tout séquestre convenu.",
+  home:"Accueil", language:"Langue de la page d’acquisition", artwork:"Visuels illustratifs", socialAlt:"Service d’acquisition de Wiele Group avec un dessin architectural",
+  protocolTitle:"Le processus d’acquisition",
+  protocolIntro:"De l’approche directe des propriétaires au règlement supervisé par les conseils, chaque phase apporte les éléments nécessaires à la décision.",
+  stageControl:"Choisir une étape d’acquisition", stageFields:["Livrable","Spécialistes indépendants","Validation préalable"],
+  stages:[
+    ["Cadrage de l’acquisition et des liquidités","Définir l’actif, la région, le décideur, la devise de financement et le calendrier.",
+      "Critères écrits, enveloppe indicative, échéance et autorisation de prise de contact.","Les conseils de l’acquéreur confirment les pouvoirs et la disponibilité du financement.","Valider les critères, le périmètre et les limites de divulgation."],
+    ["Origination discrète et approche hors marché","Contacter directement les propriétaires ou leurs représentants dans les limites convenues.",
+      "Sélection hiérarchisée et registre des contacts, des réponses et des points ouverts.","Les intermédiaires locaux habilités interviennent lorsque l’activité le requiert.","Confirmer le pouvoir du vendeur et obtenir son accord avant de communiquer des éléments identifiants."],
+    ["Audit technique, maritime et de provenance","Organiser les vérifications propres à l’actif et consigner les points ouverts.",
+      "Périmètre des inspections, registre des pièces et liste écrite des réserves.","Experts immobiliers ou maritimes et historiens de marque examinent état, immatriculation et provenance.","Examiner les conclusions, les conflits d’intérêts et les conditions ouvertes avant de poursuivre."],
+    ["Règlement et séquestre supervisés par les conseils","Les conseils et professionnels habilités arrêtent les modalités de règlement et de séquestre le cas échéant.",
+      "Liste de clôture comprenant conditions contractuelles, détails de paiement, déclencheurs de libération et actes de transfert.","Conseils, notaires et professionnels habilités traitent les actes et les fonds.","Confirmer indépendamment le bénéficiaire et obtenir une autorisation écrite avant tout transfert."],
+  ],
+  matrixTitle:"Vérifications transfrontalières et séquestre", matrixIntro:"L’acquéreur définit les contrôles avec ses conseils indépendants. Titre, état et modalités de paiement sont examinés avant engagement.",
+  protections:[
+    ["Cadre juridique maltais et européen","Les conseils ou le notaire vérifient le titre, les pouvoirs, tout permis maltais applicable et les exigences pertinentes de registre, douane et fiscalité. Pour un yacht, expertise et contrôle du registre sont distincts.","Guide officiel d’acquisition à Malte"],
+    ["Vérification indépendante du séquestre","Les conseils vérifient l’habilitation du prestataire, le bénéficiaire, les coordonnées de paiement et les conditions de libération. Un spécialiste examine séparément la provenance automobile.","Guide des vérifications transfrontalières"],
+    ["Exécution multidevise","Fixer les devises d’achat et de règlement, comparer les références datées aux offres exécutables et convenir des frais et délais avec le prestataire habilité.","Consulter les devises et coûts d’acquisition"],
+  ],
+  imageAlt:{hero:"Illustration d’un salon de réunion privé au crépuscule",maritime:"Illustration d’une timonerie de yacht avec un compas en laiton sur une carte marine",provenance:"Illustration de l’habitacle d’une voiture de grand tourisme des années 1960 avec cuir cognac et volant en bois"},
+  faqTitle:"Avant de donner mandat",
+  faqs:[
+    {question:"Un dossier d’acquisition vaut-il mandat ?",answer:"Il ouvre une discussion. Le périmètre, les honoraires et l’autorisation d’approcher les propriétaires sont convenus avant la prise de mandat."},
+    {question:"Qui contrôle le séquestre et les fonds ?",answer:"Les conseils désignés et les professionnels habilités organisent le séquestre convenu et gèrent le règlement. Wiele coordonne les contacts et le dossier."},
+  ],
+  mandates:"Explorer les dossiers illustratifs",
+  brief:{
+    title:"Dossier d’acquisition confidentiel",intro:"Partagez vos critères avant toute donnée sensible. Vous pourrez les modifier dans le formulaire avant l’envoi.",
+    steps:["Représentation et actif","Région, capital et délai","Relire les critères"],
+    fields:{role:"Vous agissez en tant que",asset:"Classe d’actifs",corridor:"Région recherchée",capital:"Enveloppe (équivalent EUR)",horizon:"Horizon d’acquisition"},
+    roles:["Acquéreur","Family office","Représentant légal"],assets:["Immobilier","Yacht","Automobile de collection"],
+    corridors:["Royaume-Uni","Europe continentale","Malte et Méditerranée centrale","Afrique australe"],
+    capital:["Moins de 1 M€","1 à moins de 5 M€","5 à moins de 10 M€","10 à moins de 25 M€","25 M€ et plus"],
+    horizons:["Dans les 3 mois","3 à 6 mois","6 à 12 mois","Flexible"],
+    choose:"Choisir une option",next:"Continuer",back:"Retour",handoff:"Continuer vers le formulaire",
+    privacy:"Les critères restent dans cet onglet jusqu’à l’envoi. Évitez les coordonnées bancaires et les pièces d’identité lors du premier contact.",
+    plainForm:"Ouvrir le formulaire",failed:"Le transfert du brouillon a échoué. Copiez-le dans le formulaire.",prepared:"Dossier d’acquisition préparé",
+  },
+};

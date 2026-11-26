@@ -37,7 +37,7 @@ export function TransactionTools() {
   <span className="eyebrow">From eligibility to completion</span>
   <h2 id="transaction-tools-title">Cross-Border Transaction Tools</h2>
   <nav className="purchase-tool-links" aria-label="Cross-border transaction tools">
-   <Link href="/legal-guide"><span className="purchase-tool-copy"><strong>27-Entry Cross-Border Legal &amp; Tax Compliance Matrix</strong><span>Compare buyer and seller routes by asset and market.</span></span><Arrow diagonal/></Link>
+   <Link href="/legal-compliance/cross-border"><span className="purchase-tool-copy"><strong>27-Entry Cross-Border Legal &amp; Tax Compliance Matrix</strong><span>Compare buyer and seller routes by asset and market.</span></span><Arrow diagonal/></Link>
    <Link href="/valuations#landed-cost-estimator"><span className="purchase-tool-copy"><strong>Total Landed Cost &amp; Net Proceeds Estimator</strong><span>Model acquisition costs or deductions from a sale.</span></span><Arrow diagonal/></Link>
   </nav>
  </section>;
@@ -60,4 +60,23 @@ export function SellerDisposalChecks() {
   </div>
   <Link href="/selling" className="button">Prepare your sales brief <Arrow diagonal/></Link>
  </section>;
+}
+
+
+const sarbFunding = "https://www.resbank.co.za/en/home/what-we-do/financial-surveillance/general-public";
+const sarsFunding = "https://www.sars.gov.za/individuals/manage-your-tax-compliance-status/supporting-documents-for-obtaining-approval-international-transfers/";
+export const fundingCitations = [sarbFunding, sarsFunding];
+
+export function FundingReferences() {
+ return (
+  <section id="cross-border-funding" className="purchase-section purchase-funding">
+   <h2>Confirm the funding route.</h2>
+   <p>For South African exchange-control residents, ask an Authorised Dealer to confirm the applicable transfer route, tax evidence, source of funds and any prior approvals. Plan for inward investment and future repatriation as well as the initial payment.</p>
+   <p>For other funding jurisdictions, ask your bank and advisers to confirm the requirements in the buyer’s actual banking and tax jurisdictions. Supply sensitive documents through the secure process of your bank or appointed practitioner.</p>
+   <div className="purchase-sources">
+    <a className="purchase-source" href={sarbFunding}>SARB — Currency and exchange guidance ↗</a>
+    <a className="purchase-source" href={sarsFunding}>SARS — Approval International Transfer documents ↗</a>
+   </div>
+  </section>
+ );
 }

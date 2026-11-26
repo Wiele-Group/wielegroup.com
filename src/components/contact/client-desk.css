@@ -1,0 +1,40 @@
+.client-desk-page {
+ .correspondence-layout { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,.85fr); gap: 18px; align-items: start; margin-top: 24px; }
+ .correspondence-form { padding: clamp(15px, 2.6vw, 32px); display: grid; gap: 15px; }
+ .correspondence-form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+ .correspondence-form legend { color: #e9bb86; font-size: .78rem; font-weight: 650; margin-bottom: 9px; }
+ .desk-choice { grid-template-columns: repeat(4,minmax(0,1fr)); }
+ .correspondence-form :is(p,dt,dd) { color: var(--acq-muted); font-size: .85rem; }
+ .correspondence-form .acq-button { justify-self: start; }
+ .correspondence-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px 16px; }
+ .correspondence-fields label, .correspondence-form > label { display: grid; gap: 6px; margin: 0; align-content: start; min-width: 0; font-size: .81rem; font-weight: 600; }
+ .correspondence-fields :is(input,select), .correspondence-form textarea {
+  box-sizing: border-box; width: 100%; min-width: 0; min-height: 46px; padding: 9px 11px; color: var(--acq-bone);
+  background: #0e1321; color-scheme: dark; border: 1px solid #82705a; border-radius: 0; font: inherit; font-size: 1rem;
+ }
+ .correspondence-form textarea { min-height: 155px; resize: vertical; }
+ .correspondence-form :is(input,select,textarea):focus-visible { outline: 2px solid var(--acq-amber); outline-offset: 2px; }
+ .correspondence-form .honeypot { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+ .correspondence-draft { border: 1px solid var(--acq-rule); padding: 12px; }
+ .correspondence-draft dl > div { display: grid; grid-template-columns: minmax(0, .5fr) minmax(0, 1fr); gap: 10px; padding: 4px 0; }
+ .correspondence-draft button { margin-top: 10px; }
+ .correspondence-protocol { overflow: hidden; font-variant-numeric: tabular-nums; }
+ .correspondence-protocol > div:last-child { padding: clamp(16px, 2.3vw, 30px); }
+ .correspondence-protocol .desk-editorial-image { border-bottom: 1px solid var(--acq-rule); }
+ .correspondence-protocol :is(p,dd) { color: var(--acq-muted); font-size: .87rem; margin-top: 10px; }
+ .correspondence-protocol .acq-eyebrow { color: var(--acq-amber); margin: 0 0 7px; font-size: .72rem; }
+ .correspondence-protocol ul { list-style: none; margin: 14px 0; padding: 0; }
+ .correspondence-protocol li { border-block-start: 1px solid var(--acq-rule); padding-block: 7px; font-size: .82rem; }
+ .correspondence-protocol dl { margin-block: 12px 0; }
+ .correspondence-protocol dt { color: #ebbb83; font-weight: 600; font-size: .88rem; }
+ .correspondence-protocol .acq-link { margin-top: 10px; }
+ .correspondence-links { margin-top: 18px; }
+ .correspondence-faq { display: grid; grid-template-columns: minmax(0,.75fr) minmax(0,1.25fr); gap: 20px 35px; }
+ .correspondence-faq details { border-bottom: 1px solid var(--acq-rule); padding-block: 12px; }
+ .correspondence-faq summary { cursor: pointer; font-weight: 600; }
+ .correspondence-faq p { color: var(--acq-muted); margin-top: 9px; }
+ .correspondence-faq .acq-link { margin-top: 12px; }
+ @media (max-width:900px) { .correspondence-layout, .correspondence-faq { grid-template-columns: minmax(0,1fr); } }
+ @media (max-width:740px) { .desk-choice { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+ @media (max-width:460px) { .correspondence-fields { grid-template-columns: minmax(0,1fr); } }
+}

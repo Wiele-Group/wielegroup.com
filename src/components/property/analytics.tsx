@@ -1,6 +1,17 @@
 "use client";
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { homeLanguages } from "@/lib/home-locales/routing";
+import { siteLocale } from "@/lib/site-navigation";
+
+const consentLabels = {
+ en: ["Analytics choice", "May we use Google Analytics to understand visits and enquiries? It is optional.", "Privacy notice", "Reject analytics", "Accept analytics", "Turn analytics off", "Allow analytics"],
+ de: ["Analyse-Einstellungen", "Dürfen wir Google Analytics nutzen, um Besuche und Anfragen auszuwerten? Ihre Zustimmung ist freiwillig.", "Datenschutzhinweis", "Analyse ablehnen", "Analyse akzeptieren", "Analyse deaktivieren", "Analyse erlauben"],
+ fr: ["Préférences de mesure d’audience", "Pouvons-nous utiliser Google Analytics pour comprendre les visites et les demandes ? Votre accord est facultatif.", "Avis de confidentialité", "Refuser la mesure d’audience", "Accepter la mesure d’audience", "Désactiver la mesure d’audience", "Autoriser la mesure d’audience"],
+ it: ["Preferenze di analisi", "Possiamo usare Google Analytics per comprendere le visite e le richieste? Il consenso è facoltativo.", "Informativa sulla privacy", "Rifiuta l’analisi", "Accetta l’analisi", "Disattiva l’analisi", "Consenti l’analisi"],
+ es: ["Preferencias de análisis", "¿Podemos usar Google Analytics para conocer mejor las visitas y consultas? El consentimiento es opcional.", "Aviso de privacidad", "Rechazar el análisis", "Aceptar el análisis", "Desactivar el análisis", "Permitir el análisis"],
+} as const;
 
 const measurementId = "G-8YCESQ46BH";
 // Load the current Google tag; keep events directed to the existing Wiele stream.
@@ -10,7 +21,7 @@ const changeEvent = "wiele-consent-change";
 let loaded = false;
 let configured = false;
 let lastPage = "";
-const siteActions = new Set(["buyer_brief", "seller_brief", "valuation_brief", "currency_converter", "property_examples", "reference_jump"]);
+const siteActions = new Set(["buyer_brief", "seller_brief", "valuation_brief", "currency_converter", "property_examples", "reference_jump", "origination_protocol"]);
 
 declare global {
  interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; }
@@ -35,7 +46,7 @@ function setChoice(value: "accepted" | "rejected") {
   });
  }
 }
-export function trackPropertyEvent(name: "seller_preparation" | "brief_start" | "brief_step" | "brief_transfer" | "brief_storage_error" | "asset_perspective" | "generate_lead" | "contact_click" | "report_download_click" | "algorithm_action" | "algorithm_brief_open" | "property_journey" | "site_action", props: Record<string,string> = {}) {
+export function trackPropertyEvent(name: "seller_preparation" | "brief_start" | "brief_step" | "brief_transfer" | "brief_storage_error" | "asset_perspective" | "generate_lead" | "contact_click" | "report_download_click" | "property_journey" | "site_action", props: Record<string,string> = {}) {
  if (choice() !== "accepted") return;
  window.gtag?.("event", name, { ...props, send_to: measurementId });
 }
@@ -43,7 +54,9 @@ function measureConsentBanner(banner: HTMLElement | null) {
  if (!banner) return;
  const root = document.documentElement;
  const update = () => {
-  const clearance = Math.max(0, Math.ceil(window.innerHeight - banner.getBoundingClientRect().top));
+  const clearance = getComputedStyle(banner).position === "fixed"
+   ? Math.max(0, Math.ceil(window.innerHeight - banner.getBoundingClientRect().top))
+   : 0;
   root.style.setProperty("--analytics-clearance", `${clearance}px`);
  };
  const observer = new ResizeObserver(update);
@@ -92,19 +105,37 @@ export function PropertyAnalytics() {
    const channel = href.startsWith("https://wa.me/") ? "whatsapp" : href.startsWith("mailto:") ? "email" : href.startsWith("tel:") ? "phone" : null;
    const journey = anchor.getAttribute("data-property-journey");
    if (journey && ["buyer", "residence", "investment", "seller", "luxury-assets"].includes(journey)) trackPropertyEvent("property_journey", { journey, page_path: window.location.pathname });
-   const algorithmAction = anchor.getAttribute("data-algorithm-action");
-   if (algorithmAction) trackPropertyEvent("algorithm_action", { action: algorithmAction, page_path: window.location.pathname });
    const siteAction = anchor.getAttribute("data-site-action");
    if (siteAction && siteActions.has(siteAction)) trackPropertyEvent("site_action", { action: siteAction, page_path: window.location.pathname });
    if (channel) trackPropertyEvent("contact_click", { contact_channel: channel });
   };
-  const onToggle = (event: Event) => {
-   const detail = event.target;
-   if (detail instanceof HTMLDetailsElement && detail.open && detail.hasAttribute("data-algorithm-brief")) trackPropertyEvent("algorithm_brief_open", { page_path: window.location.pathname });
-  };
   document.addEventListener("click",onClick);
-  document.addEventListener("toggle",onToggle,true);
-  return () => { document.removeEventListener("click",onClick); document.removeEventListener("toggle",onToggle,true); };
+  return () => document.removeEventListener("click",onClick);
  },[]);
- return <><button type="button" className="analytics-settings" onClick={() => setChoice(consent === "accepted" ? "rejected" : "accepted")}>{consent === "accepted" ? "Turn analytics off" : "Allow analytics"}</button>{consent === null && <section ref={measureConsentBanner} className="analytics-consent" aria-label="Analytics choice"><p>May we use Google Analytics to understand visits and enquiries? It is optional. <a href="/privacy">Privacy notice</a></p><div><button type="button" onClick={() => setChoice("rejected")}>Reject analytics</button><button type="button" onClick={() => setChoice("accepted")}>Accept analytics</button></div></section>}</>;
+ const bannerRef = useRef<HTMLElement>(null);
+ useEffect(() => measureConsentBanner(bannerRef.current), [consent, pathname]);
+ if (consent !== null) return null;
+ const locale = siteLocale(pathname) ?? "en";
+ const [label, message, privacy, reject, accept] = consentLabels[locale];
+ return (
+  <section ref={bannerRef} className="analytics-consent" lang={homeLanguages[locale].tag} aria-label={label}>
+   <p>{message} <Link href="/privacy" hrefLang="en-GB">{privacy}</Link></p>
+   <div>
+    <button type="button" onClick={() => setChoice("rejected")}>{reject}</button>
+    <button type="button" onClick={() => setChoice("accepted")}>{accept}</button>
+   </div>
+  </section>
+ );
+}
+
+export function AnalyticsSettings() {
+ const consent = useSyncExternalStore(subscribe, choice, () => null);
+ const locale = siteLocale(usePathname()) ?? "en";
+ const [, , , , , disable, enable] = consentLabels[locale];
+ return (
+  <button type="button" lang={homeLanguages[locale].tag} className="analytics-settings"
+    onClick={() => setChoice(consent === "accepted" ? "rejected" : "accepted")}>
+   {consent === "accepted" ? disable : enable}
+  </button>
+ );
 }

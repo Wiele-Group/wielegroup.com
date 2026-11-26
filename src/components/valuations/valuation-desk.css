@@ -1,0 +1,113 @@
+.appraisal-page {
+  --text-primary: var(--acq-bone);
+  --muted: var(--acq-muted);
+  --line: var(--acq-rule);
+  --bg-glass-solid: #141a29;
+  --border-control-strong: #6e5d46;
+  --forest: var(--acq-amber);
+  .appraisal-hero::after { content: none; }
+  .appraisal-hero .appraisal-image { position: absolute; inset: 0; z-index: -1; }
+  .appraisal-hero .appraisal-image::after {
+    position: absolute; inset: 0; content: "";
+    background: linear-gradient(90deg, #090c15f4, #090c15af 46%, #090c1526), linear-gradient(0deg, #090c15e0, transparent 60%);
+  }
+  .appraisal-hero .acq-hero-inner { padding-bottom: clamp(90px, 12vw, 155px); }
+  .appraisal-hero h1 { max-width: 22ch; overflow-wrap: anywhere; hyphens: auto; }
+  .appraisal-image { position: relative; overflow: hidden; background: #171e31; }
+  .appraisal-image img { object-fit: cover; }
+  .appraisal-image .acq-image-credit { z-index: 1; top: auto; bottom: 12px; }
+  .appraisal-hero .acq-image-credit { right: max(18px, calc((100% - 1320px) / 2)); }
+  .appraisal-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; }
+  :is(.acq-section, #valuation-enquiry, #valuation-brief-title) { scroll-margin-top: 112px; }
+
+  .appraisal-ledger, .appraisal-method, .appraisal-form {
+    background: linear-gradient(125deg, #303b534d, #181d3070), #131727;
+    border: 1px solid var(--acq-rule); backdrop-filter: blur(18px); min-width: 0;
+  }
+  .appraisal-ledger { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); font-variant-numeric: tabular-nums; }
+  .appraisal-fx, .appraisal-proceeds, .appraisal-form { padding: clamp(16px, 3vw, 34px); }
+  .appraisal-proceeds { border-inline-start: 1px solid var(--acq-rule); }
+  :is(.appraisal-ledger, .appraisal-form) label, .appraisal-method legend {
+    display: block; margin: 0 0 7px; font-size: .78rem; color: #ebbd88; font-weight: 650;
+  }
+  :is(.appraisal-ledger, .appraisal-form) :is(input, select, textarea) {
+    width: 100%; min-width: 0; min-height: 46px; border: 1px solid #7f6a53;
+    padding: 9px 12px; background: #0d1220; color: var(--acq-bone); color-scheme: dark; font: inherit; border-radius: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .appraisal-currencies, .appraisal-scope-fields, .appraisal-form-grid { display: grid; gap: 12px; align-items: end; margin-top: 14px; }
+  .appraisal-currencies { grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr); }
+  .appraisal-scope-fields, .appraisal-form-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .appraisal-swap { padding-inline: 13px; }
+  .appraisal-quote { margin-top: 22px; border-top: 1px solid var(--acq-rule); padding-top: 15px; overflow-wrap: anywhere; }
+  .appraisal-quote strong { display: block; font: 500 clamp(1.9rem, 3.6vw, 3.35rem)/1.12 var(--font-display), Georgia, serif; font-variant-numeric: tabular-nums; margin-block: 7px; }
+  .appraisal-quote p, .appraisal-rate-status, .appraisal-footnote { color: var(--acq-muted); font-size: .82rem; }
+  .appraisal-rate-status { color: #ebbd88; margin-top: 18px; }
+  .appraisal-footnote { margin-top: 10px; }
+  .appraisal-proceeds-rows { margin-top: 17px; }
+  .appraisal-proceeds-rows > div {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, max-content); align-items: start; gap: 8px 16px;
+    padding-block: 8px; border-top: 1px solid var(--acq-rule); font-size: .82rem; overflow-wrap: anywhere;
+  }
+  .appraisal-proceeds-rows dt { color: var(--acq-muted); }
+  .appraisal-proceeds-rows dd { text-align: end; font-weight: 650; max-width: 24ch; }
+  .appraisal-proceeds-rows dd[data-amount="after-retainer"] { color: #edbe88; }
+  .appraisal-proceeds > .acq-link { margin-top: 7px; }
+
+  .appraisal-method fieldset { border: 0; margin: 0; padding: 18px 20px 0; min-width: 0; }
+  .appraisal-method legend { padding: 0 8px; margin-inline-start: -8px; }
+  .appraisal-desk-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--acq-rule); }
+  .appraisal-desk-options label { position: relative; display: flex; margin: 0; cursor: pointer; }
+  .appraisal-desk-options label + label { border-inline-start: 1px solid var(--acq-rule); }
+  .appraisal-desk-options input { position: absolute; opacity: 0; }
+  .appraisal-desk-options span { flex: 1; display: grid; place-content: center; text-align: center; overflow-wrap: anywhere; min-height: 52px; padding: 7px; font-size: .83rem; }
+  .appraisal-desk-options input:checked + span { color: #ffcf96; background: #d98a2b22; box-shadow: inset 0 -2px var(--acq-amber); }
+  .appraisal-desk-options input:focus-visible + span { outline: 2px solid var(--acq-amber); outline-offset: -4px; }
+  .appraisal-method-panel { display: none; }
+  .appraisal-method:has([value="estate"]:checked) #appraisal-estate,
+  .appraisal-method:has([value="yacht"]:checked) #appraisal-yacht,
+  .appraisal-method:has([value="collector"]:checked) #appraisal-collector { display: grid; }
+  .appraisal-method-panel:has(.appraisal-image) { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; }
+  .appraisal-method-copy { padding: clamp(18px, 4vw, 42px); }
+  .appraisal-method-copy dl { margin-block: 14px; }
+  .appraisal-method-copy dl > div { display: grid; grid-template-columns: minmax(0, .48fr) minmax(0, 1fr); gap: 8px 18px; border-top: 1px solid var(--acq-rule); padding-block: 11px; }
+  .appraisal-method-copy dt { color: #ebbd88; font-weight: 650; font-size: .83rem; }
+  .appraisal-method-copy dd { color: var(--acq-muted); font-size: .9rem; }
+  .appraisal-method-panel .appraisal-image { margin: 18px 20px 18px 0; aspect-ratio: 3 / 2; border: 1px solid var(--acq-rule); }
+
+  .appraisal-governance, .appraisal-enquiry, .appraisal-faq { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 24px 38px; }
+  .appraisal-governance p, .appraisal-enquiry > div:first-child p, .appraisal-faq p { margin-top: 12px; color: var(--acq-muted); }
+  .appraisal-governance nav, .appraisal-enquiry .acq-link { margin-top: 14px; }
+  .appraisal-form { display: grid; gap: 14px; }
+  .appraisal-form-grid { margin-top: 0; }
+  .appraisal-budget { grid-column: 1 / -1; }
+  .appraisal-form textarea { min-height: 125px; margin-top: 8px; resize: vertical; }
+  .appraisal-form button { justify-self: start; }
+  .appraisal-form .appraisal-footnote .acq-link { display: inline; }
+  .appraisal-estimator { border-top: 1px solid var(--acq-rule); padding-top: 18px; }
+  .appraisal-estimator .transaction-estimator { border-top: 0; }
+  .appraisal-estimator .transaction-fields select { color-scheme: dark; }
+  .appraisal-estimator .transaction-sources a, .appraisal-estimator .transaction-route a { color: #ebbd88; }
+  .appraisal-faq { border-top: 1px solid var(--acq-rule); }
+  .appraisal-faq details { border-bottom: 1px solid var(--acq-rule); padding: 12px 0; }
+  .appraisal-faq summary { cursor: pointer; font-weight: 650; }
+
+  @media (max-width: 850px) {
+    .appraisal-ledger, .appraisal-governance, .appraisal-enquiry, .appraisal-faq { grid-template-columns: minmax(0, 1fr); }
+    .appraisal-proceeds { border-inline-start: 0; border-top: 1px solid var(--acq-rule); }
+  }
+  @media (max-width: 740px) {
+    .appraisal-method-panel:has(.appraisal-image), .appraisal-method-copy dl > div { grid-template-columns: minmax(0, 1fr); }
+    .appraisal-method-panel .appraisal-image { margin: 0 20px 20px; }
+    .appraisal-hero .appraisal-image::after { background: linear-gradient(90deg, #090c15e6, #090c1586), linear-gradient(0deg, #090c15de, transparent 60%); }
+  }
+  @media (max-width: 480px) {
+    .appraisal-form-grid { grid-template-columns: minmax(0, 1fr); }
+    .appraisal-proceeds-rows > div { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); }
+  }
+}
+@media (prefers-reduced-motion: no-preference) { html:has(.appraisal-page) { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) {
+  html:has(.appraisal-page) { scroll-behavior: auto; }
+  .appraisal-page, .appraisal-page *, .appraisal-page *::before, .appraisal-page *::after { transition: none !important; animation: none !important; }
+}

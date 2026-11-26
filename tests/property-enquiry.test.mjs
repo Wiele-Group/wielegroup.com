@@ -13,13 +13,16 @@ vm.runInNewContext(onboardingCompiled,{exports:onboardingExports,require:(name)=
 const mandateCompiled=ts.transpileModule(fs.readFileSync('src/schemas/assetMandateIntake.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const mandateExports={};
 vm.runInNewContext(mandateCompiled,{exports:mandateExports,require:(name)=>{if(name==='zod')return zod;throw new Error(name);}});
+const correspondenceCompiled=ts.transpileModule(fs.readFileSync('src/lib/contact-locales/correspondence.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const correspondenceExports={};
+vm.runInNewContext(correspondenceCompiled,{exports:correspondenceExports});
 const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const valid={name:'Website QA',email:'qa@example.invalid',phone:'',interest:'general',message:'Synthetic test of the enquiry workflow.',website:'',token:'synthetic-test-token'};
 function setup({storageFails=false,verification=true,notificationFails=false,configured=true}={}){
  const records=[];const calls=[];
  const env=configured?{AUDIT_QUEUE:{async put(key,value,opts){if(storageFails)throw new Error('unavailable');records.push({key,value:JSON.parse(value),opts});}},TURNSTILE_SECRET_KEY:'synthetic-secret',RESEND_API_KEY:'synthetic-secret'}:{};
  const exports={};
- vm.runInNewContext(compiled,{exports,require:(name)=>{if(name==='next/server')return{NextResponse:{json:(data,opts)=>new Response(JSON.stringify(data),{...opts,headers:{'Content-Type':'application/json',...opts.headers}})}};if(name==='@opennextjs/cloudflare')return{getCloudflareContext:()=>({env})};if(name==='zod')return zod;if(name==='@/lib/property-onboarding')return onboardingExports;if(name==='@/schemas/assetMandateIntake')return mandateExports;throw new Error('Unexpected import '+name);},Request,Response,URL,URLSearchParams,AbortSignal,crypto:webcrypto,console:{error:()=>{}},fetch:async(url,opts)=>{calls.push({url,opts});return url.includes('siteverify')?new Response(JSON.stringify({success:verification,hostname:'wielegroup.com'}),{status:200}):new Response(JSON.stringify(notificationFails?{error:'unavailable'}:{id:'synthetic-id'}),{status:notificationFails?503:200});}});
+ vm.runInNewContext(compiled,{exports,require:(name)=>{if(name==='next/server')return{NextResponse:{json:(data,opts)=>new Response(JSON.stringify(data),{...opts,headers:{'Content-Type':'application/json',...opts.headers}})}};if(name==='@opennextjs/cloudflare')return{getCloudflareContext:()=>({env})};if(name==='zod')return zod;if(name==='@/lib/contact-locales/correspondence')return correspondenceExports;if(name==='@/lib/property-onboarding')return onboardingExports;if(name==='@/schemas/assetMandateIntake')return mandateExports;throw new Error('Unexpected import '+name);},Request,Response,URL,URLSearchParams,AbortSignal,crypto:webcrypto,console:{error:()=>{}},fetch:async(url,opts)=>{calls.push({url,opts});return url.includes('siteverify')?new Response(JSON.stringify({success:verification,hostname:'wielegroup.com'}),{status:200}):new Response(JSON.stringify(notificationFails?{error:'unavailable'}:{id:'synthetic-id'}),{status:notificationFails?503:200});}});
  const post=(body=valid,origin='https://wielegroup.com',contentType='application/json')=>exports.POST(new Request('https://wielegroup.com/api/enquiry',{method:'POST',headers:{Origin:origin,'Content-Type':contentType},body:JSON.stringify(body)}));
  return{post,records,calls};
 }
@@ -104,4 +107,20 @@ test('metric canonical intake, dated FX, and readiness stay distinct from verifi
  const readiness=mandateExports.recordsReadiness('CLASSIC_CAR',result.data.recordsOnFile);
  assert.equal(readiness.availablePercent,20);
  assert.equal(readiness.verifiedPercent,0);
+});
+
+test('private correspondence keeps validated desk context in the stored enquiry and notification',async()=>{
+ const s=setup();
+ const correspondence={desk:'valuation',role:'Family office',corridor:'Continental Europe',asset:'yachts'};
+ const response=await s.post({...valid,correspondence});
+ assert.equal(response.status,202);
+ assert.deepEqual(s.records[0].value.submission.correspondence,correspondence);
+ assert.match(JSON.parse(s.calls[1].opts.body).text,/Desk: valuation\nRole: Family office\nCorridor: Continental Europe\nAsset: yachts/);
+});
+test('rejects invalid correspondence fields before verification or storage',async()=>{
+ const s=setup();
+ const correspondence={desk:'unknown',role:'Family office',corridor:'Continental Europe',asset:'yachts'};
+ assert.equal((await s.post({...valid,correspondence})).status,400);
+ assert.equal(s.records.length,0);
+ assert.equal(s.calls.length,0);
 });

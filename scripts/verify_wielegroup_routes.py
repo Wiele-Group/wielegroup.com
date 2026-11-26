@@ -13,16 +13,28 @@ from urllib.parse import urlsplit
 CURRENCIES = {"EUR", "GBP", "ZAR", "USD", "CHF", "SEK", "NOK", "DKK", "PLN", "CZK"}
 REDIRECTS = {
     "/enquire": "/contact",
-    "/algorithm": "/wiele-algorithm",
-    "/the-algorithm": "/wiele-algorithm",
-    "/property": "/properties",
+    "/property": "/private-mandates",
+    "/properties": "/private-mandates",
+    **{f"/{locale}/properties": f"/{locale}/private-mandates" for locale in ("de", "fr", "it", "es")},
     "/valuations-currency": "/valuations",
     "/seller-onboarding": "/list-asset",
+    "/for-sellers": "/list-asset",
+    "/for-buyers": "/investor-onboarding",
+    "/legal-guide": "/legal-compliance/cross-border",
+    "/malta-maintenance": "/property-maintenance",
+    "/imagery-credits": "/credits",
+    "/imprint": "/terms",
+}
+ORIGINATION_REDIRECTS = {
+    "/algorithm": "/origination-protocol",
+    "/the-algorithm": "/origination-protocol",
+    "/wiele-algorithm": "/origination-protocol",
+    **{f"/{locale}/wiele-algorithm": f"/{locale}/origination-protocol" for locale in ("de", "fr", "it", "es")},
 }
 PAGES = (
-    "/", "/about", "/properties", "/wiele-algorithm", "/luxury-assets",
+    "/", "/about", "/private-mandates", "/de/private-mandates", "/fr/private-mandates", "/it/private-mandates", "/es/private-mandates", "/origination-protocol", "/luxury-assets",
     "/luxury-assets/classic-cars", "/valuations", "/research", "/malta-investment-report",
-    "/contact", "/list-asset", "/seller-enquiry", "/terms/seller-retainer", "/privacy",
+    "/contact", *(f"/{locale}/{route}" for locale in ("de","fr","it","es") for route in ("origination-protocol","contact")), "/list-asset", "/seller-enquiry", "/terms/seller-retainer", "/privacy",
 )
 
 
@@ -79,6 +91,10 @@ def main():
     checks = [
         (base + alias + suffix + query, 308, base + target + query)
         for alias, target in REDIRECTS.items()
+        for suffix in ("", "/")
+    ] + [
+        (base + alias + suffix + query, 301, base + target + query)
+        for alias, target in ORIGINATION_REDIRECTS.items()
         for suffix in ("", "/")
     ] + [(base + path, 200, None) for path in (*PAGES, "/api/fx-rates")]
     if base == "https://wielegroup.com":

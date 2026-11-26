@@ -1,0 +1,33 @@
+import type { SellingCopy } from "./types";
+
+export const fr: SellingCopy = {
+  title:"Placement international discret pour des actifs d’exception.",
+  intro:"Des mandats privés pour l’immobilier d’exception, les yachts à l’historique documenté et les automobiles de collection. Wiele associe des dossiers sur mesure à une approche ciblée des acheteurs en Europe, au Royaume-Uni et en Afrique australe.",
+  description:"Mandats de vente depuis Malte pour l’immobilier d’exception, les yachts et les automobiles de collection. Honoraires, placement international et règlement.",
+  eyebrow:"Mandats vendeurs privés et placement transfrontalier",home:"Accueil",language:"Langue de la page vendeurs",
+  artwork:"Visuels illustratifs",socialAlt:"Mandats de vente privés de Wiele Group avec dessin architectural",
+  alt:{hero:"Illustration d’un salon privé au crépuscule",craft:"Illustration d’un dossier éditorial de présentation",corridor:"Illustration d’une marina au crépuscule avec des yachts, des lanternes et des bastions en calcaire"},
+  list:"Soumettre un mandat privé",terms:"Consulter les conditions",agreement:"Lire le contrat de mandat vendeur",
+  protocolTitle:"Les étapes du mandat",protocolIntro:"De l’accord initial au règlement supervisé par les conseils, chaque étape produit un livrable et appelle une décision.",
+  stageControl:"Choisir une étape du mandat",stageFields:["Livrable","Gouvernance","Calendrier"],
+  stages:[
+    ["Mandat et cadre juridique","Confirmer les pouvoirs du vendeur, l’actif désigné et le périmètre.","Périmètre écrit, référence de l’actif, autorisations et honoraires convenus.","Déclarer les conflits d’intérêts, identifier l’intermédiaire habilité si nécessaire et vérifier les pouvoirs.","Avant publication ou prise de contact. La période minimale débute à la facturation."],
+    ["Dossier éditorial et présentation visuelle","Rassembler photographies, informations étayées et réserves significatives.","Dossier validé par le vendeur, crédits des visuels et informations à communiquer.","Vérifier les droits des visuels, distinguer preuves et déclarations, puis valider la diffusion.","Après réception des pièces et avant le premier placement."],
+    ["Origination transfrontalière d’acheteurs","Identifier les acheteurs selon l’actif, la région et leurs critères d’acquisition.","Plan d’approche, présentations documentées et rapport par cycle achevé.","Respecter les limites de divulgation et tenir un registre des présentations.","Après validation du dossier. Examiner les résultats à chaque cycle achevé."],
+    ["Clôture supervisée par les conseils","Transmettre les pièces et le relevé des présentations aux professionnels désignés.","Présentation documentée et dossier transmis pour la clôture.","Les conseils et notaires traitent les actes. Les banques ou prestataires habilités traitent les fonds.","Après contrôle et levée des conditions. Les conseils confirment le calendrier."],
+  ],
+  craft:["Un dossier étayé par des pièces","Titre, expertises, état, restauration et provenance sont examinés selon l’actif. La publication suit la validation du contenu."],
+  corridor:["Cartographie ciblée des acheteurs à l’international","Définir les canaux, les critères et la confidentialité par corridor. Examiner les retours avant le prochain placement."],
+  dossiers:"Consulter les dossiers illustratifs",termsTitle:"Honoraires et commission de succès",
+  termsIntro:"Les honoraires mensuels non exclusifs couvrent la commercialisation et le placement publicitaire en ligne d’un seul actif. La prestation relève d’une obligation de moyens, sans garantie de vente.",
+  termLabels:["Honoraires mensuels par actif, hors TVA","Nombre minimal de cycles de facturation mensuels","Commission de succès standard, si applicable","Imputation des honoraires nets payés pour le même actif"],
+  cancellation:"Après la durée minimale, la facturation se renouvelle chaque mois. Envoyez la référence par e-mail au moins cinq jours ouvrables maltais avant la prochaine échéance. Un préavis anticipé peut mettre fin au mandat au terme minimal. Un avis tardif prend effet à la fin du cycle suivant. Les honoraires facturés sont non remboursables, sous réserve des droits légaux impératifs.",
+  trigger:"La commission standard concerne une vente éligible conclue avec un acquéreur présenté par Wiele de manière documentée, sauf accord écrit différent et sous réserve du droit applicable. Une période de douze mois après la fin du mandat peut s’appliquer.",
+  qualifiedCredit:"Seuls les honoraires nets effectivement réglés pour le même actif s’imputent sur la commission, qui peut être ramenée à zéro.",
+  scope:"Wiele intervient en ligne pour la commercialisation, la publicité et les mises en relation autorisées. Les conseils désignés par le vendeur et les notaires requis traitent les actes de vente. Les banques des parties ou les professionnels habilités gèrent le règlement et les fonds.",
+  maltaTitle:"Biens immobiliers à Malte",
+  malta:"Le chapitre 644 et la clause 6.4 prévoient un intermédiaire agréé par la Property Market Agency. Son nom, son numéro d’agrément, le périmètre et les honoraires sont convenus par écrit avant l’engagement. Wiele fournit un soutien autorisé. Toute commission de succès ou part de rémunération d’apport pour Wiele requiert un accord écrit distinct et licite.",
+  statute:"Lire le chapitre 644",
+  calculator:{title:"Simulation illustrative pour le vendeur",note:"La simulation suppose tous les cycles réglés et une vente éligible au prix brut indiqué.",value:"Prix brut indicatif de vente (EUR)",duration:"Durée du mandat",months:"mois",mandateType:"Type de mandat",eligible:"Placement standard éligible",malta:"Bien immobilier à Malte",maltaNotice:"La commission, l’imputation et les honoraires relèvent de l’accord distinct prévu par la clause 6.4. Consultez les conditions de l’intermédiaire agréé.",invalid:"Saisissez un prix entre 1 € et 1 milliard d’euros.",excluded:"Montants illustratifs hors TVA",retainer:"Honoraires cumulés",gross:"Commission de succès brute",credit:"Imputation des honoraires nets",closing:"Commission illustrative à la clôture",total:"Total des honoraires et de la commission"},
+  faqTitle:"Avant de soumettre un mandat",faq:["Les honoraires garantissent-ils une vente ?","Les honoraires financent la commercialisation et la publicité convenues pour un seul actif. Wiele fournit une prestation de moyens, sans garantie de vente."],
+};

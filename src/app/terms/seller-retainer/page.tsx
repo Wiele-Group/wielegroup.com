@@ -13,7 +13,7 @@ export default function SellerRetainerTerms() {
         path={mandateSummary.publicPath}
         eyebrow="Wiele Investments / Seller retainer"
         title={mandateSummary.title}
-        description="Terms for the marketing and buyer introduction of one designated property, yacht or classic car."
+        description={PAGE_METADATA.sellerRetainerTerms.description ?? ""}
       />
       <article className="legal-copy wrap">
         <p>

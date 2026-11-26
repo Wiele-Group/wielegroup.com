@@ -34,10 +34,14 @@ export function summariseBriefDraft(draft: string): { label: string; value: stri
  const lines = draft.split(/\r?\n/);
  const valuation = /^Indicative valuation enquiry — (Property|Yachts|Classic cars)$/.exec(lines[0]);
  const homepageBrief = /^Asset: (Property|Yachts|Classic cars)\.$/.test(lines[0]);
- if (!valuation && !homepageBrief) return [];
+ const acquisition = lines[0] === "Private acquisition brief";
+ if (!valuation && !homepageBrief && !acquisition) return [];
 
  const fields: Record<string, string> = {
   Asset: "Asset",
+  Representation: "Representation",
+  "Target corridor": "Target corridor",
+  "Capital allocation": "Capital allocation",
   Objective: "Objective",
   "Property purpose": "Property purpose",
   "Country or location": "Location",
@@ -47,10 +51,11 @@ export function summariseBriefDraft(draft: string): { label: string; value: stri
   "Country / locality": "Location",
   Purpose: "Purpose",
   "Indicative budget or asset value": "Indicative amount",
+  "Preferred currency": "Preferred currency",
  };
  const summary = new Map<string, string>();
  if (valuation) summary.set("Asset", valuation[1]);
- for (const line of lines.slice(valuation ? 1 : 0)) {
+ for (const line of lines.slice(valuation || acquisition ? 1 : 0)) {
   if (valuation && line === "Starting point: illustrative estimator inputs. Confirm any sample figures against the asset.") {
    summary.set("Basis", "Illustrative estimator example");
    break;

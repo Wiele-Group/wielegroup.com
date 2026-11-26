@@ -16,8 +16,8 @@ Updated 25 November 2026. Research figures and terms retain the dates shown on t
 
 ## Assets and buyer enquiries
 
-- Property collection: https://wielegroup.com/properties
-- Yacht and classic-car dossiers: https://wielegroup.com/luxury-assets
+- Private Mandates and illustrative dossiers: https://wielegroup.com/private-mandates
+- Specialist desks for prime real estate, superyachts and collector automobiles: https://wielegroup.com/luxury-assets
 - Yacht enquiries: https://wielegroup.com/luxury-assets/yachts
 - Classic-car enquiries: https://wielegroup.com/luxury-assets/classic-cars
 - Acquisition briefs: https://wielegroup.com/investor-onboarding
@@ -34,7 +34,7 @@ Updated 25 November 2026. Research figures and terms retain the dates shown on t
 
 ## Research and market evidence
 
-- Research library: https://wielegroup.com/research
+- Cross-border capital and tangible asset research: https://wielegroup.com/research
 - Global Luxury Property Market Report: https://wielegroup.com/research/global-luxury-property-report-2026
 - Malta Investment Property Report 2026: https://wielegroup.com/malta-investment-report
 - The 16-page Malta report was first published 29 October 2026 and updated 2 November 2026. It records 6.0% annual-average house-price growth in 2025 and 6.9% national house-price growth in Q2 2026 year on year. The 2025 review records 13,351 final deeds of sale with a revised aggregate value of €4,034.9 million, calculated from the retained October NSO workbook. A deed may cover several properties. National statistics do not establish the value or yield of an individual asset.
@@ -42,10 +42,10 @@ Updated 25 November 2026. Research figures and terms retain the dates shown on t
 
 ## Purchase requirements, valuation and FX
 
-- International purchase guide: https://wielegroup.com/purchase-guide
+- Cross-border acquisition and settlement briefing, with a nine-combination matrix, acquisition checklist and 35 jurisdiction guides: https://wielegroup.com/purchase-guide
 - Malta and cross-border legal information: https://wielegroup.com/legal-compliance/cross-border
 - Country guides cover the four UK nations, all 27 EU member states, Norway, Switzerland, Monaco and South Africa. Coverage varies by jurisdiction and buyer status. Yacht and classic-car guides describe flag, title, customs, approval and registration checkpoints. Eligibility, tax and required advice depend on individual circumstances.
-- Valuation briefs, transaction estimates and currency converter: https://wielegroup.com/valuations
+- [Private valuation and cross-border liquidity desk](https://wielegroup.com/valuations): Indicative placement appraisals, private-treaty evidence, ECB currency conversion, a mandate proceeds illustration and a detailed transaction estimator.
 - Valuation enquiries cover property, yachts and classic cars. The calculator uses dated ECB reference rates via Frankfurter and labels the historical snapshot during outages. FX estimates exclude dealing spreads, fees and taxes.
 - Physical property care in Malta: https://wielegroup.com/property-maintenance
 - Privacy and registration information: https://wielegroup.com/privacy

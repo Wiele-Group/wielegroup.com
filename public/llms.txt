@@ -17,19 +17,19 @@ Wiele Property Maintenance remains a Wiele-managed physical property-care servic
 - Yacht enquiries: https://wielegroup.com/luxury-assets/yachts
 - Classic car enquiries: https://wielegroup.com/luxury-assets/classic-cars
 - Home: https://wielegroup.com/
-- Luxury assets, yachts and classic cars: https://wielegroup.com/luxury-assets
+- Specialist desks for prime real estate, superyachts and collector automobiles: https://wielegroup.com/luxury-assets
 - Property marketing for owners: https://wielegroup.com/selling
 - Residence and investment property buyer enquiries: https://wielegroup.com/buying
-- Property collection and open fictional examples: https://wielegroup.com/properties
+- Private Mandates and illustrative dossiers: https://wielegroup.com/private-mandates
 - Open flagship examples with specifications and illustrative prices: https://wielegroup.com/flagship-examples/index.html
-- Valuation briefs and dated currency comparison: https://wielegroup.com/valuations
-- The Wiele Algorithm: https://wielegroup.com/wiele-algorithm
+- [Valuations](https://wielegroup.com/valuations)
+- Wiele Origination Protocol: https://wielegroup.com/origination-protocol
 - About Wiele Investments: https://wielegroup.com/about
 - Contact: https://wielegroup.com/contact
 - Buyer brief: https://wielegroup.com/investor-onboarding
 - Seller brief: https://wielegroup.com/seller-enquiry
 - Articles: https://wielegroup.com/articles
-- Research library: https://wielegroup.com/research
+- [Cross-border capital and tangible asset research](https://wielegroup.com/research): Dated briefings on prime real estate, superyacht registry and class, collector provenance, and cross-border governance.
 - Global luxury property report: https://wielegroup.com/research/global-luxury-property-report-2026
 - Malta report: https://wielegroup.com/malta-investment-report
 - Malta legal guide: https://wielegroup.com/legal-compliance
@@ -42,8 +42,8 @@ The Global Luxury Property Market Report is a 27-page illustrated interim 2026 e
 
 The separate Malta investment report and Malta acquisition guidance retain their specific geographic scope. They are not global market research or global legal advice. Onboarding accepts a property country and area; its dated legal preparation notes are explicitly Malta-specific. Other jurisdictions need separate professional advice.
 
-## The Wiele Algorithm
-Malta-based asset brokerage: The Wiele Algorithm is Wiele Investments’ own approach to property, yacht and classic-car sales and acquisitions. It connects the individual asset, the buyer’s purpose and the seller’s priorities through considered presentation, relevant conversations and clear next steps. Wiele provides a direct point of contact; scope, fees, availability, coverage and appropriate specialist roles are confirmed per engagement. Public information describes client benefits. The internal operating model is confidential. No sale, purchase, price or completion date is guaranteed. Public overview: https://wielegroup.com/wiele-algorithm.
+## Wiele Origination Protocol
+Malta-based asset brokerage: The Wiele Origination Protocol is Wiele Investments’ own approach to property, yacht and classic-car sales and acquisitions. It connects the individual asset, the buyer’s purpose and the seller’s priorities through considered presentation, relevant conversations and clear next steps. Wiele provides a direct point of contact; scope, fees, availability, coverage and appropriate specialist roles are confirmed per engagement. Public information describes client benefits. The internal operating model is confidential. No sale, purchase, price or completion date is guaranteed. Public overview: https://wielegroup.com/origination-protocol.
 
 ## Contact and identity
 - Based in Swieqi, Malta. Established 2026. Meetings by appointment.
@@ -63,26 +63,21 @@ Brand identity updated 13 November 2026. Published research retains its original
 
 Luxury asset enquiries use the category yachts or classic-cars and the purpose acquire or offer. An enquiry does not create a reservation, purchase, brokerage instruction or payment obligation. No yacht charter, vessel management or vehicle hire is offered.
 
-## Website presentation — 14 November 2026
-Property is the default homepage perspective. Visitors can explore disclosed property, yacht and classic-car concepts, then organise a browser-based asset brief. The documented Wiele approach, complementary categories, selected research and enquiry answers follow. The hero concepts are not advertised listings. The full architectural inspiration gallery remains on /properties; the illustrative investment calculator is available on /buying as a property decision tool, not market evidence.
+## Website presentation — 26 November 2026
+Home presents private treaty origination for real estate, superyachts and collector automobiles. At https://wielegroup.com/private-mandates, visitors can filter illustrative dossiers by asset class, region and indicative acquisition value and switch display currency. The dossier prices are fictional and conversions use the dated reference snapshot in those records. No active mandates are currently published.
 
-Property buyer and seller pages prioritise real estate; complementary yacht and classic-car enquiries remain available through /luxury-assets. The contact form precedes supporting company details. The buying page offers an optional expandable illustrative income scenario; its inputs are not market data.
-
-## Interactive asset brief
-The homepage offers visitor-controlled property, yacht and classic-car perspectives, using disclosed fictional AI imagery. Its browser-based brief builder organises category, purpose, location, budget and timing, then transfers a reviewable draft to the enquiry form. It is not an inventory search, valuation, eligibility assessment or AI recommendation. No assets are currently advertised.
-
-Prepared brief text can survive a refresh in the same tab for 30 minutes after its latest edit; it clears after a successfully saved enquiry or explicit discard. Reuse expires after 30 minutes and expired copies are discarded when next accessed. Name, email and phone fields are not saved by this feature. Asset-specific priorities can be added locally before review.
+At https://wielegroup.com/buying, Wiele explains its off-market acquisition process for property, yachts and collector automobiles. The acquisition brief prepares private criteria for review in the enquiry form. Independent specialists perform technical and provenance checks. Appointed counsel oversees settlement and any agreed escrow.
 
 ## International purchase requirements
 
-- [Purchase guide](https://wielegroup.com/purchase-guide): Official-source starting points for individuals: UK four nations, all 27 EU countries, Norway, Switzerland, Monaco and South Africa. Country pages include legal sales stages, binding-commitment checkpoints, document preparation and seller checks. UK, EU, South African, EEA/Swiss and other-nationality routes are distinguished where sourced; incomplete eligibility and process verification is disclosed. Research edition 15 November 2026.
+- [Cross-border acquisition and settlement briefing](https://wielegroup.com/purchase-guide): An asset and corridor matrix, five-stage acquisition checklist and 35 sourced jurisdiction guides. Covers title, independent surveys, provenance, escrow and registry transfer across the UK, Continental Europe and Malta, and Southern Africa. Appointed practitioners handle legal, tax and settlement matters.
 - [Yacht requirements](https://wielegroup.com/purchase-guide/assets/yachts): Flag, title and customs checkpoints.
 - [Classic-car requirements](https://wielegroup.com/purchase-guide/assets/vehicles): Import eligibility, approval, VAT and registration checkpoints.
 
 General information, not individual legal clearance. Citizenship, residence, tax status, use and funding must be assessed separately. Ownership does not confer immigration residence. No complete tax quote or automatic import exemption is supplied.
 
 ## Valuation enquiries and currency
-- https://wielegroup.com/valuations — Indicative property, yacht and classic car valuation enquiries for UK, European and South African markets. Dated evidence, local-market currency, assumptions and limitations; no instant or certified appraisal. Country scope, fees and specialist involvement confirmed per enquiry.
+- [Private valuation and cross-border liquidity desk](https://wielegroup.com/valuations): Indicative placement appraisals, private-treaty evidence, ECB currency conversion, a mandate proceeds illustration and a detailed transaction estimator.
 - https://wielegroup.com/valuations#currency-converter — Dated ECB reference rates via Frankfurter; indicative conversions, excluding dealing spreads, fees, taxes and import costs.
 
 ## Seller presentation examples — 15 November 2026
@@ -91,8 +86,8 @@ The property collection and two luxury-asset category pages include seven fictio
 ## Public fictional presentations
 Read the full sample price, specifications, condition and record summaries directly on each fictional example. Fictional examples illustrate Wiele’s presentation and are not available inventory. Research article and report access follow their own notices.
 
-## Seller preparation planner — 15 November 2026
-At https://wielegroup.com/selling#sales-brief, property, yacht and classic-car owners can arrange an asset brief, self-reported evidence availability, sale timing and privacy preferences. Fixed browser-side rules identify three to five preparation questions and category-specific documentary, buyer and channel considerations. No information is sent to an AI service; answers are not verified or assigned a sale-readiness probability. No valuation, inventory matching, buyer qualification, marketing instruction or live campaign is created. Reviewable draft text can transfer through the existing 30-minute tab storage into the appropriate editable enquiry. No confidential-document uploads.
+## Private seller mandates — 26 November 2026
+The Selling desk at https://wielegroup.com/selling sets out the stages for private seller mandates, from legal alignment and editorial preparation through cross-border buyer outreach and counsel-led settlement. The illustrative retainer and commission calculator at https://wielegroup.com/selling#mandate-terms follows the current seller retainer agreement. It treats Maltese immovable property separately under clause 6.4. Start a mandate at https://wielegroup.com/list-asset or review the agreement at https://wielegroup.com/terms/seller-retainer.
 
 - [Cross-border buying and selling guide](https://wielegroup.com/legal-compliance/cross-border) — UK, EU and South African property, yacht and classic car transaction routes.
 - [Asset classifications](https://wielegroup.com/asset-taxonomy) — terms and regional scope for property, yachts and classic cars.

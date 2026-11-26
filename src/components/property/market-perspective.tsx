@@ -15,7 +15,7 @@ export function MarketPerspective(){return <section className="market-perspectiv
    </div>
   </section>
   <aside className="market-legal-callout" aria-labelledby="market-legal-title">
-   <h3 id="market-legal-title"><Link className="text-link" href="/legal-guide">27-Entry Cross-Border Legal &amp; Tax Compliance Matrix <Arrow diagonal/></Link></h3>
+   <h3 id="market-legal-title"><Link className="text-link" href="/legal-compliance/cross-border">27-Entry Cross-Border Legal &amp; Tax Compliance Matrix <Arrow diagonal/></Link></h3>
    <p>Compare routes across the UK, EU and South Africa for domestic, EU/EEA and non-resident buyers and sellers of property, yachts and classic cars.</p>
   </aside>
   <p className="fine-print">These are our client markets, not a list of offices or a guarantee of asset availability. Asset location, authority, scope, fees and responsible practitioners are confirmed individually.</p><Link className="text-link" href="/contact">Discuss your market and asset ↗</Link></section>}

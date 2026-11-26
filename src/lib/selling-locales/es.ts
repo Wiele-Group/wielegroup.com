@@ -1,0 +1,33 @@
+import type { SellingCopy } from "./types";
+
+export const es: SellingCopy = {
+  title:"Colocación internacional discreta de activos excepcionales.",
+  intro:"Mandatos de venta para inmuebles exclusivos, yates de trayectoria documentada y automóviles de colección. Wiele combina expedientes a medida con contactos selectivos en Europa, el Reino Unido y África austral.",
+  description:"Mandatos de venta desde Malta para inmuebles exclusivos, yates y automóviles de colección. Honorarios, colocación transfronteriza y liquidación.",
+  eyebrow:"Mandatos privados de venta y colocación transfronteriza",home:"Inicio",language:"Idioma de la página de venta",
+  artwork:"Imágenes ilustrativas",socialAlt:"Mandatos privados de venta de Wiele Group con dibujo arquitectónico",
+  alt:{hero:"Ilustración de un salón privado al anochecer",craft:"Ilustración de un expediente editorial de presentación",corridor:"Ilustración de un puerto deportivo al anochecer con yates, faroles y bastiones de piedra caliza"},
+  list:"Presentar un mandato privado",terms:"Consultar las condiciones",agreement:"Leer el contrato de mandato de venta",
+  protocolTitle:"Las etapas del mandato",protocolIntro:"Desde la aprobación del mandato hasta el cierre dirigido por asesores legales, cada etapa tiene un resultado y un punto de decisión.",
+  stageControl:"Seleccionar una etapa",stageFields:["Entregable","Gobernanza","Calendario"],
+  stages:[
+    ["Mandato y alineación jurídica","Confirmar los poderes del vendedor, el activo y el alcance.","Alcance escrito, referencia del activo, autorizaciones y honorarios.","Declarar conflictos, identificar al intermediario autorizado cuando corresponda y verificar los poderes.","Antes de contactar o publicar. El plazo mínimo empieza con la facturación."],
+    ["Expediente editorial y presentación visual","Reunir fotografías, datos acreditados y limitaciones relevantes.","Expediente aprobado, créditos de las imágenes y notas de divulgación.","Revisar los derechos, separar pruebas de declaraciones y aprobar la difusión.","Después de recibir los materiales y antes de la primera colocación."],
+    ["Originación transfronteriza de compradores","Identificar compradores por activo, región y criterios de compra.","Plan de contacto, presentaciones documentadas e informe de cada ciclo completado.","Respetar los límites de divulgación y conservar un registro de contactos.","Después de aprobar el expediente. Revisar resultados al terminar cada ciclo."],
+    ["Cierre dirigido por asesores legales","Entregar la documentación y los registros de contacto a los profesionales designados.","Presentación documentada y entrega para las comprobaciones del cierre.","Asesores y notarios gestionan los documentos. Bancos o profesionales autorizados gestionan fondos y liquidación.","Tras las comprobaciones y el cumplimiento de las condiciones. Los asesores confirman la fecha."],
+  ],
+  craft:["Presentación editorial respaldada por documentos","La titularidad, las inspecciones, el estado, la restauración y la procedencia tienen distinta relevancia según el activo. El contenido se aprueba antes de publicar."],
+  corridor:["Identificación selectiva de compradores internacionales","Definir canales, criterios y límites de divulgación por región. Revisar las respuestas antes de autorizar el siguiente paso."],
+  dossiers:"Consultar expedientes ilustrativos",termsTitle:"Honorarios y comisión de éxito",
+  termsIntro:"Los honorarios mensuales no exclusivos cubren la promoción y los espacios publicitarios en línea de un solo activo. Wiele presta el servicio con diligencia y sin garantía de venta.",
+  termLabels:["Cuota mensual por activo, sin IVA","Número mínimo de ciclos mensuales de facturación","Comisión estándar de éxito, cuando proceda","Crédito de honorarios netos pagados por el mismo activo"],
+  cancellation:"Tras el plazo mínimo, la facturación se renueva cada mes. Envíe la referencia por correo electrónico al menos cinco días hábiles malteses antes del próximo cobro. Puede dar aviso anticipado para terminar al vencer el mínimo. Un aviso tardío surte efecto al final del ciclo siguiente. Los honorarios facturados no son reembolsables, sin perjuicio de los derechos legales imperativos.",
+  trigger:"La comisión estándar corresponde a una venta elegible cerrada con un comprador presentado por Wiele de forma documentada, salvo pacto escrito distinto y conforme a la ley. Puede aplicarse un plazo de doce meses tras el fin del mandato para compradores presentados.",
+  qualifiedCredit:"El crédito se limita a los honorarios netos efectivamente pagados por el mismo activo. La comisión pendiente puede reducirse hasta cero.",
+  scope:"Wiele actúa en línea en promoción, publicidad y presentaciones permitidas. Los asesores designados por el vendedor y los notarios requeridos tramitan los contratos. Los bancos de las partes o los profesionales autorizados gestionan la liquidación y los fondos.",
+  maltaTitle:"Bienes inmuebles en Malta",
+  malta:"El capítulo 644 y la cláusula 6.4 exigen un intermediario autorizado por la Property Market Agency. Antes del encargo deben acordarse por escrito su nombre, número de licencia, alcance y honorarios. Wiele presta apoyo lícito. Cualquier comisión de éxito o participación por presentación para Wiele requiere un acuerdo separado, escrito y conforme a la ley.",
+  statute:"Leer el capítulo 644",
+  calculator:{title:"Cálculo ilustrativo para el vendedor",note:"El cálculo presupone todos los ciclos pagados y una venta elegible al precio bruto indicado.",value:"Precio bruto indicativo de venta (EUR)",duration:"Duración del mandato",months:"meses",mandateType:"Tipo de mandato",eligible:"Colocación estándar elegible",malta:"Bien inmueble en Malta",maltaNotice:"La comisión, el crédito y los honorarios dependen del acuerdo separado previsto en la cláusula 6.4. Consulte las condiciones del intermediario autorizado.",invalid:"Indique un precio de entre 1 € y 1.000 millones de euros.",excluded:"Importes ilustrativos sin IVA",retainer:"Honorarios acumulados",gross:"Comisión bruta de éxito",credit:"Crédito de honorarios netos",closing:"Comisión ilustrativa al cierre",total:"Total de honorarios y comisión"},
+  faqTitle:"Antes de presentar un mandato",faq:["¿Los honorarios garantizan una venta?","Los honorarios financian la promoción y publicidad acordadas para un solo activo. Wiele presta el servicio con diligencia y sin garantía de venta."],
+};

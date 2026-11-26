@@ -1070,3 +1070,29 @@ main :is(button[aria-current="step"], button[aria-selected="true"]) {
     height: 72px;
   }
 }
+
+/* Shared navigation and editorial controls across public routes. */
+.site-header {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.wiele-footer-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 36px;
+  padding-block: 20px 25px;
+  border-block-start: 1px solid var(--border-hairline);
+}
+.wiele-footer-navigation section { min-width: 0; }
+.wiele-footer-navigation .eyebrow { color: var(--accent-amber-bright); }
+.wiele-footer-navigation ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.wiele-footer-navigation a { color: var(--text-primary); font-size: .88rem; }
+.wiele-footer-navigation a:hover { color: var(--accent-amber-bright); }
+.desk-editorial .desk-choice label, .appraisal-page .appraisal-desk-options label, .settlement-page .settlement-options label {
+  align-items: stretch;
+  padding-block: 0;
+}
+@media (max-width: 560px) {
+  .wiele-footer-navigation { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .wiele-footer-navigation a { font-size: .82rem; }
+}

@@ -1,0 +1,33 @@
+import type { SellingCopy } from "./types";
+
+export const de: SellingCopy = {
+  title:"Diskrete internationale Vermarktung für außergewöhnliche Vermögenswerte.",
+  intro:"Individuelle Verkaufsmandate für erstklassige Immobilien, Yachten mit belegbarer Historie und hochwertige Sammlerfahrzeuge. Wir verbinden maßgeschneiderte Präsentationsdossiers mit gezielter Käuferansprache in Europa, im Vereinigten Königreich und im südlichen Afrika.",
+  description:"Private Verkaufsmandate ab Malta für hochwertige Immobilien, Yachten und Sammlerfahrzeuge. Konditionen, internationale Vermarktung und Abschluss.",
+  eyebrow:"Private Verkaufsmandate und grenzüberschreitende Vermarktung",home:"Startseite",language:"Sprache der Verkaufsseite",
+  artwork:"Illustrative Darstellung",socialAlt:"Private Verkaufsmandate der Wiele Group mit Architekturzeichnung",
+  alt:{hero:"Illustration eines privaten Salons in der Abenddämmerung",craft:"Illustration eines redaktionellen Verkaufsdossiers",corridor:"Illustration einer Marina in der Abenddämmerung mit Yachten, Laternen und Kalksteinbastionen"},
+  list:"Privates Mandat einreichen",terms:"Mandatsbedingungen ansehen",agreement:"Verkaufsvereinbarung lesen",
+  protocolTitle:"Ablauf des Verkaufsmandats",protocolIntro:"Von der Freigabe bis zum Abschluss unter Rechtsbegleitung hat jede Phase ein konkretes Ergebnis und einen Entscheidungspunkt.",
+  stageControl:"Mandatsphase auswählen",stageFields:["Ergebnis","Verantwortung und Freigabe","Zeitpunkt"],
+  stages:[
+    ["Mandat und rechtlicher Rahmen","Verfügungsbefugnis, Vermögenswert und Leistungsumfang klären.","Schriftlicher Umfang, Referenz, Vermarktungsrechte und Vergütung.","Interessenkonflikte offenlegen und gegebenenfalls zugelassenen Vermittler benennen. Die Befugnis über einen vereinbarten Kanal prüfen.","Vor Ansprache oder Veröffentlichung. Die Mindestlaufzeit beginnt mit der Abrechnung."],
+    ["Verkaufsdossier und Bildsprache","Fotos, belegte Angaben und wesentliche Einschränkungen zusammenführen.","Freigegebenes Dossier mit Bildnachweisen und Offenlegungen.","Bildrechte prüfen, Nachweise von Verkäuferangaben unterscheiden und Freigabe einholen.","Nach Erhalt der Unterlagen und vor der ersten Platzierung."],
+    ["Internationale Käuferansprache","Käufer nach Eignung, Region und Erwerbskriterien identifizieren und ansprechen.","Kommunikationsplan, dokumentierte Vermittlungskontakte und Bericht pro abgeschlossenem Abrechnungszyklus.","Vereinbarte Vertraulichkeit beachten und Kontakte dokumentieren.","Nach Freigabe des Dossiers. Ergebnisse je abgeschlossenem Zyklus prüfen."],
+    ["Abschluss unter Rechtsbegleitung","Unterlagen und Kontaktnachweise an die beauftragten Fachleute weitergeben.","Dokumentierter Kontakt und Übergabe für die Abschlussprüfung.","Rechtsberater und erforderliche Notare betreuen die Verträge. Banken oder zugelassene Stellen wickeln Zahlungen ab.","Nach unabhängigen Prüfungen und Erfüllung der Bedingungen. Rechtsberater bestätigen den Termin."],
+  ],
+  craft:["Redaktionelle Präsentation mit Nachweisen","Eigentum, Gutachten, Zustand, Restaurierung und Provenienz werden je Objekt unterschiedlich gewichtet. Die Freigabe zur Veröffentlichung erfolgt vorab."],
+  corridor:["Gezielte grenzüberschreitende Käuferansprache","Kanäle, Käuferkriterien und Vertraulichkeitsgrenzen je Region festlegen. Rückmeldungen vor der nächsten Platzierung bewerten."],
+  dossiers:"Beispieldossiers ansehen",termsTitle:"Honorar und Erfolgsprovision",
+  termsIntro:"Das nicht exklusive Monatshonorar deckt Onlinevermarktung und Werbeplatzierung für einen einzelnen Vermögenswert ab. Die Leistung erfolgt nach bestem Bemühen und ohne Verkaufsgarantie.",
+  termLabels:["Monatshonorar je Vermögenswert, ohne MwSt.","Mindestzahl monatlicher Abrechnungszyklen","Reguläre Erfolgsprovision, sofern anwendbar","Anrechnung gezahlter Nettohonorare für denselben Vermögenswert"],
+  cancellation:"Nach der Mindestlaufzeit verlängert sich die Abrechnung monatlich. Senden Sie die Referenz per E-Mail spätestens fünf maltesische Werktage vor dem nächsten Abrechnungstermin. Eine Vorabkündigung zum Ablauf der Mindestlaufzeit ist möglich. Spätere Mitteilungen wirken zum Ende des folgenden Zyklus. Berechnete Honorare werden vorbehaltlich zwingender gesetzlicher Rechte nicht erstattet.",
+  trigger:"Die reguläre Provision setzt einen qualifizierenden Abschluss mit einem von Wiele nachweislich vorgestellten Käufer voraus. Abweichungen bedürfen der Schriftform und das geltende Recht bleibt maßgeblich. Für vorgestellte Käufer kann eine Nachlaufzeit von zwölf Monaten gelten.",
+  qualifiedCredit:"Anrechenbar sind die tatsächlich gezahlten Nettohonorare für denselben Vermögenswert. Die verbleibende Provision kann bis auf null sinken.",
+  scope:"Wiele vermittelt online Marketing und Werbung sowie zulässige Käuferkontakte. Die vom Verkäufer beauftragten Rechtsberater und erforderliche Notare betreuen Kaufverträge. Die Banken der Parteien oder zugelassene Fachleute wickeln Zahlungen ab und verwahren die entsprechenden Gelder.",
+  maltaTitle:"Unbewegliches Vermögen in Malta",
+  malta:"Nach Kapitel 644 und Ziffer 6.4 ist ein von der Property Market Agency zugelassener Vermittler erforderlich. Name, Lizenznummer, Umfang und Honorar sind vorab schriftlich zu vereinbaren. Wiele erbringt zulässige Unterstützung. Eine Erfolgsprovision oder Vermittlungsbeteiligung für Wiele setzt eine gesonderte rechtmäßige schriftliche Vereinbarung voraus.",
+  statute:"Kapitel 644 lesen",
+  calculator:{title:"Beispielrechnung für Verkäufer",note:"Vorausgesetzt werden bezahlte Zyklen und ein qualifizierender Verkauf zum eingetragenen Bruttowert.",value:"Angenommener Bruttoverkaufswert (EUR)",duration:"Mandatsdauer",months:"Monate",mandateType:"Mandatsgrundlage",eligible:"Reguläres provisionsfähiges Mandat",malta:"Unbewegliches Vermögen in Malta",maltaNotice:"Provision, Anrechnung und Honorare richten sich nach der gesonderten Vereinbarung gemäß Ziffer 6.4. Prüfen Sie die Bedingungen des zugelassenen Vermittlers.",invalid:"Geben Sie einen Verkaufswert von 1 € bis 1 Milliarde € ein.",excluded:"Beispielwerte ohne MwSt.",retainer:"Kumuliertes Honorar",gross:"Brutto-Erfolgsprovision",credit:"Anrechnung der Nettohonorare",closing:"Beispielprovision bei Abschluss",total:"Gesamtaufwand aus Honorar und Provision"},
+  faqTitle:"Vor der Mandatseinreichung",faq:["Garantiert das Honorar einen Verkauf?","Das Honorar finanziert die vereinbarte Vermarktung und Werbung für einen Vermögenswert. Wiele erbringt die Leistungen nach bestem Bemühen und ohne Verkaufsgarantie."],
+};

@@ -7,20 +7,40 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 base=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:3034'
 ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17.0 Safari/605.1.15'
-paths=['/wiele-algorithm','/valuations','/','/luxury-assets','/luxury-assets/yachts','/luxury-assets/classic-cars','/research','/research/global-luxury-property-report-2026','/selling','/buying','/investor-onboarding','/seller-enquiry','/properties','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/contact','/privacy','/terms','/terms/seller-retainer','/credits']
+home_languages={'en-GB':'/','de-DE':'/de','fr-FR':'/fr','it-IT':'/it','es-ES':'/es','x-default':'/'}
+home_paths={path:tag for tag,path in home_languages.items() if tag!='x-default'}
+mandate_languages={tag:('' if target=='/' else target)+'/private-mandates' for tag,target in home_languages.items()}
+mandate_paths={path:tag for tag,path in mandate_languages.items() if tag!='x-default'}
+buying_languages={tag:('' if target=='/' else target)+'/buying' for tag,target in home_languages.items()}
+buying_paths={path:tag for tag,path in buying_languages.items() if tag!='x-default'}
+selling_languages={tag:('' if target=='/' else target)+'/selling' for tag,target in home_languages.items()}
+selling_paths={path:tag for tag,path in selling_languages.items() if tag!='x-default'}
+desk_languages={tag:('' if target=='/' else target)+'/luxury-assets' for tag,target in home_languages.items()}
+desk_paths={path:tag for tag,path in desk_languages.items() if tag!='x-default'}
+purchase_languages={tag: ("" if target=="/" else target)+"/purchase-guide" for tag,target in home_languages.items()}
+purchase_paths={path:tag for tag,path in purchase_languages.items() if tag!="x-default"}
+research_languages={tag: ("" if target=="/" else target)+"/research" for tag,target in home_languages.items()}
+research_paths={path:tag for tag,path in research_languages.items() if tag!="x-default"}
+valuation_languages={tag: ("" if target=="/" else target)+"/valuations" for tag,target in home_languages.items()}
+valuation_paths={path:tag for tag,path in valuation_languages.items() if tag!="x-default"}
+origination_languages={tag: ("" if target=="/" else target)+"/origination-protocol" for tag,target in home_languages.items()}
+origination_paths={path:tag for tag,path in origination_languages.items() if tag!="x-default"}
+contact_languages={tag: ("" if target=="/" else target)+"/contact" for tag,target in home_languages.items()}
+contact_paths={path:tag for tag,path in contact_languages.items() if tag!="x-default"}
+paths=[*origination_paths,*contact_paths,*valuation_paths,*research_paths,*purchase_paths,*home_paths,*mandate_paths,*buying_paths,*selling_paths,*desk_paths,'/luxury-assets/yachts','/luxury-assets/classic-cars','/research/global-luxury-property-report-2026','/investor-onboarding','/seller-enquiry','/property-maintenance','/legal-compliance','/malta-investment-report','/articles','/articles/malta-short-let-investment-2026','/about','/privacy','/terms','/terms/seller-retainer','/credits']
 guide_data=Path(__file__).resolve().parent.parent/"src/data"
 jurisdictions=json.loads((guide_data/"purchase-jurisdictions.json").read_text())
 sales_processes=json.loads((guide_data/"property-sales-process.json").read_text())
 asset_guides=json.loads((guide_data/"purchase-assets.json").read_text())
 assert len(jurisdictions)==35 and sum(j["group"]=="European Union" for j in jurisdictions)==27
 paths += ['/legal-compliance/cross-border','/asset-taxonomy']
-paths += ["/purchase-guide"]+["/purchase-guide/"+j["slug"] for j in jurisdictions]+["/purchase-guide/assets/"+a["slug"] for a in asset_guides]
+paths += ["/purchase-guide/"+j["slug"] for j in jurisdictions]+["/purchase-guide/assets/"+a["slug"] for a in asset_guides]
 example_data=json.loads((guide_data/"listing-examples.json").read_text())
 example_paths=["/listing-examples/"+e["slug"] for e in example_data]
 indexable_paths=paths.copy()
 paths += example_paths
 class Page(HTMLParser):
- def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
+ def __init__(self):super().__init__();self.links=[];self.assets=[];self.canonicals=[];self.alternates={};self.h1s=0;self.meta={};self.title="";self.in_title=False;self.in_json=False;self.in_script=False;self.json_buffer="";self.schemas=[];self.visible=[]
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
   if tag=='meta':self.meta[a.get('name',a.get('property',''))]=a.get('content','')
@@ -37,6 +57,7 @@ class Page(HTMLParser):
     url=candidate.strip().split(' ')[0]
     if url.startswith('/'):self.assets.append(url)
   if tag=='link' and a.get('rel')=='canonical':self.canonicals.append(a.get('href'))
+  if tag=='link' and a.get('rel')=='alternate' and a.get('hreflang'):self.alternates[a['hreflang']]=a.get('href')
  def handle_data(self,data):
   if self.in_title:self.title+=data
   if self.in_json:self.json_buffer+=data
@@ -114,11 +135,10 @@ for path in paths:
  social_profiles={'https://www.facebook.com/wieleinvestments/','https://www.linkedin.com/company/wiele-investments/'}
  assert set(org['sameAs'])==social_profiles,(path,'official social profiles')
  assert all(f'href="{profile}"' in text for profile in social_profiles) and 'instagram.com' not in text.lower(),(path,'public social links')
- if path.startswith('/purchase-guide'):
+ if path.startswith('/purchase-guide/') or path in purchase_paths:
   assert 'FAQPage' in types and not any(e.get('@type') in ('Service','LegalService') and e.get('@id')!='https://wielegroup.com/#brokerage-service' for e in entities),(path,'purchase guide schema')
-  assert ('2026-11-21' if path=='/purchase-guide' else '2026-11-15') in text,(path,'research date missing')
-  if path!='/purchase-guide':assert 'Coverage' in text,(path,'coverage limits missing')
-  else:assert '35 jurisdictions' in text,(path,'destination count missing')
+  assert ('2026-11-26' if path in purchase_paths else '2026-11-15') in text,(path,'research date missing')
+  if path not in purchase_paths:assert 'Coverage' in text,(path,'coverage limits missing')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
@@ -133,49 +153,91 @@ for path in paths:
    assert all(source['url'] in webpage.get('citation',[]) for source in process['sources']),(path,'process source citations missing')
    for stage in process['stages']:
     assert stage['text'] in visible and stage['kind'] in visible,(path,'stage content missing')
-  if path=='/purchase-guide':
-   assert all('/purchase-guide/'+j['slug'] in p.links for j in jurisdictions),'destination menu incomplete'
-   assert 'id="country-search"' in text and text.count('<span class="corridor-tag">Primary Corridor</span>')==7,(path,'search and primary corridors')
-   assert all(route in p.links for route in ['/legal-guide','/valuations#landed-cost-estimator','/selling','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html']),(path,'transaction tools and dossiers')
-   assert text.index('class="purchase-steps"')<text.index('id="transaction-tools"')<text.index('id="selling-across-borders"'),(path,'transaction guidance order')
+  if path in purchase_paths:
+   page=next(e for e in entities if e.get('@type')=='WebPage')
+   assert page['inLanguage']==purchase_paths[path] and page['description']==description,(path,'purchase guide locale metadata')
+   assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in purchase_languages.items()},(path,'purchase guide language alternates')
+   assert all('/purchase-guide/'+j['slug'] in p.links for j in jurisdictions),(path,'destination menu incomplete')
+   assert 'id="country-search"' in text,(path,'jurisdiction search')
+   assert text.count('name="settlement-asset"')==3 and text.count('name="settlement-corridor"')==3,(path,'matrix selections')
+   assert text.count('class="settlement-result"')==9 and text.count('name="acquisition-checklist"')==5,(path,'matrix and checklist totals')
+   prefix=path.removesuffix('/purchase-guide')
+   assert all(route in p.links for route in [prefix+'/buying',prefix+'/private-mandates','/legal-compliance/cross-border',prefix+'/valuations#landed-cost-estimator','/purchase-guide/assets/yachts','/purchase-guide/assets/vehicles']),(path,'purchase guide actions and references')
+   content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+   assert not re.search(r'\bAI\b|artificial intelligence|machine learning|automated guide|algorit\w*',content,re.I),(path,'retired guide language')
+   assert not any(asset.startswith(('/images/home/','/images/mandates/','/images/buying/','/images/selling/','/images/valuations/','/images/luxury-assets/','/images/list-asset/')) for asset in p.assets),(path,'dedicated purchase guide imagery')
+   if path=='/purchase-guide':
+    assert text.count('<span class="corridor-tag">Primary Corridor</span>')==7,(path,'primary corridors')
+    assert text.index('id="acquisition-checklist"')<text.index('id="cross-border-funding"')<text.index('id="transaction-tools"')<text.index('id="selling-across-borders"'),(path,'transaction guidance order')
  if path.startswith('/luxury-assets/'):
   assert 'FAQPage' in types and 'Product' not in types and 'Offer' not in types,(path,'guide schema')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,(path,'FAQ mismatch')
- if path=='/luxury-assets':
-  assert all(f'id="{category}"' in text for category in ['yachts','classic-cars']), 'missing asset category'
-  assert all(f'asset={category}' in text for category in ['yachts','classic-cars']), 'asset enquiry context missing'
-  assert 'Wiele works through private mandates.' in text and 'Illustrative concept · Not an asset offered for sale.' in text,(path,'mandate and fictional asset disclosures')
-  assert text.count('aria-valuetext="0 of 5 checks supported by verified records"')==4,(path,'four readiness meters')
-  assert all(route in p.links for route in ['/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html','/listing-examples/motor-yacht','/listing-examples/classic-grand-tourer','/legal-guide','/valuations#landed-cost-estimator']),(path,'dossiers and cross-border routes')
-  assert 'Product' not in types and 'Offer' not in types, 'category imagery must not become advertised stock'
+ if path in desk_paths:
+  page=next(e for e in entities if e.get('@type')=='WebPage')
+  assert page['inLanguage']==desk_paths[path] and page['description']==description,(path,'desk locale metadata')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in desk_languages.items()},(path,'desk language alternates')
+  assert page['mainEntity']['numberOfItems']==3 and text.count('name="specialist-desk"')==3,(path,'three specialist desks')
+  assert all(f'id="{anchor}"' in text for anchor in ('specialist-desks','capital-allocation','title-governance')),(path,'desk sections')
+  assert all(any(url.endswith('/private-mandates#asset='+key) for url in p.links) for key in ('real-estate','yachts','classic-cars')),(path,'prefiltered mandate links')
+  assert all(link in p.links for link in ('/list-asset','/terms/seller-retainer','/luxury-assets/yachts','/luxury-assets/classic-cars')),(path,'desk actions and links')
+  assert not {'Offer','Product','RealEstateListing'}.intersection(types),(path,'illustrative scenes must not become inventory')
+  assert not any(asset.startswith(('/images/home/','/images/mandates/','/images/buying/','/images/selling/','/images/valuations/')) for asset in p.assets),(path,'dedicated desk imagery')
+  content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|machine learning|automated curation|algorit\w*',content,re.I),(path,'retired desk language')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
-  visible=re.sub(r'\s+',' ',' '.join(p.visible))
-  for item in faq['mainEntity']:
-   assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('asset FAQ mismatch',item['name'])
- if path=='/research':
-  assert text.count('<section class="research-observations"')==2 and text.count('<span class="atlas-image-note">Illustrative Dossier Study</span>')==2,(path,'two observations previews and cover badges')
-  assert all(route in p.links for route in ['/research/global-luxury-property-report-2026#register','/malta-investment-report#register','/articles','/luxury-assets','/legal-guide','/valuations#landed-cost-estimator']),(path,'report registration, research and tools links')
-  assert all(phrase in text.replace('<!-- -->','') for phrase in ['2026-11-13','2026-11-02','27-page PDF','16-page PDF']),(path,'cutoffs and page counts')
- if path=='/properties':
-  assert len(re.findall(r'<article class="property-study(?: property-study-flagship)?">',text))==6,(path,'six visible server-rendered studies')
-  assert len(re.findall(r'<time datetime="2026-11-20">',text,re.I))==6 and text.count('aria-valuetext="0 of 5 checks supported by verified records"')==6,(path,'dated FX and verified evidence')
-  assert all(route in p.links for route in ['/flagship-examples/cape-villa.html','/legal-guide','/valuations#landed-cost-estimator','/malta-maintenance']),(path,'dossier and reference links')
-  assert 'Illustrative concept · Not an asset offered for sale.' in text and 'AI-created concept' in text,(path,'fictional asset and imagery disclosures')
-  assert not any(t in types for t in ['RealEstateListing','Offer','Product']),(path,'collection must not imply live inventory')
- if path=='/buying':
-  assert 'Private acquisition mandates' in text and 'Appropriately licensed practitioners' in text,(path,'mandate scope')
-  assert all(route in p.links for route in ['/properties','/flagship-examples/cape-villa.html','/flagship-examples/ligurian-yacht.html','/flagship-examples/oxfordshire-coupe.html','/valuations#landed-cost-estimator']),(path,'open dossiers and acquisition tools')
-  assert '<figcaption class="page-intro-study-badge">Illustrative Dossier Study</figcaption>' in text,(path,'single hero badge')
-  assert 'id="buyer-briefs"' in text and '/contact?interest=buying&amp;brief=prepared' in text,(path,'local quick-start handoff')
- if path=='/selling':
-  assert text.index('id="sales-brief-planner"')<text.index('id="acquisition-mandates"'),(path,'planner before illustrative demand')
-  assert all(score in text.replace('<!-- -->','') for score in ['94/100','91/100','88/100']) and 'They represent no current buyers' in text,(path,'illustrative mandates')
-  assert '/valuations#landed-cost-estimator' in p.links and all(f'id="sales-brief-{slug}"' in text for slug in ['yachts','classic-cars']),(path,'seller planning links')
-  assert '<figcaption class="page-intro-study-badge">Illustrative Dossier Study</figcaption>' in text and '<figcaption>Illustrative Dossier Study</figcaption>' in text,(path,'single image badges')
- if path in ['/selling','/buying','/property-maintenance']:
+  visible=' '.join(p.visible)
+  assert all(item['name'] in visible and item['acceptedAnswer']['text'] in visible for item in faq['mainEntity']),(path,'FAQ parity')
+ if path in research_paths:
+  page=next(e for e in entities if e.get('@type')=='CollectionPage')
+  assert page['inLanguage']==research_paths[path] and page['description']==description,(path,'research locale metadata')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in research_languages.items()},(path,'research language alternates')
+  assert text.count('name="briefing-desk"')==5 and 'id="briefings-index"' in text,(path,'briefing desk selector')
+  assert text.count('class="research-brief research-brief-lead"')==1,(path,'one featured briefing')
+  assert page['mainEntity']['numberOfItems']==len(re.findall(r'<article class="research-brief(?: research-brief-lead)?"',text)),(path,'catalogue item count')
+  prefix=path.removesuffix('/research')
+  assert all(route in p.links for route in ['/research/global-luxury-property-report-2026','/research/global-luxury-property-report-2026#register','/malta-investment-report','/malta-investment-report#register','/articles','/articles/malta-short-let-investment-2026',prefix+'/luxury-assets','/legal-compliance/cross-border',prefix+'/valuations#landed-cost-estimator',prefix+'/private-mandates',prefix+'/buying',prefix+'/selling']),(path,'research links and dispatch')
+  assert all(date in text for date in ['2026-11-13','2026-11-02','2026-10-29']),(path,'publication and cutoff dates')
+  content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|machine learning|automated insights|algorit\w*',content,re.I),(path,'retired research language')
+  assert not any(asset.startswith(('/images/home/','/images/mandates/','/images/buying/','/images/selling/','/images/valuations/','/images/luxury-assets/','/images/list-asset/','/images/purchase-guide/')) for asset in p.assets),(path,'dedicated research imagery')
+ if path in mandate_paths:
+  page=next(e for e in entities if e.get('@type')=='CollectionPage')
+  assert page['inLanguage']==mandate_paths[path] and page['description']==description,(path,'mandate locale metadata')
+  assert page['mainEntity']['numberOfItems']==3 and text.count('<article class="mandate-card">')==3,(path,'three illustrative dossiers')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in mandate_languages.items()},(path,'mandate language alternates')
+  assert not any(t in types for t in ['RealEstateListing','Offer','Product']),(path,'fictional asset offered as inventory')
+  mandate_content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|automated|property listing',mandate_content,re.I),(path,'retired mandate language')
+  assert all('/flagship-examples/'+name+'.html' in p.links for name in ['cape-villa','ligurian-yacht','oxfordshire-coupe']),(path,'dossier destinations')
+  assert not any(asset.startswith('/images/home/') for asset in p.assets),(path,'Home image reuse')
+ if path in buying_paths:
+  page=next(e for e in entities if e.get('@type')=='WebPage')
+  assert page['inLanguage']==buying_paths[path] and page['description']==description,(path,'buying locale metadata')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in buying_languages.items()},(path,'buying language alternates')
+  assert all(f'id="{anchor}"' in text for anchor in ('acquisition-protocol','due-diligence','acquisition-brief')),(path,'acquisition sections')
+  assert text.count('name="acquisition-stage"')==4 and path.removesuffix('/buying')+'/contact?interest=buying' in p.links,(path,'protocol choices and enquiry fallback')
+  assert not any(asset.startswith(('/images/home/','/images/mandates/')) for asset in p.assets),(path,'dedicated acquisition artwork')
+  content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|automated alerts|machine learning|algorit\w*',content,re.I),(path,'retired buying language')
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  visible=' '.join(p.visible)
+  assert all(item['name'] in visible and item['acceptedAnswer']['text'] in visible for item in faq['mainEntity']),(path,'FAQ parity')
+ if path in selling_paths:
+  page=next(e for e in entities if e.get('@type')=='WebPage')
+  assert page['inLanguage']==selling_paths[path] and page['description']==description,(path,'selling locale metadata')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in selling_languages.items()},(path,'selling language alternates')
+  assert all(f'id="{anchor}"' in text for anchor in ('mandate-walkthrough','mandate-terms','seller-duration')),(path,'walkthrough and calculator')
+  assert text.count('name="seller-stage"')==4 and all(link in p.links for link in ('/list-asset','/terms/seller-retainer')),(path,'mandate actions')
+  assert not any(asset.startswith(('/images/home/','/images/mandates/','/images/buying/')) for asset in p.assets),(path,'dedicated selling artwork')
+  content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|machine learning|automated targeting|algorit\w*',content,re.I),(path,'retired selling language')
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  visible=' '.join(p.visible)
+  assert all(item['name'] in visible and item['acceptedAnswer']['text'] in visible for item in faq['mainEntity']),(path,'FAQ parity')
+ if path in buying_paths or path in selling_paths or path=='/property-maintenance':
   service=next(e for e in entities if e.get('@id')=='https://wielegroup.com'+path+'#service')
   assert service['provider']['@id']=='https://wielegroup.com/#organization',(path,'service identity')
   if path=='/property-maintenance':assert service['areaServed']['name']=='Malta',(path,'maintenance locality')
@@ -197,18 +259,48 @@ for path in paths:
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('maintenance FAQ mismatch',item['name'])
- if path=='/contact':
+ if path in origination_paths or path in contact_paths:
+  origination=path in origination_paths
+  expected_languages=origination_languages if origination else contact_languages
+  expected_tag=(origination_paths if origination else contact_paths)[path]
+  node=next(e for e in entities if e.get('@type')==('WebPage' if origination else 'ContactPage'))
+  assert node['inLanguage']==expected_tag and node['description']==description,(path,'localized desk metadata')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in expected_languages.items()},(path,'desk language alternates')
+  content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|machine learning|algorit\w*|\bbots?\b|automated (?:routing|ad scripts)|ad networks',content,re.I),(path,'retired terminology')
+  assert not any(asset.startswith(('/images/home/','/images/mandates/','/images/buying/','/images/selling/','/images/valuations/','/images/luxury-assets/','/images/purchase-guide/','/images/research/','/images/contact/' if origination else '/images/origination/')) for asset in p.assets),(path,'dedicated imagery')
+  assert '/list-asset' in p.links and '/terms/seller-retainer' in p.links,(path,'mandate navigation')
+  if origination:
+   prefix=path.removesuffix('/origination-protocol')
+   assert text.count('name="origination-phase"')==4 and 'id="origination-architecture"' in text and 'id="discretion-ledger"' in text,(path,'protocol sequence')
+   assert all(prefix+target in p.links for target in ['/selling','/private-mandates']),(path,'localized protocol CTAs')
+  else:
+   prefix=path.removesuffix('/contact')
+   assert text.count('name="correspondence-desk"')==4 and 'id="private-correspondence"' in text,(path,'correspondence controls')
+   assert all(prefix+target in p.links for target in ['/buying','/valuations']),(path,'localized correspondence CTAs')
+ if path in contact_paths:
   assert '<form' in text and 'name="message"' in text and 'method="post"' in text,(path,'missing initial HTML form')
   assert 'Loading the enquiry form' not in text,(path,'blank loading state')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
-  assert len(faq['mainEntity'])==3,(path,'enquiry FAQ count')
+  assert len(faq['mainEntity'])==2,(path,'enquiry FAQ count')
   display=' '.join(p.visible)
   for item in faq['mainEntity']:
    assert item['name'] in display and item['acceptedAnswer']['text'] in display,(path,item['name'],'FAQ answer differs')
  if path=='/malta-investment-report':
   report=next(e for e in entities if e.get('@type')=='Report')
   assert report['datePublished']=='2026-10-29' and report['dateModified']=='2026-11-02' and 'registration' in report['conditionsOfAccess'],(path,'report dates or access')
- if path=='/valuations':
+ if path in valuation_paths:
+  page=next(e for e in entities if e.get('@type')=='WebPage')
+  assert page['inLanguage']==valuation_paths[path] and page['description']==description,(path,'valuation locale metadata')
+  assert p.alternates=={tag:'https://wielegroup.com'+target for tag,target in valuation_languages.items()},(path,'valuation language alternates')
+  assert all(f'id="{anchor}"' in text for anchor in ('appraisal-desk','currency-converter','valuation-methodology','valuation-enquiry')),(path,'valuation sections')
+  assert text.count('name="appraisal-specialist"')==3 and '/terms/seller-retainer' in p.links,(path,'specialist desks and mandate terms')
+  content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|machine learning|automated valuation|algorit\w*',content,re.I),(path,'retired valuation language')
+  assert not any(asset.startswith(('/images/home/','/images/mandates/','/images/buying/','/images/selling/','/images/luxury-assets/','/images/list-asset/','/images/purchase-guide/','/images/research/')) for asset in p.assets),(path,'dedicated valuation imagery')
+  faq=next(e for e in entities if e.get('@type')=='FAQPage')
+  visible=' '.join(p.visible)
+  assert all(item['name'] in visible and item['acceptedAnswer']['text'] in visible for item in faq['mainEntity']),(path,'valuation FAQ parity')
   assert 'id="landed-cost-estimator"' in text and 'Total landed cost' in text,(path,'transaction estimator')
   assert 'appropriately licensed practitioners in the relevant jurisdiction' in text,(path,'estimate limits')
   assert all(amount in text for amount in ['1,500,000.00','93,750.00','1,599,500.00']) and 'Illustrative worked example.' in text,(path,'server-rendered worked example')
@@ -237,14 +329,19 @@ for path in paths:
   for item in faq['mainEntity']:
    assert item['name'] in visible and item['acceptedAnswer']['text'] in visible,('compliance FAQ mismatch',item['name'])
   assert 'https://legislation.mt/eli/cap/246/eng/pdf' in text and 'https://www.mfsa.mt/our-work/investment-services-supervision/' in text
- if path!='/':assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
+ if path in mandate_paths or path in research_paths:assert 'CollectionPage' in types and 'BreadcrumbList' in types,(path,'collection schema')
+ elif path in contact_paths:assert 'ContactPage' in types and 'BreadcrumbList' in types,(path,'contact schema')
+ elif path not in home_paths:assert 'WebPage' in types and 'BreadcrumbList' in types,(path,'page schema')
  else:
-  assert 'Marketing &amp; introductions' not in text and 'Marketing & introductions' not in text
-  assert 'Global Luxury Asset Brokerage' in p.title and 'Property, yachts' in text and 'and classic cars.' in text and 'Property at our core.' in text,(path,'luxury brokerage proposition')
-  assert 'Build your asset brief' in text and 'Your choices stay in this browser' in text and 'Wiele operates on a private, mandate-led basis' in text,(path,'honest interactive brief')
-  assert text.index('id="asset-atlas"') < text.index('id="property-brief"') < text.index('id="why-wiele"'),(path,'homepage section order')
-  assert all(f'id="{anchor}"' in text for anchor in ['property-brief','why-wiele','luxury-assets','research','questions']),(path,'editorial journey sections')
-  assert 'Choose a scene' not in text and 'Test 10% lower rent' not in text,(path,'keep homepage focused')
+  page=next(e for e in entities if e.get('@type')=='WebPage')
+  assert page['inLanguage']==home_paths[path] and page['description']==description,(path,'localized page schema')
+  assert {tag:target.rstrip('/') for tag,target in p.alternates.items()}=={tag:('https://wielegroup.com'+target).rstrip('/') for tag,target in home_languages.items()},(path,'language alternates')
+  assert all(anchor in text for anchor in ['id="asset-desks"','id="capital-corridors"','id="viewing-room"','id="questions"']),(path,'Home sections')
+  assert text.index('id="asset-desks"') < text.index('id="capital-corridors"') < text.index('id="viewing-room"'),(path,'Home section order')
+  assert text.count('name="capital-corridor"')==4 and '/list-asset' in p.links,(path,'corridor choices and mandate link')
+  assert all(f'/flagship-examples/{slug}.html' in p.links for slug in ('cape-villa','ligurian-yacht','oxfordshire-coupe')),(path,'dossier links')
+  home_content=' '.join([*p.visible,*p.meta.values(),json.dumps(entities,ensure_ascii=False)])
+  assert not re.search(r'\bAI\b|artificial intelligence|machine learning|algorit\w*|automated bots',home_content,re.I),(path,'retired Home language')
   faq=next(e for e in entities if e.get('@type')=='FAQPage')
   visible=re.sub(r'\s+',' ',' '.join(p.visible))
   for item in faq['mainEntity']:
@@ -311,6 +408,34 @@ assert len(locations)==len(set(locations)),'duplicate sitemap URLs'
 assert set(locations)=={'https://wielegroup.com'+('' if p=='/' else p) for p in indexable_paths},'sitemap canonical coverage'
 for entry in root.findall('s:url',ns):
  assert entry.find('s:lastmod',ns) is not None,'missing sitemap modification date'
+ for desk_paths_map,desk_languages_map in ((origination_paths,origination_languages),(contact_paths,contact_languages)):
+  if urlparse(entry.find('s:loc',ns).text).path in desk_paths_map:
+   alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+   assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in desk_languages_map.items()},'protocol and contact sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in valuation_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in valuation_languages.items()},'valuation sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in research_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in research_languages.items()},'research sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in purchase_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in purchase_languages.items()},'purchase guide sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in desk_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in desk_languages.items()},'desk sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in selling_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in selling_languages.items()},'selling sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in buying_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in buying_languages.items()},'buying sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in mandate_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in mandate_languages.items()},'mandate sitemap language alternates'
+ if urlparse(entry.find('s:loc',ns).text).path in home_paths:
+  alternatives={node.attrib['hreflang']:node.attrib['href'] for node in entry.findall('{http://www.w3.org/1999/xhtml}link')}
+  assert alternatives=={tag:'https://wielegroup.com'+target for tag,target in home_languages.items()},'sitemap language alternates'
 status,_,data=get('/robots.txt')
 assert b'Sitemap: https://wielegroup.com/sitemap.xml' in data and b'Disallow: /api/' in data,'crawl rules'
 print('PASS sitemap canonical coverage, modification dates and crawl rules')
